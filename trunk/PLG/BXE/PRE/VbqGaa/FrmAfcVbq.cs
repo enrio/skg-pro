@@ -171,9 +171,14 @@ namespace BXE.PRE.VbqGaa
             GetCurrObj(_pagIndex);
 
             if (!ValidNumber()) return;
-            //if (mskChair.Enabled) if (!ValidChair()) return;
-            //if (mskWeight.Enabled) if (!ValidWeight()) return;
-            //if (mskLength.Enabled) if (!ValidLenght()) return;
+
+            if (_pagIndex == 2)
+            {
+                if (!ValidWeight()) return;
+                if (!ValidLenght()) return;
+            }
+
+            if (_pagIndex == 4) if (!ValidChair()) return;
 
             int chair;
             decimal length, weight;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.lblAccInName = new System.Windows.Forms.Label();
@@ -207,9 +207,9 @@
             // colNo_
             // 
             this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
             this.colNo_.HeaderText = "TT";
             this.colNo_.Name = "colNo_";
             this.colNo_.ReadOnly = true;
@@ -576,6 +576,7 @@
             this.cbbTruckKind.Size = new System.Drawing.Size(558, 32);
             this.cbbTruckKind.TabIndex = 0;
             this.cbbTruckKind.ValueMember = "Id";
+            this.cbbTruckKind.SelectedIndexChanged += new System.EventHandler(this.cbbTruckKind_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -614,6 +615,7 @@
             this.cbbCarKind.Size = new System.Drawing.Size(558, 32);
             this.cbbCarKind.TabIndex = 0;
             this.cbbCarKind.ValueMember = "Id";
+            this.cbbCarKind.SelectedIndexChanged += new System.EventHandler(this.cbbCarKind_SelectedIndexChanged);
             // 
             // label1
             // 

@@ -171,13 +171,22 @@ namespace BXE.PRE.VbqGaa
             GetCurrObj(_pagIndex);
 
             if (!ValidNumber()) return;
-
             if (_pagIndex == 2)
             {
-                if (!ValidWeight()) return;
-                if (!ValidLenght()) return;
+                if (mskTruckL.Text.Trim() + "" != "")
+                {
+                    if (!ValidLenght()) return;
+                }
+                else if (mskTruckW.Text.Trim() + "" != "")
+                {
+                    if (!ValidWeight()) return;
+                }
+                else
+                {
+                    UTL.CsoUTL.Show("Nhập tải trọng hoặc chiều dài!");
+                    return;
+                }
             }
-
             if (_pagIndex == 4) if (!ValidChair()) return;
 
             int chair;
@@ -698,7 +707,7 @@ namespace BXE.PRE.VbqGaa
         private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dtb = (DataTable)cbbTruckKind.DataSource;
-            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", 1));
+            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbTruckKind.SelectedValue));
 
             if (dr.Length > 0)
             {
@@ -721,7 +730,7 @@ namespace BXE.PRE.VbqGaa
         private void cbbCarKind_SelectedIndexChanged(object sender, EventArgs e)
         {
             var dtb = (DataTable)cbbCarKind.DataSource;
-            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", 2));
+            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbCarKind.SelectedValue));
 
             if (dr.Length > 0)
             {

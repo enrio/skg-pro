@@ -166,6 +166,90 @@ namespace BXE.PRE.VbqGaa
             Stt();
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var dal = new DAL.KindDAL();
+                _pagIndex = tabControl1.SelectedIndex;
+
+                switch (tabControl1.SelectedIndex)
+                {
+                    case 0: // group 1
+
+                        break;
+
+                    case 1: // group 2
+                        break;
+
+                    case 2: // group 3
+                        cbbTruckKind.DataSource = dal.GetData(1);
+                        break;
+
+                    case 3: // group 4
+                        cbbCarKind.DataSource = dal.GetData(2);
+                        break;
+
+                    case 4: // group 5
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            catch { return; }
+        }
+
+        private void cmdHand_Click(object sender, EventArgs e)
+        {
+            if (cmdHand.Text == STR_INP_HAD)
+            {
+                cmdHand.Text = "Nhậ&p tự động";
+                EditHand = true;
+            }
+            else
+            {
+                cmdHand.Text = STR_INP_HAD;
+                EditHand = false;
+            }
+
+            FrmAfcVbq_Load(sender, e);
+        }
+
+        private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var dtb = (DataTable)cbbTruckKind.DataSource;
+            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbTruckKind.SelectedValue));
+
+            if (dr.Length > 0)
+            {
+                string a1 = dr[0]["WeightMin"] + "";
+                string a2 = dr[0]["WeightMax"] + "";
+                string c1 = dr[0]["LengthMin"] + "";
+                string c2 = dr[0]["LengthMax"] + "";
+
+                _wMin = a1 == "" ? 0 : Convert.ToDecimal(a1);
+                _wMax = a2 == "" ? 0 : Convert.ToDecimal(a2);
+                _lMin = c1 == "" ? 0 : Convert.ToDecimal(c1);
+                _lMax = c2 == "" ? 0 : Convert.ToDecimal(c2);
+            }
+        }
+
+        private void cbbCarKind_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var dtb = (DataTable)cbbCarKind.DataSource;
+            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbCarKind.SelectedValue));
+
+            if (dr.Length > 0)
+            {
+                string b1 = dr[0]["ChairMin"] + "";
+                string b2 = dr[0]["ChairMax"] + "";
+
+                _cMin = b1 == "" ? 0 : Convert.ToInt32(b1);
+                _cMax = b2 == "" ? 0 : Convert.ToInt32(b2);
+            }
+        }
+
         private void cmdIn_Click(object sender, EventArgs e)
         {
             GetCurrObj(_pagIndex);
@@ -480,6 +564,7 @@ namespace BXE.PRE.VbqGaa
                     tmp = _obj.Number.Substring(2, 1);
                     oki = oki && !Int32.TryParse(tmp, out num);
                 }
+                else oki = false;
 
                 if (!oki) UTL.CsoUTL.Show(STR_NOT_NUM);
             }
@@ -651,104 +736,7 @@ namespace BXE.PRE.VbqGaa
                     break;
             }
         }
-
         #endregion
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var dal = new DAL.KindDAL();
-                _pagIndex = tabControl1.SelectedIndex;
-
-                switch (tabControl1.SelectedIndex)
-                {
-                    case 0: // group 1
-
-                        break;
-
-                    case 1: // group 2
-                        break;
-
-                    case 2: // group 3
-                        cbbTruckKind.DataSource = dal.GetData(1);
-                        break;
-
-                    case 3: // group 4
-                        cbbCarKind.DataSource = dal.GetData(2);
-                        break;
-
-                    case 4: // group 5
-                        break;
-
-                    default:
-                        break;
-                }
-            }
-            catch { return; }
-        }
-
-        private void cmdHand_Click(object sender, EventArgs e)
-        {
-            if (cmdHand.Text == STR_INP_HAD)
-            {
-                cmdHand.Text = "Nhậ&p tự động";
-                EditHand = true;
-            }
-            else
-            {
-                cmdHand.Text = STR_INP_HAD;
-                EditHand = false;
-            }
-
-            FrmAfcVbq_Load(sender, e);
-        }
-
-        private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var dtb = (DataTable)cbbTruckKind.DataSource;
-            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbTruckKind.SelectedValue));
-
-            if (dr.Length > 0)
-            {
-                string a1 = dr[0]["WeightMin"] + "";
-                string a2 = dr[0]["WeightMax"] + "";
-                //string b1 = dr[0]["ChairMin"] + "";
-                //string b2 = dr[0]["ChairMax"] + "";
-                string c1 = dr[0]["LengthMin"] + "";
-                string c2 = dr[0]["LengthMax"] + "";
-
-                _wMin = a1 == "" ? 0 : Convert.ToDecimal(a1);
-                _wMax = a2 == "" ? 0 : Convert.ToDecimal(a2);
-                //_cMin = b1 == "" ? 0 : Convert.ToInt32(b1);
-                //_cMax = b2 == "" ? 0 : Convert.ToInt32(b2);
-                _lMin = c1 == "" ? 0 : Convert.ToDecimal(c1);
-                _lMax = c2 == "" ? 0 : Convert.ToDecimal(c2);
-            }
-        }
-
-        private void cbbCarKind_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var dtb = (DataTable)cbbCarKind.DataSource;
-            DataRow[] dr = dtb.Select(string.Format("Id='{0}'", cbbCarKind.SelectedValue));
-
-            if (dr.Length > 0)
-            {
-                //string a1 = dr[0]["WeightMin"] + "";
-                //string a2 = dr[0]["WeightMax"] + "";
-                string b1 = dr[0]["ChairMin"] + "";
-                string b2 = dr[0]["ChairMax"] + "";
-                //string c1 = dr[0]["LengthMin"] + "";
-                //string c2 = dr[0]["LengthMax"] + "";
-
-                //_wMin = a1 == "" ? 0 : Convert.ToDecimal(a1);
-                //_wMax = a2 == "" ? 0 : Convert.ToDecimal(a2);
-                _cMin = b1 == "" ? 0 : Convert.ToInt32(b1);
-                _cMax = b2 == "" ? 0 : Convert.ToInt32(b2);
-                //_lMin = c1 == "" ? 0 : Convert.ToDecimal(c1);
-                //_lMax = c2 == "" ? 0 : Convert.ToDecimal(c2);
-            }
-        }
 
         #region More
         #endregion

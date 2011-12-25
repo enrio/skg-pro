@@ -125,6 +125,7 @@ namespace BXE.PRE.VbqGaa
                 dtpDateIn.Visible = false;
                 lblDateIn.Visible = true;
                 tmrDongHo.Enabled = true;
+                _sss.Current = _dal.CurrentTime();
             }
         }
 
@@ -684,7 +685,16 @@ namespace BXE.PRE.VbqGaa
 
         private void GetCurrObj(int index)
         {
-            if (EditHand) _sss.Current = dtpDateIn.Value;
+            if (EditHand)
+            {
+                _sss.Current = dtpDateIn.Value;
+                tmrDongHo.Enabled = false;
+            }
+            else
+            {
+                tmrDongHo.Enabled = true;
+                _sss.Current = _dal.CurrentTime();
+            }
 
             switch (index)
             {

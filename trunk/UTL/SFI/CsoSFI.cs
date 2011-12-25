@@ -87,6 +87,8 @@ namespace UTL.SFI
         /// <returns>is true if number bettween min & max else false</returns>
         public static bool CheckNumber(string num, int min, int max)
         {
+            if (num.Trim() == "") num = "0";
+
             var oki = false;
             int sfi;
             if (Int32.TryParse(num, out sfi))

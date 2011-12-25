@@ -89,7 +89,7 @@ namespace BXE.PRE.VbqGaa
         private void FrmAfcVbq_Load(object sender, EventArgs e)
         {
             lblAccInName.Text = Sss.Name.ToUpper(); // get full name user gate in
-            
+
             _sss.Current = _dal.CurrentTime();
             tmrDongHo_Tick(sender, e); tmrDongHo.Enabled = true; // run timer            
 
@@ -126,7 +126,7 @@ namespace BXE.PRE.VbqGaa
             {
                 dtpDateIn.Visible = false;
                 lblDateIn.Visible = true;
-                tmrDongHo.Enabled = true;                
+                tmrDongHo.Enabled = true;
             }
         }
 
@@ -269,8 +269,11 @@ namespace BXE.PRE.VbqGaa
                 }
                 else
                 {
-                    UTL.CsoUTL.Show("Nhập tải trọng hoặc chiều dài!");
-                    return;
+                    if (!(_lMax == 0 && _wMax == 0))
+                    {
+                        UTL.CsoUTL.Show("Nhập tải trọng hoặc chiều dài!");
+                        return;
+                    }
                 }
             }
             if (_pagIndex == 4) if (!ValidChair()) return;
@@ -538,6 +541,8 @@ namespace BXE.PRE.VbqGaa
 
         private bool ValidLenght()
         {
+            if (_lMax == 0) return true;
+
             var oki = UTL.SFI.CsoSFI.CheckNumber(mskTruckL.Text, _lMin, _lMax);
             if (!oki) UTL.CsoUTL.Show(STR_NOT_L);
             return oki;
@@ -545,6 +550,8 @@ namespace BXE.PRE.VbqGaa
 
         private bool ValidWeight()
         {
+            if (_wMax == 0) return true;
+
             var oki = UTL.SFI.CsoSFI.CheckNumber(mskTruckW.Text, _wMin, _wMax);
             if (!oki) UTL.CsoUTL.Show(STR_NOT_W);
             return oki;
@@ -741,6 +748,19 @@ namespace BXE.PRE.VbqGaa
                     Int32.TryParse(m1, out c);
                     _obj.Chair = c;
 
+                    var dal = new DAL.KindDAL();
+                    var tb = dal.GetData();
+                    DataRow[] dr = tb.Select(string.Format("Id='{0}'", 12));
+                    if (dr.Length > 0)
+                    {
+                        _cMax = Convert.ToInt32(dr[0]["ChairMax"]);
+                        _cMin = Convert.ToInt32(dr[0]["ChairMin"]);
+                    }
+                    else
+                    {
+                        _cMax = 999;
+                        _cMin = 0;
+                    }
                     break;
 
                 default:

@@ -89,6 +89,8 @@ namespace BXE.PRE.VbqGaa
         private void FrmAfcVbq_Load(object sender, EventArgs e)
         {
             lblAccInName.Text = Sss.Name.ToUpper(); // get full name user gate in
+            
+            _sss.Current = _dal.CurrentTime();
             tmrDongHo_Tick(sender, e); tmrDongHo.Enabled = true; // run timer            
 
             GetInMinute(); ClearText();
@@ -124,8 +126,7 @@ namespace BXE.PRE.VbqGaa
             {
                 dtpDateIn.Visible = false;
                 lblDateIn.Visible = true;
-                tmrDongHo.Enabled = true;
-                _sss.Current = _dal.CurrentTime();
+                tmrDongHo.Enabled = true;                
             }
         }
 

@@ -47,6 +47,7 @@ namespace BXE.PRE.VbqGaa
         private void FrmAfcGaa_Load(object sender, EventArgs e)
         {
             lblAccOut.Text = Sss.Name.ToUpper();
+            _sss.Current = _dal.CurrentTime();
             Reset();
         }
 

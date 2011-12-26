@@ -132,6 +132,8 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdEdit_Click(object sender, EventArgs e)
         {
+            GetCurrObj(_currTabPageIndex);
+
             if (ValidNumber())
             {
                 int chair;
@@ -187,7 +189,7 @@ namespace BXE.PRE.VbqGaa
                     cmdDelete.Enabled = false;
                     cmdEdit.Enabled = false;
                     EditNumber = null;
-
+                    ClearText();
                     if (!EditMode) Close();
                 }
                 else UTL.CsoUTL.Show(STR_NOT_EDIT);
@@ -405,7 +407,7 @@ namespace BXE.PRE.VbqGaa
         private void tmrDongHo_Tick(object sender, EventArgs e)
         {
             _sec++;
-            if (_sec >= 60)
+            if (_sec >= 10)
             {
                 GetInMinute();
                 _sec = 0;

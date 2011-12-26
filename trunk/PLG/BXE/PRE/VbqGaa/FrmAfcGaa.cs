@@ -93,7 +93,7 @@ namespace BXE.PRE.VbqGaa
 
                     int group = tb.Rows[0]["GroupId"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["GroupId"]) : 0;
                     int chair = tb.Rows[0]["Chair"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Chair"]) : 0;
-                    double weight = tb.Rows[0]["Weight"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Weight"]) : 0;
+                    decimal weight = tb.Rows[0]["Weight"] + "" != "" ? Convert.ToDecimal(tb.Rows[0]["Weight"]) : 0;
 
                     lblDateIn.Text = timeIn.ToString("dd/MM/yyyy HH:mm:ss");
                     lblDateOut.Text = timeOut.ToString("dd/MM/yyyy HH:mm:ss");

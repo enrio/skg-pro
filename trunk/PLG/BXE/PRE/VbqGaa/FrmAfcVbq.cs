@@ -643,7 +643,7 @@ namespace BXE.PRE.VbqGaa
 
                     string kindId = tb.Rows[0]["KindId"].ToString();
                     if (kindId + "" != "")
-                    {                        
+                    {
                     }
 
                     string groupId = tb.Rows[0]["GroupId"].ToString();
@@ -652,20 +652,29 @@ namespace BXE.PRE.VbqGaa
                         int i = Convert.ToInt32(groupId);
                         switch (i)
                         {
-                            case 1: // truck
-                                tabControl1.SelectedIndex = 2;
+                            case 1: // truck                                
+                                _currTabPageIndex = 2;
+                                tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
+
                             case 2: // car
-                                tabControl1.SelectedIndex = 3;
+                                _currTabPageIndex = 3;
+                                tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
+
                             case 3: // taxi
-                                tabControl1.SelectedIndex = 0;
+                                _currTabPageIndex = 0;
+                                tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
+
                             case 4: // three
-                                tabControl1.SelectedIndex = 1;
+                                _currTabPageIndex = 1;
+                                tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
+
                             case 5: // medium
-                                tabControl1.SelectedIndex = 4;
+                                _currTabPageIndex = 4;
+                                tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
                         }
                     }

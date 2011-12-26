@@ -94,25 +94,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C0F33D76AC804B978F9E0B01137C2764"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3B437A4874564B6ABF034340355F2CB3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B4F6A6FF48294BE78F55A43A5DC0E71F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_168047FEE0BA84EEF45D75A5E047876B"
+        "OwnerKey" = "8:_3E6C20FE787DF2E5191D074116025F5A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -124,7 +106,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3E6C20FE787DF2E5191D074116025F5A"
+        "OwnerKey" = "8:_168047FEE0BA84EEF45D75A5E047876B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B4F6A6FF48294BE78F55A43A5DC0E71F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3B437A4874564B6ABF034340355F2CB3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C0F33D76AC804B978F9E0B01137C2764"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -145,6 +145,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -161,6 +169,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -248,11 +264,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3E6C20FE787DF2E5191D074116025F5A"
-                    {
-                    "Name" = "8:Microsoft.ReportViewer.WinForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
             "TargetName" = "8:"
@@ -330,11 +341,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_FCF84C6E0209452792CA0237F96A8767"
-                    {
-                    "Name" = "8:Microsoft.ReportViewer.Common.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
             "TargetName" = "8:"
@@ -444,7 +450,7 @@
         "Manufacturer" = "8:SKG"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:BXE - Quản lí xe ra vào"
+        "Title" = "8:BXE - Quan ly xe ra vao"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Zng Tfy"
         "Keywords" = "8:"
@@ -982,7 +988,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_3B437A4874564B6ABF034340355F2CB3"
             {
-            "SourcePath" = "8:..\\SKG\\obj\\x86\\Debug\\SKG.exe"
+            "SourcePath" = "8:..\\SKG\\obj\\x86\\Release\\SKG.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3BBC1972BF1F44F1A057295E9D440FBF"
@@ -1010,7 +1016,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B4F6A6FF48294BE78F55A43A5DC0E71F"
             {
-            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Debug\\BXE.dll"
+            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Release\\BXE.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_72636333D9274C2E8E6BF51BD0940683"
@@ -1038,7 +1044,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C0F33D76AC804B978F9E0B01137C2764"
             {
-            "SourcePath" = "8:..\\UTL\\obj\\Debug\\UTL.dll"
+            "SourcePath" = "8:..\\UTL\\obj\\Release\\UTL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_3BBC1972BF1F44F1A057295E9D440FBF"

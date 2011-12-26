@@ -209,6 +209,10 @@ namespace BXE.PRE.VbqGaa
                 var dal = new DAL.KindDAL();
                 _currTabPageIndex = tabControl1.SelectedIndex;
 
+                mskMediumC.Text = null;
+                mskTruckL.Text = null;
+                mskTruckW.Text = null;
+
                 switch (tabControl1.SelectedIndex)
                 {
                     case 0: // group 1
@@ -221,8 +225,8 @@ namespace BXE.PRE.VbqGaa
 
                     case 2: // group 3
                         mskTruckNumber.Text = _currVehicle.Number;
-                        mskTruckL.Text = _currVehicle.Length.Value.ToString();
-                        mskTruckW.Text = _currVehicle.Weight.Value.ToString();
+                        mskTruckL.Text = _currVehicle.Length.Value + "";
+                        mskTruckW.Text = _currVehicle.Weight.Value + "";
                         cbbTruckKind.DataSource = dal.GetData(1);
 
                         if (_currVehicle.KindId + "" != "") cbbTruckKind.SelectedValue = _currVehicle.KindId;
@@ -237,7 +241,7 @@ namespace BXE.PRE.VbqGaa
 
                     case 4: // group 5
                         mskMediumNumber.Text = _currVehicle.Number;
-                        mskMediumC.Text = _currVehicle.Chair.Value.ToString();
+                        mskMediumC.Text = _currVehicle.Chair.Value + "";
                         break;
 
                     default:
@@ -647,8 +651,8 @@ namespace BXE.PRE.VbqGaa
                     lblDateIn.Text = timeIn.ToString(STR_DMY);
 
                     int chair = tb.Rows[0]["Chair"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Chair"]) : 0;
-                    int length = tb.Rows[0]["Chair"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Length"]) : 0;
-                    double weight = tb.Rows[0]["Weight"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Weight"]) : 0;
+                    decimal length = tb.Rows[0]["Chair"] + "" != "" ? Convert.ToDecimal(tb.Rows[0]["Length"]) : 0;
+                    decimal weight = tb.Rows[0]["Weight"] + "" != "" ? Convert.ToDecimal(tb.Rows[0]["Weight"]) : 0;
 
                     //cbbGroup.SelectedValue = tb.Rows[0]["GroupId"].ToString();
                     //cbbKind.SelectedValue = tb.Rows[0]["KindId"].ToString();
@@ -699,6 +703,9 @@ namespace BXE.PRE.VbqGaa
                     lblAccInName.Text = tb.Rows[0]["AccIn"].ToString().ToUpper();
 
                     _currVehicle.Number = number;
+                    _currVehicle.Length = length;
+                    _currVehicle.Weight = weight;
+                    _currVehicle.Chair = chair;
 
                     switch (_currTabPageIndex)
                     {

@@ -44,9 +44,12 @@ namespace SKG
             LoadMenu(); EnableMenu();
 
             // Auto load login form
-            var ex = new ToolStripItemClickedEventArgs(new ToolStripMenuItem());
-            ex.ClickedItem.Text = STR_LOGIN;
-            mnuSys_DropDownItemClicked(sender, ex);
+            if (mnuSys.Enabled)
+            {
+                var ex = new ToolStripItemClickedEventArgs(new ToolStripMenuItem());
+                ex.ClickedItem.Text = STR_LOGIN;
+                mnuSys_DropDownItemClicked(sender, ex);
+            }
         }
 
         private void mnuSys_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)

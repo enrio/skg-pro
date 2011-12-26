@@ -13,7 +13,7 @@ namespace TST
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-#if DEBUG
+#if !DEBUG
             Application.Run(new UTL.HSH.FrmBauVlv() { IsKey = true });
 #else
             Application.Run(new FrmAepAjf());

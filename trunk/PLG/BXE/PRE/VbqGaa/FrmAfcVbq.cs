@@ -46,8 +46,8 @@ namespace BXE.PRE.VbqGaa
         private int _cMin, _cMax; // chair
         private decimal _lMin, _lMax; // length
 
-        private DAL.Vehicle _obj = new DAL.Vehicle();
-        private int _pagIndex;
+        private DAL.Vehicle _currVehicle = new DAL.Vehicle();
+        private int _currTabPageIndex;
         #endregion
 
         #region Properties
@@ -147,7 +147,7 @@ namespace BXE.PRE.VbqGaa
                     Weight = weight
                 };
 
-                switch (_pagIndex)
+                switch (_currTabPageIndex)
                 {
                     case 0: // group 1 taxi                        
                         o.Number = mskTaxiNumber.Text;
@@ -179,7 +179,7 @@ namespace BXE.PRE.VbqGaa
                         break;
                 }
 
-                if (_dal.UpdateNumber(_obj.Number, o))
+                if (_dal.UpdateNumber(EditNumber, o))
                 {
                     UTL.CsoUTL.Show(STR_EDI_SUC);
                     GetInMinute();
@@ -205,7 +205,7 @@ namespace BXE.PRE.VbqGaa
             try
             {
                 var dal = new DAL.KindDAL();
-                _pagIndex = tabControl1.SelectedIndex;
+                _currTabPageIndex = tabControl1.SelectedIndex;
 
                 switch (tabControl1.SelectedIndex)
                 {
@@ -286,10 +286,10 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdIn_Click(object sender, EventArgs e)
         {
-            GetCurrObj(_pagIndex);
+            GetCurrObj(_currTabPageIndex);
 
             if (!ValidNumber()) return;
-            if (_pagIndex == 2)
+            if (_currTabPageIndex == 2)
             {
                 if (mskTruckL.Text.Trim() + "" != "")
                 {
@@ -308,7 +308,7 @@ namespace BXE.PRE.VbqGaa
                     }
                 }
             }
-            if (_pagIndex == 4) if (!ValidChair()) return;
+            if (_currTabPageIndex == 4) if (!ValidChair()) return;
 
             int chair;
             decimal length, weight;
@@ -317,12 +317,12 @@ namespace BXE.PRE.VbqGaa
             object detail;
             var ktr = new DAL.VehicleDAL();
 
-            if (ktr.CheckExist(_obj.Number)) // kiểm tra biển số xe trong danh sách các xe được quản lí
+            if (ktr.CheckExist(_currVehicle.Number)) // kiểm tra biển số xe trong danh sách các xe được quản lí
             {
                 var o = new DAL.Detail()
                 {
                     AccIn = _sss.Id,
-                    Number = _obj.Number,
+                    Number = _currVehicle.Number,
                     DateIn = _sss.Current
                 };
 
@@ -344,8 +344,8 @@ namespace BXE.PRE.VbqGaa
                 {
                     var ve = new DAL.Vehicle
                     {
-                        Number = _obj.Number,
-                        KindId = _obj.KindId,
+                        Number = _currVehicle.Number,
+                        KindId = _currVehicle.KindId,
                         Chair = chair,
                         Length = length,
                         Weight = weight
@@ -358,7 +358,7 @@ namespace BXE.PRE.VbqGaa
                         v = new DAL.Detail()
                         {
                             AccIn = _sss.Id,
-                            Number = _obj.Number,
+                            Number = _currVehicle.Number,
                             DateIn = _sss.Current
                         };
 
@@ -387,12 +387,12 @@ namespace BXE.PRE.VbqGaa
 
         private void mskNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            _obj.Number = _obj.Number.ToUpper();
+            _currVehicle.Number = _currVehicle.Number.ToUpper();
 
             if (CheckExistsNumber())
             {
                 lblInf.Text = STR_IN_MAG;
-                ShowDetail(_obj.Number);
+                ShowDetail(_currVehicle.Number);
             }
             else lblInf.Text = null;
         }
@@ -515,7 +515,7 @@ namespace BXE.PRE.VbqGaa
         private void cmdDelete_Click(object sender, EventArgs e)
         {
             var dal = new DAL.DetailDAL();
-            if (dal.DeleteByNumber(_obj.Number))
+            if (dal.DeleteByNumber(_currVehicle.Number))
             {
                 lblInf.Text = STR_DEL_SUC;
                 if (_row >= 0) dgvAep.Rows.RemoveAt(_row);
@@ -596,18 +596,18 @@ namespace BXE.PRE.VbqGaa
 
         private bool ValidNumber()
         {
-            var oki = _obj.Number.Length == 0 ? false : true;
+            var oki = _currVehicle.Number.Length == 0 ? false : true;
             if (!oki) UTL.CsoUTL.Show(STR_NOT_INP);
             else
             {
                 // Check format number
-                if (_obj.Number.Length > 2)
+                if (_currVehicle.Number.Length > 2)
                 {
                     int num;
-                    string tmp = _obj.Number.Substring(0, 2);
+                    string tmp = _currVehicle.Number.Substring(0, 2);
                     oki = oki && Int32.TryParse(tmp, out num);
 
-                    tmp = _obj.Number.Substring(2, 1);
+                    tmp = _currVehicle.Number.Substring(2, 1);
                     oki = oki && !Int32.TryParse(tmp, out num);
                 }
                 else oki = false;
@@ -652,31 +652,31 @@ namespace BXE.PRE.VbqGaa
                     //_obj.Number = tb.Rows[0]["Number"].ToString();
                     lblAccInName.Text = tb.Rows[0]["AccIn"].ToString().ToUpper();
 
-                    switch (_pagIndex)
+                    switch (_currTabPageIndex)
                     {
                         case 0: // group 1 taxi
                             mskTaxiNumber.Text = number;
-                            _obj.KindId = 10;
+                            _currVehicle.KindId = 10;
                             break;
 
                         case 1: // group 2 three circle
                             mskThreeNumber.Text = number;
-                            _obj.KindId = 11;
+                            _currVehicle.KindId = 11;
                             break;
 
                         case 2: // group 3 truck
                             mskTruckNumber.Text = number;
-                            _obj.KindId = Convert.ToInt64(kindId);
+                            _currVehicle.KindId = Convert.ToInt64(kindId);
                             break;
 
                         case 3: // group 4 car
                             mskCarNumber.Text = number;
-                            _obj.KindId = Convert.ToInt64(kindId);
+                            _currVehicle.KindId = Convert.ToInt64(kindId);
                             break;
 
                         case 4: // group 5 medium
                             mskMediumNumber.Text = number;
-                            _obj.KindId = 12;
+                            _currVehicle.KindId = 12;
 
                             break;
 
@@ -693,7 +693,7 @@ namespace BXE.PRE.VbqGaa
 
         private bool CheckExistsNumber(string number = null)
         {
-            string num = number ?? _obj.Number;
+            string num = number ?? _currVehicle.Number;
             var ktr = new DAL.VehicleDAL();
             var oki = ktr.CheckExist(num);
             if (oki) ShowDetail(num); // get information
@@ -744,18 +744,18 @@ namespace BXE.PRE.VbqGaa
             switch (index)
             {
                 case 0: // group 1 taxi
-                    _obj.Number = mskTaxiNumber.Text;
-                    _obj.KindId = 10;
+                    _currVehicle.Number = mskTaxiNumber.Text;
+                    _currVehicle.KindId = 10;
                     break;
 
                 case 1: // group 2 three circle
-                    _obj.Number = mskThreeNumber.Text;
-                    _obj.KindId = 11;
+                    _currVehicle.Number = mskThreeNumber.Text;
+                    _currVehicle.KindId = 11;
                     break;
 
                 case 2: // group 3 truck
-                    _obj.Number = mskTruckNumber.Text;
-                    _obj.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
+                    _currVehicle.Number = mskTruckNumber.Text;
+                    _currVehicle.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
 
                     string m1 = mskTruckW.Text.Trim();
                     string m2 = mskTruckL.Text.Trim();
@@ -766,24 +766,24 @@ namespace BXE.PRE.VbqGaa
                     Decimal.TryParse(m1, out w);
                     Decimal.TryParse(m2, out l);
 
-                    _obj.Weight = w;
-                    _obj.Weight = l;
+                    _currVehicle.Weight = w;
+                    _currVehicle.Weight = l;
                     break;
 
                 case 3: // group 4 car
-                    _obj.Number = mskCarNumber.Text;
-                    _obj.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
+                    _currVehicle.Number = mskCarNumber.Text;
+                    _currVehicle.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
                     break;
 
                 case 4: // group 5 medium
-                    _obj.Number = mskMediumNumber.Text;
-                    _obj.KindId = 12;
+                    _currVehicle.Number = mskMediumNumber.Text;
+                    _currVehicle.KindId = 12;
                     m1 = mskMediumC.Text.Trim();
                     if (m1 == "") m1 = "0";
 
                     int c;
                     Int32.TryParse(m1, out c);
-                    _obj.Chair = c;
+                    _currVehicle.Chair = c;
 
                     var dal = new DAL.KindDAL();
                     var tb = dal.GetData();

@@ -643,8 +643,31 @@ namespace BXE.PRE.VbqGaa
 
                     string kindId = tb.Rows[0]["KindId"].ToString();
                     if (kindId + "" != "")
-                    {
+                    {                        
+                    }
 
+                    string groupId = tb.Rows[0]["GroupId"].ToString();
+                    if (groupId + "" != "")
+                    {
+                        int i = Convert.ToInt32(groupId);
+                        switch (i)
+                        {
+                            case 1: // truck
+                                tabControl1.SelectedIndex = 2;
+                                break;
+                            case 2: // car
+                                tabControl1.SelectedIndex = 3;
+                                break;
+                            case 3: // taxi
+                                tabControl1.SelectedIndex = 0;
+                                break;
+                            case 4: // three
+                                tabControl1.SelectedIndex = 1;
+                                break;
+                            case 5: // medium
+                                tabControl1.SelectedIndex = 4;
+                                break;
+                        }
                     }
 
                     mskTruckW.Text = weight.ToString();

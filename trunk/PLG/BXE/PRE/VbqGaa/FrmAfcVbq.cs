@@ -686,10 +686,12 @@ namespace BXE.PRE.VbqGaa
                     //_obj.Number = tb.Rows[0]["Number"].ToString();
                     lblAccInName.Text = tb.Rows[0]["AccIn"].ToString().ToUpper();
 
+                    _currVehicle.Number = number;
+
                     switch (_currTabPageIndex)
                     {
                         case 0: // group 1 taxi
-                            mskTaxiNumber.Text = number;
+                            mskTaxiNumber.Text = number;                            
                             _currVehicle.KindId = 10;
                             break;
 

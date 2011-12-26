@@ -212,26 +212,38 @@ namespace BXE.PRE.VbqGaa
                 switch (tabControl1.SelectedIndex)
                 {
                     case 0: // group 1
-
+                        mskTaxiNumber.Text = _currVehicle.Number;
                         break;
 
                     case 1: // group 2
+                        mskThreeNumber.Text = _currVehicle.Number;
                         break;
 
                     case 2: // group 3
+                        mskTruckNumber.Text = _currVehicle.Number;
+                        mskTruckL.Text = _currVehicle.Length.Value.ToString();
+                        mskTruckW.Text = _currVehicle.Weight.Value.ToString();
                         cbbTruckKind.DataSource = dal.GetData(1);
+
+                        if (_currVehicle.KindId + "" != "") cbbTruckKind.SelectedValue = _currVehicle.KindId;
                         break;
 
                     case 3: // group 4
+
+                        mskCarNumber.Text = _currVehicle.Number;
                         cbbCarKind.DataSource = dal.GetData(2);
+                        if (_currVehicle.KindId + "" != "") cbbCarKind.SelectedValue = _currVehicle.KindId;
                         break;
 
                     case 4: // group 5
+                        mskMediumNumber.Text = _currVehicle.Number;
+                        mskMediumC.Text = _currVehicle.Chair.Value.ToString();
                         break;
 
                     default:
                         break;
                 }
+
             }
             catch { return; }
         }
@@ -691,7 +703,7 @@ namespace BXE.PRE.VbqGaa
                     switch (_currTabPageIndex)
                     {
                         case 0: // group 1 taxi
-                            mskTaxiNumber.Text = number;                            
+                            mskTaxiNumber.Text = number;
                             _currVehicle.KindId = 10;
                             break;
 

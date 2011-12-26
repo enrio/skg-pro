@@ -59,17 +59,17 @@ namespace BXE.PRE.ObjDul
         private void dgvAep_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             return;
-            using (var sf = new StringFormat { Alignment = StringAlignment.Center })
-            {
-                if (e.ColumnIndex < 0 && e.RowIndex >= 0 && e.RowIndex < dgvAep.Rows.Count)
-                {
-                    using (var drawBrush = new SolidBrush(Color.Black))
-                    {
-                        e.Graphics.DrawString((e.RowIndex + 1).ToString(), Font, drawBrush, e.CellBounds, sf);
-                    }
-                    e.Handled = true;
-                }
-            }
+            //using (var sf = new StringFormat { Alignment = StringAlignment.Center })
+            //{
+            //    if (e.ColumnIndex < 0 && e.RowIndex >= 0 && e.RowIndex < dgvAep.Rows.Count)
+            //    {
+            //        using (var drawBrush = new SolidBrush(Color.Black))
+            //        {
+            //            e.Graphics.DrawString((e.RowIndex + 1).ToString(), Font, drawBrush, e.CellBounds, sf);
+            //        }
+            //        e.Handled = true;
+            //    }
+            //}
         }
 
         private void cmdAdd_Click(object sender, EventArgs e)

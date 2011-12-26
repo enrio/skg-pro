@@ -701,11 +701,13 @@ namespace BXE.PRE.VbqGaa
                         case 2: // group 3 truck
                             mskTruckNumber.Text = number;
                             _currVehicle.KindId = Convert.ToInt64(kindId);
+                            cbbTruckKind.SelectedValue = kindId;
                             break;
 
                         case 3: // group 4 car
                             mskCarNumber.Text = number;
                             _currVehicle.KindId = Convert.ToInt64(kindId);
+                            cbbCarKind.SelectedValue = kindId;
                             break;
 
                         case 4: // group 5 medium

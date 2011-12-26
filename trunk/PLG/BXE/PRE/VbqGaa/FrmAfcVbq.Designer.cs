@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.lblAccInName = new System.Windows.Forms.Label();
@@ -191,6 +191,7 @@
             this.dgvAep.ReadOnly = true;
             this.dgvAep.Size = new System.Drawing.Size(827, 298);
             this.dgvAep.TabIndex = 2;
+            this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
             this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellContentClick);
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAep_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
@@ -207,9 +208,9 @@
             // colNo_
             // 
             this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
             this.colNo_.HeaderText = "TT";
             this.colNo_.Name = "colNo_";
             this.colNo_.ReadOnly = true;

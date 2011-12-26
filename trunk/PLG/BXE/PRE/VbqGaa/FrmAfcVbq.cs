@@ -147,7 +147,39 @@ namespace BXE.PRE.VbqGaa
                     Weight = weight
                 };
 
-                if (_dal.UpdateNumber(EditNumber, o))
+                switch (_pagIndex)
+                {
+                    case 0: // group 1 taxi                        
+                        o.Number = mskTaxiNumber.Text;
+                        o.KindId = 10;
+                        break;
+
+                    case 1: // group 2 three circle                        
+                        o.Number = mskThreeNumber.Text;
+                        o.KindId = 11;
+                        break;
+
+                    case 2: // group 3 truck                        
+                        o.Number = mskTruckNumber.Text;
+                        o.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
+                        break;
+
+                    case 3: // group 4 car               
+                        o.Number = mskCarNumber.Text;
+                        o.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
+                        break;
+
+                    case 4: // group 5 medium                        
+                        o.Number = mskMediumNumber.Text;
+                        o.KindId = 12;
+
+                        break;
+
+                    default:
+                        break;
+                }
+
+                if (_dal.UpdateNumber(_obj.Number, o))
                 {
                     UTL.CsoUTL.Show(STR_EDI_SUC);
                     GetInMinute();
@@ -477,6 +509,26 @@ namespace BXE.PRE.VbqGaa
 
         private void dgvAep_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            var dal = new DAL.DetailDAL();
+            if (dal.DeleteByNumber(_obj.Number))
+            {
+                lblInf.Text = STR_DEL_SUC;
+                if (_row >= 0) dgvAep.Rows.RemoveAt(_row);
+                cmdIn.Enabled = true;
+                cmdEdit.Enabled = false;
+                cmdDelete.Enabled = false;
+            }
+            else
+                UTL.CsoUTL.Show(STR_NOT_DEL);
+        }
+
+        private void dgvAep_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex < 0) return;
 
             _row = e.RowIndex;
@@ -496,21 +548,6 @@ namespace BXE.PRE.VbqGaa
                 cmdIn.Enabled = true;
                 EditNumber = null;
             }
-        }
-
-        private void cmdDelete_Click(object sender, EventArgs e)
-        {
-            var dal = new DAL.DetailDAL();
-            if (dal.DeleteByNumber(_obj.Number))
-            {
-                lblInf.Text = STR_DEL_SUC;
-                if (_row >= 0) dgvAep.Rows.RemoveAt(_row);
-                cmdIn.Enabled = true;
-                cmdEdit.Enabled = false;
-                cmdDelete.Enabled = false;
-            }
-            else
-                UTL.CsoUTL.Show(STR_NOT_DEL);
         }
         #endregion
 

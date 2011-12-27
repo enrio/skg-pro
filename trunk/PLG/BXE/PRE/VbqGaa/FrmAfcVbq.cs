@@ -840,7 +840,7 @@ namespace BXE.PRE.VbqGaa
                 ok += uu + ";";
             }
 
-            lblInf.Text = ok;
+          //  lblInf.Text = ok;
         }
 
         private void Stt()

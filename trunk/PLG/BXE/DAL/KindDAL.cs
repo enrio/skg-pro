@@ -17,7 +17,7 @@ namespace BXE.DAL
             try
             {
                 var res = from s in _mdb.Kinds
-                          orderby s.Name
+                          orderby s.Id
                           select new
                           {
                               s.Id,
@@ -60,7 +60,7 @@ namespace BXE.DAL
             {
                 var res = from s in _mdb.Kinds
                           where s.GroupId == Convert.ToInt64(obj)
-                          orderby s.Name
+                          orderby s.Id
                           select new
                           {
                               s.Id,

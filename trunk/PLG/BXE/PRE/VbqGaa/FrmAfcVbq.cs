@@ -50,7 +50,8 @@ namespace BXE.PRE.VbqGaa
         private DAL.Vehicle _currVehicle = new DAL.Vehicle();
         private int _currTabPageIndex;
 
-        private List<string> _listNumber = new List<string>();
+        private List<string> _listPreNumber = new List<string>();
+        private List<string> _listInNumber = new List<string>();
         #endregion
 
         #region Properties
@@ -370,7 +371,7 @@ namespace BXE.PRE.VbqGaa
                         ClearText();
                         lblInf.Text = STR_ADD_SUC;
 
-                        _listNumber.Add(o.Number); // add number to list
+                        _listPreNumber.Add(o.Number); // add number to list
                     }
                     else UTL.CsoUTL.Show(STR_IN_GATE);
                 }
@@ -407,7 +408,7 @@ namespace BXE.PRE.VbqGaa
                             {
                                 ClearText();
                                 lblInf.Text = STR_ADD_SUC;
-                                _listNumber.Add(ve.Number); // add number to list 
+                                _listPreNumber.Add(ve.Number); // add number to list 
                             }
                             else UTL.CsoUTL.Show(STR_NO_SAVE);
                         }
@@ -800,12 +801,24 @@ namespace BXE.PRE.VbqGaa
         private void GetInMinute()
         {
             var tb = _dal.GetDataInMinute();
-            if (tb.Rows.Count > 0) dgvAep.DataSource = tb;
+            if (tb.Rows.Count > 0)
+            {
+                dgvAep.DataSource = tb;
+                
+                List<string> tmp = new List<string>();
+                foreach (DataRow dr in tb.Rows)
+                {
+                    tmp.Add(dr["Number"].ToString());
+                }
+
+                var o = _listPreNumber;
+                
+            }
             else
                 for (int i = 0; i < dgvAep.Rows.Count; i++)
                     dgvAep.Rows.RemoveAt(i);
 
-            var o = _listNumber;
+            
         }
 
         private void Stt()

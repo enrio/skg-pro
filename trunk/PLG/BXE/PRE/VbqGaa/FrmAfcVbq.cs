@@ -804,6 +804,8 @@ namespace BXE.PRE.VbqGaa
             else
                 for (int i = 0; i < dgvAep.Rows.Count; i++)
                     dgvAep.Rows.RemoveAt(i);
+
+            var o = _listNumber;
         }
 
         private void Stt()

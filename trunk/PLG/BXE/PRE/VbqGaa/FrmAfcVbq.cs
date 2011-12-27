@@ -804,7 +804,7 @@ namespace BXE.PRE.VbqGaa
             if (tb.Rows.Count > 0)
             {
                 dgvAep.DataSource = tb;
-                
+
                 List<string> tmp = new List<string>();
                 foreach (DataRow dr in tb.Rows)
                 {
@@ -812,11 +812,18 @@ namespace BXE.PRE.VbqGaa
                 }
 
                 var o = _listPreNumber;
-                
+
             }
             else
+            {
                 for (int i = 0; i < dgvAep.Rows.Count; i++)
                     dgvAep.Rows.RemoveAt(i);
+
+                cmdIn.Enabled = true;
+                cmdEdit.Enabled = false;
+                cmdDelete.Enabled = false;
+                ClearText();
+            }
 
             
         }
@@ -904,6 +911,14 @@ namespace BXE.PRE.VbqGaa
             }
         }
         #endregion
+
+        private void dgvAep_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            cmdIn.Enabled = true;
+            cmdEdit.Enabled = false;
+            cmdDelete.Enabled = false;
+            ClearText();
+        }
 
         #region More
         #endregion

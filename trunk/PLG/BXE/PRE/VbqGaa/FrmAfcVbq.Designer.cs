@@ -207,6 +207,7 @@
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
             this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellContentClick);
+            this.dgvAep.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellLeave);
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAep_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
             this.dgvAep.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvAep_UserDeletingRow);

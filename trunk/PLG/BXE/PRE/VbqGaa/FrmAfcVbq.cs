@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace BXE.PRE.VbqGaa
 {
@@ -48,6 +49,8 @@ namespace BXE.PRE.VbqGaa
 
         private DAL.Vehicle _currVehicle = new DAL.Vehicle();
         private int _currTabPageIndex;
+
+        private List<string> _listNumber = new List<string>();
         #endregion
 
         #region Properties
@@ -366,6 +369,8 @@ namespace BXE.PRE.VbqGaa
                     {
                         ClearText();
                         lblInf.Text = STR_ADD_SUC;
+
+                        _listNumber.Add(o.Number); // add number to list
                     }
                     else UTL.CsoUTL.Show(STR_IN_GATE);
                 }
@@ -402,6 +407,7 @@ namespace BXE.PRE.VbqGaa
                             {
                                 ClearText();
                                 lblInf.Text = STR_ADD_SUC;
+                                _listNumber.Add(ve.Number); // add number to list 
                             }
                             else UTL.CsoUTL.Show(STR_NO_SAVE);
                         }

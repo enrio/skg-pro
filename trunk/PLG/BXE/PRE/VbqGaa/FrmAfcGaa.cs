@@ -117,7 +117,10 @@ namespace BXE.PRE.VbqGaa
                     }
 
                     lblDuration.Text = string.Format("{0}ngày {1}giờ => {2}{3}ngày", day, hour, dayF, dayL);
-                    lblPrice.Text = String.Format("{0:0,0}VNĐ (một ngày); {1:0,0}VNĐ (nửa ngày)", price2, price1);
+
+                    if (price1 == 0) lblPrice.Text = String.Format("{0:0,0}VNĐ (một lần)", price2);
+                    else lblPrice.Text = String.Format("{0:0,0}VNĐ (một ngày); {1:0,0}VNĐ (nửa ngày)", price2, price1);
+
                     lblMoney.Text = String.Format("{0:0,0}VNĐ", money);
 
                     if (isOut)

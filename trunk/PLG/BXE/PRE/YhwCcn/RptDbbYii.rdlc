@@ -1388,8 +1388,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DtsRevenue</DataSetName>
-        <Top>0.89928in</Top>
-        <Left>0.22767in</Left>
+        <Top>1.14928in</Top>
+        <Left>0.35267in</Left>
         <Height>1.16009in</Height>
         <Width>10.73552in</Width>
         <Style>
@@ -1407,7 +1407,7 @@
               <TextRun>
                 <Value>BÁO CÁO DOANH THU</Value>
                 <Style>
-                  <FontSize>16pt</FontSize>
+                  <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1420,7 +1420,7 @@
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>0cm</Top>
         <Left>11.0266cm</Left>
-        <Height>0.77611cm</Height>
+        <Height>1.46458cm</Height>
         <Width>16.81988cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
@@ -1451,8 +1451,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>20.21121cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>20.52871cm</Left>
         <Height>0.6cm</Height>
         <Width>1.15063cm</Width>
         <ZIndex>2</ZIndex>
@@ -1484,8 +1484,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>21.36184cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>21.67934cm</Left>
         <Height>0.6cm</Height>
         <Width>0.97152cm</Width>
         <ZIndex>3</ZIndex>
@@ -1517,8 +1517,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>22.33336cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>22.65086cm</Left>
         <Height>0.6cm</Height>
         <Width>1.36149cm</Width>
         <ZIndex>4</ZIndex>
@@ -1550,8 +1550,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>23.69485cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>24.01235cm</Left>
         <Height>0.6cm</Height>
         <Width>0.97153cm</Width>
         <ZIndex>5</ZIndex>
@@ -1583,8 +1583,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>24.66638cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>24.98388cm</Left>
         <Height>0.6cm</Height>
         <Width>1.10382cm</Width>
         <ZIndex>6</ZIndex>
@@ -1616,8 +1616,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox30</rd:DefaultName>
-        <Top>5.44195cm</Top>
-        <Left>25.7702cm</Left>
+        <Top>6.07695cm</Top>
+        <Left>26.0877cm</Left>
         <Height>0.6cm</Height>
         <Width>0.95145cm</Width>
         <ZIndex>7</ZIndex>
@@ -1651,8 +1651,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
-        <Top>6.39445cm</Top>
-        <Left>20.21121cm</Left>
+        <Top>7.02945cm</Top>
+        <Left>20.52871cm</Left>
         <Height>0.6cm</Height>
         <Width>6.51045cm</Width>
         <ZIndex>8</ZIndex>
@@ -1685,8 +1685,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox36</rd:DefaultName>
-        <Top>6.39445cm</Top>
-        <Left>3.70269cm</Left>
+        <Top>7.02945cm</Top>
+        <Left>4.02019cm</Left>
         <Height>0.6cm</Height>
         <Width>5.62759cm</Width>
         <ZIndex>9</ZIndex>
@@ -1715,9 +1715,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
-        <Top>0.98876cm</Top>
-        <Left>15.58046cm</Left>
-        <Height>0.6cm</Height>
+        <Top>1.46458cm</Top>
+        <Left>15.54225cm</Left>
+        <Height>0.61736cm</Height>
         <Width>0.83313cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -1745,9 +1745,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
-        <Top>0.99722cm</Top>
-        <Left>19.47803cm</Left>
-        <Height>0.6cm</Height>
+        <Top>1.47304cm</Top>
+        <Left>19.43982cm</Left>
+        <Height>0.60043cm</Height>
         <Width>0.9125cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
@@ -1775,9 +1775,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox42</rd:DefaultName>
-        <Top>0.99722cm</Top>
-        <Left>16.58997cm</Left>
-        <Height>0.6cm</Height>
+        <Top>1.47304cm</Top>
+        <Left>16.55176cm</Left>
+        <Height>0.60043cm</Height>
         <Width>2.71167cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
@@ -1805,9 +1805,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox42</rd:DefaultName>
-        <Top>1.00569cm</Top>
-        <Left>20.56692cm</Left>
-        <Height>0.6cm</Height>
+        <Top>1.48151cm</Top>
+        <Left>20.52871cm</Left>
+        <Height>0.60043cm</Height>
         <Width>2.79104cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
@@ -1838,8 +1838,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>5.37191cm</Top>
-        <Left>2.71267cm</Left>
+        <Top>6.00691cm</Top>
+        <Left>3.03017cm</Left>
         <Height>0.6cm</Height>
         <Width>16.58897cm</Width>
         <ZIndex>14</ZIndex>
@@ -1871,8 +1871,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>5.37191cm</Top>
-        <Left>0.57828cm</Left>
+        <Top>6.00691cm</Top>
+        <Left>0.89578cm</Left>
         <Height>0.6cm</Height>
         <Width>2.13439cm</Width>
         <ZIndex>15</ZIndex>
@@ -1895,21 +1895,23 @@
               <TextRun>
                 <Value>CÔNG TY CP BẾN BÃI </Value>
                 <Style>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>12pt</FontSize>
                 </Style>
               </TextRun>
               <TextRun>
                 <Value>VẬN TẢI SÀI GÒN</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Normal</FontWeight>
                   <TextDecoration>None</TextDecoration>
                   <Color>#000000</Color>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -1922,6 +1924,7 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -1937,7 +1940,7 @@
               <TextRun>
                 <Value>BẾN XE NGÃ TƯ GA</Value>
                 <Style>
-                  <FontSize>14pt</FontSize>
+                  <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -1948,7 +1951,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>0.8734cm</Top>
+        <Top>0.73229cm</Top>
         <Left>0.57827cm</Left>
         <Height>0.73229cm</Height>
         <Width>10.27194cm</Width>

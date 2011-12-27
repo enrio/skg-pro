@@ -409,7 +409,7 @@ namespace BXE.DAL
 
                     case 2:
                         price1 = price2 / 2;
-                        if (dayF == 0) money = price2;
+                        if (dayF == 0) money = price1;
                         else money = dayF * price2 + dayL * price1;
                         break;
 

@@ -811,7 +811,16 @@ namespace BXE.PRE.VbqGaa
                     tmp.Add(dr["Number"].ToString());
                 }
 
-                var o = _listPreNumber;
+                foreach (string xx in _listPreNumber)
+                {
+                    foreach (string yy in tmp)
+                    {
+                        if (xx == yy)
+                        {
+                            _listInNumber.Add(xx);
+                        }
+                    }
+                }
 
             }
             else
@@ -825,7 +834,13 @@ namespace BXE.PRE.VbqGaa
                 ClearText();
             }
 
-            
+            string ok="";
+            foreach(string uu in _listInNumber)
+            {
+                ok += uu + ";";
+            }
+
+            lblInf.Text = ok;
         }
 
         private void Stt()

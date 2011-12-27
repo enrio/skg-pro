@@ -136,9 +136,10 @@
             // 
             // cmdClose
             // 
+            this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdClose.Location = new System.Drawing.Point(358, 365);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(63, 34);
+            this.cmdClose.Size = new System.Drawing.Size(63, 81);
             this.cmdClose.TabIndex = 33;
             this.cmdClose.Text = "Đó&ng";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -211,9 +212,10 @@
             // 
             // cmdInvoice
             // 
+            this.cmdInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInvoice.Location = new System.Drawing.Point(12, 365);
             this.cmdInvoice.Name = "cmdInvoice";
-            this.cmdInvoice.Size = new System.Drawing.Size(63, 34);
+            this.cmdInvoice.Size = new System.Drawing.Size(63, 81);
             this.cmdInvoice.TabIndex = 28;
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.UseVisualStyleBackColor = true;
@@ -487,9 +489,10 @@
             // 
             // cmdRedo
             // 
+            this.cmdRedo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRedo.Location = new System.Drawing.Point(81, 365);
             this.cmdRedo.Name = "cmdRedo";
-            this.cmdRedo.Size = new System.Drawing.Size(63, 34);
+            this.cmdRedo.Size = new System.Drawing.Size(63, 81);
             this.cmdRedo.TabIndex = 29;
             this.cmdRedo.Text = "&Làm lại";
             this.cmdRedo.UseVisualStyleBackColor = true;
@@ -498,9 +501,10 @@
             // cmdOut
             // 
             this.cmdOut.Enabled = false;
+            this.cmdOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOut.Location = new System.Drawing.Point(151, 365);
             this.cmdOut.Name = "cmdOut";
-            this.cmdOut.Size = new System.Drawing.Size(63, 34);
+            this.cmdOut.Size = new System.Drawing.Size(63, 81);
             this.cmdOut.TabIndex = 30;
             this.cmdOut.Text = "&Cho ra";
             this.cmdOut.UseVisualStyleBackColor = true;
@@ -513,16 +517,17 @@
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lblInf.Location = new System.Drawing.Point(427, 364);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(332, 34);
+            this.lblInf.Size = new System.Drawing.Size(332, 82);
             this.lblInf.TabIndex = 34;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdInList
             // 
+            this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInList.Location = new System.Drawing.Point(220, 365);
             this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(63, 34);
+            this.cmdInList.Size = new System.Drawing.Size(63, 81);
             this.cmdInList.TabIndex = 31;
             this.cmdInList.Text = "&Xe trong bến";
             this.cmdInList.UseVisualStyleBackColor = true;
@@ -530,9 +535,10 @@
             // 
             // cmdRefresh
             // 
+            this.cmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRefresh.Location = new System.Drawing.Point(289, 365);
             this.cmdRefresh.Name = "cmdRefresh";
-            this.cmdRefresh.Size = new System.Drawing.Size(63, 34);
+            this.cmdRefresh.Size = new System.Drawing.Size(63, 81);
             this.cmdRefresh.TabIndex = 32;
             this.cmdRefresh.Text = "&Cập nhật";
             this.cmdRefresh.UseVisualStyleBackColor = true;
@@ -542,7 +548,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 407);
+            this.ClientSize = new System.Drawing.Size(771, 463);
             this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.cmdInList);
             this.Controls.Add(this.lblInf);

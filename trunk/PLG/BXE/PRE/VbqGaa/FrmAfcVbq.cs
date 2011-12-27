@@ -805,22 +805,22 @@ namespace BXE.PRE.VbqGaa
             {
                 dgvAep.DataSource = tb;
 
-                List<string> tmp = new List<string>();
-                foreach (DataRow dr in tb.Rows)
-                {
-                    tmp.Add(dr["Number"].ToString());
-                }
+                //List<string> tmp = new List<string>();
+                //foreach (DataRow dr in tb.Rows)
+                //{
+                //    tmp.Add(dr["Number"].ToString());
+                //}
 
-                foreach (string xx in _listPreNumber)
-                {
-                    foreach (string yy in tmp)
-                    {
-                        if (xx == yy)
-                        {
-                            _listInNumber.Add(xx);
-                        }
-                    }
-                }
+                //foreach (string xx in _listPreNumber)
+                //{
+                //    foreach (string yy in tmp)
+                //    {
+                //        if (xx == yy)
+                //        {
+                //            _listInNumber.Add(xx);
+                //        }
+                //    }
+                //}
 
             }
             else
@@ -834,11 +834,11 @@ namespace BXE.PRE.VbqGaa
                 ClearText();
             }
 
-            string ok="";
-            foreach(string uu in _listInNumber)
-            {
-                ok += uu + ";";
-            }
+            //string ok="";
+            //foreach(string uu in _listInNumber)
+            //{
+            //    ok += uu + ";";
+            //}
 
           //  lblInf.Text = ok;
         }

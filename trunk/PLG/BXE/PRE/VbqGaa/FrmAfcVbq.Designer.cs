@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.lblAccInName = new System.Windows.Forms.Label();
@@ -38,19 +40,6 @@
             this.cmdClose = new System.Windows.Forms.Button();
             this.cmdIn = new System.Windows.Forms.Button();
             this.dgvAep = new System.Windows.Forms.DataGridView();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKindId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKindName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdEdit = new System.Windows.Forms.Button();
             this.cmdInList = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
@@ -89,6 +78,19 @@
             this.mskMediumC = new System.Windows.Forms.MaskedTextBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmdHand = new System.Windows.Forms.Button();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKindId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKindName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -120,7 +122,7 @@
             this.lblAccInName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccInName.Location = new System.Drawing.Point(580, 132);
             this.lblAccInName.Name = "lblAccInName";
-            this.lblAccInName.Size = new System.Drawing.Size(259, 25);
+            this.lblAccInName.Size = new System.Drawing.Size(500, 25);
             this.lblAccInName.TabIndex = 16;
             this.lblAccInName.Text = "?";
             this.lblAccInName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,9 +151,10 @@
             // 
             // cmdClose
             // 
+            this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdClose.Location = new System.Drawing.Point(426, 466);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(63, 34);
+            this.cmdClose.Size = new System.Drawing.Size(63, 81);
             this.cmdClose.TabIndex = 9;
             this.cmdClose.Text = "Đó&ng";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -159,9 +162,10 @@
             // 
             // cmdIn
             // 
+            this.cmdIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdIn.Location = new System.Drawing.Point(12, 465);
             this.cmdIn.Name = "cmdIn";
-            this.cmdIn.Size = new System.Drawing.Size(63, 34);
+            this.cmdIn.Size = new System.Drawing.Size(63, 81);
             this.cmdIn.TabIndex = 3;
             this.cmdIn.Text = "&Cho vào";
             this.cmdIn.UseVisualStyleBackColor = true;
@@ -171,6 +175,14 @@
             // 
             this.dgvAep.AllowUserToAddRows = false;
             this.dgvAep.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -189,7 +201,9 @@
             this.dgvAep.Location = new System.Drawing.Point(12, 161);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
-            this.dgvAep.Size = new System.Drawing.Size(827, 298);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAep.Size = new System.Drawing.Size(1068, 298);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
             this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellContentClick);
@@ -197,130 +211,13 @@
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
             this.dgvAep.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvAep_UserDeletingRow);
             // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            // 
-            // colNo_
-            // 
-            this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colNo_.HeaderText = "TT";
-            this.colNo_.Name = "colNo_";
-            this.colNo_.ReadOnly = true;
-            this.colNo_.Width = 30;
-            // 
-            // colGroupId
-            // 
-            this.colGroupId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colGroupId.DataPropertyName = "GroupId";
-            this.colGroupId.HeaderText = "GroupId";
-            this.colGroupId.Name = "colGroupId";
-            this.colGroupId.ReadOnly = true;
-            this.colGroupId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colGroupId.Visible = false;
-            // 
-            // colKindId
-            // 
-            this.colKindId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colKindId.DataPropertyName = "KindId";
-            this.colKindId.HeaderText = "KindId";
-            this.colKindId.Name = "colKindId";
-            this.colKindId.ReadOnly = true;
-            this.colKindId.Visible = false;
-            // 
-            // colGroupName
-            // 
-            this.colGroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colGroupName.DataPropertyName = "GroupName";
-            this.colGroupName.HeaderText = "Nhóm xe";
-            this.colGroupName.Name = "colGroupName";
-            this.colGroupName.ReadOnly = true;
-            this.colGroupName.Width = 74;
-            // 
-            // colKindName
-            // 
-            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKindName.DataPropertyName = "KindName";
-            this.colKindName.HeaderText = "Loại xe";
-            this.colKindName.Name = "colKindName";
-            this.colKindName.ReadOnly = true;
-            // 
-            // colNumber
-            // 
-            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNumber.DataPropertyName = "Number";
-            this.colNumber.HeaderText = "Biển số xe";
-            this.colNumber.Name = "colNumber";
-            this.colNumber.ReadOnly = true;
-            this.colNumber.Width = 81;
-            // 
-            // colAccIn
-            // 
-            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAccIn.DataPropertyName = "AccIn";
-            this.colAccIn.HeaderText = "Người cho vào";
-            this.colAccIn.Name = "colAccIn";
-            this.colAccIn.ReadOnly = true;
-            this.colAccIn.Width = 102;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPhone.DataPropertyName = "Phone";
-            this.colPhone.HeaderText = "Điện thoại";
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 80;
-            // 
-            // colDateIn
-            // 
-            this.colDateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDateIn.DataPropertyName = "DateIn";
-            this.colDateIn.HeaderText = "Thời gian vào";
-            this.colDateIn.Name = "colDateIn";
-            this.colDateIn.ReadOnly = true;
-            this.colDateIn.Width = 73;
-            // 
-            // colLength
-            // 
-            this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.colLength.DataPropertyName = "Length";
-            this.colLength.HeaderText = "Chiều dài";
-            this.colLength.Name = "colLength";
-            this.colLength.ReadOnly = true;
-            this.colLength.Width = 5;
-            // 
-            // colWeight
-            // 
-            this.colWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.colWeight.DataPropertyName = "Weight";
-            this.colWeight.HeaderText = "Tải trọng";
-            this.colWeight.Name = "colWeight";
-            this.colWeight.ReadOnly = true;
-            this.colWeight.Width = 5;
-            // 
-            // colChair
-            // 
-            this.colChair.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.colChair.DataPropertyName = "Chair";
-            this.colChair.HeaderText = "Số ghế";
-            this.colChair.Name = "colChair";
-            this.colChair.ReadOnly = true;
-            this.colChair.Width = 5;
-            // 
             // cmdEdit
             // 
             this.cmdEdit.Enabled = false;
+            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdEdit.Location = new System.Drawing.Point(81, 465);
             this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(63, 34);
+            this.cmdEdit.Size = new System.Drawing.Size(63, 81);
             this.cmdEdit.TabIndex = 4;
             this.cmdEdit.Text = "&Sửa";
             this.cmdEdit.UseVisualStyleBackColor = true;
@@ -328,9 +225,10 @@
             // 
             // cmdInList
             // 
+            this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInList.Location = new System.Drawing.Point(219, 465);
             this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(63, 34);
+            this.cmdInList.Size = new System.Drawing.Size(63, 81);
             this.cmdInList.TabIndex = 6;
             this.cmdInList.Text = "Xe trong &bến";
             this.cmdInList.UseVisualStyleBackColor = true;
@@ -339,9 +237,10 @@
             // cmdDelete
             // 
             this.cmdDelete.Enabled = false;
+            this.cmdDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdDelete.Location = new System.Drawing.Point(150, 465);
             this.cmdDelete.Name = "cmdDelete";
-            this.cmdDelete.Size = new System.Drawing.Size(63, 34);
+            this.cmdDelete.Size = new System.Drawing.Size(63, 81);
             this.cmdDelete.TabIndex = 5;
             this.cmdDelete.Text = "&Xoá";
             this.cmdDelete.UseVisualStyleBackColor = true;
@@ -354,16 +253,17 @@
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lblInf.Location = new System.Drawing.Point(495, 465);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(344, 34);
+            this.lblInf.Size = new System.Drawing.Size(585, 81);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdRefresh
             // 
+            this.cmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRefresh.Location = new System.Drawing.Point(288, 465);
             this.cmdRefresh.Name = "cmdRefresh";
-            this.cmdRefresh.Size = new System.Drawing.Size(63, 34);
+            this.cmdRefresh.Size = new System.Drawing.Size(63, 81);
             this.cmdRefresh.TabIndex = 7;
             this.cmdRefresh.Text = "&Cập nhật";
             this.cmdRefresh.UseVisualStyleBackColor = true;
@@ -380,7 +280,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(831, 117);
+            this.tabControl1.Size = new System.Drawing.Size(1068, 117);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -392,7 +292,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(823, 84);
+            this.tabPage1.Size = new System.Drawing.Size(1060, 84);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TAXI VÃNG LAI";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -743,19 +643,136 @@
             // 
             // cmdHand
             // 
+            this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdHand.Location = new System.Drawing.Point(357, 465);
             this.cmdHand.Name = "cmdHand";
-            this.cmdHand.Size = new System.Drawing.Size(63, 34);
+            this.cmdHand.Size = new System.Drawing.Size(63, 81);
             this.cmdHand.TabIndex = 8;
             this.cmdHand.Text = "&Nhập bằng tay";
             this.cmdHand.UseVisualStyleBackColor = true;
             this.cmdHand.Click += new System.EventHandler(this.cmdHand_Click);
             // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // colNo_
+            // 
+            this.colNo_.DataPropertyName = "No_";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colNo_.HeaderText = "TT";
+            this.colNo_.Name = "colNo_";
+            this.colNo_.ReadOnly = true;
+            this.colNo_.Width = 30;
+            // 
+            // colGroupId
+            // 
+            this.colGroupId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colGroupId.DataPropertyName = "GroupId";
+            this.colGroupId.HeaderText = "GroupId";
+            this.colGroupId.Name = "colGroupId";
+            this.colGroupId.ReadOnly = true;
+            this.colGroupId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colGroupId.Visible = false;
+            this.colGroupId.Width = 93;
+            // 
+            // colKindId
+            // 
+            this.colKindId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colKindId.DataPropertyName = "KindId";
+            this.colKindId.HeaderText = "KindId";
+            this.colKindId.Name = "colKindId";
+            this.colKindId.ReadOnly = true;
+            this.colKindId.Visible = false;
+            this.colKindId.Width = 79;
+            // 
+            // colGroupName
+            // 
+            this.colGroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colGroupName.DataPropertyName = "GroupName";
+            this.colGroupName.HeaderText = "Nhóm xe";
+            this.colGroupName.Name = "colGroupName";
+            this.colGroupName.ReadOnly = true;
+            this.colGroupName.Width = 96;
+            // 
+            // colKindName
+            // 
+            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKindName.DataPropertyName = "KindName";
+            this.colKindName.HeaderText = "Loại xe";
+            this.colKindName.Name = "colKindName";
+            this.colKindName.ReadOnly = true;
+            // 
+            // colNumber
+            // 
+            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNumber.DataPropertyName = "Number";
+            this.colNumber.HeaderText = "Biển số xe";
+            this.colNumber.Name = "colNumber";
+            this.colNumber.ReadOnly = true;
+            this.colNumber.Width = 84;
+            // 
+            // colAccIn
+            // 
+            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colAccIn.DataPropertyName = "AccIn";
+            this.colAccIn.HeaderText = "Người cho vào";
+            this.colAccIn.Name = "colAccIn";
+            this.colAccIn.ReadOnly = true;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPhone.DataPropertyName = "Phone";
+            this.colPhone.HeaderText = "Điện thoại";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 97;
+            // 
+            // colDateIn
+            // 
+            this.colDateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDateIn.DataPropertyName = "DateIn";
+            this.colDateIn.HeaderText = "Thời gian vào";
+            this.colDateIn.Name = "colDateIn";
+            this.colDateIn.ReadOnly = true;
+            this.colDateIn.Width = 94;
+            // 
+            // colLength
+            // 
+            this.colLength.DataPropertyName = "Length";
+            this.colLength.HeaderText = "Chiều dài";
+            this.colLength.Name = "colLength";
+            this.colLength.ReadOnly = true;
+            this.colLength.Width = 50;
+            // 
+            // colWeight
+            // 
+            this.colWeight.DataPropertyName = "Weight";
+            this.colWeight.HeaderText = "Tải trọng";
+            this.colWeight.Name = "colWeight";
+            this.colWeight.ReadOnly = true;
+            this.colWeight.Width = 50;
+            // 
+            // colChair
+            // 
+            this.colChair.DataPropertyName = "Chair";
+            this.colChair.HeaderText = "Số ghế";
+            this.colChair.Name = "colChair";
+            this.colChair.ReadOnly = true;
+            this.colChair.Width = 50;
+            // 
             // FrmAfcVbq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 504);
+            this.ClientSize = new System.Drawing.Size(1092, 559);
             this.Controls.Add(this.cmdHand);
             this.Controls.Add(this.dtpDateIn);
             this.Controls.Add(this.tabControl1);
@@ -808,19 +825,6 @@
         private System.Windows.Forms.Button cmdInList;
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Label lblInf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNo_;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKindId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colKindName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAccIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
         private System.Windows.Forms.Button cmdRefresh;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -855,5 +859,18 @@
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.DateTimePicker dtpDateIn;
         private System.Windows.Forms.Button cmdHand;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNo_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKindId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGroupName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colKindName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colAccIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
     }
 }

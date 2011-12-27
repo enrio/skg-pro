@@ -225,22 +225,36 @@ namespace BXE.PRE.VbqGaa
 
                     case 2: // group 3
                         mskTruckNumber.Text = _currVehicle.Number;
+                        if(_currVehicle.Length !=null)
                         mskTruckL.Text = _currVehicle.Length.Value + "";
+
+                        if(_currVehicle.Weight !=null)
                         mskTruckW.Text = _currVehicle.Weight.Value + "";
                         cbbTruckKind.DataSource = dal.GetData(1);
-
-                        if (_currVehicle.KindId + "" != "") cbbTruckKind.SelectedValue = _currVehicle.KindId;
+                        if (_currVehicle.KindId + "" != "")
+                        {
+                            if (_currVehicle.KindId > 0)
+                                cbbTruckKind.SelectedValue = _currVehicle.KindId;
+                            else cbbTruckKind.SelectedIndex = 0;
+                        }
                         break;
 
                     case 3: // group 4
 
                         mskCarNumber.Text = _currVehicle.Number;
                         cbbCarKind.DataSource = dal.GetData(2);
-                        if (_currVehicle.KindId + "" != "") cbbCarKind.SelectedValue = _currVehicle.KindId;
+                        if (_currVehicle.KindId + "" != "")
+                        {
+                            if (_currVehicle.KindId > 0)
+                            cbbCarKind.SelectedValue = _currVehicle.KindId;
+                            else cbbCarKind.SelectedIndex = 0;
+                        }
                         break;
 
                     case 4: // group 5
                         mskMediumNumber.Text = _currVehicle.Number;
+
+                        if(_currVehicle.Chair !=null)
                         mskMediumC.Text = _currVehicle.Chair.Value + "";
                         break;
 
@@ -768,6 +782,13 @@ namespace BXE.PRE.VbqGaa
             mskMediumNumber.Text = null;
             mskMediumC.Text = null;
             lblInf.Text = null;
+
+            //_currVehicle.Number = "";
+            //_currVehicle.Chair = 0;
+            //_currVehicle.Weight = 0;
+            //_currVehicle.Length = 0;
+
+            _currVehicle = new DAL.Vehicle();
         }
 
         private void GetInMinute()

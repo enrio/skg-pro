@@ -16,7 +16,7 @@ namespace BXE.PRE.VbqGaa
 
         private const string STR_INP_ERR = "Lỗi, nhập dữ liệu sai{0}{1}";
         private const string STR_INP_HAD = "&Nhập bằng tay";
-        private const string STR_ADD_SUC = "Đã cho xe vào!";
+        private const string STR_ADD_SUC = "";// "Đã cho xe vào!";
         private const string STR_EDI_SUC = "Sửa thành công!";
 
         private const string STR_DEL_SUC = "Xoá thành công!";

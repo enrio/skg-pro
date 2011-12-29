@@ -126,6 +126,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SKG.sql" />
     <None Include="Resources\Loginx.png" />
     <None Include="Resources\Login.png" />
     <None Include="Resources\Databasex.png" />

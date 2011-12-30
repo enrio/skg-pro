@@ -253,3 +253,287 @@ Go
 --------------------------------------------------------------------------------------
 --| Xử lí dữ liệu --------------------------------------------------------------------
 --------------------------------------------------------------------------------------
+
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_dm_role]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_dm_role](
+	[id_role] [bigint] IDENTITY(1,1) NOT NULL,
+	[id_role_parent] [bigint] NULL,
+	[role_system_name] [nvarchar](max) NULL,
+	[role_display_name] [nvarchar](max) NULL,
+	[role_description] [nvarchar](max) NULL,
+	[build_in] [bit] NULL,
+	[role_name] [nvarchar](max) NULL,
+ CONSTRAINT [PK_pol_dm_role] PRIMARY KEY CLUSTERED 
+(
+	[id_role] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_dm_right]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_dm_right](
+	[id_right] [bigint] IDENTITY(1,1) NOT NULL,
+	[id_right_parent] [bigint] NULL,
+	[right_system_name] [nvarchar](max) NULL,
+	[right_display_name] [nvarchar](max) NULL,
+	[right_description] [nvarchar](max) NULL,
+	[build_in] [bit] NULL,
+	[right_name] [nvarchar](max) NULL,
+ CONSTRAINT [PK_pol_dm_right] PRIMARY KEY CLUSTERED 
+(
+	[id_right] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_dm_action]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_dm_action](
+	[id_action] [int] IDENTITY(1,1) NOT NULL,
+	[action_name] [nvarchar](max) NOT NULL,
+	[action_description] [nvarchar](max) NULL,
+ CONSTRAINT [PK_pol_dm_action] PRIMARY KEY CLUSTERED 
+(
+	[id_action] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_dm_user]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_dm_user](
+	[id_user] [bigint] IDENTITY(1,1) NOT NULL,
+	[user_name] [nvarchar](max) NOT NULL,
+	[user_password] [nvarchar](max) NULL CONSTRAINT [DF_pol_dm_user_user_password]  DEFAULT (''),
+	[user_fullname] [nvarchar](max) NULL,
+	[user_description] [nvarchar](max) NULL,
+	[password_must_change] [bit] NULL,
+	[password_cannot_change] [bit] NULL,
+	[password_expire] [bit] NULL,
+	[password_days] [int] NULL,
+	[password_complex] [bit] NULL,
+	[user_disable] [bit] NULL,
+	[build_in] [bit] NULL,
+	[id_nhansu] [bigint] NULL,
+ CONSTRAINT [PK_pol_dm_user] PRIMARY KEY CLUSTERED 
+(
+	[id_user] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_action_role]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_action_role](
+	[id_action] [int] NOT NULL,
+	[id_role] [bigint] NOT NULL,
+	[id_right] [int] NOT NULL,
+ CONSTRAINT [PK_pol_action_role] PRIMARY KEY CLUSTERED 
+(
+	[id_action] ASC,
+	[id_role] ASC,
+	[id_right] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_action_user]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_action_user](
+	[id_action] [int] NOT NULL,
+	[id_user] [bigint] NOT NULL,
+	[id_right] [bigint] NOT NULL,
+ CONSTRAINT [PK_pol_action_right] PRIMARY KEY CLUSTERED 
+(
+	[id_action] ASC,
+	[id_user] ASC,
+	[id_right] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_role_right]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_role_right](
+	[id_role] [bigint] NOT NULL,
+	[id_right] [bigint] NOT NULL,
+	[allow_add] [bit] NULL,
+	[allow_edit] [bit] NULL,
+	[allow_delete] [bit] NULL,
+	[allow_query] [bit] NULL,
+	[allow_print] [bit] NULL,
+	[allow_full] [bit] NULL,
+	[allow_none] [bit] NULL,
+ CONSTRAINT [PK_pol_role_right] PRIMARY KEY CLUSTERED 
+(
+	[id_role] ASC,
+	[id_right] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_user_role]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_user_role](
+	[id_user] [bigint] NOT NULL,
+	[id_role] [bigint] NOT NULL,
+	[allow_add] [bit] NULL,
+	[allow_edit] [bit] NULL,
+	[allow_delete] [bit] NULL,
+	[allow_query] [bit] NULL,
+	[allow_print] [bit] NULL,
+	[allow_full] [bit] NULL,
+	[allow_none] [bit] NULL,
+ CONSTRAINT [PK_pol_user_role] PRIMARY KEY CLUSTERED 
+(
+	[id_user] ASC,
+	[id_role] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[pol_user_right]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[pol_user_right](
+	[id_user] [bigint] NOT NULL,
+	[id_right] [bigint] NOT NULL,
+	[allow_add] [bit] NULL,
+	[allow_edit] [bit] NULL,
+	[allow_delete] [bit] NULL,
+	[allow_query] [bit] NULL,
+	[allow_print] [bit] NULL,
+	[allow_full] [bit] NULL,
+	[allow_none] [bit] NULL,
+ CONSTRAINT [PK_pol_user_right] PRIMARY KEY CLUSTERED 
+(
+	[id_user] ASC,
+	[id_right] ASC
+)WITH (PAD_INDEX  = OFF, IGNORE_DUP_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_action_role_pol_dm_action1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_action_role]'))
+ALTER TABLE [dbo].[pol_action_role]  WITH CHECK ADD  CONSTRAINT [FK_pol_action_role_pol_dm_action1] FOREIGN KEY([id_action])
+REFERENCES [dbo].[pol_dm_action] ([id_action])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_action_role] CHECK CONSTRAINT [FK_pol_action_role_pol_dm_action1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_action_role_pol_dm_role1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_action_role]'))
+ALTER TABLE [dbo].[pol_action_role]  WITH CHECK ADD  CONSTRAINT [FK_pol_action_role_pol_dm_role1] FOREIGN KEY([id_role])
+REFERENCES [dbo].[pol_dm_role] ([id_role])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_action_role] CHECK CONSTRAINT [FK_pol_action_role_pol_dm_role1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_action_user_pol_dm_action]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_action_user]'))
+ALTER TABLE [dbo].[pol_action_user]  WITH NOCHECK ADD  CONSTRAINT [FK_pol_action_user_pol_dm_action] FOREIGN KEY([id_action])
+REFERENCES [dbo].[pol_dm_action] ([id_action])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_action_user] CHECK CONSTRAINT [FK_pol_action_user_pol_dm_action]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_action_user_pol_dm_right]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_action_user]'))
+ALTER TABLE [dbo].[pol_action_user]  WITH NOCHECK ADD  CONSTRAINT [FK_pol_action_user_pol_dm_right] FOREIGN KEY([id_right])
+REFERENCES [dbo].[pol_dm_right] ([id_right])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_action_user] CHECK CONSTRAINT [FK_pol_action_user_pol_dm_right]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_action_user_pol_dm_user]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_action_user]'))
+ALTER TABLE [dbo].[pol_action_user]  WITH CHECK ADD  CONSTRAINT [FK_pol_action_user_pol_dm_user] FOREIGN KEY([id_user])
+REFERENCES [dbo].[pol_dm_user] ([id_user])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_action_user] CHECK CONSTRAINT [FK_pol_action_user_pol_dm_user]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_role_right_pol_dm_right1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_role_right]'))
+ALTER TABLE [dbo].[pol_role_right]  WITH CHECK ADD  CONSTRAINT [FK_pol_role_right_pol_dm_right1] FOREIGN KEY([id_right])
+REFERENCES [dbo].[pol_dm_right] ([id_right])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_role_right] CHECK CONSTRAINT [FK_pol_role_right_pol_dm_right1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_role_right_pol_dm_role1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_role_right]'))
+ALTER TABLE [dbo].[pol_role_right]  WITH CHECK ADD  CONSTRAINT [FK_pol_role_right_pol_dm_role1] FOREIGN KEY([id_role])
+REFERENCES [dbo].[pol_dm_role] ([id_role])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_role_right] CHECK CONSTRAINT [FK_pol_role_right_pol_dm_role1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_user_role_pol_dm_role1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_user_role]'))
+ALTER TABLE [dbo].[pol_user_role]  WITH CHECK ADD  CONSTRAINT [FK_pol_user_role_pol_dm_role1] FOREIGN KEY([id_role])
+REFERENCES [dbo].[pol_dm_role] ([id_role])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_user_role] CHECK CONSTRAINT [FK_pol_user_role_pol_dm_role1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_user_role_pol_dm_user1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_user_role]'))
+ALTER TABLE [dbo].[pol_user_role]  WITH CHECK ADD  CONSTRAINT [FK_pol_user_role_pol_dm_user1] FOREIGN KEY([id_user])
+REFERENCES [dbo].[pol_dm_user] ([id_user])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_user_role] CHECK CONSTRAINT [FK_pol_user_role_pol_dm_user1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_user_right_pol_dm_right1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_user_right]'))
+ALTER TABLE [dbo].[pol_user_right]  WITH NOCHECK ADD  CONSTRAINT [FK_pol_user_right_pol_dm_right1] FOREIGN KEY([id_right])
+REFERENCES [dbo].[pol_dm_right] ([id_right])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_user_right] CHECK CONSTRAINT [FK_pol_user_right_pol_dm_right1]
+GO
+IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_pol_user_right_pol_dm_user1]') AND parent_object_id = OBJECT_ID(N'[dbo].[pol_user_right]'))
+ALTER TABLE [dbo].[pol_user_right]  WITH CHECK ADD  CONSTRAINT [FK_pol_user_right_pol_dm_user1] FOREIGN KEY([id_user])
+REFERENCES [dbo].[pol_dm_user] ([id_user])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[pol_user_right] CHECK CONSTRAINT [FK_pol_user_right_pol_dm_user1]

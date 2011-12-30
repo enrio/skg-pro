@@ -831,7 +831,7 @@ namespace BXE.PRE.VbqGaa
                 cmdIn.Enabled = true;
                 cmdEdit.Enabled = false;
                 cmdDelete.Enabled = false;
-                ClearText();
+                //ClearText();
             }
 
             //string ok="";

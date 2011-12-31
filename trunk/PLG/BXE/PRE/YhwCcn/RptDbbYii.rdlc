@@ -2133,7 +2133,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>9.26978cm</Height>
+    <Height>8.06187cm</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -2157,7 +2157,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>33.164cm</Width>
+  <Width>29.7cm</Width>
   <Page>
     <PageHeader>
       <Height>0.9525cm</Height>

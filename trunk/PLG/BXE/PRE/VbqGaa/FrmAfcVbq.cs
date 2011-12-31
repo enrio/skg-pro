@@ -90,6 +90,14 @@ namespace BXE.PRE.VbqGaa
         #region Events
         private void cmdClose_Click(object sender, EventArgs e) { Close(); }
 
+        private void dgvAep_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            cmdIn.Enabled = true;
+            cmdEdit.Enabled = false;
+            cmdDelete.Enabled = false;
+            ClearText();
+        }
+
         private void FrmAfcVbq_Load(object sender, EventArgs e)
         {
             lblAccInName.Text = Sss.Name.ToUpper(); // get full name user gate in
@@ -229,11 +237,11 @@ namespace BXE.PRE.VbqGaa
 
                     case 2: // group 3
                         mskTruckNumber.Text = _currVehicle.Number;
-                        if(_currVehicle.Length !=null)
-                        mskTruckL.Text = _currVehicle.Length.Value + "";
+                        if (_currVehicle.Length != null)
+                            mskTruckL.Text = _currVehicle.Length.Value + "";
 
-                        if(_currVehicle.Weight !=null)
-                        mskTruckW.Text = _currVehicle.Weight.Value + "";
+                        if (_currVehicle.Weight != null)
+                            mskTruckW.Text = _currVehicle.Weight.Value + "";
                         cbbTruckKind.DataSource = dal.GetData(1);
                         if (_currVehicle.KindId + "" != "")
                         {
@@ -250,7 +258,7 @@ namespace BXE.PRE.VbqGaa
                         if (_currVehicle.KindId + "" != "")
                         {
                             if (_currVehicle.KindId > 0)
-                            cbbCarKind.SelectedValue = _currVehicle.KindId;
+                                cbbCarKind.SelectedValue = _currVehicle.KindId;
                             else cbbCarKind.SelectedIndex = 0;
                         }
                         break;
@@ -258,8 +266,8 @@ namespace BXE.PRE.VbqGaa
                     case 4: // group 5
                         mskMediumNumber.Text = _currVehicle.Number;
 
-                        if(_currVehicle.Chair !=null)
-                        mskMediumC.Text = _currVehicle.Chair.Value + "";
+                        if (_currVehicle.Chair != null)
+                            mskMediumC.Text = _currVehicle.Chair.Value + "";
                         break;
 
                     default:
@@ -840,7 +848,7 @@ namespace BXE.PRE.VbqGaa
             //    ok += uu + ";";
             //}
 
-          //  lblInf.Text = ok;
+            //  lblInf.Text = ok;
         }
 
         private void Stt()
@@ -926,14 +934,6 @@ namespace BXE.PRE.VbqGaa
             }
         }
         #endregion
-
-        private void dgvAep_CellLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            cmdIn.Enabled = true;
-            cmdEdit.Enabled = false;
-            cmdDelete.Enabled = false;
-            ClearText();
-        }
 
         #region More
         #endregion

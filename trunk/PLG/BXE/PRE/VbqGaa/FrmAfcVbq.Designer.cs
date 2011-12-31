@@ -60,15 +60,12 @@
             this.cmdRefresh = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
             this.mskTaxiNumber = new System.Windows.Forms.MaskedTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label12 = new System.Windows.Forms.Label();
             this.mskThreeNumber = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label13 = new System.Windows.Forms.Label();
             this.mskTruckL = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.mskTruckW = new System.Windows.Forms.MaskedTextBox();
@@ -82,15 +79,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mskCarNumber = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
             this.mskMediumNumber = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.mskMediumC = new System.Windows.Forms.MaskedTextBox();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmdHand = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -118,22 +114,20 @@
             // 
             // lblAccInName
             // 
-            this.lblAccInName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblAccInName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccInName.Location = new System.Drawing.Point(580, 132);
+            this.lblAccInName.Location = new System.Drawing.Point(592, 132);
             this.lblAccInName.Name = "lblAccInName";
-            this.lblAccInName.Size = new System.Drawing.Size(426, 25);
+            this.lblAccInName.Size = new System.Drawing.Size(414, 25);
             this.lblAccInName.TabIndex = 16;
             this.lblAccInName.Text = "?";
             this.lblAccInName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDateIn
             // 
-            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateIn.Location = new System.Drawing.Point(179, 132);
             this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(219, 25);
+            this.lblDateIn.Size = new System.Drawing.Size(231, 25);
             this.lblDateIn.TabIndex = 14;
             this.lblDateIn.Text = "?";
             this.lblDateIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -142,7 +136,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(404, 133);
+            this.label2.Location = new System.Drawing.Point(416, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 25);
             this.label2.TabIndex = 15;
@@ -152,7 +146,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(580, 684);
+            this.cmdClose.Location = new System.Drawing.Point(576, 160);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 48);
             this.cmdClose.TabIndex = 9;
@@ -163,7 +157,7 @@
             // cmdIn
             // 
             this.cmdIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdIn.Location = new System.Drawing.Point(12, 684);
+            this.cmdIn.Location = new System.Drawing.Point(12, 160);
             this.cmdIn.Name = "cmdIn";
             this.cmdIn.Size = new System.Drawing.Size(88, 48);
             this.cmdIn.TabIndex = 3;
@@ -198,12 +192,12 @@
             this.colLength,
             this.colWeight,
             this.colChair});
-            this.dgvAep.Location = new System.Drawing.Point(12, 161);
+            this.dgvAep.Location = new System.Drawing.Point(12, 214);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAep.Size = new System.Drawing.Size(994, 517);
+            this.dgvAep.Size = new System.Drawing.Size(994, 518);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
             this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellContentClick);
@@ -330,7 +324,7 @@
             // 
             this.cmdEdit.Enabled = false;
             this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEdit.Location = new System.Drawing.Point(106, 684);
+            this.cmdEdit.Location = new System.Drawing.Point(106, 160);
             this.cmdEdit.Name = "cmdEdit";
             this.cmdEdit.Size = new System.Drawing.Size(88, 48);
             this.cmdEdit.TabIndex = 4;
@@ -341,7 +335,7 @@
             // cmdInList
             // 
             this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Location = new System.Drawing.Point(294, 684);
+            this.cmdInList.Location = new System.Drawing.Point(294, 160);
             this.cmdInList.Name = "cmdInList";
             this.cmdInList.Size = new System.Drawing.Size(88, 48);
             this.cmdInList.TabIndex = 6;
@@ -353,7 +347,7 @@
             // 
             this.cmdDelete.Enabled = false;
             this.cmdDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDelete.Location = new System.Drawing.Point(200, 684);
+            this.cmdDelete.Location = new System.Drawing.Point(200, 160);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(88, 48);
             this.cmdDelete.TabIndex = 5;
@@ -363,12 +357,11 @@
             // 
             // lblInf
             // 
-            this.lblInf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(674, 684);
+            this.lblInf.Location = new System.Drawing.Point(670, 160);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(332, 48);
+            this.lblInf.Size = new System.Drawing.Size(336, 48);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,7 +369,7 @@
             // cmdRefresh
             // 
             this.cmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRefresh.Location = new System.Drawing.Point(388, 684);
+            this.cmdRefresh.Location = new System.Drawing.Point(388, 160);
             this.cmdRefresh.Name = "cmdRefresh";
             this.cmdRefresh.Size = new System.Drawing.Size(88, 48);
             this.cmdRefresh.TabIndex = 7;
@@ -395,33 +388,21 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(994, 117);
+            this.tabControl1.Size = new System.Drawing.Size(814, 117);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.mskTaxiNumber);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(986, 84);
+            this.tabPage1.Size = new System.Drawing.Size(806, 84);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TAXI VÃNG LAI";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(672, 6);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 69);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "CỔNG VÀO";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskTaxiNumber
             // 
@@ -446,27 +427,15 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.mskThreeNumber);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1060, 84);
+            this.tabPage2.Size = new System.Drawing.Size(806, 84);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "BA BÁNH";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Location = new System.Drawing.Point(672, 6);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(145, 69);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "CỔNG VÀO";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskThreeNumber
             // 
@@ -491,7 +460,6 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.mskTruckL);
             this.tabPage3.Controls.Add(this.label10);
             this.tabPage3.Controls.Add(this.mskTruckW);
@@ -503,26 +471,15 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1060, 84);
+            this.tabPage3.Size = new System.Drawing.Size(806, 84);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TẢI L.ĐẬU & V.LAI";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label13.Location = new System.Drawing.Point(672, 6);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(145, 69);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "CỔNG VÀO";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // mskTruckL
             // 
             this.mskTruckL.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskTruckL.Location = new System.Drawing.Point(589, 44);
+            this.mskTruckL.Location = new System.Drawing.Point(723, 47);
             this.mskTruckL.Name = "mskTruckL";
             this.mskTruckL.Size = new System.Drawing.Size(77, 31);
             this.mskTruckL.TabIndex = 3;
@@ -533,7 +490,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Gray;
-            this.label10.Location = new System.Drawing.Point(464, 47);
+            this.label10.Location = new System.Drawing.Point(598, 50);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(119, 25);
             this.label10.TabIndex = 12;
@@ -543,7 +500,7 @@
             // mskTruckW
             // 
             this.mskTruckW.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskTruckW.Location = new System.Drawing.Point(381, 44);
+            this.mskTruckW.Location = new System.Drawing.Point(477, 47);
             this.mskTruckW.Name = "mskTruckW";
             this.mskTruckW.Size = new System.Drawing.Size(77, 31);
             this.mskTruckW.TabIndex = 2;
@@ -554,7 +511,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(262, 47);
+            this.label9.Location = new System.Drawing.Point(367, 50);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(113, 25);
             this.label9.TabIndex = 9;
@@ -589,7 +546,7 @@
             this.cbbTruckKind.FormattingEnabled = true;
             this.cbbTruckKind.Location = new System.Drawing.Point(108, 6);
             this.cbbTruckKind.Name = "cbbTruckKind";
-            this.cbbTruckKind.Size = new System.Drawing.Size(558, 32);
+            this.cbbTruckKind.Size = new System.Drawing.Size(692, 32);
             this.cbbTruckKind.TabIndex = 0;
             this.cbbTruckKind.ValueMember = "Id";
             this.cbbTruckKind.SelectedIndexChanged += new System.EventHandler(this.cbbTruckKind_SelectedIndexChanged);
@@ -612,11 +569,10 @@
             this.tabPage4.Controls.Add(this.label1);
             this.tabPage4.Controls.Add(this.mskCarNumber);
             this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.label6);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1060, 84);
+            this.tabPage4.Size = new System.Drawing.Size(806, 84);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "XE KHÁCH L.ĐẬU";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -628,7 +584,7 @@
             this.cbbCarKind.FormattingEnabled = true;
             this.cbbCarKind.Location = new System.Drawing.Point(108, 6);
             this.cbbCarKind.Name = "cbbCarKind";
-            this.cbbCarKind.Size = new System.Drawing.Size(558, 32);
+            this.cbbCarKind.Size = new System.Drawing.Size(692, 32);
             this.cbbCarKind.TabIndex = 0;
             this.cbbCarKind.ValueMember = "Id";
             this.cbbCarKind.SelectedIndexChanged += new System.EventHandler(this.cbbCarKind_SelectedIndexChanged);
@@ -666,20 +622,8 @@
             this.label11.Text = "Biển số:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(672, 6);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 69);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "CỔNG VÀO";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.label14);
             this.tabPage5.Controls.Add(this.mskMediumNumber);
             this.tabPage5.Controls.Add(this.label16);
             this.tabPage5.Controls.Add(this.label48);
@@ -687,21 +631,10 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1060, 84);
+            this.tabPage5.Size = new System.Drawing.Size(806, 84);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label14.Location = new System.Drawing.Point(672, 6);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(145, 69);
-            this.label14.TabIndex = 18;
-            this.label14.Text = "CỔNG VÀO";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskMediumNumber
             // 
@@ -750,16 +683,16 @@
             this.dtpDateIn.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateIn.Location = new System.Drawing.Point(327, 239);
+            this.dtpDateIn.Location = new System.Drawing.Point(214, 302);
             this.dtpDateIn.Name = "dtpDateIn";
-            this.dtpDateIn.Size = new System.Drawing.Size(196, 26);
+            this.dtpDateIn.Size = new System.Drawing.Size(231, 26);
             this.dtpDateIn.TabIndex = 25;
             this.dtpDateIn.Visible = false;
             // 
             // cmdHand
             // 
             this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHand.Location = new System.Drawing.Point(486, 684);
+            this.cmdHand.Location = new System.Drawing.Point(482, 160);
             this.cmdHand.Name = "cmdHand";
             this.cmdHand.Size = new System.Drawing.Size(88, 48);
             this.cmdHand.TabIndex = 8;
@@ -767,11 +700,24 @@
             this.cmdHand.UseVisualStyleBackColor = true;
             this.cmdHand.Click += new System.EventHandler(this.cmdHand_Click);
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(832, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(174, 117);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "CỔNG VÀO";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAfcVbq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 744);
+            this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cmdHand);
             this.Controls.Add(this.dtpDateIn);
             this.Controls.Add(this.tabControl1);
@@ -844,15 +790,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbTruckKind;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cbbCarKind;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox mskCarNumber;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.MaskedTextBox mskMediumNumber;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label48;
@@ -871,5 +812,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
+        private System.Windows.Forms.Label label3;
     }
 }

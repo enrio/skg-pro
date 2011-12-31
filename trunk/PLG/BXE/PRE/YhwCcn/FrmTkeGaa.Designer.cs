@@ -35,16 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAep = new System.Windows.Forms.DataGridView();
-            this.cmdInDay = new System.Windows.Forms.Button();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.cmdPrint = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.radIn = new System.Windows.Forms.RadioButton();
-            this.radOut = new System.Windows.Forms.RadioButton();
             this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +51,20 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdInDay = new System.Windows.Forms.Button();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.cmdPrint = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.radIn = new System.Windows.Forms.RadioButton();
+            this.radOut = new System.Windows.Forms.RadioButton();
+            this.cbbQuy = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbThang = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,108 +98,6 @@
             this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellContentClick);
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvMain_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
-            // 
-            // cmdInDay
-            // 
-            this.cmdInDay.Location = new System.Drawing.Point(186, 35);
-            this.cmdInDay.Name = "cmdInDay";
-            this.cmdInDay.Size = new System.Drawing.Size(89, 23);
-            this.cmdInDay.TabIndex = 6;
-            this.cmdInDay.Text = "&Xem thống kê";
-            this.cmdInDay.UseVisualStyleBackColor = true;
-            this.cmdInDay.Click += new System.EventHandler(this.cmdInDay_Click);
-            // 
-            // dtpFrom
-            // 
-            this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFrom.Location = new System.Drawing.Point(48, 12);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(132, 20);
-            this.dtpFrom.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(23, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Từ:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Đến:";
-            // 
-            // dtpTo
-            // 
-            this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
-            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpTo.Location = new System.Drawing.Point(48, 38);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(132, 20);
-            this.dtpTo.TabIndex = 3;
-            // 
-            // cmdPrint
-            // 
-            this.cmdPrint.Location = new System.Drawing.Point(281, 35);
-            this.cmdPrint.Name = "cmdPrint";
-            this.cmdPrint.Size = new System.Drawing.Size(89, 23);
-            this.cmdPrint.TabIndex = 7;
-            this.cmdPrint.Text = "&In thống kê";
-            this.cmdPrint.UseVisualStyleBackColor = true;
-            this.cmdPrint.Click += new System.EventHandler(this.cmdPdf_Click);
-            // 
-            // label3
-            // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(666, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(289, 43);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "THỐNG KÊ DOANH THU";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Red;
-            this.lblTotal.Location = new System.Drawing.Point(376, 14);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(284, 43);
-            this.lblTotal.TabIndex = 8;
-            this.lblTotal.Text = "?";
-            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // radIn
-            // 
-            this.radIn.AutoSize = true;
-            this.radIn.Location = new System.Drawing.Point(186, 12);
-            this.radIn.Name = "radIn";
-            this.radIn.Size = new System.Drawing.Size(71, 17);
-            this.radIn.TabIndex = 4;
-            this.radIn.Text = "Ngày vào";
-            this.radIn.UseVisualStyleBackColor = true;
-            // 
-            // radOut
-            // 
-            this.radOut.AutoSize = true;
-            this.radOut.Checked = true;
-            this.radOut.Location = new System.Drawing.Point(263, 12);
-            this.radOut.Name = "radOut";
-            this.radOut.Size = new System.Drawing.Size(62, 17);
-            this.radOut.TabIndex = 5;
-            this.radOut.TabStop = true;
-            this.radOut.Text = "Ngày ra";
-            this.radOut.UseVisualStyleBackColor = true;
             // 
             // colNo_
             // 
@@ -283,7 +185,7 @@
             this.colTGVao.HeaderText = "Thời gian vào";
             this.colTGVao.Name = "colTGVao";
             this.colTGVao.ReadOnly = true;
-            this.colTGVao.Width = 73;
+            this.colTGVao.Width = 97;
             // 
             // colTGRa
             // 
@@ -292,7 +194,7 @@
             this.colTGRa.HeaderText = "Thời gian ra";
             this.colTGRa.Name = "colTGRa";
             this.colTGRa.ReadOnly = true;
-            this.colTGRa.Width = 73;
+            this.colTGRa.Width = 88;
             // 
             // colDays
             // 
@@ -328,7 +230,7 @@
             this.colPrice.HeaderText = "ĐG nửa ngày";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 88;
+            this.colPrice.Width = 95;
             // 
             // colPrice2
             // 
@@ -340,7 +242,7 @@
             this.colPrice2.HeaderText = "ĐG một ngày";
             this.colPrice2.Name = "colPrice2";
             this.colPrice2.ReadOnly = true;
-            this.colPrice2.Width = 87;
+            this.colPrice2.Width = 94;
             // 
             // colMoney
             // 
@@ -353,13 +255,171 @@
             this.colMoney.HeaderText = "Thành tiền";
             this.colMoney.Name = "colMoney";
             this.colMoney.ReadOnly = true;
-            this.colMoney.Width = 77;
+            this.colMoney.Width = 83;
+            // 
+            // cmdInDay
+            // 
+            this.cmdInDay.Location = new System.Drawing.Point(186, 35);
+            this.cmdInDay.Name = "cmdInDay";
+            this.cmdInDay.Size = new System.Drawing.Size(89, 23);
+            this.cmdInDay.TabIndex = 6;
+            this.cmdInDay.Text = "&Xem thống kê";
+            this.cmdInDay.UseVisualStyleBackColor = true;
+            this.cmdInDay.Click += new System.EventHandler(this.cmdInDay_Click);
+            // 
+            // dtpFrom
+            // 
+            this.dtpFrom.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFrom.Location = new System.Drawing.Point(48, 12);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(132, 20);
+            this.dtpFrom.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Từ:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Đến:";
+            // 
+            // dtpTo
+            // 
+            this.dtpTo.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            this.dtpTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTo.Location = new System.Drawing.Point(48, 38);
+            this.dtpTo.Name = "dtpTo";
+            this.dtpTo.Size = new System.Drawing.Size(132, 20);
+            this.dtpTo.TabIndex = 3;
+            // 
+            // cmdPrint
+            // 
+            this.cmdPrint.Location = new System.Drawing.Point(281, 35);
+            this.cmdPrint.Name = "cmdPrint";
+            this.cmdPrint.Size = new System.Drawing.Size(89, 23);
+            this.cmdPrint.TabIndex = 7;
+            this.cmdPrint.Text = "&In thống kê";
+            this.cmdPrint.UseVisualStyleBackColor = true;
+            this.cmdPrint.Click += new System.EventHandler(this.cmdPdf_Click);
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(666, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(289, 43);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "THỐNG KÊ DOANH THU";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.Red;
+            this.lblTotal.Location = new System.Drawing.Point(477, 14);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(183, 43);
+            this.lblTotal.TabIndex = 8;
+            this.lblTotal.Text = "?";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // radIn
+            // 
+            this.radIn.AutoSize = true;
+            this.radIn.Location = new System.Drawing.Point(186, 12);
+            this.radIn.Name = "radIn";
+            this.radIn.Size = new System.Drawing.Size(71, 17);
+            this.radIn.TabIndex = 4;
+            this.radIn.Text = "Ngày vào";
+            this.radIn.UseVisualStyleBackColor = true;
+            // 
+            // radOut
+            // 
+            this.radOut.AutoSize = true;
+            this.radOut.Checked = true;
+            this.radOut.Location = new System.Drawing.Point(263, 12);
+            this.radOut.Name = "radOut";
+            this.radOut.Size = new System.Drawing.Size(62, 17);
+            this.radOut.TabIndex = 5;
+            this.radOut.TabStop = true;
+            this.radOut.Text = "Ngày ra";
+            this.radOut.UseVisualStyleBackColor = true;
+            // 
+            // cbbQuy
+            // 
+            this.cbbQuy.FormattingEnabled = true;
+            this.cbbQuy.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.cbbQuy.Location = new System.Drawing.Point(425, 14);
+            this.cbbQuy.Name = "cbbQuy";
+            this.cbbQuy.Size = new System.Drawing.Size(46, 21);
+            this.cbbQuy.TabIndex = 11;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(378, 17);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Quý:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(378, 39);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Tháng:";
+            // 
+            // cbbThang
+            // 
+            this.cbbThang.FormattingEnabled = true;
+            this.cbbThang.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"});
+            this.cbbThang.Location = new System.Drawing.Point(425, 36);
+            this.cbbThang.Name = "cbbThang";
+            this.cbbThang.Size = new System.Drawing.Size(46, 21);
+            this.cbbThang.TabIndex = 13;
             // 
             // FrmTkeGaa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 520);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbbThang);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbbQuy);
             this.Controls.Add(this.radOut);
             this.Controls.Add(this.radIn);
             this.Controls.Add(this.lblTotal);
@@ -413,5 +473,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMoney;
+        private System.Windows.Forms.ComboBox cbbQuy;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbbThang;
     }
 }

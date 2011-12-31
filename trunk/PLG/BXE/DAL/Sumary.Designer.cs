@@ -307,6 +307,10 @@ namespace BXE.DAL {
             
             private global::System.Data.DataColumn columnChair;
             
+            private global::System.Data.DataColumn columnPrice1;
+            
+            private global::System.Data.DataColumn columnPrice2;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -454,6 +458,22 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Price1Column {
+                get {
+                    return this.columnPrice1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Price2Column {
+                get {
+                    return this.columnPrice2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -489,7 +509,23 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RevenueRow AddRevenueRow(string No_, string AccIn, string AccOut, string Number, System.DateTime DateIn, System.DateTime DateOut, int Day, int Hour, decimal Money, string GroupName, string KindName, string Length, string Weight, string Chair) {
+            public RevenueRow AddRevenueRow(
+                        string No_, 
+                        string AccIn, 
+                        string AccOut, 
+                        string Number, 
+                        System.DateTime DateIn, 
+                        System.DateTime DateOut, 
+                        int Day, 
+                        int Hour, 
+                        decimal Money, 
+                        string GroupName, 
+                        string KindName, 
+                        string Length, 
+                        string Weight, 
+                        string Chair, 
+                        decimal Price1, 
+                        decimal Price2) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -505,7 +541,9 @@ namespace BXE.DAL {
                         KindName,
                         Length,
                         Weight,
-                        Chair};
+                        Chair,
+                        Price1,
+                        Price2};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -542,6 +580,8 @@ namespace BXE.DAL {
                 this.columnLength = base.Columns["Length"];
                 this.columnWeight = base.Columns["Weight"];
                 this.columnChair = base.Columns["Chair"];
+                this.columnPrice1 = base.Columns["Price1"];
+                this.columnPrice2 = base.Columns["Price2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -575,6 +615,10 @@ namespace BXE.DAL {
                 base.Columns.Add(this.columnWeight);
                 this.columnChair = new global::System.Data.DataColumn("Chair", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChair);
+                this.columnPrice1 = new global::System.Data.DataColumn("Price1", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice1);
+                this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice2);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -941,6 +985,38 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Price1 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRevenue.Price1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price1\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.Price1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Price2 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableRevenue.Price2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price2\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.Price2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNo_Null() {
                 return this.IsNull(this.tableRevenue.No_Column);
             }
@@ -1105,6 +1181,30 @@ namespace BXE.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetChairNull() {
                 this[this.tableRevenue.ChairColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrice1Null() {
+                return this.IsNull(this.tableRevenue.Price1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrice1Null() {
+                this[this.tableRevenue.Price1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrice2Null() {
+                return this.IsNull(this.tableRevenue.Price2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrice2Null() {
+                this[this.tableRevenue.Price2Column] = global::System.Convert.DBNull;
             }
         }
         

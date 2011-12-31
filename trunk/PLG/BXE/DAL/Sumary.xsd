@@ -29,6 +29,8 @@
               <xs:element name="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnPropNameInTable="LengthColumn" msprop:Generator_UserColumnName="Length" type="xs:string" minOccurs="0" />
               <xs:element name="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" msprop:Generator_UserColumnName="Weight" type="xs:string" minOccurs="0" />
               <xs:element name="Chair" msprop:Generator_ColumnVarNameInTable="columnChair" msprop:Generator_ColumnPropNameInRow="Chair" msprop:Generator_ColumnPropNameInTable="ChairColumn" msprop:Generator_UserColumnName="Chair" type="xs:string" minOccurs="0" />
+              <xs:element name="Price1" msprop:Generator_ColumnVarNameInTable="columnPrice1" msprop:Generator_ColumnPropNameInRow="Price1" msprop:Generator_ColumnPropNameInTable="Price1Column" msprop:Generator_UserColumnName="Price1" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Price2" msprop:Generator_ColumnVarNameInTable="columnPrice2" msprop:Generator_ColumnPropNameInRow="Price2" msprop:Generator_ColumnPropNameInTable="Price2Column" msprop:Generator_UserColumnName="Price2" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

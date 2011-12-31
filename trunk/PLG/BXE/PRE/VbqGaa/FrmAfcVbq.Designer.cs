@@ -200,7 +200,6 @@
             this.dgvAep.Size = new System.Drawing.Size(994, 518);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
-            this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellContentClick);
             this.dgvAep.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellLeave);
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAep_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
@@ -412,6 +411,7 @@
             this.mskTaxiNumber.Size = new System.Drawing.Size(148, 31);
             this.mskTaxiNumber.TabIndex = 0;
             this.mskTaxiNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskTaxiNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskTaxiNumber_Validating);
             // 
             // label17
             // 

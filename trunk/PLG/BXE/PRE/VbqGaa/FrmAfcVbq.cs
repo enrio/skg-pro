@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Collections.Generic;
 
 namespace BXE.PRE.VbqGaa
 {
@@ -49,9 +48,6 @@ namespace BXE.PRE.VbqGaa
 
         private DAL.Vehicle _currVehicle = new DAL.Vehicle();
         private int _currTabPageIndex;
-
-        private List<string> _listPreNumber = new List<string>();
-        private List<string> _listInNumber = new List<string>();
         #endregion
 
         #region Properties
@@ -140,6 +136,11 @@ namespace BXE.PRE.VbqGaa
                 lblDateIn.Visible = true;
                 tmrDongHo.Enabled = true;
             }
+        }
+
+        private void mskTaxiNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mskTaxiNumber.Text = ValidNumber(mskTaxiNumber.Text);
         }
 
         private void cmdEdit_Click(object sender, EventArgs e)
@@ -378,8 +379,6 @@ namespace BXE.PRE.VbqGaa
                     {
                         ClearText();
                         lblInf.Text = STR_ADD_SUC;
-
-                        _listPreNumber.Add(o.Number); // add number to list
                     }
                     else UTL.CsoUTL.Show(STR_IN_GATE);
                 }
@@ -416,7 +415,6 @@ namespace BXE.PRE.VbqGaa
                             {
                                 ClearText();
                                 lblInf.Text = STR_ADD_SUC;
-                                _listPreNumber.Add(ve.Number); // add number to list 
                             }
                             else UTL.CsoUTL.Show(STR_NO_SAVE);
                         }
@@ -432,23 +430,6 @@ namespace BXE.PRE.VbqGaa
             GetInMinute(); // load list vehicles in a minute            
         }
 
-        private void mskNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            _currVehicle.Number = _currVehicle.Number.ToUpper();
-
-            if (CheckExistsNumber())
-            {
-                lblInf.Text = STR_IN_MAG;
-                ShowDetail(_currVehicle.Number);
-            }
-            else lblInf.Text = null;
-        }
-
-        private void cbbKind_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void tmrDongHo_Tick(object sender, EventArgs e)
         {
             _sec++;
@@ -461,52 +442,6 @@ namespace BXE.PRE.VbqGaa
         }
 
         private void cmdRefresh_Click(object sender, EventArgs e) { GetInMinute(); }
-
-        private void cbbGroup_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //// Load list vehicles
-            //var grp = cbbGroup.SelectedValue;
-            //var dal = new DAL.KindDAL();
-            //cbbKind.DataSource = dal.GetData(grp);
-
-            //switch (grp + "")
-            //{
-            //    case "1":
-            //        mskWeight.Enabled = true;
-            //        mskLength.Enabled = true;
-            //        mskChair.Enabled = false;
-            //        mskChair.Text = null;
-            //        break;
-
-            //    case "2":
-            //        mskLength.Enabled = false;
-            //        mskWeight.Enabled = false;
-            //        mskWeight.Text = null;
-            //        mskChair.Enabled = true;
-            //        break;
-
-            //    case "4":
-            //        mskWeight.Enabled = false;
-            //        mskLength.Enabled = false;
-            //        mskChair.Enabled = false;
-            //        break;
-
-            //    case "5":
-            //        mskLength.Enabled = false;
-            //        mskWeight.Enabled = false;
-            //        mskWeight.Text = null;
-            //        mskChair.Enabled = true;
-            //        break;
-
-            //    default:
-            //        mskLength.Enabled = false;
-            //        mskWeight.Enabled = false;
-            //        mskWeight.Text = null;
-            //        mskChair.Enabled = false;
-            //        mskChair.Text = null;
-            //        break;
-            //}
-        }
 
         private void dgvAep_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -552,11 +487,6 @@ namespace BXE.PRE.VbqGaa
             {
                 x.ShowDialog();
             }
-        }
-
-        private void dgvAep_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void cmdDelete_Click(object sender, EventArgs e)
@@ -720,6 +650,9 @@ namespace BXE.PRE.VbqGaa
                             case 5: // medium
                                 _currTabPageIndex = 4;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
+                                break;
+
+                            default:
                                 break;
                         }
                     }
@@ -932,6 +865,20 @@ namespace BXE.PRE.VbqGaa
                 default:
                     break;
             }
+        }
+
+        private string ValidNumber(string txt)
+        {
+            txt = txt.ToUpper();
+
+            if (CheckExistsNumber(txt))
+            {
+                lblInf.Text = STR_IN_MAG;
+                ShowDetail(txt);
+            }
+            else lblInf.Text = null;
+
+            return txt;
         }
         #endregion
 

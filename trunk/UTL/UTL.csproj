@@ -74,6 +74,7 @@
       <DependentUpon>FrmBauVlv.cs</DependentUpon>
     </Compile>
     <Compile Include="HSH\WinDow.cs" />
+    <Compile Include="ICA\CsoICA.cs" />
     <Compile Include="ItfAjf.cs" />
     <Compile Include="CsoInf.cs" />
     <Compile Include="PLG\CsoPLG.cs" />

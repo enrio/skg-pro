@@ -129,21 +129,34 @@ namespace BXE.PRE.YhwCcn
 
         private void cbbQuy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string tmp = cbbThang.Text.Trim();
+            if (tmp != "")
+            {
+                int y = _dal.CurrentTime().Value.Year;
+                int m = Convert.ToInt32(tmp);
 
+                var fr = new DateTime(y, m, 1);
+                var to = new DateTime(y, m + 3, DateTime.DaysInMonth(y, m), 23, 59, 59);
+
+                dtpFrom.Value = fr;
+                dtpTo.Value = to;
+            }
         }
 
         private void cbbThang_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tmp = cbbThang.SelectedValue.ToString();
-            int y = _dal.CurrentTime().Value.Year;
-            int m = Convert.ToInt32(tmp);
+            string tmp = cbbThang.Text.Trim();
+            if (tmp != "")
+            {
+                int y = _dal.CurrentTime().Value.Year;
+                int m = Convert.ToInt32(tmp);
 
-            var fr = new DateTime(y, m, 1);
-            var to = new DateTime(y, m, DateTime.DaysInMonth(y, m));
+                var fr = new DateTime(y, m, 1);
+                var to = new DateTime(y, m, DateTime.DaysInMonth(y, m), 23, 59, 59);
 
-            dtpFrom.Value = fr;
-            dtpTo.Value = to;
-
+                dtpFrom.Value = fr;
+                dtpTo.Value = to;
+            }
         }
     }
 }

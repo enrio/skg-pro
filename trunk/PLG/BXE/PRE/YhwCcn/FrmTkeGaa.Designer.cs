@@ -95,7 +95,7 @@
             this.dgvAep.ReadOnly = true;
             this.dgvAep.Size = new System.Drawing.Size(940, 444);
             this.dgvAep.TabIndex = 10;
-            this.dgvAep.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMain_CellContentClick);
+            
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvMain_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
             // 

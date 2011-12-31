@@ -56,11 +56,10 @@ namespace BXE.PRE.YhwCcn
 
         private void MakCodDate(out DateTime fr, out DateTime to)
         {
-            int d = 0, m = 0, y = 0;
+            int y = dtpFrom.Value.Year;
+            int d = dtpFrom.Value.Day;
+            int m = dtpFrom.Value.Month;
 
-            d = dtpFrom.Value.Day;
-            m = dtpFrom.Value.Month;
-            y = dtpFrom.Value.Year;
             fr = new DateTime(y, m, d, 0, 0, 0);
 
             d = dtpTo.Value.Day;
@@ -72,10 +71,6 @@ namespace BXE.PRE.YhwCcn
         private void LoadTke()
         {
             dgvAep.DataSource = _dal.ThongKe();
-        }
-
-        private void dgvMain_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
         }
 
         private void dgvMain_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -102,6 +97,8 @@ namespace BXE.PRE.YhwCcn
                 MakCodDate(out fr, out to);
                 x.Fr = fr;
                 x.To = to;
+                if (cbbQuy.Text != "") x.Quarter = String.Format("Quý {0} năm {1}", cbbQuy.Text, fr.Year);
+                else x.Quarter = "";
 
                 if (radIn.Checked) x.IsOut = false;
                 if (radOut.Checked) x.IsOut = true;

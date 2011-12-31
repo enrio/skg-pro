@@ -1245,7 +1245,7 @@
                               <Value>=Sum(Fields!Money.Value)</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>#,0 'VND';(#,0 'VND');'-'</Format>
+                                <Format>#,0;(#,0);'-'</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1365,7 +1365,7 @@
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>#,0;(#,0);'-'</Format>
+                                <Format>#,0 'VND';(#,0 'VND');'-'</Format>
                                 <TextDecoration>None</TextDecoration>
                                 <Color>#ff0000</Color>
                               </Style>

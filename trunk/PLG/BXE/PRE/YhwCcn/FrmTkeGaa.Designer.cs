@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAep = new System.Windows.Forms.DataGridView();
             this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -102,9 +102,9 @@
             // colNo_
             // 
             this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle13;
             this.colNo_.HeaderText = "TT";
             this.colNo_.Name = "colNo_";
             this.colNo_.ReadOnly = true;
@@ -200,9 +200,9 @@
             // 
             this.colDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
             this.colDays.DataPropertyName = "Day";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.NullValue = null;
-            this.colDays.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.NullValue = null;
+            this.colDays.DefaultCellStyle = dataGridViewCellStyle14;
             this.colDays.HeaderText = "Ngày đậu";
             this.colDays.Name = "colDays";
             this.colDays.ReadOnly = true;
@@ -212,8 +212,8 @@
             // 
             this.colHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
             this.colHour.DataPropertyName = "Hour";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colHour.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colHour.DefaultCellStyle = dataGridViewCellStyle15;
             this.colHour.HeaderText = "Giờ đậu";
             this.colHour.Name = "colHour";
             this.colHour.ReadOnly = true;
@@ -223,10 +223,10 @@
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colPrice.DataPropertyName = "Price1";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,### \"VNĐ\"";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Format = "#,### \"VNĐ\"";
+            dataGridViewCellStyle16.NullValue = null;
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle16;
             this.colPrice.HeaderText = "ĐG nửa ngày";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
@@ -236,9 +236,9 @@
             // 
             this.colPrice2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colPrice2.DataPropertyName = "Price2";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,### \"VNĐ\"";
-            this.colPrice2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Format = "#,### \"VNĐ\"";
+            this.colPrice2.DefaultCellStyle = dataGridViewCellStyle17;
             this.colPrice2.HeaderText = "ĐG một ngày";
             this.colPrice2.Name = "colPrice2";
             this.colPrice2.ReadOnly = true;
@@ -248,10 +248,10 @@
             // 
             this.colMoney.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colMoney.DataPropertyName = "Money";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "#,### \"VNĐ\"";
-            dataGridViewCellStyle6.NullValue = null;
-            this.colMoney.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.Format = "#,### \"VNĐ\"";
+            dataGridViewCellStyle18.NullValue = null;
+            this.colMoney.DefaultCellStyle = dataGridViewCellStyle18;
             this.colMoney.HeaderText = "Thành tiền";
             this.colMoney.Name = "colMoney";
             this.colMoney.ReadOnly = true;
@@ -371,6 +371,7 @@
             this.cbbQuy.Name = "cbbQuy";
             this.cbbQuy.Size = new System.Drawing.Size(46, 21);
             this.cbbQuy.TabIndex = 11;
+            this.cbbQuy.SelectedIndexChanged += new System.EventHandler(this.cbbQuy_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -410,6 +411,7 @@
             this.cbbThang.Name = "cbbThang";
             this.cbbThang.Size = new System.Drawing.Size(46, 21);
             this.cbbThang.TabIndex = 13;
+            this.cbbThang.SelectedIndexChanged += new System.EventHandler(this.cbbThang_SelectedIndexChanged);
             // 
             // FrmTkeGaa
             // 

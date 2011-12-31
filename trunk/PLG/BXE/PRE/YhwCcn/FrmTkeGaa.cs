@@ -126,5 +126,24 @@ namespace BXE.PRE.YhwCcn
         {
             Stt();
         }
+
+        private void cbbQuy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbThang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string tmp = cbbThang.SelectedValue.ToString();
+            int y = _dal.CurrentTime().Value.Year;
+            int m = Convert.ToInt32(tmp);
+
+            var fr = new DateTime(y, m, 1);
+            var to = new DateTime(y, m, DateTime.DaysInMonth(y, m));
+
+            dtpFrom.Value = fr;
+            dtpTo.Value = to;
+
+        }
     }
 }

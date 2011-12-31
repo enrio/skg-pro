@@ -7,6 +7,9 @@ namespace UTL
         #region Contansts
         #endregion
 
+        #region Enums
+        #endregion
+
         #region Default objects
         #endregion
 

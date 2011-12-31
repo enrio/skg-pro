@@ -130,6 +130,8 @@ namespace BXE.PRE.YhwCcn
         private void cbbQuy_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tmp = cbbQuy.Text.Trim();
+            cbbThang.Text = "";
+
             if (tmp != "")
             {
                 int y = _dal.CurrentTime().Value.Year;
@@ -146,6 +148,8 @@ namespace BXE.PRE.YhwCcn
         private void cbbThang_SelectedIndexChanged(object sender, EventArgs e)
         {
             string tmp = cbbThang.Text.Trim();
+            cbbQuy.Text = "";
+
             if (tmp != "")
             {
                 int y = _dal.CurrentTime().Value.Year;

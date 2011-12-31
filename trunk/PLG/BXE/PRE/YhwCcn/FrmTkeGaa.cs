@@ -66,7 +66,7 @@ namespace BXE.PRE.YhwCcn
             d = dtpTo.Value.Day;
             m = dtpTo.Value.Month;
             y = dtpTo.Value.Year;
-            to = new DateTime(y, m, d, 23, 59, 59);
+            to = new DateTime(y, m, d, 23, 59, 59, 999);
         }
 
         private void LoadTke()
@@ -129,14 +129,14 @@ namespace BXE.PRE.YhwCcn
 
         private void cbbQuy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tmp = cbbThang.Text.Trim();
+            string tmp = cbbQuy.Text.Trim();
             if (tmp != "")
             {
                 int y = _dal.CurrentTime().Value.Year;
                 int m = Convert.ToInt32(tmp);
 
-                var fr = new DateTime(y, m, 1);
-                var to = new DateTime(y, m + 3, DateTime.DaysInMonth(y, m), 23, 59, 59);
+                var fr = UTL.ICA.CsoICA.GetStartOfQuarter(y, (UTL.ICA.CsoICA.Quarter)m);
+                var to = UTL.ICA.CsoICA.GetEndOfQuarter(y, (UTL.ICA.CsoICA.Quarter)m);
 
                 dtpFrom.Value = fr;
                 dtpTo.Value = to;
@@ -152,7 +152,7 @@ namespace BXE.PRE.YhwCcn
                 int m = Convert.ToInt32(tmp);
 
                 var fr = new DateTime(y, m, 1);
-                var to = new DateTime(y, m, DateTime.DaysInMonth(y, m), 23, 59, 59);
+                var to = new DateTime(y, m, DateTime.DaysInMonth(y, m), 23, 59, 59, 999);
 
                 dtpFrom.Value = fr;
                 dtpTo.Value = to;

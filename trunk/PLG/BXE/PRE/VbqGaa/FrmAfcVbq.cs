@@ -95,7 +95,7 @@ namespace BXE.PRE.VbqGaa
             cmdIn.Enabled = true;
             cmdEdit.Enabled = false;
             cmdDelete.Enabled = false;
-            ClearText();
+            //ClearText();
         }
 
         private void FrmAfcVbq_Load(object sender, EventArgs e)

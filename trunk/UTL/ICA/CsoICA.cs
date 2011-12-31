@@ -2,16 +2,23 @@
 
 namespace UTL.ICA
 {
+    /// <summary>
+    /// Base class for manupulating date & time
+    /// </summary>
     public class CsoICA
     {
-        public enum Quarter
-        {
-            First = 1,
-            Second = 2,
-            Third = 3,
-            Fourth = 4
-        }
+        #region Contansts
+        #endregion
 
+        #region Enums
+        /// <summary>
+        /// Enums of quarter
+        /// </summary>
+        public enum Quarter { First = 1, Second = 2, Third = 3, Fourth = 4 }
+
+        /// <summary>
+        /// Enums of month
+        /// </summary>
         public enum Month
         {
             January = 1,
@@ -27,47 +34,85 @@ namespace UTL.ICA
             November = 11,
             December = 12
         }
+        #endregion
 
+        #region Default objects
+        #endregion
+
+        #region More objects
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Implements
+        #endregion
+
+        #region Constructors
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Methods
         #region Quarters
-        public static DateTime GetStartOfQuarter(int Year, Quarter Qtr)
+        /// <summary>
+        /// Get start of quarter
+        /// </summary>
+        /// <param name="year">year</param>
+        /// <param name="qtr">quater</param>
+        /// <returns>date first of quarter</returns>
+        public static DateTime GetStartOfQuarter(int year, Quarter qtr)
         {
-            if (Qtr == Quarter.First) // 1st Quarter = January 1 to March 31
-                return new DateTime(Year, 1, 1, 0, 0, 0, 0);
+            if (qtr == Quarter.First) // 1st Quarter = January 1 to March 31
+                return new DateTime(year, 1, 1, 0, 0, 0, 0);
 
-            else if (Qtr == Quarter.Second) // 2nd Quarter = April 1 to June 30
-                return new DateTime(Year, 4, 1, 0, 0, 0, 0);
+            else if (qtr == Quarter.Second) // 2nd Quarter = April 1 to June 30
+                return new DateTime(year, 4, 1, 0, 0, 0, 0);
 
-            else if (Qtr == Quarter.Third) // 3rd Quarter = July 1 to September 30
-                return new DateTime(Year, 7, 1, 0, 0, 0, 0);
+            else if (qtr == Quarter.Third) // 3rd Quarter = July 1 to September 30
+                return new DateTime(year, 7, 1, 0, 0, 0, 0);
 
             else // 4th Quarter = October 1 to December 31
-                return new DateTime(Year, 10, 1, 0, 0, 0, 0);
+                return new DateTime(year, 10, 1, 0, 0, 0, 0);
         }
 
-        public static DateTime GetEndOfQuarter(int Year, Quarter Qtr)
+
+        /// <summary>
+        /// Get end of quarter
+        /// </summary>
+        /// <param name="year">year</param>
+        /// <param name="qtr">quater</param>
+        /// <returns>date end of quarter</returns>
+        public static DateTime GetEndOfQuarter(int year, Quarter qtr)
         {
-            if (Qtr == Quarter.First) // 1st Quarter = January 1 to March 31
-                return new DateTime(Year, 3, DateTime.DaysInMonth(Year, 3), 23, 59, 59, 999);
+            if (qtr == Quarter.First) // 1st Quarter = January 1 to March 31
+                return new DateTime(year, 3, DateTime.DaysInMonth(year, 3), 23, 59, 59, 999);
 
-            else if (Qtr == Quarter.Second) // 2nd Quarter = April 1 to June 30
-                return new DateTime(Year, 6, DateTime.DaysInMonth(Year, 6), 23, 59, 59, 999);
+            else if (qtr == Quarter.Second) // 2nd Quarter = April 1 to June 30
+                return new DateTime(year, 6, DateTime.DaysInMonth(year, 6), 23, 59, 59, 999);
 
-            else if (Qtr == Quarter.Third) // 3rd Quarter = July 1 to September 30
-                return new DateTime(Year, 9, DateTime.DaysInMonth(Year, 9), 23, 59, 59, 999);
+            else if (qtr == Quarter.Third) // 3rd Quarter = July 1 to September 30
+                return new DateTime(year, 9, DateTime.DaysInMonth(year, 9), 23, 59, 59, 999);
 
             else // 4th Quarter = October 1 to December 31
-                return new DateTime(Year, 12, DateTime.DaysInMonth(Year, 12), 23, 59, 59, 999);
+                return new DateTime(year, 12, DateTime.DaysInMonth(year, 12), 23, 59, 59, 999);
         }
 
-        public static Quarter GetQuarter(Month Month)
+        /// <summary>
+        /// Get quarter
+        /// </summary>
+        /// <param name="month">month</param>
+        /// <returns>quarter of year</returns>
+        public static Quarter GetQuarter(Month month)
         {
-            if (Month <= Month.March) // 1st Quarter = January 1 to March 31
+            if (month <= Month.March) // 1st Quarter = January 1 to March 31
                 return Quarter.First;
 
-            else if ((Month >= Month.April) && (Month <= Month.June)) // 2nd Quarter = April 1 to June 30
+            else if ((month >= Month.April) && (month <= Month.June)) // 2nd Quarter = April 1 to June 30
                 return Quarter.Second;
 
-            else if ((Month >= Month.July) && (Month <= Month.September)) // 3rd Quarter = July 1 to September 30
+            else if ((month >= Month.July) && (month <= Month.September)) // 3rd Quarter = July 1 to September 30
                 return Quarter.Third;
 
             else // 4th Quarter = October 1 to December 31
@@ -213,6 +258,10 @@ namespace UTL.ICA
         {
             return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
         }
+        #endregion
+        #endregion
+
+        #region More
         #endregion
     }
 }

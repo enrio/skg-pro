@@ -143,6 +143,26 @@ namespace BXE.PRE.VbqGaa
             mskTaxiNumber.Text = ValidNumber(mskTaxiNumber.Text);
         }
 
+        private void mskThreeNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mskThreeNumber.Text = ValidNumber(mskThreeNumber.Text);
+        }
+
+        private void mskTruckNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mskTruckNumber.Text = ValidNumber(mskTruckNumber.Text);
+        }
+
+        private void mskCarNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mskCarNumber.Text = ValidNumber(mskCarNumber.Text);
+        }
+
+        private void mskMediumNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            mskMediumNumber.Text = ValidNumber(mskMediumNumber.Text);
+        }
+
         private void cmdEdit_Click(object sender, EventArgs e)
         {
             GetCurrObj(_currTabPageIndex);

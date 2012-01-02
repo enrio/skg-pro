@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.lblAccInName = new System.Windows.Forms.Label();
@@ -169,14 +169,14 @@
             // 
             this.dgvAep.AllowUserToAddRows = false;
             this.dgvAep.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -195,8 +195,8 @@
             this.dgvAep.Location = new System.Drawing.Point(12, 214);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvAep.Size = new System.Drawing.Size(994, 518);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
@@ -216,9 +216,9 @@
             // colNo_
             // 
             this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle11;
             this.colNo_.HeaderText = "TT";
             this.colNo_.Name = "colNo_";
             this.colNo_.ReadOnly = true;
@@ -445,6 +445,7 @@
             this.mskThreeNumber.Size = new System.Drawing.Size(148, 31);
             this.mskThreeNumber.TabIndex = 0;
             this.mskThreeNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskThreeNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskThreeNumber_Validating);
             // 
             // label4
             // 
@@ -526,6 +527,7 @@
             this.mskTruckNumber.Size = new System.Drawing.Size(148, 31);
             this.mskTruckNumber.TabIndex = 1;
             this.mskTruckNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskTruckNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskTruckNumber_Validating);
             // 
             // label8
             // 
@@ -609,6 +611,7 @@
             this.mskCarNumber.Size = new System.Drawing.Size(148, 31);
             this.mskCarNumber.TabIndex = 1;
             this.mskCarNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskCarNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskCarNumber_Validating);
             // 
             // label11
             // 
@@ -644,6 +647,7 @@
             this.mskMediumNumber.Size = new System.Drawing.Size(148, 31);
             this.mskMediumNumber.TabIndex = 0;
             this.mskMediumNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskMediumNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskMediumNumber_Validating);
             // 
             // label16
             // 

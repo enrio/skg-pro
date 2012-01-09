@@ -86,7 +86,7 @@ namespace BXE.PRE.VbqGaa
 
                 var dal = new DAL.DetailDAL();
                 var tb = dal.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, isOut);
-                
+
                 if (tb == null) return;
 
                 if (tb.Rows.Count > 0)
@@ -164,7 +164,9 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdRedo_Click(object sender, EventArgs e)
         {
-            using (var x = new FrmAfcVbq())
+            cmdOut.Enabled = false;
+            ClearText();
+            /*using (var x = new FrmAfcVbq())
             {
                 x.EditNumber = cbbNumber.Text;
                 x.EditMode = false;
@@ -172,7 +174,7 @@ namespace BXE.PRE.VbqGaa
                 x.EditNumber = null;
                 x.EditMode = true;
                 LoadData();
-            }
+            }*/
         }
 
         private void ClearText()
@@ -202,7 +204,5 @@ namespace BXE.PRE.VbqGaa
         {
             if (e.KeyCode == Keys.Enter) { Invoice(); }
         }
-
-        private void cmdRefresh_Click(object sender, EventArgs e) { Reset(); }
     }
 }

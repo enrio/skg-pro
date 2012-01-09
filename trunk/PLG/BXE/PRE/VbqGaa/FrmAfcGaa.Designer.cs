@@ -64,7 +64,6 @@
             this.cmdOut = new System.Windows.Forms.Button();
             this.lblInf = new System.Windows.Forms.Label();
             this.cmdInList = new System.Windows.Forms.Button();
-            this.cmdRefresh = new System.Windows.Forms.Button();
             this.tblAep.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -137,7 +136,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(358, 365);
+            this.cmdClose.Location = new System.Drawing.Point(289, 365);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(63, 81);
             this.cmdClose.TabIndex = 33;
@@ -515,9 +514,9 @@
             this.lblInf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(427, 364);
+            this.lblInf.Location = new System.Drawing.Point(360, 364);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(332, 82);
+            this.lblInf.Size = new System.Drawing.Size(399, 82);
             this.lblInf.TabIndex = 34;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -533,23 +532,11 @@
             this.cmdInList.UseVisualStyleBackColor = true;
             this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
-            // cmdRefresh
-            // 
-            this.cmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRefresh.Location = new System.Drawing.Point(289, 365);
-            this.cmdRefresh.Name = "cmdRefresh";
-            this.cmdRefresh.Size = new System.Drawing.Size(63, 81);
-            this.cmdRefresh.TabIndex = 32;
-            this.cmdRefresh.Text = "&Cập nhật";
-            this.cmdRefresh.UseVisualStyleBackColor = true;
-            this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
-            // 
             // FrmAfcGaa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(771, 463);
-            this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.cmdInList);
             this.Controls.Add(this.lblInf);
             this.Controls.Add(this.cmdOut);
@@ -607,6 +594,5 @@
         private System.Windows.Forms.Label lblAccOut;
         private System.Windows.Forms.Label lblInf;
         private System.Windows.Forms.Button cmdInList;
-        private System.Windows.Forms.Button cmdRefresh;
     }
 }

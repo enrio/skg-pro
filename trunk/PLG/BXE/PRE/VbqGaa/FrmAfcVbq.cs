@@ -459,9 +459,7 @@ namespace BXE.PRE.VbqGaa
                 _sec = 0;
             }
             if (_sss.Current != null) lblDateIn.Text = _sss.Current.Value.ToString(STR_DMY);
-        }
-
-        private void cmdRefresh_Click(object sender, EventArgs e) { GetInMinute(); }
+        }        
 
         private void dgvAep_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {

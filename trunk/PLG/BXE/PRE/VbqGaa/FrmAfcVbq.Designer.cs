@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tmrDongHo = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.lblAccInName = new System.Windows.Forms.Label();
@@ -57,7 +57,6 @@
             this.cmdInList = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
             this.lblInf = new System.Windows.Forms.Label();
-            this.cmdRefresh = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.mskTaxiNumber = new System.Windows.Forms.MaskedTextBox();
@@ -146,7 +145,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(576, 160);
+            this.cmdClose.Location = new System.Drawing.Point(482, 160);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 48);
             this.cmdClose.TabIndex = 9;
@@ -169,14 +168,14 @@
             // 
             this.dgvAep.AllowUserToAddRows = false;
             this.dgvAep.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAep.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAep.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colId,
@@ -195,8 +194,8 @@
             this.dgvAep.Location = new System.Drawing.Point(12, 214);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAep.Size = new System.Drawing.Size(994, 518);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
@@ -216,9 +215,9 @@
             // colNo_
             // 
             this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
             this.colNo_.HeaderText = "TT";
             this.colNo_.Name = "colNo_";
             this.colNo_.ReadOnly = true;
@@ -358,23 +357,12 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(670, 160);
+            this.lblInf.Location = new System.Drawing.Point(576, 160);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(336, 48);
+            this.lblInf.Size = new System.Drawing.Size(430, 48);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmdRefresh
-            // 
-            this.cmdRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRefresh.Location = new System.Drawing.Point(388, 160);
-            this.cmdRefresh.Name = "cmdRefresh";
-            this.cmdRefresh.Size = new System.Drawing.Size(88, 48);
-            this.cmdRefresh.TabIndex = 7;
-            this.cmdRefresh.Text = "&Cập nhật";
-            this.cmdRefresh.UseVisualStyleBackColor = true;
-            this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
             // 
             // tabControl1
             // 
@@ -696,7 +684,7 @@
             // cmdHand
             // 
             this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHand.Location = new System.Drawing.Point(482, 160);
+            this.cmdHand.Location = new System.Drawing.Point(388, 160);
             this.cmdHand.Name = "cmdHand";
             this.cmdHand.Size = new System.Drawing.Size(88, 48);
             this.cmdHand.TabIndex = 8;
@@ -726,7 +714,6 @@
             this.Controls.Add(this.dtpDateIn);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblAccInName);
-            this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblDateIn);
             this.Controls.Add(this.lblInf);
@@ -774,7 +761,6 @@
         private System.Windows.Forms.Button cmdInList;
         private System.Windows.Forms.Button cmdDelete;
         private System.Windows.Forms.Label lblInf;
-        private System.Windows.Forms.Button cmdRefresh;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

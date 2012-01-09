@@ -138,6 +138,7 @@ namespace BXE.PRE.VbqGaa
             }
         }
 
+        #region Valid number
         private void mskTaxiNumber_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             mskTaxiNumber.Text = ValidNumber(mskTaxiNumber.Text);
@@ -162,6 +163,7 @@ namespace BXE.PRE.VbqGaa
         {
             mskMediumNumber.Text = ValidNumber(mskMediumNumber.Text);
         }
+        #endregion
 
         private void cmdEdit_Click(object sender, EventArgs e)
         {

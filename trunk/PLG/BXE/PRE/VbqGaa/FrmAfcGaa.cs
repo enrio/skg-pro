@@ -83,7 +83,10 @@ namespace BXE.PRE.VbqGaa
 
                 decimal money = 0, price1 = 0, price2 = 0;
                 int day = 0, hour = 0;
-                var tb = _dal.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, isOut);
+
+                var dal = new DAL.DetailDAL();
+                var tb = dal.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, isOut);
+                
                 if (tb == null) return;
 
                 if (tb.Rows.Count > 0)

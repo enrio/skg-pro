@@ -196,7 +196,7 @@ namespace BXE.PRE.VbqGaa
             using (var x = new YhwCcn.FrmAhvBdd()) { x.ShowDialog(); }
         }
 
-        private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e) { Invoice(); }
+        private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e) { cmdOut.Enabled = false; Invoice(); }
 
         private void cbbNumber_KeyDown(object sender, KeyEventArgs e)
         {

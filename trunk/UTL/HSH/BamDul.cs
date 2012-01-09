@@ -121,6 +121,7 @@ namespace UTL.HSH
 
         public static bool isLincense(string key)
         {
+            return true;
 #if DEBUG
             return true;
 #else

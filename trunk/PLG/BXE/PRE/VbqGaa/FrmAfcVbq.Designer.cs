@@ -86,6 +86,7 @@
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmdHand = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -103,7 +104,7 @@
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label7.Location = new System.Drawing.Point(12, 132);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(162, 41);
@@ -113,17 +114,20 @@
             // 
             // lblAccInName
             // 
+            this.lblAccInName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblAccInName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAccInName.ForeColor = System.Drawing.Color.Black;
             this.lblAccInName.Location = new System.Drawing.Point(592, 132);
             this.lblAccInName.Name = "lblAccInName";
             this.lblAccInName.Size = new System.Drawing.Size(414, 41);
             this.lblAccInName.TabIndex = 16;
             this.lblAccInName.Text = "?";
-            this.lblAccInName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAccInName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblDateIn
             // 
             this.lblDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateIn.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblDateIn.Location = new System.Drawing.Point(179, 132);
             this.lblDateIn.Name = "lblDateIn";
             this.lblDateIn.Size = new System.Drawing.Size(231, 41);
@@ -134,7 +138,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Location = new System.Drawing.Point(416, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 41);
@@ -145,7 +149,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(510, 176);
+            this.cmdClose.Location = new System.Drawing.Point(548, 176);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 32);
             this.cmdClose.TabIndex = 9;
@@ -191,12 +195,12 @@
             this.colLength,
             this.colWeight,
             this.colChair});
-            this.dgvAep.Location = new System.Drawing.Point(12, 214);
+            this.dgvAep.Location = new System.Drawing.Point(12, 252);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvAep.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvAep.Size = new System.Drawing.Size(994, 518);
+            this.dgvAep.Size = new System.Drawing.Size(994, 480);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellClick);
             this.dgvAep.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAep_CellLeave);
@@ -357,9 +361,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(604, 176);
+            this.lblInf.Location = new System.Drawing.Point(642, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(402, 32);
+            this.lblInf.Size = new System.Drawing.Size(364, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -686,7 +690,7 @@
             this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdHand.Location = new System.Drawing.Point(416, 176);
             this.cmdHand.Name = "cmdHand";
-            this.cmdHand.Size = new System.Drawing.Size(88, 32);
+            this.cmdHand.Size = new System.Drawing.Size(126, 32);
             this.cmdHand.TabIndex = 8;
             this.cmdHand.Text = "&Nhập bằng tay";
             this.cmdHand.UseVisualStyleBackColor = true;
@@ -695,7 +699,7 @@
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(833, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(173, 117);
@@ -703,12 +707,24 @@
             this.label3.Text = "CỔNG VÀO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(12, 211);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(994, 38);
+            this.label6.TabIndex = 26;
+            this.label6.Text = "DANH SÁCH XE CHO VÀO BẾN";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmAfcVbq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 744);
             this.ControlBox = false;
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmdHand);
             this.Controls.Add(this.dtpDateIn);
@@ -803,5 +819,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
     }
 }

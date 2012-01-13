@@ -126,6 +126,7 @@ namespace BXE.PRE.VbqGaa
             {
                 dtpDateIn.Visible = true;
                 dtpDateIn.Location = lblDateIn.Location;
+                dtpDateIn.Top += (41-26)/2;
                 lblDateIn.Visible = false;
                 tmrDongHo.Enabled = false;
                 _sss.Current = dtpDateIn.Value;

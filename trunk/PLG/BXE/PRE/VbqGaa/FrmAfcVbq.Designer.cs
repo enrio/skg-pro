@@ -104,9 +104,9 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(11, 132);
+            this.label7.Location = new System.Drawing.Point(12, 132);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 25);
+            this.label7.Size = new System.Drawing.Size(162, 41);
             this.label7.TabIndex = 13;
             this.label7.Text = "Thời gian vào:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -116,7 +116,7 @@
             this.lblAccInName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccInName.Location = new System.Drawing.Point(592, 132);
             this.lblAccInName.Name = "lblAccInName";
-            this.lblAccInName.Size = new System.Drawing.Size(414, 25);
+            this.lblAccInName.Size = new System.Drawing.Size(414, 41);
             this.lblAccInName.TabIndex = 16;
             this.lblAccInName.Text = "?";
             this.lblAccInName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -126,7 +126,7 @@
             this.lblDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateIn.Location = new System.Drawing.Point(179, 132);
             this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(231, 25);
+            this.lblDateIn.Size = new System.Drawing.Size(231, 41);
             this.lblDateIn.TabIndex = 14;
             this.lblDateIn.Text = "?";
             this.lblDateIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,17 +137,17 @@
             this.label2.ForeColor = System.Drawing.Color.Gray;
             this.label2.Location = new System.Drawing.Point(416, 132);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 25);
+            this.label2.Size = new System.Drawing.Size(170, 41);
             this.label2.TabIndex = 15;
             this.label2.Text = "Người cho vào:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdClose
             // 
-            this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(482, 160);
+            this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdClose.Location = new System.Drawing.Point(510, 176);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(88, 48);
+            this.cmdClose.Size = new System.Drawing.Size(88, 32);
             this.cmdClose.TabIndex = 9;
             this.cmdClose.Text = "Đó&ng";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -155,10 +155,10 @@
             // 
             // cmdIn
             // 
-            this.cmdIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdIn.Location = new System.Drawing.Point(12, 160);
+            this.cmdIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdIn.Location = new System.Drawing.Point(12, 176);
             this.cmdIn.Name = "cmdIn";
-            this.cmdIn.Size = new System.Drawing.Size(88, 48);
+            this.cmdIn.Size = new System.Drawing.Size(88, 32);
             this.cmdIn.TabIndex = 3;
             this.cmdIn.Text = "&Cho vào";
             this.cmdIn.UseVisualStyleBackColor = true;
@@ -321,10 +321,10 @@
             // cmdEdit
             // 
             this.cmdEdit.Enabled = false;
-            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEdit.Location = new System.Drawing.Point(106, 160);
+            this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdEdit.Location = new System.Drawing.Point(106, 176);
             this.cmdEdit.Name = "cmdEdit";
-            this.cmdEdit.Size = new System.Drawing.Size(88, 48);
+            this.cmdEdit.Size = new System.Drawing.Size(88, 32);
             this.cmdEdit.TabIndex = 4;
             this.cmdEdit.Text = "&Sửa";
             this.cmdEdit.UseVisualStyleBackColor = true;
@@ -332,10 +332,10 @@
             // 
             // cmdInList
             // 
-            this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Location = new System.Drawing.Point(294, 160);
+            this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdInList.Location = new System.Drawing.Point(294, 176);
             this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(88, 48);
+            this.cmdInList.Size = new System.Drawing.Size(116, 32);
             this.cmdInList.TabIndex = 6;
             this.cmdInList.Text = "Xe trong &bến";
             this.cmdInList.UseVisualStyleBackColor = true;
@@ -344,10 +344,10 @@
             // cmdDelete
             // 
             this.cmdDelete.Enabled = false;
-            this.cmdDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDelete.Location = new System.Drawing.Point(200, 160);
+            this.cmdDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDelete.Location = new System.Drawing.Point(200, 176);
             this.cmdDelete.Name = "cmdDelete";
-            this.cmdDelete.Size = new System.Drawing.Size(88, 48);
+            this.cmdDelete.Size = new System.Drawing.Size(88, 32);
             this.cmdDelete.TabIndex = 5;
             this.cmdDelete.Text = "&Xoá";
             this.cmdDelete.UseVisualStyleBackColor = true;
@@ -357,9 +357,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(576, 160);
+            this.lblInf.Location = new System.Drawing.Point(604, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(430, 48);
+            this.lblInf.Size = new System.Drawing.Size(402, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -375,7 +375,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(814, 117);
+            this.tabControl1.Size = new System.Drawing.Size(819, 117);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -386,7 +386,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(806, 84);
+            this.tabPage1.Size = new System.Drawing.Size(811, 84);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "TAXI VÃNG LAI";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -683,10 +683,10 @@
             // 
             // cmdHand
             // 
-            this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHand.Location = new System.Drawing.Point(388, 160);
+            this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdHand.Location = new System.Drawing.Point(416, 176);
             this.cmdHand.Name = "cmdHand";
-            this.cmdHand.Size = new System.Drawing.Size(88, 48);
+            this.cmdHand.Size = new System.Drawing.Size(88, 32);
             this.cmdHand.TabIndex = 8;
             this.cmdHand.Text = "&Nhập bằng tay";
             this.cmdHand.UseVisualStyleBackColor = true;
@@ -696,9 +696,9 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Location = new System.Drawing.Point(832, 12);
+            this.label3.Location = new System.Drawing.Point(833, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 117);
+            this.label3.Size = new System.Drawing.Size(173, 117);
             this.label3.TabIndex = 18;
             this.label3.Text = "CỔNG VÀO";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

@@ -88,9 +88,9 @@ namespace BXE.PRE.VbqGaa
 
         private void dgvAep_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            cmdIn.Enabled = true;
-            cmdEdit.Enabled = false;
-            cmdDelete.Enabled = false;
+            //cmdIn.Enabled = true;
+            //cmdEdit.Enabled = false;
+            //cmdDelete.Enabled = false;
             //ClearText();
         }
 
@@ -512,6 +512,8 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Có chắc chắn xoá xe này không?", "Xoá xe", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.No) return;
+
             var dal = new DAL.DetailDAL();
             if (dal.DeleteByNumber(_currVehicle.Number))
             {

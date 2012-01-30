@@ -86,7 +86,7 @@ namespace BXE.PRE.VbqGaa
         #region Events
         private void cmdSumary_Click(object sender, EventArgs e)
         {
-            using (var x = new PRE.YhwCcn.FrmTkeGaa() { TkeUsr = true })
+            using (var x = new PRE.YhwCcn.FrmTkeVbq())
             {
                 x._sss = _sss;
                 x.ShowDialog();

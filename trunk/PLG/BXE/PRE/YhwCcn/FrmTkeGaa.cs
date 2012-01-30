@@ -44,7 +44,7 @@ namespace BXE.PRE.YhwCcn
 
             dtpFrom.Enabled = flag;
             dtpTo.Enabled = flag;
-            cmdInDay.Enabled = flag;
+            //cmdInDay.Enabled = flag;
             radIn.Enabled = flag;
             radOut.Enabled = flag;
             cbbQuy.Enabled = flag;

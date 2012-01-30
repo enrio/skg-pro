@@ -84,6 +84,14 @@ namespace BXE.PRE.VbqGaa
         #endregion
 
         #region Events
+        private void cmdSumary_Click(object sender, EventArgs e)
+        {
+            using (var x = new PRE.YhwCcn.FrmTkeGaa() { TkeUsr = true })
+            {
+                x.ShowDialog();
+            }
+        }
+
         private void cmdClose_Click(object sender, EventArgs e) { Close(); }
 
         private void dgvAep_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -126,7 +134,7 @@ namespace BXE.PRE.VbqGaa
             {
                 dtpDateIn.Visible = true;
                 dtpDateIn.Location = lblDateIn.Location;
-                dtpDateIn.Top += (41-26)/2;
+                dtpDateIn.Top += (41 - 26) / 2;
                 lblDateIn.Visible = false;
                 tmrDongHo.Enabled = false;
                 _sss.Current = dtpDateIn.Value;
@@ -462,7 +470,7 @@ namespace BXE.PRE.VbqGaa
                 _sec = 0;
             }
             if (_sss.Current != null) lblDateIn.Text = _sss.Current.Value.ToString(STR_DMY);
-        }        
+        }
 
         private void dgvAep_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {

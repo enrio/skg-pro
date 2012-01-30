@@ -87,6 +87,7 @@
             this.cmdHand = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.cmdSumary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -149,10 +150,10 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(548, 176);
+            this.cmdClose.Location = new System.Drawing.Point(648, 176);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 32);
-            this.cmdClose.TabIndex = 9;
+            this.cmdClose.TabIndex = 10;
             this.cmdClose.Text = "Đó&ng";
             this.cmdClose.UseVisualStyleBackColor = true;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
@@ -361,9 +362,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(642, 176);
+            this.lblInf.Location = new System.Drawing.Point(742, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(364, 32);
+            this.lblInf.Size = new System.Drawing.Size(264, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -424,7 +425,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(806, 84);
+            this.tabPage2.Size = new System.Drawing.Size(811, 84);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "BA BÁNH";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -464,7 +465,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 29);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(806, 84);
+            this.tabPage3.Size = new System.Drawing.Size(811, 84);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "TẢI L.ĐẬU & V.LAI";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -566,7 +567,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(806, 84);
+            this.tabPage4.Size = new System.Drawing.Size(811, 84);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "XE KHÁCH L.ĐẬU";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -626,7 +627,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(806, 84);
+            this.tabPage5.Size = new System.Drawing.Size(811, 84);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -718,12 +719,24 @@
             this.label6.Text = "DANH SÁCH XE CHO VÀO BẾN";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cmdSumary
+            // 
+            this.cmdSumary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary.Location = new System.Drawing.Point(548, 176);
+            this.cmdSumary.Name = "cmdSumary";
+            this.cmdSumary.Size = new System.Drawing.Size(94, 32);
+            this.cmdSumary.TabIndex = 9;
+            this.cmdSumary.Text = "&Thống kê";
+            this.cmdSumary.UseVisualStyleBackColor = true;
+            this.cmdSumary.Click += new System.EventHandler(this.cmdSumary_Click);
+            // 
             // FrmAfcVbq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 744);
             this.ControlBox = false;
+            this.Controls.Add(this.cmdSumary);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmdHand);
@@ -820,5 +833,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button cmdSumary;
     }
 }

@@ -338,6 +338,7 @@
             // 
             // colKindName
             // 
+            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colKindName.DataPropertyName = "KindName";
             this.colKindName.HeaderText = "Loại xe";
             this.colKindName.Name = "colKindName";
@@ -390,6 +391,7 @@
             // 
             // colDays
             // 
+            this.colDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colDays.DataPropertyName = "Day";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle2.NullValue = null;
@@ -397,17 +399,18 @@
             this.colDays.HeaderText = "Ngày đậu";
             this.colDays.Name = "colDays";
             this.colDays.ReadOnly = true;
-            this.colDays.Width = 5;
+            this.colDays.Width = 79;
             // 
             // colHour
             // 
+            this.colHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colHour.DataPropertyName = "Hour";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.colHour.DefaultCellStyle = dataGridViewCellStyle3;
             this.colHour.HeaderText = "Giờ đậu";
             this.colHour.Name = "colHour";
             this.colHour.ReadOnly = true;
-            this.colHour.Width = 5;
+            this.colHour.Width = 65;
             // 
             // colPrice
             // 

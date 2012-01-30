@@ -204,5 +204,10 @@ namespace BXE.PRE.VbqGaa
         {
             if (e.KeyCode == Keys.Enter) { Invoice(); }
         }
+
+        private void cmdSumary_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

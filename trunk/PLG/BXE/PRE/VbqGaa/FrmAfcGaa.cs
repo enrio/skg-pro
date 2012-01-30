@@ -207,7 +207,8 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdSumary_Click(object sender, EventArgs e)
         {
-
+            var x = new PRE.YhwCcn.FrmTkeGaa();
+            x.ShowDialog();
         }
     }
 }

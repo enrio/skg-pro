@@ -579,7 +579,7 @@ namespace BXE.DAL
             catch { return null; }
         }
 
-        public DataTable SumaryDateOutByUser(out decimal total, DateTime fr, DateTime to,long UserId)
+        public DataTable SumaryDateOutByUser(out decimal total, DateTime fr, DateTime to, long UserId)
         {
             total = 0;
 
@@ -632,6 +632,47 @@ namespace BXE.DAL
                           where s.DateOut != null && !_mdb.Details.Any(p => p.Number == s.Number && p.DateOut == null)
                           && s.DateOut == (from y in _mdb.Details where y.Number == s.Number select (DateTime?)y.DateOut).Max()
                           && s.DateIn >= fr && s.DateIn <= to
+
+                          orderby s.AccOut, s.Number
+                          select new
+                          {
+                              AccIn = s.User.Name,
+                              AccOut = s.User1.Name,
+                              s.Number,
+                              s.DateIn,
+                              s.DateOut,
+                              s.Day,
+                              s.Hour,
+                              s.Price1,
+                              s.Price2,
+                              s.Money,
+
+                              KindName = k.Kind.Name,
+                              GroupName = k.Kind.Group.Name,
+                              k.Length,
+                              k.Weight,
+                              k.Chair
+                          };
+
+                total = res.Sum(k => k.Money).Value;
+                return UTL.DAL.MorUkxYlm.ToDataTable(res);
+            }
+            catch { return null; }
+        }
+
+        public DataTable SumaryDateInByUser(out decimal total, DateTime fr, DateTime to, long UserId)
+        {
+            total = 0;
+
+            try
+            {
+                var res = from s in _mdb.Details
+                          join k in _mdb.Vehicles on s.Number equals k.Number
+
+                          where s.DateOut != null && !_mdb.Details.Any(p => p.Number == s.Number && p.DateOut == null)
+                          && s.DateOut == (from y in _mdb.Details where y.Number == s.Number select (DateTime?)y.DateOut).Max()
+                          && s.DateIn >= fr && s.DateIn <= to
+                          && s.AccIn == UserId
 
                           orderby s.AccOut, s.Number
                           select new

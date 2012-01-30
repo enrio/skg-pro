@@ -88,6 +88,7 @@ namespace BXE.PRE.VbqGaa
         {
             using (var x = new PRE.YhwCcn.FrmTkeGaa() { TkeUsr = true })
             {
+                x._sss = _sss;
                 x.ShowDialog();
             }
         }

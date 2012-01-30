@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace BXE.PRE.YhwCcn
 {
     public partial class FrmTkeGaa : Form, UTL.PLG.ItfPlg
     {
         public UTL.BLL.UecLajVei _sss = new UTL.BLL.UecLajVei();
-        private readonly string _menu = "&Doanh thu";
+        private const string _menu = "&Doanh thu";
         protected DAL.DetailDAL _dal = new DAL.DetailDAL();
         protected object _obj;
         private decimal _sum;
+
+        public bool TkeUsr { get; set; }
 
         public FrmTkeGaa()
         {
@@ -37,6 +38,18 @@ namespace BXE.PRE.YhwCcn
         private void FrmTkeGaa_Load(object sender, EventArgs e)
         {
             //WindowState = FormWindowState.Maximized;
+            bool flag;
+            if (TkeUsr) flag = false;
+            else flag = true;
+
+            dtpFrom.Enabled = flag;
+            dtpTo.Enabled = flag;
+            cmdInDay.Enabled = flag;
+            radIn.Enabled = flag;
+            radOut.Enabled = flag;
+            cbbQuy.Enabled = flag;
+            cbbThang.Enabled = flag;
+
             LoadOut();
         }
 
@@ -68,10 +81,10 @@ namespace BXE.PRE.YhwCcn
             to = new DateTime(y, m, d, 23, 59, 59, 999);
         }
 
-        private void LoadTke()
-        {
-            dgvAep.DataSource = _dal.ThongKe();
-        }
+        //private void LoadTke()
+        //{
+        //    dgvAep.DataSource = _dal.ThongKe();
+        //}
 
         private void dgvMain_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {

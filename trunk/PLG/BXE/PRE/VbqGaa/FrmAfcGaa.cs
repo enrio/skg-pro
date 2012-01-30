@@ -105,7 +105,7 @@ namespace BXE.PRE.VbqGaa
                     lblGroup.Text = tb.Rows[0]["GroupName"].ToString();
                     lblKind.Text = tb.Rows[0]["Name"].ToString();
                     lblAccIn.Text = tb.Rows[0]["AccIn"].ToString().ToUpper();
-                    lblAccIn.Text += " - SĐT: " + tb.Rows[0]["Phone"].ToString();
+                    lblAccIn.Text += " - SĐT: " + tb.Rows[0]["Phone"];
 
                     lblWeight.Text = weight.ToString();
                     lblChair.Text = chair.ToString();
@@ -207,8 +207,10 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdSumary_Click(object sender, EventArgs e)
         {
-            var x = new PRE.YhwCcn.FrmTkeGaa();
-            x.ShowDialog();
+            using (var x = new PRE.YhwCcn.FrmTkeGaa() { TkeUsr = true })
+            {
+                x.ShowDialog();
+            }
         }
     }
 }

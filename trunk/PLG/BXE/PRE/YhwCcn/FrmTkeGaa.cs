@@ -42,6 +42,8 @@ namespace BXE.PRE.YhwCcn
             if (TkeUsr) flag = false;
             else flag = true;
 
+            LoadOut(!flag);
+
             dtpFrom.Enabled = flag;
             dtpTo.Enabled = flag;
             //cmdInDay.Enabled = flag;
@@ -50,19 +52,25 @@ namespace BXE.PRE.YhwCcn
             cbbQuy.Enabled = flag;
             cbbThang.Enabled = flag;
 
-            LoadOut();
+
         }
 
         /// <summary>
         /// Sumary current datetime
         /// </summary>
-        private void LoadOut(bool isOut = true)
+        private void LoadOut(bool isUser = true, bool isOut = true)
         {
             DateTime fr, to;
             MakCodDate(out fr, out to);
-
-            if (isOut) dgvAep.DataSource = _dal.SumaryDateOut(out _sum, fr, to);
-            else dgvAep.DataSource = _dal.SumaryDateIn(out _sum, fr, to);
+            if (isUser)
+            {
+                dgvAep.DataSource = _dal.SumaryDateOutByUser(out _sum, fr, to, _sss.Id);
+            }
+            else
+            {
+                if (isOut) dgvAep.DataSource = _dal.SumaryDateOut(out _sum, fr, to);
+                else dgvAep.DataSource = _dal.SumaryDateIn(out _sum, fr, to);
+            }
 
             lblTotal.Text = _sum.ToString("0,0 VNĐ");
         }
@@ -122,8 +130,12 @@ namespace BXE.PRE.YhwCcn
 
         private void cmdInDay_Click(object sender, EventArgs e)
         {
-            if (radOut.Checked) LoadOut();
-            if (radIn.Checked) LoadOut(false);
+            bool flag;
+            if (TkeUsr) flag = false;
+            else flag = true;
+
+            if (radOut.Checked) LoadOut(!flag);
+            if (radIn.Checked) LoadOut(!flag, false);
         }
 
         private void Stt()

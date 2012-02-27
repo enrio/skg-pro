@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BXE", "PLG\BXE\BXE.csproj",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TST", "TST\TST.csproj", "{A62C47A4-37FC-4046-B7B4-6E54E1621F0C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "INS", "INS\INS.vdproj", "{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SET", "SET\SET.vdproj", "{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,12 +63,12 @@ Global
 		{A62C47A4-37FC-4046-B7B4-6E54E1621F0C}.Release|Mixed Platforms.Build.0 = Release|x86
 		{A62C47A4-37FC-4046-B7B4-6E54E1621F0C}.Release|x86.ActiveCfg = Release|x86
 		{A62C47A4-37FC-4046-B7B4-6E54E1621F0C}.Release|x86.Build.0 = Release|x86
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Debug|Any CPU.ActiveCfg = Debug
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Debug|x86.ActiveCfg = Debug
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Release|Any CPU.ActiveCfg = Release
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Release|Mixed Platforms.ActiveCfg = Release
-		{4C6865B9-0DBF-4ADA-92F4-918FE53D56D5}.Release|x86.ActiveCfg = Release
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Debug|Any CPU.ActiveCfg = Debug
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Debug|x86.ActiveCfg = Debug
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Release|Any CPU.ActiveCfg = Release
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Release|Mixed Platforms.ActiveCfg = Release
+		{CF576A93-F2EF-4B36-BDD7-7DE2EA77DF1A}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -494,7 +494,7 @@
             this.cmdRedo.Name = "cmdRedo";
             this.cmdRedo.Size = new System.Drawing.Size(63, 81);
             this.cmdRedo.TabIndex = 29;
-            this.cmdRedo.Text = "&Làm lại";
+            this.cmdRedo.Text = "&Sửa lại";
             this.cmdRedo.UseVisualStyleBackColor = true;
             this.cmdRedo.Click += new System.EventHandler(this.cmdRedo_Click);
             // 

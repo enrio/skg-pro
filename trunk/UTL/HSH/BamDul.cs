@@ -125,9 +125,9 @@ namespace UTL.HSH
 #if DEBUG
             //return true;
 #else
-            string lic = GetLincense();
-            if (key == lic) return true;
-            return false;
+            //string lic = GetLincense();
+            //if (key == lic) return true;
+            //return false;
 #endif
         }
     }

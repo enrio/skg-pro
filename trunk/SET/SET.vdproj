@@ -39,80 +39,50 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B493BD82295F496B39C5EE39664490D1"
-        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B493BD82295F496B39C5EE39664490D1"
-        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BBAF8590E7B7D736C94512043254011A"
-        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BBAF8590E7B7D736C94512043254011A"
-        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DBC51A4D1A182BD98902412E7BEEF3B8"
-        "OwnerKey" = "8:_48E0C8079DA04CB48DD2168E25103B5B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DBC51A4D1A182BD98902412E7BEEF3B8"
-        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
-        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
-        "OwnerKey" = "8:_9AC1E04357FE03A8969FAA44B95EDA71"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E6EF0F05D1784D77B0D18C2084EFECFE"
+        "MsmKey" = "8:_9D025759AFC8421E91EC7D4E12258CDC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DBC51A4D1A182BD98902412E7BEEF3B8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_B493BD82295F496B39C5EE39664490D1"
         "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_B493BD82295F496B39C5EE39664490D1"
+        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BBAF8590E7B7D736C94512043254011A"
+        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BBAF8590E7B7D736C94512043254011A"
+        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
+        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
         "OwnerKey" = "8:_9AC1E04357FE03A8969FAA44B95EDA71"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
+        "OwnerKey" = "8:_48E0C8079DA04CB48DD2168E25103B5B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,7 +100,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_48E0C8079DA04CB48DD2168E25103B5B"
+        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9AC1E04357FE03A8969FAA44B95EDA71"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -151,6 +133,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -167,6 +157,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -247,6 +245,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9D025759AFC8421E91EC7D4E12258CDC"
+            {
+            "SourcePath" = "8:..\\PLG\\BXE\\BXE.sql"
+            "TargetName" = "8:BXE.sql"
+            "Tag" = "8:"
+            "Folder" = "8:_E1EBAA5324974EFA8ED78AFB8DD369F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B493BD82295F496B39C5EE39664490D1"
             {
             "AssemblyRegister" = "3:1"
@@ -309,37 +327,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DBC51A4D1A182BD98902412E7BEEF3B8"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:UTL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DBC51A4D1A182BD98902412E7BEEF3B8"
-                    {
-                    "Name" = "8:UTL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:UTL.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_8FDD60A39EE24548986991177598D14B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DF461F9787243E562B188C0A0A5D0401"
             {
             "AssemblyRegister" = "3:1"
@@ -369,26 +356,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E6EF0F05D1784D77B0D18C2084EFECFE"
-            {
-            "SourcePath" = "8:..\\PLG\\BXE\\BXE.sql"
-            "TargetName" = "8:BXE.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_8FDD60A39EE24548986991177598D14B"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }

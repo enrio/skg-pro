@@ -123,7 +123,7 @@ namespace UTL.HSH
         {
             return true;
 #if DEBUG
-            return true;
+            //return true;
 #else
             string lic = GetLincense();
             if (key == lic) return true;

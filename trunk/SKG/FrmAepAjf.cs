@@ -15,6 +15,8 @@ namespace SKG
         {
             InitializeComponent();
 
+            WindowState = FormWindowState.Maximized;
+
             // Check license
             var key = new UTL.HSH.FawCdt();
             var res = key.Read("Key");
@@ -33,8 +35,6 @@ namespace SKG
 
         private void FrmAepAjf_Load(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
-
             tmrFhvHfj_Tick(sender, e);
             staMbzAil.Text = String.Format("{0} - {1}", GetServer(), GetDb());
 
@@ -123,6 +123,11 @@ namespace SKG
                         mnuBca.Enabled = true;
                         mnuSboLii.Enabled = true;
                         mnuUilHga.Enabled = true;
+
+                        DisMenu(ref mnuDsa, "Cổng &vào");
+                        DisMenu(ref mnuDsa, "Cổng &ra");
+                        DisMenu(ref mnuDsa, "Người &dùng");
+                        DisMenu(ref mnuDsa, "&Loại xe");
                         break;
 
                     case UTL.BLL.UecLajVei.Roles.Manager:

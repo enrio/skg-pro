@@ -167,6 +167,11 @@ namespace SKG
                         DisMenu(ref mnuDsa, "Cổng &ra", false);
                         DisMenu(ref mnuDsa, "Người &dùng", false);
                         DisMenu(ref mnuDsa, "&Loại xe", false);
+
+                        // Auto show Gatein form
+                        var ex = new ToolStripItemClickedEventArgs(new ToolStripMenuItem());
+                        ex.ClickedItem.Text = "Cổng &vào";
+                        mnuDsa_DropDownItemClicked(null, ex);
                         break;
 
                     case UTL.BLL.UecLajVei.Roles.Gateout:
@@ -180,6 +185,11 @@ namespace SKG
                         DisMenu(ref mnuDsa, "Cổng &ra");
                         DisMenu(ref mnuDsa, "Người &dùng", false);
                         DisMenu(ref mnuDsa, "&Loại xe", false);
+
+                        // Auto show Gatein form
+                        ex = new ToolStripItemClickedEventArgs(new ToolStripMenuItem());
+                        ex.ClickedItem.Text = "Cổng &ra";
+                        mnuDsa_DropDownItemClicked(null, ex);
                         break;
 
                     case UTL.BLL.UecLajVei.Roles.None:

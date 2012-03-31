@@ -107,6 +107,7 @@ namespace BXE.PRE.VbqGaa
         {
             lblAccInName.Text = Sss.Name.ToUpper(); // get full name user gate in
             tabControl1_SelectedIndexChanged(null, null);
+            tabControl1.TabPages.Remove(tabPage4);
 
             _sss.Current = _dal.CurrentTime();
             tmrDongHo_Tick(sender, e); tmrDongHo.Enabled = true; // run timer            

@@ -662,12 +662,12 @@ namespace BXE.PRE.VbqGaa
                         int i = Convert.ToInt32(groupId);
                         switch (i)
                         {
-                            case 8: // truck                                
+                            case 1: // truck                                
                                 _currTabPageIndex = 0;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
-                            case 9: // car
+                            case 2: // car
                                 _currTabPageIndex = 3;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;

@@ -662,7 +662,7 @@ namespace BXE.PRE.VbqGaa
                         switch (i)
                         {
                             case 1: // truck                                
-                                _currTabPageIndex = 2;
+                                _currTabPageIndex = 0;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
@@ -672,12 +672,12 @@ namespace BXE.PRE.VbqGaa
                                 break;
 
                             case 3: // taxi
-                                _currTabPageIndex = 0;
+                                _currTabPageIndex = 1;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
                             case 4: // three
-                                _currTabPageIndex = 1;
+                                _currTabPageIndex = 2;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 

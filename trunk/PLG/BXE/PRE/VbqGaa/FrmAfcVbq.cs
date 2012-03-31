@@ -106,6 +106,7 @@ namespace BXE.PRE.VbqGaa
         private void FrmAfcVbq_Load(object sender, EventArgs e)
         {
             lblAccInName.Text = Sss.Name.ToUpper(); // get full name user gate in
+            tabControl1_SelectedIndexChanged(null, null);
 
             _sss.Current = _dal.CurrentTime();
             tmrDongHo_Tick(sender, e); tmrDongHo.Enabled = true; // run timer            
@@ -196,17 +197,17 @@ namespace BXE.PRE.VbqGaa
 
                 switch (_currTabPageIndex)
                 {
-                    case 0: // group 1 taxi                        
+                    case 1: // group 1 taxi                        
                         o.Number = mskTaxiNumber.Text;
                         o.KindId = 10;
                         break;
 
-                    case 1: // group 2 three circle                        
+                    case 2: // group 2 three circle                        
                         o.Number = mskThreeNumber.Text;
                         o.KindId = 11;
                         break;
 
-                    case 2: // group 3 truck                        
+                    case 0: // group 3 truck                        
                         o.Number = mskTruckNumber.Text;
                         o.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
                         break;
@@ -260,15 +261,15 @@ namespace BXE.PRE.VbqGaa
 
                 switch (tabControl1.SelectedIndex)
                 {
-                    case 0: // group 1
+                    case 1: // group 1
                         mskTaxiNumber.Text = _currVehicle.Number;
                         break;
 
-                    case 1: // group 2
+                    case 2: // group 2
                         mskThreeNumber.Text = _currVehicle.Number;
                         break;
 
-                    case 2: // group 3
+                    case 0: // group 3
                         mskTruckNumber.Text = _currVehicle.Number;
                         if (_currVehicle.Length != null)
                             mskTruckL.Text = _currVehicle.Length.Value + "";
@@ -661,12 +662,12 @@ namespace BXE.PRE.VbqGaa
                         int i = Convert.ToInt32(groupId);
                         switch (i)
                         {
-                            case 1: // truck                                
+                            case 8: // truck                                
                                 _currTabPageIndex = 0;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
-                            case 2: // car
+                            case 9: // car
                                 _currTabPageIndex = 3;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
@@ -705,17 +706,17 @@ namespace BXE.PRE.VbqGaa
 
                     switch (_currTabPageIndex)
                     {
-                        case 0: // group 1 taxi
+                        case 1: // group 1 taxi
                             mskTaxiNumber.Text = number;
                             _currVehicle.KindId = 10;
                             break;
 
-                        case 1: // group 2 three circle
+                        case 2: // group 2 three circle
                             mskThreeNumber.Text = number;
                             _currVehicle.KindId = 11;
                             break;
 
-                        case 2: // group 3 truck
+                        case 0: // group 3 truck
                             mskTruckNumber.Text = number;
                             _currVehicle.KindId = Convert.ToInt64(kindId);
                             cbbTruckKind.SelectedValue = kindId;
@@ -839,17 +840,17 @@ namespace BXE.PRE.VbqGaa
 
             switch (index)
             {
-                case 0: // group 1 taxi
+                case 1: // group 1 taxi
                     _currVehicle.Number = mskTaxiNumber.Text;
                     _currVehicle.KindId = 10;
                     break;
 
-                case 1: // group 2 three circle
+                case 2: // group 2 three circle
                     _currVehicle.Number = mskThreeNumber.Text;
                     _currVehicle.KindId = 11;
                     break;
 
-                case 2: // group 3 truck
+                case 0: // group 3 truck
                     _currVehicle.Number = mskTruckNumber.Text;
                     _currVehicle.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
 

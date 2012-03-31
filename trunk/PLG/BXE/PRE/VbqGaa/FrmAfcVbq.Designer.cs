@@ -40,6 +40,19 @@
             this.cmdClose = new System.Windows.Forms.Button();
             this.cmdIn = new System.Windows.Forms.Button();
             this.dgvAep = new System.Windows.Forms.DataGridView();
+            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKindId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colKindName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colChair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdEdit = new System.Windows.Forms.Button();
             this.cmdInList = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
@@ -75,19 +88,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmdSumary = new System.Windows.Forms.Button();
-            this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKindId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGroupName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colKindName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colChair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -209,6 +209,122 @@
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
             this.dgvAep.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvAep_UserDeletingRow);
             // 
+            // colId
+            // 
+            this.colId.DataPropertyName = "Id";
+            this.colId.HeaderText = "Id";
+            this.colId.Name = "colId";
+            this.colId.ReadOnly = true;
+            this.colId.Visible = false;
+            // 
+            // colNo_
+            // 
+            this.colNo_.DataPropertyName = "No_";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colNo_.HeaderText = "TT";
+            this.colNo_.Name = "colNo_";
+            this.colNo_.ReadOnly = true;
+            this.colNo_.Width = 30;
+            // 
+            // colGroupId
+            // 
+            this.colGroupId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colGroupId.DataPropertyName = "GroupId";
+            this.colGroupId.HeaderText = "GroupId";
+            this.colGroupId.Name = "colGroupId";
+            this.colGroupId.ReadOnly = true;
+            this.colGroupId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colGroupId.Visible = false;
+            // 
+            // colKindId
+            // 
+            this.colKindId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colKindId.DataPropertyName = "KindId";
+            this.colKindId.HeaderText = "KindId";
+            this.colKindId.Name = "colKindId";
+            this.colKindId.ReadOnly = true;
+            this.colKindId.Visible = false;
+            // 
+            // colGroupName
+            // 
+            this.colGroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colGroupName.DataPropertyName = "GroupName";
+            this.colGroupName.HeaderText = "Nhóm xe";
+            this.colGroupName.Name = "colGroupName";
+            this.colGroupName.ReadOnly = true;
+            this.colGroupName.Width = 96;
+            // 
+            // colKindName
+            // 
+            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKindName.DataPropertyName = "KindName";
+            this.colKindName.HeaderText = "Loại xe";
+            this.colKindName.Name = "colKindName";
+            this.colKindName.ReadOnly = true;
+            // 
+            // colNumber
+            // 
+            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNumber.DataPropertyName = "Number";
+            this.colNumber.HeaderText = "Biển số xe";
+            this.colNumber.Name = "colNumber";
+            this.colNumber.ReadOnly = true;
+            this.colNumber.Width = 84;
+            // 
+            // colAccIn
+            // 
+            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colAccIn.DataPropertyName = "AccIn";
+            this.colAccIn.HeaderText = "Người cho vào";
+            this.colAccIn.Name = "colAccIn";
+            this.colAccIn.ReadOnly = true;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPhone.DataPropertyName = "Phone";
+            this.colPhone.HeaderText = "Điện thoại";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 97;
+            // 
+            // colDateIn
+            // 
+            this.colDateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colDateIn.DataPropertyName = "DateIn";
+            this.colDateIn.HeaderText = "Thời gian vào";
+            this.colDateIn.Name = "colDateIn";
+            this.colDateIn.ReadOnly = true;
+            this.colDateIn.Width = 94;
+            // 
+            // colLength
+            // 
+            this.colLength.DataPropertyName = "Length";
+            this.colLength.HeaderText = "Chiều dài";
+            this.colLength.Name = "colLength";
+            this.colLength.ReadOnly = true;
+            this.colLength.Visible = false;
+            this.colLength.Width = 50;
+            // 
+            // colWeight
+            // 
+            this.colWeight.DataPropertyName = "Weight";
+            this.colWeight.HeaderText = "Tải trọng";
+            this.colWeight.Name = "colWeight";
+            this.colWeight.ReadOnly = true;
+            this.colWeight.Visible = false;
+            this.colWeight.Width = 50;
+            // 
+            // colChair
+            // 
+            this.colChair.DataPropertyName = "Chair";
+            this.colChair.HeaderText = "Số ghế";
+            this.colChair.Name = "colChair";
+            this.colChair.ReadOnly = true;
+            this.colChair.Width = 50;
+            // 
             // cmdEdit
             // 
             this.cmdEdit.Enabled = false;
@@ -230,6 +346,7 @@
             this.cmdInList.TabIndex = 6;
             this.cmdInList.Text = "Xe trong &bến";
             this.cmdInList.UseVisualStyleBackColor = true;
+            this.cmdInList.Visible = false;
             this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
             // cmdDelete
@@ -618,126 +735,8 @@
             this.cmdSumary.TabIndex = 9;
             this.cmdSumary.Text = "&Thống kê";
             this.cmdSumary.UseVisualStyleBackColor = true;
+            this.cmdSumary.Visible = false;
             this.cmdSumary.Click += new System.EventHandler(this.cmdSumary_Click);
-            // 
-            // colId
-            // 
-            this.colId.DataPropertyName = "Id";
-            this.colId.HeaderText = "Id";
-            this.colId.Name = "colId";
-            this.colId.ReadOnly = true;
-            this.colId.Visible = false;
-            // 
-            // colNo_
-            // 
-            this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colNo_.HeaderText = "TT";
-            this.colNo_.Name = "colNo_";
-            this.colNo_.ReadOnly = true;
-            this.colNo_.Width = 30;
-            // 
-            // colGroupId
-            // 
-            this.colGroupId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colGroupId.DataPropertyName = "GroupId";
-            this.colGroupId.HeaderText = "GroupId";
-            this.colGroupId.Name = "colGroupId";
-            this.colGroupId.ReadOnly = true;
-            this.colGroupId.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colGroupId.Visible = false;
-            this.colGroupId.Width = 93;
-            // 
-            // colKindId
-            // 
-            this.colKindId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colKindId.DataPropertyName = "KindId";
-            this.colKindId.HeaderText = "KindId";
-            this.colKindId.Name = "colKindId";
-            this.colKindId.ReadOnly = true;
-            this.colKindId.Visible = false;
-            this.colKindId.Width = 79;
-            // 
-            // colGroupName
-            // 
-            this.colGroupName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colGroupName.DataPropertyName = "GroupName";
-            this.colGroupName.HeaderText = "Nhóm xe";
-            this.colGroupName.Name = "colGroupName";
-            this.colGroupName.ReadOnly = true;
-            this.colGroupName.Width = 96;
-            // 
-            // colKindName
-            // 
-            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKindName.DataPropertyName = "KindName";
-            this.colKindName.HeaderText = "Loại xe";
-            this.colKindName.Name = "colKindName";
-            this.colKindName.ReadOnly = true;
-            // 
-            // colNumber
-            // 
-            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNumber.DataPropertyName = "Number";
-            this.colNumber.HeaderText = "Biển số xe";
-            this.colNumber.Name = "colNumber";
-            this.colNumber.ReadOnly = true;
-            this.colNumber.Width = 107;
-            // 
-            // colAccIn
-            // 
-            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAccIn.DataPropertyName = "AccIn";
-            this.colAccIn.HeaderText = "Người cho vào";
-            this.colAccIn.Name = "colAccIn";
-            this.colAccIn.ReadOnly = true;
-            this.colAccIn.Width = 134;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPhone.DataPropertyName = "Phone";
-            this.colPhone.HeaderText = "Điện thoại";
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 106;
-            // 
-            // colDateIn
-            // 
-            this.colDateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDateIn.DataPropertyName = "DateIn";
-            this.colDateIn.HeaderText = "Thời gian vào";
-            this.colDateIn.Name = "colDateIn";
-            this.colDateIn.ReadOnly = true;
-            this.colDateIn.Width = 127;
-            // 
-            // colLength
-            // 
-            this.colLength.DataPropertyName = "Length";
-            this.colLength.HeaderText = "Chiều dài";
-            this.colLength.Name = "colLength";
-            this.colLength.ReadOnly = true;
-            this.colLength.Visible = false;
-            this.colLength.Width = 50;
-            // 
-            // colWeight
-            // 
-            this.colWeight.DataPropertyName = "Weight";
-            this.colWeight.HeaderText = "Tải trọng";
-            this.colWeight.Name = "colWeight";
-            this.colWeight.ReadOnly = true;
-            this.colWeight.Visible = false;
-            this.colWeight.Width = 50;
-            // 
-            // colChair
-            // 
-            this.colChair.DataPropertyName = "Chair";
-            this.colChair.HeaderText = "Số ghế";
-            this.colChair.Name = "colChair";
-            this.colChair.ReadOnly = true;
-            this.colChair.Width = 50;
             // 
             // FrmAfcVbq
             // 

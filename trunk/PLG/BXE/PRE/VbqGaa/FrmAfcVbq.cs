@@ -609,6 +609,8 @@ namespace BXE.PRE.VbqGaa
 
         private bool ValidNumber()
         {
+            if (_currTabPageIndex == 2) return true; // not check ValidNumber three
+
             var oki = _currVehicle.Number.Length == 0 ? false : true;
             if (!oki) UTL.CsoUTL.Show(STR_NOT_INP);
             else

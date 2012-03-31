@@ -389,7 +389,7 @@ namespace BXE.PRE.VbqGaa
             //    }
             //}
 
-            if (_currTabPageIndex == 4) if (!ValidChair()) return;
+            if (_currTabPageIndex == 3) if (!ValidChair()) return;
 
             int chair;
             decimal length, weight;

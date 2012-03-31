@@ -366,25 +366,27 @@ namespace BXE.PRE.VbqGaa
             GetCurrObj(_currTabPageIndex);
 
             if (!ValidNumber()) return;
-            if (_currTabPageIndex == 2)
-            {
-                if (mskTruckL.Text.Trim() + "" != "")
-                {
-                    if (!ValidLenght()) return;
-                }
-                else if (mskTruckW.Text.Trim() + "" != "")
-                {
-                    if (!ValidWeight()) return;
-                }
-                else
-                {
-                    if (!(_lMax == 0 && _wMax == 0))
-                    {
-                        UTL.CsoUTL.Show("Nhập tải trọng hoặc chiều dài!");
-                        return;
-                    }
-                }
-            }
+
+            //if (_currTabPageIndex == 2)
+            //{
+            //    if (mskTruckL.Text.Trim() + "" != "")
+            //    {
+            //        if (!ValidLenght()) return;
+            //    }
+            //    else if (mskTruckW.Text.Trim() + "" != "")
+            //    {
+            //        if (!ValidWeight()) return;
+            //    }
+            //    else
+            //    {
+            //        if (!(_lMax == 0 && _wMax == 0))
+            //        {
+            //            UTL.CsoUTL.Show("Nhập tải trọng hoặc chiều dài!");
+            //            return;
+            //        }
+            //    }
+            //}
+
             if (_currTabPageIndex == 4) if (!ValidChair()) return;
 
             int chair;

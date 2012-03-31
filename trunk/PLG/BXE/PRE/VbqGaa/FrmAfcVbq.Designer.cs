@@ -58,12 +58,6 @@
             this.cmdDelete = new System.Windows.Forms.Button();
             this.lblInf = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.mskTaxiNumber = new System.Windows.Forms.MaskedTextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.mskThreeNumber = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.mskTruckL = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -73,6 +67,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbbTruckKind = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.mskTaxiNumber = new System.Windows.Forms.MaskedTextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.mskThreeNumber = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.cbbCarKind = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -90,9 +90,9 @@
             this.cmdSumary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.SuspendLayout();
@@ -377,8 +377,8 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
@@ -386,74 +386,6 @@
             this.tabControl1.Size = new System.Drawing.Size(819, 117);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.mskTaxiNumber);
-            this.tabPage1.Controls.Add(this.label17);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(811, 84);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "TAXI VÃNG LAI";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // mskTaxiNumber
-            // 
-            this.mskTaxiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskTaxiNumber.Location = new System.Drawing.Point(110, 6);
-            this.mskTaxiNumber.Name = "mskTaxiNumber";
-            this.mskTaxiNumber.Size = new System.Drawing.Size(148, 31);
-            this.mskTaxiNumber.TabIndex = 0;
-            this.mskTaxiNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mskTaxiNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskTaxiNumber_Validating);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Gray;
-            this.label17.Location = new System.Drawing.Point(6, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 25);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Biển số:";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.mskThreeNumber);
-            this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(811, 84);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "BA BÁNH";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // mskThreeNumber
-            // 
-            this.mskThreeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskThreeNumber.Location = new System.Drawing.Point(110, 6);
-            this.mskThreeNumber.Name = "mskThreeNumber";
-            this.mskThreeNumber.Size = new System.Drawing.Size(148, 31);
-            this.mskThreeNumber.TabIndex = 0;
-            this.mskThreeNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mskThreeNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskThreeNumber_Validating);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(6, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 25);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Biển số:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage3
             // 
@@ -564,6 +496,74 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Loại xe:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.mskTaxiNumber);
+            this.tabPage1.Controls.Add(this.label17);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(811, 84);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "TAXI VÃNG LAI";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // mskTaxiNumber
+            // 
+            this.mskTaxiNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskTaxiNumber.Location = new System.Drawing.Point(110, 6);
+            this.mskTaxiNumber.Name = "mskTaxiNumber";
+            this.mskTaxiNumber.Size = new System.Drawing.Size(148, 31);
+            this.mskTaxiNumber.TabIndex = 0;
+            this.mskTaxiNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskTaxiNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskTaxiNumber_Validating);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.Gray;
+            this.label17.Location = new System.Drawing.Point(6, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(98, 25);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Biển số:";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.mskThreeNumber);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(811, 84);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "BA BÁNH";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // mskThreeNumber
+            // 
+            this.mskThreeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskThreeNumber.Location = new System.Drawing.Point(110, 6);
+            this.mskThreeNumber.Name = "mskThreeNumber";
+            this.mskThreeNumber.Size = new System.Drawing.Size(148, 31);
+            this.mskThreeNumber.TabIndex = 0;
+            this.mskThreeNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskThreeNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskThreeNumber_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(6, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 25);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Biển số:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tabPage4
             // 
@@ -770,12 +770,12 @@
             this.Load += new System.EventHandler(this.FrmAfcVbq_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);

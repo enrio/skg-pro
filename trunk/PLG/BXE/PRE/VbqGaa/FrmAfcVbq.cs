@@ -212,12 +212,12 @@ namespace BXE.PRE.VbqGaa
                         o.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
                         break;
 
-                    case 3: // group 4 car               
+                    case 4: // group 4 car               
                         o.Number = mskCarNumber.Text;
                         o.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
                         break;
 
-                    case 4: // group 5 medium                        
+                    case 3: // group 5 medium                        
                         o.Number = mskMediumNumber.Text;
                         o.KindId = 12;
 
@@ -285,7 +285,7 @@ namespace BXE.PRE.VbqGaa
                         }
                         break;
 
-                    case 3: // group 4
+                    case 4: // group 4
 
                         mskCarNumber.Text = _currVehicle.Number;
                         cbbCarKind.DataSource = dal.GetData(2);
@@ -297,7 +297,7 @@ namespace BXE.PRE.VbqGaa
                         }
                         break;
 
-                    case 4: // group 5
+                    case 3: // group 5
                         mskMediumNumber.Text = _currVehicle.Number;
 
                         if (_currVehicle.Chair != null)
@@ -668,7 +668,7 @@ namespace BXE.PRE.VbqGaa
                                 break;
 
                             case 2: // car
-                                _currTabPageIndex = 3;
+                                _currTabPageIndex = 4;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
@@ -683,7 +683,7 @@ namespace BXE.PRE.VbqGaa
                                 break;
 
                             case 5: // medium
-                                _currTabPageIndex = 4;
+                                _currTabPageIndex = 3;
                                 tabControl1.SelectedIndex = _currTabPageIndex;
                                 break;
 
@@ -722,13 +722,13 @@ namespace BXE.PRE.VbqGaa
                             cbbTruckKind.SelectedValue = kindId;
                             break;
 
-                        case 3: // group 4 car
+                        case 4: // group 4 car
                             mskCarNumber.Text = number;
                             _currVehicle.KindId = Convert.ToInt64(kindId);
                             cbbCarKind.SelectedValue = kindId;
                             break;
 
-                        case 4: // group 5 medium
+                        case 3: // group 5 medium
                             mskMediumNumber.Text = number;
                             _currVehicle.KindId = 12;
 
@@ -867,12 +867,12 @@ namespace BXE.PRE.VbqGaa
                     _currVehicle.Weight = l;
                     break;
 
-                case 3: // group 4 car
+                case 4: // group 4 car
                     _currVehicle.Number = mskCarNumber.Text;
                     _currVehicle.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
                     break;
 
-                case 4: // group 5 medium
+                case 3: // group 5 medium
                     _currVehicle.Number = mskMediumNumber.Text;
                     _currVehicle.KindId = 12;
                     m1 = mskMediumC.Text.Trim();

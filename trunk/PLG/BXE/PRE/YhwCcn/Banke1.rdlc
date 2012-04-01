@@ -1570,10 +1570,13 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG</Value>
+                <Value>BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI</Value>
                 <Style>
+                  <FontStyle>Normal</FontStyle>
                   <FontSize>18pt</FontSize>
                   <FontWeight>Bold</FontWeight>
+                  <TextDecoration>None</TextDecoration>
+                  <Color>#000000</Color>
                 </Style>
               </TextRun>
             </TextRuns>

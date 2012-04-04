@@ -101,7 +101,7 @@
               <Width>0.90862in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.86173in</Width>
+              <Width>1.40626in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.67424in</Width>
@@ -110,19 +110,19 @@
               <Width>1.58702in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>0.76773in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.98425in</Width>
+              <Width>0.7604in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.0634in</Width>
+              <Width>1.04091in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.09284in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.88009in</Width>
+              <Width>0.90258in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -678,21 +678,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Weight">
+                    <Textbox Name="KindName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Weight.Value</Value>
+                              <Value>=Fields!KindName.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Weight</rd:DefaultName>
+                      <rd:DefaultName>KindName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1168,6 +1168,7 @@
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>#,0;(#,0);'-'</Format>
                                 <TextDecoration>None</TextDecoration>
                                 <Color>#ff0000</Color>
                               </Style>
@@ -1268,7 +1269,7 @@
         <Top>1.14928in</Top>
         <Left>0.35267in</Left>
         <Height>1.16009in</Height>
-        <Width>10.40218in</Width>
+        <Width>10.50635in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1298,7 +1299,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0cm</Top>
         <Left>10.85021cm</Left>
         <Height>1.46458cm</Height>
         <Width>16.73169cm</Width>
@@ -1575,7 +1575,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>0cm</Top>
         <Left>0.57827cm</Left>
         <Height>0.73229cm</Height>
         <Width>10.27194cm</Width>
@@ -2142,7 +2141,7 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>28.21834cm</Width>
+  <Width>28.96499cm</Width>
   <Page>
     <PageHeader>
       <Height>0.9525cm</Height>

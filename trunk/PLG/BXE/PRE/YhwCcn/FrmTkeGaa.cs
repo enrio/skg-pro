@@ -184,5 +184,23 @@ namespace BXE.PRE.YhwCcn
                 dtpTo.Value = to;
             }
         }
+
+        private void cmdPrintG1_Click(object sender, EventArgs e)
+        {
+            using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
+            {
+                DateTime fr, to;
+                MakCodDate(out fr, out to);
+                x.Fr = fr;
+                x.To = to;
+                if (cbbQuy.Text != "") x.ThuNgan = String.Format("Quý {0} năm {1}", cbbQuy.Text, fr.Year);
+                else x.ThuNgan = "";
+
+                if (radIn.Checked) x.IsOut = false;
+                if (radOut.Checked) x.IsOut = true;
+
+                x.ShowDialog();
+            }
+        }
     }
 }

@@ -1269,7 +1269,7 @@
         <Top>1.14928in</Top>
         <Left>0.35267in</Left>
         <Height>1.16009in</Height>
-        <Width>10.50635in</Width>
+        <Width>10.50634in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1644,7 +1644,7 @@
         <Top>1.48151cm</Top>
         <Left>0.57827cm</Left>
         <Height>0.61736cm</Height>
-        <Width>1.41521cm</Width>
+        <Width>1.81208cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -1674,7 +1674,7 @@
         <Top>1.48997cm</Top>
         <Left>4.02019cm</Left>
         <Height>0.60043cm</Height>
-        <Width>1.79148cm</Width>
+        <Width>2.1619cm</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1702,9 +1702,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox42</rd:DefaultName>
         <Top>1.48997cm</Top>
-        <Left>1.99348cm</Left>
+        <Left>2.39036cm</Left>
         <Height>0.60043cm</Height>
-        <Width>1.36371cm</Width>
+        <Width>1.62984cm</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>
@@ -1732,9 +1732,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox42</rd:DefaultName>
         <Top>1.49844cm</Top>
-        <Left>5.81167cm</Left>
+        <Left>6.18209cm</Left>
         <Height>0.60043cm</Height>
-        <Width>5.03854cm</Width>
+        <Width>4.66812cm</Width>
         <ZIndex>14</ZIndex>
         <Style>
           <Border>
@@ -1753,7 +1753,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!parThuNgan.Value</Value>
+                <Value>=Fields!AccOut.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -1766,9 +1766,9 @@
         </Paragraphs>
         <rd:DefaultName>parQuy</rd:DefaultName>
         <Top>2.09887cm</Top>
-        <Left>4.02019cm</Left>
+        <Left>4.42588cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.83002cm</Width>
+        <Width>6.42433cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1799,7 +1799,7 @@
         <Top>2.0904cm</Top>
         <Left>0.57827cm</Left>
         <Height>0.61736cm</Height>
-        <Width>3.26553cm</Width>
+        <Width>3.84761cm</Width>
         <ZIndex>16</ZIndex>
         <Style>
           <Border>
@@ -2131,11 +2131,6 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="sfiTee">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="parThuNgan">
       <DataType>String</DataType>
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>

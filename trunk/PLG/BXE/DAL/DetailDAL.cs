@@ -654,6 +654,7 @@ namespace BXE.DAL
                               s.DateOut,
                               s.Day,
                               s.Hour,
+                              HalfDay = (s.Day == 0 && s.Hour < 12) ? 1 : 0,
                               s.Price1,
                               s.Price2,
                               s.Money,

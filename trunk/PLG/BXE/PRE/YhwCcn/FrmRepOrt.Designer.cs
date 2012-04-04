@@ -30,26 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.bdsSumary = new System.Windows.Forms.BindingSource(this.components);
             this.rptAep = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsSumary)).BeginInit();
+            this.SumaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.SumaryBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bdsSumary
-            // 
-            this.bdsSumary.DataMember = "Sumary";
             // 
             // rptAep
             // 
             this.rptAep.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DtsRevenue";
-            reportDataSource1.Value = this.bdsSumary;
+            reportDataSource1.Value = this.SumaryBindingSource;
             this.rptAep.LocalReport.DataSources.Add(reportDataSource1);
-            this.rptAep.LocalReport.ReportEmbeddedResource = "BXE.PRE.YhwCcn.RptDbbYii.rdlc";
+            this.rptAep.LocalReport.ReportEmbeddedResource = "BXE.PRE.YhwCcn.Banke1.rdlc";
             this.rptAep.Location = new System.Drawing.Point(0, 0);
             this.rptAep.Name = "rptAep";
             this.rptAep.Size = new System.Drawing.Size(546, 426);
             this.rptAep.TabIndex = 0;
+            // 
+            // SumaryBindingSource
+            // 
+            this.SumaryBindingSource.DataMember = "Revenue";
+            this.SumaryBindingSource.DataSource = typeof(BXE.DAL.Sumary);
             // 
             // FrmRepOrt
             // 
@@ -64,7 +65,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Báo cáo thống kê";
             this.Load += new System.EventHandler(this.FrmRepOrt_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bdsSumary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SumaryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -72,6 +73,6 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer rptAep;
-        private System.Windows.Forms.BindingSource bdsSumary;
+        private System.Windows.Forms.BindingSource SumaryBindingSource;
     }
 }

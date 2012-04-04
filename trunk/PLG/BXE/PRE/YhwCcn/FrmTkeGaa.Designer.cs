@@ -483,6 +483,7 @@
             this.cmdPrintG2.Text = "&IN";
             this.cmdPrintG2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cmdPrintG2.UseVisualStyleBackColor = true;
+            this.cmdPrintG2.Click += new System.EventHandler(this.cmdPrintG2_Click);
             // 
             // cmdViewG2
             // 

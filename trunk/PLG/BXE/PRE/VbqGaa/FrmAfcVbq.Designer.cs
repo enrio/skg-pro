@@ -548,6 +548,7 @@
             this.mskThreeNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskThreeNumber.Location = new System.Drawing.Point(110, 6);
             this.mskThreeNumber.Name = "mskThreeNumber";
+            this.mskThreeNumber.ReadOnly = true;
             this.mskThreeNumber.Size = new System.Drawing.Size(148, 31);
             this.mskThreeNumber.TabIndex = 0;
             this.mskThreeNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

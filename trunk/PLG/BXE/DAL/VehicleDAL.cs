@@ -108,7 +108,6 @@ namespace BXE.DAL
         {
             try
             {
-                if ((string)obj == "BG") return false; // không kiểm tra xe ba bánh
                 var res = _mdb.Vehicles.Single(k => k.Number == (string)obj);
                 return res == null ? false : true;
             }

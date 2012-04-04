@@ -35,7 +35,7 @@ namespace BXE.PRE.YhwCcn
             tmp = tmp.Substring(0, 1).ToUpper() + tmp.Substring(1, tmp.Length - 1);
             parameters[2] = new ReportParameter("sfiTee", tmp);
 
-            parameters[3] = new ReportParameter("parLuotXe", SumaryData.Rows.Count + "");
+            parameters[3] = new ReportParameter("parLuotXe", SumaryData == null ? "0" : SumaryData.Rows.Count + "");
             parameters[4] = new ReportParameter("parLuotNgay", " ");
             parameters[5] = new ReportParameter("parTongTien", SumaryMoney.ToString("#,#") + " VNĐ");
 

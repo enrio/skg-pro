@@ -544,7 +544,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Thành tiền</Value>
+                              <Value>THÀNH TIỀN</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -3048,8 +3048,8 @@
         </TablixRowHierarchy>
         <Top>9.51653cm</Top>
         <Left>0.89578cm</Left>
-        <Height>5.48792cm</Height>
-        <Width>6.20489cm</Width>
+        <Height>5.4879cm</Height>
+        <Width>6.20492cm</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>

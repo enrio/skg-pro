@@ -795,7 +795,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Day</rd:DefaultName>
@@ -826,7 +828,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>HalfDay</rd:DefaultName>
@@ -1094,7 +1098,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1106,7 +1109,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>=Sum(Fields!HalfDay.Value, "DtsRevenue")</Value>
                               <Style>
                                 <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -1114,7 +1117,7 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Right</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -1181,7 +1184,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Money.Value)</Value>
+                              <Value>=Sum(Fields!Money.Value, "DtsRevenue")</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>11pt</FontSize>
@@ -1986,7 +1989,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!parLuotXe.Value</Value>
+                <Value />
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -2018,7 +2021,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!parLuotNgay.Value</Value>
+                <Value />
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -2050,7 +2053,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!parTongTien.Value</Value>
+                <Value />
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -3129,21 +3132,6 @@
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="sfiTee">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="parLuotXe">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="parLuotNgay">
-      <DataType>String</DataType>
-      <AllowBlank>true</AllowBlank>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="parTongTien">
       <DataType>String</DataType>
       <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>

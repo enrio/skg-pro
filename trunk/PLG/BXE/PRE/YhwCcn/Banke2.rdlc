@@ -204,6 +204,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -215,7 +216,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>TẢI TRỌNG</Value>
+                              <Value>LOẠI XE</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>

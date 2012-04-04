@@ -197,8 +197,8 @@
     <EmbeddedResource Include="PRE\VbqGaa\FrmAfcVbq.resx">
       <DependentUpon>FrmAfcVbq.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PRE\YhwCcn\Banke2.rdlc" />
     <EmbeddedResource Include="PRE\YhwCcn\Banke1.rdlc" />
+    <EmbeddedResource Include="PRE\YhwCcn\Banke2.rdlc" />
     <EmbeddedResource Include="PRE\YhwCcn\FrmAhvBdd.resx">
       <DependentUpon>FrmAhvBdd.cs</DependentUpon>
     </EmbeddedResource>

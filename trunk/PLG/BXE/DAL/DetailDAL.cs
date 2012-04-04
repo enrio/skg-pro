@@ -600,7 +600,7 @@ namespace BXE.DAL
                           && s.DateOut == (from y in _mdb.Details where y.Number == s.Number select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.AccOut == UserId
-
+                          && k.Kind.GroupId == 1 // nhóm xe tải lưu đậu
                           orderby s.AccOut, s.Number
                           select new
                           {
@@ -649,6 +649,7 @@ namespace BXE.DAL
                           && s.DateOut == (from y in _mdb.Details where y.Number == s.Number select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.AccOut == UserId
+                          && k.Kind.GroupId != 1 // nhóm xe sang hàng
 
                           orderby s.AccOut, s.Number
                           select new

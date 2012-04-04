@@ -229,7 +229,7 @@ namespace BXE.PRE.VbqGaa
         {
             using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
             {
-                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke1.rdlc";
+                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke2.rdlc";
                 DateTime fr, to;
                 x.Current = _dal.CurrentTime();
                 fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);

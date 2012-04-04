@@ -761,7 +761,8 @@ namespace BXE.PRE.VbqGaa
         private void ClearText()
         {
             mskTaxiNumber.Text = null;
-            mskThreeNumber.Text = null;
+            //mskThreeNumber.Text = null;
+            mskThreeNumber.Text = String.Format("BG{0}", _dal.Count());
             mskTruckNumber.Text = null;
             mskTruckL.Text = null;
             mskTruckW.Text = null;

@@ -30,10 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.rptAep = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SumaryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rptAep = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.SumaryBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // SumaryBindingSource
+            // 
+            this.SumaryBindingSource.DataMember = "Revenue";
+            this.SumaryBindingSource.DataSource = typeof(BXE.DAL.Sumary);
             // 
             // rptAep
             // 
@@ -46,11 +51,6 @@
             this.rptAep.Name = "rptAep";
             this.rptAep.Size = new System.Drawing.Size(546, 426);
             this.rptAep.TabIndex = 0;
-            // 
-            // SumaryBindingSource
-            // 
-            this.SumaryBindingSource.DataMember = "Revenue";
-            this.SumaryBindingSource.DataSource = typeof(BXE.DAL.Sumary);
             // 
             // FrmRepOrt
             // 
@@ -72,7 +72,7 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer rptAep;
         private System.Windows.Forms.BindingSource SumaryBindingSource;
+        public Microsoft.Reporting.WinForms.ReportViewer rptAep;
     }
 }

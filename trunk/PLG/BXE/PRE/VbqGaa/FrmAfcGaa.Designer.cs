@@ -79,6 +79,7 @@
             this.lblWeight.TabIndex = 9;
             this.lblWeight.Text = "?";
             this.lblWeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblWeight.Visible = false;
             // 
             // label2
             // 
@@ -486,14 +487,15 @@
             this.label12.TabIndex = 8;
             this.label12.Text = "Tải trọng:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.Visible = false;
             // 
             // cmdRedo
             // 
             this.cmdRedo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRedo.Location = new System.Drawing.Point(81, 365);
+            this.cmdRedo.Location = new System.Drawing.Point(151, 365);
             this.cmdRedo.Name = "cmdRedo";
             this.cmdRedo.Size = new System.Drawing.Size(63, 81);
-            this.cmdRedo.TabIndex = 29;
+            this.cmdRedo.TabIndex = 30;
             this.cmdRedo.Text = "&Sửa lại";
             this.cmdRedo.UseVisualStyleBackColor = true;
             this.cmdRedo.Click += new System.EventHandler(this.cmdRedo_Click);
@@ -502,10 +504,10 @@
             // 
             this.cmdOut.Enabled = false;
             this.cmdOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdOut.Location = new System.Drawing.Point(151, 365);
+            this.cmdOut.Location = new System.Drawing.Point(81, 365);
             this.cmdOut.Name = "cmdOut";
             this.cmdOut.Size = new System.Drawing.Size(63, 81);
-            this.cmdOut.TabIndex = 30;
+            this.cmdOut.TabIndex = 29;
             this.cmdOut.Text = "&Cho ra";
             this.cmdOut.UseVisualStyleBackColor = true;
             this.cmdOut.Click += new System.EventHandler(this.cmdOut_Click);
@@ -548,7 +550,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 463);
+            this.ClientSize = new System.Drawing.Size(771, 457);
             this.Controls.Add(this.cmdSumary);
             this.Controls.Add(this.cmdInList);
             this.Controls.Add(this.lblInf);

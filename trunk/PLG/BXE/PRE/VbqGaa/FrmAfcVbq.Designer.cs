@@ -73,16 +73,16 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.mskThreeNumber = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.cbbCarKind = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.mskCarNumber = new System.Windows.Forms.MaskedTextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.mskMediumNumber = new System.Windows.Forms.MaskedTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.mskMediumC = new System.Windows.Forms.MaskedTextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cbbCarKind = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mskCarNumber = new System.Windows.Forms.MaskedTextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.dtpDateIn = new System.Windows.Forms.DateTimePicker();
             this.cmdHand = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -93,8 +93,8 @@
             this.tabPage3.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tmrDongHo
@@ -150,7 +150,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(648, 176);
+            this.cmdClose.Location = new System.Drawing.Point(426, 176);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 32);
             this.cmdClose.TabIndex = 10;
@@ -340,7 +340,7 @@
             // cmdInList
             // 
             this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Location = new System.Drawing.Point(294, 176);
+            this.cmdInList.Location = new System.Drawing.Point(354, 382);
             this.cmdInList.Name = "cmdInList";
             this.cmdInList.Size = new System.Drawing.Size(116, 32);
             this.cmdInList.TabIndex = 6;
@@ -365,9 +365,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(742, 176);
+            this.lblInf.Location = new System.Drawing.Point(520, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(264, 32);
+            this.lblInf.Size = new System.Drawing.Size(486, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -565,6 +565,63 @@
             this.label4.Text = "Biển số:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.mskMediumNumber);
+            this.tabPage5.Controls.Add(this.label16);
+            this.tabPage5.Controls.Add(this.label48);
+            this.tabPage5.Controls.Add(this.mskMediumC);
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(811, 84);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // mskMediumNumber
+            // 
+            this.mskMediumNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskMediumNumber.Location = new System.Drawing.Point(110, 6);
+            this.mskMediumNumber.Name = "mskMediumNumber";
+            this.mskMediumNumber.Size = new System.Drawing.Size(148, 31);
+            this.mskMediumNumber.TabIndex = 0;
+            this.mskMediumNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskMediumNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskMediumNumber_Validating);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Gray;
+            this.label16.Location = new System.Drawing.Point(6, 9);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(98, 25);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Biển số:";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.Gray;
+            this.label48.Location = new System.Drawing.Point(6, 46);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(93, 25);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "Số ghế:";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // mskMediumC
+            // 
+            this.mskMediumC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mskMediumC.Location = new System.Drawing.Point(110, 43);
+            this.mskMediumC.Name = "mskMediumC";
+            this.mskMediumC.Size = new System.Drawing.Size(53, 31);
+            this.mskMediumC.TabIndex = 1;
+            this.mskMediumC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.cbbCarKind);
@@ -625,63 +682,6 @@
             this.label11.Text = "Biển số:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.mskMediumNumber);
-            this.tabPage5.Controls.Add(this.label16);
-            this.tabPage5.Controls.Add(this.label48);
-            this.tabPage5.Controls.Add(this.mskMediumC);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(811, 84);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // mskMediumNumber
-            // 
-            this.mskMediumNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskMediumNumber.Location = new System.Drawing.Point(110, 6);
-            this.mskMediumNumber.Name = "mskMediumNumber";
-            this.mskMediumNumber.Size = new System.Drawing.Size(148, 31);
-            this.mskMediumNumber.TabIndex = 0;
-            this.mskMediumNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mskMediumNumber.Validating += new System.ComponentModel.CancelEventHandler(this.mskMediumNumber_Validating);
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Gray;
-            this.label16.Location = new System.Drawing.Point(6, 9);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 25);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Biển số:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.ForeColor = System.Drawing.Color.Gray;
-            this.label48.Location = new System.Drawing.Point(6, 46);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(93, 25);
-            this.label48.TabIndex = 11;
-            this.label48.Text = "Số ghế:";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // mskMediumC
-            // 
-            this.mskMediumC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskMediumC.Location = new System.Drawing.Point(110, 43);
-            this.mskMediumC.Name = "mskMediumC";
-            this.mskMediumC.Size = new System.Drawing.Size(53, 31);
-            this.mskMediumC.TabIndex = 1;
-            this.mskMediumC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // dtpDateIn
             // 
             this.dtpDateIn.CustomFormat = "dd/MM/yyyy HH:mm:ss";
@@ -696,7 +696,7 @@
             // cmdHand
             // 
             this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHand.Location = new System.Drawing.Point(416, 176);
+            this.cmdHand.Location = new System.Drawing.Point(294, 176);
             this.cmdHand.Name = "cmdHand";
             this.cmdHand.Size = new System.Drawing.Size(126, 32);
             this.cmdHand.TabIndex = 8;
@@ -729,7 +729,7 @@
             // cmdSumary
             // 
             this.cmdSumary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary.Location = new System.Drawing.Point(548, 176);
+            this.cmdSumary.Location = new System.Drawing.Point(553, 392);
             this.cmdSumary.Name = "cmdSumary";
             this.cmdSumary.Size = new System.Drawing.Size(94, 32);
             this.cmdSumary.TabIndex = 9;
@@ -776,10 +776,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }

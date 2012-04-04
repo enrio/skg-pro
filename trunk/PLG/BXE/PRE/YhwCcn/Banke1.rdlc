@@ -1989,13 +1989,15 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Count(Fields!No_.Value, "DtsRevenue")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
@@ -2021,7 +2023,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Sum(Fields!Day.Value, "DtsRevenue")+Sum(Fields!HalfDay.Value, "DtsRevenue")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -2053,9 +2055,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Sum(Fields!Money.Value, "DtsRevenue")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
+                  <Format>#,0;(#,0);'-'</Format>
                 </Style>
               </TextRun>
             </TextRuns>

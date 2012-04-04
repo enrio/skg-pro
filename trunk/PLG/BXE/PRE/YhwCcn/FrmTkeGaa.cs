@@ -64,7 +64,7 @@ namespace BXE.PRE.YhwCcn
             MakCodDate(out fr, out to);
             if (isUser)
             {
-                dgvAep.DataSource = _dal.SumaryDateOutByUser(out _sum, fr, to, _sss.Id);
+                dgvAep.DataSource = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
             }
             else
             {
@@ -184,7 +184,7 @@ namespace BXE.PRE.YhwCcn
                 fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
                 to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
 
-                x.SumaryData = _dal.SumaryDateOutByUser(out _sum, fr, to, _sss.Id);
+                x.SumaryData = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
                 x.SumaryMoney = _sum;
 
                 x.ShowDialog();

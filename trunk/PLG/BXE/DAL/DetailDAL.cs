@@ -598,6 +598,7 @@ namespace BXE.DAL
                           {
                               AccIn = s.User.Name,
                               AccOut = s.User1.Name,
+                              Phone = s.User1.Phone,
                               s.Number,
                               s.DateIn,
                               s.DateOut,
@@ -647,6 +648,7 @@ namespace BXE.DAL
                           {
                               AccIn = s.User.Name,
                               AccOut = s.User1.Name,
+                              Phone = s.User1.Phone,
                               s.Number,
                               s.DateIn,
                               s.DateOut,
@@ -697,6 +699,7 @@ namespace BXE.DAL
                           {
                               AccIn = s.User.Name,
                               AccOut = s.User1.Name,
+                              Phone = s.User1.Phone,
                               s.Number,
                               s.DateIn,
                               s.DateOut,

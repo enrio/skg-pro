@@ -317,6 +317,8 @@ namespace BXE.DAL {
             
             private global::System.Data.DataColumn columnPrice;
             
+            private global::System.Data.DataColumn columnPhone;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -504,6 +506,14 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PhoneColumn {
+                get {
+                    return this.columnPhone;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -556,9 +566,10 @@ namespace BXE.DAL {
                         string Chair, 
                         decimal Price1, 
                         decimal Price2, 
-                        string FullDay, 
-                        string HalfDay, 
-                        string Price) {
+                        int FullDay, 
+                        int HalfDay, 
+                        decimal Price, 
+                        string Phone) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -579,7 +590,8 @@ namespace BXE.DAL {
                         Price2,
                         FullDay,
                         HalfDay,
-                        Price};
+                        Price,
+                        Phone};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -621,6 +633,7 @@ namespace BXE.DAL {
                 this.columnFullDay = base.Columns["FullDay"];
                 this.columnHalfDay = base.Columns["HalfDay"];
                 this.columnPrice = base.Columns["Price"];
+                this.columnPhone = base.Columns["Phone"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -658,12 +671,14 @@ namespace BXE.DAL {
                 base.Columns.Add(this.columnPrice1);
                 this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice2);
-                this.columnFullDay = new global::System.Data.DataColumn("FullDay", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnFullDay = new global::System.Data.DataColumn("FullDay", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFullDay);
-                this.columnHalfDay = new global::System.Data.DataColumn("HalfDay", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnHalfDay = new global::System.Data.DataColumn("HalfDay", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHalfDay);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice);
+                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPhone);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1062,10 +1077,10 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FullDay {
+            public int FullDay {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.FullDayColumn]));
+                        return ((int)(this[this.tableRevenue.FullDayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FullDay\' in table \'Revenue\' is DBNull.", e);
@@ -1078,10 +1093,10 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HalfDay {
+            public int HalfDay {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.HalfDayColumn]));
+                        return ((int)(this[this.tableRevenue.HalfDayColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'HalfDay\' in table \'Revenue\' is DBNull.", e);
@@ -1094,10 +1109,10 @@ namespace BXE.DAL {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Price {
+            public decimal Price {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.PriceColumn]));
+                        return ((decimal)(this[this.tableRevenue.PriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'Revenue\' is DBNull.", e);
@@ -1105,6 +1120,22 @@ namespace BXE.DAL {
                 }
                 set {
                     this[this.tableRevenue.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.PhoneColumn] = value;
                 }
             }
             
@@ -1334,6 +1365,18 @@ namespace BXE.DAL {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPriceNull() {
                 this[this.tableRevenue.PriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPhoneNull() {
+                return this.IsNull(this.tableRevenue.PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPhoneNull() {
+                this[this.tableRevenue.PhoneColumn] = global::System.Convert.DBNull;
             }
         }
         

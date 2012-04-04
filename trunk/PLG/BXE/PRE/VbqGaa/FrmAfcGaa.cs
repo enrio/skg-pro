@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using BXE.PRE.YhwCcn;
 
 namespace BXE.PRE.VbqGaa
 {
@@ -11,6 +12,7 @@ namespace BXE.PRE.VbqGaa
 
         DataSet _dts = new DataSet();
         readonly DAL.DetailDAL _dal = new DAL.DetailDAL();
+        private decimal _sum;
 
         public FrmAfcGaa()
         {
@@ -166,7 +168,7 @@ namespace BXE.PRE.VbqGaa
         {
             /*cmdOut.Enabled = false;
             ClearText();*/
-            
+
             using (var x = new FrmAfcVbq())
             {
                 x.EditNumber = cbbNumber.Text;
@@ -206,11 +208,36 @@ namespace BXE.PRE.VbqGaa
             if (e.KeyCode == Keys.Enter) { Invoice(); }
         }
 
-        private void cmdSumary_Click(object sender, EventArgs e)
+        private void cmdSumary1_Click(object sender, EventArgs e)
         {
-            using (var x = new PRE.YhwCcn.FrmTkeGaa() { TkeUsr = true })
+            using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
             {
-                x._sss = _sss;
+                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke1.rdlc";
+                DateTime fr, to;
+                x.Current = _dal.CurrentTime();
+                fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
+                to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
+
+                x.SumaryData = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
+                x.SumaryMoney = _sum;
+
+                x.ShowDialog();
+            }
+        }
+
+        private void cmdSumary2_Click(object sender, EventArgs e)
+        {
+            using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
+            {
+                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke1.rdlc";
+                DateTime fr, to;
+                x.Current = _dal.CurrentTime();
+                fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
+                to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
+
+                x.SumaryData = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
+                x.SumaryMoney = _sum;
+
                 x.ShowDialog();
             }
         }

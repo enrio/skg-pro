@@ -64,7 +64,8 @@
             this.cmdOut = new System.Windows.Forms.Button();
             this.lblInf = new System.Windows.Forms.Label();
             this.cmdInList = new System.Windows.Forms.Button();
-            this.cmdSumary = new System.Windows.Forms.Button();
+            this.cmdSumary1 = new System.Windows.Forms.Button();
+            this.cmdSumary2 = new System.Windows.Forms.Button();
             this.tblAep.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,9 +139,9 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(370, 365);
+            this.cmdClose.Location = new System.Drawing.Point(493, 365);
             this.cmdClose.Name = "cmdClose";
-            this.cmdClose.Size = new System.Drawing.Size(63, 81);
+            this.cmdClose.Size = new System.Drawing.Size(63, 58);
             this.cmdClose.TabIndex = 33;
             this.cmdClose.Text = "Đó&ng";
             this.cmdClose.UseVisualStyleBackColor = true;
@@ -216,7 +217,7 @@
             this.cmdInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInvoice.Location = new System.Drawing.Point(12, 365);
             this.cmdInvoice.Name = "cmdInvoice";
-            this.cmdInvoice.Size = new System.Drawing.Size(63, 81);
+            this.cmdInvoice.Size = new System.Drawing.Size(63, 58);
             this.cmdInvoice.TabIndex = 28;
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.UseVisualStyleBackColor = true;
@@ -494,7 +495,7 @@
             this.cmdRedo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRedo.Location = new System.Drawing.Point(151, 365);
             this.cmdRedo.Name = "cmdRedo";
-            this.cmdRedo.Size = new System.Drawing.Size(63, 81);
+            this.cmdRedo.Size = new System.Drawing.Size(63, 58);
             this.cmdRedo.TabIndex = 30;
             this.cmdRedo.Text = "&Sửa lại";
             this.cmdRedo.UseVisualStyleBackColor = true;
@@ -506,7 +507,7 @@
             this.cmdOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOut.Location = new System.Drawing.Point(81, 365);
             this.cmdOut.Name = "cmdOut";
-            this.cmdOut.Size = new System.Drawing.Size(63, 81);
+            this.cmdOut.Size = new System.Drawing.Size(63, 58);
             this.cmdOut.TabIndex = 29;
             this.cmdOut.Text = "&Cho ra";
             this.cmdOut.UseVisualStyleBackColor = true;
@@ -517,9 +518,9 @@
             this.lblInf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(439, 364);
+            this.lblInf.Location = new System.Drawing.Point(562, 364);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(320, 82);
+            this.lblInf.Size = new System.Drawing.Size(197, 59);
             this.lblInf.TabIndex = 34;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -529,29 +530,49 @@
             this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInList.Location = new System.Drawing.Point(220, 365);
             this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(63, 81);
+            this.cmdInList.Size = new System.Drawing.Size(95, 58);
             this.cmdInList.TabIndex = 31;
             this.cmdInList.Text = "&Xe trong bến";
             this.cmdInList.UseVisualStyleBackColor = true;
             this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
-            // cmdSumary
+            // cmdSumary1
             // 
-            this.cmdSumary.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary.Location = new System.Drawing.Point(289, 365);
-            this.cmdSumary.Name = "cmdSumary";
-            this.cmdSumary.Size = new System.Drawing.Size(75, 81);
-            this.cmdSumary.TabIndex = 32;
-            this.cmdSumary.Text = "&Thống kê";
-            this.cmdSumary.UseVisualStyleBackColor = true;
-            this.cmdSumary.Click += new System.EventHandler(this.cmdSumary_Click);
+            this.cmdSumary1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.cmdSumary1.Image = global::BXE.Properties.Resources.printer;
+            this.cmdSumary1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdSumary1.Location = new System.Drawing.Point(321, 365);
+            this.cmdSumary1.Name = "cmdSumary1";
+            this.cmdSumary1.Size = new System.Drawing.Size(80, 58);
+            this.cmdSumary1.TabIndex = 32;
+            this.cmdSumary1.Text = "&In nhóm 1";
+            this.cmdSumary1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdSumary1.UseVisualStyleBackColor = true;
+            this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
+            // 
+            // cmdSumary2
+            // 
+            this.cmdSumary2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary2.ForeColor = System.Drawing.Color.Red;
+            this.cmdSumary2.Image = global::BXE.Properties.Resources.printer;
+            this.cmdSumary2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdSumary2.Location = new System.Drawing.Point(407, 365);
+            this.cmdSumary2.Name = "cmdSumary2";
+            this.cmdSumary2.Size = new System.Drawing.Size(80, 58);
+            this.cmdSumary2.TabIndex = 35;
+            this.cmdSumary2.Text = "In &nhóm 2";
+            this.cmdSumary2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdSumary2.UseVisualStyleBackColor = true;
+            this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
             // 
             // FrmAfcGaa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(771, 457);
-            this.Controls.Add(this.cmdSumary);
+            this.ClientSize = new System.Drawing.Size(771, 432);
+            this.Controls.Add(this.cmdSumary2);
+            this.Controls.Add(this.cmdSumary1);
             this.Controls.Add(this.cmdInList);
             this.Controls.Add(this.lblInf);
             this.Controls.Add(this.cmdOut);
@@ -609,6 +630,7 @@
         private System.Windows.Forms.Label lblAccOut;
         private System.Windows.Forms.Label lblInf;
         private System.Windows.Forms.Button cmdInList;
-        private System.Windows.Forms.Button cmdSumary;
+        private System.Windows.Forms.Button cmdSumary1;
+        private System.Windows.Forms.Button cmdSumary2;
     }
 }

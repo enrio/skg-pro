@@ -235,7 +235,7 @@ namespace BXE.PRE.VbqGaa
                 fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
                 to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
 
-                x.SumaryData = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
+                x.SumaryData = _dal.SumaryDateOutByUser_2(out _sum, fr, to, _sss.Id);
                 x.SumaryMoney = _sum;
 
                 x.ShowDialog();

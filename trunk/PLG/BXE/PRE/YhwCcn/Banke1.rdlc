@@ -2023,9 +2023,10 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Day.Value, "DtsRevenue")+Sum(Fields!HalfDay.Value, "DtsRevenue")</Value>
+                <Value>=Sum(Fields!Day.Value, "DtsRevenue")+Sum(Fields!HalfDay.Value, "DtsRevenue")/2</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
+                  <Format>#,0.0;(#,0.0);'-'</Format>
                 </Style>
               </TextRun>
             </TextRuns>

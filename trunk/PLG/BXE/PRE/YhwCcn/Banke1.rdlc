@@ -122,7 +122,7 @@
               <Width>1.09284in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.90258in</Width>
+              <Width>0.77758in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -1269,7 +1269,7 @@
         <Top>1.14928in</Top>
         <Left>0.35267in</Left>
         <Height>1.16009in</Height>
-        <Width>10.50634in</Width>
+        <Width>10.38134in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1768,7 +1768,7 @@
         <Top>2.09887cm</Top>
         <Left>4.42588cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.42433cm</Width>
+        <Width>4.62516cm</Width>
         <ZIndex>15</ZIndex>
         <Style>
           <Border>
@@ -1969,7 +1969,9 @@
             <TextRuns>
               <TextRun>
                 <Value />
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -1999,7 +2001,9 @@
             <TextRuns>
               <TextRun>
                 <Value />
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -2029,7 +2033,9 @@
             <TextRuns>
               <TextRun>
                 <Value />
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />
@@ -2059,7 +2065,10 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!sfiTee.Value</Value>
-                <Style />
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style />

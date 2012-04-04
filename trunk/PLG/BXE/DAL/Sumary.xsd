@@ -31,6 +31,9 @@
               <xs:element name="Chair" msprop:Generator_ColumnVarNameInTable="columnChair" msprop:Generator_ColumnPropNameInRow="Chair" msprop:Generator_ColumnPropNameInTable="ChairColumn" msprop:Generator_UserColumnName="Chair" type="xs:string" minOccurs="0" />
               <xs:element name="Price1" msprop:Generator_ColumnVarNameInTable="columnPrice1" msprop:Generator_ColumnPropNameInRow="Price1" msprop:Generator_ColumnPropNameInTable="Price1Column" msprop:Generator_UserColumnName="Price1" type="xs:decimal" minOccurs="0" />
               <xs:element name="Price2" msprop:Generator_ColumnVarNameInTable="columnPrice2" msprop:Generator_ColumnPropNameInRow="Price2" msprop:Generator_ColumnPropNameInTable="Price2Column" msprop:Generator_UserColumnName="Price2" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FullDay" msprop:Generator_ColumnVarNameInTable="columnFullDay" msprop:Generator_ColumnPropNameInRow="FullDay" msprop:Generator_ColumnPropNameInTable="FullDayColumn" msprop:Generator_UserColumnName="FullDay" type="xs:string" minOccurs="0" />
+              <xs:element name="HalfDay" msprop:Generator_ColumnVarNameInTable="columnHalfDay" msprop:Generator_ColumnPropNameInRow="HalfDay" msprop:Generator_ColumnPropNameInTable="HalfDayColumn" msprop:Generator_UserColumnName="HalfDay" type="xs:string" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

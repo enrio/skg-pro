@@ -180,10 +180,12 @@ namespace BXE.PRE.YhwCcn
             using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
             {
                 DateTime fr, to;
-                MakCodDate(out fr, out to);
+                x.Current = _dal.CurrentTime();
+                fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
+                to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
+
                 x.SumaryData = _dal.SumaryDateOutByUser(out _sum, fr, to, _sss.Id);
                 x.SumaryMoney = _sum;
-                x.Current = _dal.CurrentTime();
 
                 x.ShowDialog();
             }

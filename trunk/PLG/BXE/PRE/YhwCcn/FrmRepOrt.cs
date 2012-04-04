@@ -47,7 +47,7 @@ namespace BXE.PRE.YhwCcn
         private void SetParameters()
         {
             ReportParameter[] parameters = new ReportParameter[3];
-            parameters[0] = new ReportParameter("parCa", Fr.ToString("dd/MM/yyyy"));
+            parameters[0] = new ReportParameter("parCa", "");
             parameters[1] = new ReportParameter("parNgay", To.ToString("dd/MM/yyyy"));
 
             string tmp = UTL.SFI.CsoSFI.ChangeNum2VNStr(Convert.ToDouble(_sum), " đồng");

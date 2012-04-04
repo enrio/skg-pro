@@ -76,6 +76,18 @@
           <DataField>Price2</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
+        <Field Name="FullDay">
+          <DataField>FullDay</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="HalfDay">
+          <DataField>HalfDay</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Price">
+          <DataField>Price</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>BXEDAL</DataSourceName>
@@ -1583,7 +1595,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>0cm</Top>
         <Left>10.85021cm</Left>
         <Height>1.46458cm</Height>
         <Width>16.73169cm</Width>
@@ -2080,7 +2091,6 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox12</rd:DefaultName>
-        <Top>0cm</Top>
         <Left>0.57827cm</Left>
         <Height>0.73229cm</Height>
         <Width>10.27194cm</Width>

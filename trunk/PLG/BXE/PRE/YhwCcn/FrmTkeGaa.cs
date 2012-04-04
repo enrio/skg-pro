@@ -64,7 +64,7 @@ namespace BXE.PRE.YhwCcn
             MakCodDate(out fr, out to);
             if (isUser)
             {
-                dgvAep.DataSource = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
+                dgvAep.DataSource = _dal.SumaryDateOutByUser(out _sum, fr, to, _sss.Id);
             }
             else
             {
@@ -114,6 +114,16 @@ namespace BXE.PRE.YhwCcn
         {
             using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
             {
+                //DateTime fr, to;
+                //MakCodDate(out fr, out to);
+                //x.Fr = fr;
+                //x.To = to;
+                //if (cbbQuy.Text != "") x.Quarter = String.Format("Quý {0} năm {1}", cbbQuy.Text, fr.Year);
+                //else x.Quarter = "";
+
+                //if (radIn.Checked) x.IsOut = false;
+                //if (radOut.Checked) x.IsOut = true;
+
                 x.ShowDialog();
             }
         }
@@ -172,40 +182,6 @@ namespace BXE.PRE.YhwCcn
 
                 dtpFrom.Value = fr;
                 dtpTo.Value = to;
-            }
-        }
-
-        private void cmdPrintG1_Click(object sender, EventArgs e)
-        {
-            using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
-            {
-                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke1.rdlc";
-                DateTime fr, to;
-                x.Current = _dal.CurrentTime();
-                fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
-                to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
-
-                x.SumaryData = _dal.SumaryDateOutByUser_1(out _sum, fr, to, _sss.Id);
-                x.SumaryMoney = _sum;
-
-                x.ShowDialog();
-            }
-        }
-
-        private void cmdPrintG2_Click(object sender, EventArgs e)
-        {
-            using (var x = new FrmRepOrt() { WindowState = FormWindowState.Maximized })
-            {
-                x.rptAep.LocalReport.ReportPath = Application.StartupPath + @"\PLG\PRE\YhwCcn\Banke2.rdlc";
-                DateTime fr, to;
-                x.Current = _dal.CurrentTime();
-                fr = UTL.ICA.CsoICA.GetStartOfDay(x.Current.Value);
-                to = UTL.ICA.CsoICA.GetEndOfDay(x.Current.Value);
-
-                x.SumaryData = _dal.SumaryDateOutByUser_2(out _sum, fr, to, _sss.Id);
-                x.SumaryMoney = _sum;
-
-                x.ShowDialog();
             }
         }
     }

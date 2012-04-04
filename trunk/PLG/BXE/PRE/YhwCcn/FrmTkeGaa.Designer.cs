@@ -35,6 +35,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAep = new System.Windows.Forms.DataGridView();
+            this.cmdInDay = new System.Windows.Forms.Button();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpTo = new System.Windows.Forms.DateTimePicker();
+            this.cmdPrint = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.radIn = new System.Windows.Forms.RadioButton();
+            this.radOut = new System.Windows.Forms.RadioButton();
+            this.cbbQuy = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbbThang = new System.Windows.Forms.ComboBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAccIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,34 +66,11 @@
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMoney = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmdInDay = new System.Windows.Forms.Button();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.cmdPrint = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.radIn = new System.Windows.Forms.RadioButton();
-            this.radOut = new System.Windows.Forms.RadioButton();
-            this.cbbQuy = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbbThang = new System.Windows.Forms.ComboBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmdPrintG2 = new System.Windows.Forms.Button();
-            this.cmdViewG2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmdPrintG1 = new System.Windows.Forms.Button();
-            this.cmdViewG1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvAep
@@ -107,166 +99,10 @@
             this.dgvAep.Location = new System.Drawing.Point(0, 0);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
-            this.dgvAep.Size = new System.Drawing.Size(967, 369);
+            this.dgvAep.Size = new System.Drawing.Size(967, 441);
             this.dgvAep.TabIndex = 10;
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvMain_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
-            // 
-            // colNo_
-            // 
-            this.colNo_.DataPropertyName = "No_";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "0#";
-            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colNo_.HeaderText = "TT";
-            this.colNo_.Name = "colNo_";
-            this.colNo_.ReadOnly = true;
-            this.colNo_.Width = 30;
-            // 
-            // colNumber
-            // 
-            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colNumber.DataPropertyName = "Number";
-            this.colNumber.HeaderText = "Biển số";
-            this.colNumber.Name = "colNumber";
-            this.colNumber.ReadOnly = true;
-            this.colNumber.Width = 67;
-            // 
-            // colAccIn
-            // 
-            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAccIn.DataPropertyName = "AccIn";
-            this.colAccIn.HeaderText = "Người cho vào";
-            this.colAccIn.Name = "colAccIn";
-            this.colAccIn.ReadOnly = true;
-            this.colAccIn.Width = 102;
-            // 
-            // colAccOut
-            // 
-            this.colAccOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colAccOut.DataPropertyName = "AccOut";
-            this.colAccOut.HeaderText = "Người cho ra";
-            this.colAccOut.Name = "colAccOut";
-            this.colAccOut.ReadOnly = true;
-            this.colAccOut.Width = 93;
-            // 
-            // colGroupName
-            // 
-            this.colGroupName.DataPropertyName = "GroupName";
-            this.colGroupName.HeaderText = "Nhóm xe";
-            this.colGroupName.Name = "colGroupName";
-            this.colGroupName.ReadOnly = true;
-            // 
-            // colKindName
-            // 
-            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colKindName.DataPropertyName = "KindName";
-            this.colKindName.HeaderText = "Loại xe";
-            this.colKindName.Name = "colKindName";
-            this.colKindName.ReadOnly = true;
-            // 
-            // colLength
-            // 
-            this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colLength.DataPropertyName = "Length";
-            this.colLength.HeaderText = "Chiều dài";
-            this.colLength.Name = "colLength";
-            this.colLength.ReadOnly = true;
-            this.colLength.Visible = false;
-            // 
-            // colWeight
-            // 
-            this.colWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colWeight.DataPropertyName = "Weight";
-            this.colWeight.HeaderText = "Tải trọng";
-            this.colWeight.Name = "colWeight";
-            this.colWeight.ReadOnly = true;
-            this.colWeight.Visible = false;
-            // 
-            // colChair
-            // 
-            this.colChair.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colChair.DataPropertyName = "Chair";
-            this.colChair.HeaderText = "Số ghế";
-            this.colChair.Name = "colChair";
-            this.colChair.ReadOnly = true;
-            this.colChair.Width = 66;
-            // 
-            // colTGVao
-            // 
-            this.colTGVao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colTGVao.DataPropertyName = "DateIn";
-            this.colTGVao.HeaderText = "Thời gian vào";
-            this.colTGVao.Name = "colTGVao";
-            this.colTGVao.ReadOnly = true;
-            this.colTGVao.Width = 97;
-            // 
-            // colTGRa
-            // 
-            this.colTGRa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colTGRa.DataPropertyName = "DateOut";
-            this.colTGRa.HeaderText = "Thời gian ra";
-            this.colTGRa.Name = "colTGRa";
-            this.colTGRa.ReadOnly = true;
-            this.colTGRa.Width = 88;
-            // 
-            // colDays
-            // 
-            this.colDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colDays.DataPropertyName = "Day";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.NullValue = null;
-            this.colDays.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colDays.HeaderText = "Ngày đậu";
-            this.colDays.Name = "colDays";
-            this.colDays.ReadOnly = true;
-            this.colDays.Width = 79;
-            // 
-            // colHour
-            // 
-            this.colHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colHour.DataPropertyName = "Hour";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colHour.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colHour.HeaderText = "Giờ đậu";
-            this.colHour.Name = "colHour";
-            this.colHour.ReadOnly = true;
-            this.colHour.Width = 70;
-            // 
-            // colPrice
-            // 
-            this.colPrice.DataPropertyName = "Price1";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,### \"VNĐ\"";
-            dataGridViewCellStyle4.NullValue = null;
-            this.colPrice.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colPrice.HeaderText = "ĐG nửa ngày";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 88;
-            // 
-            // colPrice2
-            // 
-            this.colPrice2.DataPropertyName = "Price2";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Format = "#,### \"VNĐ\"";
-            this.colPrice2.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colPrice2.HeaderText = "ĐG một ngày";
-            this.colPrice2.Name = "colPrice2";
-            this.colPrice2.ReadOnly = true;
-            this.colPrice2.Width = 87;
-            // 
-            // colMoney
-            // 
-            this.colMoney.DataPropertyName = "Money";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Format = "#,### \"VNĐ\"";
-            dataGridViewCellStyle6.NullValue = null;
-            this.colMoney.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colMoney.HeaderText = "Thành tiền";
-            this.colMoney.Name = "colMoney";
-            this.colMoney.ReadOnly = true;
-            this.colMoney.Width = 77;
             // 
             // cmdInDay
             // 
@@ -276,7 +112,6 @@
             this.cmdInDay.TabIndex = 6;
             this.cmdInDay.Text = "&Xem thống kê";
             this.cmdInDay.UseVisualStyleBackColor = true;
-            this.cmdInDay.Visible = false;
             this.cmdInDay.Click += new System.EventHandler(this.cmdInDay_Click);
             // 
             // dtpFrom
@@ -323,7 +158,6 @@
             this.cmdPrint.TabIndex = 7;
             this.cmdPrint.Text = "&In thống kê";
             this.cmdPrint.UseVisualStyleBackColor = true;
-            this.cmdPrint.Visible = false;
             this.cmdPrint.Click += new System.EventHandler(this.cmdPdf_Click);
             // 
             // label3
@@ -359,7 +193,6 @@
             this.radIn.TabIndex = 4;
             this.radIn.Text = "Ngày vào";
             this.radIn.UseVisualStyleBackColor = true;
-            this.radIn.Visible = false;
             // 
             // radOut
             // 
@@ -372,7 +205,6 @@
             this.radOut.TabStop = true;
             this.radOut.Text = "Ngày ra";
             this.radOut.UseVisualStyleBackColor = true;
-            this.radOut.Visible = false;
             // 
             // cbbQuy
             // 
@@ -437,8 +269,6 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel1.Controls.Add(this.label3);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.cmdInDay);
@@ -458,80 +288,164 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvAep);
             this.splitContainer1.Size = new System.Drawing.Size(967, 520);
-            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.SplitterDistance = 75;
             this.splitContainer1.TabIndex = 15;
             // 
-            // groupBox2
+            // colNo_
             // 
-            this.groupBox2.Controls.Add(this.cmdPrintG2);
-            this.groupBox2.Controls.Add(this.cmdViewG2);
-            this.groupBox2.Location = new System.Drawing.Point(186, 68);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(176, 69);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Nhóm 2: XE SANG HÀNG";
+            this.colNo_.DataPropertyName = "No_";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle1.Format = "0#";
+            this.colNo_.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colNo_.HeaderText = "TT";
+            this.colNo_.Name = "colNo_";
+            this.colNo_.ReadOnly = true;
+            this.colNo_.Width = 30;
             // 
-            // cmdPrintG2
+            // colNumber
             // 
-            this.cmdPrintG2.Image = global::BXE.Properties.Resources.printer;
-            this.cmdPrintG2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdPrintG2.Location = new System.Drawing.Point(91, 19);
-            this.cmdPrintG2.Name = "cmdPrintG2";
-            this.cmdPrintG2.Size = new System.Drawing.Size(78, 43);
-            this.cmdPrintG2.TabIndex = 1;
-            this.cmdPrintG2.Text = "&IN";
-            this.cmdPrintG2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdPrintG2.UseVisualStyleBackColor = true;
-            this.cmdPrintG2.Click += new System.EventHandler(this.cmdPrintG2_Click);
+            this.colNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colNumber.DataPropertyName = "Number";
+            this.colNumber.HeaderText = "Biển số";
+            this.colNumber.Name = "colNumber";
+            this.colNumber.ReadOnly = true;
+            this.colNumber.Width = 67;
             // 
-            // cmdViewG2
+            // colAccIn
             // 
-            this.cmdViewG2.Image = global::BXE.Properties.Resources.palette;
-            this.cmdViewG2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdViewG2.Location = new System.Drawing.Point(7, 19);
-            this.cmdViewG2.Name = "cmdViewG2";
-            this.cmdViewG2.Size = new System.Drawing.Size(78, 43);
-            this.cmdViewG2.TabIndex = 0;
-            this.cmdViewG2.Text = "&XEM";
-            this.cmdViewG2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdViewG2.UseVisualStyleBackColor = true;
+            this.colAccIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colAccIn.DataPropertyName = "AccIn";
+            this.colAccIn.HeaderText = "Người cho vào";
+            this.colAccIn.Name = "colAccIn";
+            this.colAccIn.ReadOnly = true;
+            this.colAccIn.Width = 102;
             // 
-            // groupBox1
+            // colAccOut
             // 
-            this.groupBox1.Controls.Add(this.cmdPrintG1);
-            this.groupBox1.Controls.Add(this.cmdViewG1);
-            this.groupBox1.Location = new System.Drawing.Point(3, 68);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(176, 69);
-            this.groupBox1.TabIndex = 15;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nhóm 1: XE TẢI LƯU ĐẬU";
+            this.colAccOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colAccOut.DataPropertyName = "AccOut";
+            this.colAccOut.HeaderText = "Người cho ra";
+            this.colAccOut.Name = "colAccOut";
+            this.colAccOut.ReadOnly = true;
+            this.colAccOut.Width = 93;
             // 
-            // cmdPrintG1
+            // colGroupName
             // 
-            this.cmdPrintG1.Image = global::BXE.Properties.Resources.printer;
-            this.cmdPrintG1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdPrintG1.Location = new System.Drawing.Point(91, 19);
-            this.cmdPrintG1.Name = "cmdPrintG1";
-            this.cmdPrintG1.Size = new System.Drawing.Size(78, 43);
-            this.cmdPrintG1.TabIndex = 1;
-            this.cmdPrintG1.Text = "&IN";
-            this.cmdPrintG1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdPrintG1.UseVisualStyleBackColor = true;
-            this.cmdPrintG1.Click += new System.EventHandler(this.cmdPrintG1_Click);
+            this.colGroupName.DataPropertyName = "GroupName";
+            this.colGroupName.HeaderText = "Nhóm xe";
+            this.colGroupName.Name = "colGroupName";
+            this.colGroupName.ReadOnly = true;
             // 
-            // cmdViewG1
+            // colKindName
             // 
-            this.cmdViewG1.Image = global::BXE.Properties.Resources.palette;
-            this.cmdViewG1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdViewG1.Location = new System.Drawing.Point(7, 19);
-            this.cmdViewG1.Name = "cmdViewG1";
-            this.cmdViewG1.Size = new System.Drawing.Size(78, 43);
-            this.cmdViewG1.TabIndex = 0;
-            this.cmdViewG1.Text = "&XEM";
-            this.cmdViewG1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cmdViewG1.UseVisualStyleBackColor = true;
+            this.colKindName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colKindName.DataPropertyName = "KindName";
+            this.colKindName.HeaderText = "Loại xe";
+            this.colKindName.Name = "colKindName";
+            this.colKindName.ReadOnly = true;
+            // 
+            // colLength
+            // 
+            this.colLength.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colLength.DataPropertyName = "Length";
+            this.colLength.HeaderText = "Chiều dài";
+            this.colLength.Name = "colLength";
+            this.colLength.ReadOnly = true;
+            this.colLength.Width = 76;
+            // 
+            // colWeight
+            // 
+            this.colWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colWeight.DataPropertyName = "Weight";
+            this.colWeight.HeaderText = "Tải trọng";
+            this.colWeight.Name = "colWeight";
+            this.colWeight.ReadOnly = true;
+            this.colWeight.Width = 74;
+            // 
+            // colChair
+            // 
+            this.colChair.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colChair.DataPropertyName = "Chair";
+            this.colChair.HeaderText = "Số ghế";
+            this.colChair.Name = "colChair";
+            this.colChair.ReadOnly = true;
+            this.colChair.Width = 66;
+            // 
+            // colTGVao
+            // 
+            this.colTGVao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTGVao.DataPropertyName = "DateIn";
+            this.colTGVao.HeaderText = "Thời gian vào";
+            this.colTGVao.Name = "colTGVao";
+            this.colTGVao.ReadOnly = true;
+            this.colTGVao.Width = 97;
+            // 
+            // colTGRa
+            // 
+            this.colTGRa.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colTGRa.DataPropertyName = "DateOut";
+            this.colTGRa.HeaderText = "Thời gian ra";
+            this.colTGRa.Name = "colTGRa";
+            this.colTGRa.ReadOnly = true;
+            this.colTGRa.Width = 88;
+            // 
+            // colDays
+            // 
+            this.colDays.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colDays.DataPropertyName = "Day";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.NullValue = null;
+            this.colDays.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colDays.HeaderText = "Ngày đậu";
+            this.colDays.Name = "colDays";
+            this.colDays.ReadOnly = true;
+            this.colDays.Width = 79;
+            // 
+            // colHour
+            // 
+            this.colHour.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colHour.DataPropertyName = "Hour";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colHour.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colHour.HeaderText = "Giờ đậu";
+            this.colHour.Name = "colHour";
+            this.colHour.ReadOnly = true;
+            this.colHour.Width = 65;
+            // 
+            // colPrice
+            // 
+            this.colPrice.DataPropertyName = "Price1";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "#,### \"VNĐ\"";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colPrice.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colPrice.HeaderText = "ĐG nửa ngày";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 88;
+            // 
+            // colPrice2
+            // 
+            this.colPrice2.DataPropertyName = "Price2";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "#,### \"VNĐ\"";
+            this.colPrice2.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colPrice2.HeaderText = "ĐG một ngày";
+            this.colPrice2.Name = "colPrice2";
+            this.colPrice2.ReadOnly = true;
+            this.colPrice2.Width = 87;
+            // 
+            // colMoney
+            // 
+            this.colMoney.DataPropertyName = "Money";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "#,### \"VNĐ\"";
+            dataGridViewCellStyle6.NullValue = null;
+            this.colMoney.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colMoney.HeaderText = "Thành tiền";
+            this.colMoney.Name = "colMoney";
+            this.colMoney.ReadOnly = true;
+            this.colMoney.Width = 77;
             // 
             // FrmTkeGaa
             // 
@@ -553,8 +467,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -577,12 +489,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbbThang;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button cmdPrintG2;
-        private System.Windows.Forms.Button cmdViewG2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button cmdPrintG1;
-        private System.Windows.Forms.Button cmdViewG1;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNo_;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAccIn;

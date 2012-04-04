@@ -1984,7 +1984,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Parameters!parLuotXe.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -2016,7 +2016,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Parameters!parLuotNgay.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -2048,7 +2048,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=Parameters!parTongTien.Value</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>

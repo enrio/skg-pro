@@ -423,6 +423,31 @@ namespace BXE.PRE.VbqGaa
             {
                 try
                 {
+                    // Không lưu thông tin xe ba bánh, chỉ lưu chi tiết ra vào
+                    if (_currVehicle.KindId == 11)
+                    {
+                        var o = new DAL.Detail()
+                        {
+                            AccIn = _sss.Id,
+                            Number = "BG",
+                            DateIn = _sss.Current
+                        };
+
+                        detail = (object)o;
+
+                        if (detail != null)
+                        {
+                            if (_dal.Insert(detail))
+                            {
+                                ClearText();
+                                lblInf.Text = STR_ADD_SUC;
+                            }
+                            else UTL.CsoUTL.Show(STR_IN_GATE);
+                        }
+
+                        return; // không thêm biển số xe nào vào danh sách quản lí
+                    }
+
                     var ve = new DAL.Vehicle
                     {
                         Number = _currVehicle.Number,
@@ -849,7 +874,8 @@ namespace BXE.PRE.VbqGaa
                     break;
 
                 case 2: // group 2 three circle
-                    _currVehicle.Number = mskThreeNumber.Text;
+                    //_currVehicle.Number = mskThreeNumber.Text;
+                    _currVehicle.Number = "BG";
                     _currVehicle.KindId = 11;
                     break;
 

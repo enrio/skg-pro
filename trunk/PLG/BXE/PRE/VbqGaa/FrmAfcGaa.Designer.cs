@@ -66,6 +66,7 @@
             this.cmdInList = new System.Windows.Forms.Button();
             this.cmdSumary1 = new System.Windows.Forms.Button();
             this.cmdSumary2 = new System.Windows.Forms.Button();
+            this.tmrAutoLoadData = new System.Windows.Forms.Timer(this.components);
             this.tblAep.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -566,6 +567,12 @@
             this.cmdSumary2.UseVisualStyleBackColor = true;
             this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
             // 
+            // tmrAutoLoadData
+            // 
+            this.tmrAutoLoadData.Enabled = true;
+            this.tmrAutoLoadData.Interval = 30000;
+            this.tmrAutoLoadData.Tick += new System.EventHandler(this.tmrAutoLoadData_Tick);
+            // 
             // FrmAfcGaa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,5 +639,6 @@
         private System.Windows.Forms.Button cmdInList;
         private System.Windows.Forms.Button cmdSumary1;
         private System.Windows.Forms.Button cmdSumary2;
+        private System.Windows.Forms.Timer tmrAutoLoadData;
     }
 }

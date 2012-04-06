@@ -241,5 +241,10 @@ namespace BXE.PRE.VbqGaa
                 x.ShowDialog();
             }
         }
+
+        private void tmrAutoLoadData_Tick(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

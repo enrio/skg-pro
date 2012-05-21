@@ -44,6 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Entities\Detail.cs" />
+    <Compile Include="Entities\Group.cs" />
+    <Compile Include="Entities\Kind.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="GroupDAL.cs" />
+    <Compile Include="IBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

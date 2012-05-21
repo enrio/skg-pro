@@ -67,8 +67,19 @@ namespace DAL.Entities
         /// </summary>
         public decimal Money { set; get; }
 
+        /// <summary>
+        /// Nhân viên cho xe vào
+        /// </summary>
         public virtual User UserIn { get; set; }
+
+        /// <summary>
+        /// Nhân viên cho xe ra
+        /// </summary>
         public virtual User UserOut { get; set; }
+
+        /// <summary>
+        /// Xe ra vào
+        /// </summary>
         public virtual Vehicle Vehicle { get; set; }
     }
 }

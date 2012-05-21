@@ -71,7 +71,14 @@ namespace DAL.Entities
         [StringLength(200)]
         public string Phone { set; get; }
 
+        /// <summary>
+        /// Loại xe
+        /// </summary>
         public virtual Kind Kind { get; set; }
+
+        /// <summary>
+        /// Chi tiết ra vào
+        /// </summary>
         public virtual ICollection<Detail> Details { get; set; }
     }
 }

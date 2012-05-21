@@ -73,7 +73,14 @@ namespace DAL.Entities
         /// </summary>
         public decimal Money2 { set; get; }
 
+        /// <summary>
+        /// Nhóm loại xe
+        /// </summary>
         public virtual Group Group { get; set; }
+
+        /// <summary>
+        /// Danh sách xe
+        /// </summary>
         public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

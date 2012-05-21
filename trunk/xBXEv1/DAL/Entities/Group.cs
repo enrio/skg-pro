@@ -22,6 +22,9 @@ namespace DAL.Entities
         [StringLength(200)]
         public string Name { set; get; }
 
+        /// <summary>
+        /// Danh sách loại xe
+        /// </summary>
         public virtual ICollection<Kind> Kinds { get; set; }
     }
 }

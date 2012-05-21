@@ -55,8 +55,5 @@ namespace DAL.Entities
         /// Vai trò, quyền hạn
         /// </summary>
         public int Role { set; get; }
-
-        public virtual ICollection<Detail> Details { get; set; }
-        public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

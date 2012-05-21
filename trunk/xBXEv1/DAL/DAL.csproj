@@ -52,6 +52,7 @@
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="GroupDAL.cs" />
     <Compile Include="IBase.cs" />
+    <Compile Include="KindDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace BLL
 {
-    public sealed class GroupBLL : DAL.GroupDAL
+    public sealed class KindBLL : DAL.KindDAL
     {
     }
 }

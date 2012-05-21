@@ -15,6 +15,8 @@ namespace DAL
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Detail> Details { get; set; }
 
-        public MyContext() : base("xBXE") { }
+        public MyContext() : base("xBXE") {
+            
+        }
     }
 }

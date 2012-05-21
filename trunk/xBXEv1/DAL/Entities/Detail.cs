@@ -12,7 +12,7 @@ namespace DAL.Entities
     public class Detail
     {
         /// <summary>
-        /// 
+        /// Khoá chính
         /// </summary>
         public long Id { set; get; }
 

@@ -72,5 +72,6 @@ namespace DAL.Entities
         public string Phone { set; get; }
 
         public virtual Kind Kind { get; set; }
+        public virtual ICollection<Detail> Details { get; set; }
     }
 }

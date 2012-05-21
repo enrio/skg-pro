@@ -56,8 +56,7 @@ namespace DAL.Entities
         /// </summary>
         public int Role { set; get; }
 
-        public virtual ICollection<Detail> Detail1s { get; set; }
-        public virtual ICollection<Detail> Detail2s { get; set; }
+        public virtual ICollection<Detail> Details { get; set; }
         public virtual ICollection<Vehicle> Vehicles { get; set; }
     }
 }

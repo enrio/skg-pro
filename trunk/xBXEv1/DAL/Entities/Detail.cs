@@ -67,8 +67,8 @@ namespace DAL.Entities
         /// </summary>
         public decimal Money { set; get; }
 
-        public virtual User User1 { get; set; }
-        public virtual User User2 { get; set; }
+        public virtual User UserIn { get; set; }
+        public virtual User UserOut { get; set; }
         public virtual Vehicle Vehicle { get; set; }
     }
 }

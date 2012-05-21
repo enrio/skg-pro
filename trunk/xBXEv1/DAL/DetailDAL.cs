@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace DAL
 {
-    public abstract class KindDAL : BaseDAL, IBase
+    public abstract class DetailDAL : BaseDAL, IBase
     {
         public int Count()
         {

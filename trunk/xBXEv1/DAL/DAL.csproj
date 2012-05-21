@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="DetailDAL.cs" />
     <Compile Include="Entities\Detail.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\Kind.cs" />
@@ -54,6 +55,8 @@
     <Compile Include="IBase.cs" />
     <Compile Include="KindDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UTL\UTL.csproj">

@@ -19,12 +19,14 @@ namespace DAL.Entities
         /// <summary>
         /// Mã nhân viên cho xe vào
         /// </summary>
-        public long AccIn { set; get; }
+        [ForeignKey("UserIn")]
+        public long? AccIn { set; get; }
 
         /// <summary>
         /// Mã nhân viên cho xe ra
         /// </summary>
-        public long AccOut { set; get; }
+        [ForeignKey("UserOut")]
+        public long? AccOut { set; get; }
 
         /// <summary>
         /// Biển số xe

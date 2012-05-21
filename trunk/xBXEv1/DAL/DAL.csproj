@@ -51,6 +51,7 @@
     <Compile Include="Entities\Kind.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Extend.cs" />
     <Compile Include="GroupDAL.cs" />
     <Compile Include="IBase.cs" />
     <Compile Include="KindDAL.cs" />

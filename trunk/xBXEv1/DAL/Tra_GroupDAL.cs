@@ -34,6 +34,11 @@ namespace DAL
             catch { return _tb; }
         }
 
+        public DataTable Select(Guid id, bool isFkey = false)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataTable Select(object obj)
         {
             throw new NotImplementedException();
@@ -41,18 +46,7 @@ namespace DAL
 
         public DataTable Select(int skip, int take)
         {
-            try
-            {
-                var res = from s in _db.Tra_Groups
-                          select new
-                          {
-                              s.Id,
-                              s.Name,
-                              s.Descript
-                          };
-                return res.Skip(skip).Take(take).ToDataTable();
-            }
-            catch { return _tb; }
+            throw new NotImplementedException();
         }
 
         public DataTable Select(int skip, int take, object obj)
@@ -62,9 +56,9 @@ namespace DAL
 
         public object Insert(object obj)
         {
-            var o = (Tra_Group)obj;
             try
             {
+                var o = (Tra_Group)obj;
                 o.Id = Guid.NewGuid();
                 var oki = _db.Tra_Groups.Add(o);
                 _db.SaveChanges();
@@ -73,12 +67,12 @@ namespace DAL
             catch { return null; }
         }
 
-        public object Update(object obj)
+        public object Update(Guid id)
         {
             throw new NotImplementedException();
         }
 
-        public object Delete(object obj)
+        public object Delete(Guid id)
         {
             throw new NotImplementedException();
         }

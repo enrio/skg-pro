@@ -9,9 +9,9 @@ namespace BLL
 
     public sealed class Pol_UserBLL : DAL.Pol_UserDAL
     {
-        public Session CheckLogin(string id, string pass)
+        public Session CheckLogin(string acc, string pass)
         {
-            var sss = new Session() { Pol_User = GetPass(id), Current = DateTime.Now };
+            var sss = new Session() { Pol_User = GetPass(acc), Current = DateTime.Now };
             return sss;
         }
     }

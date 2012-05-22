@@ -23,58 +23,28 @@ namespace DAL.Entities
         public string Name { set; get; }
 
         /// <summary>
-        /// Mã nhóm loại xe
-        /// </summary>
-        public long GroupId { set; get; }
-
-        /// <summary>
-        /// Mô tả nhóm xe
+        /// Mô tả loại xe
         /// </summary>
         [StringLength(200)]
         public string Descript { set; get; }
 
         /// <summary>
-        /// Chiều dài tối thiểu
-        /// </summary>
-        public decimal LengthMin { set; get; }
-
-        /// <summary>
-        /// Chiều dài tối đa
-        /// </summary>
-        public decimal LengthMax { set; get; }
-
-        /// <summary>
-        /// Số ghế tối thiểu
-        /// </summary>
-        public int ChairMin { set; get; }
-
-        /// <summary>
-        /// Số ghế tối đa
-        /// </summary>
-        public int ChairMax { set; get; }
-
-        /// <summary>
-        /// Trọng tải tối thiểu
-        /// </summary>
-        public decimal WeightMin { set; get; }
-
-        /// <summary>
-        /// Trọng tải tối đa
-        /// </summary>
-        public decimal WeightMax { set; get; }
-
-        /// <summary>
         /// Đơn giá nửa ngày
         /// </summary>
-        public decimal Money1 { set; get; }
+        public int Price1 { set; get; }
 
         /// <summary>
         /// Đơn giá một ngày
         /// </summary>
-        public decimal Money2 { set; get; }
+        public int Price2 { set; get; }
 
         /// <summary>
-        /// Nhóm loại xe
+        /// Mã nhóm xe
+        /// </summary>
+        public long GroupId { set; get; }
+
+        /// <summary>
+        /// Khoá ngoại nhóm xe
         /// </summary>
         public virtual Group Group { get; set; }
 

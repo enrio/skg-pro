@@ -32,16 +32,13 @@ namespace DAL
                           select new
                           {
                               s.Id,
-                              s.AccIn,
-                              s.AccOut,
-                              s.Number,
                               s.DateIn,
                               s.DateOut,
-                              s.Day,
-                              s.Hour,
-                              s.Price1,
-                              s.Price2,
-                              s.Money
+                              
+                              UserIn=s.UserIn.Name,
+                              UserOut=s.UserOut.Name,
+
+                              Number= s.Vehicle.Number
                           };
                 return res.ToDataTable();
             }

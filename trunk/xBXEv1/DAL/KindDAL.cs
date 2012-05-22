@@ -34,15 +34,7 @@ namespace DAL
                               s.Id,
                               s.Name,
                               s.GroupId,
-                              s.Descript,
-                              s.LengthMax,
-                              s.LengthMin,
-                              s.ChairMax,
-                              s.ChairMin,
-                              s.WeightMax,
-                              s.WeightMin,
-                              s.Money1,
-                              s.Money2
+                              s.Descript
                           };
                 return res.ToDataTable();
             }

@@ -34,11 +34,7 @@ namespace DAL
                               s.Id,
                               s.KindId,
                               s.Number,
-                              s.Descript,
-                              s.Length,
-                              s.Chair,
-                              s.Weight,
-                              s.Name,
+                              s.Descript,                              
                               s.Birth,
                               s.Address,
                               s.Phone

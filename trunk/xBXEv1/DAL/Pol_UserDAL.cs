@@ -45,7 +45,23 @@ namespace DAL
 
         public DataTable Select(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = from s in _db.Pol_Users
+                          where s.Acc == obj + ""
+                          select new
+                          {
+                              s.Id,
+                              s.Acc,
+                              s.Pass,
+                              s.Name,
+                              s.Birth,
+                              s.Address,
+                              s.Phone
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
         }
 
         public DataTable Select(int skip, int take)

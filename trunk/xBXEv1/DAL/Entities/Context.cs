@@ -6,6 +6,7 @@ using System.Text;
 namespace DAL.Entities
 {
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
 
     public class Context : DbContext
     {
@@ -22,5 +23,12 @@ namespace DAL.Entities
         public DbSet<Tra_Detail> Tra_Details { get; set; }
 
         public Context() : base("xBXEv1") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

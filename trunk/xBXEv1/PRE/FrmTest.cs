@@ -9,10 +9,11 @@ using System.Windows.Forms;
 
 namespace PRE
 {
+    using BLL;
+    using DAL.Entities;
+
     public partial class FrmTest : Form
     {
-        BLL.Tra_GroupBLL _tra_GroupBLL = new BLL.Tra_GroupBLL();
-
         public FrmTest()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace PRE
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            dgvMain.DataSource = _tra_GroupBLL.Select();
+            dgvMain.DataSource = BaseBLL._tra_GroupBLL.Select();
         }
     }
 }

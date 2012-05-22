@@ -12,15 +12,15 @@ namespace DAL.Entities
     /// </summary>
     public class Tra_Detail
     {
-        [ForeignKey("Pol_UserIn")]
+        [Key, Column(Order = 0), ForeignKey("Pol_UserIn")]
         public Guid? Pol_UserInId { set; get; }
         public virtual Pol_User Pol_UserIn { get; set; }
 
-        [ForeignKey("Pol_UserOut")]
+        [Key, Column(Order = 1), ForeignKey("Pol_UserOut")]
         public Guid? Pol_UserOutId { set; get; }
         public virtual Pol_User Pol_UserOut { get; set; }
 
-        [ForeignKey("Tra_Vehicle")]
+        [Key, Column(Order = 2), ForeignKey("Tra_Vehicle")]
         public Guid? Tra_VehicleId { set; get; }
         public virtual Tra_Vehicle Tra_Vehicle { get; set; }
 

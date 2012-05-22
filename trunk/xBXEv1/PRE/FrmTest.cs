@@ -19,6 +19,11 @@ namespace PRE
             InitializeComponent();
         }
 
+        private void FrmTest_Load(object sender, EventArgs e)
+        {
+            BaseBLL.CreateData();
+        }
+
         private void btnSelect_Click(object sender, EventArgs e)
         {
             dgvMain.DataSource = BaseBLL._tra_GroupBLL.Select();

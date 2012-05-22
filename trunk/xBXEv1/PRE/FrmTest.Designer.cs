@@ -61,6 +61,7 @@
             this.Name = "FrmTest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Test";
+            this.Load += new System.EventHandler(this.FrmTest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMain)).EndInit();
             this.ResumeLayout(false);
 

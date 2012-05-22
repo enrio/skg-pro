@@ -64,6 +64,7 @@ namespace DAL
             {
                 var o = (Pol_User)obj;
                 o.Id = Guid.NewGuid();
+                o.Pass = UTL.Hasher.Code.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);
                 _db.SaveChanges();
                 return oki;

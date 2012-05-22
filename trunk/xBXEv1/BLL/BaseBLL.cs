@@ -5,6 +5,7 @@ using System.Text;
 
 namespace BLL
 {
+    using System.Data;
     using DAL.Entities;
 
     /// <summary>
@@ -17,7 +18,8 @@ namespace BLL
         public static Pol_UserBLL _pol_UserBLL = new Pol_UserBLL();
         public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
 
-        static void CreateDataPol_Right()
+        #region Insert template data
+        static void CreatePol_Right()
         {
             if (_pol_RightBLL.Count() > 0) return;
 
@@ -43,7 +45,7 @@ namespace BLL
             _pol_RightBLL.Insert(o);
         }
 
-        static void CreateDataPol_Role()
+        static void CreatePol_Role()
         {
             if (_pol_RoleBLL.Count() > 0) return;
 
@@ -66,7 +68,7 @@ namespace BLL
             _pol_RoleBLL.Insert(o);
         }
 
-        static void CreateDataPol_User()
+        static void CreatePol_User()
         {
             if (_pol_UserBLL.Count() > 0) return;
 
@@ -74,17 +76,56 @@ namespace BLL
             _pol_UserBLL.Insert(o);
         }
 
-        static void CreateDataTra_Group()
+        static void CreateTra_Group()
         {
             if (_tra_GroupBLL.Count() > 0) return;
         }
+        #endregion
 
-        public static void CreateData()
+        #region Delete all template data
+        static void DeletePol_Right()
         {
-            CreateDataPol_Right();
-            CreateDataPol_Role();
-            CreateDataPol_User();
-            CreateDataTra_Group();
+            var tbl = _pol_RightBLL.Select();
+            foreach (DataRow row in tbl.Rows)
+                _pol_RightBLL.Delete((Guid)row["Id"]);
+        }
+
+        static void DeletePol_Role()
+        {
+            var tbl = _pol_RoleBLL.Select();
+            foreach (DataRow row in tbl.Rows)
+                _pol_RoleBLL.Delete((Guid)row["Id"]);
+        }
+
+        static void DeletePol_User()
+        {
+            var tbl = _pol_UserBLL.Select();
+            foreach (DataRow row in tbl.Rows)
+                _pol_UserBLL.Delete((Guid)row["Id"]);
+        }
+
+        static void DeleteTra_Group()
+        {
+            var tbl = _tra_GroupBLL.Select();
+            foreach (DataRow row in tbl.Rows)
+                _tra_GroupBLL.Delete((Guid)row["Id"]);
+        }
+        #endregion
+
+        public static void CreateData(bool isDeleteData = false)
+        {
+            if (isDeleteData)
+            {
+                DeletePol_Right();
+                DeletePol_Role();
+                DeletePol_User();
+                DeleteTra_Group();
+            }
+
+            CreatePol_Right();
+            CreatePol_Role();
+            CreatePol_User();
+            CreateTra_Group();
         }
     }
 }

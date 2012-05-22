@@ -51,7 +51,10 @@
     <Compile Include="Entities\Kind.cs" />
     <Compile Include="Entities\Right.cs" />
     <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\RoleRight.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserRight.cs" />
+    <Compile Include="Entities\UserRole.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Extend.cs" />
     <Compile Include="GroupDAL.cs" />

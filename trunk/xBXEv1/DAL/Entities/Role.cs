@@ -8,5 +8,10 @@ namespace DAL.Entities
 
     public class Role
     {
+        public Guid Id { set; get; }
+
+        public string System { set; get; }
+        public string Name { set; get; }
+        public string Descript { set; get; }
     }
 }

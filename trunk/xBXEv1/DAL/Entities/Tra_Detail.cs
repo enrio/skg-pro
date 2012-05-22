@@ -8,10 +8,8 @@ namespace DAL.Entities
 
     public class Tra_Detail
     {
-        public Guid Id { set; get; }
-
-        public DateTime DateIn { set; get; }
-        public DateTime DateOut { set; get; }
+        [Key]
+        public Guid Id { set; get; }       
 
         [ForeignKey("UserIn")]
         public Guid? UserInId { set; get; }
@@ -21,8 +19,11 @@ namespace DAL.Entities
         public Guid? UserOutId { set; get; }
         public virtual Pol_User UserOut { get; set; }
 
-        [ForeignKey("Vehicle")]
+        [ForeignKey("Tra_Vehicle")]
         public Guid? VehicleId { set; get; }
-        public virtual Tra_Vehicle Vehicle { get; set; }
+        public virtual Tra_Vehicle Tra_Vehicle { get; set; }
+
+        public DateTime DateIn { set; get; }
+        public DateTime DateOut { set; get; }
     }
 }

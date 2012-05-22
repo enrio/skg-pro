@@ -8,17 +8,18 @@ namespace DAL.Entities
 
     public class Tra_Kind
     {
+        [Key]
         public Guid Id { set; get; }
+
+        [ForeignKey("Tra_Group")]
+        public Guid? GroupId { set; get; }
+        public virtual Tra_Group Tra_Group { get; set; }
 
         public string Name { set; get; }
         public string Descript { set; get; }
         public int Price1 { set; get; }
         public int Price2 { set; get; }
 
-        public virtual ICollection<Tra_Vehicle> Vehicles { get; set; }
-
-        [ForeignKey("Group")]
-        public Guid? GroupId { set; get; }
-        public virtual Tra_Group Group { get; set; }
+        public virtual ICollection<Tra_Vehicle> Vehicles { get; set; }        
     }
 }

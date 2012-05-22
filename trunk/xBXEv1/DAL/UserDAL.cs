@@ -37,8 +37,7 @@ namespace DAL
                               s.Pass,
                               s.Birth,
                               s.Address,
-                              s.Phone,
-                              s.Role
+                              s.Phone                              
                           };
                 return res.ToDataTable();
             }

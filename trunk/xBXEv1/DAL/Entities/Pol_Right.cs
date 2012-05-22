@@ -8,6 +8,7 @@ namespace DAL.Entities
 
     public class Pol_Right
     {
+        [Key]
         public Guid Id { set; get; }
 
         public string System { set; get; }

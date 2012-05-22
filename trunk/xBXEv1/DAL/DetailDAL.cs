@@ -38,7 +38,7 @@ namespace DAL
                               UserIn=s.UserIn.Name,
                               UserOut=s.UserOut.Name,
 
-                              Number= s.Vehicle.Number
+                              Number= s.Tra_Vehicle.Number
                           };
                 return res.ToDataTable();
             }

@@ -8,6 +8,7 @@ namespace DAL.Entities
 
     public class Pol_User
     {
+        [Key]
         public Guid Id { set; get; }
 
         public string Acc { set; get; }
@@ -16,6 +17,5 @@ namespace DAL.Entities
         public DateTime Birth { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
-        public int Role { set; get; }
     }
 }

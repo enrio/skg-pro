@@ -8,7 +8,12 @@ namespace DAL.Entities
 
     public class Tra_Vehicle
     {
+        [Key]
         public Guid Id { set; get; }
+
+        [ForeignKey("Tra_Kind")]
+        public Guid? KindId { set; get; }
+        public virtual Tra_Kind Tra_Kind { get; set; }
 
         public string Number { set; get; }
         public string Descript { set; get; }
@@ -17,10 +22,6 @@ namespace DAL.Entities
         public string Address { set; get; }
         public string Phone { set; get; }
         
-        public virtual ICollection<Tra_Detail> Details { get; set; }
-
-        [ForeignKey("Kind")]
-        public Guid? KindId { set; get; }
-        public virtual Tra_Kind Kind { get; set; }
+        public virtual ICollection<Tra_Detail> Details { get; set; }        
     }
 }

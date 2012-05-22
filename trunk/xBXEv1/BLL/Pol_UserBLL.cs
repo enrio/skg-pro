@@ -12,6 +12,7 @@ namespace BLL
         public Session CheckLogin(string acc, string pass)
         {
             var sss = new Session() { Pol_User = GetPass(acc), Current = DateTime.Now };
+            sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
             return sss;
         }
     }

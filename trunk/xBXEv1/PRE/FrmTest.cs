@@ -22,6 +22,7 @@ namespace PRE
         private void FrmTest_Load(object sender, EventArgs e)
         {
             BaseBLL.CreateData(true);
+            var res = BaseBLL._pol_UserBLL.CheckLogin("nvt", "nvt");
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

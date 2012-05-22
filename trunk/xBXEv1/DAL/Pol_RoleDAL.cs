@@ -74,7 +74,14 @@ namespace DAL
 
         public object Delete(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = _db.Pol_Roles.SingleOrDefault(s => s.Id == id);
+                _db.Pol_Roles.Remove(res);
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
     }
 }

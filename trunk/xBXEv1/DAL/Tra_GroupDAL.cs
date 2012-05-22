@@ -74,7 +74,14 @@ namespace DAL
 
         public object Delete(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == id);
+                _db.Tra_Groups.Remove(res);
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
     }
 }

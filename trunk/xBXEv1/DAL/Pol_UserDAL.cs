@@ -79,7 +79,14 @@ namespace DAL
 
         public object Delete(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == id);
+                _db.Pol_Users.Remove(res);
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
     }
 }

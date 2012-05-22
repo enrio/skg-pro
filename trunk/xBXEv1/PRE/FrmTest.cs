@@ -21,7 +21,7 @@ namespace PRE
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
-            BaseBLL.CreateData();
+            BaseBLL.CreateData(true);
         }
 
         private void btnSelect_Click(object sender, EventArgs e)

@@ -5,7 +5,14 @@ using System.Text;
 
 namespace BLL
 {
-    public class BaseBLL
+    /// <summary>
+    /// Base static class Bussiness Logic Layer
+    /// </summary>
+    public static class BaseBLL
     {
+        public static Pol_RightBLL _pol_RightBLL = new Pol_RightBLL();
+        public static Pol_RoleBLL _pol_RoleBLL = new Pol_RoleBLL();
+        public static Pol_UserBLL _pol_UserBLL = new Pol_UserBLL();
+        public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
     }
 }

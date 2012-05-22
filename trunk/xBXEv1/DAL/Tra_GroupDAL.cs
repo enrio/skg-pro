@@ -64,7 +64,9 @@ namespace DAL
             try
             {
                 o.Id = Guid.NewGuid();
-                return _db.Tra_Groups.Add(o);
+                var oki = _db.Tra_Groups.Add(o);
+                _db.SaveChanges();
+                return oki;
             }
             catch { return null; }
         }

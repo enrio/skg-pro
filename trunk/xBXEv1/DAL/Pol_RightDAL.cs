@@ -44,7 +44,9 @@ namespace DAL
             try
             {
                 o.Id = Guid.NewGuid();
-                return _db.Pol_Rights.Add(o);
+                var oki = _db.Pol_Rights.Add(o);
+                _db.SaveChanges();
+                return oki;
             }
             catch { return null; }
         }

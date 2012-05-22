@@ -67,7 +67,7 @@ namespace DAL
             catch { return null; }
         }
 
-        public object Update(Guid id)
+        public object Update(object obj)
         {
             throw new NotImplementedException();
         }

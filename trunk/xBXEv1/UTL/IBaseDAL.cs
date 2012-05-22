@@ -19,7 +19,7 @@ namespace UTL
         DataTable Select(int skip, int take);
         DataTable Select(int skip, int take, object obj);
         object Insert(object obj);
-        object Update(Guid id);
+        object Update(object obj);
         object Delete(Guid id);
     }
 }

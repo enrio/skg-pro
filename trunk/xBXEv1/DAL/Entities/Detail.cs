@@ -29,6 +29,12 @@ namespace DAL.Entities
         public long? AccOut { set; get; }
 
         /// <summary>
+        /// Mã xe
+        /// </summary>
+        [ForeignKey("Vehicle")]
+        public long? VehicleId { set; get; }
+
+        /// <summary>
         /// Biển số xe
         /// </summary>
         [StringLength(200)]

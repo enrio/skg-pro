@@ -17,11 +17,6 @@ namespace DAL.Entities
         public long Id { set; get; }
 
         /// <summary>
-        /// Mã loại xe
-        /// </summary>
-        public long KindId { set; get; }
-
-        /// <summary>
         /// Biển số xe (không trùng nhau)
         /// </summary>
         [StringLength(200)]
@@ -34,22 +29,7 @@ namespace DAL.Entities
         public string Descript { set; get; }
 
         /// <summary>
-        /// Chiều dài
-        /// </summary>
-        public decimal Length { set; get; }
-
-        /// <summary>
-        /// Số ghế
-        /// </summary>
-        public int Chair { set; get; }
-
-        /// <summary>
-        /// Trọng tải
-        /// </summary>
-        public decimal Weight { set; get; }
-
-        /// <summary>
-        /// Họ tên chủ xe
+        /// Họ tên tài xế
         /// </summary>
         [StringLength(200)]
         public string Name { set; get; }
@@ -72,7 +52,12 @@ namespace DAL.Entities
         public string Phone { set; get; }
 
         /// <summary>
-        /// Loại xe
+        /// Mã loại xe
+        /// </summary>
+        public long KindId { set; get; }
+
+        /// <summary>
+        /// Khoá ngoại loại xe
         /// </summary>
         public virtual Kind Kind { get; set; }
 

@@ -9,6 +9,7 @@ namespace DAL.Entities
     public class User
     {
         public Guid Id { set; get; }
+
         public string Acc { set; get; }
         public string Pass { set; get; }
         public string Name { set; get; }

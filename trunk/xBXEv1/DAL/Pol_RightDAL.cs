@@ -69,7 +69,17 @@ namespace DAL
 
         public object Update(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Pol_Right)obj;
+                var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Name = o.Name;
+                res.Descript = o.Descript;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
 
         public object Delete(Guid id)

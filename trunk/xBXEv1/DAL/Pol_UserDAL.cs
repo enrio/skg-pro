@@ -104,5 +104,14 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        protected Pol_User GetPass(string acc)
+        {
+            try
+            {
+                return _db.Pol_Users.SingleOrDefault(s => s.Acc == acc);
+            }
+            catch { return null; }
+        }
     }
 }

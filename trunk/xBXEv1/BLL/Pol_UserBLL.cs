@@ -11,12 +11,7 @@ namespace BLL
     {
         public Session CheckLogin(string id, string pass)
         {
-            var tbl = Select(id);
-            var sss = new Session();
-            if (tbl != null && tbl.Rows.Count > 0)
-            {
-                sss.Pol_User = new Pol_User() { };
-            }
+            var sss = new Session() { Pol_User = GetPass(id), Current = DateTime.Now };
             return sss;
         }
     }

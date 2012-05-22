@@ -27,7 +27,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public DataTable Select(int take, int skip)
+        public DataTable Select(int skip, int take)
         {
             throw new NotImplementedException();
         }

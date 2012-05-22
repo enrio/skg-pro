@@ -15,7 +15,7 @@ namespace UTL
         int Count();
         DataTable Select();
         DataTable Select(object obj);
-        DataTable Select(int take, int skip);
+        DataTable Select(int skip, int take);
         DataTable Select(int skip, int take, object obj);
         object Insert(object obj);
         object Update(object obj);

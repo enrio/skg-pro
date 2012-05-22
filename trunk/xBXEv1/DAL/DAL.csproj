@@ -55,6 +55,7 @@
     <Compile Include="Entities\Tra_Group.cs" />
     <Compile Include="Entities\Tra_Kind.cs" />
     <Compile Include="Entities\Tra_Vehicle.cs" />
+    <Compile Include="Ext_Method.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

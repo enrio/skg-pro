@@ -6,6 +6,7 @@ using System.Text;
 namespace DAL
 {
     using System.Data;
+    using Entities;
 
     /// <summary>
     /// Vận tải - Xử lí bảng Tra_Group
@@ -59,7 +60,13 @@ namespace DAL
 
         public object Insert(object obj)
         {
-            throw new NotImplementedException();
+            var o = (Tra_Group)obj;
+            try
+            {
+                o.Id = Guid.NewGuid();
+                return _db.Tra_Groups.Add(o);
+            }
+            catch { return null; }
         }
 
         public object Update(object obj)

@@ -6,6 +6,7 @@ using System.Text;
 namespace DAL
 {
     using System.Data;
+    using Entities;
 
     /// <summary>
     /// Chính sách - Xử lí bảng Pol_Role
@@ -39,7 +40,13 @@ namespace DAL
 
         public object Insert(object obj)
         {
-            throw new NotImplementedException();
+            var o = (Pol_Role)obj;
+            try
+            {
+                o.Id = Guid.NewGuid();
+                return _db.Pol_Roles.Add(o);
+            }
+            catch { return null; }
         }
 
         public object Update(object obj)

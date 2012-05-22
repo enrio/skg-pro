@@ -14,7 +14,7 @@ namespace DAL
     {
         public int Count()
         {
-            throw new NotImplementedException();
+            return _db.Tra_Groups.Count();
         }
 
         public DataTable Select()

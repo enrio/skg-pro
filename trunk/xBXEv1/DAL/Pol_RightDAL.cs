@@ -8,28 +8,18 @@ namespace DAL
     using System.Data;
 
     /// <summary>
-    /// Vận tải - Xử lí bảng Tra_Group
+    /// Chính sách - Xử lí bảng Pol_Right
     /// </summary>
-    public abstract class Tra_GroupDAL : BaseDAL, UTL.IBaseDAL
+    public abstract class Pol_RightDAL : BaseDAL, UTL.IBaseDAL
     {
         public int Count()
         {
-            return _db.Tra_Groups.Count();
+            return _db.Pol_Rights.Count();
         }
 
         public DataTable Select()
         {
-            try
-            {
-                var res = from s in _db.Tra_Groups
-                          select new
-                          {
-                              s.Id,
-                              s.Name
-                          };
-                return res.ToDataTable();
-            }
-            catch { return _tb; }
+            throw new NotImplementedException();
         }
 
         public DataTable Select(object obj)
@@ -39,17 +29,7 @@ namespace DAL
 
         public DataTable Select(int take, int skip)
         {
-            try
-            {
-                var res = from s in _db.Tra_Groups
-                          select new
-                          {
-                              s.Id,
-                              s.Name
-                          };
-                return res.Skip(skip).Take(take).ToDataTable();
-            }
-            catch { return _tb; }
+            throw new NotImplementedException();
         }
 
         public DataTable Select(int skip, int take, object obj)

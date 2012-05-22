@@ -49,6 +49,8 @@
     <Compile Include="Entities\Detail.cs" />
     <Compile Include="Entities\Group.cs" />
     <Compile Include="Entities\Kind.cs" />
+    <Compile Include="Entities\Right.cs" />
+    <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\Vehicle.cs" />
     <Compile Include="Extend.cs" />

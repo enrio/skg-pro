@@ -20,7 +20,18 @@ namespace DAL
 
         public DataTable Select()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = from s in _db.Pol_Rights
+                          select new
+                          {
+                              s.Id,
+                              s.Name,
+                              s.Descript
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
         }
 
         public DataTable Select(object obj)
@@ -30,7 +41,18 @@ namespace DAL
 
         public DataTable Select(int skip, int take)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = from s in _db.Pol_Rights
+                          select new
+                          {
+                              s.Id,
+                              s.Name,
+                              s.Descript
+                          };
+                return res.Skip(skip).Take(take).ToDataTable();
+            }
+            catch { return _tb; }
         }
 
         public DataTable Select(int skip, int take, object obj)

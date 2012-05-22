@@ -26,7 +26,8 @@ namespace DAL
                           select new
                           {
                               s.Id,
-                              s.Name
+                              s.Name,
+                              s.Descript
                           };
                 return res.ToDataTable();
             }
@@ -46,7 +47,8 @@ namespace DAL
                           select new
                           {
                               s.Id,
-                              s.Name
+                              s.Name,
+                              s.Descript
                           };
                 return res.Skip(skip).Take(take).ToDataTable();
             }

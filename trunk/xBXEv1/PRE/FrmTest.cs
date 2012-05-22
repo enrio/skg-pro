@@ -26,7 +26,7 @@ namespace PRE
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            dgvMain.DataSource = BaseBLL._tra_GroupBLL.Select();
+            dgvMain.DataSource = BaseBLL._pol_UserBLL.Select();
         }
     }
 }

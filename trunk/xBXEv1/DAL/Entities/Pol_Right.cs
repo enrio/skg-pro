@@ -6,7 +6,7 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Right
+    public class Pol_Right
     {
         public Guid Id { set; get; }
 

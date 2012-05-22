@@ -15,11 +15,11 @@ namespace DAL.Entities
 
         [ForeignKey("UserIn")]
         public Guid? UserInId { set; get; }
-        public virtual User UserIn { get; set; }
+        public virtual Pol_User UserIn { get; set; }
 
         [ForeignKey("UserOut")]
         public Guid? UserOutId { set; get; }
-        public virtual User UserOut { get; set; }
+        public virtual Pol_User UserOut { get; set; }
 
         [ForeignKey("Vehicle")]
         public Guid? VehicleId { set; get; }

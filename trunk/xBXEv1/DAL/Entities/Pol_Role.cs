@@ -6,7 +6,7 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Role
+    public class Pol_Role
     {
         public Guid Id { set; get; }
 

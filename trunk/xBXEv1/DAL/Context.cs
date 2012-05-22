@@ -9,14 +9,14 @@ namespace DAL
 
     public sealed class Context : DbContext
     {
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Right> Rights { get; set; }
+        public DbSet<Pol_Role> Roles { get; set; }
+        public DbSet<Pol_Right> Rights { get; set; }
 
-        public DbSet<RoleRight> RoleRights { get; set; }
-        public DbSet<UserRight> UserRights { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Pol_RoleRight> RoleRights { get; set; }
+        public DbSet<Pol_UserRight> UserRights { get; set; }
+        public DbSet<Pol_UserRole> UserRoles { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Pol_User> Users { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Kind> Kinds { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }

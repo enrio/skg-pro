@@ -6,11 +6,11 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class UserRight
+    public class Pol_RoleRight
     {
-        [Key]
-        public Guid UserId { set; get; }
-        [Key]
+        [Key,Column(Order=0)]
+        public Guid RoleId { set; get; }
+        [Key, Column(Order = 1)]
         public Guid RightId { set; get; }
 
         public bool Add { set; get; }

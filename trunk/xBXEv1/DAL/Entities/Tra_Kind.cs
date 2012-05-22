@@ -6,7 +6,7 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Kind
+    public class Tra_Kind
     {
         public Guid Id { set; get; }
 
@@ -15,10 +15,10 @@ namespace DAL.Entities
         public int Price1 { set; get; }
         public int Price2 { set; get; }
 
-        public virtual ICollection<Vehicle> Vehicles { get; set; }
+        public virtual ICollection<Tra_Vehicle> Vehicles { get; set; }
 
         [ForeignKey("Group")]
         public Guid? GroupId { set; get; }
-        public virtual Group Group { get; set; }
+        public virtual Tra_Group Group { get; set; }
     }
 }

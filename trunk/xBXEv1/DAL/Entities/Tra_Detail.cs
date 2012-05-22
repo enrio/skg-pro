@@ -6,7 +6,7 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Detail
+    public class Tra_Detail
     {
         public Guid Id { set; get; }
 
@@ -23,6 +23,6 @@ namespace DAL.Entities
 
         [ForeignKey("Vehicle")]
         public Guid? VehicleId { set; get; }
-        public virtual Vehicle Vehicle { get; set; }
+        public virtual Tra_Vehicle Vehicle { get; set; }
     }
 }

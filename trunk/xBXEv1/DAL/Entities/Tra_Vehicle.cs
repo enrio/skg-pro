@@ -6,7 +6,7 @@ namespace DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class Vehicle
+    public class Tra_Vehicle
     {
         public Guid Id { set; get; }
 
@@ -17,10 +17,10 @@ namespace DAL.Entities
         public string Address { set; get; }
         public string Phone { set; get; }
         
-        public virtual ICollection<Detail> Details { get; set; }
+        public virtual ICollection<Tra_Detail> Details { get; set; }
 
         [ForeignKey("Kind")]
         public Guid? KindId { set; get; }
-        public virtual Kind Kind { get; set; }
+        public virtual Tra_Kind Kind { get; set; }
     }
 }

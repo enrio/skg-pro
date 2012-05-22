@@ -9,7 +9,10 @@ namespace DAL
     using System.Data;
     using System.Data.Entity;
 
-    public class BaseDAL
+    /// <summary>
+    /// Base abstract class Data Access Layer
+    /// </summary>
+    public abstract class BaseDAL
     {
         protected Context _db = new Context();
         protected DataTable _tb = new DataTable("Tmp");

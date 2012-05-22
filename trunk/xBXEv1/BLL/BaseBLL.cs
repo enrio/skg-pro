@@ -68,16 +68,23 @@ namespace BLL
 
         static void CreateDataPol_User()
         {
+            if (_pol_UserBLL.Count() > 0) return;
+
+            var o = new Pol_User() { Acc = "nvt", Pass = "nvt", Name = "Nguyễn Văn Toàn", Birth = new DateTime(1988, 1, 5), Address = "26A/3 Hoà Tân, Tân Hoà, Lai Vung, Đồng Tháp", Phone = "+841645 515 010" };
+            _pol_UserBLL.Insert(o);
         }
 
         static void CreateDataTra_Group()
         {
+            if (_tra_GroupBLL.Count() > 0) return;
         }
 
         public static void CreateData()
         {
             CreateDataPol_Right();
             CreateDataPol_Role();
+            CreateDataPol_User();
+            CreateDataTra_Group();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Nhóm loại xe
+    /// Nhóm xe
     /// </summary>
     public class Group
     {
@@ -17,10 +17,16 @@ namespace DAL.Entities
         public long Id { set; get; }
 
         /// <summary>
-        /// Tên nhóm loại xe
+        /// Tên nhóm xe
         /// </summary>
         [StringLength(200)]
         public string Name { set; get; }
+
+        /// <summary>
+        /// Mô tả nhóm xe
+        /// </summary>
+        [StringLength(200)]
+        public string Descript { set; get; }
 
         /// <summary>
         /// Danh sách loại xe

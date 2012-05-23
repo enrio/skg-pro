@@ -21,6 +21,7 @@ namespace PRE
         {
             foreach (var x in MdiChildren) if (x is Catalog.FrmPol_Right) return;
             var frm = new Catalog.FrmPol_Right() { MdiParent = this };
+            frm.Text = "Quyền hạn";
             frm.Show();
         }
         #endregion

@@ -40,7 +40,7 @@ namespace DAL
                               s.Print,
                               s.Full,
                               s.None,
-
+                              Code = s.Pol_Right.Code,
                               RoleName = s.Pol_Role.Name,
                               RoleDescript = s.Pol_Role.Descript,
                               RightName = s.Pol_Right.Name,
@@ -135,7 +135,7 @@ namespace DAL
                               Print = false,
                               Full = false,
                               None = false,
-
+                              s.Code,
                               RoleName = "",
                               RoleDescript = "",
                               RightName = s.Name,

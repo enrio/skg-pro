@@ -103,7 +103,7 @@
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "FrmMain";
+            this.Text = "xBXE - QUẢN LÍ XE RA VÀO BẾN";
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.ResumeLayout(false);
 

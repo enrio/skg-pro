@@ -176,16 +176,16 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Địa chỉ";
-            this.gridColumn7.FieldName = "Address";
+            this.gridColumn7.Caption = "Điện thoại";
+            this.gridColumn7.FieldName = "Phone";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Điện thoại";
-            this.gridColumn8.FieldName = "Phone";
+            this.gridColumn8.Caption = "Địa chỉ";
+            this.gridColumn8.FieldName = "Address";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 6;

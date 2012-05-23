@@ -136,7 +136,7 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Tên quyền";
+            this.gridColumn3.Caption = "Tên vai trò";
             this.gridColumn3.FieldName = "Name";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;

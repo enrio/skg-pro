@@ -38,16 +38,25 @@ namespace BLL
             o = new Pol_Right() { Name = "FrmPol_User", Descript = "Form người dùng" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "rbpMain", Descript = "" };
+            o = new Pol_Right() { Name = "rbpMain", Descript = "Menu trang chính" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "rbpCatalog", Descript = "" };
+            o = new Pol_Right() { Name = "rbpCatalog", Descript = "Menu danh mục" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "rbpManage", Descript = "" };
+            o = new Pol_Right() { Name = "rbpManage", Descript = "Menu quản lí" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "rbpHelp", Descript = "Trợ giúp" };
+            o = new Pol_Right() { Name = "rbpHelp", Descript = "Menu trợ giúp" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "bbiPol_Right", Descript = "Menu quyền hạn" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "bbiPol_Role", Descript = "Menu vai trò" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "bbiPol_User", Descript = "Menu người dùng" };
             _pol_RightBLL.Insert(o);
         }
 

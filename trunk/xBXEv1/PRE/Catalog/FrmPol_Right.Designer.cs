@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dckMain = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -40,7 +41,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dckMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
@@ -48,13 +49,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
             this.SuspendLayout();
             // 
-            // dckMain
+            // dockManager1
             // 
-            this.dckMain.Form = this;
-            this.dckMain.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
             this.dockPanel1,
             this.dockPanel2});
-            this.dckMain.TopZIndexControls.AddRange(new string[] {
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
             "DevExpress.XtraBars.BarDockControl",
             "DevExpress.XtraBars.StandaloneBarDockControl",
             "System.Windows.Forms.StatusBar",
@@ -160,7 +161,7 @@
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dckMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
@@ -172,7 +173,7 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Docking.DockManager dckMain;
+        private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;

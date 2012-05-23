@@ -91,6 +91,9 @@
     <EmbeddedResource Include="Catalog\FrmPol_Right.resx">
       <DependentUpon>FrmPol_Right.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_Role.resx">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

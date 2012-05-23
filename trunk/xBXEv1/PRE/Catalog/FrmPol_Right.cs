@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace PRE.Catalog
 {
+    using BLL;
+    using DAL.Entities;
+
     public partial class FrmPol_Right : PRE.Catalog.FrmBase
     {
         public FrmPol_Right()

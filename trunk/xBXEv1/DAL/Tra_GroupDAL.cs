@@ -13,6 +13,7 @@ namespace DAL
     /// </summary>
     public abstract class Tra_GroupDAL : BaseDAL, UTL.IBaseDAL
     {
+        #region Implement
         public int Count()
         {
             return _db.Tra_Groups.Count();
@@ -83,5 +84,11 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        public object Delete(object obj)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

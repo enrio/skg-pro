@@ -21,5 +21,6 @@ namespace UTL
         object Insert(object obj);
         object Update(object obj);
         object Delete(Guid id);
+        object Delete(object obj);
     }
 }

@@ -13,6 +13,7 @@ namespace DAL
     /// </summary>
     public abstract class Pol_UserDAL : BaseDAL, UTL.IBaseDAL
     {
+        #region Implement
         public int Count()
         {
             return _db.Pol_Users.Count();
@@ -104,6 +105,12 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        public object Delete(object obj)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
         protected Pol_User GetPass(string acc)
         {

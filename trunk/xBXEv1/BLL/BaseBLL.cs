@@ -37,6 +37,18 @@ namespace BLL
 
             o = new Pol_Right() { Name = "FrmPol_User", Descript = "Form người dùng" };
             _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "rbpMain", Descript = "" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "rbpCatalog", Descript = "" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "rbpManage", Descript = "" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Name = "rbpHelp", Descript = "Trợ giúp" };
+            _pol_RightBLL.Insert(o);
         }
 
         static void CreatePol_Role()

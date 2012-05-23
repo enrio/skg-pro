@@ -125,8 +125,8 @@ namespace PRE.Main
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;
-                treeListColumn3.BestFit(); // fit column STT
 
+                treeListColumn3.BestFit(); // fit column STT
                 treeListColumn8.BestFit();
                 treeListColumn9.BestFit();
                 treeListColumn10.BestFit();

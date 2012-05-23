@@ -21,7 +21,7 @@ namespace PRE.Catalog
             SetDockPanel(dockPanel2, "Danh sách");
 
             grvMain.OptionsBehavior.Editable = false;
-            _bll = new Pol_RightBLL();
+            _bll = new Pol_UserBLL();
         }
 
         #region Override

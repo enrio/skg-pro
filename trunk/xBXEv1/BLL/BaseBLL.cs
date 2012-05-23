@@ -23,25 +23,19 @@ namespace BLL
         {
             if (_pol_RightBLL.Count() > 0) return;
 
-            var o = new Pol_Right() { Name = "Thêm", Descript = "Có quyền thêm dữ liệu" };
+            var o = new Pol_Right() { Name = "Catalog", Descript = "Nhóm form danh mục" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "Sửa", Descript = "Có quyền sửa dữ liệu" };
+            o = new Pol_Right() { Name = "FrmBase", Descript = "Form nhập liệu gốc" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "Xoá", Descript = "Có quyền xoá dữ liệu" };
+            o = new Pol_Right() { Name = "FrmPol_Right", Descript = "Form danh mục quyền hạn" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "Truy vấn", Descript = "Có quyền truy vấn dữ liệu" };
+            o = new Pol_Right() { Name = "FrmPol_Role", Descript = "Form danh mục vai trò" };
             _pol_RightBLL.Insert(o);
 
-            o = new Pol_Right() { Name = "In ấn", Descript = "Có quyền in ấn" };
-            _pol_RightBLL.Insert(o);
-
-            o = new Pol_Right() { Name = "Toàn quyền", Descript = "Có tất cả các quyền" };
-            _pol_RightBLL.Insert(o);
-
-            o = new Pol_Right() { Name = "Không quyền", Descript = "Không có quyền nào cả" };
+            o = new Pol_Right() { Name = "FrmPol_User", Descript = "Form người dùng" };
             _pol_RightBLL.Insert(o);
         }
 

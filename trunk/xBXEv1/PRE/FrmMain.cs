@@ -24,6 +24,14 @@ namespace PRE
             frm.Text = "Quyền hạn";
             frm.Show();
         }
+
+        private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Catalog.FrmPol_Role) return;
+            var frm = new Catalog.FrmPol_Role() { MdiParent = this };
+            frm.Text = "Vai trò";
+            frm.Show();
+        }
         #endregion
     }
 }

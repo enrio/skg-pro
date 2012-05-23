@@ -46,6 +46,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bbiPol_Role = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -64,9 +65,10 @@
             this.bbiSetting,
             this.bbiRegistry,
             this.bbiExit,
-            this.bbiPol_Right});
+            this.bbiPol_Right,
+            this.bbiPol_Role});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 7;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -149,6 +151,7 @@
             // rpgPolicy
             // 
             this.rpgPolicy.ItemLinks.Add(this.bbiPol_Right);
+            this.rpgPolicy.ItemLinks.Add(this.bbiPol_Role);
             this.rpgPolicy.Name = "rpgPolicy";
             this.rpgPolicy.Text = "&Chính sách";
             // 
@@ -177,6 +180,13 @@
             // 
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
+            // 
+            // bbiPol_Role
+            // 
+            this.bbiPol_Role.Caption = "&Vai trò";
+            this.bbiPol_Role.Id = 6;
+            this.bbiPol_Role.Name = "bbiPol_Role";
+            this.bbiPol_Role.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Role_ItemClick);
             // 
             // FrmMain
             // 
@@ -216,5 +226,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiPol_Right;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmmMain;
         private System.Windows.Forms.Timer tmrMain;
+        private DevExpress.XtraBars.BarButtonItem bbiPol_Role;
     }
 }

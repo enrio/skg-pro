@@ -21,7 +21,11 @@ namespace DAL
 
         public object Select(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _db.Pol_Roles.SingleOrDefault(s => s.Code == obj + "");
+            }
+            catch { return null; }
         }
 
         public DataTable Select(object obj = null, int skip = 0, int take = 0)

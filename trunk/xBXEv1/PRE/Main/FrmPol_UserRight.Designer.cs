@@ -34,6 +34,11 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.trlMain = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -94,11 +99,54 @@
             // 
             // trlMain
             // 
+            this.trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn1,
+            this.treeListColumn2,
+            this.treeListColumn3,
+            this.treeListColumn4,
+            this.treeListColumn5});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 1;
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "Mã 1";
+            this.treeListColumn1.FieldName = "Pol_UserId";
+            this.treeListColumn1.Name = "treeListColumn1";
+            // 
+            // treeListColumn2
+            // 
+            this.treeListColumn2.Caption = "Mã 2";
+            this.treeListColumn2.FieldName = "Pol_RightId";
+            this.treeListColumn2.Name = "treeListColumn2";
+            // 
+            // treeListColumn3
+            // 
+            this.treeListColumn3.Caption = "STT";
+            this.treeListColumn3.FieldName = "No_";
+            this.treeListColumn3.Name = "treeListColumn3";
+            this.treeListColumn3.OptionsColumn.FixedWidth = true;
+            this.treeListColumn3.Visible = true;
+            this.treeListColumn3.VisibleIndex = 0;
+            // 
+            // treeListColumn4
+            // 
+            this.treeListColumn4.Caption = "Chức năng";
+            this.treeListColumn4.FieldName = "RightName";
+            this.treeListColumn4.Name = "treeListColumn4";
+            this.treeListColumn4.Visible = true;
+            this.treeListColumn4.VisibleIndex = 1;
+            // 
+            // treeListColumn5
+            // 
+            this.treeListColumn5.Caption = "Mô tả";
+            this.treeListColumn5.FieldName = "RightDescript";
+            this.treeListColumn5.Name = "treeListColumn5";
+            this.treeListColumn5.Visible = true;
+            this.treeListColumn5.VisibleIndex = 2;
             // 
             // FrmPol_UserRight
             // 
@@ -127,5 +175,10 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraTreeList.TreeList trlMain;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
     }
 }

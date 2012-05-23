@@ -38,5 +38,27 @@ namespace PRE
             frm.Show();
         }
         #endregion
+
+        #region System
+        private void bbiLogin_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var frm in MdiChildren) frm.Close();
+        }
+
+        private void bbiExit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
     }
 }

@@ -32,10 +32,11 @@
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCloseAll = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_Right = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_Role = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPol_User = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -47,7 +48,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bbiPol_User = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -64,7 +64,7 @@
             this.ribbon.ExpandCollapseItem,
             this.bbiLogin,
             this.bbiSetting,
-            this.bbiRegistry,
+            this.bbiCloseAll,
             this.bbiExit,
             this.bbiPol_Right,
             this.bbiPol_Role,
@@ -86,6 +86,7 @@
             this.bbiLogin.Id = 1;
             this.bbiLogin.LargeGlyph = global::PRE.Properties.Resources.login;
             this.bbiLogin.Name = "bbiLogin";
+            this.bbiLogin.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiLogin_ItemClick);
             // 
             // bbiSetting
             // 
@@ -93,13 +94,15 @@
             this.bbiSetting.Id = 2;
             this.bbiSetting.LargeGlyph = global::PRE.Properties.Resources.setting;
             this.bbiSetting.Name = "bbiSetting";
+            this.bbiSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSetting_ItemClick);
             // 
-            // bbiRegistry
+            // bbiCloseAll
             // 
-            this.bbiRegistry.Caption = "Đăng &kí";
-            this.bbiRegistry.Id = 3;
-            this.bbiRegistry.LargeGlyph = global::PRE.Properties.Resources.registry;
-            this.bbiRegistry.Name = "bbiRegistry";
+            this.bbiCloseAll.Caption = "Đóng &hết";
+            this.bbiCloseAll.Id = 3;
+            this.bbiCloseAll.LargeGlyph = global::PRE.Properties.Resources.close;
+            this.bbiCloseAll.Name = "bbiCloseAll";
+            this.bbiCloseAll.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCloseAll_ItemClick);
             // 
             // bbiExit
             // 
@@ -107,6 +110,7 @@
             this.bbiExit.Id = 4;
             this.bbiExit.LargeGlyph = global::PRE.Properties.Resources.exit;
             this.bbiExit.Name = "bbiExit";
+            this.bbiExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiExit_ItemClick);
             // 
             // bbiPol_Right
             // 
@@ -122,6 +126,13 @@
             this.bbiPol_Role.Name = "bbiPol_Role";
             this.bbiPol_Role.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Role_ItemClick);
             // 
+            // bbiPol_User
+            // 
+            this.bbiPol_User.Caption = "&Người dùng";
+            this.bbiPol_User.Id = 7;
+            this.bbiPol_User.Name = "bbiPol_User";
+            this.bbiPol_User.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_User_ItemClick);
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -134,7 +145,7 @@
             // 
             this.rpgSystem.ItemLinks.Add(this.bbiLogin);
             this.rpgSystem.ItemLinks.Add(this.bbiSetting);
-            this.rpgSystem.ItemLinks.Add(this.bbiRegistry);
+            this.rpgSystem.ItemLinks.Add(this.bbiCloseAll);
             this.rpgSystem.ItemLinks.Add(this.bbiExit);
             this.rpgSystem.Name = "rpgSystem";
             this.rpgSystem.Text = "&Hệ thống";
@@ -191,13 +202,6 @@
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             // 
-            // bbiPol_User
-            // 
-            this.bbiPol_User.Caption = "&Người dùng";
-            this.bbiPol_User.Id = 7;
-            this.bbiPol_User.Name = "bbiPol_User";
-            this.bbiPol_User.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_User_ItemClick);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,7 +232,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpHelp;
         private DevExpress.XtraBars.BarButtonItem bbiLogin;
         private DevExpress.XtraBars.BarButtonItem bbiSetting;
-        private DevExpress.XtraBars.BarButtonItem bbiRegistry;
+        private DevExpress.XtraBars.BarButtonItem bbiCloseAll;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPermission;
         private DevExpress.XtraBars.BarButtonItem bbiExit;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTransport;

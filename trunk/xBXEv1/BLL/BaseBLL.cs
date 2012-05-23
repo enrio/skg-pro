@@ -109,6 +109,16 @@ namespace BLL
         static void CreatePol_RoleRight()
         {
             if (_pol_RoleRightBLL.Count() > 0) return;
+
+            var a = (Pol_Role)_pol_RoleBLL.Select("Catalog");
+            var b = (Pol_Right)_pol_RightBLL.Select("CV");
+            var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_RoleRightBLL.Insert(o);
+
+            a = (Pol_Role)_pol_RoleBLL.Select("Catalog");
+            b = (Pol_Right)_pol_RightBLL.Select("CR");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_RoleRightBLL.Insert(o);
         }
 
         static void CreateTra_Group()

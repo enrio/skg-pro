@@ -115,5 +115,11 @@ namespace DAL
             catch { return null; }
         }
         #endregion
+
+        public DataTable GetFor()
+        {
+            var tmp = Select();
+            return tmp;
+        }
     }
 }

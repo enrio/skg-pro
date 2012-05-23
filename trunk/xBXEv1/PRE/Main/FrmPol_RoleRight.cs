@@ -120,7 +120,8 @@ namespace PRE.Main
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            //_dtb = _bll.Select();
+            _dtb = BaseBLL._pol_RoleRightBLL.GetFor();
 
             if (_dtb != null)
             {

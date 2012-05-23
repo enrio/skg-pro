@@ -71,6 +71,12 @@
     <Compile Include="Catalog\FrmPol_Role.Designer.cs">
       <DependentUpon>FrmPol_Role.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalog\FrmPol_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.Designer.cs">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\FrmPol_Role.resx">
       <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_User.resx">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

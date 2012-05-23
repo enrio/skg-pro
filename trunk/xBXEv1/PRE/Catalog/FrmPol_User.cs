@@ -127,6 +127,7 @@ namespace PRE.Catalog
                 grcMain.DataSource = _dtb;
                 gridColumn2.BestFit(); // fit column STT
                 gridColumn6.BestFit(); // fit column Birth
+                gridColumn7.BestFit(); // fit column Phone
             }
 
             base.LoadData();

@@ -97,8 +97,6 @@ namespace BLL
         static void CreatePol_UserRight()
         {
             if (_pol_UserRightBLL.Count() > 0) return;
-
-            var o = new Pol_UserRight() { Pol_UserId = Guid.NewGuid(), Pol_RightId = Guid.NewGuid(), Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
         }
 
         static void CreatePol_UserRole()

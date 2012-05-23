@@ -150,7 +150,7 @@
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "xBXE - QUẢN LÍ XE RA VÀO BẾN";
+            this.Text = "QUẢN LÍ XE RA VÀO BẾN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.ResumeLayout(false);

@@ -24,6 +24,6 @@ namespace DAL.Entities
         public int Price1 { set; get; }
         public int Price2 { set; get; }
 
-        public virtual ICollection<Tra_Vehicle> Vehicles { get; set; }
+        public virtual ICollection<Tra_Vehicle> Tra_Vehicles { get; set; }
     }
 }

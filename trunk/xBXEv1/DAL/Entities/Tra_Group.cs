@@ -18,6 +18,6 @@ namespace DAL.Entities
         public string Name { set; get; }
         public string Descript { set; get; }
 
-        public virtual ICollection<Tra_Kind> Kinds { get; set; }
+        public virtual ICollection<Tra_Kind> Tra_Kinds { get; set; }
     }
 }

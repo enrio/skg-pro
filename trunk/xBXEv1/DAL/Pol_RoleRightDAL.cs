@@ -116,9 +116,35 @@ namespace DAL
         }
         #endregion
 
-        public DataTable GetFor()
+        public DataTable GetForRight()
         {
             var tmp = Select();
+
+            try
+            {
+                var res = from s in _db.Pol_Rights
+                          select new
+                          {
+                              Pol_RoleId = "",
+                              Pol_RightId = s.Id,
+                              Add = "",
+                              Edit = "",
+                              Delete = "",
+                              Query = "",
+                              Print = "",
+                              Full = "",
+                              None = "",
+
+                              RoleName = "",
+                              RoleDescript = "",
+                              RightName = s.Name,
+                              RightDescript = s.Descript
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+
             return tmp;
         }
     }

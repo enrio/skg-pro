@@ -17,7 +17,7 @@ namespace BLL
         public static Pol_RoleBLL _pol_RoleBLL = new Pol_RoleBLL();
         public static Pol_UserBLL _pol_UserBLL = new Pol_UserBLL();
         public static Pol_UserRightBLL _pol_UserRightBLL = new Pol_UserRightBLL();
-        public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();        
+        public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
 
         #region Insert template data
         static void CreatePol_Right()
@@ -110,12 +110,18 @@ namespace BLL
         static void CreatePol_UserRight()
         {
             if (_pol_UserRightBLL.Count() > 0) return;
+
+            var o = new Pol_UserRight() { Pol_UserId = Guid.NewGuid(), Pol_RightId = Guid.NewGuid(), Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRightBLL.Insert(o);
+
+            o = new Pol_UserRight() { Pol_UserId = Guid.NewGuid(), Pol_RightId = Guid.NewGuid(), Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRightBLL.Insert(o);
         }
 
         static void CreateTra_Group()
         {
             if (_tra_GroupBLL.Count() > 0) return;
-        }        
+        }
         #endregion
 
         #region Delete all template data
@@ -161,6 +167,7 @@ namespace BLL
             CreatePol_Right();
             CreatePol_Role();
             CreatePol_User();
+            CreatePol_UserRight();
             CreateTra_Group();
         }
     }

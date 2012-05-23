@@ -34,7 +34,7 @@
             this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCatalog = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -93,7 +93,7 @@
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
-            this.ribbonPageGroup2});
+            this.rpgPolicy});
             this.rbpMain.Name = "rbpMain";
             this.rbpMain.Text = "Trang chính";
             // 
@@ -106,10 +106,10 @@
             this.rpgSystem.Name = "rpgSystem";
             this.rpgSystem.Text = "&Hệ thống";
             // 
-            // ribbonPageGroup2
+            // rpgPolicy
             // 
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
+            this.rpgPolicy.Name = "rpgPolicy";
+            this.rpgPolicy.Text = "&Phân quyền";
             // 
             // rbpCatalog
             // 
@@ -168,7 +168,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiLogin;
         private DevExpress.XtraBars.BarButtonItem bbiSetting;
         private DevExpress.XtraBars.BarButtonItem bbiRegistry;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPolicy;
         private DevExpress.XtraBars.BarButtonItem bbiExit;
     }
 }

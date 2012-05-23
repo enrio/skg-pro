@@ -19,11 +19,11 @@ namespace DAL
             return _db.Pol_Rights.Count();
         }
 
-        public object Select(object obj)
+        public object Select(string code)
         {
             try
             {
-                return _db.Pol_Rights.SingleOrDefault(s => s.Code == obj + "");
+                return _db.Pol_Rights.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }

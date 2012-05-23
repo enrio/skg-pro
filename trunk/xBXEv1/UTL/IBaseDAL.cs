@@ -13,7 +13,7 @@ namespace UTL
     public interface IBaseDAL
     {
         int Count();
-        object Select(object obj);
+        object Select(string code);
         DataTable Select(object obj = null, int skip = 0, int take = 0);
         object Insert(object obj);
         object Update(object obj);

@@ -19,7 +19,7 @@ namespace DAL
             return _db.Pol_UserRights.Count();
         }
 
-        public object Select(object obj)
+        public object Select(string code)
         {
             throw new NotImplementedException();
         }

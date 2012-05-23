@@ -67,6 +67,7 @@
             this.bbiPrint,
             this.bbiClose});
             this.bmgMain.MaxItemId = 9;
+            this.bmgMain.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bmgMain_ItemClick);
             // 
             // bar1
             // 
@@ -187,6 +188,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmBase";
+            this.Load += new System.EventHandler(this.FrmBase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);
 

@@ -90,6 +90,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.Designer.cs">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\FrmPol_UserRight.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPol_RoleRight.resx">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FrmPol_UserRight.resx">
       <DependentUpon>FrmPol_UserRight.cs</DependentUpon>

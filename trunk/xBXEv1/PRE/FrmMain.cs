@@ -70,6 +70,13 @@ namespace PRE
             var frm = new Main.FrmPol_UserRight() { MdiParent = this, Text = "Người dùng" };
             frm.Show();
         }
+
+        private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Main.FrmPol_RoleRight) return;
+            var frm = new Main.FrmPol_RoleRight() { MdiParent = this, Text = "Người dùng" };
+            frm.Show();
+        }
         #endregion
     }
 }

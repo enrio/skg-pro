@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -52,8 +53,8 @@
             this.rpgInformation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgUse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
-            this.tmrMain = new System.Windows.Forms.Timer();
+            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -177,6 +178,7 @@
             this.bbiPol_RoleRight.Id = 12;
             this.bbiPol_RoleRight.LargeGlyph = global::PRE.Properties.Resources.users;
             this.bbiPol_RoleRight.Name = "bbiPol_RoleRight";
+            this.bbiPol_RoleRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_RoleRight_ItemClick);
             // 
             // rbpMain
             // 

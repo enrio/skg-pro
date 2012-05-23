@@ -20,6 +20,8 @@ namespace PRE.Main
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
+            trlMain.KeyFieldName = "Pol_RoleId";
+            trlMain.ParentFieldName = "Pol_RightId";
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
         }

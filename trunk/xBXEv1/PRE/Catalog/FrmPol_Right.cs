@@ -19,6 +19,9 @@ namespace PRE.Catalog
 
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
+
+            grvMain.OptionsBehavior.Editable = false;
+            _bll = new Pol_RightBLL();
         }
 
         #region Override
@@ -122,7 +125,7 @@ namespace PRE.Catalog
             if (_dtb != null)
             {
                 grcMain.DataSource = _dtb;
-                //gridColumn2.BestFit(); // fit column
+                gridColumn2.BestFit(); // fit column STT
             }
 
             base.LoadData();

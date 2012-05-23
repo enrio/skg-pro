@@ -163,24 +163,24 @@
             // 
             // treeListColumn4
             // 
-            this.treeListColumn4.Caption = "Chức năng";
-            this.treeListColumn4.FieldName = "RightName";
+            this.treeListColumn4.Caption = "Nhóm quyền hạn";
+            this.treeListColumn4.FieldName = "RoleName";
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 2;
             // 
             // treeListColumn6
             // 
-            this.treeListColumn6.Caption = "Tên vai trò";
-            this.treeListColumn6.FieldName = "RoleName";
+            this.treeListColumn6.Caption = "Họ tên";
+            this.treeListColumn6.FieldName = "Name";
             this.treeListColumn6.Name = "treeListColumn6";
             this.treeListColumn6.Visible = true;
             this.treeListColumn6.VisibleIndex = 3;
             // 
             // treeListColumn7
             // 
-            this.treeListColumn7.Caption = "Mô tả vai trò";
-            this.treeListColumn7.FieldName = "RoleDescript";
+            this.treeListColumn7.Caption = "Ngày sinh";
+            this.treeListColumn7.FieldName = "Birth";
             this.treeListColumn7.Name = "treeListColumn7";
             this.treeListColumn7.Visible = true;
             this.treeListColumn7.VisibleIndex = 4;
@@ -244,7 +244,7 @@
             // treeListColumn5
             // 
             this.treeListColumn5.Caption = "Mô tả";
-            this.treeListColumn5.FieldName = "RightDescript";
+            this.treeListColumn5.FieldName = "RoleDescript";
             this.treeListColumn5.Name = "treeListColumn5";
             this.treeListColumn5.Visible = true;
             this.treeListColumn5.VisibleIndex = 12;

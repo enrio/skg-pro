@@ -64,8 +64,8 @@ namespace PRE
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Main.FrmPol_UserRight) return;
-            var frm = new Main.FrmPol_UserRight() { MdiParent = this, Text = "Người dùng" };
+            foreach (var x in MdiChildren) if (x is Main.FrmPol_UserRole) return;
+            var frm = new Main.FrmPol_UserRole() { MdiParent = this, Text = "Người dùng" };
             frm.Show();
         }
 

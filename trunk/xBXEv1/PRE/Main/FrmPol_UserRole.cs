@@ -22,8 +22,8 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.KeyFieldName = "Pol_RoleId";
-            trlMain.ParentFieldName = "Pol_RightId";
+            trlMain.KeyFieldName = "Pol_UserId";
+            trlMain.ParentFieldName = "Pol_RoleId";
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRoleBLL();
         }

@@ -35,11 +35,14 @@
             this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCatalog = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgTransport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.bbiPol_Right = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +59,10 @@
             this.bbiLogin,
             this.bbiSetting,
             this.bbiRegistry,
-            this.bbiExit});
+            this.bbiExit,
+            this.bbiPol_Right});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 5;
+            this.ribbon.MaxItemId = 6;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -100,7 +104,7 @@
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
-            this.rpgPolicy});
+            this.rpgPermission});
             this.rbpMain.Name = "rbpMain";
             this.rbpMain.Text = "Trang chính";
             // 
@@ -113,15 +117,29 @@
             this.rpgSystem.Name = "rpgSystem";
             this.rpgSystem.Text = "&Hệ thống";
             // 
-            // rpgPolicy
+            // rpgPermission
             // 
-            this.rpgPolicy.Name = "rpgPolicy";
-            this.rpgPolicy.Text = "&Phân quyền";
+            this.rpgPermission.Name = "rpgPermission";
+            this.rpgPermission.Text = "&Phân quyền";
             // 
             // rbpCatalog
             // 
+            this.rbpCatalog.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgTransport,
+            this.rpgPolicy});
             this.rbpCatalog.Name = "rbpCatalog";
             this.rbpCatalog.Text = "Danh mục";
+            // 
+            // rpgTransport
+            // 
+            this.rpgTransport.Name = "rpgTransport";
+            this.rpgTransport.Text = "&Vận tải";
+            // 
+            // rpgPolicy
+            // 
+            this.rpgPolicy.ItemLinks.Add(this.bbiPol_Right);
+            this.rpgPolicy.Name = "rpgPolicy";
+            this.rpgPolicy.Text = "&Chính sách";
             // 
             // rbpManage
             // 
@@ -139,6 +157,13 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1015, 31);
+            // 
+            // bbiPol_Right
+            // 
+            this.bbiPol_Right.Caption = "&Quyền hạn";
+            this.bbiPol_Right.Id = 5;
+            this.bbiPol_Right.Name = "bbiPol_Right";
+            this.bbiPol_Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Right_ItemClick);
             // 
             // FrmMain
             // 
@@ -169,7 +194,10 @@
         private DevExpress.XtraBars.BarButtonItem bbiLogin;
         private DevExpress.XtraBars.BarButtonItem bbiSetting;
         private DevExpress.XtraBars.BarButtonItem bbiRegistry;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPolicy;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPermission;
         private DevExpress.XtraBars.BarButtonItem bbiExit;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTransport;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPolicy;
+        private DevExpress.XtraBars.BarButtonItem bbiPol_Right;
     }
 }

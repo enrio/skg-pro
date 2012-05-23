@@ -15,5 +15,14 @@ namespace PRE
         {
             InitializeComponent();
         }
+
+        #region Catalog
+        private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Catalog.FrmPol_Right) return;
+            var frm = new Catalog.FrmPol_Right() { MdiParent = this };
+            frm.Show();
+        }
+        #endregion
     }
 }

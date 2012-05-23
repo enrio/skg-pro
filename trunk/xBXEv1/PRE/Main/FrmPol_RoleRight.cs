@@ -20,9 +20,8 @@ namespace PRE.Main
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.PopulateColumns();
             trlMain.OptionsBehavior.Editable = false;
-            _bll = new Pol_UserRightBLL();
+            _bll = new Pol_RoleRightBLL();
         }
 
         #region Override

@@ -74,7 +74,7 @@ namespace PRE
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
             foreach (var x in MdiChildren) if (x is Main.FrmPol_RoleRight) return;
-            var frm = new Main.FrmPol_RoleRight() { MdiParent = this, Text = "Người dùng" };
+            var frm = new Main.FrmPol_RoleRight() { MdiParent = this, Text = "Nhóm người dùng" };
             frm.Show();
         }
         #endregion

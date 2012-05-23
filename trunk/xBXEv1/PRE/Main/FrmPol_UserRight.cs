@@ -20,7 +20,10 @@ namespace PRE.Main
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
-            //grvMain.OptionsBehavior.Editable = false;
+            trlMain.OptionsBehavior.Editable = false;
+            trlMain.KeyFieldName = "UserName";
+            trlMain.ParentFieldName = "RightName";
+
             _bll = new Pol_UserRightBLL();
         }
 

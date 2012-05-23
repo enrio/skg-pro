@@ -132,6 +132,7 @@ namespace PRE.Main
                 trlMain.DataSource = _dtb;
 
                 treeListColumn3.BestFit(); // fit column STT
+                treeListColumn7.BestFit();
                 treeListColumn8.BestFit();
                 treeListColumn9.BestFit();
                 treeListColumn10.BestFit();

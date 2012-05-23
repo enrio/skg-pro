@@ -115,7 +115,7 @@ namespace BLL
             var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
             _pol_RoleRightBLL.Insert(o);
 
-            a = (Pol_Role)_pol_RoleBLL.Select("CV");
+            a = (Pol_Role)_pol_RoleBLL.Select("CR");
             b = (Pol_Right)_pol_RightBLL.Select("Catalog");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
             _pol_RoleRightBLL.Insert(o);

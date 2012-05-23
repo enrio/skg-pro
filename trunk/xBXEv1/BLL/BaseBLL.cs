@@ -111,11 +111,14 @@ namespace BLL
         {
             if (_pol_UserRightBLL.Count() > 0) return;
 
-            var o = new Pol_UserRight() { Pol_UserId = Guid.NewGuid(), Pol_RightId = Guid.NewGuid(), Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
-            _pol_UserRightBLL.Insert(o);
+            var pol_User = new Pol_User() { Acc = "nvt", Pass = "nvt", Name = "Nguyễn Văn Toàn", Birth = new DateTime(1988, 1, 5), Address = "26A/3 Hoà Tân, Tân Hoà, Lai Vung, Đồng Tháp", Phone = "+841645 515 010" };
+            var a = (Pol_User)_pol_UserBLL.Insert(pol_User);
 
-            o = new Pol_UserRight() { Pol_UserId = Guid.NewGuid(), Pol_RightId = Guid.NewGuid(), Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
-            _pol_UserRightBLL.Insert(o);
+            var pol_Right = new Pol_Right() { Name = "Catalog", Descript = "Nhóm form danh mục" };
+            var b = (Pol_Right)_pol_RightBLL.Insert(pol_Right);
+
+            var pol_UserRight = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRightBLL.Insert(pol_UserRight);
         }
 
         static void CreateTra_Group()
@@ -145,6 +148,10 @@ namespace BLL
             foreach (DataRow row in tbl.Rows)
                 _pol_UserBLL.Delete((Guid)row["Id"]);
         }
+        
+        static void DeletePol_UserRight()
+        {
+        }
 
         static void DeleteTra_Group()
         {
@@ -161,6 +168,7 @@ namespace BLL
                 DeletePol_Right();
                 DeletePol_Role();
                 DeletePol_User();
+                DeletePol_UserRight();
                 DeleteTra_Group();
             }
 

@@ -79,6 +79,9 @@
     <EmbeddedResource Include="Catalog\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_Right.resx">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

@@ -95,19 +95,20 @@ namespace DAL
 
         public object Delete(Guid id)
         {
-            try
-            {
-                var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == id);
-                _db.Pol_Rights.Remove(res);
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
+            throw new NotImplementedException();
         }
 
         public object Delete(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Pol_UserRight)obj;
+                var res = _db.Pol_UserRights.SingleOrDefault(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
+                _db.Pol_UserRights.Remove(res);
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
         #endregion
     }

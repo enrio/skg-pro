@@ -16,8 +16,6 @@ namespace PRE
         public FrmMain()
         {
             InitializeComponent();
-
-            BaseBLL.CreateData(true);
         }
 
         #region Catalog
@@ -78,5 +76,10 @@ namespace PRE
             frm.Show();
         }
         #endregion
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            BaseBLL.CreateData(true);
+        }
     }
 }

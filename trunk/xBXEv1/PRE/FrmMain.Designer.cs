@@ -280,6 +280,7 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "QUẢN LÍ XE RA VÀO BẾN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).EndInit();
             this.ResumeLayout(false);

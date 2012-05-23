@@ -27,11 +27,12 @@ namespace DAL
                           select new
                           {
                               s.Id,
+                              s.Code,
                               s.Name,
                               s.Descript
                           };
 
-                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (obj != null) res = res.Where(s => s.Code == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();

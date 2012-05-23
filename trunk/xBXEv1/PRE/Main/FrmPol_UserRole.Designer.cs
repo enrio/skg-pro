@@ -172,7 +172,7 @@
             // treeListColumn6
             // 
             this.treeListColumn6.Caption = "Họ tên";
-            this.treeListColumn6.FieldName = "Name";
+            this.treeListColumn6.FieldName = "UserName";
             this.treeListColumn6.Name = "treeListColumn6";
             this.treeListColumn6.Visible = true;
             this.treeListColumn6.VisibleIndex = 3;
@@ -180,7 +180,7 @@
             // treeListColumn7
             // 
             this.treeListColumn7.Caption = "Ngày sinh";
-            this.treeListColumn7.FieldName = "Birth";
+            this.treeListColumn7.FieldName = "UserBirth";
             this.treeListColumn7.Name = "treeListColumn7";
             this.treeListColumn7.Visible = true;
             this.treeListColumn7.VisibleIndex = 4;

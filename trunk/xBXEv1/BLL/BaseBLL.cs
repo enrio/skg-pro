@@ -102,6 +102,16 @@ namespace BLL
         static void CreatePol_UserRole()
         {
             if (_pol_UserRoleBLL.Count() > 0) return;
+
+            var a = (Pol_User)_pol_UserBLL.Select("nvt");
+            var b = (Pol_Role)_pol_RoleBLL.Select("CV");
+            var o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("ntt");
+            b = (Pol_Role)_pol_RoleBLL.Select("CV");
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
         }
 
         static void CreatePol_RoleRight()

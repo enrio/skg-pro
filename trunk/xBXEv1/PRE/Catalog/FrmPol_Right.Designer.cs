@@ -74,7 +74,7 @@
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
-            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+            this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("417a8242-161d-4575-b0aa-e6c2af6bd80f");
             this.dockPanel2.Location = new System.Drawing.Point(0, 263);
             this.dockPanel2.Name = "dockPanel2";

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -37,6 +36,11 @@
             this.bbiPol_Right = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_Role = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_User = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiAuthor = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiProduct = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPol_UserRight = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPol_RoleRight = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -45,14 +49,11 @@
             this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             this.rpgInformation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgUse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiAuthor = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiProduct = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.tmrMain = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -76,9 +77,11 @@
             this.bbiPol_User,
             this.bbiAuthor,
             this.bbiProduct,
-            this.bbiRegistry});
+            this.bbiRegistry,
+            this.bbiPol_UserRight,
+            this.bbiPol_RoleRight});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 11;
+            this.ribbon.MaxItemId = 13;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -141,6 +144,40 @@
             this.bbiPol_User.Name = "bbiPol_User";
             this.bbiPol_User.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_User_ItemClick);
             // 
+            // bbiAuthor
+            // 
+            this.bbiAuthor.Caption = "&Tác giả";
+            this.bbiAuthor.Id = 8;
+            this.bbiAuthor.Name = "bbiAuthor";
+            // 
+            // bbiProduct
+            // 
+            this.bbiProduct.Caption = "&Sản phẩm";
+            this.bbiProduct.Id = 9;
+            this.bbiProduct.Name = "bbiProduct";
+            // 
+            // bbiRegistry
+            // 
+            this.bbiRegistry.Caption = "Đăng &kí";
+            this.bbiRegistry.Id = 10;
+            this.bbiRegistry.LargeGlyph = global::PRE.Properties.Resources.registry;
+            this.bbiRegistry.Name = "bbiRegistry";
+            // 
+            // bbiPol_UserRight
+            // 
+            this.bbiPol_UserRight.Caption = " &Người dùng";
+            this.bbiPol_UserRight.Id = 11;
+            this.bbiPol_UserRight.LargeGlyph = global::PRE.Properties.Resources.user;
+            this.bbiPol_UserRight.Name = "bbiPol_UserRight";
+            this.bbiPol_UserRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_UserRight_ItemClick);
+            // 
+            // bbiPol_RoleRight
+            // 
+            this.bbiPol_RoleRight.Caption = "Nhóm người &dùng";
+            this.bbiPol_RoleRight.Id = 12;
+            this.bbiPol_RoleRight.LargeGlyph = global::PRE.Properties.Resources.users;
+            this.bbiPol_RoleRight.Name = "bbiPol_RoleRight";
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -160,6 +197,8 @@
             // 
             // rpgPermission
             // 
+            this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRight);
+            this.rpgPermission.ItemLinks.Add(this.bbiPol_RoleRight);
             this.rpgPermission.Name = "rpgPermission";
             this.rpgPermission.Text = "&Phân quyền";
             // 
@@ -197,6 +236,19 @@
             this.rbpHelp.Name = "rbpHelp";
             this.rbpHelp.Text = "Trợ giúp";
             // 
+            // rpgInformation
+            // 
+            this.rpgInformation.ItemLinks.Add(this.bbiAuthor);
+            this.rpgInformation.ItemLinks.Add(this.bbiProduct);
+            this.rpgInformation.ItemLinks.Add(this.bbiRegistry);
+            this.rpgInformation.Name = "rpgInformation";
+            this.rpgInformation.Text = "&Thông tin";
+            // 
+            // rpgUse
+            // 
+            this.rpgUse.Name = "rpgUse";
+            this.rpgUse.Text = "&Sử dụng";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 549);
@@ -212,38 +264,6 @@
             // 
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
-            // 
-            // rpgInformation
-            // 
-            this.rpgInformation.ItemLinks.Add(this.bbiAuthor);
-            this.rpgInformation.ItemLinks.Add(this.bbiProduct);
-            this.rpgInformation.ItemLinks.Add(this.bbiRegistry);
-            this.rpgInformation.Name = "rpgInformation";
-            this.rpgInformation.Text = "&Thông tin";
-            // 
-            // rpgUse
-            // 
-            this.rpgUse.Name = "rpgUse";
-            this.rpgUse.Text = "&Sử dụng";
-            // 
-            // bbiAuthor
-            // 
-            this.bbiAuthor.Caption = "&Tác giả";
-            this.bbiAuthor.Id = 8;
-            this.bbiAuthor.Name = "bbiAuthor";
-            // 
-            // bbiProduct
-            // 
-            this.bbiProduct.Caption = "&Sản phẩm";
-            this.bbiProduct.Id = 9;
-            this.bbiProduct.Name = "bbiProduct";
-            // 
-            // bbiRegistry
-            // 
-            this.bbiRegistry.Caption = "Đăng &kí";
-            this.bbiRegistry.Id = 10;
-            this.bbiRegistry.LargeGlyph = global::PRE.Properties.Resources.registry;
-            this.bbiRegistry.Name = "bbiRegistry";
             // 
             // FrmMain
             // 
@@ -290,5 +310,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiRegistry;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInformation;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUse;
+        private DevExpress.XtraBars.BarButtonItem bbiPol_UserRight;
+        private DevExpress.XtraBars.BarButtonItem bbiPol_RoleRight;
     }
 }

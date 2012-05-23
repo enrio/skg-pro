@@ -63,6 +63,13 @@ namespace PRE
         {
             Application.Exit();
         }
+
+        private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Main.FrmPol_UserRight) return;
+            var frm = new Main.FrmPol_UserRight() { MdiParent = this, Text = "Người dùng" };
+            frm.Show();
+        }
         #endregion
     }
 }

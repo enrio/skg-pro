@@ -10,6 +10,7 @@ namespace PRE.Main
 {
     using BLL;
     using DAL.Entities;
+    using DevExpress.XtraBars.Docking;
 
     public partial class FrmPol_RoleRight : PRE.Catalog.FrmBase
     {
@@ -17,7 +18,8 @@ namespace PRE.Main
         {
             InitializeComponent();
 
-            SetDockPanel(dockPanel1, "Nhập liệu");
+            //SetDockPanel(dockPanel1, "Nhập liệu");
+            dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.KeyFieldName = "Pol_RoleId";

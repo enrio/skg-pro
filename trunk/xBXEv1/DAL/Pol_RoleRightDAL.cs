@@ -118,22 +118,23 @@ namespace DAL
 
         public DataTable GetForRight()
         {
-            var tmp = Select();
-
             try
             {
+                var tmp = Select();
+                var id = Guid.NewGuid();
+
                 var res = from s in _db.Pol_Rights
                           select new
                           {
-                              Pol_RoleId = "",
-                              Pol_RightId = s.Id,
-                              Add = "",
-                              Edit = "",
-                              Delete = "",
-                              Query = "",
-                              Print = "",
-                              Full = "",
-                              None = "",
+                              Pol_RoleId = s.Id,
+                              Pol_RightId = id,
+                              Add = false,
+                              Edit = false,
+                              Delete = false,
+                              Query = false,
+                              Print = false,
+                              Full = false,
+                              None = false,
 
                               RoleName = "",
                               RoleDescript = "",
@@ -141,11 +142,10 @@ namespace DAL
                               RightDescript = s.Descript
                           };
 
-                return res.ToDataTable();
+                tmp.Merge(res.ToDataTable());
+                return tmp;
             }
             catch { return _tb; }
-
-            return tmp;
         }
     }
 }

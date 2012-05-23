@@ -34,7 +34,12 @@ namespace DAL
                               s.Query,
                               s.Print,
                               s.Full,
-                              s.None
+                              s.None,
+
+                              UserName = s.Pol_User.Name,
+                              UserBirth = s.Pol_User.Birth,
+                              RightName = s.Pol_Right.Name,
+                              RightDescript = s.Pol_Right.Descript
                           };
 
 

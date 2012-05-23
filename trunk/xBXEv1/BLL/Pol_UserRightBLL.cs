@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL
 {
-    class Pol_UserRightBLL
+    public sealed class Pol_UserRightBLL : DAL.Pol_UserRightDAL
     {
     }
 }

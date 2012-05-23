@@ -26,7 +26,9 @@ namespace BLL
         {
             if (_pol_RightBLL.Count() > 0) return;
 
-            var o = new Pol_Right() { Name = "FrmBase", Descript = "Form nhập liệu gốc" };
+            var o = new Pol_Right() { Name = "Catalog", Descript = "Nhóm form danh mục" };
+            _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Name = "FrmBase", Descript = "Form nhập liệu gốc" };
             _pol_RightBLL.Insert(o);
             o = new Pol_Right() { Name = "FrmPol_Right", Descript = "Form danh mục quyền hạn" };
             _pol_RightBLL.Insert(o);
@@ -72,7 +74,19 @@ namespace BLL
         {
             if (_pol_UserBLL.Count() > 0) return;
 
-            var o = new Pol_User() { Acc = "xyz", Pass = "xyz", Name = "Không Văn Biết", Birth = new DateTime(1988, 1, 5), Address = "Sao Hoả, Hệ Mặt Trời", Phone = "+841645 999 666" };
+            var o = new Pol_User() { Acc = "nvt", Pass = "nvt", Name = "Nguyễn Văn Toàn", Birth = new DateTime(1988, 1, 5), Address = "26A/3 Hoà Tân, Tân Hoà, Lai Vung, Đồng Tháp", Phone = "+841645 515 010" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "ntt", Pass = "ntt", Name = "Nguyễn Thị Thuy Thuỷ", Birth = new DateTime(1991, 1, 5), Address = "26A/3 Hoà Tân, Tân Hoà, Lai Vung, Đồng Tháp", Phone = "+841654 015 046" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "nvl", Pass = "nvl", Name = "Nguyễn Văn Lợi", Birth = new DateTime(1992, 12, 12), Address = "26A/3 Hoà Tân, Tân Hoà, Lai Vung, Đồng Tháp", Phone = "+841645 800 000" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "cr", Pass = "@123456", Name = "Nguyễn Cổng Ra", Birth = new DateTime(1980, 12, 12), Address = "26A/3 Đường 30/4, F. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ", Phone = "+841645 888 000" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "cv", Pass = "@123456", Name = "Nguyễn Cổng Vào", Birth = new DateTime(1980, 12, 12), Address = "143 Đường 3/2, F. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ", Phone = "+841645 888 123" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "kt", Pass = "@qwerty", Name = "Kế Văn Toán", Birth = new DateTime(1982, 7, 2), Address = "143 Đường 3/2, F. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ", Phone = "+841665 696 123" };
+            _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "xyz", Pass = "xyz", Name = "Không Văn Biết", Birth = new DateTime(1988, 1, 5), Address = "Sao Hoả, Hệ Mặt Trời", Phone = "+841645 999 666" };
             _pol_UserBLL.Insert(o);
         }
 

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -39,6 +40,15 @@
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn7 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn8 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn9 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn10 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn11 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn12 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn13 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn14 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -104,7 +114,16 @@
             this.treeListColumn2,
             this.treeListColumn3,
             this.treeListColumn4,
-            this.treeListColumn5});
+            this.treeListColumn5,
+            this.treeListColumn6,
+            this.treeListColumn7,
+            this.treeListColumn8,
+            this.treeListColumn9,
+            this.treeListColumn10,
+            this.treeListColumn11,
+            this.treeListColumn12,
+            this.treeListColumn13,
+            this.treeListColumn14});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
@@ -148,6 +167,78 @@
             this.treeListColumn5.Visible = true;
             this.treeListColumn5.VisibleIndex = 2;
             // 
+            // treeListColumn6
+            // 
+            this.treeListColumn6.Caption = "Họ tên";
+            this.treeListColumn6.FieldName = "UserName";
+            this.treeListColumn6.Name = "treeListColumn6";
+            this.treeListColumn6.Visible = true;
+            this.treeListColumn6.VisibleIndex = 3;
+            // 
+            // treeListColumn7
+            // 
+            this.treeListColumn7.Caption = "Ngày sinh";
+            this.treeListColumn7.FieldName = "UserBirth";
+            this.treeListColumn7.Name = "treeListColumn7";
+            this.treeListColumn7.Visible = true;
+            this.treeListColumn7.VisibleIndex = 4;
+            // 
+            // treeListColumn8
+            // 
+            this.treeListColumn8.Caption = "Thêm";
+            this.treeListColumn8.FieldName = "Add";
+            this.treeListColumn8.Name = "treeListColumn8";
+            this.treeListColumn8.Visible = true;
+            this.treeListColumn8.VisibleIndex = 5;
+            // 
+            // treeListColumn9
+            // 
+            this.treeListColumn9.Caption = "Sửa";
+            this.treeListColumn9.FieldName = "Edit";
+            this.treeListColumn9.Name = "treeListColumn9";
+            this.treeListColumn9.Visible = true;
+            this.treeListColumn9.VisibleIndex = 6;
+            // 
+            // treeListColumn10
+            // 
+            this.treeListColumn10.Caption = "Xoá";
+            this.treeListColumn10.FieldName = "Delete";
+            this.treeListColumn10.Name = "treeListColumn10";
+            this.treeListColumn10.Visible = true;
+            this.treeListColumn10.VisibleIndex = 7;
+            // 
+            // treeListColumn11
+            // 
+            this.treeListColumn11.Caption = "Truy vấn";
+            this.treeListColumn11.FieldName = "Query";
+            this.treeListColumn11.Name = "treeListColumn11";
+            this.treeListColumn11.Visible = true;
+            this.treeListColumn11.VisibleIndex = 8;
+            // 
+            // treeListColumn12
+            // 
+            this.treeListColumn12.Caption = "In ấn";
+            this.treeListColumn12.FieldName = "Print";
+            this.treeListColumn12.Name = "treeListColumn12";
+            this.treeListColumn12.Visible = true;
+            this.treeListColumn12.VisibleIndex = 9;
+            // 
+            // treeListColumn13
+            // 
+            this.treeListColumn13.Caption = "Tất cả";
+            this.treeListColumn13.FieldName = "Full";
+            this.treeListColumn13.Name = "treeListColumn13";
+            this.treeListColumn13.Visible = true;
+            this.treeListColumn13.VisibleIndex = 10;
+            // 
+            // treeListColumn14
+            // 
+            this.treeListColumn14.Caption = "Không có";
+            this.treeListColumn14.FieldName = "None";
+            this.treeListColumn14.Name = "treeListColumn14";
+            this.treeListColumn14.Visible = true;
+            this.treeListColumn14.VisibleIndex = 11;
+            // 
             // FrmPol_UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,5 +271,14 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn7;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn8;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn9;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn10;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn11;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn12;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn13;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn14;
     }
 }

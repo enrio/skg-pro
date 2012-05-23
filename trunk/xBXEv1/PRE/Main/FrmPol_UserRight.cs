@@ -21,8 +21,8 @@ namespace PRE.Main
             SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.OptionsBehavior.Editable = false;
-            trlMain.KeyFieldName = "UserName";
-            trlMain.ParentFieldName = "RightName";
+            //trlMain.KeyFieldName = "UserName";
+            //trlMain.ParentFieldName = "RightName";
 
             _bll = new Pol_UserRightBLL();
         }

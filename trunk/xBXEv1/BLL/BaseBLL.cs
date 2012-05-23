@@ -28,34 +28,24 @@ namespace BLL
 
             var o = new Pol_Right() { Name = "FrmBase", Descript = "Form nhập liệu gốc" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "FrmPol_Right", Descript = "Form danh mục quyền hạn" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "FrmPol_Role", Descript = "Form danh mục vai trò" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "FrmPol_User", Descript = "Form người dùng" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "rbpMain", Descript = "Menu trang chính" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "rbpCatalog", Descript = "Menu danh mục" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "rbpManage", Descript = "Menu quản lí" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "rbpHelp", Descript = "Menu trợ giúp" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "bbiPol_Right", Descript = "Menu quyền hạn" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "bbiPol_Role", Descript = "Menu vai trò" };
             _pol_RightBLL.Insert(o);
-
             o = new Pol_Right() { Name = "bbiPol_User", Descript = "Menu người dùng" };
             _pol_RightBLL.Insert(o);
         }
@@ -66,19 +56,14 @@ namespace BLL
 
             var o = new Pol_Role() { Name = "Cổng vào", Descript = "Có vai trò ở cổng vào" };
             _pol_RoleBLL.Insert(o);
-
             o = new Pol_Role() { Name = "Cổng ra", Descript = "Có vai trò ở cổng ra" };
             _pol_RoleBLL.Insert(o);
-
             o = new Pol_Role() { Name = "Người dùng", Descript = "Có vai trò ở cổng vào và ra" };
             _pol_RoleBLL.Insert(o);
-
             o = new Pol_Role() { Name = "Quản lí", Descript = "Có vai trò quản lí người dùng, nhóm, loại, xe" };
             _pol_RoleBLL.Insert(o);
-
             o = new Pol_Role() { Name = "Quản trị", Descript = "Có tất cả vai trò" };
             _pol_RoleBLL.Insert(o);
-
             o = new Pol_Role() { Name = "Thống kê", Descript = "Xem và in ấn các báo cáo, thống kê" };
             _pol_RoleBLL.Insert(o);
         }
@@ -128,6 +113,16 @@ namespace BLL
             _pol_UserRightBLL.Insert(pol_UserRight);
         }
 
+        static void CreatePol_UserRole()
+        {
+            if (_pol_UserRoleBLL.Count() > 0) return;
+        }
+
+        static void CreatePol_RoleRight()
+        {
+            if (_pol_RoleRightBLL.Count() > 0) return;
+        }
+
         static void CreateTra_Group()
         {
             if (_tra_GroupBLL.Count() > 0) return;
@@ -142,6 +137,8 @@ namespace BLL
                 _pol_RoleBLL.Delete();
                 _pol_UserBLL.Delete();
                 _pol_UserRightBLL.Delete();
+                _pol_UserRoleBLL.Delete();
+                _pol_RoleRightBLL.Delete();
                 _tra_GroupBLL.Delete();
             }
 
@@ -149,6 +146,8 @@ namespace BLL
             CreatePol_Role();
             CreatePol_User();
             CreatePol_UserRight();
+            CreatePol_UserRole();
+            CreatePol_RoleRight();
             CreateTra_Group();
         }
     }

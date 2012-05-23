@@ -43,8 +43,10 @@
     <Compile Include="BaseBLL.cs" />
     <Compile Include="Pol_RightBLL.cs" />
     <Compile Include="Pol_RoleBLL.cs" />
+    <Compile Include="Pol_RoleRightBLL.cs" />
     <Compile Include="Pol_UserBLL.cs" />
     <Compile Include="Pol_UserRightBLL.cs" />
+    <Compile Include="Pol_UserRoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
     <Compile Include="Tra_GroupBLL.cs" />

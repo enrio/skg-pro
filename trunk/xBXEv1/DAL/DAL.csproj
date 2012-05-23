@@ -58,8 +58,10 @@
     <Compile Include="Ext_Method.cs" />
     <Compile Include="Pol_RightDAL.cs" />
     <Compile Include="Pol_RoleDAL.cs" />
+    <Compile Include="Pol_RoleRightDAL.cs" />
     <Compile Include="Pol_UserDAL.cs" />
     <Compile Include="Pol_UserRightDAL.cs" />
+    <Compile Include="Pol_UserRoleDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tra_GroupDAL.cs" />
   </ItemGroup>

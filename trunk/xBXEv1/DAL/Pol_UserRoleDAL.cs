@@ -19,6 +19,11 @@ namespace DAL
             return _db.Pol_UserRoles.Count();
         }
 
+        public object Select(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try

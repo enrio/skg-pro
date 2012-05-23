@@ -32,6 +32,7 @@
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -39,7 +40,6 @@
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,13 @@
             this.bbiRegistry.LargeGlyph = global::PRE.Properties.Resources.registry;
             this.bbiRegistry.Name = "bbiRegistry";
             // 
+            // bbiExit
+            // 
+            this.bbiExit.Caption = "&Thoát";
+            this.bbiExit.Id = 4;
+            this.bbiExit.LargeGlyph = global::PRE.Properties.Resources.exit;
+            this.bbiExit.Name = "bbiExit";
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -133,13 +140,6 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1015, 31);
             // 
-            // bbiExit
-            // 
-            this.bbiExit.Caption = "&Thoát";
-            this.bbiExit.Id = 4;
-            this.bbiExit.LargeGlyph = global::PRE.Properties.Resources.exit;
-            this.bbiExit.Name = "bbiExit";
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,6 +151,7 @@
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "xBXE - QUẢN LÍ XE RA VÀO BẾN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             this.ResumeLayout(false);
 

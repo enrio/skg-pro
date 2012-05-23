@@ -40,7 +40,7 @@ namespace DAL
                               s.Print,
                               s.Full,
                               s.None,
-
+                              Code = s.Pol_Role.Code,
                               UserName = s.Pol_User.Name,
                               UserBirth = s.Pol_User.Birth,
                               RoleName = s.Pol_Role.Name,
@@ -115,5 +115,37 @@ namespace DAL
             catch { return null; }
         }
         #endregion
+
+        public DataTable GetForRole()
+        {
+            try
+            {
+                var tmp = Select();
+                var id = Guid.NewGuid();
+
+                var res = from s in _db.Pol_Roles
+                          select new
+                          {
+                              Pol_UserId = s.Id,
+                              Pol_RoleId = id,
+                              Add = false,
+                              Edit = false,
+                              Delete = false,
+                              Query = false,
+                              Print = false,
+                              Full = false,
+                              None = false,
+                              s.Code,
+                              UserName = "",
+                              UserBirth = DateTime.Now,
+                              RoleName = s.Name,
+                              RoleDescript = s.Descript
+                          };
+
+                tmp.Merge(res.ToDataTable());
+                return tmp;
+            }
+            catch { return _tb; }
+        }
     }
 }

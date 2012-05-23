@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.grcMain = new DevExpress.XtraGrid.GridControl();
-            this.grvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.trlMain = new DevExpress.XtraTreeList.TreeList();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -93,62 +86,19 @@
             // 
             // dockPanel2_Container
             // 
-            this.dockPanel2_Container.Controls.Add(this.grcMain);
+            this.dockPanel2_Container.Controls.Add(this.trlMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 276);
             this.dockPanel2_Container.TabIndex = 0;
             // 
-            // grcMain
+            // trlMain
             // 
-            this.grcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grcMain.Location = new System.Drawing.Point(0, 0);
-            this.grcMain.MainView = this.grvMain;
-            this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 276);
-            this.grcMain.TabIndex = 1;
-            this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvMain});
-            // 
-            // grvMain
-            // 
-            this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn1,
-            this.gridColumn2,
-            this.gridColumn3,
-            this.gridColumn4});
-            this.grvMain.GridControl = this.grcMain;
-            this.grvMain.Name = "grvMain";
-            // 
-            // gridColumn1
-            // 
-            this.gridColumn1.Caption = "Mã";
-            this.gridColumn1.FieldName = "Id";
-            this.gridColumn1.Name = "gridColumn1";
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "STT";
-            this.gridColumn2.FieldName = "No_";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 0;
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "Tên quyền";
-            this.gridColumn3.FieldName = "Name";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Mô tả";
-            this.gridColumn4.FieldName = "Descript";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trlMain.Location = new System.Drawing.Point(0, 0);
+            this.trlMain.Name = "trlMain";
+            this.trlMain.Size = new System.Drawing.Size(943, 276);
+            this.trlMain.TabIndex = 1;
             // 
             // FrmPol_UserRight
             // 
@@ -164,8 +114,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,11 +126,6 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private DevExpress.XtraGrid.GridControl grcMain;
-        private DevExpress.XtraGrid.Views.Grid.GridView grvMain;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraTreeList.TreeList trlMain;
     }
 }

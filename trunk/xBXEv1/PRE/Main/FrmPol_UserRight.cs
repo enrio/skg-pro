@@ -20,7 +20,7 @@ namespace PRE.Main
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
-            grvMain.OptionsBehavior.Editable = false;
+            //grvMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RightBLL();
         }
     }

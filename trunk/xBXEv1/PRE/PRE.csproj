@@ -56,6 +56,12 @@
     <Compile Include="Catalog\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalog\FrmPol_Right.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

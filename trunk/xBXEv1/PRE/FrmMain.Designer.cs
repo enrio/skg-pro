@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
             this.bbiExit = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiPol_Right = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -42,8 +44,10 @@
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.bbiPol_Right = new DevExpress.XtraBars.BarButtonItem();
+            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -99,6 +103,13 @@
             this.bbiExit.Id = 4;
             this.bbiExit.LargeGlyph = global::PRE.Properties.Resources.exit;
             this.bbiExit.Name = "bbiExit";
+            // 
+            // bbiPol_Right
+            // 
+            this.bbiPol_Right.Caption = "&Quyền hạn";
+            this.bbiPol_Right.Id = 5;
+            this.bbiPol_Right.Name = "bbiPol_Right";
+            this.bbiPol_Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Right_ItemClick);
             // 
             // rbpMain
             // 
@@ -158,12 +169,14 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1015, 31);
             // 
-            // bbiPol_Right
+            // tmmMain
             // 
-            this.bbiPol_Right.Caption = "&Quyền hạn";
-            this.bbiPol_Right.Id = 5;
-            this.bbiPol_Right.Name = "bbiPol_Right";
-            this.bbiPol_Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Right_ItemClick);
+            this.tmmMain.MdiParent = this;
+            // 
+            // tmrMain
+            // 
+            this.tmrMain.Enabled = true;
+            this.tmrMain.Interval = 1000;
             // 
             // FrmMain
             // 
@@ -172,12 +185,14 @@
             this.ClientSize = new System.Drawing.Size(1015, 580);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.IsMdiContainer = true;
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "QUẢN LÍ XE RA VÀO BẾN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -199,5 +214,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTransport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgPolicy;
         private DevExpress.XtraBars.BarButtonItem bbiPol_Right;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmmMain;
+        private System.Windows.Forms.Timer tmrMain;
     }
 }

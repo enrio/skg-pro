@@ -39,7 +39,6 @@
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn8 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn9 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn10 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -47,6 +46,7 @@
             this.treeListColumn12 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn13 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn14 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -155,21 +155,13 @@
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 1;
             // 
-            // treeListColumn5
-            // 
-            this.treeListColumn5.Caption = "Mô tả";
-            this.treeListColumn5.FieldName = "RightDescript";
-            this.treeListColumn5.Name = "treeListColumn5";
-            this.treeListColumn5.Visible = true;
-            this.treeListColumn5.VisibleIndex = 2;
-            // 
             // treeListColumn8
             // 
             this.treeListColumn8.Caption = "Thêm";
             this.treeListColumn8.FieldName = "Add";
             this.treeListColumn8.Name = "treeListColumn8";
             this.treeListColumn8.Visible = true;
-            this.treeListColumn8.VisibleIndex = 3;
+            this.treeListColumn8.VisibleIndex = 2;
             // 
             // treeListColumn9
             // 
@@ -177,7 +169,7 @@
             this.treeListColumn9.FieldName = "Edit";
             this.treeListColumn9.Name = "treeListColumn9";
             this.treeListColumn9.Visible = true;
-            this.treeListColumn9.VisibleIndex = 4;
+            this.treeListColumn9.VisibleIndex = 3;
             // 
             // treeListColumn10
             // 
@@ -185,7 +177,7 @@
             this.treeListColumn10.FieldName = "Delete";
             this.treeListColumn10.Name = "treeListColumn10";
             this.treeListColumn10.Visible = true;
-            this.treeListColumn10.VisibleIndex = 5;
+            this.treeListColumn10.VisibleIndex = 4;
             // 
             // treeListColumn11
             // 
@@ -193,7 +185,7 @@
             this.treeListColumn11.FieldName = "Query";
             this.treeListColumn11.Name = "treeListColumn11";
             this.treeListColumn11.Visible = true;
-            this.treeListColumn11.VisibleIndex = 6;
+            this.treeListColumn11.VisibleIndex = 5;
             // 
             // treeListColumn12
             // 
@@ -201,7 +193,7 @@
             this.treeListColumn12.FieldName = "Print";
             this.treeListColumn12.Name = "treeListColumn12";
             this.treeListColumn12.Visible = true;
-            this.treeListColumn12.VisibleIndex = 7;
+            this.treeListColumn12.VisibleIndex = 6;
             // 
             // treeListColumn13
             // 
@@ -209,7 +201,7 @@
             this.treeListColumn13.FieldName = "Full";
             this.treeListColumn13.Name = "treeListColumn13";
             this.treeListColumn13.Visible = true;
-            this.treeListColumn13.VisibleIndex = 8;
+            this.treeListColumn13.VisibleIndex = 7;
             // 
             // treeListColumn14
             // 
@@ -217,7 +209,15 @@
             this.treeListColumn14.FieldName = "None";
             this.treeListColumn14.Name = "treeListColumn14";
             this.treeListColumn14.Visible = true;
-            this.treeListColumn14.VisibleIndex = 9;
+            this.treeListColumn14.VisibleIndex = 8;
+            // 
+            // treeListColumn5
+            // 
+            this.treeListColumn5.Caption = "Mô tả";
+            this.treeListColumn5.FieldName = "RightDescript";
+            this.treeListColumn5.Name = "treeListColumn5";
+            this.treeListColumn5.Visible = true;
+            this.treeListColumn5.VisibleIndex = 9;
             // 
             // FrmPol_RoleRight
             // 

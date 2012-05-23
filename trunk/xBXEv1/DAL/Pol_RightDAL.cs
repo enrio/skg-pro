@@ -19,7 +19,7 @@ namespace DAL
             return _db.Pol_Rights.Count();
         }
 
-        public DataTable Select()
+        public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try
             {
@@ -30,29 +30,13 @@ namespace DAL
                               s.Name,
                               s.Descript
                           };
+
+                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (take > 0) res = res.Skip(skip).Take(take);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
-        }
-
-        public DataTable Select(Guid id, bool isFkey = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take, object obj)
-        {
-            throw new NotImplementedException();
         }
 
         public object Insert(object obj)
@@ -62,6 +46,7 @@ namespace DAL
                 var o = (Pol_Right)obj;
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Rights.Add(o);
+
                 _db.SaveChanges();
                 return oki;
             }
@@ -70,34 +55,27 @@ namespace DAL
 
         public object Update(object obj)
         {
-            try
-            {
-                var o = (Pol_Right)obj;
-                var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == o.Id);
-
-                res.Name = o.Name;
-                res.Descript = o.Descript;
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
-
-        public object Delete(Guid id)
-        {
-            try
-            {
-                var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == id);
-                _db.Pol_Rights.Remove(res);
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
-
-        public object Delete(object obj)
-        {
             throw new NotImplementedException();
+        }
+
+        public object Delete(object obj = null)
+        {
+            try
+            {
+                if (obj != null)
+                {
+                    var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == (Guid)obj);
+                    _db.Pol_Rights.Remove(res);
+                }
+                else
+                {
+                    var tmp = _db.Pol_Rights.ToList();
+                    tmp.ForEach(s => _db.Pol_Rights.Remove(s));
+                }
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
         #endregion
     }

@@ -13,14 +13,9 @@ namespace UTL
     public interface IBaseDAL
     {
         int Count();
-        DataTable Select();
-        DataTable Select(Guid id, bool isFkey = false);
-        DataTable Select(object obj);
-        DataTable Select(int skip, int take);
-        DataTable Select(int skip, int take, object obj);
+        DataTable Select(object obj = null, int skip = 0, int take = 0);
         object Insert(object obj);
         object Update(object obj);
-        object Delete(Guid id);
-        object Delete(object obj);
+        object Delete(object obj = null);
     }
 }

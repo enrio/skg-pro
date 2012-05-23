@@ -19,7 +19,7 @@ namespace DAL
             return _db.Pol_Roles.Count();
         }
 
-        public DataTable Select()
+        public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try
             {
@@ -30,29 +30,13 @@ namespace DAL
                               s.Name,
                               s.Descript
                           };
+
+                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (take > 0) res = res.Skip(skip).Take(take);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
-        }
-
-        public DataTable Select(Guid id, bool isFkey = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take, object obj)
-        {
-            throw new NotImplementedException();
         }
 
         public object Insert(object obj)
@@ -62,6 +46,7 @@ namespace DAL
                 var o = (Pol_Role)obj;
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Roles.Add(o);
+
                 _db.SaveChanges();
                 return oki;
             }
@@ -73,21 +58,24 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public object Delete(Guid id)
+        public object Delete(object obj = null)
         {
             try
             {
-                var res = _db.Pol_Roles.SingleOrDefault(s => s.Id == id);
-                _db.Pol_Roles.Remove(res);
+                if (obj != null)
+                {
+                    var res = _db.Pol_Roles.SingleOrDefault(s => s.Id == (Guid)obj);
+                    _db.Pol_Roles.Remove(res);
+                }
+                else
+                {
+                    var tmp = _db.Pol_Roles.ToList();
+                    tmp.ForEach(s => _db.Pol_Roles.Remove(s));
+                }
 
                 return _db.SaveChanges();
             }
             catch { return null; }
-        }
-
-        public object Delete(object obj)
-        {
-            throw new NotImplementedException();
         }
         #endregion
     }

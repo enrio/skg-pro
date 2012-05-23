@@ -19,7 +19,7 @@ namespace DAL
             return _db.Pol_UserRights.Count();
         }
 
-        public DataTable Select()
+        public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try
             {
@@ -36,29 +36,19 @@ namespace DAL
                               s.Full,
                               s.None
                           };
+
+
+                if (obj != null)
+                {
+                    var o = (Pol_UserRight)obj;
+                    res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
+                }
+
+                if (take > 0) res = res.Skip(skip).Take(take);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
-        }
-
-        public DataTable Select(Guid id, bool isFkey = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take, object obj)
-        {
-            throw new NotImplementedException();
         }
 
         public object Insert(object obj)
@@ -67,6 +57,7 @@ namespace DAL
             {
                 var o = (Pol_UserRight)obj;
                 var oki = _db.Pol_UserRights.Add(o);
+
                 _db.SaveChanges();
                 return oki;
             }
@@ -93,18 +84,21 @@ namespace DAL
             catch { return null; }
         }
 
-        public object Delete(Guid id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public object Delete(object obj)
+        public object Delete(object obj = null)
         {
             try
             {
-                var o = (Pol_UserRight)obj;
-                var res = _db.Pol_UserRights.SingleOrDefault(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
-                _db.Pol_UserRights.Remove(res);
+                if (obj != null)
+                {
+                    var o = (Pol_UserRight)obj;
+                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
+                    _db.Pol_UserRights.Remove(res);
+                }
+                else
+                {
+                    var tmp = _db.Pol_UserRights.ToList();
+                    tmp.ForEach(s => _db.Pol_UserRights.Remove(s));
+                }
 
                 return _db.SaveChanges();
             }

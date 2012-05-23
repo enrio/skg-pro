@@ -19,7 +19,7 @@ namespace DAL
             return _db.Pol_Users.Count();
         }
 
-        public DataTable Select()
+        public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try
             {
@@ -34,45 +34,13 @@ namespace DAL
                               s.Address,
                               s.Phone
                           };
+
+                if (obj != null) res = res.Where(s => s.Acc == obj + "");
+                if (take > 0) res = res.Skip(skip).Take(take);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
-        }
-
-        public DataTable Select(Guid id, bool isFkey = false)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(object obj)
-        {
-            try
-            {
-                var res = from s in _db.Pol_Users
-                          where s.Acc == obj + ""
-                          select new
-                          {
-                              s.Id,
-                              s.Acc,
-                              s.Pass,
-                              s.Name,
-                              s.Birth,
-                              s.Address,
-                              s.Phone
-                          };
-                return res.ToDataTable();
-            }
-            catch { return _tb; }
-        }
-
-        public DataTable Select(int skip, int take)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DataTable Select(int skip, int take, object obj)
-        {
-            throw new NotImplementedException();
         }
 
         public object Insert(object obj)
@@ -83,6 +51,7 @@ namespace DAL
                 o.Id = Guid.NewGuid();
                 o.Pass = UTL.Hasher.Code.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);
+
                 _db.SaveChanges();
                 return oki;
             }
@@ -94,21 +63,24 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public object Delete(Guid id)
+        public object Delete(object obj = null)
         {
             try
             {
-                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == id);
-                _db.Pol_Users.Remove(res);
+                if (obj != null)
+                {
+                    var res = _db.Pol_Users.SingleOrDefault(s => s.Id == (Guid)obj);
+                    _db.Pol_Users.Remove(res);
+                }
+                else
+                {
+                    var tmp = _db.Pol_Users.ToList();
+                    tmp.ForEach(s => _db.Pol_Users.Remove(s));
+                }
 
                 return _db.SaveChanges();
             }
             catch { return null; }
-        }
-
-        public object Delete(object obj)
-        {
-            throw new NotImplementedException();
         }
         #endregion
 

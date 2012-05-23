@@ -127,49 +127,15 @@ namespace BLL
         }
         #endregion
 
-        #region Delete all template data
-        static void DeletePol_Right()
-        {
-            var tbl = _pol_RightBLL.Select();
-            foreach (DataRow row in tbl.Rows)
-                _pol_RightBLL.Delete((Guid)row["Id"]);
-        }
-
-        static void DeletePol_Role()
-        {
-            var tbl = _pol_RoleBLL.Select();
-            foreach (DataRow row in tbl.Rows)
-                _pol_RoleBLL.Delete((Guid)row["Id"]);
-        }
-
-        static void DeletePol_User()
-        {
-            var tbl = _pol_UserBLL.Select();
-            foreach (DataRow row in tbl.Rows)
-                _pol_UserBLL.Delete((Guid)row["Id"]);
-        }
-        
-        static void DeletePol_UserRight()
-        {
-        }
-
-        static void DeleteTra_Group()
-        {
-            var tbl = _tra_GroupBLL.Select();
-            foreach (DataRow row in tbl.Rows)
-                _tra_GroupBLL.Delete((Guid)row["Id"]);
-        }
-        #endregion
-
         public static void CreateData(bool isDeleteData = false)
         {
             if (isDeleteData)
             {
-                DeletePol_Right();
-                DeletePol_Role();
-                DeletePol_User();
-                DeletePol_UserRight();
-                DeleteTra_Group();
+                _pol_RightBLL.Delete();
+                _pol_RoleBLL.Delete();
+                _pol_UserBLL.Delete();
+                _pol_UserRightBLL.Delete();
+                _tra_GroupBLL.Delete();
             }
 
             CreatePol_Right();

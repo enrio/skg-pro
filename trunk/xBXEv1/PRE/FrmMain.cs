@@ -9,11 +9,15 @@ using DevExpress.XtraBars;
 
 namespace PRE
 {
+    using BLL;
+
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public FrmMain()
         {
             InitializeComponent();
+
+            BaseBLL.CreateData(true);
         }
 
         #region Catalog

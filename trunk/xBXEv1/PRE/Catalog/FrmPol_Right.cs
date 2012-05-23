@@ -13,6 +13,9 @@ namespace PRE.Catalog
         public FrmPol_Right()
         {
             InitializeComponent();
+
+            SetDockPanel(dockPanel1, "Nhập liệu");
+            SetDockPanel(dockPanel2, "Danh sách");
         }
     }
 }

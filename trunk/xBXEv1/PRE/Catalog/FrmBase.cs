@@ -9,13 +9,18 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Catalog
 {
+    using DevExpress.XtraBars.Docking;
+
+    /// <summary>
+    /// Standard input form
+    /// </summary>
     public partial class FrmBase : DevExpress.XtraEditors.XtraForm
     {
-        public enum FormState { Add, Edit }
+        public enum State { Add, Edit }
 
         protected UTL.IBaseDAL _bll;
         protected DataTable _dtb = new DataTable("Tmp");
-        protected FormState _frmState;
+        protected State _state;
 
         public FrmBase()
         {
@@ -33,7 +38,7 @@ namespace PRE.Catalog
             switch (e.Item.Name)
             {
                 case "bbiAdd":
-                    _frmState = FormState.Add;
+                    _state = State.Add;
 
                     ChangeStatus(false);
                     ClearDataBindings();
@@ -44,7 +49,7 @@ namespace PRE.Catalog
                     break;
 
                 case "bbiEdit":
-                    _frmState = FormState.Edit;
+                    _state = State.Edit;
 
                     ChangeStatus(false);
                     ReadOnlyControl(false);
@@ -101,6 +106,21 @@ namespace PRE.Catalog
             bbiRefresh.Enabled = isEnable;
             bbiFind.Enabled = isEnable;
             bbiPrint.Enabled = isEnable;
+        }
+
+        /// <summary>
+        /// Set false some properties's DockPanel
+        /// </summary>
+        /// <param name="dPanel">DockPanel</param>
+        /// <param name="caption">Caption's DockPanel</param>
+        protected void SetDockPanel(DockPanel dPanel, string caption)
+        {
+            dPanel.Options.AllowFloating = false;
+            dPanel.Options.FloatOnDblClick = false;
+            dPanel.Options.ShowAutoHideButton = false;
+            dPanel.Options.ShowCloseButton = false;
+            dPanel.Options.ShowMaximizeButton = false;
+            dPanel.Text = caption;
         }
 
         #region Virtual

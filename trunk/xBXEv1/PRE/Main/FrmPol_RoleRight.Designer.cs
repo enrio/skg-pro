@@ -38,12 +38,15 @@
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -101,36 +104,53 @@
             this.trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.treeListColumn1,
             this.treeListColumn2,
-            this.treeListColumn3});
+            this.treeListColumn3,
+            this.treeListColumn4});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
+            this.trlMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.ricSelect});
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 2;
             // 
             // treeListColumn1
             // 
-            this.treeListColumn1.Caption = "STT";
-            this.treeListColumn1.FieldName = "No_";
+            this.treeListColumn1.Caption = "Chọn";
+            this.treeListColumn1.ColumnEdit = this.ricSelect;
+            this.treeListColumn1.FieldName = "Select";
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
             // 
             // treeListColumn2
             // 
-            this.treeListColumn2.Caption = "Chức năng/Nhóm quyền";
-            this.treeListColumn2.FieldName = "RoleName";
+            this.treeListColumn2.Caption = "STT";
+            this.treeListColumn2.FieldName = "No_";
             this.treeListColumn2.Name = "treeListColumn2";
             this.treeListColumn2.Visible = true;
             this.treeListColumn2.VisibleIndex = 1;
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Mô tả";
-            this.treeListColumn3.FieldName = "RoleDescript";
+            this.treeListColumn3.Caption = "Nhóm/Chức năng";
+            this.treeListColumn3.FieldName = "RoleName";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 2;
+            // 
+            // treeListColumn4
+            // 
+            this.treeListColumn4.Caption = "Mô tả";
+            this.treeListColumn4.FieldName = "RoleDescript";
+            this.treeListColumn4.Name = "treeListColumn4";
+            this.treeListColumn4.Visible = true;
+            this.treeListColumn4.VisibleIndex = 3;
+            // 
+            // ricSelect
+            // 
+            this.ricSelect.AutoHeight = false;
+            this.ricSelect.Name = "ricSelect";
             // 
             // FrmPol_RoleRight
             // 
@@ -147,6 +167,7 @@
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,7 +181,9 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraTreeList.TreeList trlMain;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ricSelect;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
     }
 }

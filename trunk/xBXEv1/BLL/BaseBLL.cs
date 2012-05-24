@@ -13,6 +13,7 @@ namespace BLL
     /// </summary>
     public static class BaseBLL
     {
+        public static Pol_ActionBLL _pol_ActionBLL = new Pol_ActionBLL();
         public static Pol_RightBLL _pol_RightBLL = new Pol_RightBLL();
         public static Pol_RoleBLL _pol_RoleBLL = new Pol_RoleBLL();
         public static Pol_UserBLL _pol_UserBLL = new Pol_UserBLL();
@@ -22,6 +23,22 @@ namespace BLL
         public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
 
         #region Insert template data
+        static void CreatePol_Action()
+        {
+            if (_pol_ActionBLL.Count() > 0) return;
+
+            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Thêm dữ liệu" };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Sửa dữ liệu" };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Xoá dữ liệu" };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Truy vấn dữ liệu" };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "In ấn dữ liệu" };
+            _pol_ActionBLL.Insert(o);
+        }
+
         static void CreatePol_Right()
         {
             if (_pol_RightBLL.Count() > 0) return;
@@ -139,6 +156,7 @@ namespace BLL
         {
             if (isDeleteData)
             {
+                _pol_ActionBLL.Delete();
                 _pol_RightBLL.Delete();
                 _pol_RoleBLL.Delete();
                 _pol_UserBLL.Delete();
@@ -148,6 +166,7 @@ namespace BLL
                 _tra_GroupBLL.Delete();
             }
 
+            CreatePol_Action();
             CreatePol_Right();
             CreatePol_Role();
             CreatePol_User();

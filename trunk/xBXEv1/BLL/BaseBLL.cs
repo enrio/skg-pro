@@ -159,15 +159,15 @@ namespace BLL
             if (_tra_GroupBLL.Count() > 0) return;
 
             var o = new Tra_Group() { Code = "A", Name = "Xe tải lưu đậu & vãng lai", Descript = "", Order = 0 };
-            _pol_ActionBLL.Insert(o);
+            _tra_GroupBLL.Insert(o);
             o = new Tra_Group() { Code = "B", Name = "Xe khách lưu đậu ngày", Descript = "Cứ 24 giờ tính 01 ngày", Order = 1 };
-            _pol_ActionBLL.Insert(o);
+            _tra_GroupBLL.Insert(o);
             o = new Tra_Group() { Code = "C", Name = "Taxi vãng lai", Descript = "", Order = 2 };
-            _pol_ActionBLL.Insert(o);
+            _tra_GroupBLL.Insert(o);
             o = new Tra_Group() { Code = "D", Name = "Xe ba bánh", Descript = "", Order = 3 };
-            _pol_ActionBLL.Insert(o);
+            _tra_GroupBLL.Insert(o);
             o = new Tra_Group() { Code = "E", Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Order = 4 };
-            _pol_ActionBLL.Insert(o);
+            _tra_GroupBLL.Insert(o);
         }
 
         static void CreateTra_Kind()

@@ -21,5 +21,6 @@ namespace DAL.Entities
         public DateTime Birth { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
+        public int Order { set; get; }
     }
 }

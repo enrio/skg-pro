@@ -15,8 +15,10 @@ namespace DAL.Entities
         [Key]
         public Guid Id { set; get; }
 
+        public string Code { set; get; }
         public string Name { set; get; }
         public string Descript { set; get; }
+        public int Order { set; get; }
 
         public virtual ICollection<Tra_Kind> Tra_Kinds { get; set; }
     }

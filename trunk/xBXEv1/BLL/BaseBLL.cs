@@ -27,15 +27,19 @@ namespace BLL
         {
             if (_pol_ActionBLL.Count() > 0) return;
 
-            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Thêm dữ liệu" };
+            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Thêm dữ liệu", Order = 0 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Sửa dữ liệu" };
+            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Sửa dữ liệu", Order = 1 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Xoá dữ liệu" };
+            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Xoá dữ liệu", Order = 2 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Truy vấn dữ liệu" };
+            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Truy vấn dữ liệu", Order = 3 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "In ấn dữ liệu" };
+            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "In ấn dữ liệu", Order = 4 };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 5 };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 6 };
             _pol_ActionBLL.Insert(o);
         }
 

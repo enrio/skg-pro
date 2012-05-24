@@ -128,6 +128,7 @@
             // 
             this.bbiPol_Right.Caption = "&Quyền hạn";
             this.bbiPol_Right.Id = 5;
+            this.bbiPol_Right.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiPol_Right.Name = "bbiPol_Right";
             this.bbiPol_Right.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Right_ItemClick);
             // 
@@ -135,6 +136,7 @@
             // 
             this.bbiPol_Role.Caption = "&Vai trò";
             this.bbiPol_Role.Id = 6;
+            this.bbiPol_Role.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiPol_Role.Name = "bbiPol_Role";
             this.bbiPol_Role.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Role_ItemClick);
             // 
@@ -142,6 +144,7 @@
             // 
             this.bbiPol_User.Caption = "&Người dùng";
             this.bbiPol_User.Id = 7;
+            this.bbiPol_User.LargeGlyph = global::PRE.Properties.Resources.user;
             this.bbiPol_User.Name = "bbiPol_User";
             this.bbiPol_User.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_User_ItemClick);
             // 

@@ -141,16 +141,14 @@
             this.gridColumn3.Caption = "Mã";
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Tên quyền";
+            this.gridColumn4.Caption = "Loại xe";
             this.gridColumn4.FieldName = "Name";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 1;
             // 
             // gridColumn5
             // 
@@ -158,7 +156,7 @@
             this.gridColumn5.FieldName = "Descript";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 2;
             // 
             // FrmTra_Kind
             // 

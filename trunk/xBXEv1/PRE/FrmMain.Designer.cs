@@ -55,6 +55,9 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bbiTra_Group = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTra_Kind = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTra_Vehicle = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -80,9 +83,12 @@
             this.bbiProduct,
             this.bbiRegistry,
             this.bbiPol_UserRight,
-            this.bbiPol_RoleRight});
+            this.bbiPol_RoleRight,
+            this.bbiTra_Group,
+            this.bbiTra_Kind,
+            this.bbiTra_Vehicle});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 13;
+            this.ribbon.MaxItemId = 16;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -217,6 +223,9 @@
             // 
             // rpgTransport
             // 
+            this.rpgTransport.ItemLinks.Add(this.bbiTra_Group);
+            this.rpgTransport.ItemLinks.Add(this.bbiTra_Kind);
+            this.rpgTransport.ItemLinks.Add(this.bbiTra_Vehicle);
             this.rpgTransport.Name = "rpgTransport";
             this.rpgTransport.Text = "&Vận tải";
             // 
@@ -270,6 +279,30 @@
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             // 
+            // bbiTra_Group
+            // 
+            this.bbiTra_Group.Caption = "&Nhóm xe";
+            this.bbiTra_Group.Id = 13;
+            this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Group.Name = "bbiTra_Group";
+            this.bbiTra_Group.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Group_ItemClick);
+            // 
+            // bbiTra_Kind
+            // 
+            this.bbiTra_Kind.Caption = "&Loại xe";
+            this.bbiTra_Kind.Id = 14;
+            this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Kind.Name = "bbiTra_Kind";
+            this.bbiTra_Kind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Kind_ItemClick);
+            // 
+            // bbiTra_Vehicle
+            // 
+            this.bbiTra_Vehicle.Caption = "&Xe cộ";
+            this.bbiTra_Vehicle.Id = 15;
+            this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
+            this.bbiTra_Vehicle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Vehicle_ItemClick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,5 +351,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgUse;
         private DevExpress.XtraBars.BarButtonItem bbiPol_UserRight;
         private DevExpress.XtraBars.BarButtonItem bbiPol_RoleRight;
+        private DevExpress.XtraBars.BarButtonItem bbiTra_Group;
+        private DevExpress.XtraBars.BarButtonItem bbiTra_Kind;
+        private DevExpress.XtraBars.BarButtonItem bbiTra_Vehicle;
     }
 }

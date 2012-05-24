@@ -39,6 +39,27 @@ namespace PRE
             var frm = new Catalog.FrmPol_User() { MdiParent = this, Text = "Người dùng" };
             frm.Show();
         }
+
+        private void bbiTra_Group_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Group) return;
+            var frm = new Catalog.FrmTra_Group() { MdiParent = this, Text = "Nhóm xe" };
+            frm.Show();
+        }
+
+        private void bbiTra_Kind_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Kind) return;
+            var frm = new Catalog.FrmTra_Kind() { MdiParent = this, Text = "Loại xe" };
+            frm.Show();
+        }
+
+        private void bbiTra_Vehicle_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Vehicle) return;
+            var frm = new Catalog.FrmTra_Vehicle() { MdiParent = this, Text = "Xe cộ" };
+            frm.Show();
+        }
         #endregion
 
         #region System

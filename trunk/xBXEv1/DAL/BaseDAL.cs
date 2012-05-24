@@ -93,5 +93,57 @@ namespace DAL
 
             return tr.ToDataTable();
         }
+
+        public DataTable TestUnion()
+        {
+            try
+            {
+                var a = from s in _db.Pol_RoleRights
+                        select new
+                        {
+                            s.Pol_RoleId,
+                            s.Pol_RightId,
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+                            Code = s.Pol_Right.Code,
+                            RoleName = s.Pol_Role.Name,
+                            RoleDescript = s.Pol_Role.Descript,
+                            RightName = s.Pol_Right.Name,
+                            RightDescript = s.Pol_Right.Descript
+                        };
+
+
+                var id = Guid.NewGuid();
+
+                var b = from s in _db.Pol_Rights
+                        select new
+                        {
+                            Pol_RoleId = s.Id,
+                            Pol_RightId = id,
+                            Add = false,
+                            Edit = false,
+                            Delete = false,
+                            Query = false,
+                            Print = false,
+                            Full = false,
+                            None = false,
+                            s.Code,
+                            RoleName = "",
+                            RoleDescript = "",
+                            RightName = s.Name,
+                            RightDescript = s.Descript
+                        };
+
+                var infoQuery = (from cust in _db.Pol_Roles select cust.Code).Union(from emp in _db.Pol_Rights select emp.Name);
+
+                return infoQuery.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

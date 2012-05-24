@@ -139,6 +139,8 @@ namespace PRE.Main
             trlMain.ParentFieldName = "Sequence2";
             trlMain.PopulateColumns();
 
+            tbl = BaseBLL._pol_RoleRightBLL.TestUnion();
+
             if (_dtb != null)
             {
                 trlMain.DataSource = tbl;

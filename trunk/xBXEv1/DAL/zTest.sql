@@ -1,4 +1,5 @@
 Use xBXEv1
+Select * From Pol_Action
 Select * From Pol_Right
 Select * From Pol_Role
 Select * From Pol_User

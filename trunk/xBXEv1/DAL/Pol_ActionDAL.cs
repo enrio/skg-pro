@@ -33,6 +33,7 @@ namespace DAL
             try
             {
                 var res = from s in _db.Pol_Actions
+                          orderby s.Code
                           select new
                           {
                               s.Id,

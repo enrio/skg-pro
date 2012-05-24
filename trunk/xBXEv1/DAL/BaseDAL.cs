@@ -62,6 +62,7 @@ namespace DAL
             week_days.Add(new Sales { Sequence = 5, Day = "Thu", Amount = 20 });
             week_days.Add(new Sales { Sequence = 6, Day = "Fri", Amount = 08 });
             week_days.Add(new Sales { Sequence = 7, Day = "Sat", Amount = 0 });
+            week_days.Add(new Sales { Sequence = 8, Day = "Fri", Amount = 18 });
 
             src = week_days.ToDataTable();
 

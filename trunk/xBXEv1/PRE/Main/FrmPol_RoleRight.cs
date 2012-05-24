@@ -22,8 +22,8 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.KeyFieldName = "Pol_RoleId";
-            trlMain.ParentFieldName = "Pol_RightId";
+            //trlMain.KeyFieldName = "Pol_RoleId";
+            //trlMain.ParentFieldName = "Pol_RightId";
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
         }
@@ -135,8 +135,8 @@ namespace PRE.Main
             dts.Tables.Add(tbl);
             dts.Tables.Add(_dtb);
 
-            trlMain.KeyFieldName = "Sequence";
-            trlMain.ParentFieldName = "Sequence2";
+            //trlMain.KeyFieldName = "Sequence";
+            //trlMain.ParentFieldName = "Sequence2";
             trlMain.PopulateColumns();
 
             tbl = BaseBLL._pol_RoleRightBLL.TestUnion();

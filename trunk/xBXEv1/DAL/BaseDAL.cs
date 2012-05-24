@@ -104,8 +104,8 @@ namespace DAL
                             CodeRight = s.Pol_Right.Code,
                             CodeRole = s.Pol_Role.Code,
 
-                            ID = "",
-                            ParentID = "",
+                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
+                            ParentID = s.Pol_Right.Code,
 
                             /*s.Pol_RoleId,
                             s.Pol_RightId,*/
@@ -132,8 +132,8 @@ namespace DAL
                             CodeRight = s.Code,
                             CodeRole = "",
 
-                            ID = "",
-                            ParentID = "",
+                            ID = s.Code + "",
+                            ParentID = s.Code,
 
                             //Pol_RoleId = s.Id,
                             /*Pol_RoleId = id,

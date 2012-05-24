@@ -10,6 +10,7 @@ namespace DAL.Entities
 
     public class Context : DbContext
     {
+        public DbSet<Pol_Action> Pol_Actions { get; set; }
         public DbSet<Pol_Role> Pol_Roles { get; set; }
         public DbSet<Pol_Right> Pol_Rights { get; set; }
         public DbSet<Pol_User> Pol_Users { get; set; }

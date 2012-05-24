@@ -57,6 +57,7 @@
     <Compile Include="Entities\Tra_Kind.cs" />
     <Compile Include="Entities\Tra_Vehicle.cs" />
     <Compile Include="Ext_Method.cs" />
+    <Compile Include="Pol_ActionDAL.cs" />
     <Compile Include="Pol_RightDAL.cs" />
     <Compile Include="Pol_RoleDAL.cs" />
     <Compile Include="Pol_RoleRightDAL.cs" />

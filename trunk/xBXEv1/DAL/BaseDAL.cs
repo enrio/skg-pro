@@ -48,6 +48,7 @@ namespace DAL
         public class Sales
         {
             public int Sequence { get; set; }
+            public int Sequence2 { get; set; }
             public string Day { get; set; }
             public double Amount { get; set; }
         }
@@ -55,14 +56,14 @@ namespace DAL
         public DataTable TestPivot(ref DataTable src)
         {
             var week_days = new List<Sales>();
-            week_days.Add(new Sales { Sequence = 1, Day = "Sun", Amount = 23 });
-            week_days.Add(new Sales { Sequence = 2, Day = "Mon", Amount = 18 });
-            week_days.Add(new Sales { Sequence = 3, Day = "Tue", Amount = 30 });
-            week_days.Add(new Sales { Sequence = 4, Day = "Wed", Amount = 15 });
-            week_days.Add(new Sales { Sequence = 5, Day = "Thu", Amount = 20 });
-            week_days.Add(new Sales { Sequence = 6, Day = "Fri", Amount = 08 });
-            week_days.Add(new Sales { Sequence = 7, Day = "Sat", Amount = 0 });
-            week_days.Add(new Sales { Sequence = 8, Day = "Fri", Amount = 18 });
+            week_days.Add(new Sales { Sequence = 1, Sequence2 = 8, Day = "Sun", Amount = 23 });
+            week_days.Add(new Sales { Sequence = 2, Sequence2 = 8, Day = "Mon", Amount = 18 });
+            week_days.Add(new Sales { Sequence = 3, Sequence2 = 8, Day = "Tue", Amount = 30 });
+            week_days.Add(new Sales { Sequence = 4, Sequence2 = 8, Day = "Wed", Amount = 15 });
+            week_days.Add(new Sales { Sequence = 5, Sequence2 = 8, Day = "Thu", Amount = 20 });
+            week_days.Add(new Sales { Sequence = 6, Sequence2 = 8, Day = "Fri", Amount = 08 });
+            week_days.Add(new Sales { Sequence = 7, Sequence2 = 8, Day = "Sat", Amount = 0 });
+            week_days.Add(new Sales { Sequence = 8, Sequence2 = 0, Day = "Fri", Amount = 18 });
 
             src = week_days.ToDataTable();
 

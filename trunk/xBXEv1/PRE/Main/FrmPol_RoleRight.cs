@@ -135,11 +135,13 @@ namespace PRE.Main
             dts.Tables.Add(tbl);
             dts.Tables.Add(_dtb);
 
+            trlMain.KeyFieldName = "Sequence";
+            trlMain.ParentFieldName = "Sequence2";
             trlMain.PopulateColumns();
 
             if (_dtb != null)
             {
-                trlMain.DataSource = _dtb;
+                trlMain.DataSource = tbl;
 
                 treeListColumn3.BestFit(); // fit column STT
                 treeListColumn7.BestFit();

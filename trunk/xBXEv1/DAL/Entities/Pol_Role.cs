@@ -19,5 +19,6 @@ namespace DAL.Entities
         public string Descript { set; get; }
 
         public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
+        public virtual ICollection<Pol_RoleRight> Pol_RoleRights { get; set; }
     }
 }

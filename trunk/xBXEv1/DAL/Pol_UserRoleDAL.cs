@@ -28,14 +28,14 @@ namespace DAL
         {
             try
             {
-                var a = from s in _db.Pol_RoleRights
+                var a = from s in _db.Pol_UserRoles
                         select new
                         {
-                            CodeRight = s.Pol_Right.Code,
                             CodeRole = s.Pol_Role.Code,
+                            AccUser = s.Pol_User.Acc,
 
-                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
-                            ParentID = s.Pol_Right.Code,
+                            ID = s.Pol_Role.Code + s.Pol_User.Acc,
+                            ParentID = s.Pol_Role.Code,
 
                             s.Add,
                             s.Edit,
@@ -45,15 +45,14 @@ namespace DAL
                             s.Full,
                             s.None,
 
-                            RoleName = s.Pol_Role.Name,
-                            RoleDescript = s.Pol_Role.Descript
+                            UserName = s.Pol_User.Name
                         };
 
-                var b = from s in _db.Pol_Rights
+                var b = from s in _db.Pol_Roles
                         select new
                         {
-                            CodeRight = s.Code,
-                            CodeRole = "",
+                            CodeRole = s.Code,
+                            AccUser = "",
 
                             ID = s.Code + "",
                             ParentID = s.Code,
@@ -66,8 +65,7 @@ namespace DAL
                             Full = false,
                             None = false,
 
-                            RoleName = s.Name,
-                            RoleDescript = s.Descript
+                            UserName = s.Name
                         };
 
                 var res = a.Union(b);

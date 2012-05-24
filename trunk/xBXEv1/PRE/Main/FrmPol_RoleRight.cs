@@ -27,6 +27,8 @@ namespace PRE.Main
             //trlMain.ParentFieldName = "Pol_RightId";
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
+
+            AddTreeListColumns();
         }
 
         #region Override

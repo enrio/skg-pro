@@ -11,6 +11,7 @@ namespace PRE.Main
     using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraTreeList.Columns;
 
     public partial class FrmPol_UserRole : PRE.Catalog.FrmBase
     {
@@ -18,14 +19,13 @@ namespace PRE.Main
         {
             InitializeComponent();
 
-            //SetDockPanel(dockPanel1, "Nhập liệu");
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.KeyFieldName = "Pol_UserId";
-            trlMain.ParentFieldName = "Pol_RoleId";
             trlMain.OptionsBehavior.Editable = false;
-            _bll = new Pol_UserRoleBLL();
+            _bll = new Pol_RoleRightBLL();
+
+            AddTreeListColumns();
         }
 
         #region Override
@@ -124,22 +124,13 @@ namespace PRE.Main
 
         protected override void LoadData()
         {
-            //_dtb = _bll.Select();
-            _dtb = BaseBLL._pol_UserRoleBLL.GetForRole();
-
+            _dtb = _bll.Select();
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;
 
-                treeListColumn3.BestFit(); // fit column STT
-                treeListColumn7.BestFit();
-                treeListColumn8.BestFit();
-                treeListColumn9.BestFit();
-                treeListColumn10.BestFit();
-                treeListColumn11.BestFit();
-                treeListColumn12.BestFit();
-                treeListColumn13.BestFit();
-                treeListColumn14.BestFit();
+                trlMain.ExpandAll();
+                trlMain.BestFitColumns();
             }
 
             base.LoadData();
@@ -150,5 +141,35 @@ namespace PRE.Main
             return base.ValidInput();
         }
         #endregion
+
+        void AddTreeListColumns()
+        {
+            try
+            {
+                var tbl = BaseBLL._pol_ActionBLL.Select();
+                foreach (DataRow drAction in tbl.Rows)
+                {
+                    var tlc = new TreeListColumn();
+                    tlc.Caption = "" + drAction["Name"];
+                    tlc.FieldName = "" + drAction["Code"];
+
+                    tlc.VisibleIndex = trlMain.Columns.Count + 1;
+                    tlc.ColumnEdit = ricSelect;
+
+                    //tlc.Visible = true;
+                    //tlc.BestFit();
+
+                    treeListColumn1.TreeList.Columns.AddRange(new TreeListColumn[] { tlc });
+                    treeListColumn1.TreeList.Update();
+                }
+
+                // move last index
+                treeListColumn4.VisibleIndex = trlMain.Columns.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "");
+            }
+        }
     }
 }

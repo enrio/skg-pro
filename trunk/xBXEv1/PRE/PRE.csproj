@@ -78,6 +78,24 @@
     <Compile Include="Catalog\FrmPol_User.Designer.cs">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalog\FrmTra_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Group.Designer.cs">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Kind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Kind.Designer.cs">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Vehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +139,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\FrmPol_User.resx">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Group.resx">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Kind.resx">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Vehicle.resx">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

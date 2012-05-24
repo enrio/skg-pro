@@ -52,7 +52,7 @@ namespace DAL
             public double Amount { get; set; }
         }
 
-        public DataTable TestPivot2()
+        public DataTable TestPivot(ref DataTable src)
         {
             var week_days = new List<Sales>();
             week_days.Add(new Sales { Sequence = 1, Day = "Sun", Amount = 23 });
@@ -62,6 +62,8 @@ namespace DAL
             week_days.Add(new Sales { Sequence = 5, Day = "Thu", Amount = 20 });
             week_days.Add(new Sales { Sequence = 6, Day = "Fri", Amount = 08 });
             week_days.Add(new Sales { Sequence = 7, Day = "Sat", Amount = 0 });
+
+            src = week_days.ToDataTable();
 
             //Before transpose
             foreach (var day in week_days)

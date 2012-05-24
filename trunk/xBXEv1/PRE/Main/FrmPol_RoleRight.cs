@@ -125,7 +125,17 @@ namespace PRE.Main
         protected override void LoadData()
         {
             //_dtb = _bll.Select();
-            _dtb = BaseBLL._pol_RoleRightBLL.GetForRight();
+            //_dtb = BaseBLL._pol_RoleRightBLL.GetForRight();
+
+            var tbl = new DataTable();
+            _dtb = BaseBLL._pol_RoleRightBLL.TestPivot(ref tbl);
+
+            var dts = new DataSet("MrToan");
+            tbl.TableName = "Test";
+            dts.Tables.Add(tbl);
+            dts.Tables.Add(_dtb);
+
+            trlMain.PopulateColumns();
 
             if (_dtb != null)
             {

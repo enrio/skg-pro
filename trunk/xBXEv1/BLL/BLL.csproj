@@ -50,7 +50,10 @@
     <Compile Include="Pol_UserRoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="Tra_DetailBLL.cs" />
     <Compile Include="Tra_GroupBLL.cs" />
+    <Compile Include="Tra_KindBLL.cs" />
+    <Compile Include="Tra_VehicleBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

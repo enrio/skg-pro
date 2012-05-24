@@ -118,12 +118,13 @@ namespace DAL
                         };
 
 
-                var id = Guid.NewGuid();
+                Guid? id = Guid.NewGuid();
 
                 var b = from s in _db.Pol_Rights
                         select new
                         {
-                            Pol_RoleId = s.Id,
+                            //Pol_RoleId = s.Id,
+                            Pol_RoleId = id,
                             Pol_RightId = id,
                             Add = false,
                             Edit = false,
@@ -143,11 +144,11 @@ namespace DAL
 
                 var x = from s in _db.Pol_Rights
                         select new { s.Id, s.Code };
-
                 var y = from s in _db.Pol_Roles
                         select new { s.Id, s.Code };
 
-                var z = x.Union(y);
+                var w = x.Union(y);
+                var z = a.Union(b);
 
                 return z.ToDataTable();
             }

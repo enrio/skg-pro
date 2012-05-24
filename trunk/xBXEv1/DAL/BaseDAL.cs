@@ -146,8 +146,8 @@ namespace DAL
                             Full = false,
                             None = false,
 
-                            RoleName = "",
-                            RoleDescript = "",
+                            RoleName = s.Name,
+                            RoleDescript = s.Descript,
                             /*RightName = s.Name,
                             RightDescript = s.Descript*/
                         };

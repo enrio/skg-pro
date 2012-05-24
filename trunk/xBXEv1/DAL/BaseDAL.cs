@@ -101,8 +101,14 @@ namespace DAL
                 var a = from s in _db.Pol_RoleRights
                         select new
                         {
-                            s.Pol_RoleId,
-                            s.Pol_RightId,
+                            CodeRight = s.Pol_Right.Code,
+                            CodeRole = s.Pol_Role.Code,
+
+                            ID = "",
+                            ParentID = "",
+
+                            /*s.Pol_RoleId,
+                            s.Pol_RightId,*/
                             s.Add,
                             s.Edit,
                             s.Delete,
@@ -110,7 +116,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            Code = s.Pol_Right.Code,
+
                             RoleName = s.Pol_Role.Name,
                             RoleDescript = s.Pol_Role.Descript,
                             RightName = s.Pol_Right.Name,
@@ -123,9 +129,15 @@ namespace DAL
                 var b = from s in _db.Pol_Rights
                         select new
                         {
+                            CodeRight = s.Code,
+                            CodeRole = "",
+
+                            ID = "",
+                            ParentID = "",
+
                             //Pol_RoleId = s.Id,
-                            Pol_RoleId = id,
-                            Pol_RightId = id,
+                            /*Pol_RoleId = id,
+                            Pol_RightId = id,*/
                             Add = false,
                             Edit = false,
                             Delete = false,
@@ -133,7 +145,7 @@ namespace DAL
                             Print = false,
                             Full = false,
                             None = false,
-                            s.Code,
+
                             RoleName = "",
                             RoleDescript = "",
                             RightName = s.Name,

@@ -8,6 +8,9 @@ namespace DAL.Entities
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
+    /// <summary>
+    /// Cơ sở dữ liệu
+    /// </summary>
     public class Context : DbContext
     {
         public DbSet<Pol_Action> Pol_Actions { get; set; }

@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Vận tải - Xe cộ
     /// </summary>
-    public class Tra_Vehicle
+    public class Tra_Vehicle : Info
     {
         [Key]
         public Guid Id { set; get; }
@@ -25,7 +25,6 @@ namespace DAL.Entities
         public DateTime Birth { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
-        public int Order { set; get; }
 
         public virtual ICollection<Tra_Detail> Tra_Details { get; set; }
     }

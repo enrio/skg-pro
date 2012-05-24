@@ -10,14 +10,12 @@ namespace DAL.Entities
     /// <summary>
     /// Chính sách - Hành động
     /// </summary>
-    public class Pol_Action
+    public class Pol_Action : Info
     {
         [Key]
         public Guid Id { set; get; }
 
-        public string Code { set; get; }
         public string Name { set; get; }
         public string Descript { set; get; }
-        public int Order { set; get; }
     }
 }

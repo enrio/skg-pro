@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Chính sách - Người dùng
     /// </summary>
-    public class Pol_User
+    public class Pol_User : Info
     {
         [Key]
         public Guid Id { set; get; }
@@ -21,6 +21,5 @@ namespace DAL.Entities
         public DateTime Birth { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
-        public int Order { set; get; }
     }
 }

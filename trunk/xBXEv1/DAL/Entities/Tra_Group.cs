@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Vận tải - Nhóm xe
     /// </summary>
-    public class Tra_Group
+    public class Tra_Group : Info
     {
         [Key]
         public Guid Id { set; get; }
@@ -18,7 +18,6 @@ namespace DAL.Entities
         public string Code { set; get; }
         public string Name { set; get; }
         public string Descript { set; get; }
-        public int Order { set; get; }
 
         public virtual ICollection<Tra_Kind> Tra_Kinds { get; set; }
     }

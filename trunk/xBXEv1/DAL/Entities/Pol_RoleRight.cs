@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Chính sách - Vai trò có quyền hạn
     /// </summary>
-    public class Pol_RoleRight
+    public class Pol_RoleRight : Info
     {
         [Key, Column(Order = 0), ForeignKey("Pol_Role")]
         public Guid? Pol_RoleId { set; get; }

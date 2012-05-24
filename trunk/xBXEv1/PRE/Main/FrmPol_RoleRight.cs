@@ -125,7 +125,13 @@ namespace PRE.Main
         protected override void LoadData()
         {
             _dtb = _bll.Select();
-            if (_dtb != null) trlMain.DataSource = _dtb;
+            if (_dtb != null)
+            {
+                trlMain.DataSource = _dtb;
+
+                trlMain.ExpandAll();
+                trlMain.BestFitColumns();
+            }
 
             base.LoadData();
         }

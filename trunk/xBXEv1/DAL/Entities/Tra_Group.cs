@@ -15,7 +15,6 @@ namespace DAL.Entities
         [Key]
         public Guid Id { set; get; }
 
-        public string Code { set; get; }
         public string Name { set; get; }
         public string Descript { set; get; }
 

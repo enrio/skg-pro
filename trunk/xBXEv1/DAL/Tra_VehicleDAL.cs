@@ -16,7 +16,7 @@ namespace DAL
         #region Implement
         public int Count()
         {
-            return _db.Tra_Groups.Count();
+            return _db.Tra_Vehicles.Count();
         }
 
         public object Select(string code)
@@ -28,15 +28,23 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Tra_Groups
+                var res = from s in _db.Tra_Vehicles
                           select new
                           {
                               s.Id,
-                              s.Name,
-                              s.Descript
+                              s.Number,
+                              s.Descript,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
                           };
 
-                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (obj != null) res = res.Where(s => s.Number == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();
@@ -48,9 +56,9 @@ namespace DAL
         {
             try
             {
-                var o = (Tra_Group)obj;
+                var o = (Tra_Vehicle)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Tra_Groups.Add(o);
+                var oki = _db.Tra_Vehicles.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -69,13 +77,13 @@ namespace DAL
             {
                 if (obj != null)
                 {
-                    var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == (Guid)obj);
-                    _db.Tra_Groups.Remove(res);
+                    var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == (Guid)obj);
+                    _db.Tra_Vehicles.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Tra_Groups.ToList();
-                    tmp.ForEach(s => _db.Tra_Groups.Remove(s));
+                    var tmp = _db.Tra_Vehicles.ToList();
+                    tmp.ForEach(s => _db.Tra_Vehicles.Remove(s));
                 }
 
                 return _db.SaveChanges();

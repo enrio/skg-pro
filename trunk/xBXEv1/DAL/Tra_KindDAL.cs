@@ -16,7 +16,7 @@ namespace DAL
         #region Implement
         public int Count()
         {
-            return _db.Tra_Groups.Count();
+            return _db.Tra_Kinds.Count();
         }
 
         public object Select(string code)
@@ -28,12 +28,18 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Tra_Groups
+                var res = from s in _db.Tra_Kinds
                           select new
                           {
                               s.Id,
                               s.Name,
-                              s.Descript
+                              s.Descript,
+                              s.Price1,
+                              s.Price2,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
                           };
 
                 if (obj != null) res = res.Where(s => s.Name == obj + "");
@@ -48,9 +54,9 @@ namespace DAL
         {
             try
             {
-                var o = (Tra_Group)obj;
+                var o = (Tra_Kind)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Tra_Groups.Add(o);
+                var oki = _db.Tra_Kinds.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -69,13 +75,13 @@ namespace DAL
             {
                 if (obj != null)
                 {
-                    var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == (Guid)obj);
-                    _db.Tra_Groups.Remove(res);
+                    var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == (Guid)obj);
+                    _db.Tra_Kinds.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Tra_Groups.ToList();
-                    tmp.ForEach(s => _db.Tra_Groups.Remove(s));
+                    var tmp = _db.Tra_Kinds.ToList();
+                    tmp.ForEach(s => _db.Tra_Kinds.Remove(s));
                 }
 
                 return _db.SaveChanges();

@@ -19,7 +19,6 @@ namespace DAL.Entities
         public Guid? Tra_GroupId { set; get; }
         public virtual Tra_Group Tra_Group { get; set; }
 
-        public string Code { set; get; }
         public string Name { set; get; }
         public string Descript { set; get; }
         public int Price1 { set; get; }

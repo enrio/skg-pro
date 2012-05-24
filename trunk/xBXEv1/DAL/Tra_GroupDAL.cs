@@ -33,7 +33,11 @@ namespace DAL
                           {
                               s.Id,
                               s.Name,
-                              s.Descript
+                              s.Descript,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
                           };
 
                 if (obj != null) res = res.Where(s => s.Name == obj + "");

@@ -16,7 +16,7 @@ namespace DAL
         #region Implement
         public int Count()
         {
-            return _db.Tra_Groups.Count();
+            return _db.Tra_Details.Count();
         }
 
         public object Select(string code)
@@ -28,15 +28,26 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Tra_Groups
+                var res = from s in _db.Tra_Details
                           select new
                           {
-                              s.Id,
-                              s.Name,
-                              s.Descript
+                              s.Tra_VehicleId,
+                              s.Pol_UserInId,
+                              s.Pol_UserOutId,
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
                           };
 
-                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (obj != null)
+                {
+                    var o = (Tra_Detail)obj;
+                    res = res.Where(s => s.Tra_VehicleId == o.Tra_VehicleId && s.Pol_UserInId == o.Pol_UserInId && s.Pol_UserOutId == o.Pol_UserOutId);
+                }
+
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();
@@ -48,9 +59,8 @@ namespace DAL
         {
             try
             {
-                var o = (Tra_Group)obj;
-                o.Id = Guid.NewGuid();
-                var oki = _db.Tra_Groups.Add(o);
+                var o = (Tra_Detail)obj;
+                var oki = _db.Tra_Details.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -69,13 +79,14 @@ namespace DAL
             {
                 if (obj != null)
                 {
-                    var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == (Guid)obj);
-                    _db.Tra_Groups.Remove(res);
+                    var o = (Tra_Detail)obj;
+                    var res = _db.Tra_Details.SingleOrDefault(s => s.Tra_VehicleId == o.Tra_VehicleId && s.Pol_UserInId == o.Pol_UserInId && s.Pol_UserOutId == o.Pol_UserOutId);
+                    _db.Tra_Details.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Tra_Groups.ToList();
-                    tmp.ForEach(s => _db.Tra_Groups.Remove(s));
+                    var tmp = _db.Tra_Details.ToList();
+                    tmp.ForEach(s => _db.Tra_Details.Remove(s));
                 }
 
                 return _db.SaveChanges();

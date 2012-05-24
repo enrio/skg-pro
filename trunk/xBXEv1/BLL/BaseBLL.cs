@@ -20,7 +20,11 @@ namespace BLL
         public static Pol_UserRightBLL _pol_UserRightBLL = new Pol_UserRightBLL();
         public static Pol_UserRoleBLL _pol_UserRoleBLL = new Pol_UserRoleBLL();
         public static Pol_RoleRightBLL _pol_RoleRightBLL = new Pol_RoleRightBLL();
+
         public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
+        public static Tra_KindBLL _tra_KindBLL = new Tra_KindBLL();
+        public static Tra_VehicleBLL _tra_VehicleBLL = new Tra_VehicleBLL();
+        public static Tra_DetailBLL _tra_DetailBLL = new Tra_DetailBLL();
 
         #region Insert template data
         static void CreatePol_Action()
@@ -154,6 +158,21 @@ namespace BLL
         {
             if (_tra_GroupBLL.Count() > 0) return;
         }
+
+        static void CreateTra_Kind()
+        {
+            if (_tra_KindBLL.Count() > 0) return;
+        }
+
+        static void CreateTra_Vehicle()
+        {
+            if (_tra_VehicleBLL.Count() > 0) return;
+        }
+
+        static void CreateTra_Detail()
+        {
+            if (_tra_DetailBLL.Count() > 0) return;
+        }
         #endregion
 
         public static void CreateData(bool isDeleteData = false)
@@ -167,7 +186,11 @@ namespace BLL
                 _pol_UserRightBLL.Delete();
                 _pol_UserRoleBLL.Delete();
                 _pol_RoleRightBLL.Delete();
+
                 _tra_GroupBLL.Delete();
+                _tra_KindBLL.Delete();
+                _tra_VehicleBLL.Delete();
+                _tra_DetailBLL.Delete();
             }
 
             CreatePol_Action();
@@ -177,7 +200,11 @@ namespace BLL
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
+
             CreateTra_Group();
+            CreateTra_Kind();
+            CreateTra_Vehicle();
+            CreateTra_Detail();
         }
     }
 }

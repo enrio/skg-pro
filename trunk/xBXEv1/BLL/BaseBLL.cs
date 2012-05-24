@@ -175,37 +175,37 @@ namespace BLL
             if (_tra_KindBLL.Count() > 0) return;
 
             var a = (Tra_Group)_tra_GroupBLL.Select("A");
-            var o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Descript = "", Price1 = 10000, Price2 = 20000 };
+            var o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Descript = "", Price1 = 10000, Price2 = 20000, Order = 0 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Descript = "", Price1 = 15000, Price2 = 25000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Descript = "", Price1 = 15000, Price2 = 25000, Order = 1 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Descript = "", Price1 = 15000, Price2 = 30000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Descript = "", Price1 = 15000, Price2 = 30000, Order = 2 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Descript = "", Price1 = 20000, Price2 = 35000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Descript = "", Price1 = 20000, Price2 = 35000, Order = 3 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Container 20feet", Descript = "", Price1 = 25000, Price2 = 45000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Container 20feet", Descript = "", Price1 = 25000, Price2 = 45000, Order = 4 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Container 40feet", Descript = "", Price1 = 30000, Price2 = 55000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Container 40feet", Descript = "", Price1 = 30000, Price2 = 55000, Order = 5 };
             _tra_KindBLL.Insert(o);
 
             a = (Tra_Group)_tra_GroupBLL.Select("B");
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Số ghế < 16", Descript = "", Price1 = 0, Price2 = 20000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Số ghế < 16", Descript = "", Price1 = 0, Price2 = 20000, Order = 6 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Descript = "", Price1 = 0, Price2 = 25000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Descript = "", Price1 = 0, Price2 = 25000, Order = 7 };
             _tra_KindBLL.Insert(o);
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Số ghế > 40", Descript = "", Price1 = 0, Price2 = 30000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Số ghế > 40", Descript = "", Price1 = 0, Price2 = 30000, Order = 8 };
             _tra_KindBLL.Insert(o);
 
             a = (Tra_Group)_tra_GroupBLL.Select("C");
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Taxi vãng lai", Descript = "", Price1 = 0, Price2 = 8000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Taxi vãng lai", Descript = "", Price1 = 0, Price2 = 8000, Order = 9 };
             _tra_KindBLL.Insert(o);
 
             a = (Tra_Group)_tra_GroupBLL.Select("D");
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Xe ba bánh", Descript = "", Price1 = 0, Price2 = 5000 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Xe ba bánh", Descript = "", Price1 = 0, Price2 = 5000, Order = 10 };
             _tra_KindBLL.Insert(o);
 
             a = (Tra_Group)_tra_GroupBLL.Select("E");
-            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Price1 = 0, Price2 = 2030 };
+            o = new Tra_Kind() { Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Price1 = 0, Price2 = 2030, Order = 11 };
             _tra_KindBLL.Insert(o);
         }
 

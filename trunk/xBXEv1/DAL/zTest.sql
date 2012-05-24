@@ -7,3 +7,6 @@ Select * From Pol_UserRight
 Select * From Pol_UserRole
 Select * From Pol_RoleRight
 Select * From Tra_Group
+Select * From Tra_Kind
+Select * From Tra_Vehicle
+Select * From Tra_Detail

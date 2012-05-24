@@ -145,15 +145,15 @@ namespace PRE.Main
             {
                 trlMain.DataSource = tbl;
 
-                treeListColumn3.BestFit(); // fit column STT
-                treeListColumn7.BestFit();
-                treeListColumn8.BestFit();
-                treeListColumn9.BestFit();
-                treeListColumn10.BestFit();
-                treeListColumn11.BestFit();
-                treeListColumn12.BestFit();
-                treeListColumn13.BestFit();
-                treeListColumn14.BestFit();
+                //treeListColumn3.BestFit(); // fit column STT
+                //treeListColumn7.BestFit();
+                //treeListColumn8.BestFit();
+                //treeListColumn9.BestFit();
+                //treeListColumn10.BestFit();
+                //treeListColumn11.BestFit();
+                //treeListColumn12.BestFit();
+                //treeListColumn13.BestFit();
+                //treeListColumn14.BestFit();
             }
 
             base.LoadData();

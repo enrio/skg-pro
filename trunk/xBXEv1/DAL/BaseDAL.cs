@@ -119,8 +119,8 @@ namespace DAL
 
                             RoleName = s.Pol_Role.Name,
                             RoleDescript = s.Pol_Role.Descript,
-                            RightName = s.Pol_Right.Name,
-                            RightDescript = s.Pol_Right.Descript
+                            /*RightName = s.Pol_Right.Name,
+                            RightDescript = s.Pol_Right.Descript*/
                         };
 
 
@@ -148,8 +148,8 @@ namespace DAL
 
                             RoleName = "",
                             RoleDescript = "",
-                            RightName = s.Name,
-                            RightDescript = s.Descript
+                            /*RightName = s.Name,
+                            RightDescript = s.Descript*/
                         };
 
                 var infoQuery = (from cust in _db.Pol_Roles select cust.Code).Union(from emp in _db.Pol_Rights select emp.Name);

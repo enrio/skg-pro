@@ -146,16 +146,19 @@ namespace PRE.Main
                     var tlc = new TreeListColumn();
                     tlc.Caption = "" + drAction["Name"];
                     tlc.FieldName = "" + drAction["Code"];
-                    //tlc.ColumnEdit = repositoryItemCheckEdit1;
-                    tlc.VisibleIndex = treeListColumn1.TreeList.VisibleColumns.Count + 4;
+
+                    tlc.VisibleIndex = trlMain.Columns.Count + 1;
+                    tlc.ColumnEdit = ricSelect;
+
                     //tlc.Visible = true;
+                    //tlc.BestFit();
 
                     treeListColumn1.TreeList.Columns.AddRange(new TreeListColumn[] { tlc });
                     treeListColumn1.TreeList.Update();
                 }
 
                 // move last index
-                //treeListColumn4.VisibleIndex = treeListColumn1.TreeList.VisibleColumns.Count;
+                treeListColumn4.VisibleIndex = trlMain.Columns.Count;
             }
             catch (Exception ex)
             {

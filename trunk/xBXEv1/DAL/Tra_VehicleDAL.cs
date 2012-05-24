@@ -21,7 +21,11 @@ namespace DAL
 
         public object Select(string code)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return _db.Tra_Vehicles.SingleOrDefault(s => s.Number == code);
+            }
+            catch { return null; }
         }
 
         public DataTable Select(object obj = null, int skip = 0, int take = 0)

@@ -141,7 +141,15 @@ namespace DAL
 
                 var infoQuery = (from cust in _db.Pol_Roles select cust.Code).Union(from emp in _db.Pol_Rights select emp.Name);
 
-                return infoQuery.ToDataTable();
+                var x = from s in _db.Pol_Rights
+                        select new { s.Id, s.Code };
+
+                var y = from s in _db.Pol_Roles
+                        select new { s.Id, s.Code };
+
+                var z = x.Union(y);
+
+                return z.ToDataTable();
             }
             catch { return _tb; }
         }

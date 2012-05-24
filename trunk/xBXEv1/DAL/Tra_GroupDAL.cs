@@ -23,7 +23,7 @@ namespace DAL
         {
             try
             {
-                return _db.Pol_Rights.SingleOrDefault(s => s.Code == code);
+                return _db.Tra_Groups.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }

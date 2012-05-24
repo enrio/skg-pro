@@ -72,7 +72,6 @@ namespace DAL
 
                 var res = a.Union(b);
 
-
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;

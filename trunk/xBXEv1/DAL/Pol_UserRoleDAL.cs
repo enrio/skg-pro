@@ -28,30 +28,54 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_UserRoles
-                          select new
-                          {
-                              s.Pol_UserId,
-                              s.Pol_RoleId,
-                              s.Add,
-                              s.Edit,
-                              s.Delete,
-                              s.Query,
-                              s.Print,
-                              s.Full,
-                              s.None,
-                              Code = s.Pol_Role.Code,
-                              UserName = s.Pol_User.Name,
-                              UserBirth = s.Pol_User.Birth,
-                              RoleName = s.Pol_Role.Name,
-                              RoleDescript = s.Pol_Role.Descript
-                          };
+                var a = from s in _db.Pol_RoleRights
+                        select new
+                        {
+                            CodeRight = s.Pol_Right.Code,
+                            CodeRole = s.Pol_Role.Code,
 
+                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
+                            ParentID = s.Pol_Right.Code,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+
+                            RoleName = s.Pol_Role.Name,
+                            RoleDescript = s.Pol_Role.Descript
+                        };
+
+                var b = from s in _db.Pol_Rights
+                        select new
+                        {
+                            CodeRight = s.Code,
+                            CodeRole = "",
+
+                            ID = s.Code + "",
+                            ParentID = s.Code,
+
+                            Add = false,
+                            Edit = false,
+                            Delete = false,
+                            Query = false,
+                            Print = false,
+                            Full = false,
+                            None = false,
+
+                            RoleName = s.Name,
+                            RoleDescript = s.Descript
+                        };
+
+                var res = a.Union(b);
 
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
-                    res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RoleId == o.Pol_RoleId);
+                    //res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RoleId == o.Pol_RoleId);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -115,37 +139,5 @@ namespace DAL
             catch { return null; }
         }
         #endregion
-
-        public DataTable GetForRole()
-        {
-            try
-            {
-                var tmp = Select();
-                var id = Guid.NewGuid();
-
-                var res = from s in _db.Pol_Roles
-                          select new
-                          {
-                              Pol_UserId = s.Id,
-                              Pol_RoleId = id,
-                              Add = false,
-                              Edit = false,
-                              Delete = false,
-                              Query = false,
-                              Print = false,
-                              Full = false,
-                              None = false,
-                              s.Code,
-                              UserName = "",
-                              UserBirth = DateTime.Now,
-                              RoleName = s.Name,
-                              RoleDescript = s.Descript
-                          };
-
-                tmp.Merge(res.ToDataTable());
-                return tmp;
-            }
-            catch { return _tb; }
-        }
     }
 }

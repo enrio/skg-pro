@@ -23,7 +23,7 @@ namespace PRE.Main
             SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.OptionsBehavior.Editable = false;
-            _bll = new Pol_RoleRightBLL();
+            _bll = new Pol_UserRoleBLL();
 
             AddTreeListColumns();
         }

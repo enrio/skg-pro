@@ -28,30 +28,55 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_RoleRights
-                          select new
-                          {
-                              s.Pol_RoleId,
-                              s.Pol_RightId,
-                              s.Add,
-                              s.Edit,
-                              s.Delete,
-                              s.Query,
-                              s.Print,
-                              s.Full,
-                              s.None,
-                              Code = s.Pol_Right.Code,
-                              RoleName = s.Pol_Role.Name,
-                              RoleDescript = s.Pol_Role.Descript,
-                              RightName = s.Pol_Right.Name,
-                              RightDescript = s.Pol_Right.Descript
-                          };
+                var a = from s in _db.Pol_RoleRights
+                        select new
+                        {
+                            CodeRight = s.Pol_Right.Code,
+                            CodeRole = s.Pol_Role.Code,
+
+                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
+                            ParentID = s.Pol_Right.Code,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+
+                            RoleName = s.Pol_Role.Name,
+                            RoleDescript = s.Pol_Role.Descript
+                        };
+
+                var b = from s in _db.Pol_Rights
+                        select new
+                        {
+                            CodeRight = s.Code,
+                            CodeRole = "",
+
+                            ID = s.Code + "",
+                            ParentID = s.Code,
+
+                            Add = false,
+                            Edit = false,
+                            Delete = false,
+                            Query = false,
+                            Print = false,
+                            Full = false,
+                            None = false,
+
+                            RoleName = s.Name,
+                            RoleDescript = s.Descript
+                        };
+
+                var res = a.Union(b);
 
 
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;
-                    res = res.Where(s => s.Pol_RoleId == o.Pol_RoleId && s.Pol_RightId == o.Pol_RightId);
+                    //res = res.Where(s => s.Pol_RoleId == o.Pol_RoleId && s.Pol_RightId == o.Pol_RightId);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -115,37 +140,5 @@ namespace DAL
             catch { return null; }
         }
         #endregion
-
-        public DataTable GetForRight()
-        {
-            try
-            {
-                var tmp = Select();
-                var id = Guid.NewGuid();
-
-                var res = from s in _db.Pol_Rights
-                          select new
-                          {
-                              Pol_RoleId = s.Id,
-                              Pol_RightId = id,
-                              Add = false,
-                              Edit = false,
-                              Delete = false,
-                              Query = false,
-                              Print = false,
-                              Full = false,
-                              None = false,
-                              s.Code,
-                              RoleName = "",
-                              RoleDescript = "",
-                              RightName = s.Name,
-                              RightDescript = s.Descript
-                          };
-
-                tmp.Merge(res.ToDataTable());
-                return tmp;
-            }
-            catch { return _tb; }
-        }
     }
 }

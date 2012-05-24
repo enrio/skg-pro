@@ -19,12 +19,9 @@ namespace PRE.Main
         {
             InitializeComponent();
 
-            //SetDockPanel(dockPanel1, "Nhập liệu");
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            //trlMain.KeyFieldName = "Pol_RoleId";
-            //trlMain.ParentFieldName = "Pol_RightId";
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
 
@@ -127,37 +124,8 @@ namespace PRE.Main
 
         protected override void LoadData()
         {
-            //_dtb = _bll.Select();
-            //_dtb = BaseBLL._pol_RoleRightBLL.GetForRight();
-
-            var tbl = new DataTable();
-            _dtb = BaseBLL._pol_RoleRightBLL.TestPivot(ref tbl);
-
-            var dts = new DataSet("MrToan");
-            tbl.TableName = "Test";
-            dts.Tables.Add(tbl);
-            dts.Tables.Add(_dtb);
-
-            //trlMain.KeyFieldName = "Sequence";
-            //trlMain.ParentFieldName = "Sequence2";
-            //trlMain.PopulateColumns();
-
-            tbl = BaseBLL._pol_RoleRightBLL.TestUnion();
-
-            if (_dtb != null)
-            {
-                trlMain.DataSource = tbl;
-
-                //treeListColumn3.BestFit(); // fit column STT
-                //treeListColumn7.BestFit();
-                //treeListColumn8.BestFit();
-                //treeListColumn9.BestFit();
-                //treeListColumn10.BestFit();
-                //treeListColumn11.BestFit();
-                //treeListColumn12.BestFit();
-                //treeListColumn13.BestFit();
-                //treeListColumn14.BestFit();
-            }
+            _dtb = _bll.Select();
+            if (_dtb != null) trlMain.DataSource = _dtb;
 
             base.LoadData();
         }

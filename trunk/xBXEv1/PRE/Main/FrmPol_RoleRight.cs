@@ -137,7 +137,7 @@ namespace PRE.Main
 
             //trlMain.KeyFieldName = "Sequence";
             //trlMain.ParentFieldName = "Sequence2";
-            trlMain.PopulateColumns();
+            //trlMain.PopulateColumns();
 
             tbl = BaseBLL._pol_RoleRightBLL.TestUnion();
 

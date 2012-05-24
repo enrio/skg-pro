@@ -111,7 +111,7 @@
             // treeListColumn1
             // 
             this.treeListColumn1.Caption = "STT";
-            this.treeListColumn1.FieldName = "STT";
+            this.treeListColumn1.FieldName = "No_";
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
@@ -119,7 +119,7 @@
             // treeListColumn2
             // 
             this.treeListColumn2.Caption = "Chức năng/Nhóm quyền";
-            this.treeListColumn2.FieldName = "Chức năng/Nhóm quyền";
+            this.treeListColumn2.FieldName = "RoleName";
             this.treeListColumn2.Name = "treeListColumn2";
             this.treeListColumn2.Visible = true;
             this.treeListColumn2.VisibleIndex = 1;
@@ -127,7 +127,7 @@
             // treeListColumn3
             // 
             this.treeListColumn3.Caption = "Mô tả";
-            this.treeListColumn3.FieldName = "Mô tả";
+            this.treeListColumn3.FieldName = "RoleDescript";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 2;

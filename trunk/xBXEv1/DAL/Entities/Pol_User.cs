@@ -21,5 +21,9 @@ namespace DAL.Entities
         public DateTime Birth { set; get; }
         public string Address { set; get; }
         public string Phone { set; get; }
+
+        public virtual ICollection<Tra_Detail> Tra_Details { get; set; }
+        public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
+        public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
     }
 }

@@ -11,6 +11,7 @@ namespace PRE.Main
     using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraTreeList.Columns;
 
     public partial class FrmPol_RoleRight : PRE.Catalog.FrmBase
     {
@@ -164,5 +165,32 @@ namespace PRE.Main
             return base.ValidInput();
         }
         #endregion
+
+        void AddTreeListColumns()
+        {
+            try
+            {
+                var tbl = BaseBLL._pol_ActionBLL.Select();
+                foreach (DataRow drAction in tbl.Rows)
+                {
+                    var tlc = new TreeListColumn();
+                    tlc.Caption = "" + drAction["Name"];
+                    tlc.FieldName = "" + drAction["Code"];
+                    //tlc.ColumnEdit = repositoryItemCheckEdit1;
+                    tlc.VisibleIndex = treeListColumn1.TreeList.VisibleColumns.Count + 4;
+                    //tlc.Visible = true;
+
+                    treeListColumn1.TreeList.Columns.AddRange(new TreeListColumn[] { tlc });
+                    treeListColumn1.TreeList.Update();
+                }
+
+                // move last index
+                //treeListColumn4.VisibleIndex = treeListColumn1.TreeList.VisibleColumns.Count;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "");
+            }
+        }
     }
 }

@@ -27,6 +27,16 @@ namespace PRE
             }
         }
 
+        public static void VisibleMenuParentForm(Form parent, bool visible = true)
+        {
+            if (parent != null)
+            {
+                var i = ((RibbonForm)parent).Ribbon.Pages.Count;
+                while (i-- > 1)
+                    ((RibbonForm)parent).Ribbon.Pages[1].Visible = visible;
+            }
+        }
+
         public static void ClearMenuParentForm(Form parent)
         {
             try
@@ -79,6 +89,8 @@ namespace PRE
         {
             try
             {
+                VisibleMenuParentForm(main, false);
+
                 var frm = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
                 if (frm == null) frm = new Main.FrmLogin();
 
@@ -87,7 +99,7 @@ namespace PRE
                 frm.Activate();
 
                 CloseAllChildrenForm(main, frm);
-                ClearMenuParentForm(main);
+                VisibleMenuParentForm(main);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }
         }

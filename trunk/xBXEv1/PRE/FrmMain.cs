@@ -123,7 +123,7 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            BLL.BaseBLL.CreateData();
+            //BLL.BaseBLL.CreateData();
             //BLL.BaseBLL.CreateData(true);
             ShowLogin();
         }

@@ -19,7 +19,7 @@ namespace DAL.Entities
 
         #region Khoá ngoại ở các thực thể khác
         /// <summary>
-        /// Danh sách nhóm người dùng thuộc nhóm quyền (chức năng)
+        /// Danh sách người dùng thuộc nhóm quyền (chức năng)
         /// </summary>
         public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
 

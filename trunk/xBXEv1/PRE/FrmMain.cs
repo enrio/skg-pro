@@ -13,6 +13,8 @@ namespace PRE
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        public static Session _sss = new Session();
+
         public FrmMain()
         {
             InitializeComponent();

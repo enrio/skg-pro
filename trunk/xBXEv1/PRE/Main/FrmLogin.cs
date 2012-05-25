@@ -9,6 +9,9 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Main
 {
+    using BLL;
+    using DAL.Entities;
+
     public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
         private const string STR_ERR = "Lỗi đăng nhập";
@@ -47,13 +50,13 @@ namespace PRE.Main
 
         private void cmdYes_Click(object sender, EventArgs e)
         {
-            //var sss = (new BLL.UserBLL()).CheckLogin(txtUser.Text, txtPass.Text);
-            //if (sss.Login)
-            //{
-            //    FrmMain._sss = sss;
-            //    Close();
-            //}
-            //else UTL.Message.Show(STR_ERR, STR_LOGIN);
+            var sss = BaseBLL._pol_UserBLL.CheckLogin(txtUser.Text, txtPass.Text);
+            if (sss != null)
+            {
+                FrmMain._sss = sss;
+                Close();
+            }
+            else MessageBox.Show(STR_ERR, STR_LOGIN);
         }
 
         private void cmdNo_Click(object sender, EventArgs e)

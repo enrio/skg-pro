@@ -100,7 +100,7 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            BaseBLL.CreateData(true);
+            //BaseBLL.CreateData(true);
         }
     }
 }

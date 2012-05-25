@@ -10,6 +10,8 @@ using DevExpress.XtraBars;
 namespace PRE
 {
     using BLL;
+    using DevExpress.XtraBars.Ribbon;
+    using DevExpress.XtraBars.Docking;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
@@ -18,6 +20,19 @@ namespace PRE
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        public static void VisibleParentForm(Form parentForm, bool visible = true)
+        {
+            if (parentForm != null)
+            {
+                foreach (Control ctr in parentForm.Controls)
+                {
+                    if (ctr.GetType() == typeof(RibbonControl)) ctr.Visible = visible;
+                    if (ctr.GetType() == typeof(DockPanel)) ctr.Visible = visible;
+                    if (ctr.GetType() == typeof(BarManager)) ctr.Visible = visible;
+                }
+            }
         }
 
         #region Catalog

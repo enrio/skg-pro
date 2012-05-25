@@ -17,6 +17,18 @@ namespace PRE.Main
         private const string STR_ERR = "Lỗi đăng nhập";
         private const string STR_LOGIN = "Đăng nhập";
 
+        #region Event logon
+        public delegate void LogonHandler();
+
+        public event LogonHandler BeforeLogon;
+        public event LogonHandler AfterLogon;
+        public event LogonHandler AfterLogout;
+
+        void NotifyBeforeLogon() { if (BeforeLogon != null) BeforeLogon(); }
+        void NotifyAfterLogon() { if (AfterLogon != null) AfterLogon(); }
+        void NotifyAfterLogout() { if (AfterLogout != null) AfterLogout(); }
+        #endregion
+
         public FrmLogin()
         {
             InitializeComponent();

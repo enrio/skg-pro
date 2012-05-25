@@ -42,9 +42,14 @@
             this.bbiRegistry = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_UserRight = new DevExpress.XtraBars.BarButtonItem();
             this.bbiPol_RoleRight = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTra_Group = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTra_Kind = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiTra_Vehicle = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgSkin = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpCatalog = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTransport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,9 +60,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bbiTra_Group = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiTra_Kind = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiTra_Vehicle = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -86,9 +88,10 @@
             this.bbiPol_RoleRight,
             this.bbiTra_Group,
             this.bbiTra_Kind,
-            this.bbiTra_Vehicle});
+            this.bbiTra_Vehicle,
+            this.ribbonGalleryBarItem1});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 16;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -189,11 +192,42 @@
             this.bbiPol_RoleRight.Name = "bbiPol_RoleRight";
             this.bbiPol_RoleRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_RoleRight_ItemClick);
             // 
+            // bbiTra_Group
+            // 
+            this.bbiTra_Group.Caption = "&Nhóm xe";
+            this.bbiTra_Group.Id = 13;
+            this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Group.Name = "bbiTra_Group";
+            this.bbiTra_Group.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Group_ItemClick);
+            // 
+            // bbiTra_Kind
+            // 
+            this.bbiTra_Kind.Caption = "&Loại xe";
+            this.bbiTra_Kind.Id = 14;
+            this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Kind.Name = "bbiTra_Kind";
+            this.bbiTra_Kind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Kind_ItemClick);
+            // 
+            // bbiTra_Vehicle
+            // 
+            this.bbiTra_Vehicle.Caption = "&Xe cộ";
+            this.bbiTra_Vehicle.Id = 15;
+            this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
+            this.bbiTra_Vehicle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Vehicle_ItemClick);
+            // 
+            // ribbonGalleryBarItem1
+            // 
+            this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
+            this.ribbonGalleryBarItem1.Id = 16;
+            this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgSystem,
-            this.rpgPermission});
+            this.rpgPermission,
+            this.rpgSkin});
             this.rbpMain.Name = "rbpMain";
             this.rbpMain.Text = "Trang chính";
             // 
@@ -212,6 +246,12 @@
             this.rpgPermission.ItemLinks.Add(this.bbiPol_RoleRight);
             this.rpgPermission.Name = "rpgPermission";
             this.rpgPermission.Text = "&Phân quyền";
+            // 
+            // rpgSkin
+            // 
+            this.rpgSkin.ItemLinks.Add(this.ribbonGalleryBarItem1);
+            this.rpgSkin.Name = "rpgSkin";
+            this.rpgSkin.Text = "&Giao diện";
             // 
             // rbpCatalog
             // 
@@ -279,30 +319,6 @@
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             // 
-            // bbiTra_Group
-            // 
-            this.bbiTra_Group.Caption = "&Nhóm xe";
-            this.bbiTra_Group.Id = 13;
-            this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiTra_Group.Name = "bbiTra_Group";
-            this.bbiTra_Group.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Group_ItemClick);
-            // 
-            // bbiTra_Kind
-            // 
-            this.bbiTra_Kind.Caption = "&Loại xe";
-            this.bbiTra_Kind.Id = 14;
-            this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiTra_Kind.Name = "bbiTra_Kind";
-            this.bbiTra_Kind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Kind_ItemClick);
-            // 
-            // bbiTra_Vehicle
-            // 
-            this.bbiTra_Vehicle.Caption = "&Xe cộ";
-            this.bbiTra_Vehicle.Id = 15;
-            this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
-            this.bbiTra_Vehicle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Vehicle_ItemClick);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,5 +370,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiTra_Group;
         private DevExpress.XtraBars.BarButtonItem bbiTra_Kind;
         private DevExpress.XtraBars.BarButtonItem bbiTra_Vehicle;
+        private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSkin;
     }
 }

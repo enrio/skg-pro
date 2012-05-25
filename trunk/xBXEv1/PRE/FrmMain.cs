@@ -18,7 +18,7 @@ namespace PRE
         {
             InitializeComponent();
 
-            //SkinHelper.InitSkinGallery(rgbiSkins, true);
+            SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 
         public void ShowLogin()

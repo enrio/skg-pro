@@ -92,9 +92,8 @@ namespace PRE
                 VisibleMenuParentForm(main, false);
 
                 var frm = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
-                if (frm == null) frm = new Main.FrmLogin();
+                if (frm == null) frm = new Main.FrmLogin() { MdiParent = main, Text = "Đăng nhập" };
 
-                frm.MdiParent = main;
                 frm.Show();
                 frm.Activate();
 

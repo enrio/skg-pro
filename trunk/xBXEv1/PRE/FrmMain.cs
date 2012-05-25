@@ -25,10 +25,9 @@ namespace PRE
                 BasePRE.VisibleMenuParentForm(this, false);
 
                 var frm = (Main.FrmLogin)BasePRE.GetMdiChilden(this, "FrmLogin");
-                if (frm == null) frm = new Main.FrmLogin();
+                if (frm == null) frm = new Main.FrmLogin() { MdiParent = this, Text = "Đăng nhập" };
 
                 frm.AfterLogon += Logon;
-                frm.MdiParent = this;
                 frm.Show();
                 frm.Activate();
 

@@ -1,5 +1,7 @@
-﻿namespace WindowsApplication1 {
-    partial class FrmMain {
+﻿namespace GUI
+{
+    partial class FrmMain
+    {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -9,8 +11,10 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) {
-            if(disposing && (components != null)) {
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -22,7 +26,8 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
@@ -660,56 +665,55 @@
         #endregion
 
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl;
-private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
-private DevExpress.XtraBars.BarButtonItem iNew;
-private DevExpress.XtraBars.BarButtonItem iOpen;
-private DevExpress.XtraBars.BarButtonItem iClose;
-private DevExpress.XtraBars.BarButtonItem iFind;
-private DevExpress.XtraBars.BarButtonItem iSave;
-private DevExpress.XtraBars.BarButtonItem iSaveAs;
-private DevExpress.XtraBars.BarButtonItem iExit;
-private DevExpress.XtraBars.BarButtonItem iHelp;
-private DevExpress.XtraBars.BarButtonItem iAbout;
-private DevExpress.XtraBars.BarStaticItem siStatus;
-private DevExpress.XtraBars.BarStaticItem siInfo;
-private DevExpress.XtraBars.BarButtonGroup alignButtonGroup;
-private DevExpress.XtraBars.BarButtonItem iBoldFontStyle;
-private DevExpress.XtraBars.BarButtonItem iItalicFontStyle;
-private DevExpress.XtraBars.BarButtonItem iUnderlinedFontStyle;
-private DevExpress.XtraBars.BarButtonGroup fontStyleButtonGroup;
-private DevExpress.XtraBars.BarButtonItem iLeftTextAlign;
-private DevExpress.XtraBars.BarButtonItem iCenterTextAlign;
-private DevExpress.XtraBars.BarButtonItem iRightTextAlign;
-private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
-private DevExpress.XtraBars.Ribbon.RibbonPage homeRibbonPage;
-private DevExpress.XtraBars.Ribbon.RibbonPageGroup fileRibbonPageGroup;
-private DevExpress.XtraBars.Ribbon.RibbonPageGroup formatRibbonPageGroup;
-private DevExpress.XtraBars.Ribbon.RibbonPageGroup skinsRibbonPageGroup;
-private DevExpress.XtraBars.Ribbon.RibbonPageGroup exitRibbonPageGroup;
-private DevExpress.XtraBars.Ribbon.RibbonPage helpRibbonPage;
-private DevExpress.XtraBars.Ribbon.RibbonPageGroup helpRibbonPageGroup;
-private DevExpress.XtraBars.Ribbon.ApplicationMenu appMenu;
-private DevExpress.XtraBars.PopupControlContainer popupControlContainer1;
-private DevExpress.XtraEditors.LabelControl someLabelControl2;
-private DevExpress.XtraEditors.LabelControl someLabelControl1;
-private DevExpress.XtraBars.PopupControlContainer popupControlContainer2;
-private DevExpress.XtraEditors.ButtonEdit buttonEdit;
-private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-private DevExpress.Utils.ImageCollection ribbonImageCollection;
-private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
-private DevExpress.XtraNavBar.NavBarControl navBarControl;
-private DevExpress.XtraNavBar.NavBarGroup mailGroup;
-private DevExpress.XtraNavBar.NavBarGroup organizerGroup;
-private DevExpress.XtraNavBar.NavBarItem inboxItem;
-private DevExpress.XtraNavBar.NavBarItem outboxItem;
-private DevExpress.XtraNavBar.NavBarItem draftsItem;
-private DevExpress.XtraNavBar.NavBarItem trashItem;
-private DevExpress.XtraNavBar.NavBarItem calendarItem;
-private DevExpress.XtraNavBar.NavBarItem tasksItem;
-private System.Windows.Forms.ImageList navbarImageList;
-private System.Windows.Forms.ImageList navbarImageListLarge;
-private DevExpress.XtraGrid.GridControl gridControl;
-private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
+        private DevExpress.XtraBars.BarButtonItem iNew;
+        private DevExpress.XtraBars.BarButtonItem iOpen;
+        private DevExpress.XtraBars.BarButtonItem iClose;
+        private DevExpress.XtraBars.BarButtonItem iFind;
+        private DevExpress.XtraBars.BarButtonItem iSave;
+        private DevExpress.XtraBars.BarButtonItem iSaveAs;
+        private DevExpress.XtraBars.BarButtonItem iExit;
+        private DevExpress.XtraBars.BarButtonItem iHelp;
+        private DevExpress.XtraBars.BarButtonItem iAbout;
+        private DevExpress.XtraBars.BarStaticItem siStatus;
+        private DevExpress.XtraBars.BarStaticItem siInfo;
+        private DevExpress.XtraBars.BarButtonGroup alignButtonGroup;
+        private DevExpress.XtraBars.BarButtonItem iBoldFontStyle;
+        private DevExpress.XtraBars.BarButtonItem iItalicFontStyle;
+        private DevExpress.XtraBars.BarButtonItem iUnderlinedFontStyle;
+        private DevExpress.XtraBars.BarButtonGroup fontStyleButtonGroup;
+        private DevExpress.XtraBars.BarButtonItem iLeftTextAlign;
+        private DevExpress.XtraBars.BarButtonItem iCenterTextAlign;
+        private DevExpress.XtraBars.BarButtonItem iRightTextAlign;
+        private DevExpress.XtraBars.RibbonGalleryBarItem rgbiSkins;
+        private DevExpress.XtraBars.Ribbon.RibbonPage homeRibbonPage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup fileRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup formatRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup skinsRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup exitRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.RibbonPage helpRibbonPage;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup helpRibbonPageGroup;
+        private DevExpress.XtraBars.Ribbon.ApplicationMenu appMenu;
+        private DevExpress.XtraBars.PopupControlContainer popupControlContainer1;
+        private DevExpress.XtraEditors.LabelControl someLabelControl2;
+        private DevExpress.XtraEditors.LabelControl someLabelControl1;
+        private DevExpress.XtraBars.PopupControlContainer popupControlContainer2;
+        private DevExpress.XtraEditors.ButtonEdit buttonEdit;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
+        private DevExpress.Utils.ImageCollection ribbonImageCollection;
+        private DevExpress.Utils.ImageCollection ribbonImageCollectionLarge;
+        private DevExpress.XtraNavBar.NavBarControl navBarControl;
+        private DevExpress.XtraNavBar.NavBarGroup mailGroup;
+        private DevExpress.XtraNavBar.NavBarGroup organizerGroup;
+        private DevExpress.XtraNavBar.NavBarItem inboxItem;
+        private DevExpress.XtraNavBar.NavBarItem outboxItem;
+        private DevExpress.XtraNavBar.NavBarItem draftsItem;
+        private DevExpress.XtraNavBar.NavBarItem trashItem;
+        private DevExpress.XtraNavBar.NavBarItem calendarItem;
+        private DevExpress.XtraNavBar.NavBarItem tasksItem;
+        private System.Windows.Forms.ImageList navbarImageList;
+        private System.Windows.Forms.ImageList navbarImageListLarge;
+        private DevExpress.XtraGrid.GridControl gridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
     }
 }

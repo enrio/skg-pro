@@ -12,8 +12,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 
-
-namespace WindowsApplication1
+namespace GUI
 {
     public partial class FrmMain : RibbonForm
     {

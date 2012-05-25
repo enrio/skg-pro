@@ -12,12 +12,16 @@ namespace DAL.Entities
     /// </summary>
     public class Tra_Group : ZInfor
     {
-        [Key]
-        public Guid Id { set; get; }
-
+        /// <summary>
+        /// Tên nhóm xe
+        /// </summary>
         public string Name { set; get; }
-        public string Descript { set; get; }
 
+        #region Khoá ngoại ở các thực thể khác
+        /// <summary>
+        /// Danh sách loại xe
+        /// </summary>
         public virtual ICollection<Tra_Kind> Tra_Kinds { get; set; }
+        #endregion
     }
 }

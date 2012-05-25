@@ -10,12 +10,15 @@ using DevExpress.XtraBars;
 namespace PRE
 {
     using BLL;
+    using DevExpress.XtraBars.Helpers;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public FrmMain()
         {
             InitializeComponent();
+
+            //SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
 
         public void ShowLogin()

@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace PRE
 {
+    using DevExpress.LookAndFeel;
+
     static class Program
     {
         /// <summary>
@@ -15,7 +17,12 @@ namespace PRE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FrmTest());
+
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.OfficeSkins.Register();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
             Application.Run(new FrmMain());
         }
     }

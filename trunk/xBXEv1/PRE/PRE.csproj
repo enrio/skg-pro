@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePRE.cs" />
     <Compile Include="Catalog\FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>

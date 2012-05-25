@@ -9,49 +9,11 @@ using DevExpress.XtraBars;
 
 namespace PRE
 {
-    using BLL;
-    using DevExpress.XtraBars.Ribbon;
-    using DevExpress.XtraBars.Docking;
-
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public static Session _sss = new Session();
-
         public FrmMain()
         {
             InitializeComponent();
-        }
-
-        public static void VisibleParentForm(Form parentForm, bool visible = true)
-        {
-            if (parentForm != null)
-            {
-                foreach (Control ctr in parentForm.Controls)
-                {
-                    if (ctr.GetType() == typeof(RibbonControl)) ctr.Visible = visible;
-                    if (ctr.GetType() == typeof(DockPanel)) ctr.Visible = visible;
-                    if (ctr.GetType() == typeof(BarManager)) ctr.Visible = visible;
-                }
-            }
-        }
-
-        public static void ClearMenuParentForm(Form parentForm)
-        {
-            if (parentForm != null)
-            {
-                while (((RibbonForm)parentForm).Ribbon.Pages.Count > 1)
-                    ((RibbonForm)parentForm).Ribbon.Pages[1].Dispose();
-
-                while (((ApplicationMenu)((RibbonForm)parentForm).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
-                    ((ApplicationMenu)((RibbonForm)parentForm).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
-            }
-        }
-
-        public static void CloseAllChildrenForm(Form parentForm)
-        {
-            if (parentForm != null)
-                foreach (Form childrenForm in parentForm.MdiChildren)
-                    childrenForm.Close();
         }
 
         #region Catalog

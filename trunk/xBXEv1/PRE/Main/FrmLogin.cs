@@ -53,7 +53,7 @@ namespace PRE.Main
             var sss = BaseBLL._pol_UserBLL.CheckLogin(txtUser.Text, txtPass.Text);
             if (sss != null)
             {
-                FrmMain._sss = sss;
+                BasePRE._sss = sss;
                 Close();
             }
             else MessageBox.Show(STR_ERR, STR_LOGIN);

@@ -117,6 +117,8 @@ namespace BLL
             _pol_UserBLL.Insert(o);
             o = new Pol_User() { Acc = "xyz", Pass = "xyz", Name = "Không Văn Biết", Birth = new DateTime(1988, 1, 5), Address = "Sao Hoả, Hệ Mặt Trời", Phone = "+841645 999 666" };
             _pol_UserBLL.Insert(o);
+            o = new Pol_User() { Acc = "admin", Pass = "", Name = "Siêu Quản Trị", Birth = new DateTime(1988, 1, 5), Address = "Âm Tàu, Địa Phủ", Phone = "+841699 999 666" };
+            _pol_UserBLL.Insert(o);
         }
 
         static void CreatePol_UserRight()

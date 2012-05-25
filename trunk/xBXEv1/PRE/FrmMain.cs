@@ -9,6 +9,8 @@ using DevExpress.XtraBars;
 
 namespace PRE
 {
+    using BLL;
+
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public FrmMain()
@@ -87,35 +89,7 @@ namespace PRE
         #region System
         private void bbiLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-            const string STR_LOGIN = "Đăng &nhập";
-            const string STR_LOGOUT = "Đăng &xuất";
-
-            if (bbiLogin.Caption == STR_LOGOUT)
-            {
-                //_sss.Login = false;
-                bbiLogin.Caption = STR_LOGIN;
-                bbiLogin.LargeGlyph = Properties.Resources.login;
-
-                bbiCloseAll_ItemClick(sender, e);
-                //ShowMenu(false); // hide menu
-            }
-
-            //using (var frm = new Main.FrmLogin())
-            //{
-            //    frm.ShowDialog();
-            //}
-
-            BasePRE.ShowLogin(this);
-
-            //if (_sss.Login)
-            //{
-            //    bbiLogin.Caption = STR_LOGOUT;
-            //    bbiLogin.LargeGlyph = Properties.Resources.logout;
-
-            //    ShowMenu(); // show menu
-            //    ShowDefault();
-            //}
-            //else ShowMenu(false); // hide menu
+            ShowLogin();
         }
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
@@ -150,7 +124,8 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //BaseBLL.CreateData(true);
+            BLL.BaseBLL.CreateData();
+            //BLL.BaseBLL.CreateData(true);
             ShowLogin();
         }
     }

@@ -16,6 +16,30 @@ namespace PRE
             InitializeComponent();
         }
 
+        public void ShowLogin()
+        {
+            try
+            {
+                BasePRE.VisibleMenuParentForm(this, false);
+
+                var frm = (Main.FrmLogin)BasePRE.GetMdiChilden(this, "FrmLogin");
+                if (frm == null) frm = new Main.FrmLogin();
+
+                frm.AfterLogon += Logon;
+                frm.MdiParent = this;
+                frm.Show();
+                frm.Activate();
+
+                BasePRE.CloseAllChildrenForm(this, frm);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }
+        }
+
+        void Logon()
+        {
+            BasePRE.VisibleMenuParentForm(this);
+        }
+
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -127,7 +151,7 @@ namespace PRE
         private void FrmMain_Load(object sender, EventArgs e)
         {
             //BaseBLL.CreateData(true);
-            BasePRE.ShowLogin(this);
+            ShowLogin();
         }
     }
 }

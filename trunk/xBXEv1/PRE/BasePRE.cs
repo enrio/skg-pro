@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PRE
 {
     using BLL;
-    using Main;
     using System.Windows.Forms;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
@@ -60,9 +58,9 @@ namespace PRE
 
         public static Form GetMdiChilden(Form parent, string childrenName)
         {
-            System.Windows.Forms.Form frmreturn = null;
+            Form frmreturn = null;
             if (parent.MdiChildren != null)
-                foreach (System.Windows.Forms.Form frm in parent.MdiChildren)
+                foreach (Form frm in parent.MdiChildren)
                 {
                     if (frm.GetType().Name == childrenName)
                     {

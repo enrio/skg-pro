@@ -81,6 +81,13 @@ namespace PRE.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap closex {
+            get {
+                object obj = ResourceManager.GetObject("closex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap db {
             get {
                 object obj = ResourceManager.GetObject("db", resourceCulture);
@@ -154,6 +161,13 @@ namespace PRE.Properties {
         internal static System.Drawing.Bitmap login {
             get {
                 object obj = ResourceManager.GetObject("login", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap loginx {
+            get {
+                object obj = ResourceManager.GetObject("loginx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

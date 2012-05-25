@@ -172,6 +172,13 @@ namespace PRE.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap logon {
+            get {
+                object obj = ResourceManager.GetObject("logon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap logout {
             get {
                 object obj = ResourceManager.GetObject("logout", resourceCulture);

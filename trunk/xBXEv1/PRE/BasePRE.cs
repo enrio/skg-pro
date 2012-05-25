@@ -77,14 +77,14 @@ namespace PRE
         {
             try
             {
-                var frmDatabaseLogon = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
-                if (frmDatabaseLogon == null) frmDatabaseLogon = new Main.FrmLogin();
+                var frm = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
+                if (frm == null) frm = new Main.FrmLogin();
 
-                frmDatabaseLogon.MdiParent = main;
-                frmDatabaseLogon.Show();
-                frmDatabaseLogon.Activate();
+                frm.MdiParent = main;
+                frm.Show();
+                frm.Activate();
 
-                CloseAllChildrenForm(main, frmDatabaseLogon);
+                CloseAllChildrenForm(main, frm);
                 ClearMenuParentForm(main);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }

@@ -8,14 +8,14 @@ namespace DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Chính sách - Hành động
+    /// Chính sách - Danh sách tên các hành động: Thêm, Xoá, Sửa, Truy vấn, In ấn, Tất cả, Không có
+    /// 
+    /// Tác giả:    Nguyễn Văn Toàn - LT11780
+    /// Điện thoại: 01645 515 010
+    /// Hộp thư:    nvt87x@gmail.com
     /// </summary>
     public class Pol_Action : Info
     {
-        [Key]
-        public Guid Id { set; get; }
-
         public string Name { set; get; }
-        public string Descript { set; get; }
     }
 }

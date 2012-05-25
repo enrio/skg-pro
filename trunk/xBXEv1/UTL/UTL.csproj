@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BaseUTL.cs" />
     <Compile Include="Hasher\Code.cs" />
+    <Compile Include="IAction.cs" />
     <Compile Include="IBaseDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

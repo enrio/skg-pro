@@ -47,6 +47,13 @@ namespace PRE
             }
         }
 
+        public static void CloseAllChildrenForm(Form parentForm)
+        {
+            if (parentForm != null)
+                foreach (Form childrenForm in parentForm.MdiChildren)
+                    childrenForm.Close();
+        }
+
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {

@@ -35,6 +35,18 @@ namespace PRE
             }
         }
 
+        public static void ClearMenuParentForm(Form parentForm)
+        {
+            if (parentForm != null)
+            {
+                while (((RibbonForm)parentForm).Ribbon.Pages.Count > 1)
+                    ((RibbonForm)parentForm).Ribbon.Pages[1].Dispose();
+
+                while (((ApplicationMenu)((RibbonForm)parentForm).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
+                    ((ApplicationMenu)((RibbonForm)parentForm).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
+            }
+        }
+
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {

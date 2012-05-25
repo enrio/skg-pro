@@ -76,10 +76,12 @@ namespace PRE
                 //ShowMenu(false); // hide menu
             }
 
-            using (var frm = new Main.FrmLogin())
-            {
-                frm.ShowDialog();
-            }
+            //using (var frm = new Main.FrmLogin())
+            //{
+            //    frm.ShowDialog();
+            //}
+
+            BasePRE.ShowLogin(this);
 
             //if (_sss.Login)
             //{

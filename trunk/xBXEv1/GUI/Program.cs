@@ -18,7 +18,7 @@ DevExpress.UserSkins.OfficeSkins.Register();
 DevExpress.UserSkins.BonusSkins.Register();
 UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            Application.Run(new Form1());
+            Application.Run(new FrmMain());
         }
     }
 }

@@ -14,8 +14,8 @@ using DevExpress.XtraBars.Helpers;
 
 
 namespace WindowsApplication1 {
-    public partial class Form1 : RibbonForm {
-        public Form1() {
+    public partial class FrmMain : RibbonForm {
+        public FrmMain() {
             InitializeComponent();
             InitSkinGallery();
 InitGrid();

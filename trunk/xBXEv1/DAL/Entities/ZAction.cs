@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DAL.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Các chức năng thao tác cơ bản đối với dữ liệu
     /// </summary>

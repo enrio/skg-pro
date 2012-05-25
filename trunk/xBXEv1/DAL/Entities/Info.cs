@@ -9,18 +9,42 @@ namespace DAL.Entities
 
     /// <summary>
     /// Thông tin dữ liệu cơ bản
+    /// 
+    /// Nguyễn Văn Toàn - LT11780
+    /// 01645 515 010
+    /// nvt87x@gmail.com
     /// </summary>
     public abstract class Info
     {
+        /// <summary>
+        /// Khoá chính
+        /// </summary>
         [Key, Column(Order = 0)]
         public Guid Id { set; get; }
 
+        /// <summary>
+        /// Mã nhập dạng (khi cần sử dụng)
+        /// </summary>
         public string Code { set; get; }
+
+        /// <summary>
+        /// Mô tả chi tiết, ghi chú, ...
+        /// </summary>
         public string Descript { set; get; }
 
+        /// <summary>
+        /// Sắp xếp thứ tự
+        /// </summary>
         public int Order { set; get; }
+
+        /// <summary>
+        /// Hiện dữ liệu
+        /// </summary>
         public bool Show { set; get; }
 
+        /// <summary>
+        /// Mặc định dữ liệu được hiện
+        /// </summary>
         public Info() { Show = true; }
     }
 }

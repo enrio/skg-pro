@@ -9,10 +9,6 @@ namespace DAL.Entities
 
     /// <summary>
     /// Chính sách - Danh sách tên các quyền (chức năng) của hệ thống
-    /// 
-    /// Tác giả:    Nguyễn Văn Toàn - LT11780
-    /// Điện thoại: 01645 515 010
-    /// Hộp thư:    nvt87x@gmail.com
     /// </summary>
     public class Pol_Right : ZInfor
     {

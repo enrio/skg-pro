@@ -18,7 +18,7 @@ namespace DAL.Entities
         public Guid Id { set; get; }
 
         /// <summary>
-        /// Mã nhập dạng (khi cần sử dụng)
+        /// Mã nhận dạng (khi cần sử dụng)
         /// </summary>
         [StringLength(256)]
         public string Code { set; get; }

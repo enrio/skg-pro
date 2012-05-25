@@ -29,14 +29,18 @@ namespace PRE
 
         public static void ClearMenuParentForm(Form parent)
         {
-            if (parent != null)
+            try
             {
-                while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
-                    ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
+                if (parent != null)
+                {
+                    while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
+                        ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
 
-                while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
-                    ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
+                    while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
+                        ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
+                }
             }
+            catch { return; }
         }
 
         public static void CloseAllChildrenForm(Form parent)
@@ -51,7 +55,7 @@ namespace PRE
             if (parent != null)
             {
                 foreach (Form child in parent.MdiChildren)
-                    if (child != active && child.GetType().FullName != "MrToan")
+                    if (child != active && child.GetType().FullName != "PRE.Main.FrmLogin")
                         child.Close();
             }
         }

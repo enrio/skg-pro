@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Vận tải - Nhóm xe
     /// </summary>
-    public class Tra_Group : Info
+    public class Tra_Group : ZInfor
     {
         [Key]
         public Guid Id { set; get; }

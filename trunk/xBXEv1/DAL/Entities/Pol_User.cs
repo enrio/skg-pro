@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Chính sách - Người dùng
     /// </summary>
-    public class Pol_User : Info
+    public class Pol_User : ZInfor
     {
         [Key]
         public Guid Id { set; get; }

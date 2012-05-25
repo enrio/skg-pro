@@ -14,7 +14,7 @@ namespace DAL.Entities
     /// Điện thoại: 01645 515 010
     /// Hộp thư:    nvt87x@gmail.com
     /// </summary>
-    public class Pol_Right : Info
+    public class Pol_Right : ZInfor
     {
         /// <summary>
         /// Tên các quyền (chức năng)

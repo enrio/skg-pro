@@ -11,7 +11,7 @@ namespace DAL.Entities
     /// <summary>
     /// Cơ sở dữ liệu
     /// </summary>
-    public class Context : DbContext
+    public class ZContext : DbContext
     {
         public DbSet<Pol_Action> Pol_Actions { get; set; }
         public DbSet<Pol_Role> Pol_Roles { get; set; }
@@ -26,7 +26,7 @@ namespace DAL.Entities
         public DbSet<Tra_Vehicle> Tra_Vehicles { get; set; }
         public DbSet<Tra_Detail> Tra_Details { get; set; }
 
-        public Context() : base("xBXEv1") { }
+        public ZContext() : base("xBXEv1") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

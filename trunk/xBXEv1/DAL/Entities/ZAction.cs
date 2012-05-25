@@ -14,7 +14,7 @@ namespace DAL.Entities
     /// Điện thoại: 01645 515 010
     /// Hộp thư:    nvt87x@gmail.com
     /// </summary>
-    public abstract class Action
+    public abstract class ZAction
     {
         /// <summary>
         /// Cho phép thêm

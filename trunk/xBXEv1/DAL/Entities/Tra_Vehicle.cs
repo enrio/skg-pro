@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Vận tải - Xe cộ
     /// </summary>
-    public class Tra_Vehicle : Info
+    public class Tra_Vehicle : ZInfor
     {
         [Key]
         public Guid Id { set; get; }

@@ -14,7 +14,7 @@ namespace DAL.Entities
     /// Điện thoại: 01645 515 010
     /// Hộp thư:    nvt87x@gmail.com
     /// </summary>
-    public abstract class Info
+    public abstract class ZInfor
     {
         /// <summary>
         /// Khoá chính
@@ -46,6 +46,6 @@ namespace DAL.Entities
         /// <summary>
         /// Mặc định dữ liệu được hiện
         /// </summary>
-        public Info() { Show = true; }
+        public ZInfor() { Show = true; }
     }
 }

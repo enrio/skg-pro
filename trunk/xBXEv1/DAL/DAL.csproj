@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
-    <Compile Include="Entities\Action.cs" />
-    <Compile Include="Entities\Context.cs" />
-    <Compile Include="Entities\Info.cs" />
+    <Compile Include="Entities\ZAction.cs" />
+    <Compile Include="Entities\ZContext.cs" />
+    <Compile Include="Entities\ZInfor.cs" />
     <Compile Include="Entities\Pol_Action.cs" />
     <Compile Include="Entities\Pol_Right.cs" />
     <Compile Include="Entities\Pol_Role.cs" />

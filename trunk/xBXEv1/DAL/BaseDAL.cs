@@ -14,12 +14,12 @@ namespace DAL
     /// </summary>
     public abstract class BaseDAL
     {
-        protected Context _db = new Context();
+        protected ZContext _db = new ZContext();
         protected DataTable _tb = new DataTable("Tmp");
 
         public BaseDAL()
         {
-            Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());
         }
 
         public DataTable TestPivot()

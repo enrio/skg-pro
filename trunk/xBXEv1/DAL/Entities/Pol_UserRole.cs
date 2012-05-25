@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Chính sách - Người dùng có vai trò
     /// </summary>
-    public class Pol_UserRole : Info
+    public class Pol_UserRole : ZInfor
     {
         [Key, Column(Order = 0), ForeignKey("Pol_User")]
         public Guid? Pol_UserId { set; get; }

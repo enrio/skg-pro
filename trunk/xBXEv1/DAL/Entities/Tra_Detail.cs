@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Vận tải - Chi tiết xe ra vào bến
     /// </summary>
-    public class Tra_Detail : Info
+    public class Tra_Detail : ZInfor
     {
         [Key, Column(Order = 0), ForeignKey("Tra_Vehicle")]
         public Guid? Tra_VehicleId { set; get; }

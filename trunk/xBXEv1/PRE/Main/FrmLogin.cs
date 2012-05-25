@@ -27,28 +27,7 @@ namespace PRE.Main
             //bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
         }
 
-        private void FrmLogin_SizeChanged(object sender, EventArgs e)
-        {
-            gctMain.Left = (ClientSize.Width - gctMain.Width) / 2;
-            gctMain.Top = (ClientSize.Height - gctMain.Height) / 2;
-        }
-
-        private void txtUser_KeyDown(object sender, KeyEventArgs e)
-        {
-            //if (e.KeyCode == Keys.CapsLock)
-            //    bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
-        }
-
-        private void txtPass_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                cmdYes_Click(sender, null);
-
-            //if (e.KeyCode == Keys.CapsLock)
-            //    bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
-        }
-
-        private void cmdYes_Click(object sender, EventArgs e)
+        private void btnLogon_Click(object sender, EventArgs e)
         {
             var sss = BaseBLL._pol_UserBLL.CheckLogin(txtUser.Text, txtPass.Text);
             if (sss != null)
@@ -59,10 +38,18 @@ namespace PRE.Main
             else MessageBox.Show(STR_ERR, STR_LOGIN);
         }
 
-        private void cmdNo_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            //FrmMain._sss.Name = "Đăng nhập để làm việc";
             Close();
+        }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnLogon_Click(sender, null);
+
+            //if (e.KeyCode == Keys.CapsLock)
+            //    bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
         }
     }
 }

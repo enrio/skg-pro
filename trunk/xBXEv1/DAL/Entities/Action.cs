@@ -9,7 +9,7 @@ namespace DAL.Entities
 
     /// <summary>
     /// Các chức năng thao tác cơ bản đối với dữ liệu
-    /// ------------- *** ------------- *** -------------
+    /// ------------- ^.^ ------------- @.@ -------------
     /// Tác giả:    Nguyễn Văn Toàn - LT11780
     /// Điện thoại: 01645 515 010
     /// Hộp thư:    nvt87x@gmail.com

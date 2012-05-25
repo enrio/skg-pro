@@ -9,7 +9,7 @@ namespace DAL.Entities
 
     /// <summary>
     /// Thông tin dữ liệu cơ bản
-    /// 
+    /// ------------- ^.^ ------------- @.@ -------------
     /// Tác giả:    Nguyễn Văn Toàn - LT11780
     /// Điện thoại: 01645 515 010
     /// Hộp thư:    nvt87x@gmail.com

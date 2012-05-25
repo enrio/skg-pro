@@ -10,7 +10,7 @@ namespace DAL.Entities
     /// <summary>
     /// Các chức năng thao tác cơ bản đối với dữ liệu
     /// </summary>
-    public abstract class ZAction
+    public abstract class ZAction : ZInfor
     {
         /// <summary>
         /// Cho phép thêm

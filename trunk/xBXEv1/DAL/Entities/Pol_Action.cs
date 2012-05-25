@@ -16,6 +16,9 @@ namespace DAL.Entities
     /// </summary>
     public class Pol_Action : Info
     {
+        /// <summary>
+        /// Tên hành động
+        /// </summary>
         public string Name { set; get; }
     }
 }

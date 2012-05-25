@@ -33,7 +33,7 @@ namespace PRE
             {
                 var i = ((RibbonForm)parent).Ribbon.Pages.Count;
                 while (i-- > 1)
-                    ((RibbonForm)parent).Ribbon.Pages[1].Visible = visible;
+                    ((RibbonForm)parent).Ribbon.Pages[i].Visible = visible;
             }
         }
 

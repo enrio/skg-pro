@@ -45,6 +45,7 @@ namespace PRE.Main
             if (sss != null)
             {
                 BasePRE._sss = sss;
+                NotifyAfterLogon();
                 Close();
             }
             else MessageBox.Show(STR_ERR, STR_LOGIN);

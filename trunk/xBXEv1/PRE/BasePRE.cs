@@ -6,6 +6,7 @@ using System.Text;
 namespace PRE
 {
     using BLL;
+    using Main;
     using System.Windows.Forms;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
@@ -47,6 +48,16 @@ namespace PRE
                     childrenForm.Close();
         }
 
+        public static void CloseAllChildrenForm(Form parent, Form active)
+        {
+            if (parent != null)
+            {
+                foreach (Form child in parent.MdiChildren)
+                    if (child != active && child.GetType().FullName != "MrToan")
+                        child.Close();
+            }
+        }
+
         public static Form GetMdiChilden(Form parent, string childrenName)
         {
             System.Windows.Forms.Form frmreturn = null;
@@ -60,6 +71,23 @@ namespace PRE
                     }
                 }
             return frmreturn;
+        }
+
+        public static void ShowLogin(Form main)
+        {
+            try
+            {
+                var frmDatabaseLogon = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
+                if (frmDatabaseLogon == null) frmDatabaseLogon = new Main.FrmLogin();
+
+                frmDatabaseLogon.MdiParent = main;
+                frmDatabaseLogon.Show();
+                frmDatabaseLogon.Activate();
+
+                CloseAllChildrenForm(main, frmDatabaseLogon);
+                ClearMenuParentForm(main);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }
         }
     }
 }

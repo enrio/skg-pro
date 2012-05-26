@@ -12,21 +12,39 @@ namespace PRE.Main
     using BLL;
     using DAL.Entities;
 
+    /// <summary>
+    /// Form đăng nhập hệ thống
+    /// </summary>
     public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
         private const string STR_ERR = "Lỗi đăng nhập";
         private const string STR_LOGIN = "Đăng nhập";
 
-        #region Event logon
+        #region Sự kiện đăng nhập
+        /// <summary>
+        /// Uỷ nhiệm xử lí đăng nhập
+        /// </summary>
         public delegate void LogonHandler();
 
+        /// <summary>
+        /// Trước khi đăng nhập
+        /// </summary>
         public event LogonHandler BeforeLogon;
-        public event LogonHandler AfterLogon;
-        public event LogonHandler AfterLogout;
 
+        /// <summary>
+        /// Sau khi đăng nhập
+        /// </summary>
+        public event LogonHandler AfterLogon;
+
+        /// <summary>
+        /// Báo cho biết trước khi đăng nhập
+        /// </summary>
         void NotifyBeforeLogon() { if (BeforeLogon != null) BeforeLogon(); }
+
+        /// <summary>
+        /// Báo cho biết sau khi đăng nhập
+        /// </summary>
         void NotifyAfterLogon() { if (AfterLogon != null) AfterLogon(); }
-        void NotifyAfterLogout() { if (AfterLogout != null) AfterLogout(); }
         #endregion
 
         public FrmLogin()

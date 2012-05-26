@@ -60,6 +60,7 @@ namespace DAL
             try
             {
                 var o = (Tra_Detail)obj;
+                o.Id = Guid.NewGuid();
                 var oki = _db.Tra_Details.Add(o);
 
                 _db.SaveChanges();

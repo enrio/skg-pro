@@ -66,6 +66,7 @@ namespace DAL
             try
             {
                 var o = (Pol_UserRight)obj;
+                o.Id = Guid.NewGuid();
                 var oki = _db.Pol_UserRights.Add(o);
 
                 _db.SaveChanges();

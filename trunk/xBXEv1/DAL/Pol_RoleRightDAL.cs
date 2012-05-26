@@ -90,6 +90,7 @@ namespace DAL
             try
             {
                 var o = (Pol_RoleRight)obj;
+                o.Id = Guid.NewGuid();
                 var oki = _db.Pol_RoleRights.Add(o);
 
                 _db.SaveChanges();

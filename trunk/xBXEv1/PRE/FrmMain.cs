@@ -29,7 +29,7 @@ namespace PRE
         {
             InitializeComponent();
 
-            bsiServer.Caption = String.Format("[SERVER:{0} | DB:{1}]",
+            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",
                                   BaseBLL._pol_ActionBLL.Connection().DataSource,
                                   BaseBLL._pol_ActionBLL.Connection().Database);
             bsiUser.Caption = null;

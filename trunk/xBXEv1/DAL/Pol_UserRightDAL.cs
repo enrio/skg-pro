@@ -28,30 +28,52 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_UserRights
-                          select new
-                          {
-                              s.Pol_UserId,
-                              s.Pol_RightId,
-                              s.Add,
-                              s.Edit,
-                              s.Delete,
-                              s.Query,
-                              s.Print,
-                              s.Full,
-                              s.None,
+                var a = from s in _db.Pol_UserRights
+                        select new
+                        {
+                            AccUser = s.Pol_User.Acc,
+                            CodeRight = s.Pol_Right.Code,
 
-                              UserName = s.Pol_User.Name,
-                              UserBirth = s.Pol_User.Birth,
-                              RightName = s.Pol_Right.Name,
-                              RightDescript = s.Pol_Right.Descript
-                          };
+                            ID = s.Pol_User.Acc + s.Pol_Right.Code,
+                            ParentID = s.Pol_User.Acc,
 
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+
+                            UserName = s.Pol_User.Name
+                        };
+
+                var b = from s in _db.Pol_Rights
+                        select new
+                        {
+                            AccUser = "",
+                            CodeRight = s.Code,
+
+                            ID = s.Code + "",
+                            ParentID = s.Code,
+
+                            Add = false,
+                            Edit = false,
+                            Delete = false,
+                            Query = false,
+                            Print = false,
+                            Full = false,
+                            None = false,
+
+                            UserName = s.Name
+                        };
+
+                var res = a.Union(b);
 
                 if (obj != null)
                 {
                     var o = (Pol_UserRight)obj;
-                    res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
+                    //res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RightId == o.Pol_RightId);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);

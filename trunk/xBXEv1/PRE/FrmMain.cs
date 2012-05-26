@@ -10,6 +10,7 @@ using DevExpress.XtraBars;
 namespace PRE
 {
     using BLL;
+    using Catalog;
     using DevExpress.XtraBars.Helpers;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -47,9 +48,15 @@ namespace PRE
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmPol_Right) return;
-            var frm = new Catalog.FrmPol_Right() { MdiParent = this, Text = "Quyền hạn" };
-            frm.Show();
+            var x = typeof(FrmPol_Right);
+            var frm = (FrmPol_Right)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_Right() { MdiParent = this, Text = "Quyền hạn" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)

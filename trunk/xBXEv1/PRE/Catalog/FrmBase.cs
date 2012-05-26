@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
 namespace PRE.Catalog
@@ -115,7 +112,7 @@ namespace PRE.Catalog
         /// </summary>
         /// <param name="dPanel">DockPanel</param>
         /// <param name="caption">Caption's DockPanel</param>
-        protected void SetDockPanel(DockPanel dPanel, string caption)
+        protected static void SetDockPanel(DockPanel dPanel, string caption)
         {
             dPanel.Options.AllowFloating = false;
             dPanel.Options.FloatOnDblClick = false;
@@ -283,7 +280,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool enableDelete = false;
+        private bool enableDelete;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableDelete
@@ -340,7 +337,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool enableTest = false;
+        private bool enableTest;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableTest
@@ -359,7 +356,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool enableVerify = false;
+        private bool enableVerify;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableVerify
@@ -380,7 +377,7 @@ namespace PRE.Catalog
 
         public bool CancelClosed { get; set; }
 
-        private bool denied = false;
+        private bool denied;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool Denied
@@ -416,7 +413,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool _allowQuery = false;
+        private bool _allowQuery;
         [Category("FrmBase")]
         [Description("Hiển thị nút ? hay không")]
         [DefaultValue(false)]
@@ -431,7 +428,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool _allowRefresh = false;
+        private bool _allowRefresh;
         [Category("FrmBase")]
         [Description("Hiển thị nút Cập nhật hay không")]
         [DefaultValue(false)]
@@ -446,7 +443,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool _allowSelect = false;
+        private bool _allowSelect;
         [Category("FrmBase")]
         [Description("Hiển thị nút chọn hay không")]
         [DefaultValue(false)]
@@ -461,7 +458,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool _allowTest = false;
+        private bool _allowTest;
         [Category("FrmBase")]
         [Description("Hiển thị nút Test hay không")]
         [DefaultValue(false)]
@@ -476,7 +473,7 @@ namespace PRE.Catalog
             }
         }
 
-        private bool _allowVerify = false;
+        private bool _allowVerify;
         [Category("FrmBase")]
         [Description("Hiển thị nút Verify hay không")]
         [DefaultValue(false)]
@@ -492,20 +489,4 @@ namespace PRE.Catalog
         }
         #endregion
     }
-
-    #region Sự kiện trên form
-    public delegate void FormStateEventHandler(object sender, FormStateEventArgs e);
-
-    public class FormStateEventArgs : EventArgs
-    {
-        public FrmBase.State LastFormState;
-        public FrmBase.State NewFormState;
-
-        public FormStateEventArgs(FrmBase.State lastFormState, FrmBase.State newFormState)
-        {
-            LastFormState = lastFormState;
-            NewFormState = newFormState;
-        }
-    }
-    #endregion
 }

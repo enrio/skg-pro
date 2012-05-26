@@ -16,7 +16,7 @@ namespace PRE.Catalog
     /// </summary>
     public partial class FrmBase : DevExpress.XtraEditors.XtraForm
     {
-        public enum State { Add, Edit }
+        public enum State { View, Add, Edit, Delete, Save, Cancel, }
 
         protected UTL.IBaseDAL _bll;
         protected DataTable _dtb = new DataTable("Tmp");
@@ -214,4 +214,20 @@ namespace PRE.Catalog
         protected virtual bool ValidInput() { return true; }
         #endregion
     }
+
+    #region Sự kiện trên form
+    public delegate void FormStateEventHandler(object sender, FormStateEventArgs e);
+
+    public class FormStateEventArgs : EventArgs
+    {
+        public FrmBase.State LastFormState;
+        public FrmBase.State NewFormState;
+
+        public FormStateEventArgs(FrmBase.State lastFormState, FrmBase.State newFormState)
+        {
+            LastFormState = lastFormState;
+            NewFormState = newFormState;
+        }
+    }
+    #endregion
 }

@@ -11,10 +11,21 @@ namespace PRE
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
 
+    /// <summary>
+    /// Xử lí các chức năng trên form
+    /// </summary>
     public static class BasePRE
     {
+        /// <summary>
+        /// Phiên đăng nhập của người dùng hiện tại
+        /// </summary>
         public static Session _sss = new Session();
 
+        /// <summary>
+        /// Ẩn/hiện RibbonControl, DockPanel, BarManager của form cha
+        /// </summary>
+        /// <param name="parent">Form cha</param>
+        /// <param name="visible">true: hiện; false: ẩn</param>
         public static void VisibleParentForm(Form parent, bool visible = true)
         {
             if (parent != null)
@@ -43,6 +54,10 @@ namespace PRE
             }
         }
 
+        /// <summary>
+        /// Xoá tất cả RibbonPage - ItemLinks (menu) của form cha
+        /// </summary>
+        /// <param name="parent">Form cha</param>
         public static void ClearMenuParentForm(Form parent)
         {
             try
@@ -59,6 +74,10 @@ namespace PRE
             catch { return; }
         }
 
+        /// <summary>
+        /// Đóng tất cả form con
+        /// </summary>
+        /// <param name="parent">Form cha</param>
         public static void CloseAllChildrenForm(Form parent)
         {
             if (parent != null)
@@ -66,6 +85,11 @@ namespace PRE
                     childrenForm.Close();
         }
 
+        /// <summary>
+        /// Đóng tất cả form con
+        /// </summary>
+        /// <param name="parent">Form cha</param>
+        /// <param name="active">Form không đóng</param>
         public static void CloseAllChildrenForm(Form parent, Form active)
         {
             if (parent != null)
@@ -78,6 +102,12 @@ namespace PRE
             }
         }
 
+        /// <summary>
+        /// Lấy form con
+        /// </summary>
+        /// <param name="parent">Form cha</param>
+        /// <param name="childName">Tên đầy đủ của form con</param>
+        /// <returns>Form con</returns>
         public static Form GetMdiChilden(Form parent, string childName)
         {
             Form tmp = null;

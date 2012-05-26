@@ -215,7 +215,45 @@ namespace PRE.Catalog
         protected virtual bool ValidInput() { return true; }
         #endregion
 
+        private State _FormState;
+        [Category("FrmBase")]
+        [Description("Trạng thái trên form khi người dùng thao tác trên các nút")]
+        [DefaultValue(State.View)]
+        public State FormState
+        {
+            set
+            {
+                if (AfterChangeFormState != null)
+                    AfterChangeFormState(this, new FormStateEventArgs(_FormState, value));
+
+                _FormState = value;
+            }
+            get { return _FormState; }
+        }
+
+        #region custom events
+        /// <summary>
+        /// Sự kiện xảy ra sau khi RightHelpers thực thi CheckUserRightAction
+        /// </summary>
+        public event EventHandler AfterCheckUserRightAction;
+
+        /// <summary>
+        /// Sự kiện xảy ra sau khi thay đổi giá trị thuộc tính FormState
+        /// </summary>
+        public event FormStateEventHandler AfterChangeFormState;
+        #endregion
+
         #region Implement
+        private bool enableAdd = true;
+        private bool enableEdit = true;
+        private bool enableDelete = false;
+        private bool enableQuery = true;
+        private bool enablePrintPreview = true;
+        private bool denied = false;
+        private bool enableTest = false;
+        private bool enableVerify = false;
+        private Actions _UserActions;
+
         public bool EnableAdd
         {
             get

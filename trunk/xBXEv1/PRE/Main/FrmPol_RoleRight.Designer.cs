@@ -36,10 +36,10 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.trlMain = new DevExpress.XtraTreeList.TreeList();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -123,6 +123,11 @@
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;
             // 
+            // ricSelect
+            // 
+            this.ricSelect.AutoHeight = false;
+            this.ricSelect.Name = "ricSelect";
+            // 
             // treeListColumn2
             // 
             this.treeListColumn2.Caption = "STT";
@@ -133,7 +138,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Nhóm/Chức năng";
+            this.treeListColumn3.Caption = "Chức năng/Nhóm";
             this.treeListColumn3.FieldName = "RoleName";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
@@ -146,11 +151,6 @@
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 3;
-            // 
-            // ricSelect
-            // 
-            this.ricSelect.AutoHeight = false;
-            this.ricSelect.Name = "ricSelect";
             // 
             // FrmPol_RoleRight
             // 

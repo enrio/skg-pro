@@ -143,6 +143,7 @@ namespace PRE
 
         private void bbiExit_ItemClick(object sender, ItemClickEventArgs e)
         {
+            Application.ExitThread();
             Application.Exit();
         }
 

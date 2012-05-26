@@ -53,7 +53,8 @@ namespace PRE.Main
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.ExitThread();
+            Application.Exit();
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
@@ -63,6 +64,12 @@ namespace PRE.Main
 
             //if (e.KeyCode == Keys.CapsLock)
             //    bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
+        }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtPass.Text == "")
+                txtPass_KeyDown(sender, e);
         }
     }
 }

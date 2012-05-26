@@ -116,6 +116,7 @@
             this.txtUser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtUser.Size = new System.Drawing.Size(229, 20);
             this.txtUser.TabIndex = 0;
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtPass
             // 

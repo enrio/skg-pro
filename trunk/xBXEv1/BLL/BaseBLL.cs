@@ -139,7 +139,7 @@ namespace BLL
             _pol_UserRoleBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("ntt");
-            b = (Pol_Role)_pol_RoleBLL.Select("CV");
+            b = (Pol_Role)_pol_RoleBLL.Select("CR");
             o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, None = true };
             _pol_UserRoleBLL.Insert(o);
         }

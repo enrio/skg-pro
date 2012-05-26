@@ -9,12 +9,13 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Catalog
 {
+    using UTL;
     using DevExpress.XtraBars.Docking;
 
     /// <summary>
     /// Standard input form
     /// </summary>
-    public partial class FrmBase : DevExpress.XtraEditors.XtraForm
+    public partial class FrmBase : XtraForm, IFormUserActions
     {
         public enum State { View, Add, Edit, Delete, Save, Cancel, }
 
@@ -212,6 +213,128 @@ namespace PRE.Catalog
         /// </summary>
         /// <returns>True if valid else false</returns>
         protected virtual bool ValidInput() { return true; }
+        #endregion
+
+        #region Implement
+        public bool EnableAdd
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnableEdit
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnableDelete
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnableQuery
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnablePrintPreview
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnableTest
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool EnableVerify
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool CancelClosed
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool Denied
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Actions UserActions
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
         #endregion
     }
 

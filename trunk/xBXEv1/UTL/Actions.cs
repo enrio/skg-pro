@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PRE.Catalog
+namespace UTL
 {
-    using DAL.Entities;
     using System.Collections;
 
-    public class Action : CollectionBase
+    public class Actions : CollectionBase
     {
-        public Pol_User Pol_User { set; get; }
-
         public string this[int index]
         {
             get { return (string)List[index]; }

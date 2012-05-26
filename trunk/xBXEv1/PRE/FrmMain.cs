@@ -49,6 +49,8 @@ namespace PRE
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
             bbiLogin.Caption = Properties.Settings.Default.Logout;
+
+            bsiUser.Caption = BasePRE._sss.Pol_User.Name;
         }
 
         /// <summary>
@@ -60,6 +62,8 @@ namespace PRE
 
             bbiLogin.LargeGlyph = Properties.Resources.login;
             bbiLogin.Caption = Properties.Settings.Default.Login;
+
+            bsiUser.Caption = null;
         }
 
         /// <summary>

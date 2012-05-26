@@ -35,7 +35,10 @@ namespace PRE
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 
-        private void Logon()
+        /// <summary>
+        /// Hiện menu, thay đổi nút đăng nhập -> đăng xuất
+        /// </summary>
+        private void ShowMenu()
         {
             BasePRE.VisibleMenuParentForm(this);
 
@@ -43,24 +46,34 @@ namespace PRE
             bbiLogin.Caption = STR_LOGOUT;
         }
 
-        private void ShowLogin()
+        /// <summary>
+        /// Ẩn menu, thay đổi nút đăng xuất -> đăng nhập
+        /// </summary>
+        private void HideMenu()
+        {
+            BasePRE.VisibleMenuParentForm(this, false);
+
+            bbiLogin.LargeGlyph = Properties.Resources.login;
+            bbiLogin.Caption = STR_LOGIN;
+        }
+
+        /// <summary>
+        /// Thực hiện đăng nhập hệ thống
+        /// </summary>
+        private void Login()
         {
             const string TITLE = "Đăng nhập";
 
             try
             {
-                bbiLogin.LargeGlyph = Properties.Resources.login;
-                bbiLogin.Caption = STR_LOGIN;
-
-                BasePRE.VisibleMenuParentForm(this, false);
-
                 var x = typeof(FrmLogin);
                 var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = TITLE };
-                frm.AfterLogon += Logon;
-                frm.Show();
 
-                BasePRE.CloseAllChildrenForm(this, frm);
+                frm.BeforeLogon += HideMenu;
+                frm.AfterLogon += ShowMenu;
+
+                frm.Show();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, TITLE); }
         }
@@ -68,7 +81,7 @@ namespace PRE
         private void FrmMain_Load(object sender, EventArgs e)
         {
             //BLL.BaseBLL.CreateData(true);
-            ShowLogin();
+            Login();
         }
 
         #region Catalog
@@ -154,7 +167,7 @@ namespace PRE
         #region System
         private void bbiLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
-            ShowLogin();
+            Login();
         }
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)

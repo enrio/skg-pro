@@ -36,6 +36,8 @@ namespace PRE.Main
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            NotifyBeforeLogon();
+
             //bbiStatusCapsLock.Caption = Console.CapsLock ? "Mở" : "Tắt";
         }
 

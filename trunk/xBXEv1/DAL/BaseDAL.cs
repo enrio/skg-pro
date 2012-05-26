@@ -22,6 +22,7 @@ namespace DAL
             Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());
         }
 
+        #region Test
         public DataTable TestPivot()
         {
             // sample data
@@ -86,11 +87,6 @@ namespace DAL
                          Sat = g.Where(sales => sales.Day == "Sat").Sum(sales => sales.Amount)
                      };
 
-            /*foreach (var day in tr)
-                Console.Write("{0} {1} {2} {3} {4} {5} {6}", day.Sun, day.Mon, day.Tue, day.Wed, day.Thu, day.Fri, day.Sat);
-
-            Console.ReadLine();*/
-
             return tr.ToDataTable();
         }
 
@@ -152,19 +148,10 @@ namespace DAL
                             RightDescript = s.Descript*/
                         };
 
-                var infoQuery = (from cust in _db.Pol_Roles select cust.Code).Union(from emp in _db.Pol_Rights select emp.Name);
-
-                var x = from s in _db.Pol_Rights
-                        select new { s.Id, s.Code };
-                var y = from s in _db.Pol_Roles
-                        select new { s.Id, s.Code };
-
-                var w = x.Union(y);
-                var z = a.Union(b);
-
-                return z.ToDataTable();
+                return a.Union(b).ToDataTable();
             }
             catch { return _tb; }
         }
+        #endregion
     }
 }

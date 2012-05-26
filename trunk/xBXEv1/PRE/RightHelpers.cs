@@ -146,23 +146,32 @@ namespace PRE
                                         case "EnableAdd":
                                             ((IFormUserActions)frmRight).EnableAdd = true;
                                             break;
+
                                         case "EnableDelete":
                                             ((IFormUserActions)frmRight).EnableDelete = true;
                                             break;
+
                                         case "EnableEdit":
                                             ((IFormUserActions)frmRight).EnableEdit = true;
                                             break;
+
                                         case "EnablePrintPreview":
                                             ((IFormUserActions)frmRight).EnablePrintPreview = true;
                                             break;
+
                                         case "EnableQuery":
                                             ((IFormUserActions)frmRight).EnableQuery = true;
                                             break;
+
                                         case "EnableTest":
                                             ((IFormUserActions)frmRight).EnableTest = true;
                                             break;
+
                                         case "EnableVerify":
                                             ((IFormUserActions)frmRight).EnableVerify = true;
+                                            break;
+
+                                        default:
                                             break;
                                     }
                                 }

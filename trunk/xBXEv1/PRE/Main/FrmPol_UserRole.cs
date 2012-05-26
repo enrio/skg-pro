@@ -128,9 +128,7 @@ namespace PRE.Main
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;
-
                 trlMain.ExpandAll();
-                trlMain.BestFitColumns();
             }
 
             base.LoadData();

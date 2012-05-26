@@ -8,13 +8,23 @@ namespace BLL
     using DAL.Entities;
 
     /// <summary>
-    /// Session login
+    /// Phiên đăng nhập hiện tại của người dùng
     /// </summary>
     public sealed class Session
     {
-        public Pol_User Pol_User { set; get; }
+        /// <summary>
+        /// Người dùng đăng nhập hiện tại
+        /// </summary>
+        public Pol_User User { set; get; }
+
+        /// <summary>
+        /// Thời gian lúc đăng nhập
+        /// </summary>
         public DateTime? Current { set; get; }
 
-        public Session() { Pol_User = null; }
+        /// <summary>
+        /// Chưa đăng nhập
+        /// </summary>
+        public Session() { User = null; }
     }
 }

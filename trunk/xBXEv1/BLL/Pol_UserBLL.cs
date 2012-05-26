@@ -13,10 +13,10 @@ namespace BLL
         {
             try
             {
-                var sss = new Session() { Pol_User = GetPass(acc), Current = DateTime.Now };
+                var sss = new Session() { User = GetPass(acc), Current = DateTime.Now };
                 pass = UTL.Hasher.Code.Encode(pass);
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
-                if (sss.Pol_User.Pass != pass) return null;
+                if (sss.User.Pass != pass) return null;
                 return sss;
             }
             catch { return null; }

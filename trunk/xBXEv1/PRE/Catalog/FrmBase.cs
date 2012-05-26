@@ -254,125 +254,151 @@ namespace PRE.Catalog
         private bool enableVerify = false;
         private Actions _UserActions;
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableAdd
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableAdd; }
             set
             {
-                throw new NotImplementedException();
+                enableAdd = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    bbiAdd.Enabled = enableAdd;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableEdit
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableEdit; }
             set
             {
-                throw new NotImplementedException();
+                enableEdit = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    bbiEdit.Enabled = enableEdit;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableDelete
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableDelete; }
             set
             {
-                throw new NotImplementedException();
+                enableDelete = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    bbiDelete.Enabled = enableDelete;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableQuery
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableQuery; }
             set
             {
-                throw new NotImplementedException();
+                enableQuery = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    //item_Query.Enabled = enableQuery;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnablePrintPreview
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enablePrintPreview; }
             set
             {
-                throw new NotImplementedException();
+                enablePrintPreview = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    bbiPrint.Enabled = enablePrintPreview;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableTest
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableTest; }
             set
             {
-                throw new NotImplementedException();
+                enableTest = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    //item_Test.Enabled = enableTest;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool EnableVerify
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return enableVerify; }
             set
             {
-                throw new NotImplementedException();
+                enableVerify = value;
+                if (FormState != State.Add || FormState != State.Edit)
+                {
+                    //item_Verify.Enabled = enableVerify;
+
+                    if (AfterCheckUserRightAction != null)
+                        AfterCheckUserRightAction(this, new EventArgs());
+                }
             }
         }
 
-        public bool CancelClosed
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public bool CancelClosed { get; set; }
 
+        [Category("FrmBase")]
+        [DefaultValue(true)]
         public bool Denied
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            get { return denied; }
             set
             {
-                throw new NotImplementedException();
+                denied = value;
+                //if (denied) timer1.Interval = 5;
+
+                if (AfterCheckUserRightAction != null)
+                    AfterCheckUserRightAction(this, new EventArgs());
             }
         }
 
-        public Actions UserActions
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-            set
-            {
-                throw new NotImplementedException();
-            }
-        }
+        [Category("FrmBase")]
+        public Actions UserActions { get; set; }
         #endregion
     }
 

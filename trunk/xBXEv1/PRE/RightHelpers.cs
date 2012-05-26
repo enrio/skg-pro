@@ -29,22 +29,22 @@ namespace PRE
 
         public static bool CheckUserRightAction(Form frmRight)
         {
-            if (frmRight == null)
-                return false;
+            if (frmRight == null) return false;
 
             bool hasRight = false;
+            FrmBase formUpdateWithToolbar = null;
 
             Type basetype_of_frmRight = frmRight.GetType().BaseType;
-            FrmBase formUpdateWithToolbar = null;
+
             if (basetype_of_frmRight == typeof(FrmBase))
                 formUpdateWithToolbar = (FrmBase)frmRight;
 
-            //neu khong co item quyen trong db:Pol_Dm_Right thi insert
+            // Nếu không co item quyền (chức năng) trong Pol_Right thì thêm vào
             try
             {
                 if (!RightHelpers.Contains(frmRight.Name))
                 {
-                    //BaseBLL._pol_RightBLL.Insert (frmRight.Name, frmRight.Name, frmRight.Text);
+                    BaseBLL._pol_RightBLL.Insert(frmRight.Name, frmRight.Name, frmRight.Text);
                 }
             }
             catch (Exception ex)

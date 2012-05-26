@@ -66,10 +66,8 @@ namespace PRE
             bool hasRight = false;
             FrmBase frmBase = null;
 
-            Type frmRightType = frmRight.GetType().BaseType;
-
-            if (frmRightType == typeof(FrmBase))
-                frmBase = (FrmBase)frmRight;
+            Type baseType = frmRight.GetType().BaseType;
+            //if (baseType == typeof(FrmBase)) frmBase = (FrmBase)frmRight;
 
             try
             {
@@ -81,8 +79,8 @@ namespace PRE
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error"); }
 
             if (frmRight != null
-                && frmRightType != typeof(FrmMain)
-                && frmRightType != typeof(FrmLogin)
+                && baseType != typeof(FrmMain)
+                && baseType != typeof(FrmLogin)
                 && frmRight.GetType().GetInterface("UTL.IAction") != null)
                 try
                 {

@@ -16,6 +16,9 @@ namespace PRE
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        private const string STR_LOGIN = "Đăng &nhập";
+        private const string STR_LOGOUT = "Đăng &xuất";
+
         public FrmMain()
         {
             InitializeComponent();
@@ -27,6 +30,9 @@ namespace PRE
         {
             try
             {
+                bbiLogin.LargeGlyph = Properties.Resources.login;
+                bbiLogin.Caption = STR_LOGIN;
+
                 BasePRE.VisibleMenuParentForm(this, false);
 
                 var x = typeof(FrmLogin);
@@ -43,6 +49,9 @@ namespace PRE
         void Logon()
         {
             BasePRE.VisibleMenuParentForm(this);
+
+            bbiLogin.LargeGlyph = Properties.Resources.logout;
+            bbiLogin.Caption = STR_LOGOUT;
         }
 
         #region Catalog

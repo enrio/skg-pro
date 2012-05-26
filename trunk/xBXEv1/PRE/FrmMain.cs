@@ -13,8 +13,17 @@ namespace PRE
     using Catalog;
     using Main;
     using DevExpress.XtraBars.Helpers;
+    using DevExpress.XtraBars.Ribbon;
 
-    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    /// <summary>
+    /// Chương trình chính (xBXE - Quản lí xe ra, vào bến tại bến xe Ngã Tư Ga - TP.HCM)
+    /// 
+    /// Tác giả:    Nguyễn Văn Toàn - MSSV: LT11780
+    /// Điện thoại: 01645 515 010
+    /// Hộp thư:    nvt87x@gmail.com
+    /// Yahoo:      teqzex18
+    /// </summary>
+    public partial class FrmMain : RibbonForm
     {
         private const string STR_LOGIN = "Đăng &nhập";
         private const string STR_LOGOUT = "Đăng &xuất";

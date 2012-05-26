@@ -29,6 +29,14 @@ namespace PRE
         {
             InitializeComponent();
 
+            bsiServer.Caption = String.Format("[SERVER:{0} | DB:{1}]",
+                                  BaseBLL._pol_ActionBLL.Connection().DataSource,
+                                  BaseBLL._pol_ActionBLL.Connection().Database);
+            bsiUser.Caption = null;
+            bsiTimer.Caption = null;
+
+            //BLL.BaseBLL.CreateData(true);
+
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 
@@ -77,11 +85,6 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            bsiServer.Caption = String.Format("[SERVER:{0} | DB:{1}]",
-                                  BaseBLL._pol_ActionBLL.Connection().DataSource,
-                                  BaseBLL._pol_ActionBLL.Connection().Database);
-
-            //BLL.BaseBLL.CreateData(true);
             Login();
         }
 
@@ -211,6 +214,15 @@ namespace PRE
                 frm.Show();
             }
             else frm.Activate();
+        }
+
+        private void tmrMain_Tick(object sender, EventArgs e)
+        {
+            if (BasePRE._sss.Current != null)
+            {
+                bsiTimer.Caption = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
+                BasePRE._sss.Current = BasePRE._sss.Current.Value.AddSeconds(1);
+            }
         }
         #endregion
     }

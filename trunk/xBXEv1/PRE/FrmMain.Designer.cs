@@ -46,6 +46,9 @@
             this.bbiTra_Kind = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTra_Vehicle = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -60,9 +63,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
-            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
-            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -228,6 +228,30 @@
             this.ribbonGalleryBarItem1.Id = 16;
             this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
             // 
+            // bsiServer
+            // 
+            this.bsiServer.Caption = "Server";
+            this.bsiServer.Glyph = global::PRE.Properties.Resources.db;
+            this.bsiServer.Id = 17;
+            this.bsiServer.Name = "bsiServer";
+            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiUser
+            // 
+            this.bsiUser.Caption = "User";
+            this.bsiUser.Glyph = global::PRE.Properties.Resources.user;
+            this.bsiUser.Id = 18;
+            this.bsiUser.Name = "bsiUser";
+            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiTimer
+            // 
+            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiTimer.Caption = "Timer";
+            this.bsiTimer.Id = 19;
+            this.bsiTimer.Name = "bsiTimer";
+            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -327,30 +351,7 @@
             // 
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
-            // 
-            // bsiServer
-            // 
-            this.bsiServer.Caption = "Server";
-            this.bsiServer.Glyph = global::PRE.Properties.Resources.db;
-            this.bsiServer.Id = 17;
-            this.bsiServer.Name = "bsiServer";
-            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // bsiUser
-            // 
-            this.bsiUser.Caption = "User";
-            this.bsiUser.Glyph = global::PRE.Properties.Resources.user;
-            this.bsiUser.Id = 18;
-            this.bsiUser.Name = "bsiUser";
-            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // bsiTimer
-            // 
-            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bsiTimer.Caption = "Timer";
-            this.bsiTimer.Id = 19;
-            this.bsiTimer.Name = "bsiTimer";
-            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
+            this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
             // FrmMain
             // 

@@ -34,50 +34,37 @@ namespace DAL.Entities
         /// </summary>
         public bool Print { set; get; }
 
-        private bool _full;
         /// <summary>
         /// Toàn quyền
         /// </summary>
-        public bool Full
-        {
-            set
-            {
-                _full = value;
+        public bool Full { set; get; }
 
-                if (value)
-                {
-                    Add = value;
-                    Edit = value;
-                    Delete = value;
-                    Query = value;
-                    Print = value;
-                    None = !value;
-                }
-            }
-            get { return _full; }
-        }
-
-        private bool _none;
         /// <summary>
         /// Không quyền
         /// </summary>
-        public bool None
-        {
-            set
-            {
-                _none = value;
+        public bool None { set; get; }
 
-                if (value)
-                {
-                    Add = !value;
-                    Edit = !value;
-                    Delete = !value;
-                    Query = !value;
-                    Print = !value;
-                    Full = !value;
-                }
+        public ZAction()
+        {
+            if (Full)
+            {
+                Add = true;
+                Edit = true;
+                Delete = true;
+                Query = true;
+                Print = true;
+                None = false;
             }
-            get { return _none; }
+
+            if (None)
+            {
+                Add = false;
+                Edit = false;
+                Delete = false;
+                Query = false;
+                Print = false;
+                Full = false;
+            }
         }
     }
 }

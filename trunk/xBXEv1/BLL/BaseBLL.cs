@@ -248,7 +248,7 @@ namespace BLL
             CreatePol_Right();
             CreatePol_Role();
             CreatePol_User();
-            CreatePol_UserRight();
+            //CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
 

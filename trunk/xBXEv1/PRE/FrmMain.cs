@@ -35,8 +35,6 @@ namespace PRE
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
 
-            //BLL.BaseBLL.CreateData(true);
-
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 

@@ -23,6 +23,7 @@ namespace PRE
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
+            //BLL.BaseBLL.CreateData(true);
             Application.Run(new FrmMain());
         }
     }

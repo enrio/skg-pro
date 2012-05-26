@@ -28,14 +28,14 @@ namespace PRE
         public FrmMain()
         {
             InitializeComponent();
+            SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
 
+            // Thông tin server, đồng hồ
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",
                                   BaseBLL._pol_ActionBLL.Connection().DataSource,
                                   BaseBLL._pol_ActionBLL.Connection().Database);
             bsiUser.Caption = null;
-            bsiTimer.Caption = null;
-
-            SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
+            bsiTimer.Caption = null;            
         }
 
         /// <summary>
@@ -49,6 +49,11 @@ namespace PRE
             bbiLogin.Caption = Properties.Settings.Default.Logout;
 
             bsiUser.Caption = BasePRE._sss.User.Name;
+
+            // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)
+            string acc = BasePRE._sss.User.Acc.ToUpper();
+            if (acc == "ADMIN") rpgPermission.Visible = true;
+            else rpgPermission.Visible = false;
         }
 
         /// <summary>
@@ -62,6 +67,7 @@ namespace PRE
             bbiLogin.Caption = Properties.Settings.Default.Login;
 
             bsiUser.Caption = null;
+            rpgPermission.Visible = false;
         }
 
         /// <summary>

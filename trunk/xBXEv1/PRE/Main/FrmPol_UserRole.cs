@@ -20,7 +20,7 @@ namespace PRE.Main
             InitializeComponent();
 
             dockPanel1.Visibility = DockVisibility.Hidden;
-            SetDockPanel(dockPanel2, "Danh sách");            
+            SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRoleBLL();
@@ -130,6 +130,7 @@ namespace PRE.Main
                 trlMain.DataSource = _dtb;
                 trlMain.ExpandAll();
             }
+            AutoFit(trlMain);
 
             base.LoadData();
         }
@@ -163,7 +164,6 @@ namespace PRE.Main
 
                 // move last index
                 treeListColumn4.VisibleIndex = trlMain.Columns.Count;
-                AutoFit(treeListColumn1.TreeList);
             }
             catch (Exception ex)
             {

@@ -8,6 +8,7 @@ namespace PRE.Catalog
 {
     using UTL;
     using DevExpress.XtraTreeList;
+    using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraBars;
 
@@ -131,8 +132,11 @@ namespace PRE.Catalog
         /// <param name="trl">TreeList</param>
         protected static void AutoFit(TreeList trl)
         {
-            var i = trl.Columns.Count - 1;
-            trl.Columns[i--].BestFit();
+            foreach (TreeListColumn x in trl.Columns)
+            {
+                if (x.VisibleIndex != trl.Columns.Count - 1)
+                    x.BestFit();
+            }
         }
 
         #region Virtual

@@ -25,9 +25,6 @@ namespace PRE
     /// </summary>
     public partial class FrmMain : RibbonForm
     {
-        private const string STR_LOGIN = "Đăng &nhập";
-        private const string STR_LOGOUT = "Đăng &xuất";
-
         public FrmMain()
         {
             InitializeComponent();
@@ -43,7 +40,7 @@ namespace PRE
             BasePRE.VisibleMenuParentForm(this);
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
-            bbiLogin.Caption = STR_LOGOUT;
+            bbiLogin.Caption = Properties.Settings.Default.Logout;
         }
 
         /// <summary>
@@ -54,7 +51,7 @@ namespace PRE
             BasePRE.VisibleMenuParentForm(this, false);
 
             bbiLogin.LargeGlyph = Properties.Resources.login;
-            bbiLogin.Caption = STR_LOGIN;
+            bbiLogin.Caption = Properties.Settings.Default.Login;
         }
 
         /// <summary>

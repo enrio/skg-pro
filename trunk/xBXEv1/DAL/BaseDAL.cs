@@ -7,6 +7,7 @@ namespace DAL
 {
     using Entities;
     using System.Data;
+    using System.Data.Common;
     using System.Data.Entity;
 
     /// <summary>
@@ -17,6 +18,18 @@ namespace DAL
         protected ZContext _db = new ZContext();
         protected DataTable _tb = new DataTable("Tmp");
 
+        /// <summary>
+        /// Đối tượng kết nối cơ sở dữ liệu
+        /// </summary>
+        /// <returns>DbConnection</returns>
+        public DbConnection Connection()
+        {
+            return _db.Database.Connection;
+        }
+
+        /// <summary>
+        /// Xoá cơ sở dữ liệu, nếu mô hình thay đổi
+        /// </summary>
         public BaseDAL()
         {
             Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());

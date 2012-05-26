@@ -67,7 +67,7 @@ namespace PRE
             FrmBase frmBase = null;
 
             Type baseType = frmRight.GetType().BaseType;
-            //if (baseType == typeof(FrmBase)) frmBase = (FrmBase)frmRight;
+            if (baseType == typeof(FrmBase)) frmBase = (FrmBase)frmRight;
 
             try
             {
@@ -81,7 +81,7 @@ namespace PRE
             if (frmRight != null
                 && baseType != typeof(FrmMain)
                 && baseType != typeof(FrmLogin)
-                && frmRight.GetType().GetInterface("UTL.IAction") != null)
+                && frmRight.GetType().GetInterface("UTL.IFormUserActions") != null)
                 try
                 {
                     string acc = BasePRE._sss.User.Acc.ToUpper();

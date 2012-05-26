@@ -25,7 +25,7 @@ namespace PRE.Catalog
         {
             InitializeComponent();
 
-            RightHelpers.CheckUserRightAction(this);
+            //RightHelpers.CheckUserRightAction(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)

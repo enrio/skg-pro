@@ -90,23 +90,5 @@ namespace PRE
 
             return frmreturn;
         }
-
-        public static void ShowLogin(Form main)
-        {
-            try
-            {
-                VisibleMenuParentForm(main, false);
-
-                var frm = (Main.FrmLogin)GetMdiChilden(main, "FrmLogin");
-                if (frm == null) frm = new Main.FrmLogin() { MdiParent = main, Text = "Đăng nhập" };
-
-                frm.Show();
-                frm.Activate();
-
-                CloseAllChildrenForm(main, frm);
-                VisibleMenuParentForm(main);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }
-        }
     }
 }

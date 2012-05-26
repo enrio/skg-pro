@@ -29,12 +29,11 @@ namespace PRE
             {
                 BasePRE.VisibleMenuParentForm(this, false);
 
-                var frm = (Main.FrmLogin)BasePRE.GetMdiChilden(this, "FrmLogin");
-                if (frm == null) frm = new Main.FrmLogin() { MdiParent = this, Text = "Đăng nhập" };
-
+                var x = typeof(FrmLogin);
+                var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName, true);
+                if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = "Đăng nhập" };
                 frm.AfterLogon += Logon;
                 frm.Show();
-                frm.Activate();
 
                 BasePRE.CloseAllChildrenForm(this, frm);
             }

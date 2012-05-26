@@ -55,7 +55,7 @@ namespace PRE
                 BasePRE.VisibleMenuParentForm(this, false);
 
                 var x = typeof(FrmLogin);
-                var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName, true);
+                var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = TITLE };
                 frm.AfterLogon += Logon;
                 frm.Show();
@@ -75,7 +75,7 @@ namespace PRE
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmPol_Right);
-            var frm = (FrmPol_Right)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmPol_Right)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -88,7 +88,7 @@ namespace PRE
         private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmPol_Role);
-            var frm = (FrmPol_Role)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmPol_Role)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -101,7 +101,7 @@ namespace PRE
         private void bbiPol_User_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmPol_User);
-            var frm = (FrmPol_User)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmPol_User)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -114,7 +114,7 @@ namespace PRE
         private void bbiTra_Group_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmTra_Group);
-            var frm = (FrmTra_Group)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmTra_Group)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -127,7 +127,7 @@ namespace PRE
         private void bbiTra_Kind_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmTra_Kind);
-            var frm = (FrmTra_Kind)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmTra_Kind)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -140,7 +140,7 @@ namespace PRE
         private void bbiTra_Vehicle_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmTra_Vehicle);
-            var frm = (FrmTra_Vehicle)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmTra_Vehicle)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -176,7 +176,7 @@ namespace PRE
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmPol_UserRole);
-            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
@@ -189,7 +189,7 @@ namespace PRE
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
             var x = typeof(FrmPol_RoleRight);
-            var frm = (FrmPol_RoleRight)BasePRE.GetMdiChilden(this, x.FullName, true);
+            var frm = (FrmPol_RoleRight)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {

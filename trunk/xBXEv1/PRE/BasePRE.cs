@@ -78,23 +78,17 @@ namespace PRE
             }
         }
 
-        public static Form GetMdiChilden(Form parent, string childrenName, bool isFullName = false)
+        public static Form GetMdiChilden(Form parent, string childName)
         {
             Form tmp = null;
 
             if (parent.MdiChildren != null)
                 foreach (Form frm in parent.MdiChildren)
-                {
-                    var name = "";
-                    if (isFullName) name = frm.GetType().FullName;
-                    else name = frm.GetType().Name;
-
-                    if (name == childrenName)
+                    if (frm.GetType().FullName == childName)
                     {
                         tmp = frm;
                         break;
                     }
-                }
 
             return tmp;
         }

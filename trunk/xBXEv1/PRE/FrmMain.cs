@@ -26,8 +26,18 @@ namespace PRE
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
         }
 
-        public void ShowLogin()
+        private void Logon()
         {
+            BasePRE.VisibleMenuParentForm(this);
+
+            bbiLogin.LargeGlyph = Properties.Resources.logout;
+            bbiLogin.Caption = STR_LOGOUT;
+        }
+
+        private void ShowLogin()
+        {
+            const string TITLE = "Đăng nhập";
+
             try
             {
                 bbiLogin.LargeGlyph = Properties.Resources.login;
@@ -37,21 +47,19 @@ namespace PRE
 
                 var x = typeof(FrmLogin);
                 var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName, true);
-                if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = "Đăng nhập" };
+                if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = TITLE };
                 frm.AfterLogon += Logon;
                 frm.Show();
 
                 BasePRE.CloseAllChildrenForm(this, frm);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, "FrmLogin"); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, TITLE); }
         }
 
-        void Logon()
+        private void FrmMain_Load(object sender, EventArgs e)
         {
-            BasePRE.VisibleMenuParentForm(this);
-
-            bbiLogin.LargeGlyph = Properties.Resources.logout;
-            bbiLogin.Caption = STR_LOGOUT;
+            //BLL.BaseBLL.CreateData(true);
+            ShowLogin();
         }
 
         #region Catalog
@@ -147,7 +155,7 @@ namespace PRE
 
         private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var frm in MdiChildren) frm.Close();
+            BasePRE.CloseAllChildrenForm(this);
         }
 
         private void bbiExit_ItemClick(object sender, ItemClickEventArgs e)
@@ -182,12 +190,5 @@ namespace PRE
             else frm.Activate();
         }
         #endregion
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            //BLL.BaseBLL.CreateData();
-            //BLL.BaseBLL.CreateData(true);
-            ShowLogin();
-        }
     }
 }

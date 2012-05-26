@@ -77,6 +77,10 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            bsiServer.Caption = String.Format("[SERVER:{0} | DB:{1}]",
+                                  BaseBLL._pol_ActionBLL.Connection().DataSource,
+                                  BaseBLL._pol_ActionBLL.Connection().Database);
+
             //BLL.BaseBLL.CreateData(true);
             Login();
         }

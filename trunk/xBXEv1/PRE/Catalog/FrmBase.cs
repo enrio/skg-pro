@@ -232,7 +232,7 @@ namespace PRE.Catalog
             get { return _FormState; }
         }
 
-        #region custom events
+        #region Custome events
         /// <summary>
         /// Sự kiện xảy ra sau khi RightHelpers thực thi CheckUserRightAction
         /// </summary>
@@ -246,15 +246,6 @@ namespace PRE.Catalog
 
         #region Implement
         private bool enableAdd = true;
-        private bool enableEdit = true;
-        private bool enableDelete = false;
-        private bool enableQuery = true;
-        private bool enablePrintPreview = true;
-        private bool denied = false;
-        private bool enableTest = false;
-        private bool enableVerify = false;
-        private Actions _UserActions;
-
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableAdd
@@ -273,6 +264,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enableEdit = true;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableEdit
@@ -291,6 +283,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enableDelete = false;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableDelete
@@ -309,6 +302,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enableQuery = true;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableQuery
@@ -327,6 +321,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enablePrintPreview = true;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnablePrintPreview
@@ -345,6 +340,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enableTest = false;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableTest
@@ -363,6 +359,7 @@ namespace PRE.Catalog
             }
         }
 
+        private bool enableVerify = false;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool EnableVerify
@@ -383,6 +380,7 @@ namespace PRE.Catalog
 
         public bool CancelClosed { get; set; }
 
+        private bool denied = false;
         [Category("FrmBase")]
         [DefaultValue(true)]
         public bool Denied

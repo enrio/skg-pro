@@ -143,12 +143,30 @@ namespace DAL
         /// </summary>
         /// <param name="acc">Tên tài khoản</param>
         /// <returns>Danh sách quyền (chức năng)</returns>
-        public DataTable GetRights(string acc)
+        public DataTable GetRights(Guid id)
         {
             try
             {
-                var res = from s in _db.Pol_Users
-                          select s;
+                var res = from s in _db.Pol_UserRights
+                          where s.Pol_User.Id == id
+                          select new
+                          {
+                              UserId = s.Pol_User.Id,
+                              UserAcc = s.Pol_User.Acc,
+                              UserName = s.Pol_User.Name,
+
+                              RightId = s.Pol_Right.Id,
+                              RightCode = s.Pol_Right.Code,
+                              RightName = s.Pol_Right.Name,
+
+                              s.Add,
+                              s.Edit,
+                              s.Delete,
+                              s.Query,
+                              s.Print,
+                              s.Full,
+                              s.None,
+                          };
 
                 return res.ToDataTable();
             }

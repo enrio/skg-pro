@@ -130,12 +130,17 @@ namespace BLL
 
             var a = (Pol_User)_pol_UserBLL.Select("nvt");
             var b = (Pol_Role)_pol_RoleBLL.Select("CV");
-            var o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            var o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Full = true };
             _pol_UserRoleBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("ntt");
             b = (Pol_Role)_pol_RoleBLL.Select("CV");
-            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = true };
+            _pol_UserRoleBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("ntt");
+            b = (Pol_Role)_pol_RoleBLL.Select("CV");
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, None = true };
             _pol_UserRoleBLL.Insert(o);
         }
 
@@ -145,12 +150,12 @@ namespace BLL
 
             var a = (Pol_Role)_pol_RoleBLL.Select("CV");
             var b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Right");
-            var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, None = true };
             _pol_RoleRightBLL.Insert(o);
 
             a = (Pol_Role)_pol_RoleBLL.Select("CR");
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Right");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, None = true };
             _pol_RoleRightBLL.Insert(o);
         }
 

@@ -43,5 +43,28 @@ namespace DAL.Entities
         /// Không quyền
         /// </summary>
         public bool None { set; get; }
+
+        public ZAction()
+        {
+            if (Full)
+            {
+                Add = Full;
+                Edit = Full;
+                Delete = Full;
+                Query = Full;
+                Print = Full;
+                None = !Full;
+            }
+
+            if (None)
+            {
+                Add = !None;
+                Edit = !None;
+                Delete = !None;
+                Query = !None;
+                Print = !None;
+                Full = !None;
+            }
+        }
     }
 }

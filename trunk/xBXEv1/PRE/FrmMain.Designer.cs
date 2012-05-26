@@ -60,6 +60,9 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -89,9 +92,12 @@
             this.bbiTra_Group,
             this.bbiTra_Kind,
             this.bbiTra_Vehicle,
-            this.ribbonGalleryBarItem1});
+            this.ribbonGalleryBarItem1,
+            this.bsiServer,
+            this.bsiUser,
+            this.bsiTimer});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 17;
+            this.ribbon.MaxItemId = 20;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -305,6 +311,9 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiServer);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiUser);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiTimer);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 549);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -318,6 +327,30 @@
             // 
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
+            // 
+            // bsiServer
+            // 
+            this.bsiServer.Caption = "Server";
+            this.bsiServer.Glyph = global::PRE.Properties.Resources.db;
+            this.bsiServer.Id = 17;
+            this.bsiServer.Name = "bsiServer";
+            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiUser
+            // 
+            this.bsiUser.Caption = "User";
+            this.bsiUser.Glyph = global::PRE.Properties.Resources.user;
+            this.bsiUser.Id = 18;
+            this.bsiUser.Name = "bsiUser";
+            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiTimer
+            // 
+            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiTimer.Caption = "Timer";
+            this.bsiTimer.Id = 19;
+            this.bsiTimer.Name = "bsiTimer";
+            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FrmMain
             // 
@@ -372,5 +405,8 @@
         private DevExpress.XtraBars.BarButtonItem bbiTra_Vehicle;
         private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSkin;
+        private DevExpress.XtraBars.BarStaticItem bsiServer;
+        private DevExpress.XtraBars.BarStaticItem bsiUser;
+        private DevExpress.XtraBars.BarStaticItem bsiTimer;
     }
 }

@@ -51,11 +51,11 @@ namespace BLL
         {
             if (_pol_RightBLL.Count() > 0) return;
 
-            var o = new Pol_Right() { Code = "FrmPol_Right", Name = "Quyền hạn", Descript = "Form danh mục quyền hạn" };
+            var o = new Pol_Right() { Code = "FrmPol_Right", Name = "Chức năng", Descript = "Danh mục chức năng" };
             _pol_RightBLL.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_Role", Name = "Vai trò", Descript = "Form danh mục vai trò" };
+            o = new Pol_Right() { Code = "FrmPol_Role", Name = "Nhóm quyền", Descript = "Danh mục nhóm quyền" };
             _pol_RightBLL.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Form danh mục người dùng" };
+            o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Danh mục người dùng" };
             _pol_RightBLL.Insert(o);
         }
 

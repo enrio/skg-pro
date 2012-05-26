@@ -137,5 +137,22 @@ namespace DAL
             catch { return null; }
         }
         #endregion
+
+        /// <summary>
+        /// Lấy tất cả các quyền (chức năng) của người dùng
+        /// </summary>
+        /// <param name="acc">Tên tài khoản</param>
+        /// <returns>Danh sách quyền (chức năng)</returns>
+        public DataTable GetRights(string acc)
+        {
+            try
+            {
+                var res = from s in _db.Pol_Users
+                          select s;
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

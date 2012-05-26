@@ -11,6 +11,7 @@ namespace PRE
 {
     using BLL;
     using Catalog;
+    using Main;
     using DevExpress.XtraBars.Helpers;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -61,37 +62,67 @@ namespace PRE
 
         private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmPol_Role) return;
-            var frm = new Catalog.FrmPol_Role() { MdiParent = this, Text = "Vai trò" };
-            frm.Show();
+            var x = typeof(FrmPol_Role);
+            var frm = (FrmPol_Role)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_Role() { MdiParent = this, Text = "Vai trò" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiPol_User_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmPol_User) return;
-            var frm = new Catalog.FrmPol_User() { MdiParent = this, Text = "Người dùng" };
-            frm.Show();
+            var x = typeof(FrmPol_User);
+            var frm = (FrmPol_User)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_User() { MdiParent = this, Text = "Người dùng" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiTra_Group_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Group) return;
-            var frm = new Catalog.FrmTra_Group() { MdiParent = this, Text = "Nhóm xe" };
-            frm.Show();
+            var x = typeof(FrmTra_Group);
+            var frm = (FrmTra_Group)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmTra_Group() { MdiParent = this, Text = "Nhóm xe" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiTra_Kind_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Kind) return;
-            var frm = new Catalog.FrmTra_Kind() { MdiParent = this, Text = "Loại xe" };
-            frm.Show();
+            var x = typeof(FrmTra_Kind);
+            var frm = (FrmTra_Kind)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmTra_Kind() { MdiParent = this, Text = "Loại xe" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiTra_Vehicle_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Catalog.FrmTra_Vehicle) return;
-            var frm = new Catalog.FrmTra_Vehicle() { MdiParent = this, Text = "Xe cộ" };
-            frm.Show();
+            var x = typeof(FrmTra_Vehicle);
+            var frm = (FrmTra_Vehicle)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmTra_Vehicle() { MdiParent = this, Text = "Danh sách xe" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
         #endregion
 
@@ -118,16 +149,28 @@ namespace PRE
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Main.FrmPol_UserRole) return;
-            var frm = new Main.FrmPol_UserRole() { MdiParent = this, Text = "Người dùng" };
-            frm.Show();
+            var x = typeof(FrmPol_UserRole);
+            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_UserRole() { MdiParent = this, Text = "Quyền người dùng" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
 
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (var x in MdiChildren) if (x is Main.FrmPol_RoleRight) return;
-            var frm = new Main.FrmPol_RoleRight() { MdiParent = this, Text = "Nhóm người dùng" };
-            frm.Show();
+            var x = typeof(FrmPol_RoleRight);
+            var frm = (FrmPol_RoleRight)BasePRE.GetMdiChilden(this, x.FullName, true);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_RoleRight() { MdiParent = this, Text = "Nhóm người dùng" };
+                frm.Show();
+            }
+            else frm.Activate();
         }
         #endregion
 

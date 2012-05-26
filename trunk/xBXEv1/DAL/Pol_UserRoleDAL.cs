@@ -147,7 +147,7 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_UserRights
+                var res = from s in _db.Pol_UserRoles
                           where s.Pol_User.Id == userId
                           select new
                           {
@@ -155,9 +155,9 @@ namespace DAL
                               UserAcc = s.Pol_User.Acc,
                               UserName = s.Pol_User.Name,
 
-                              RightId = s.Pol_Right.Id,
-                              RightCode = s.Pol_Right.Code,
-                              RightName = s.Pol_Right.Name,
+                              RoleId = s.Pol_Role.Id,
+                              RoleCode = s.Pol_Role.Code,
+                              RoleName = s.Pol_Role.Name,
 
                               s.Add,
                               s.Edit,

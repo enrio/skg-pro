@@ -7,6 +7,7 @@ using DevExpress.XtraEditors;
 namespace PRE.Catalog
 {
     using UTL;
+    using DevExpress.XtraTreeList;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraBars;
 
@@ -122,6 +123,16 @@ namespace PRE.Catalog
             dPanel.Options.ShowCloseButton = false;
             dPanel.Options.ShowMaximizeButton = false;
             dPanel.Text = caption;
+        }
+
+        /// <summary>
+        /// Thu gọn cột
+        /// </summary>
+        /// <param name="trl">TreeList</param>
+        protected static void AutoFit(TreeList trl)
+        {
+            var i = trl.Columns.Count - 1;
+            trl.Columns[i--].BestFit();
         }
 
         #region Virtual

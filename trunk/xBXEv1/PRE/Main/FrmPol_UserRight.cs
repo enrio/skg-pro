@@ -125,8 +125,8 @@ namespace PRE.Main
 
             if (_dtb != null)
             {
-                //trlMain.DataSource = _dtb;
-                trlMain.DataSource = Record.GetData();
+                trlMain.DataSource = _dtb;
+                //trlMain.DataSource = Record.GetData();
 
                 treeListColumn3.BestFit(); // fit column STT
                 treeListColumn8.BestFit();

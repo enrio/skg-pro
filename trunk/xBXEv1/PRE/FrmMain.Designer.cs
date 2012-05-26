@@ -63,6 +63,7 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bbiPol_UserRole = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -95,9 +96,10 @@
             this.ribbonGalleryBarItem1,
             this.bsiServer,
             this.bsiUser,
-            this.bsiTimer});
+            this.bsiTimer,
+            this.bbiPol_UserRole});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 20;
+            this.ribbon.MaxItemId = 21;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -184,7 +186,7 @@
             // 
             // bbiPol_UserRight
             // 
-            this.bbiPol_UserRight.Caption = " &Người dùng";
+            this.bbiPol_UserRight.Caption = "Pol_UserRight";
             this.bbiPol_UserRight.Id = 11;
             this.bbiPol_UserRight.LargeGlyph = global::PRE.Properties.Resources.user;
             this.bbiPol_UserRight.Name = "bbiPol_UserRight";
@@ -192,9 +194,9 @@
             // 
             // bbiPol_RoleRight
             // 
-            this.bbiPol_RoleRight.Caption = "Nhóm người &dùng";
+            this.bbiPol_RoleRight.Caption = "Pol_RoleRight";
             this.bbiPol_RoleRight.Id = 12;
-            this.bbiPol_RoleRight.LargeGlyph = global::PRE.Properties.Resources.users;
+            this.bbiPol_RoleRight.LargeGlyph = global::PRE.Properties.Resources.main;
             this.bbiPol_RoleRight.Name = "bbiPol_RoleRight";
             this.bbiPol_RoleRight.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_RoleRight_ItemClick);
             // 
@@ -274,6 +276,7 @@
             // 
             this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRight);
             this.rpgPermission.ItemLinks.Add(this.bbiPol_RoleRight);
+            this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRole);
             this.rpgPermission.Name = "rpgPermission";
             this.rpgPermission.Text = "&Phân quyền";
             // 
@@ -353,6 +356,14 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
+            // bbiPol_UserRole
+            // 
+            this.bbiPol_UserRole.Caption = "Pol_UserRole";
+            this.bbiPol_UserRole.Id = 20;
+            this.bbiPol_UserRole.LargeGlyph = global::PRE.Properties.Resources.users;
+            this.bbiPol_UserRole.Name = "bbiPol_UserRole";
+            this.bbiPol_UserRole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_UserRole_ItemClick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -409,5 +420,6 @@
         private DevExpress.XtraBars.BarStaticItem bsiServer;
         private DevExpress.XtraBars.BarStaticItem bsiUser;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
+        private DevExpress.XtraBars.BarButtonItem bbiPol_UserRole;
     }
 }

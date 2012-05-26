@@ -194,12 +194,12 @@ namespace PRE
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmPol_UserRole);
-            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName);
+            var x = typeof(FrmPol_UserRight);
+            var frm = (FrmPol_UserRight)BasePRE.GetMdiChilden(this, x.FullName);
 
             if (frm == null)
             {
-                frm = new FrmPol_UserRole() { MdiParent = this, Text = "Quyền người dùng" };
+                frm = new FrmPol_UserRight() { MdiParent = this, Text = "FrmPol_UserRight" };
                 frm.Show();
             }
             else frm.Activate();
@@ -212,7 +212,20 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_RoleRight() { MdiParent = this, Text = "Nhóm người dùng" };
+                frm = new FrmPol_RoleRight() { MdiParent = this, Text = "FrmPol_RoleRight" };
+                frm.Show();
+            }
+            else frm.Activate();
+        }
+
+        private void bbiPol_UserRole_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var x = typeof(FrmPol_UserRole);
+            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName);
+
+            if (frm == null)
+            {
+                frm = new FrmPol_UserRole() { MdiParent = this, Text = "FrmPol_UserRole" };
                 frm.Show();
             }
             else frm.Activate();

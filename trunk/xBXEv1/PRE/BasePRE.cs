@@ -5,6 +5,7 @@ using System.Linq;
 namespace PRE
 {
     using BLL;
+    using Main;
     using System.Windows.Forms;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
@@ -27,11 +28,16 @@ namespace PRE
             }
         }
 
+        /// <summary>
+        /// Ẩn/hiện RibbonPage (menu) của RibbonForm, trừ RibbonPage đầu và cuối
+        /// </summary>
+        /// <param name="parent">Form cha</param>
+        /// <param name="visible">true: hiện; false: ẩn</param>
         public static void VisibleMenuParentForm(Form parent, bool visible = true)
         {
             if (parent != null)
             {
-                var i = ((RibbonForm)parent).Ribbon.Pages.Count;
+                var i = ((RibbonForm)parent).Ribbon.Pages.Count - 1;
                 while (i-- > 1)
                     ((RibbonForm)parent).Ribbon.Pages[i].Visible = visible;
             }
@@ -64,15 +70,17 @@ namespace PRE
         {
             if (parent != null)
             {
+                var tmp = typeof(FrmLogin).FullName;
+
                 foreach (Form child in parent.MdiChildren)
-                    if (child != active && child.GetType().FullName != "PRE.Main.FrmLogin")
+                    if (child != active && child.GetType().FullName != tmp)
                         child.Close();
             }
         }
 
         public static Form GetMdiChilden(Form parent, string childrenName, bool isFullName = false)
         {
-            Form frmreturn = null;
+            Form tmp = null;
 
             if (parent.MdiChildren != null)
                 foreach (Form frm in parent.MdiChildren)
@@ -83,12 +91,12 @@ namespace PRE
 
                     if (name == childrenName)
                     {
-                        frmreturn = frm;
+                        tmp = frm;
                         break;
                     }
                 }
 
-            return frmreturn;
+            return tmp;
         }
     }
 }

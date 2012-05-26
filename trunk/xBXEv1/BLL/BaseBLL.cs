@@ -102,6 +102,26 @@ namespace BLL
         static void CreatePol_UserRight()
         {
             if (_pol_UserRightBLL.Count() > 0) return;
+
+            var a = (Pol_User)_pol_UserBLL.Select("nvt");
+            var b = (Pol_Right)_pol_RoleBLL.Select("FrmPol_Right");
+            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("admin");
+            b = (Pol_Right)_pol_RoleBLL.Select("FrmPol_Right");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("admin");
+            b = (Pol_Right)_pol_RoleBLL.Select("FrmPol_Role");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("admin");
+            b = (Pol_Right)_pol_RoleBLL.Select("FrmPol_User");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = false, Edit = false, Delete = false, Query = false, Print = false, Full = true, None = false };
+            _pol_UserRoleBLL.Insert(o);
         }
 
         static void CreatePol_UserRole()

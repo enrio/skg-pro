@@ -141,14 +141,14 @@ namespace DAL
         /// <summary>
         /// Lấy tất cả các quyền (chức năng) của người dùng
         /// </summary>
-        /// <param name="acc">Tên tài khoản</param>
+        /// <param name="userId">Tên tài khoản</param>
         /// <returns>Danh sách quyền (chức năng)</returns>
-        public DataTable GetRights(Guid id)
+        public DataTable GetRights(Guid userId)
         {
             try
             {
                 var res = from s in _db.Pol_UserRights
-                          where s.Pol_User.Id == id
+                          where s.Pol_User.Id == userId
                           select new
                           {
                               UserId = s.Pol_User.Id,

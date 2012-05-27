@@ -116,20 +116,57 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_UserRoles
-                          where s.Pol_User.Id == userId
+                var a = from s in _db.Pol_UserRights
+
+                          join u in _db.Pol_Users on s.Pol_UserId equals u.Id
+                          join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+
+                          where s.Id == userId
                           select new
                           {
-                              UserId = s.Pol_User.Id,
-                              UserAcc = s.Pol_User.Acc,
-                              UserName = s.Pol_User.Name,
+                              UserId = u.Id,
+                              UserName = u.Name,
 
-                              RoleId = s.Pol_Role.Id,
-                              RoleCode = s.Pol_Role.Code,
-                              RoleName = s.Pol_Role.Name
+                              RightId = r.Id,
+                              RightName = r.Name,
+                              RightDescript = r.Descript,
+
+                              s.Add,
+                              s.Edit,
+                              s.Delete,
+                              s.Query,
+                              s.Print,
+                              s.Full,
+                              s.None,
+                              s.Only,
                           };
 
-                return res.ToDataTable();
+                var b = from s in _db.Pol_RoleRights
+
+                        join u in _db.Pol_Roles on s.Pol_RoleId equals u.Id
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+
+                        where s.Id == userId
+                        select new
+                        {
+                            UserId = u.Id,
+                            UserName = u.Name,
+
+                            RightId = r.Id,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+                            s.Only,
+                        };
+
+                return a.ToDataTable();
             }
             catch { return _tb; }
         }

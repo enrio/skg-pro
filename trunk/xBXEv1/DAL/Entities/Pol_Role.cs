@@ -16,12 +16,12 @@ namespace DAL.Entities
 
         #region Khoá ngoại ở các thực thể khác
         /// <summary>
-        /// Danh sách người dùng thuộc nhóm quyền (chức năng)
+        /// Danh sách người dùng thuộc nhóm quyền của hệ thống
         /// </summary>
         public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
 
         /// <summary>
-        /// Danh sách nhóm quyền có các chức năng
+        /// Danh sách nhóm người dùng có các quyền của hệ thống
         /// </summary>
         public virtual ICollection<Pol_RoleRight> Pol_RoleRights { get; set; }
         #endregion

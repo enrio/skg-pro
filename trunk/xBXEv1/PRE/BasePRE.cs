@@ -129,7 +129,8 @@ namespace PRE
         /// <param name="message">Message</param>
         /// <param name="title">Title</param>
         /// <returns>DialogResult</returns>
-        public static DialogResult ShowMessage(string message, string title, MessageBoxButtons button = MessageBoxButtons.OK)
+        public static DialogResult ShowMessage(string message, string title,
+            MessageBoxButtons button = MessageBoxButtons.OK, bool isShow = true)
         {
             using (var x = new FrmMessage() { Text = title })
             {
@@ -146,7 +147,7 @@ namespace PRE
                     x.cmdCancel.Text = "&Không";
                 }
 
-                x.ShowDialog();
+                if (isShow) x.ShowDialog();
                 return x.DialogResult;
             }
         }

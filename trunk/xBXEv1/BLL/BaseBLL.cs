@@ -57,6 +57,8 @@ namespace BLL
             _pol_RightBLL.Insert(o);
             o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Danh mục người dùng" };
             _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Code = "FrmTra_Kind", Name = "Loại xe", Descript = "Danh mục loại xe" };
+            _pol_RightBLL.Insert(o);
         }
 
         static void CreatePol_Role()
@@ -120,6 +122,11 @@ namespace BLL
 
             a = (Pol_User)_pol_UserBLL.Select("admin");
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_User");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            _pol_UserRightBLL.Insert(o);
+
+            a = (Pol_User)_pol_UserBLL.Select("admin");
+            b = (Pol_Right)_pol_RightBLL.Select("FrmTra_Kind");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
         }

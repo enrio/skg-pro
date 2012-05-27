@@ -23,8 +23,8 @@ namespace BLL
         public DateTime? Current { set; get; }
 
         /// <summary>
-        /// Chưa đăng nhập
+        /// Quyền truy cập
         /// </summary>
-        public Session() { User = null; }
+        public ZAction Right { set; get; }
     }
 }

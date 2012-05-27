@@ -124,10 +124,12 @@ namespace PRE
         }
 
         /// <summary>
-        /// Show dialog design by Zng Tfy
+        /// Hiện thị thông báo
         /// </summary>
-        /// <param name="message">Message</param>
-        /// <param name="title">Title</param>
+        /// <param name="message">Nội dung</param>
+        /// <param name="title">Tiêu đề</param>
+        /// <param name="button">Nút lệnh</param>
+        /// <param name="isShow">Cho hiện hay không?</param>
         /// <returns>DialogResult</returns>
         public static DialogResult ShowMessage(string message, string title,
             MessageBoxButtons button = MessageBoxButtons.OK, bool isShow = true)

@@ -30,7 +30,7 @@ namespace PRE.Catalog
         {
             InitializeComponent();
 
-            CheckRight();
+            CheckRight(this, true);
         }
 
         public ZAction CheckRight()
@@ -241,13 +241,15 @@ namespace PRE.Catalog
         /// Kiểm tra quyền người dùng đăng nhập
         /// </summary>
         /// <param name="frmRight">Form cần kiểm tra</param>
-        protected virtual ZAction CheckRight(Form frmRight)
+        /// <param name="showMessage">Hiện thông báo hay không?</param>
+        /// <returns>Quyền truy cập</returns>
+        protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().Name;
             var z = BasePRE._sss.GetRight(name);
 
             if (z == null)
-                BasePRE.ShowMessage("Không có quyền", name);
+                BasePRE.ShowMessage("Không có quyền", name, MessageBoxButtons.OK, showMessage);
             else
             {
                 bbiAdd.Enabled = z.Add;

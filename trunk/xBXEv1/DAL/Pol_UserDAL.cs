@@ -138,7 +138,29 @@ namespace DAL
                             s.Only,
                         };
 
-                return a.ToDataTable();
+                var b = from s in _db.Pol_RoleRights
+
+                        join u in _db.Pol_UserRoles on s.Pol_RoleId equals u.Id
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+
+                        where u.Pol_User.Id == userId
+                        select new
+                        {
+                            RightCode = r.Code,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+                            s.Only,
+                        };
+
+                return a.Union(b).ToDataTable();
             }
             catch { return _tb; }
         }

@@ -55,8 +55,8 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
-
-            NotifyAfterCheckRight();
+            CheckRight(this);
+            //NotifyAfterCheckRight();
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
@@ -269,7 +269,7 @@ namespace PRE.Catalog
             if (zac == null)
             {
                 MessageBox.Show("Không có quyền", frmRight.Name);
-                Close();
+                frmRight.Hide();
             }
             else
             {

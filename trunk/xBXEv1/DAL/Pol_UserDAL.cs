@@ -172,7 +172,7 @@ namespace DAL
         /// <param name="userId">Id người dùng đăng nhập</param>
         /// <param name="codeRight">Mã quyền (tên form)</param>
         /// <returns>Hành động</returns>
-        protected ZAction GetRights(Guid userId, string codeRight)
+        public ZAction GetRights(Guid userId, string codeRight)
         {
             try
             {

@@ -19,6 +19,8 @@ namespace PRE.Main
         {
             InitializeComponent();
 
+            CheckRight(this);
+
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 

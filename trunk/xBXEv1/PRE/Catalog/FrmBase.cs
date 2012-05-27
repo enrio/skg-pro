@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
 namespace PRE.Catalog
 {
     using UTL;
+    using BLL;
     using DevExpress.XtraTreeList;
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraBars.Docking;
@@ -255,6 +257,20 @@ namespace PRE.Catalog
         /// </summary>
         /// <returns>True if valid else false</returns>
         protected virtual bool ValidInput() { return true; }
+
+        /// <summary>
+        /// Kiểm tra quyền người dùng đăng nhập
+        /// </summary>
+        /// <param name="frmRight">Form cần kiểm tra</param>
+        protected virtual void CheckRight(Form frmRight)
+        {
+            var zac = BaseBLL._pol_UserBLL.GetRights(BasePRE._sss.User.Id, frmRight.Name);
+
+            bbiAdd.Enabled = zac.Add;
+            bbiEdit.Enabled = zac.Edit;
+            bbiDelete.Enabled = zac.Delete;
+            bbiPrint.Enabled = zac.Print;
+        }
         #endregion
 
         private State _FormState;

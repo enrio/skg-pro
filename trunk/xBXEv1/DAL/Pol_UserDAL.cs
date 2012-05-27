@@ -167,12 +167,12 @@ namespace DAL
         }
 
         /// <summary>
-        /// 
+        /// Lấy quyền của người dùng đăng nhập trên form
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="codeRight"></param>
-        /// <returns></returns>
-        public ZAction GetRights(Guid userId, string codeRight)
+        /// <param name="userId">Id người dùng đăng nhập</param>
+        /// <param name="codeRight">Mã quyền (tên form)</param>
+        /// <returns>Hành động</returns>
+        protected ZAction GetRights(Guid userId, string codeRight)
         {
             try
             {
@@ -185,8 +185,6 @@ namespace DAL
                         select new
                         {
                             RightCode = r.Code,
-                            RightName = r.Name,
-                            RightDescript = r.Descript,
 
                             s.Add,
                             s.Edit,
@@ -208,8 +206,6 @@ namespace DAL
                         select new
                         {
                             RightCode = r.Code,
-                            RightName = r.Name,
-                            RightDescript = r.Descript,
 
                             s.Add,
                             s.Edit,

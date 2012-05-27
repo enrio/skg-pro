@@ -42,6 +42,7 @@ namespace DAL
                             s.Full,
                             s.None,
                             s.Only,
+                            Select = false,
 
                             UserName = s.Pol_User.Name
                         };
@@ -60,6 +61,7 @@ namespace DAL
                             Full = false,
                             None = false,
                             Only = false,
+                            Select = false,
 
                             UserName = s.Name
                         };

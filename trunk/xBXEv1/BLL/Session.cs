@@ -25,6 +25,6 @@ namespace BLL
         /// <summary>
         /// Danh sách các quyền của người dùng
         /// </summary>
-        public List<ZAction> Rights;
+        public List<ZAction> Rights { set; get; }
     }
 }

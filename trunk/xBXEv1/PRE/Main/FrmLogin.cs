@@ -65,7 +65,10 @@ namespace PRE.Main
             if (sss != null)
             {
                 BasePRE._sss = sss;
+
                 //var x = BaseBLL._pol_UserBLL.GetRights(sss.User.Id);
+                //var y = BaseBLL._pol_UserBLL.GetRights(sss.User.Id, this.GetType().Name);
+
                 NotifyAfterLogon();
                 Close();
             }

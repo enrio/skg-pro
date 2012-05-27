@@ -59,7 +59,11 @@ namespace BLL
             _pol_RightBLL.Insert(o);
             o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Danh mục người dùng" };
             _pol_RightBLL.Insert(o);
+
             o = new Pol_Right() { Code = "FrmTra_Kind", Name = "Loại xe", Descript = "Danh mục loại xe" };
+            _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Code = "FrmLogin", Name = "Đăng nhập", Descript = "Form đăng nhập" };
             _pol_RightBLL.Insert(o);
         }
 

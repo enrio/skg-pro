@@ -17,6 +17,33 @@ namespace PRE.Catalog
     /// </summary>
     public partial class FrmBase : XtraForm, IFormUserActions
     {
+        #region Sự kiện đăng nhập
+        /// <summary>
+        /// Uỷ nhiệm kiểm tra quyền khi đã đăng nhập
+        /// </summary>
+        public delegate void RightHandler();
+
+        /// <summary>
+        /// Trước khi kiểm tra quyền
+        /// </summary>
+        public event RightHandler BeforeCheckRight;
+
+        /// <summary>
+        /// Sau khi kiểm tra quyền
+        /// </summary>
+        public event RightHandler AfterCheckRight;
+
+        /// <summary>
+        /// Báo cho biết trước khi kiểm tra quyền
+        /// </summary>
+        void NotifyBeforeCheckRight() { if (BeforeCheckRight != null) BeforeCheckRight(); }
+
+        /// <summary>
+        /// Báo cho biết sau khi kiểm tra quyền
+        /// </summary>
+        void NotifyAfterCheckRight() { if (AfterCheckRight != null) AfterCheckRight(); }
+        #endregion
+
         public enum State { View, Add, Edit, Delete, Save, Cancel, }
 
         protected UTL.IBaseDAL _bll;

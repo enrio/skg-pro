@@ -30,7 +30,12 @@ namespace PRE.Catalog
         {
             InitializeComponent();
 
-            CheckRight(this);
+            CheckRight();
+        }
+
+        public ZAction CheckRight()
+        {
+            return CheckRight(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)

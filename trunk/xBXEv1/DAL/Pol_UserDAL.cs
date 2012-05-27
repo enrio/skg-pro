@@ -118,41 +118,13 @@ namespace DAL
             {
                 var a = from s in _db.Pol_UserRights
 
-                          join u in _db.Pol_Users on s.Pol_UserId equals u.Id
-                          join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
-
-                          where s.Id == userId
-                          select new
-                          {
-                              UserId = u.Id,
-                              UserName = u.Name,
-
-                              RightId = r.Id,
-                              RightName = r.Name,
-                              RightDescript = r.Descript,
-
-                              s.Add,
-                              s.Edit,
-                              s.Delete,
-                              s.Query,
-                              s.Print,
-                              s.Full,
-                              s.None,
-                              s.Only,
-                          };
-
-                var b = from s in _db.Pol_RoleRights
-
-                        join u in _db.Pol_Roles on s.Pol_RoleId equals u.Id
+                        join u in _db.Pol_Users on s.Pol_UserId equals u.Id
                         join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
 
-                        where s.Id == userId
+                        where s.Pol_UserId == userId
                         select new
                         {
-                            UserId = u.Id,
-                            UserName = u.Name,
-
-                            RightId = r.Id,
+                            RightCode = r.Code,
                             RightName = r.Name,
                             RightDescript = r.Descript,
 

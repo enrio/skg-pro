@@ -26,5 +26,17 @@ namespace BLL
         /// Danh sách các quyền của người dùng
         /// </summary>
         public List<ZAction> Rights { set; get; }
+
+        /// <summary>
+        /// Lấy quyền hiện tại của chức năng (form)
+        /// </summary>
+        /// <param name="codeRight">Mã chức năng (tên form)</param>
+        /// <returns>Quyền truy cập</returns>
+        public ZAction GetRight(string codeRight)
+        {
+            foreach (var x in Rights)
+                if (x.Code == codeRight) return x;
+            return null;
+        }
     }
 }

@@ -264,20 +264,20 @@ namespace PRE.Catalog
         /// <param name="frmRight">Form cần kiểm tra</param>
         protected virtual void CheckRight(Form frmRight)
         {
-            //var zac = BasePRE._sss.GetRight(frmRight.GetType().Name);
+            var zac = BasePRE._sss.GetRight(frmRight.GetType().Name);
 
-            //if (zac == null)
-            //{
-            //    MessageBox.Show("Không có quyền", frmRight.Name);
-            //    frmRight.Hide();
-            //}
-            //else
-            //{
-            //    bbiAdd.Enabled = zac.Add;
-            //    bbiEdit.Enabled = zac.Edit;
-            //    bbiDelete.Enabled = zac.Delete;
-            //    bbiPrint.Enabled = zac.Print;
-            //}
+            if (zac == null)
+            {
+                MessageBox.Show("Không có quyền", frmRight.Name);
+                frmRight.Hide();
+            }
+            else
+            {
+                bbiAdd.Enabled = zac.Add;
+                bbiEdit.Enabled = zac.Edit;
+                bbiDelete.Enabled = zac.Delete;
+                bbiPrint.Enabled = zac.Print;
+            }
         }
         #endregion
 

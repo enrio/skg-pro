@@ -35,7 +35,7 @@ namespace PRE
                                   BaseBLL._pol_ActionBLL.Connection().DataSource,
                                   BaseBLL._pol_ActionBLL.Connection().Database);
             bsiUser.Caption = null;
-            bsiTimer.Caption = null;            
+            bsiTimer.Caption = null;
         }
 
         /// <summary>
@@ -51,9 +51,13 @@ namespace PRE
             bsiUser.Caption = BasePRE._sss.User.Name;
 
             // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)
+#if DEBUG
+            rpgPermission.Visible = true;
+#else
             string acc = BasePRE._sss.User.Acc.ToUpper();
             if (acc == "ADMIN") rpgPermission.Visible = true;
             else rpgPermission.Visible = false;
+#endif
         }
 
         /// <summary>
@@ -79,6 +83,8 @@ namespace PRE
 
             try
             {
+                BasePRE.CloseAllChildrenForm(this);
+
                 var x = typeof(FrmLogin);
                 var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = TITLE };

@@ -220,13 +220,16 @@ namespace PRE.Main
             ur.Only = (bool)e.Node.GetValue("Only");
         }
 
-        private void trlMain_CellValueChanged(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
+        private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
             if (e.Column.FieldName == "Select")
             {
                 if (e.Node.HasChildren)
                 {
-                    DataRow[] sdr = _dtb.Select(String.Format("ID Is Not Null And ID={0}", e.Node.GetValue("ID") + ""));
+                    var id = (Guid)e.Node.GetValue("ParentID");
+                    var sl = String.Format("ParentID='{0}'", id);
+                    DataRow[] sdr = _dtb.Select(sl);
+
                     if (sdr != null && sdr.Length > 0)
                     {
                         foreach (DataRow dr in sdr)

@@ -264,7 +264,7 @@ namespace PRE.Catalog
         /// <param name="frmRight">Form cần kiểm tra</param>
         protected virtual void CheckRight(Form frmRight)
         {
-            var zac = BaseBLL._pol_UserBLL.GetRights(BasePRE._sss.User.Id, frmRight.Name);
+            var zac = BaseBLL._pol_UserBLL.GetRights(BasePRE._sss.User.Id, frmRight.GetType().Name);
 
             if (zac == null)
             {

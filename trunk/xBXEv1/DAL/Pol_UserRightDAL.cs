@@ -41,6 +41,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
+                            s.Only,
 
                             UserName = s.Pol_User.Name
                         };
@@ -58,6 +59,7 @@ namespace DAL
                             Print = false,
                             Full = false,
                             None = false,
+                            Only = false,
 
                             UserName = s.Name
                         };

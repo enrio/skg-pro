@@ -41,6 +41,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
+                            s.Only,
 
                             RoleName = s.Pol_Role.Name,
                             RoleDescript = s.Pol_Role.Descript
@@ -59,6 +60,7 @@ namespace DAL
                             Print = false,
                             Full = false,
                             None = false,
+                            Only = false,
 
                             RoleName = s.Name,
                             RoleDescript = s.Descript

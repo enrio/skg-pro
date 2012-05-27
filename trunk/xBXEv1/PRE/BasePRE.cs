@@ -6,6 +6,7 @@ namespace PRE
 {
     using BLL;
     using Main;
+    using Catalog;
     using System.Windows.Forms;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
@@ -152,6 +153,17 @@ namespace PRE
                 if (isShow) x.ShowDialog();
                 return x.DialogResult;
             }
+        }
+
+        /// <summary>
+        /// Hiện form với quyền của người dùng
+        /// </summary>
+        /// <param name="frm">FrmBase</param>
+        public static void ShowForm(this FrmBase frm)
+        {
+            var z = frm.CheckRight();
+            if (z != null) frm.Show();
+            else frm.Dispose();
         }
     }
 }

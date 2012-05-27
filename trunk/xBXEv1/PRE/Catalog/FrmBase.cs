@@ -237,10 +237,11 @@ namespace PRE.Catalog
         /// <param name="frmRight">Form cần kiểm tra</param>
         protected virtual void CheckRight(Form frmRight)
         {
-            var zac = BasePRE._sss.GetRight(frmRight.GetType().Name);
+            var name = frmRight.GetType().Name;
+            var zac = BasePRE._sss.GetRight(name);
 
             if (zac == null)
-                MessageBox.Show("Không có quyền", frmRight.Name);
+                BasePRE.ShowMessage("Không có quyền", name);
             else
             {
                 bbiAdd.Enabled = zac.Add;

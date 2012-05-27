@@ -129,7 +129,7 @@ namespace PRE
         /// <param name="message">Message</param>
         /// <param name="title">Title</param>
         /// <returns>DialogResult</returns>
-        public static DialogResult Show(string message, string title, MessageBoxButtons button = MessageBoxButtons.OK)
+        public static DialogResult ShowMessage(string message, string title, MessageBoxButtons button = MessageBoxButtons.OK)
         {
             using (var x = new FrmMessage() { Text = title })
             {

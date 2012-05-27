@@ -94,7 +94,7 @@ namespace PRE
 
                 frm.Show();
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message, TITLE); }
+            catch (Exception ex) { BasePRE.ShowMessage(ex.Message, TITLE); }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)

@@ -72,7 +72,7 @@ namespace PRE.Main
                 NotifyAfterLogon();
                 Close();
             }
-            else MessageBox.Show(STR_ERR, STR_LOGIN);
+            else BasePRE.ShowMessage(STR_ERR, STR_LOGIN);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

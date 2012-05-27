@@ -79,22 +79,20 @@ namespace PRE
         /// </summary>
         private void Login()
         {
-            const string TITLE = "Đăng nhập";
-
             try
             {
                 BasePRE.CloseAllChildrenForm(this);
 
                 var x = typeof(FrmLogin);
                 var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
-                if (frm == null) frm = new FrmLogin() { MdiParent = this, Text = TITLE };
+                if (frm == null) frm = new FrmLogin() { MdiParent = this };
 
                 frm.BeforeLogon += HideMenu;
                 frm.AfterLogon += ShowMenu;
 
                 frm.Show();
             }
-            catch (Exception ex) { BasePRE.ShowMessage(ex.Message, TITLE); }
+            catch (Exception ex) { BasePRE.ShowMessage(ex.Message, Text); }
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -110,7 +108,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_Right() { MdiParent = this, Text = "Quyền hạn" };
+                frm = new FrmPol_Right() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -123,7 +121,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_Role() { MdiParent = this, Text = "Vai trò" };
+                frm = new FrmPol_Role() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -136,7 +134,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_User() { MdiParent = this, Text = "Người dùng" };
+                frm = new FrmPol_User() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -149,7 +147,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmTra_Group() { MdiParent = this, Text = "Nhóm xe" };
+                frm = new FrmTra_Group() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -162,7 +160,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmTra_Kind() { MdiParent = this, Text = "Loại xe" };
+                frm = new FrmTra_Kind() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -175,7 +173,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmTra_Vehicle() { MdiParent = this, Text = "Danh sách xe" };
+                frm = new FrmTra_Vehicle() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -211,7 +209,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_UserRight() { MdiParent = this, Text = "FrmPol_UserRight" };
+                frm = new FrmPol_UserRight() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -224,7 +222,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_RoleRight() { MdiParent = this, Text = "FrmPol_RoleRight" };
+                frm = new FrmPol_RoleRight() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();
@@ -237,7 +235,7 @@ namespace PRE
 
             if (frm == null)
             {
-                frm = new FrmPol_UserRole() { MdiParent = this, Text = "FrmPol_UserRole" };
+                frm = new FrmPol_UserRole() { MdiParent = this };
                 frm.ShowForm();
             }
             else frm.Activate();

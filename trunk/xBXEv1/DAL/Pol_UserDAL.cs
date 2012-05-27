@@ -140,10 +140,11 @@ namespace DAL
 
                 var b = from s in _db.Pol_RoleRights
 
-                        join u in _db.Pol_UserRoles on s.Pol_RoleId equals u.Id
                         join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+                        join ur in _db.Pol_UserRoles on s.Pol_RoleId equals ur.Pol_RoleId
+                        join u in _db.Pol_Users on ur.Pol_UserId equals u.Id
 
-                        where u.Pol_User.Id == userId
+                        where ur.Pol_User.Id == userId
                         select new
                         {
                             RightCode = r.Code,

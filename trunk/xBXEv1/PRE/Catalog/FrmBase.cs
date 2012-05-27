@@ -266,10 +266,18 @@ namespace PRE.Catalog
         {
             var zac = BaseBLL._pol_UserBLL.GetRights(BasePRE._sss.User.Id, frmRight.Name);
 
-            bbiAdd.Enabled = zac.Add;
-            bbiEdit.Enabled = zac.Edit;
-            bbiDelete.Enabled = zac.Delete;
-            bbiPrint.Enabled = zac.Print;
+            if (zac == null)
+            {
+                MessageBox.Show("Không có quyền", frmRight.Name);
+                Close();
+            }
+            else
+            {
+                bbiAdd.Enabled = zac.Add;
+                bbiEdit.Enabled = zac.Edit;
+                bbiDelete.Enabled = zac.Delete;
+                bbiPrint.Enabled = zac.Print;
+            }
         }
         #endregion
 

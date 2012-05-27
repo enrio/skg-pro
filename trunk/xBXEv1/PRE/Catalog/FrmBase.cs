@@ -17,35 +17,8 @@ namespace PRE.Catalog
     /// <summary>
     /// Standard input form
     /// </summary>
-    public partial class FrmBase : XtraForm, IFormUserActions
+    public partial class FrmBase : XtraForm
     {
-        #region Sự kiện đăng nhập
-        /// <summary>
-        /// Uỷ nhiệm kiểm tra quyền khi đã đăng nhập
-        /// </summary>
-        public delegate void RightHandler();
-
-        /// <summary>
-        /// Trước khi kiểm tra quyền
-        /// </summary>
-        public event RightHandler BeforeCheckRight;
-
-        /// <summary>
-        /// Sau khi kiểm tra quyền
-        /// </summary>
-        public event RightHandler AfterCheckRight;
-
-        /// <summary>
-        /// Báo cho biết trước khi kiểm tra quyền
-        /// </summary>
-        void NotifyBeforeCheckRight() { if (BeforeCheckRight != null) BeforeCheckRight(); }
-
-        /// <summary>
-        /// Báo cho biết sau khi kiểm tra quyền
-        /// </summary>
-        void NotifyAfterCheckRight() { if (AfterCheckRight != null) AfterCheckRight(); }
-        #endregion
-
         public enum State { View, Add, Edit, Delete, Save, Cancel, }
 
         protected UTL.IBaseDAL _bll;
@@ -55,8 +28,8 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
+
             CheckRight(this);
-            //NotifyAfterCheckRight();
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
@@ -279,190 +252,6 @@ namespace PRE.Catalog
                 bbiPrint.Enabled = zac.Print;
             }
         }
-        #endregion
-
-        private State _FormState;
-        [Category("FrmBase")]
-        [Description("Trạng thái trên form khi người dùng thao tác trên các nút")]
-        [DefaultValue(State.View)]
-        public State FormState
-        {
-            set
-            {
-                if (AfterChangeFormState != null)
-                    AfterChangeFormState(this, new FormStateEventArgs(_FormState, value));
-
-                _FormState = value;
-            }
-            get { return _FormState; }
-        }
-
-        #region Custome events
-        /// <summary>
-        /// Sự kiện xảy ra sau khi RightHelpers thực thi CheckUserRightAction
-        /// </summary>
-        public event EventHandler AfterCheckUserRightAction;
-
-        /// <summary>
-        /// Sự kiện xảy ra sau khi thay đổi giá trị thuộc tính FormState
-        /// </summary>
-        public event FormStateEventHandler AfterChangeFormState;
-        #endregion
-
-        #region Implement
-        private bool enableAdd = true;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableAdd
-        {
-            get { return enableAdd; }
-            set
-            {
-                enableAdd = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    bbiAdd.Enabled = enableAdd;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enableEdit = true;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableEdit
-        {
-            get { return enableEdit; }
-            set
-            {
-                enableEdit = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    bbiEdit.Enabled = enableEdit;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enableDelete;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableDelete
-        {
-            get { return enableDelete; }
-            set
-            {
-                enableDelete = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    bbiDelete.Enabled = enableDelete;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enableQuery = true;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableQuery
-        {
-            get { return enableQuery; }
-            set
-            {
-                enableQuery = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    //item_Query.Enabled = enableQuery;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enablePrintPreview = true;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnablePrintPreview
-        {
-            get { return enablePrintPreview; }
-            set
-            {
-                enablePrintPreview = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    bbiPrint.Enabled = enablePrintPreview;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enableTest;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableTest
-        {
-            get { return enableTest; }
-            set
-            {
-                enableTest = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    //item_Test.Enabled = enableTest;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        private bool enableVerify;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool EnableVerify
-        {
-            get { return enableVerify; }
-            set
-            {
-                enableVerify = value;
-                if (FormState != State.Add || FormState != State.Edit)
-                {
-                    //item_Verify.Enabled = enableVerify;
-
-                    if (AfterCheckUserRightAction != null)
-                        AfterCheckUserRightAction(this, new EventArgs());
-                }
-            }
-        }
-
-        public bool CancelClosed { get; set; }
-
-        private bool denied;
-        [Category("FrmBase")]
-        [DefaultValue(true)]
-        public bool Denied
-        {
-            get { return denied; }
-            set
-            {
-                denied = value;
-                //if (denied) timer1.Interval = 5;
-
-                if (AfterCheckUserRightAction != null)
-                    AfterCheckUserRightAction(this, new EventArgs());
-            }
-        }
-
-        [Category("FrmBase")]
-        public Actions UserActions { get; set; }
         #endregion
 
         #region Cho phép

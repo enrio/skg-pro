@@ -66,7 +66,6 @@ namespace PRE.Main
             {
                 BasePRE._sss = sss;
                 NotifyAfterLogon();
-                var x = BaseBLL._pol_UserRoleBLL.GetRights(BasePRE._sss.User.Id);
                 Close();
             }
             else MessageBox.Show(STR_ERR, STR_LOGIN);

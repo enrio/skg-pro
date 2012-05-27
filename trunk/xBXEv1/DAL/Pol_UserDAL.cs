@@ -93,6 +93,11 @@ namespace DAL
         }
         #endregion
 
+        /// <summary>
+        /// Lấy thông tin người dùng đăng nhập thông qua tài khoản
+        /// </summary>
+        /// <param name="acc">Tài khoản đăng nhập</param>
+        /// <returns>Thông tin người dùng</returns>
         protected Pol_User GetPass(string acc)
         {
             try
@@ -100,6 +105,33 @@ namespace DAL
                 return _db.Pol_Users.SingleOrDefault(s => s.Acc == acc);
             }
             catch { return null; }
+        }
+
+        /// <summary>
+        /// Lấy tất cả các quyền (chức năng) của người dùng
+        /// </summary>
+        /// <param name="userId">Id người dùng đăng nhập</param>
+        /// <returns>Danh sách các quyền (chức năng)</returns>
+        public DataTable GetRights(Guid userId)
+        {
+            try
+            {
+                var res = from s in _db.Pol_UserRoles
+                          where s.Pol_User.Id == userId
+                          select new
+                          {
+                              UserId = s.Pol_User.Id,
+                              UserAcc = s.Pol_User.Acc,
+                              UserName = s.Pol_User.Name,
+
+                              RoleId = s.Pol_Role.Id,
+                              RoleCode = s.Pol_Role.Code,
+                              RoleName = s.Pol_Role.Name
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
         }
     }
 }

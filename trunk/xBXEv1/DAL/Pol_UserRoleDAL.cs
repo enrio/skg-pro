@@ -98,32 +98,5 @@ namespace DAL
             catch { return null; }
         }
         #endregion
-
-        /// <summary>
-        /// Lấy tất cả các quyền (chức năng) của người dùng
-        /// </summary>
-        /// <param name="userId">Tên tài khoản</param>
-        /// <returns>Danh sách quyền (chức năng)</returns>
-        public DataTable GetRights(Guid userId)
-        {
-            try
-            {
-                var res = from s in _db.Pol_UserRoles
-                          where s.Pol_User.Id == userId
-                          select new
-                          {
-                              UserId = s.Pol_User.Id,
-                              UserAcc = s.Pol_User.Acc,
-                              UserName = s.Pol_User.Name,
-
-                              RoleId = s.Pol_Role.Id,
-                              RoleCode = s.Pol_Role.Code,
-                              RoleName = s.Pol_Role.Name
-                          };
-
-                return res.ToDataTable();
-            }
-            catch { return _tb; }
-        }
     }
 }

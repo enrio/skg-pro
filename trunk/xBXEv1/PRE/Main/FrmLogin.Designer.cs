@@ -201,7 +201,7 @@
             this.ClientSize = new System.Drawing.Size(380, 272);
             this.Controls.Add(this.panelBackground);
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelBackground)).EndInit();
             this.panelBackground.ResumeLayout(false);

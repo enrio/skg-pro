@@ -28,12 +28,11 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
-
-            CheckRight(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
+            CheckRight(this);
             ReadOnlyControl();
             PerformRefresh();
         }
@@ -240,10 +239,7 @@ namespace PRE.Catalog
             var zac = BasePRE._sss.GetRight(frmRight.GetType().Name);
 
             if (zac == null)
-            {
                 MessageBox.Show("Không có quyền", frmRight.Name);
-                frmRight.Hide();
-            }
             else
             {
                 bbiAdd.Enabled = zac.Add;

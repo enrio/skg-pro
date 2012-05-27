@@ -9,6 +9,7 @@ namespace PRE.Catalog
 {
     using UTL;
     using BLL;
+    using DAL.Entities;
     using DevExpress.XtraTreeList;
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraBars.Docking;
@@ -235,20 +236,22 @@ namespace PRE.Catalog
         /// Kiểm tra quyền người dùng đăng nhập
         /// </summary>
         /// <param name="frmRight">Form cần kiểm tra</param>
-        protected virtual void CheckRight(Form frmRight)
+        protected virtual ZAction CheckRight(Form frmRight)
         {
             var name = frmRight.GetType().Name;
-            var zac = BasePRE._sss.GetRight(name);
+            var z = BasePRE._sss.GetRight(name);
 
-            if (zac == null)
+            if (z == null)
                 BasePRE.ShowMessage("Không có quyền", name);
             else
             {
-                bbiAdd.Enabled = zac.Add;
-                bbiEdit.Enabled = zac.Edit;
-                bbiDelete.Enabled = zac.Delete;
-                bbiPrint.Enabled = zac.Print;
+                bbiAdd.Enabled = z.Add;
+                bbiEdit.Enabled = z.Edit;
+                bbiDelete.Enabled = z.Delete;
+                bbiPrint.Enabled = z.Print;
             }
+
+            return z;
         }
         #endregion
 

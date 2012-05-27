@@ -7,9 +7,9 @@ namespace DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Chính sách - người dùng thuộc nhóm quyền (chức năng) của hệ thống
+    /// Chính sách - người dùng thuộc nhóm quyền của hệ thống
     /// </summary>
-    public class Pol_UserRole : ZAction
+    public class Pol_UserRole : ZInfor
     {
         #region Khoá ngoại
         /// <summary>

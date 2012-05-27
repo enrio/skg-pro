@@ -28,52 +28,17 @@ namespace DAL
         {
             try
             {
-                var a = from s in _db.Pol_UserRoles
-                        select new
-                        {
-                            CodeRole = s.Pol_Role.Code,
-                            AccUser = s.Pol_User.Acc,
-
-                            ID = s.Pol_Role.Code + s.Pol_User.Acc,
-                            ParentID = s.Pol_Role.Code,
-
-                            s.Add,
-                            s.Edit,
-                            s.Delete,
-                            s.Query,
-                            s.Print,
-                            s.Full,
-                            s.None,
-
-                            UserName = s.Pol_User.Name
-                        };
-
-                var b = from s in _db.Pol_Roles
-                        select new
-                        {
-                            CodeRole = s.Code,
-                            AccUser = "",
-
-                            ID = s.Code + "",
-                            ParentID = s.Code,
-
-                            Add = false,
-                            Edit = false,
-                            Delete = false,
-                            Query = false,
-                            Print = false,
-                            Full = false,
-                            None = false,
-
-                            UserName = s.Name
-                        };
-
-                var res = a.Union(b);
+                var res = from s in _db.Pol_UserRoles
+                          select new
+                          {
+                              UserId = s.Pol_User.Id,
+                              RoleId = s.Pol_Role.Id
+                          };
 
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
-                    //res = res.Where(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RoleId == o.Pol_RoleId);
+                    res = res.Where(s => s.UserId == o.Pol_UserId && s.RoleId == o.Pol_RoleId);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -102,15 +67,10 @@ namespace DAL
             try
             {
                 var o = (Pol_UserRole)obj;
-                var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RoleId == o.Pol_RoleId);
+                var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == (Guid)obj);
 
-                res.Add = o.Add;
-                res.Edit = o.Edit;
-                res.Delete = o.Delete;
-                res.Query = o.Query;
-                res.Print = o.Print;
-                res.Full = o.Full;
-                res.None = o.None;
+                res.Pol_UserId = o.Pol_UserId;
+                res.Pol_RoleId = o.Pol_RoleId;
 
                 return _db.SaveChanges();
             }
@@ -124,7 +84,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
-                    var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Pol_UserId == o.Pol_UserId && s.Pol_RoleId == o.Pol_RoleId);
+                    var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == (Guid)obj);
                     _db.Pol_UserRoles.Remove(res);
                 }
                 else
@@ -158,15 +118,7 @@ namespace DAL
 
                               RoleId = s.Pol_Role.Id,
                               RoleCode = s.Pol_Role.Code,
-                              RoleName = s.Pol_Role.Name,
-
-                              s.Add,
-                              s.Edit,
-                              s.Delete,
-                              s.Query,
-                              s.Print,
-                              s.Full,
-                              s.None,
+                              RoleName = s.Pol_Role.Name
                           };
 
                 return res.ToDataTable();

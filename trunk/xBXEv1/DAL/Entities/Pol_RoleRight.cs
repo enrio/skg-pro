@@ -7,7 +7,7 @@ namespace DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Chính sách - nhóm quyền (chức năng) có các quyền (chức năng) của hệ thống
+    /// Chính sách - nhóm người dùng có các quyền của hệ thống
     /// </summary>
     public class Pol_RoleRight : ZAction
     {

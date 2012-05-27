@@ -130,17 +130,17 @@ namespace BLL
 
             var a = (Pol_User)_pol_UserBLL.Select("nvt");
             var b = (Pol_Role)_pol_RoleBLL.Select("CV");
-            var o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Full = true };
+            var o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
             _pol_UserRoleBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("ntt");
             b = (Pol_Role)_pol_RoleBLL.Select("CV");
-            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, Add = true };
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
             _pol_UserRoleBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("ntt");
             b = (Pol_Role)_pol_RoleBLL.Select("CR");
-            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id, None = true };
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
             _pol_UserRoleBLL.Insert(o);
         }
 

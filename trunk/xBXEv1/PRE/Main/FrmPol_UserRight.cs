@@ -219,5 +219,24 @@ namespace PRE.Main
             ur.None = (bool)e.Node.GetValue("None");
             ur.Only = (bool)e.Node.GetValue("Only");
         }
+
+        private void trlMain_CellValueChanged(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "Select")
+            {
+                if (e.Node.HasChildren)
+                {
+                    DataRow[] sdr = _dtb.Select(String.Format("ID Is Not Null And ID={0}", e.Node.GetValue("ID") + ""));
+                    if (sdr != null && sdr.Length > 0)
+                    {
+                        foreach (DataRow dr in sdr)
+                            dr["Select"] = e.Value;
+                    }
+                }
+            }
+            else // action name
+            {
+            }
+        }
     }
 }

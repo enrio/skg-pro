@@ -165,5 +165,77 @@ namespace DAL
             }
             catch { return _tb; }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="codeRight"></param>
+        /// <returns></returns>
+        public ZAction GetRights(Guid userId, string codeRight)
+        {
+            try
+            {
+                var a = from s in _db.Pol_UserRights
+
+                        join u in _db.Pol_Users on s.Pol_UserId equals u.Id
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+
+                        where s.Pol_UserId == userId
+                        select new
+                        {
+                            RightCode = r.Code,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+                            s.Only,
+                        };
+
+                var b = from s in _db.Pol_RoleRights
+
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+                        join ur in _db.Pol_UserRoles on s.Pol_RoleId equals ur.Pol_RoleId
+                        join u in _db.Pol_Users on ur.Pol_UserId equals u.Id
+
+                        where ur.Pol_User.Id == userId
+                        select new
+                        {
+                            RightCode = r.Code,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Full,
+                            s.None,
+                            s.Only,
+                        };
+
+                var res = a.Union(b).SingleOrDefault(s => s.RightCode == codeRight);
+
+                return new ZAction()
+                {
+                    Add = res.Add,
+                    Edit = res.Edit,
+                    Delete = res.Delete,
+                    Query = res.Query,
+                    Print = res.Print,
+                    Full = res.Full,
+                    None = res.None,
+                    Only = res.Only
+                };
+            }
+            catch { return null; }
+        }
     }
 }

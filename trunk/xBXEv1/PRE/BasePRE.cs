@@ -122,5 +122,33 @@ namespace PRE
 
             return tmp;
         }
+
+        /// <summary>
+        /// Show dialog design by Zng Tfy
+        /// </summary>
+        /// <param name="message">Message</param>
+        /// <param name="title">Title</param>
+        /// <returns>DialogResult</returns>
+        public static DialogResult Show(string message, string title, MessageBoxButtons button = MessageBoxButtons.OK)
+        {
+            using (var x = new FrmMessage() { Text = title })
+            {
+                x.lblMessage.Text = message;
+
+                if (button == MessageBoxButtons.OK)
+                {
+                    x.cmdCancel.Visible = false;
+                    x.cmdOk.Left = (x.ClientSize.Width - x.cmdOk.ClientSize.Width) / 2;
+                }
+                else
+                {
+                    x.cmdOk.Text = "&Có";
+                    x.cmdCancel.Text = "&Không";
+                }
+
+                x.ShowDialog();
+                return x.DialogResult;
+            }
+        }
     }
 }

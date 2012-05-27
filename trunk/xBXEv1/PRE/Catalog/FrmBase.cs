@@ -297,6 +297,62 @@ namespace PRE.Catalog
             }
         }
 
+        private bool _allowSave;
+        [Description("Hiển thị nút Lưu hay không")]
+        [DefaultValue(false)]
+        public bool AllowSave
+        {
+            get { return _allowSave; }
+            set
+            {
+                _allowSave = value;
+                if (!_allowSave) bbiSave.Visibility = BarItemVisibility.Never;
+                else bbiSave.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowCancel;
+        [Description("Hiển thị nút Huỷ hay không")]
+        [DefaultValue(false)]
+        public bool AllowCancel
+        {
+            get { return _allowCancel; }
+            set
+            {
+                _allowCancel = value;
+                if (!_allowCancel) bbiCancel.Visibility = BarItemVisibility.Never;
+                else bbiCancel.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowRefresh;
+        [Description("Hiển thị nút Cập nhật hay không")]
+        [DefaultValue(false)]
+        public bool AllowRefresh
+        {
+            get { return _allowRefresh; }
+            set
+            {
+                _allowRefresh = value;
+                if (!_allowRefresh) bbiRefresh.Visibility = BarItemVisibility.Never;
+                else bbiRefresh.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowFind;
+        [Description("Hiển thị nút Tìm hay không")]
+        [DefaultValue(false)]
+        public bool AllowFind
+        {
+            get { return _allowFind; }
+            set
+            {
+                _allowFind = value;
+                if (!_allowFind) bbiFind.Visibility = BarItemVisibility.Never;
+                else bbiFind.Visibility = BarItemVisibility.Always;
+            }
+        }
+
         private bool _allowPrint;
         [Description("Hiển thị nút In ấn hay không")]
         [DefaultValue(false)]

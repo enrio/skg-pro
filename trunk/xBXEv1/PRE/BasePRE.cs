@@ -5,6 +5,7 @@ using System.Linq;
 namespace PRE
 {
     using BLL;
+    using DAL.Entities;
     using Main;
     using Catalog;
     using System.Windows.Forms;
@@ -161,6 +162,14 @@ namespace PRE
         /// <param name="frm">FrmBase</param>
         public static void ShowForm(this FrmBase frm)
         {
+            var code = frm.GetType().Name;
+            var o = BaseBLL._pol_RightBLL.Select(code);
+            if (o == null)
+            {
+                o = new Pol_Right() { Code = code, Name = frm.Text, Descript = "" };
+                BaseBLL._pol_RightBLL.Insert(o);
+            }
+
             var z = frm.CheckRight();
             if (z != null) frm.Show();
             else frm.Dispose();

@@ -45,6 +45,8 @@ namespace BLL
             _pol_ActionBLL.Insert(o);
             o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 6 };
             _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "Only", Name = "Chỉ hiện", Descript = "Chỉ hiện quyền (form) này", Order = 8 };
+            _pol_ActionBLL.Insert(o);
         }
 
         static void CreatePol_Right()
@@ -107,25 +109,19 @@ namespace BLL
 
             var a = (Pol_User)_pol_UserBLL.Select("nvt");
             var b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Right");
-            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Only = true };
             _pol_UserRightBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("admin");
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Right");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
-
-            a = (Pol_User)_pol_UserBLL.Select("admin");
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Role");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
-
-            a = (Pol_User)_pol_UserBLL.Select("admin");
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_User");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
-
-            a = (Pol_User)_pol_UserBLL.Select("admin");
             b = (Pol_Right)_pol_RightBLL.Select("FrmTra_Kind");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);

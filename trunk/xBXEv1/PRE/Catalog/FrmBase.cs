@@ -254,9 +254,50 @@ namespace PRE.Catalog
         }
         #endregion
 
-        #region Cho phép
+        #region Cho phép ẩn/hiện các nút lệnh
+        private bool _allowAdd;
+        [Description("Hiển thị nút Thêm hay không")]
+        [DefaultValue(false)]
+        public bool AllowAdd
+        {
+            get { return _allowAdd; }
+            set
+            {
+                _allowAdd = value;
+                if (!_allowAdd) bbiAdd.Visibility = BarItemVisibility.Never;
+                else bbiAdd.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowEdit;
+        [Description("Hiển thị nút Sửa hay không")]
+        [DefaultValue(false)]
+        public bool AllowEdit
+        {
+            get { return _allowEdit; }
+            set
+            {
+                _allowEdit = value;
+                if (!_allowEdit) bbiEdit.Visibility = BarItemVisibility.Never;
+                else bbiEdit.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowDelete;
+        [Description("Hiển thị nút Xoá hay không")]
+        [DefaultValue(false)]
+        public bool AllowDelete
+        {
+            get { return _allowDelete; }
+            set
+            {
+                _allowDelete = value;
+                if (!_allowDelete) bbiDelete.Visibility = BarItemVisibility.Never;
+                else bbiDelete.Visibility = BarItemVisibility.Always;
+            }
+        }
+
         private bool _allowPrint;
-        [Category("FrmBase")]
         [Description("Hiển thị nút In ấn hay không")]
         [DefaultValue(false)]
         public bool AllowPrint
@@ -267,81 +308,6 @@ namespace PRE.Catalog
                 _allowPrint = value;
                 if (!_allowPrint) bbiPrint.Visibility = BarItemVisibility.Never;
                 else bbiPrint.Visibility = BarItemVisibility.Always;
-            }
-        }
-
-        private bool _allowQuery;
-        [Category("FrmBase")]
-        [Description("Hiển thị nút ? hay không")]
-        [DefaultValue(false)]
-        public bool AllowQuery
-        {
-            get { return _allowQuery; }
-            set
-            {
-                _allowQuery = value;
-                //if (!_allowQuery) item_Query.Visibility = BarItemVisibility.Never;
-                //else item_Query.Visibility = BarItemVisibility.Always;
-            }
-        }
-
-        private bool _allowRefresh;
-        [Category("FrmBase")]
-        [Description("Hiển thị nút Cập nhật hay không")]
-        [DefaultValue(false)]
-        public bool AllowRefresh
-        {
-            get { return _allowRefresh; }
-            set
-            {
-                _allowRefresh = value;
-                if (!_allowRefresh) bbiRefresh.Visibility = BarItemVisibility.Never;
-                else bbiRefresh.Visibility = BarItemVisibility.Always;
-            }
-        }
-
-        private bool _allowSelect;
-        [Category("FrmBase")]
-        [Description("Hiển thị nút chọn hay không")]
-        [DefaultValue(false)]
-        public bool AllowSelect
-        {
-            get { return _allowSelect; }
-            set
-            {
-                _allowSelect = value;
-                //if (!_allowSelect) item_Select.Visibility = BarItemVisibility.Never;
-                //else item_Select.Visibility = BarItemVisibility.Always;
-            }
-        }
-
-        private bool _allowTest;
-        [Category("FrmBase")]
-        [Description("Hiển thị nút Test hay không")]
-        [DefaultValue(false)]
-        public bool AllowTest
-        {
-            get { return _allowTest; }
-            set
-            {
-                _allowTest = value;
-                //if (!_allowTest) item_Test.Visibility = BarItemVisibility.Never;
-                //else item_Test.Visibility = BarItemVisibility.Always;
-            }
-        }
-
-        private bool _allowVerify;
-        [Category("FrmBase")]
-        [Description("Hiển thị nút Verify hay không")]
-        [DefaultValue(false)]
-        public bool AllowVerify
-        {
-            get { return _allowVerify; }
-            set
-            {
-                _allowVerify = value;
-                //if (!_allowVerify) item_Verify.Visibility = BarItemVisibility.Never;
-                //else item_Verify.Visibility = BarItemVisibility.Always;
             }
         }
         #endregion

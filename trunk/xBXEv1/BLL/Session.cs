@@ -23,6 +23,11 @@ namespace BLL
         public DateTime? Current { set; get; }
 
         /// <summary>
+        /// Quyền hiện tại của người dùng
+        /// </summary>
+        public ZAction _right;
+
+        /// <summary>
         /// Lấy quyền truy cập của người dùng
         /// </summary>
         /// <param name="codeRight">Mã quyền (tên form)</param>
@@ -31,7 +36,8 @@ namespace BLL
         {
             if (User != null)
             {
-                return BaseBLL._pol_UserBLL.GetRights(User.Id, codeRight);
+                _right = BaseBLL._pol_UserBLL.GetRights(User.Id, codeRight);
+                return _right;
             }
             else return null;
         }

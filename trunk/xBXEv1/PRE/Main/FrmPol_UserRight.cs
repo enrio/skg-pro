@@ -220,25 +220,65 @@ namespace PRE.Main
             ur.Only = (bool)e.Node.GetValue("Only");
         }
 
+        DataRow[] sdr = null;
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
-            if (e.Column.FieldName == "Select")
+            if (e.Node.HasChildren)
             {
-                if (e.Node.HasChildren)
-                {
-                    var id = (Guid)e.Node.GetValue("ParentID");
-                    var sl = String.Format("ParentID='{0}'", id);
-                    DataRow[] sdr = _dtb.Select(sl);
+                var id = (Guid)e.Node.GetValue("ParentID");
+                var sl = String.Format("ParentID='{0}'", id);
+                sdr = _dtb.Select(sl);
 
-                    if (sdr != null && sdr.Length > 0)
-                    {
-                        foreach (DataRow dr in sdr)
-                            dr["Select"] = e.Value;
-                    }
+                switch (e.Column.FieldName)
+                {
+                    case "Select":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Select"] = e.Value;
+                        break;
+
+                    case "Add":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Add"] = e.Value;
+                        break;
+
+                    case "Edit":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Edit"] = e.Value;
+                        break;
+
+                    case "Delete":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Delete"] = e.Value;
+                        break;
+
+                    case "Query":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Query"] = e.Value;
+                        break;
+
+                    case "Print":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Print"] = e.Value;
+                        break;
+
+                    case "Full":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Full"] = e.Value;
+                        break;
+
+                    case "None":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["None"] = e.Value;
+                        break;
+
+                    case "Only":
+                        if (this.sdr != null && this.sdr.Length > 0)
+                            foreach (DataRow dr in this.sdr) dr["Only"] = e.Value;
+                        break;
+
+                    default:
+                        break;
                 }
-            }
-            else // action name
-            {
             }
         }
     }

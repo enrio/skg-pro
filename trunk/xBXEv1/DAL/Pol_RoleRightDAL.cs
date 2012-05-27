@@ -31,11 +31,8 @@ namespace DAL
                 var a = from s in _db.Pol_RoleRights
                         select new
                         {
-                            CodeRight = s.Pol_Right.Code,
-                            CodeRole = s.Pol_Role.Code,
-
-                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
-                            ParentID = s.Pol_Right.Code,
+                            ID = s.Id,
+                            ParentID = s.Pol_Right.Id,
 
                             s.Add,
                             s.Edit,
@@ -52,11 +49,8 @@ namespace DAL
                 var b = from s in _db.Pol_Rights
                         select new
                         {
-                            CodeRight = s.Code,
-                            CodeRole = "",
-
-                            ID = s.Code + "",
-                            ParentID = s.Code,
+                            ID = s.Id,
+                            ParentID = s.Id,
 
                             Add = false,
                             Edit = false,
@@ -75,7 +69,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;
-                    //res = res.Where(s => s.Pol_RoleId == o.Pol_RoleId && s.Pol_RightId == o.Pol_RightId);
+                    res = res.Where(s => s.ID == (Guid)obj);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -104,7 +98,11 @@ namespace DAL
             try
             {
                 var o = (Pol_RoleRight)obj;
-                var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Pol_RoleId == o.Pol_RoleId && s.Pol_RightId == o.Pol_RightId);
+                var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Id == (Guid)obj);
+
+                res.Pol_RoleId = o.Pol_RoleId;
+                res.Pol_RightId = o.Pol_RightId;
+                res.Only = o.Only;
 
                 res.Add = o.Add;
                 res.Edit = o.Edit;
@@ -126,7 +124,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;
-                    var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Pol_RoleId == o.Pol_RoleId && s.Pol_RightId == o.Pol_RightId);
+                    var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Id == (Guid)obj);
                     _db.Pol_RoleRights.Remove(res);
                 }
                 else

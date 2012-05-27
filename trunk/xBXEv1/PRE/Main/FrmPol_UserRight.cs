@@ -95,9 +95,7 @@ namespace PRE.Main
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
-
-            trlMain.Enabled = isReadOnly;
+            trlMain.OptionsBehavior.Editable = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -106,8 +104,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Modified);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    o.Only = (bool)r["Only"];
+                    BaseBLL._pol_UserRightBLL.Update(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }
@@ -116,8 +131,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Added);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    //o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    o.Only = (bool)r["Only"];
+                    BaseBLL._pol_UserRightBLL.Insert(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }

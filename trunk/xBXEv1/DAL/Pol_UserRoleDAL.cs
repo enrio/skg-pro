@@ -67,7 +67,7 @@ namespace DAL
             try
             {
                 var o = (Pol_UserRole)obj;
-                var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == (Guid)obj);
+                var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Pol_UserId = o.Pol_UserId;
                 res.Pol_RoleId = o.Pol_RoleId;

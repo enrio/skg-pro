@@ -98,10 +98,10 @@ namespace DAL
             try
             {
                 var o = (Pol_UserRight)obj;
-                var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == (Guid)obj);
+                var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Pol_UserId = o.Pol_UserId;
-                res.Pol_RightId = o.Pol_RightId;
+                //res.Pol_UserId = o.Pol_UserId;
+                //res.Pol_RightId = o.Pol_RightId;
                 res.Only = o.Only;
 
                 res.Add = o.Add;

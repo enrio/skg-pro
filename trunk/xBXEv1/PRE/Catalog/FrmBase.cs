@@ -33,6 +33,10 @@ namespace PRE.Catalog
             CheckRight(this, true);
         }
 
+        /// <summary>
+        /// Kiểm tra quyền người dùng đăng nhập
+        /// </summary>
+        /// <returns>Quyền truy cập</returns>
         public ZAction CheckRight()
         {
             return CheckRight(this);

@@ -28,11 +28,12 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
+
+            CheckRight(this);
         }
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
-            CheckRight(this);
             ReadOnlyControl();
             PerformRefresh();
         }

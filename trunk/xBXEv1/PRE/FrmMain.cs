@@ -111,7 +111,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_Right() { MdiParent = this, Text = "Quyền hạn" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -124,7 +126,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_Role() { MdiParent = this, Text = "Vai trò" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -137,7 +141,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_User() { MdiParent = this, Text = "Người dùng" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -150,7 +156,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Group() { MdiParent = this, Text = "Nhóm xe" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -163,7 +171,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Kind() { MdiParent = this, Text = "Loại xe" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -176,7 +186,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Vehicle() { MdiParent = this, Text = "Danh sách xe" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -212,7 +224,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_UserRight() { MdiParent = this, Text = "FrmPol_UserRight" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -225,7 +239,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_RoleRight() { MdiParent = this, Text = "FrmPol_RoleRight" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }
@@ -238,7 +254,9 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_UserRole() { MdiParent = this, Text = "FrmPol_UserRole" };
-                frm.Show();
+                var lr = BasePRE._sss.LastRight;
+                if (lr == null || lr.Code == x.Name) frm.Show();
+                else frm.Dispose();
             }
             else frm.Activate();
         }

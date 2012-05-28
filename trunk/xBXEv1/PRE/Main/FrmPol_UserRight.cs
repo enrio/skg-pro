@@ -249,8 +249,15 @@ namespace PRE.Main
         }
 
         DataRow[] sdr = null;
+        /// <summary>
+        /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
+            var val = (bool)e.Value;
+
             if (e.Node.HasChildren)
             {
                 var id = (Guid)e.Node.GetValue("ParentID");
@@ -261,47 +268,71 @@ namespace PRE.Main
                 {
                     case "Select":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Select"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Select"] = val;
                         break;
 
                     case "Add":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Add"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Add"] = val;
                         break;
 
                     case "Edit":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Edit"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Edit"] = val;
                         break;
 
                     case "Delete":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Delete"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Delete"] = val;
                         break;
 
                     case "Query":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Query"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Query"] = val;
                         break;
 
                     case "Print":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Print"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Print"] = val;
                         break;
 
                     case "Full":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Full"] = e.Value;
+                            foreach (DataRow dr in this.sdr)
+                            {
+                                dr["Full"] = val;
+                                if (val)
+                                {
+                                    dr["None"] = false;
+                                    dr["Add"] = true;
+                                    dr["Edit"] = true;
+                                    dr["Delete"] = true;
+                                    dr["Query"] = true;
+                                    dr["Print"] = true;
+                                }
+                            }
                         break;
 
                     case "None":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["None"] = e.Value;
+                            foreach (DataRow dr in this.sdr)
+                            {
+                                dr["None"] = val;
+                                if (val)
+                                {
+                                    dr["Full"] = false;
+                                    dr["Add"] = false;
+                                    dr["Edit"] = false;
+                                    dr["Delete"] = false;
+                                    dr["Query"] = false;
+                                    dr["Print"] = false;
+                                }
+                            }
                         break;
 
                     case "Only":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Only"] = e.Value;
+                            foreach (DataRow dr in this.sdr) dr["Only"] = val;
                         break;
 
                     default:

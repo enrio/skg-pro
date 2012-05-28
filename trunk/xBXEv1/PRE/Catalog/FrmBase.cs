@@ -94,6 +94,14 @@ namespace PRE.Catalog
                     PerformFind();
                     break;
 
+                case "bbiCollapse":
+                    PerformCollapse();
+                    break;
+
+                case "bbiExpand":
+                    PerformExpand();
+                    break;
+
                 case "bbiPrint":
                     PerformPrint();
                     break;
@@ -198,6 +206,16 @@ namespace PRE.Catalog
         /// Perform when click print button
         /// </summary>
         protected virtual void PerformPrint() { }
+
+        /// <summary>
+        /// Perform when click collapse button
+        /// </summary>
+        protected virtual void PerformCollapse() { }
+
+        /// <summary>
+        /// Perform when click expand button
+        /// </summary>
+        protected virtual void PerformExpand() { }
 
         /// <summary>
         /// Reset all input control

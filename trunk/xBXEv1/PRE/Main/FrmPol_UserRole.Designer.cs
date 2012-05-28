@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -41,13 +41,18 @@
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit2)).BeginInit();
             this.SuspendLayout();
+            // 
+            // ricSelect
+            // 
+            this.ricSelect.AutoHeight = false;
+            this.ricSelect.Name = "ricSelect";
             // 
             // dockManager1
             // 
@@ -118,9 +123,6 @@
             // treeListColumn1
             // 
             this.treeListColumn1.Caption = "Chọn";
-            repositoryItemCheckEdit2.AutoHeight = false;
-            repositoryItemCheckEdit2.Name = "ricSelect";
-            this.treeListColumn1.ColumnEdit = repositoryItemCheckEdit2;
             this.treeListColumn1.FieldName = "Select";
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.Visible = true;
@@ -167,12 +169,12 @@
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(repositoryItemCheckEdit2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -190,5 +192,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ricSelect;
     }
 }

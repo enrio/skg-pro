@@ -53,6 +53,7 @@ namespace PRE
             // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)
 #if DEBUG
             rpgPermission.Visible = true;
+            bbiResetDB.Visibility = BarItemVisibility.Always;
 #else
             string acc = BasePRE._sss.User.Acc.ToUpper();
             if (acc == "ADMIN") rpgPermission.Visible = true;

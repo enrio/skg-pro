@@ -372,6 +372,7 @@
             this.bbiResetDB.Id = 21;
             this.bbiResetDB.LargeGlyph = global::PRE.Properties.Resources.db;
             this.bbiResetDB.Name = "bbiResetDB";
+            this.bbiResetDB.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiResetDB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetDB_ItemClick);
             // 
             // FrmMain

@@ -45,7 +45,8 @@ namespace DAL
                             Access = s.Access,
                             Select = false,
 
-                            UserName = s.Pol_User.Name
+                            Name = s.Pol_User.Name,
+                            Descript = "",
                         };
 
                 var b = from s in _db.Pol_Rights
@@ -65,7 +66,8 @@ namespace DAL
                             Access = false,
                             Select = false,
 
-                            UserName = s.Name
+                            Name = s.Name,
+                            Descript = s.Descript
                         };
 
                 var res = a.Union(b);
@@ -73,7 +75,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_UserRight)obj;
-                    res = res.Where(s => s.ID == (Guid)obj);
+                    res = res.Where(s => s.ID == o.Id);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -128,7 +130,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_UserRight)obj;
-                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == (Guid)obj);
+                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == o.Id);
                     _db.Pol_UserRights.Remove(res);
                 }
                 else

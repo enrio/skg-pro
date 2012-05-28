@@ -40,6 +40,7 @@
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -105,14 +106,15 @@
             this.treeListColumn1,
             this.treeListColumn2,
             this.treeListColumn3,
-            this.treeListColumn4});
+            this.treeListColumn4,
+            this.treeListColumn5});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
             this.trlMain.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ricSelect});
             this.trlMain.Size = new System.Drawing.Size(943, 276);
-            this.trlMain.TabIndex = 2;
+            this.trlMain.TabIndex = 5;
             // 
             // treeListColumn1
             // 
@@ -138,8 +140,8 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Chức năng/Nhóm";
-            this.treeListColumn3.FieldName = "RoleName";
+            this.treeListColumn3.Caption = "Chức năng (form) / Nhóm";
+            this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 2;
@@ -147,10 +149,16 @@
             // treeListColumn4
             // 
             this.treeListColumn4.Caption = "Mô tả";
-            this.treeListColumn4.FieldName = "RoleDescript";
+            this.treeListColumn4.FieldName = "Descript";
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 3;
+            // 
+            // treeListColumn5
+            // 
+            this.treeListColumn5.Caption = "Format";
+            this.treeListColumn5.FieldName = "Format";
+            this.treeListColumn5.Name = "treeListColumn5";
             // 
             // FrmPol_RoleRight
             // 
@@ -186,5 +194,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
     }
 }

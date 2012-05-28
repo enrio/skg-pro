@@ -33,6 +33,7 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_Right.Id,
+                            Format = false,
 
                             s.Add,
                             s.Edit,
@@ -44,8 +45,8 @@ namespace DAL
                             Access = s.Access,
                             Select = false,
 
-                            RoleName = s.Pol_Role.Name,
-                            RoleDescript = s.Pol_Role.Descript
+                            Name = s.Pol_Role.Name,
+                            Descript = s.Pol_Role.Descript
                         };
 
                 var b = from s in _db.Pol_Rights
@@ -53,6 +54,7 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Id,
+                            Format = true,
 
                             Add = false,
                             Edit = false,
@@ -64,8 +66,8 @@ namespace DAL
                             Access = false,
                             Select = false,
 
-                            RoleName = s.Name,
-                            RoleDescript = s.Descript
+                            s.Name,
+                            s.Descript
                         };
 
                 var res = a.Union(b);
@@ -73,7 +75,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;
-                    res = res.Where(s => s.ID == (Guid)obj);
+                    res = res.Where(s => s.ID == o.Id);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -128,7 +130,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_RoleRight)obj;
-                    var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Id == (Guid)obj);
+                    var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Id == o.Id);
                     _db.Pol_RoleRights.Remove(res);
                 }
                 else

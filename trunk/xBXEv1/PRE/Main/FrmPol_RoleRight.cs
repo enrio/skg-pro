@@ -12,6 +12,8 @@ namespace PRE.Main
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Columns;
+    using DevExpress.XtraTreeList.StyleFormatConditions;
+    using System.Drawing.Drawing2D;
 
     public partial class FrmPol_RoleRight : PRE.Catalog.FrmBase
     {
@@ -19,13 +21,20 @@ namespace PRE.Main
         {
             InitializeComponent();
 
+            AllowCollapse = true;
+            AllowExpand = true;
+
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
 
+            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
+            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
+
             AddTreeListColumns();
+            FormatRows();
         }
 
         #region Override
@@ -95,9 +104,7 @@ namespace PRE.Main
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
-
-            trlMain.Enabled = isReadOnly;
+            trlMain.OptionsBehavior.Editable = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -106,8 +113,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Modified);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    BaseBLL._pol_UserRightBLL.Update(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }
@@ -116,8 +140,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Added);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    //o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    BaseBLL._pol_UserRightBLL.Insert(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }
@@ -139,8 +180,44 @@ namespace PRE.Main
         {
             return base.ValidInput();
         }
+
+        protected override void PerformCollapse()
+        {
+            trlMain.CollapseAll();
+
+            base.PerformCollapse();
+        }
+
+        protected override void PerformExpand()
+        {
+            trlMain.ExpandAll();
+
+            base.PerformExpand();
+        }
         #endregion
 
+        /// <summary>
+        /// Định dạng in đậm, màu dòng cấp cha
+        /// </summary>
+        void FormatRows()
+        {
+            var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
+                trlMain.Columns["Format"], null, true, true, true);
+
+            sfc.Appearance.BackColor = Color.Orange;
+            sfc.Appearance.BackColor2 = Color.Yellow;
+            sfc.Appearance.GradientMode = LinearGradientMode.BackwardDiagonal;
+
+            var f = new Font(Font, FontStyle.Bold);
+            sfc.Appearance.Font = f;
+            sfc.Appearance.ForeColor = Color.Blue;
+
+            trlMain.FormatConditions.Add(sfc);
+        }
+
+        /// <summary>
+        /// Thêm các cột quyền truy cập (Thêm, Sửa, Xoá, ...)
+        /// </summary>
         void AddTreeListColumns()
         {
             try
@@ -168,6 +245,185 @@ namespace PRE.Main
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "");
+            }
+        }
+
+        private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            //if (e.Node == null) return;
+
+            //var ur = new Pol_UserRight();
+            //var ParentID = (Guid)e.Node.GetValue("ParentID");
+            //ur.Id = (Guid)e.Node.GetValue("ID");
+            //ur.Add = (bool)e.Node.GetValue("Add");
+            //ur.Edit = (bool)e.Node.GetValue("Edit");
+            //ur.Delete = (bool)e.Node.GetValue("Delete");
+            //ur.Query = (bool)e.Node.GetValue("Query");
+            //ur.Print = (bool)e.Node.GetValue("Print");
+            //ur.Access = (bool)e.Node.GetValue("Access");
+            //ur.Full = (bool)e.Node.GetValue("Full");
+            //ur.None = (bool)e.Node.GetValue("None");
+        }
+
+        /// <summary>
+        /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
+        {
+            var val = (bool)e.Value;
+
+            if (e.Node.HasChildren) // khi click dòng cha
+            {
+                var id = (Guid)e.Node.GetValue("ParentID");
+                var sl = String.Format("ParentID='{0}'", id);
+                DataRow[] sdr = _dtb.Select(sl);
+
+                switch (e.Column.FieldName)
+                {
+                    case "Select":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Select"] = val;
+                        break;
+
+                    case "Add":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Add"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Edit":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Edit"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            };
+                        break;
+
+                    case "Delete":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Delete"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Query":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Query"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Print":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Print"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Access":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Access"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Full":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Full"] = val;
+                                if (val)
+                                {
+                                    dr["None"] = false;
+                                    dr["Add"] = true;
+                                    dr["Edit"] = true;
+                                    dr["Delete"] = true;
+                                    dr["Query"] = true;
+                                    dr["Print"] = true;
+                                    dr["Access"] = true;
+                                }
+                            }
+                        break;
+
+                    case "None":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["None"] = val;
+                                if (val)
+                                {
+                                    dr["Full"] = false;
+                                    dr["Add"] = false;
+                                    dr["Edit"] = false;
+                                    dr["Delete"] = false;
+                                    dr["Query"] = false;
+                                    dr["Print"] = false;
+                                    dr["Access"] = false;
+                                }
+                            }
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            else // khi click dòng con
+            {
+                switch (e.Column.FieldName)
+                {
+                    case "Full":
+                        if (val)
+                        {
+                            e.Node.SetValue("Add", true);
+                            e.Node.SetValue("Edit", true);
+                            e.Node.SetValue("Delete", true);
+                            e.Node.SetValue("Query", true);
+                            e.Node.SetValue("Query", true);
+                            e.Node.SetValue("Print", true);
+                            e.Node.SetValue("Access", true);
+                            e.Node.SetValue("None", false);
+                        }
+                        break;
+
+                    case "None":
+                        if (val)
+                        {
+                            e.Node.SetValue("Add", false);
+                            e.Node.SetValue("Edit", false);
+                            e.Node.SetValue("Delete", false);
+                            e.Node.SetValue("Query", false);
+                            e.Node.SetValue("Query", false);
+                            e.Node.SetValue("Print", false);
+                            e.Node.SetValue("Access", false);
+                            e.Node.SetValue("Full", false);
+                        }
+                        break;
+
+                    default:
+                        e.Node.SetValue("Full", false);
+                        e.Node.SetValue("None", false);
+                        break;
+                }
             }
         }
     }

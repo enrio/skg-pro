@@ -56,12 +56,18 @@ namespace PRE.Main
 
         protected override void PerformDelete()
         {
-            var oki = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE, MessageBoxButtons.OKCancel);
-            if (oki == DialogResult.OK)
+            var tb = _dtb.GetChanges(DataRowState.Modified);
+            if (tb == null) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else
             {
-                var dtr = _dtb.GetChanges(DataRowState.Modified).Select("Format=False");
-                foreach (DataRow r in dtr) _bll.Delete((Guid)r["ID"]);
-                PerformRefresh();
+                var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
+                    MessageBoxButtons.OKCancel);
+                if (res == DialogResult.OK)
+                {
+                    var dtr = tb.Select("Format=False");
+                    foreach (DataRow r in dtr) _bll.Delete((Guid)r["ID"]);
+                    PerformRefresh();
+                }
             }
 
             base.PerformDelete();

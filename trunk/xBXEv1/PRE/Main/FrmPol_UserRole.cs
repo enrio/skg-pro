@@ -41,11 +41,9 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.OptionsBehavior.Editable = false;
+
             _bll = new Pol_UserRoleBLL();
-
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
-
             FormatRows();
         }
 
@@ -57,23 +55,20 @@ namespace PRE.Main
 
         protected override void PerformEdit()
         {
-            trlMain.OptionsBehavior.Editable = true;
-
             base.PerformEdit();
         }
 
         protected override void PerformDelete()
         {
-            if (_id != new Guid())
-            {
-                var cfm = String.Format(STR_CONFIRM, _info);
-                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+            var cfm = String.Format(STR_CONFIRM, _info);
+            var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
-                if (oki == DialogResult.OK)
-                    if (_bll.Delete(_id) != null) PerformRefresh();
-                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            if (oki == DialogResult.OK)
+            {
+                var dtr = _dtb.GetChanges(DataRowState.Modified).Select("Format=False");
+                foreach (DataRow r in dtr) _bll.Delete((Guid)r["ID"]);
+                PerformRefresh();
             }
-            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 
             base.PerformDelete();
         }

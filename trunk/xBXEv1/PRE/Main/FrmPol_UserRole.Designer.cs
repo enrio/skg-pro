@@ -133,6 +133,7 @@
             this.treeListColumn2.Caption = "STT";
             this.treeListColumn2.FieldName = "No_";
             this.treeListColumn2.Name = "treeListColumn2";
+            this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
             this.treeListColumn2.VisibleIndex = 1;
             // 
@@ -141,6 +142,7 @@
             this.treeListColumn3.Caption = "Nhóm / Họ tên";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
+            this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 2;
             // 
@@ -149,6 +151,7 @@
             this.treeListColumn4.Caption = "Mô tả";
             this.treeListColumn4.FieldName = "Descript";
             this.treeListColumn4.Name = "treeListColumn4";
+            this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 3;
             // 

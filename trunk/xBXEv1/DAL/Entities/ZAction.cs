@@ -56,6 +56,7 @@ namespace DAL.Entities
                     Delete = value;
                     Query = value;
                     Print = value;
+                    Access = value;
                     None = !value;
                 }
             }
@@ -79,6 +80,7 @@ namespace DAL.Entities
                     Delete = !value;
                     Query = !value;
                     Print = !value;
+                    Access = !value;
                     Full = !value;
                 }
             }

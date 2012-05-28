@@ -49,6 +49,7 @@
             this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
+            this.bbiPol_UserRole = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -63,7 +64,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bbiPol_UserRole = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -143,7 +143,7 @@
             // 
             // bbiPol_Right
             // 
-            this.bbiPol_Right.Caption = "&Quyền hạn";
+            this.bbiPol_Right.Caption = "Chức năng (form)";
             this.bbiPol_Right.Id = 5;
             this.bbiPol_Right.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiPol_Right.Name = "bbiPol_Right";
@@ -151,7 +151,7 @@
             // 
             // bbiPol_Role
             // 
-            this.bbiPol_Role.Caption = "&Vai trò";
+            this.bbiPol_Role.Caption = "Nhóm người dùng";
             this.bbiPol_Role.Id = 6;
             this.bbiPol_Role.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiPol_Role.Name = "bbiPol_Role";
@@ -159,7 +159,7 @@
             // 
             // bbiPol_User
             // 
-            this.bbiPol_User.Caption = "&Người dùng";
+            this.bbiPol_User.Caption = "Người sử dụng";
             this.bbiPol_User.Id = 7;
             this.bbiPol_User.LargeGlyph = global::PRE.Properties.Resources.user;
             this.bbiPol_User.Name = "bbiPol_User";
@@ -202,7 +202,7 @@
             // 
             // bbiTra_Group
             // 
-            this.bbiTra_Group.Caption = "&Nhóm xe";
+            this.bbiTra_Group.Caption = "Danh mục nhóm xe";
             this.bbiTra_Group.Id = 13;
             this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiTra_Group.Name = "bbiTra_Group";
@@ -210,7 +210,7 @@
             // 
             // bbiTra_Kind
             // 
-            this.bbiTra_Kind.Caption = "&Loại xe";
+            this.bbiTra_Kind.Caption = "Danh mục loại xe";
             this.bbiTra_Kind.Id = 14;
             this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiTra_Kind.Name = "bbiTra_Kind";
@@ -218,7 +218,7 @@
             // 
             // bbiTra_Vehicle
             // 
-            this.bbiTra_Vehicle.Caption = "&Xe cộ";
+            this.bbiTra_Vehicle.Caption = "Danh mục xe cộ";
             this.bbiTra_Vehicle.Id = 15;
             this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.palette;
             this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
@@ -253,6 +253,14 @@
             this.bsiTimer.Id = 19;
             this.bsiTimer.Name = "bsiTimer";
             this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bbiPol_UserRole
+            // 
+            this.bbiPol_UserRole.Caption = "Pol_UserRole";
+            this.bbiPol_UserRole.Id = 20;
+            this.bbiPol_UserRole.LargeGlyph = global::PRE.Properties.Resources.users;
+            this.bbiPol_UserRole.Name = "bbiPol_UserRole";
+            this.bbiPol_UserRole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_UserRole_ItemClick);
             // 
             // rbpMain
             // 
@@ -355,14 +363,6 @@
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
-            // 
-            // bbiPol_UserRole
-            // 
-            this.bbiPol_UserRole.Caption = "Pol_UserRole";
-            this.bbiPol_UserRole.Id = 20;
-            this.bbiPol_UserRole.LargeGlyph = global::PRE.Properties.Resources.users;
-            this.bbiPol_UserRole.Name = "bbiPol_UserRole";
-            this.bbiPol_UserRole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_UserRole_ItemClick);
             // 
             // FrmMain
             // 

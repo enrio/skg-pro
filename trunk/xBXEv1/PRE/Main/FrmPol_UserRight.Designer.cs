@@ -142,7 +142,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Nhóm/Họ tên";
+            this.treeListColumn3.Caption = "Chức năng (form) / Họ tên";
             this.treeListColumn3.FieldName = "UserName";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;

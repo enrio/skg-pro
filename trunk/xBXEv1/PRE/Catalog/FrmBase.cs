@@ -30,7 +30,9 @@ namespace PRE.Catalog
         {
             InitializeComponent();
 
+#if !DEBUG
             CheckRight(this, true);
+#endif
         }
 
         /// <summary>

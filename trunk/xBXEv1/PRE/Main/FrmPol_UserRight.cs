@@ -290,27 +290,62 @@ namespace PRE.Main
 
                     case "Add":
                         if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Add"] = val;
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Add"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
                         break;
 
                     case "Edit":
                         if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Edit"] = val;
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Edit"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            };
                         break;
 
                     case "Delete":
                         if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Delete"] = val;
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Delete"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
                         break;
 
                     case "Query":
                         if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Query"] = val;
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Query"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
                         break;
 
                     case "Print":
                         if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Print"] = val;
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Print"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
+                    case "Access":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Access"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
                         break;
 
                     case "Full":
@@ -347,11 +382,6 @@ namespace PRE.Main
                                     dr["Access"] = false;
                                 }
                             }
-                        break;
-
-                    case "Access":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Access"] = val;
                         break;
 
                     default:
@@ -391,6 +421,8 @@ namespace PRE.Main
                         break;
 
                     default:
+                        e.Node.SetValue("Full", false);
+                        e.Node.SetValue("None", false);
                         break;
                 }
             }

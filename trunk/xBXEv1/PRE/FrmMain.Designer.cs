@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -62,8 +61,9 @@
             this.rpgInformation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgUse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.tmrMain = new System.Windows.Forms.Timer();
+            this.bbiResetDB = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -97,9 +97,10 @@
             this.bsiServer,
             this.bsiUser,
             this.bsiTimer,
-            this.bbiPol_UserRole});
+            this.bbiPol_UserRole,
+            this.bbiResetDB});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 21;
+            this.ribbon.MaxItemId = 22;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -285,6 +286,7 @@
             this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRight);
             this.rpgPermission.ItemLinks.Add(this.bbiPol_RoleRight);
             this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRole);
+            this.rpgPermission.ItemLinks.Add(this.bbiResetDB);
             this.rpgPermission.Name = "rpgPermission";
             this.rpgPermission.Text = "&Phân quyền";
             // 
@@ -364,6 +366,14 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
+            // bbiResetDB
+            // 
+            this.bbiResetDB.Caption = "Tạo lại DB";
+            this.bbiResetDB.Id = 21;
+            this.bbiResetDB.LargeGlyph = global::PRE.Properties.Resources.db;
+            this.bbiResetDB.Name = "bbiResetDB";
+            this.bbiResetDB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetDB_ItemClick);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -421,5 +431,6 @@
         private DevExpress.XtraBars.BarStaticItem bsiUser;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
         private DevExpress.XtraBars.BarButtonItem bbiPol_UserRole;
+        private DevExpress.XtraBars.BarButtonItem bbiResetDB;
     }
 }

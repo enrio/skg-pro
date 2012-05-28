@@ -249,6 +249,11 @@ namespace PRE
                 BasePRE._sss.Current = BasePRE._sss.Current.Value.AddSeconds(1);
             }
         }
+
+        private void bbiResetDB_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BLL.BaseBLL.CreateData(true);
+        }
         #endregion
     }
 }

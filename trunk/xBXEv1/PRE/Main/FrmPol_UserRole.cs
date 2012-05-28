@@ -22,7 +22,7 @@ namespace PRE.Main
         private const string STR_DELETE = "Xoá người dùng trong nhóm";
 
         private const string STR_SELECT = "Chọn người dùng!";
-        private const string STR_CONFIRM = "Có xoá người dùng '{0}' ra khỏi nhóm không?";
+        private const string STR_CONFIRM = "Có xoá '{0}'\nra khỏi nhóm không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Người dùng đã có trong nhóm";
         private const string STR_EMPTY = "Chưa nhập [{0}]";
@@ -51,7 +51,7 @@ namespace PRE.Main
         #region Override
         protected override void PerformDelete()
         {
-            var cfm = String.Format(STR_CONFIRM, "???");
+            var cfm = String.Format(STR_CONFIRM, _info);
             var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
             if (oki == DialogResult.OK)
@@ -240,7 +240,10 @@ namespace PRE.Main
         {
             if (e.Node == null) return;
             if (!e.Node.HasChildren) // khi click dòng con
+            {
                 _id = (Guid)e.Node.GetValue("ID");
+                _info = e.Node.GetValue("Name") + "";
+            }
         }
     }
 }

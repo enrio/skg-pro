@@ -258,7 +258,7 @@ namespace PRE.Main
         {
             var val = (bool)e.Value;
 
-            if (e.Node.HasChildren)
+            if (e.Node.HasChildren) // khi click dòng cha
             {
                 var id = (Guid)e.Node.GetValue("ParentID");
                 var sl = String.Format("ParentID='{0}'", id);
@@ -333,6 +333,38 @@ namespace PRE.Main
                     case "Only":
                         if (this.sdr != null && this.sdr.Length > 0)
                             foreach (DataRow dr in this.sdr) dr["Only"] = val;
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+            else // khi click dòng con
+            {
+                switch (e.Column.FieldName)
+                {
+                    case "Full":
+                        if (val)
+                        {
+                            e.Node.SetValue("Add", true);
+                            e.Node.SetValue("Edit", true);
+                            e.Node.SetValue("Delete", true);
+                            e.Node.SetValue("Query", true);
+                            e.Node.SetValue("Query", true);
+                            e.Node.SetValue("Print", true);
+                        }
+                        break;
+
+                    case "None":
+                        if (val)
+                        {
+                            e.Node.SetValue("Add", false);
+                            e.Node.SetValue("Edit", false);
+                            e.Node.SetValue("Delete", false);
+                            e.Node.SetValue("Query", false);
+                            e.Node.SetValue("Query", false);
+                            e.Node.SetValue("Print", false);
+                        }
                         break;
 
                     default:

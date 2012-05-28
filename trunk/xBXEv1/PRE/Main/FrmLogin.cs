@@ -50,6 +50,10 @@ namespace PRE.Main
         public FrmLogin()
         {
             InitializeComponent();
+
+#if DEBUG
+            txtUser.Text = "admin";
+#endif
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)

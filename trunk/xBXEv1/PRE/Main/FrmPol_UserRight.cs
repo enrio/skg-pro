@@ -265,7 +265,6 @@ namespace PRE.Main
             //ur.None = (bool)e.Node.GetValue("None");
         }
 
-        DataRow[] sdr;
         /// <summary>
         /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
         /// </summary>
@@ -279,7 +278,7 @@ namespace PRE.Main
             {
                 var id = (Guid)e.Node.GetValue("ParentID");
                 var sl = String.Format("ParentID='{0}'", id);
-                sdr = _dtb.Select(sl);
+                DataRow[] sdr = _dtb.Select(sl);
 
                 switch (e.Column.FieldName)
                 {

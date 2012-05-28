@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -115,6 +114,8 @@
             this.ricSelect});
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;
+            this.trlMain.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterFocusNode);
+            this.trlMain.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.trlMain_CellValueChanging);
             // 
             // treeListColumn1
             // 

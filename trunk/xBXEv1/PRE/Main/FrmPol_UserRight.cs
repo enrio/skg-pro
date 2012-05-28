@@ -265,7 +265,7 @@ namespace PRE.Main
             //ur.None = (bool)e.Node.GetValue("None");
         }
 
-        DataRow[] sdr = null;
+        DataRow[] sdr;
         /// <summary>
         /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
         /// </summary>
@@ -284,38 +284,38 @@ namespace PRE.Main
                 switch (e.Column.FieldName)
                 {
                     case "Select":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Select"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Select"] = val;
                         break;
 
                     case "Add":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Add"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Add"] = val;
                         break;
 
                     case "Edit":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Edit"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Edit"] = val;
                         break;
 
                     case "Delete":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Delete"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Delete"] = val;
                         break;
 
                     case "Query":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Query"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Query"] = val;
                         break;
 
                     case "Print":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Print"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Print"] = val;
                         break;
 
                     case "Full":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr)
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
                             {
                                 dr["Full"] = val;
                                 if (val)
@@ -332,8 +332,8 @@ namespace PRE.Main
                         break;
 
                     case "None":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr)
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
                             {
                                 dr["None"] = val;
                                 if (val)
@@ -350,8 +350,8 @@ namespace PRE.Main
                         break;
 
                     case "Access":
-                        if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Access"] = val;
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Access"] = val;
                         break;
 
                     default:

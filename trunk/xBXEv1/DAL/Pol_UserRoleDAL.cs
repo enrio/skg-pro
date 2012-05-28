@@ -36,7 +36,7 @@ namespace DAL
                             Format = false,
                             Select = false,
                             Name = s.Pol_User.Name,
-                            Descript = s.Pol_User.Descript,
+                            Descript = s.Pol_User.Acc,
                         };
 
                 var b = from s in _db.Pol_Roles

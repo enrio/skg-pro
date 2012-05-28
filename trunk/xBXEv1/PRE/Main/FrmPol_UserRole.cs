@@ -57,6 +57,8 @@ namespace PRE.Main
 
         protected override void PerformEdit()
         {
+            trlMain.OptionsBehavior.Editable = true;
+
             base.PerformEdit();
         }
 

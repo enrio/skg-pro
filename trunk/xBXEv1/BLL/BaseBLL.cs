@@ -59,7 +59,11 @@ namespace BLL
             _pol_RightBLL.Insert(o);
             o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Danh mục người dùng" };
             _pol_RightBLL.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_UserRight", Name = "Quyền người dùng", Descript = "Form quyền người dùng" };
+            o = new Pol_Right() { Code = "FrmPol_UserRight", Name = "Quyền người sử dụng", Descript = "Form quyền người sử dụng" };
+            _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Code = "FrmPol_RoleRight", Name = "Nhóm quyền người dùng", Descript = "Form nhóm quyền người dùng" };
+            _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Code = "FrmPol_UserRole", Name = "Phân quyền cho nhóm người", Descript = "Form phân quyền cho nhóm người" };
             _pol_RightBLL.Insert(o);
 
             o = new Pol_Right() { Code = "FrmTra_Kind", Name = "Loại xe", Descript = "Danh mục loại xe" };
@@ -130,6 +134,12 @@ namespace BLL
             _pol_UserRightBLL.Insert(o);
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_UserRight");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Access = true };
+            _pol_UserRightBLL.Insert(o);
+            b = (Pol_Right)_pol_RightBLL.Select("FrmPol_RoleRight");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Access = true };
+            _pol_UserRightBLL.Insert(o);
+            b = (Pol_Right)_pol_RightBLL.Select("FrmPol_UserRole");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
 
             b = (Pol_Right)_pol_RightBLL.Select("FrmTra_Kind");

@@ -42,7 +42,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            Access = s.Access,
+                            s.Access,
                             Select = false,
 
                             Name = s.Pol_Right.Name,

@@ -381,5 +381,47 @@ namespace PRE.Catalog
             }
         }
         #endregion
+
+        #region Dành cho form phân quyền
+        /// <summary>
+        /// Thu gọn tất cả cây
+        /// </summary>
+        public bool AllowCollapse
+        {
+            get { return _allowFind; }
+            set
+            {
+                if (value)
+                {
+                    bbiFind.LargeGlyph = Properties.Resources.add;
+                    bbiFind.Caption = "Thu &gọn";
+                }
+
+                _allowFind = value;
+                if (!_allowFind) bbiFind.Visibility = BarItemVisibility.Never;
+                else bbiFind.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        /// <summary>
+        /// Mở rộng tất cả cây
+        /// </summary>
+        public bool AllowExpand
+        {
+            get { return _allowPrint; }
+            set
+            {
+                if (value)
+                {
+                    bbiPrint.LargeGlyph = Properties.Resources.edit;
+                    bbiPrint.Caption = "Mở &rộng";
+                }
+
+                _allowPrint = value;
+                if (!_allowPrint) bbiPrint.Visibility = BarItemVisibility.Never;
+                else bbiPrint.Visibility = BarItemVisibility.Always;
+            }
+        }
+        #endregion
     }
 }

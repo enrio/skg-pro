@@ -17,6 +17,18 @@ namespace PRE.Main
 
     public partial class FrmPol_UserRole : PRE.Catalog.FrmBase
     {
+        private const string STR_ADD = "Thêm người dùng vào nhóm";
+        private const string STR_EDIT = "Sửa người dùng vào nhóm";
+        private const string STR_DELETE = "Xoá người dùng trong nhóm";
+
+        private const string STR_SELECT = "Chọn người dùng!";
+        private const string STR_CONFIRM = "Có xoá người dùng '{0}' ra khỏi nhóm không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Người dùng đã có trong nhóm";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
+
+        //private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+
         public FrmPol_UserRole()
         {
             InitializeComponent();
@@ -39,7 +51,12 @@ namespace PRE.Main
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = trlMain.GetFocusedRowCellValue("Id") + "";
+            var cfm = String.Format(STR_CONFIRM, "???");
+            var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+            if (oki == DialogResult.OK)
+                if (_bll.Delete(_id) != null) PerformRefresh();
+                else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
 
             base.PerformDelete();
         }
@@ -212,6 +229,18 @@ namespace PRE.Main
             sfc.Appearance.ForeColor = Color.Blue;
 
             trlMain.FormatConditions.Add(sfc);
+        }
+
+        /// <summary>
+        /// Lấy Id hiện tại
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            if (e.Node == null) return;
+            if (!e.Node.HasChildren) // khi click dòng con
+                _id = (Guid)e.Node.GetValue("ID");
         }
     }
 }

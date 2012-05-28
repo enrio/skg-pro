@@ -20,11 +20,30 @@ namespace PRE.Catalog
     /// </summary>
     public partial class FrmBase : XtraForm
     {
+        /// <summary>
+        /// Các trạng thái của form nhập liệu
+        /// </summary>
         public enum State { View, Add, Edit, Delete, Save, Cancel, }
 
+        /// <summary>
+        /// Truy xuất dữ liệu cơ bản
+        /// </summary>
         protected UTL.IBaseDAL _bll;
+
+        /// <summary>
+        /// Bảng rỗng mặc định
+        /// </summary>
         protected DataTable _dtb = new DataTable("Tmp");
+
+        /// <summary>
+        /// Trạng thái form
+        /// </summary>
         protected State _state;
+
+        /// <summary>
+        /// Id hiện tại
+        /// </summary>
+        protected Guid _id;
 
         public FrmBase()
         {

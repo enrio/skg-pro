@@ -114,6 +114,7 @@
             this.ricSelect});
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;
+            this.trlMain.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterFocusNode);
             // 
             // treeListColumn1
             // 

@@ -49,14 +49,28 @@ namespace PRE.Main
         }
 
         #region Override
+        protected override void PerformAdd()
+        {
+            base.PerformAdd();
+        }
+
+        protected override void PerformEdit()
+        {
+            base.PerformEdit();
+        }
+
         protected override void PerformDelete()
         {
-            var cfm = String.Format(STR_CONFIRM, _info);
-            var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+            if (_id != new Guid())
+            {
+                var cfm = String.Format(STR_CONFIRM, _info);
+                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
-            if (oki == DialogResult.OK)
-                if (_bll.Delete(_id) != null) PerformRefresh();
-                else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+                if (oki == DialogResult.OK)
+                    if (_bll.Delete(_id) != null) PerformRefresh();
+                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            }
+            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 
             base.PerformDelete();
         }
@@ -120,7 +134,7 @@ namespace PRE.Main
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            trlMain.OptionsBehavior.Editable = true;
+            //trlMain.OptionsBehavior.Editable = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -241,8 +255,13 @@ namespace PRE.Main
             if (e.Node == null) return;
             if (!e.Node.HasChildren) // khi click dòng con
             {
-                _id = (Guid)e.Node.GetValue("ID");
                 _info = e.Node.GetValue("Name") + "";
+                _id = (Guid)e.Node.GetValue("ID");
+            }
+            else
+            {
+                _info = null;
+                _id = new Guid();
             }
         }
     }

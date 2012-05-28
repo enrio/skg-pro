@@ -89,17 +89,14 @@ namespace PRE.Catalog
                     break;
 
                 case "bbiDelete":
-                    _state = State.Delete;
                     PerformDelete();
                     break;
 
                 case "bbiSave":
-                    _state = State.Save;
                     PerformSave();
                     break;
 
                 case "bbiCancel":
-                    _state = State.Cancel;
                     PerformCancel();
                     break;
 

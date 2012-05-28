@@ -365,7 +365,7 @@ namespace PRE.Main
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Print", false);
-                            e.Node.SetValue("Full", true);
+                            e.Node.SetValue("Full", false);
                         }
                         break;
 

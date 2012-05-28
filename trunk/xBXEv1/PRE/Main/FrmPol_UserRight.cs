@@ -352,6 +352,7 @@ namespace PRE.Main
                             e.Node.SetValue("Query", true);
                             e.Node.SetValue("Query", true);
                             e.Node.SetValue("Print", true);
+                            e.Node.SetValue("None", false);
                         }
                         break;
 
@@ -364,6 +365,7 @@ namespace PRE.Main
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Print", false);
+                            e.Node.SetValue("Full", true);
                         }
                         break;
 

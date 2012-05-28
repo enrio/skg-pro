@@ -27,6 +27,9 @@ namespace PRE.Main
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRightBLL();
 
+            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
+            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
+
             AddTreeListColumns();
             FormatRows();
         }

@@ -17,6 +17,6 @@ namespace UTL
         DataTable Select(object obj = null, int skip = 0, int take = 0);
         object Insert(object obj);
         object Update(object obj);
-        object Delete(object obj = null);
+        object Delete(Guid id = new Guid());
     }
 }

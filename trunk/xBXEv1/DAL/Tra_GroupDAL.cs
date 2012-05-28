@@ -71,13 +71,13 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public object Delete(object obj = null)
+        public object Delete(Guid id = new Guid())
         {
             try
             {
-                if (obj != null)
+                if (id != new Guid())
                 {
-                    var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == (Guid)obj);
+                    var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == id);
                     _db.Tra_Groups.Remove(res);
                 }
                 else

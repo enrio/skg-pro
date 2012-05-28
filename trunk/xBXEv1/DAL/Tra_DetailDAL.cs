@@ -74,14 +74,13 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public object Delete(object obj = null)
+        public object Delete(Guid id = new Guid())
         {
             try
             {
-                if (obj != null)
+                if (id != new Guid())
                 {
-                    var o = (Tra_Detail)obj;
-                    var res = _db.Tra_Details.SingleOrDefault(s => s.Tra_VehicleId == o.Tra_VehicleId && s.Pol_UserInId == o.Pol_UserInId && s.Pol_UserOutId == o.Pol_UserOutId);
+                    var res = _db.Tra_Details.SingleOrDefault(s => s.Id == id);
                     _db.Tra_Details.Remove(res);
                 }
                 else

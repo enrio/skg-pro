@@ -123,14 +123,13 @@ namespace DAL
             catch { return null; }
         }
 
-        public object Delete(object obj = null)
+        public object Delete(Guid id = new Guid())
         {
             try
             {
-                if (obj != null)
+                if (id != new Guid())
                 {
-                    var o = (Pol_UserRight)obj;
-                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == o.Id);
+                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == id);
                     _db.Pol_UserRights.Remove(res);
                 }
                 else

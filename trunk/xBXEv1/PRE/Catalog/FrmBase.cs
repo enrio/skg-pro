@@ -40,16 +40,6 @@ namespace PRE.Catalog
         /// </summary>
         protected State _state;
 
-        /// <summary>
-        /// Id hiện tại
-        /// </summary>
-        protected Guid _id;
-
-        /// <summary>
-        /// Thông tin tương ứng Id hiện tại
-        /// </summary>
-        protected string _info;
-
         public FrmBase()
         {
             InitializeComponent();

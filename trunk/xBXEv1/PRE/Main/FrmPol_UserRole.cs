@@ -22,12 +22,8 @@ namespace PRE.Main
         private const string STR_DELETE = "Xoá người dùng trong nhóm";
 
         private const string STR_SELECT = "Chọn người dùng!";
-        private const string STR_CONFIRM = "Có xoá '{0}'\nra khỏi nhóm không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Người dùng đã có trong nhóm";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
-
-        //private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+        private const string STR_CONFIRM = "Có muốn xoá người dùng được\nchọn ra khỏi nhóm không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng";
 
         public FrmPol_UserRole()
         {
@@ -60,9 +56,7 @@ namespace PRE.Main
 
         protected override void PerformDelete()
         {
-            var cfm = String.Format(STR_CONFIRM, _info);
-            var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
-
+            var oki = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE, MessageBoxButtons.OKCancel);
             if (oki == DialogResult.OK)
             {
                 var dtr = _dtb.GetChanges(DataRowState.Modified).Select("Format=False");
@@ -241,26 +235,6 @@ namespace PRE.Main
             sfc.Appearance.ForeColor = Color.Blue;
 
             trlMain.FormatConditions.Add(sfc);
-        }
-
-        /// <summary>
-        /// Lấy Id hiện tại
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
-        {
-            if (e.Node == null) return;
-            if (!e.Node.HasChildren) // khi click dòng con
-            {
-                _info = e.Node.GetValue("Name") + "";
-                _id = (Guid)e.Node.GetValue("ID");
-            }
-            else
-            {
-                _info = null;
-                _id = new Guid();
-            }
         }
 
         /// <summary>

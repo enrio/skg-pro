@@ -117,7 +117,6 @@
             this.trlMain.Name = "trlMain";
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;
-            this.trlMain.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterFocusNode);
             this.trlMain.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.trlMain_CellValueChanging);
             // 
             // treeListColumn1

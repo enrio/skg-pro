@@ -181,14 +181,18 @@ namespace PRE.Main
         /// </summary>
         void FormatRows()
         {
-            var condition = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
+            var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
                 trlMain.Columns["Format"], null, true, true, true);
 
-            condition.Appearance.BackColor = Color.Orange;
-            condition.Appearance.BackColor2 = Color.Yellow;
-            condition.Appearance.GradientMode = LinearGradientMode.Vertical;
+            sfc.Appearance.BackColor = Color.Orange;
+            sfc.Appearance.BackColor2 = Color.Yellow;
+            sfc.Appearance.GradientMode = LinearGradientMode.BackwardDiagonal;
 
-            trlMain.FormatConditions.Add(condition);
+            var f = new Font(Font, FontStyle.Bold);
+            sfc.Appearance.Font = f;
+            sfc.Appearance.ForeColor = Color.Blue;
+
+            trlMain.FormatConditions.Add(sfc);
         }
 
         /// <summary>

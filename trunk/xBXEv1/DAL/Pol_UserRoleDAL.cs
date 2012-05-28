@@ -28,17 +28,34 @@ namespace DAL
         {
             try
             {
-                var res = from s in _db.Pol_UserRoles
-                          select new
-                          {
-                              UserId = s.Pol_User.Id,
-                              RoleId = s.Pol_Role.Id
-                          };
+                var a = from s in _db.Pol_UserRoles
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Pol_User.Id,
+                            Format = false,
+                            Select = false,
+                            Name = s.Pol_Role.Name,
+                            Descript = s.Pol_Role.Descript,
+                        };
+
+                var b = from s in _db.Pol_Users
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Id,
+                            Format = true,
+                            Select = false,
+                            s.Name,
+                            s.Descript
+                        };
+
+                var res = a.Union(b);
 
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
-                    res = res.Where(s => s.UserId == o.Pol_UserId && s.RoleId == o.Pol_RoleId);
+                    res = res.Where(s => s.ID == o.Id);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -84,7 +101,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
-                    var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == (Guid)obj);
+                    var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == o.Id);
                     _db.Pol_UserRoles.Remove(res);
                 }
                 else

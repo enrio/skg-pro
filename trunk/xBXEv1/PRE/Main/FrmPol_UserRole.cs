@@ -12,6 +12,8 @@ namespace PRE.Main
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Columns;
+    using DevExpress.XtraTreeList.StyleFormatConditions;
+    using System.Drawing.Drawing2D;
 
     public partial class FrmPol_UserRole : PRE.Catalog.FrmBase
     {
@@ -19,13 +21,19 @@ namespace PRE.Main
         {
             InitializeComponent();
 
+            AllowCollapse = true;
+            AllowExpand = true;
+
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRoleBLL();
 
-            AddTreeListColumns();
+            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
+            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
+
+            FormatRows();
         }
 
         #region Override
@@ -95,9 +103,7 @@ namespace PRE.Main
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
-
-            trlMain.Enabled = isReadOnly;
+            trlMain.OptionsBehavior.Editable = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -106,8 +112,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Modified);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    BaseBLL._pol_UserRightBLL.Update(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }
@@ -116,8 +139,25 @@ namespace PRE.Main
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                //if (!ValidInput()) ; return false;
+                var tb = _dtb.GetChanges(DataRowState.Added);
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var o = new Pol_UserRight();
+                    //o.Id = (Guid)r["ID"];
+                    o.Add = (bool)r["Add"];
+                    o.Edit = (bool)r["Edit"];
+                    o.Delete = (bool)r["Delete"];
+                    o.Query = (bool)r["Query"];
+                    o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
+                    o.Full = (bool)r["Full"];
+                    o.None = (bool)r["None"];
+                    BaseBLL._pol_UserRightBLL.Insert(o);
+                }
+
+                return true;
             }
             catch { return false; }
         }
@@ -139,36 +179,39 @@ namespace PRE.Main
         {
             return base.ValidInput();
         }
+
+        protected override void PerformCollapse()
+        {
+            trlMain.CollapseAll();
+
+            base.PerformCollapse();
+        }
+
+        protected override void PerformExpand()
+        {
+            trlMain.ExpandAll();
+
+            base.PerformExpand();
+        }
         #endregion
 
-        void AddTreeListColumns()
+        /// <summary>
+        /// Định dạng in đậm, màu dòng cấp cha
+        /// </summary>
+        void FormatRows()
         {
-            try
-            {
-                var tbl = BaseBLL._pol_ActionBLL.Select();
-                foreach (DataRow drAction in tbl.Rows)
-                {
-                    var tlc = new TreeListColumn();
-                    tlc.Caption = "" + drAction["Name"];
-                    tlc.FieldName = "" + drAction["Code"];
+            var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
+                trlMain.Columns["Format"], null, true, true, true);
 
-                    tlc.VisibleIndex = trlMain.Columns.Count + 1;
-                    tlc.ColumnEdit = ricSelect;
+            sfc.Appearance.BackColor = Color.Orange;
+            sfc.Appearance.BackColor2 = Color.Yellow;
+            sfc.Appearance.GradientMode = LinearGradientMode.BackwardDiagonal;
 
-                    //tlc.Visible = true;
-                    //tlc.BestFit();
+            var f = new Font(Font, FontStyle.Bold);
+            sfc.Appearance.Font = f;
+            sfc.Appearance.ForeColor = Color.Blue;
 
-                    treeListColumn1.TreeList.Columns.AddRange(new TreeListColumn[] { tlc });
-                    treeListColumn1.TreeList.Update();
-                }
-
-                // move last index
-                treeListColumn4.VisibleIndex = trlMain.Columns.Count;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "");
-            }
+            trlMain.FormatConditions.Add(sfc);
         }
     }
 }

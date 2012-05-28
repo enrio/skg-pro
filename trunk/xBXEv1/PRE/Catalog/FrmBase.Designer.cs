@@ -39,13 +39,13 @@
             this.bbiRefresh = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiFind = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiPrint = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bbiCollapse = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bbiExpand = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiClose = new DevExpress.XtraBars.BarLargeButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bbiCollapse = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.bbiExpand = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +148,21 @@
             this.bbiPrint.Glyph = global::PRE.Properties.Resources.printer;
             this.bbiPrint.Id = 7;
             this.bbiPrint.Name = "bbiPrint";
+            this.bbiPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bbiCollapse
+            // 
+            this.bbiCollapse.Caption = "Thu &gọn";
+            this.bbiCollapse.Id = 9;
+            this.bbiCollapse.Name = "bbiCollapse";
+            this.bbiCollapse.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bbiExpand
+            // 
+            this.bbiExpand.Caption = "Mở &rộng";
+            this.bbiExpand.Id = 10;
+            this.bbiExpand.Name = "bbiExpand";
+            this.bbiExpand.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // bbiClose
             // 
@@ -183,18 +198,6 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(951, 63);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 503);
-            // 
-            // bbiCollapse
-            // 
-            this.bbiCollapse.Caption = "Thu &gọn";
-            this.bbiCollapse.Id = 9;
-            this.bbiCollapse.Name = "bbiCollapse";
-            // 
-            // bbiExpand
-            // 
-            this.bbiExpand.Caption = "Mở &rộng";
-            this.bbiExpand.Id = 10;
-            this.bbiExpand.Name = "bbiExpand";
             // 
             // FrmBase
             // 

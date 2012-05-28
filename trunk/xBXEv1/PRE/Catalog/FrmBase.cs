@@ -393,7 +393,7 @@ namespace PRE.Catalog
             set
             {
                 if (value) bbiCollapse.Visibility = BarItemVisibility.Always;
-                else bbiFind.Visibility = BarItemVisibility.Never;
+                else bbiCollapse.Visibility = BarItemVisibility.Never;
                 _allowCollapse = value;
             }
         }
@@ -407,8 +407,8 @@ namespace PRE.Catalog
             get { return _allowExpand; }
             set
             {
-                if (value) bbiCollapse.Visibility = BarItemVisibility.Always;
-                else bbiFind.Visibility = BarItemVisibility.Never;
+                if (value) bbiExpand.Visibility = BarItemVisibility.Always;
+                else bbiExpand.Visibility = BarItemVisibility.Never;
                 _allowExpand = value;
             }
         }

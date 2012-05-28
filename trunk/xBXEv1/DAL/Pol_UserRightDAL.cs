@@ -32,7 +32,7 @@ namespace DAL
                         select new
                         {
                             ID = s.Id,
-                            ParentID = s.Pol_Right.Id,
+                            ParentID = s.Pol_User.Id,
                             Format = false,
 
                             s.Add,
@@ -45,11 +45,11 @@ namespace DAL
                             Access = s.Access,
                             Select = false,
 
-                            Name = s.Pol_User.Name,
-                            Descript = "",
+                            Name = s.Pol_Right.Name,
+                            Descript = s.Pol_Right.Descript,
                         };
 
-                var b = from s in _db.Pol_Rights
+                var b = from s in _db.Pol_Users
                         select new
                         {
                             ID = s.Id,
@@ -66,8 +66,8 @@ namespace DAL
                             Access = false,
                             Select = false,
 
-                            Name = s.Name,
-                            Descript = s.Descript
+                            s.Name,
+                            s.Descript
                         };
 
                 var res = a.Union(b);

@@ -32,7 +32,7 @@ namespace DAL
                         select new
                         {
                             ID = s.Id,
-                            ParentID = s.Pol_Right.Id,
+                            ParentID = s.Pol_Role.Id,
                             Format = false,
 
                             s.Add,
@@ -45,11 +45,11 @@ namespace DAL
                             Access = s.Access,
                             Select = false,
 
-                            Name = s.Pol_Role.Name,
-                            Descript = s.Pol_Role.Descript
+                            Name = s.Pol_Right.Name,
+                            Descript = s.Pol_Right.Descript,
                         };
 
-                var b = from s in _db.Pol_Rights
+                var b = from s in _db.Pol_Roles
                         select new
                         {
                             ID = s.Id,

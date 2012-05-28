@@ -21,6 +21,9 @@ namespace PRE.Main
         {
             InitializeComponent();
 
+            AllowCollapse = true;
+            AllowExpand = true;
+
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 

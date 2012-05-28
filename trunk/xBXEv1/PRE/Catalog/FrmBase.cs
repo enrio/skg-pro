@@ -395,11 +395,11 @@ namespace PRE.Catalog
                 {
                     bbiFind.LargeGlyph = Properties.Resources.add;
                     bbiFind.Caption = "Thu &gọn";
+                    bbiFind.Visibility = BarItemVisibility.Always;
                 }
+                else bbiFind.Visibility = BarItemVisibility.Never;
 
                 _allowFind = value;
-                if (!_allowFind) bbiFind.Visibility = BarItemVisibility.Never;
-                else bbiFind.Visibility = BarItemVisibility.Always;
             }
         }
 
@@ -415,11 +415,11 @@ namespace PRE.Catalog
                 {
                     bbiPrint.LargeGlyph = Properties.Resources.edit;
                     bbiPrint.Caption = "Mở &rộng";
+                    bbiPrint.Visibility = BarItemVisibility.Always;
                 }
+                else bbiPrint.Visibility = BarItemVisibility.Never;
 
                 _allowPrint = value;
-                if (!_allowPrint) bbiPrint.Visibility = BarItemVisibility.Never;
-                else bbiPrint.Visibility = BarItemVisibility.Always;
             }
         }
         #endregion

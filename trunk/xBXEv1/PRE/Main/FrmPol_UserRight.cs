@@ -233,19 +233,19 @@ namespace PRE.Main
 
         private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            if (e.Node == null) return;
+            //if (e.Node == null) return;
 
-            var ur = new Pol_UserRight();
-            var ParentID = (Guid)e.Node.GetValue("ParentID");
-            ur.Id = (Guid)e.Node.GetValue("ID");
-            ur.Add = (bool)e.Node.GetValue("Add");
-            ur.Edit = (bool)e.Node.GetValue("Edit");
-            ur.Delete = (bool)e.Node.GetValue("Delete");
-            ur.Query = (bool)e.Node.GetValue("Query");
-            ur.Print = (bool)e.Node.GetValue("Print");
-            ur.Access = (bool)e.Node.GetValue("Access");
-            ur.Full = (bool)e.Node.GetValue("Full");
-            ur.None = (bool)e.Node.GetValue("None");
+            //var ur = new Pol_UserRight();
+            //var ParentID = (Guid)e.Node.GetValue("ParentID");
+            //ur.Id = (Guid)e.Node.GetValue("ID");
+            //ur.Add = (bool)e.Node.GetValue("Add");
+            //ur.Edit = (bool)e.Node.GetValue("Edit");
+            //ur.Delete = (bool)e.Node.GetValue("Delete");
+            //ur.Query = (bool)e.Node.GetValue("Query");
+            //ur.Print = (bool)e.Node.GetValue("Print");
+            //ur.Access = (bool)e.Node.GetValue("Access");
+            //ur.Full = (bool)e.Node.GetValue("Full");
+            //ur.None = (bool)e.Node.GetValue("None");
         }
 
         DataRow[] sdr = null;

@@ -80,7 +80,7 @@ namespace DAL
 
                 if (take > 0) res = res.Skip(skip).Take(take);
 
-                return res.ToDataTable();
+                return res.OrderBy(s => s.Name).ToDataTable();
             }
             catch { return _tb; }
         }

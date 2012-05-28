@@ -34,6 +34,11 @@ namespace DAL.Entities
         /// </summary>
         public bool Print { set; get; }
 
+        /// <summary>
+        /// Chỉ truy cập chức năng (form) này
+        /// </summary>
+        public bool Access { set; get; }
+
         private bool _full;
         /// <summary>
         /// Toàn quyền
@@ -79,10 +84,5 @@ namespace DAL.Entities
             }
             get { return _none; }
         }
-
-        /// <summary>
-        /// Chỉ hiện chức năng (form) này
-        /// </summary>
-        public bool Only { set; get; }
     }
 }

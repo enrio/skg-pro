@@ -42,7 +42,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            s.Only,
+                            Only = s.Access,
                             Select = false,
 
                             UserName = s.Pol_User.Name
@@ -106,7 +106,7 @@ namespace DAL
 
                 //res.Pol_UserId = o.Pol_UserId;
                 //res.Pol_RightId = o.Pol_RightId;
-                res.Only = o.Only;
+                res.Access = o.Access;
 
                 res.Add = o.Add;
                 res.Edit = o.Edit;

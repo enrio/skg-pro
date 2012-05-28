@@ -41,7 +41,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            s.Only,
+                            Only = s.Access,
                             Select = false,
 
                             RoleName = s.Pol_Role.Name,
@@ -106,7 +106,7 @@ namespace DAL
 
                 //res.Pol_RoleId = o.Pol_RoleId;
                 //res.Pol_RightId = o.Pol_RightId;
-                res.Only = o.Only;
+                res.Access = o.Access;
 
                 res.Add = o.Add;
                 res.Edit = o.Edit;

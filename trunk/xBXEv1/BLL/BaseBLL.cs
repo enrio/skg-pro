@@ -41,11 +41,11 @@ namespace BLL
             _pol_ActionBLL.Insert(o);
             o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "In ấn dữ liệu", Order = 4 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 5 };
+            o = new Pol_Action() { Code = "Access", Name = "Chỉ hiện", Descript = "Chỉ hiện quyền (form) này", Order = 5 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 6 };
+            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Only", Name = "Chỉ hiện", Descript = "Chỉ hiện quyền (form) này", Order = 8 };
+            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 7 };
             _pol_ActionBLL.Insert(o);
         }
 
@@ -115,7 +115,7 @@ namespace BLL
 
             var a = (Pol_User)_pol_UserBLL.Select("nvt");
             var b = (Pol_Right)_pol_RightBLL.Select("FrmPol_Right");
-            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Only = true };
+            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
 
             a = (Pol_User)_pol_UserBLL.Select("admin");
@@ -126,14 +126,14 @@ namespace BLL
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_User");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Delete = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Delete = true, Access = true };
             _pol_UserRightBLL.Insert(o);
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_UserRight");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Access = true };
             _pol_UserRightBLL.Insert(o);
 
             b = (Pol_Right)_pol_RightBLL.Select("FrmTra_Kind");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Edit = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Edit = true, Access = true };
             _pol_UserRightBLL.Insert(o);
 
             b = (Pol_Right)_pol_RightBLL.Select("FrmLogin");

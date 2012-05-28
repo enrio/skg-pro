@@ -122,9 +122,9 @@ namespace PRE.Main
                     o.Delete = (bool)r["Delete"];
                     o.Query = (bool)r["Query"];
                     o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
                     o.Full = (bool)r["Full"];
                     o.None = (bool)r["None"];
-                    o.Only = (bool)r["Only"];
                     BaseBLL._pol_UserRightBLL.Update(o);
                 }
 
@@ -149,9 +149,9 @@ namespace PRE.Main
                     o.Delete = (bool)r["Delete"];
                     o.Query = (bool)r["Query"];
                     o.Print = (bool)r["Print"];
+                    o.Access = (bool)r["Access"];
                     o.Full = (bool)r["Full"];
                     o.None = (bool)r["None"];
-                    o.Only = (bool)r["Only"];
                     BaseBLL._pol_UserRightBLL.Insert(o);
                 }
 
@@ -243,9 +243,9 @@ namespace PRE.Main
             ur.Delete = (bool)e.Node.GetValue("Delete");
             ur.Query = (bool)e.Node.GetValue("Query");
             ur.Print = (bool)e.Node.GetValue("Print");
+            ur.Access = (bool)e.Node.GetValue("Access");
             ur.Full = (bool)e.Node.GetValue("Full");
             ur.None = (bool)e.Node.GetValue("None");
-            ur.Only = (bool)e.Node.GetValue("Only");
         }
 
         DataRow[] sdr = null;
@@ -309,6 +309,7 @@ namespace PRE.Main
                                     dr["Delete"] = true;
                                     dr["Query"] = true;
                                     dr["Print"] = true;
+                                    dr["Access"] = true;
                                 }
                             }
                         break;
@@ -326,13 +327,14 @@ namespace PRE.Main
                                     dr["Delete"] = false;
                                     dr["Query"] = false;
                                     dr["Print"] = false;
+                                    dr["Access"] = false;
                                 }
                             }
                         break;
 
-                    case "Only":
+                    case "Access":
                         if (this.sdr != null && this.sdr.Length > 0)
-                            foreach (DataRow dr in this.sdr) dr["Only"] = val;
+                            foreach (DataRow dr in this.sdr) dr["Access"] = val;
                         break;
 
                     default:
@@ -352,6 +354,7 @@ namespace PRE.Main
                             e.Node.SetValue("Query", true);
                             e.Node.SetValue("Query", true);
                             e.Node.SetValue("Print", true);
+                            e.Node.SetValue("Access", true);
                             e.Node.SetValue("None", false);
                         }
                         break;
@@ -365,6 +368,7 @@ namespace PRE.Main
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Query", false);
                             e.Node.SetValue("Print", false);
+                            e.Node.SetValue("Access", false);
                             e.Node.SetValue("Full", false);
                         }
                         break;

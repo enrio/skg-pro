@@ -135,7 +135,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            s.Only,
+                            Only = s.Access,
                         };
 
                 var b = from s in _db.Pol_RoleRights
@@ -158,7 +158,7 @@ namespace DAL
                             s.Print,
                             s.Full,
                             s.None,
-                            s.Only,
+                            Only = s.Access,
                         };
 
                 var tmp = a.Union(b);
@@ -177,7 +177,7 @@ namespace DAL
                         Print = res.Print,
                         Full = res.Full,
                         None = res.None,
-                        Only = res.Only
+                        Access = res.Only
                     };
 
                     lst.Add(z);

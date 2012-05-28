@@ -56,33 +56,26 @@ namespace PRE.Catalog
             {
                 case "bbiAdd":
                     _state = State.Add;
-
-                    ChangeStatus(false);
-                    ClearDataBindings();
-                    ReadOnlyControl(false);
-                    ResetText();
-
                     PerformAdd();
                     break;
 
                 case "bbiEdit":
                     _state = State.Edit;
-
-                    ChangeStatus(false);
-                    ReadOnlyControl(false);
-
                     PerformEdit();
                     break;
 
                 case "bbiDelete":
+                    _state = State.Delete;
                     PerformDelete();
                     break;
 
                 case "bbiSave":
+                    _state = State.Save;
                     PerformSave();
                     break;
 
                 case "bbiCancel":
+                    _state = State.Cancel;
                     PerformCancel();
                     break;
 
@@ -106,11 +99,8 @@ namespace PRE.Catalog
                     PerformPrint();
                     break;
 
-                case "bbiClose":
-                    Close();
-                    break;
-
                 default:
+                    Close();
                     break;
             }
         }
@@ -165,12 +155,22 @@ namespace PRE.Catalog
         /// <summary>
         /// Perform when click add button
         /// </summary>
-        protected virtual void PerformAdd() { }
+        protected virtual void PerformAdd()
+        {
+            ChangeStatus(false);
+            ClearDataBindings();
+            ReadOnlyControl(false);
+            ResetText();
+        }
 
         /// <summary>
         /// Perform when click edit button
         /// </summary>
-        protected virtual void PerformEdit() { }
+        protected virtual void PerformEdit()
+        {
+            ChangeStatus(false);
+            ReadOnlyControl(false);
+        }
 
         /// <summary>
         /// Perform when click delete button

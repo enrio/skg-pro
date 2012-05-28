@@ -12,6 +12,8 @@ namespace PRE.Main
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Columns;
+    using DevExpress.XtraTreeList.StyleFormatConditions;
+    using System.Drawing.Drawing2D;
 
     public partial class FrmPol_UserRight : PRE.Catalog.FrmBase
     {
@@ -26,6 +28,7 @@ namespace PRE.Main
             _bll = new Pol_UserRightBLL();
 
             AddTreeListColumns();
+            FormatRows();
         }
 
         #region Override
@@ -173,6 +176,24 @@ namespace PRE.Main
         }
         #endregion
 
+        /// <summary>
+        /// Định dạng in đậm, màu dòng cấp cha
+        /// </summary>
+        void FormatRows()
+        {
+            var condition = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
+                trlMain.Columns["Format"], null, true, true, true);
+
+            condition.Appearance.BackColor = Color.Orange;
+            condition.Appearance.BackColor2 = Color.Yellow;
+            condition.Appearance.GradientMode = LinearGradientMode.Vertical;
+
+            trlMain.FormatConditions.Add(condition);
+        }
+
+        /// <summary>
+        /// Thêm các cột quyền truy cập (Thêm, Sửa, Xoá, ...)
+        /// </summary>
         void AddTreeListColumns()
         {
             try

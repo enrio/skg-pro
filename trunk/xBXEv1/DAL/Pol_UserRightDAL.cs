@@ -33,6 +33,7 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_Right.Id,
+                            Format = false,
 
                             s.Add,
                             s.Edit,
@@ -52,6 +53,7 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Id,
+                            Format = true,
 
                             Add = false,
                             Edit = false,

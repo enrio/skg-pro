@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.bmgMain = new DevExpress.XtraBars.BarManager(this.components);
+            this.bmgMain = new DevExpress.XtraBars.BarManager();
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bbiAdd = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -117,6 +116,7 @@
             // bbiSave
             // 
             this.bbiSave.Caption = "&Lưu";
+            this.bbiSave.Enabled = false;
             this.bbiSave.Glyph = global::PRE.Properties.Resources.save;
             this.bbiSave.Id = 3;
             this.bbiSave.Name = "bbiSave";
@@ -124,6 +124,7 @@
             // bbiCancel
             // 
             this.bbiCancel.Caption = "&Huỷ";
+            this.bbiCancel.Enabled = false;
             this.bbiCancel.Glyph = global::PRE.Properties.Resources.cancel;
             this.bbiCancel.Id = 4;
             this.bbiCancel.Name = "bbiCancel";

@@ -180,6 +180,20 @@ namespace PRE.Main
         {
             return base.ValidInput();
         }
+
+        protected override void PerformCollapse()
+        {
+            trlMain.CollapseAll();
+
+            base.PerformCollapse();
+        }
+
+        protected override void PerformExpand()
+        {
+            trlMain.ExpandAll();
+
+            base.PerformExpand();
+        }
         #endregion
 
         /// <summary>

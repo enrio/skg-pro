@@ -44,7 +44,6 @@ namespace PRE.Main
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRoleBLL();
 
-            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
 
             FormatRows();
@@ -264,6 +263,34 @@ namespace PRE.Main
             {
                 _info = null;
                 _id = new Guid();
+            }
+        }
+
+        /// <summary>
+        /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
+        {
+            var val = (bool)e.Value;
+
+            if (e.Node.HasChildren) // khi click dòng cha
+            {
+                var id = (Guid)e.Node.GetValue("ParentID");
+                var sl = String.Format("ParentID='{0}'", id);
+                DataRow[] sdr = _dtb.Select(sl);
+
+                switch (e.Column.FieldName)
+                {
+                    case "Select":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Select"] = val;
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
     }

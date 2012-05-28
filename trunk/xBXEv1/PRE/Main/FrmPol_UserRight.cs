@@ -30,7 +30,6 @@ namespace PRE.Main
             trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_UserRightBLL();
 
-            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
 
             AddTreeListColumns();
@@ -230,10 +229,6 @@ namespace PRE.Main
                     tlc.FieldName = "" + drAction["Code"];
 
                     tlc.VisibleIndex = trlMain.Columns.Count + 1;
-                    tlc.ColumnEdit = ricSelect;
-
-                    //tlc.Visible = true;
-                    //tlc.BestFit();
 
                     treeListColumn1.TreeList.Columns.AddRange(new TreeListColumn[] { tlc });
                     treeListColumn1.TreeList.Update();
@@ -250,19 +245,7 @@ namespace PRE.Main
 
         private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            //if (e.Node == null) return;
-
-            //var ur = new Pol_UserRight();
-            //var ParentID = (Guid)e.Node.GetValue("ParentID");
-            //ur.Id = (Guid)e.Node.GetValue("ID");
-            //ur.Add = (bool)e.Node.GetValue("Add");
-            //ur.Edit = (bool)e.Node.GetValue("Edit");
-            //ur.Delete = (bool)e.Node.GetValue("Delete");
-            //ur.Query = (bool)e.Node.GetValue("Query");
-            //ur.Print = (bool)e.Node.GetValue("Print");
-            //ur.Access = (bool)e.Node.GetValue("Access");
-            //ur.Full = (bool)e.Node.GetValue("Full");
-            //ur.None = (bool)e.Node.GetValue("None");
+            if (e.Node == null) return;
         }
 
         /// <summary>

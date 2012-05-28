@@ -141,7 +141,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Chức năng (form) / Nhóm";
+            this.treeListColumn3.Caption = "Nhóm / Chức năng (form)";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;

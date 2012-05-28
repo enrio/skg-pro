@@ -383,43 +383,33 @@ namespace PRE.Catalog
         #endregion
 
         #region Dành cho form phân quyền
+        private bool _allowCollapse;
         /// <summary>
         /// Thu gọn tất cả cây
         /// </summary>
         public bool AllowCollapse
         {
-            get { return _allowFind; }
+            get { return _allowCollapse; }
             set
             {
-                if (value)
-                {
-                    bbiFind.LargeGlyph = Properties.Resources.add;
-                    bbiFind.Caption = "Thu &gọn";
-                    bbiFind.Visibility = BarItemVisibility.Always;
-                }
+                if (value) bbiCollapse.Visibility = BarItemVisibility.Always;
                 else bbiFind.Visibility = BarItemVisibility.Never;
-
-                _allowFind = value;
+                _allowCollapse = value;
             }
         }
 
+        private bool _allowExpand;
         /// <summary>
         /// Mở rộng tất cả cây
         /// </summary>
         public bool AllowExpand
         {
-            get { return _allowPrint; }
+            get { return _allowExpand; }
             set
             {
-                if (value)
-                {
-                    bbiPrint.LargeGlyph = Properties.Resources.edit;
-                    bbiPrint.Caption = "Mở &rộng";
-                    bbiPrint.Visibility = BarItemVisibility.Always;
-                }
-                else bbiPrint.Visibility = BarItemVisibility.Never;
-
-                _allowPrint = value;
+                if (value) bbiCollapse.Visibility = BarItemVisibility.Always;
+                else bbiFind.Visibility = BarItemVisibility.Never;
+                _allowExpand = value;
             }
         }
         #endregion

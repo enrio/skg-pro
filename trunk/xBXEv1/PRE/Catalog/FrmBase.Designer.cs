@@ -44,6 +44,8 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.bbiCollapse = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bbiExpand = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,8 +67,10 @@
             this.bbiRefresh,
             this.bbiFind,
             this.bbiPrint,
-            this.bbiClose});
-            this.bmgMain.MaxItemId = 9;
+            this.bbiClose,
+            this.bbiCollapse,
+            this.bbiExpand});
+            this.bmgMain.MaxItemId = 11;
             this.bmgMain.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bmgMain_ItemClick);
             // 
             // bar1
@@ -84,7 +88,9 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiFind, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiClose, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCollapse, true),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiExpand),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiClose, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
             // bbiAdd
@@ -178,6 +184,18 @@
             this.barDockControlRight.Location = new System.Drawing.Point(951, 63);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 503);
             // 
+            // bbiCollapse
+            // 
+            this.bbiCollapse.Caption = "Thu &gọn";
+            this.bbiCollapse.Id = 9;
+            this.bbiCollapse.Name = "bbiCollapse";
+            // 
+            // bbiExpand
+            // 
+            this.bbiExpand.Caption = "Mở &rộng";
+            this.bbiExpand.Id = 10;
+            this.bbiExpand.Name = "bbiExpand";
+            // 
             // FrmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,5 +229,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarLargeButtonItem bbiCollapse;
+        private DevExpress.XtraBars.BarLargeButtonItem bbiExpand;
     }
 }

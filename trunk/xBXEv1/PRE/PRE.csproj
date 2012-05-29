@@ -141,6 +141,12 @@
     <Compile Include="Main\FrmPol_UserRole.Designer.cs">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmSelect.Designer.cs">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catalog\FrmBase.resx">
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FrmPol_UserRole.resx">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmSelect.resx">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -64,6 +64,17 @@ namespace PRE.Main
             {
                 frm.ShowDialog();
                 var listInfo = frm.ListInfo;
+
+                foreach (var x in frm.ListInfo)
+                {
+                    var r = _dtb.NewRow();
+
+                    r["ID"] = x.Id;
+                    r["ParentID"] = _idRole;
+                    r["Name"] = x.Descript;
+
+                    _dtb.Rows.Add(r);
+                }
             }
 
             base.PerformAdd();

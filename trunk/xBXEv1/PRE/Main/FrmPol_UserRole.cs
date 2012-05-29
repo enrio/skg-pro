@@ -57,12 +57,12 @@ namespace PRE.Main
         protected override void PerformDelete()
         {
             var tb = _dtb.GetChanges(DataRowState.Modified);
-            if (tb == null) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
-            else
-            {
-                var dtr = tb.Select("Format = False And Select = True");
-                if (dtr.Length < 1) return;
 
+            // Chọn dòng con được check
+            var dtr = tb == null ? new DataRow[] { } : tb.Select("Format = False And Select = True");
+
+            if (dtr.Length > 0)
+            {
                 var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
                     MessageBoxButtons.OKCancel);
                 if (res == DialogResult.OK)
@@ -71,6 +71,7 @@ namespace PRE.Main
                     PerformRefresh();
                 }
             }
+            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 
             base.PerformDelete();
         }

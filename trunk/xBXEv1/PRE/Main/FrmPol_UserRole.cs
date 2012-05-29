@@ -60,6 +60,11 @@ namespace PRE.Main
                 _idRole = (Guid)n.ParentNode.GetValue("ID");
             }
 
+            using (var frm = new FrmSelect() { Text = Text })
+            {
+                frm.ShowDialog();
+            }
+
             base.PerformAdd();
         }
 

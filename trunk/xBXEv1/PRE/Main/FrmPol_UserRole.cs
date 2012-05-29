@@ -251,14 +251,13 @@ namespace PRE.Main
         {
             if (e.Column.FieldName == "Select")
             {
-                var val = (bool)e.Value;
                 if (e.Node.HasChildren) // khi click dòng cha
                 {
                     var id = (Guid)e.Node.GetValue("ParentID");
                     var sl = String.Format("ParentID='{0}'", id);
                     DataRow[] sdr = _dtb.Select(sl);
                     if (sdr.Length > 0)
-                        foreach (DataRow dr in sdr) dr["Select"] = val;
+                        foreach (DataRow dr in sdr) dr["Select"] = e.Value;
                 }
             }
         }

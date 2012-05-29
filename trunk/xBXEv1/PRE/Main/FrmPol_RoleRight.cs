@@ -40,6 +40,47 @@ namespace PRE.Main
         }
 
         #region Override
+        Guid _idParent;
+        protected override void PerformAdd()
+        {
+            TreeListNode n = trlMain.FocusedNode;
+            if (n.ParentNode == null)
+            {
+                n.Checked = true;
+                _idParent = (Guid)n.GetValue("ID");
+            }
+            else
+            {
+                n.ParentNode.Checked = true;
+                _idParent = (Guid)n.ParentNode.GetValue("ID");
+            }
+
+            using (var frm = new FrmSelect() { Text = Text })
+            {
+                frm.ShowDialog();
+                if (frm.ListInfo == null) return;
+
+                foreach (var x in frm.ListInfo)
+                {
+                    var tmp = String.Format("RightId = '{0}' And ParentID = '{1}'", x.Id + "", _idParent + "");
+                    var dtr = _dtb.Select(tmp);
+                    if (dtr.Length > 0) continue;
+                    else
+                    {
+                        var r = _dtb.NewRow();
+
+                        r["ID"] = x.Id;
+                        r["ParentID"] = _idParent;
+                        r["Name"] = x.Descript;
+
+                        _dtb.Rows.Add(r);
+                    }
+                }
+            }
+
+            base.PerformAdd();
+        }
+
         protected override void PerformDelete()
         {
             var lst = new List<TreeListNode>();

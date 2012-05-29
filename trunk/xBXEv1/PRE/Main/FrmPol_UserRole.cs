@@ -293,20 +293,13 @@ namespace PRE.Main
         /// <param name="e"></param>
         private void trlMain_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
         {
-            bool ok = true;
-            if (e.Node.HasChildren) // khi click dòng cha
-                foreach (TreeListNode n in e.Node.Nodes)
-                {
-                    n.Checked = e.Node.Checked;
-                    ok &= ok & n.Checked;
-                }
-
-            if (e.Node.ParentNode != null)
+            if (e.Node.HasChildren) foreach (TreeListNode n in e.Node.Nodes) n.Checked = e.Node.Checked;
+            else if (e.Node.ParentNode != null) // khi click dòng con
             {
-                if (e.Node.Checked == false)
-                    e.Node.ParentNode.Checked = false;
-                if (ok)
-                    e.Node.ParentNode.Checked = true;
+                bool oki = true;
+                foreach (TreeListNode n in e.Node.ParentNode.Nodes) oki &= n.Checked;
+                if (e.Node.Checked == false) e.Node.ParentNode.Checked = false;
+                if (oki) e.Node.ParentNode.Checked = true;
             }
         }
     }

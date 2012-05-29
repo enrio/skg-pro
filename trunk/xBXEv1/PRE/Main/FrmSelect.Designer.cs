@@ -34,6 +34,7 @@
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.chkAll = new DevExpress.XtraEditors.CheckEdit();
             this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
@@ -47,7 +48,8 @@
             this.treeListColumn2,
             this.treeListColumn3,
             this.treeListColumn4,
-            this.treeListColumn5});
+            this.treeListColumn5,
+            this.treeListColumn6});
             this.trlMain.Location = new System.Drawing.Point(0, 47);
             this.trlMain.Name = "trlMain";
             this.trlMain.OptionsView.ShowCheckBoxes = true;
@@ -96,6 +98,14 @@
             this.treeListColumn5.FieldName = "Format";
             this.treeListColumn5.Name = "treeListColumn5";
             // 
+            // treeListColumn6
+            // 
+            this.treeListColumn6.Caption = "Mã";
+            this.treeListColumn6.FieldName = "Id";
+            this.treeListColumn6.Name = "treeListColumn6";
+            this.treeListColumn6.Visible = true;
+            this.treeListColumn6.VisibleIndex = 4;
+            // 
             // chkAll
             // 
             this.chkAll.Location = new System.Drawing.Point(12, 12);
@@ -143,5 +153,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraEditors.CheckEdit chkAll;
         private DevExpress.XtraEditors.SimpleButton btnSelect;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
     }
 }

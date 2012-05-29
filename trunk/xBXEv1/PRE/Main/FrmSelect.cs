@@ -55,10 +55,12 @@ namespace PRE.Main
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            ListInfo = new List<ZInfor>();
+
             foreach (TreeListNode n in trlMain.Nodes)
                 if (n.Checked)
                 {
-                    var id = (Guid)n.GetValue("ID");
+                    var id = (Guid)n.GetValue("Id");
                     var name = n.GetValue("Name") + "";
                     var o = new ZInfor() { Id = id, Descript = name };
                     ListInfo.Add(o);

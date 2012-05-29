@@ -33,6 +33,7 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_User.Id,
+                            RightId = s.Pol_RightId,
                             Format = false,
 
                             s.Add,
@@ -49,11 +50,14 @@ namespace DAL
                             Descript = s.Pol_Right.Descript,
                         };
 
+                Guid? id = new Guid();
+
                 var b = from s in _db.Pol_Users
                         select new
                         {
                             ID = s.Id,
                             ParentID = s.Id,
+                            RightId = id,
                             Format = true,
 
                             Add = false,

@@ -57,7 +57,7 @@ namespace PRE.Main
 
         protected override void PerformDelete()
         {
-            var dtr = _dtb.Select("Format = False And Select = True"); // chọn dòng con được check
+            /*var dtr = _dtb.Select("Format = False And Select = True"); // chọn dòng con được check
             if (dtr.Length > 0)
             {
                 var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
@@ -68,7 +68,18 @@ namespace PRE.Main
                     PerformRefresh();
                 }
             }
-            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);*/
+
+            foreach (TreeListNode tln in trlMain.Nodes)
+            {
+                if (tln.HasChildren) // khi chọn dòng con
+                {
+                    foreach (TreeListNode n in tln.Nodes)
+                        if (n.Checked)
+                            _bll.Delete((Guid)n.GetValue("ID"));
+                    PerformRefresh();
+                }
+            }
 
             base.PerformDelete();
         }

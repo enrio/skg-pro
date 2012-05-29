@@ -49,7 +49,7 @@ namespace PRE.Main
         {
             TreeListNode n = trlMain.FocusedNode;
             if (n.ParentNode == null) n.Checked = true;
-            n.ParentNode.Checked = true;
+            else n.ParentNode.Checked = true;
 
             base.PerformAdd();
         }

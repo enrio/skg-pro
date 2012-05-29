@@ -50,5 +50,10 @@ namespace PRE.Main
                     x.BestFit();
             }
         }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

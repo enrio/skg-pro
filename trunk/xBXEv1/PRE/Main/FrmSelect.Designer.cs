@@ -34,7 +34,10 @@
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // trlMain
@@ -45,11 +48,10 @@
             this.treeListColumn3,
             this.treeListColumn4,
             this.treeListColumn5});
-            this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.trlMain.Location = new System.Drawing.Point(0, 0);
+            this.trlMain.Location = new System.Drawing.Point(0, 47);
             this.trlMain.Name = "trlMain";
             this.trlMain.OptionsView.ShowCheckBoxes = true;
-            this.trlMain.Size = new System.Drawing.Size(470, 226);
+            this.trlMain.Size = new System.Drawing.Size(470, 179);
             this.trlMain.TabIndex = 6;
             // 
             // treeListColumn1
@@ -72,7 +74,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Nhóm / Họ tên";
+            this.treeListColumn3.Caption = "Họ tên";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.ReadOnly = true;
@@ -94,11 +96,30 @@
             this.treeListColumn5.FieldName = "Format";
             this.treeListColumn5.Name = "treeListColumn5";
             // 
+            // checkEdit1
+            // 
+            this.checkEdit1.Location = new System.Drawing.Point(12, 12);
+            this.checkEdit1.Name = "checkEdit1";
+            this.checkEdit1.Properties.Caption = "Tất cả";
+            this.checkEdit1.Size = new System.Drawing.Size(70, 19);
+            this.checkEdit1.TabIndex = 7;
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(408, 12);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(50, 29);
+            this.btnSelect.TabIndex = 8;
+            this.btnSelect.Text = "Chọn";
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // FrmSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 226);
+            this.Controls.Add(this.btnSelect);
+            this.Controls.Add(this.checkEdit1);
             this.Controls.Add(this.trlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmSelect";
@@ -106,6 +127,7 @@
             this.Text = "Chọn dữ liệu";
             this.Load += new System.EventHandler(this.FrmSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,5 +140,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
+        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnSelect;
     }
 }

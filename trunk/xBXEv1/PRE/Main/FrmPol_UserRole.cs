@@ -108,12 +108,6 @@ namespace PRE.Main
         {
             LoadData();
 
-            if (_dtb != null)
-            {
-                ClearDataBindings();
-                if (_dtb.Rows.Count > 0) DataBindingControl();
-            }
-
             base.PerformRefresh();
         }
 

@@ -110,12 +110,6 @@ namespace PRE.Main
         {
             LoadData();
 
-            if (_dtb != null)
-            {
-                ClearDataBindings();
-                if (_dtb.Rows.Count > 0) DataBindingControl();
-            }
-
             base.PerformRefresh();
         }
 
@@ -126,15 +120,14 @@ namespace PRE.Main
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ChangeStatus(); PerformRefresh();
                     }
                     break;
 
                 case State.Edit:
                     if (UpdateObject())
                     {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
+                        ChangeStatus(); PerformRefresh();
                     }
                     break;
 
@@ -145,23 +138,15 @@ namespace PRE.Main
             base.PerformSave();
         }
 
-        protected override void ReadOnlyControl(bool isReadOnly = true)
-        {
-            trlMain.OptionsBehavior.Editable = true;
-
-            base.ReadOnlyControl(isReadOnly);
-        }
-
         protected override bool UpdateObject()
         {
             try
             {
-                //if (!ValidInput()) ; return false;
                 var tb = _dtb.GetChanges(DataRowState.Modified);
 
                 foreach (DataRow r in tb.Rows)
                 {
-                    var o = new Pol_UserRight()
+                    var o = new Pol_RoleRight()
                     {
                         Id = (Guid)r["ID"],
                         Add = (bool)r["Add"],
@@ -173,7 +158,7 @@ namespace PRE.Main
                         Full = (bool)r["Full"],
                         None = (bool)r["None"]
                     };
-                    BaseBLL._pol_UserRightBLL.Update(o);
+                    _bll.Update(o);
                 }
 
                 return true;
@@ -189,7 +174,7 @@ namespace PRE.Main
 
                 foreach (DataRow r in tb.Rows)
                 {
-                    var o = new Pol_UserRight()
+                    var o = new Pol_RoleRight()
                     {
                         Add = (bool)r["Add"],
                         Edit = (bool)r["Edit"],
@@ -200,7 +185,7 @@ namespace PRE.Main
                         Full = (bool)r["Full"],
                         None = (bool)r["None"]
                     };
-                    BaseBLL._pol_UserRightBLL.Insert(o);
+                    _bll.Insert(o);
                 }
 
                 return true;
@@ -219,11 +204,6 @@ namespace PRE.Main
             AutoFit(trlMain);
 
             base.LoadData();
-        }
-
-        protected override bool ValidInput()
-        {
-            return base.ValidInput();
         }
 
         protected override void PerformCollapse()
@@ -287,12 +267,6 @@ namespace PRE.Main
             {
                 MessageBox.Show(ex.Message, "");
             }
-        }
-
-        private void trlMain_AfterFocusNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
-        {
-            if (e.Node == null) return;
-
         }
 
         /// <summary>

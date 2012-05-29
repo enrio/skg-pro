@@ -103,8 +103,6 @@
             this.treeListColumn6.Caption = "Mã";
             this.treeListColumn6.FieldName = "Id";
             this.treeListColumn6.Name = "treeListColumn6";
-            this.treeListColumn6.Visible = true;
-            this.treeListColumn6.VisibleIndex = 4;
             // 
             // chkAll
             // 

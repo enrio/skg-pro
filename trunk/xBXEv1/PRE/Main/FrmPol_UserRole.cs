@@ -70,16 +70,26 @@ namespace PRE.Main
             }
             else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);*/
 
+            var lst = new List<TreeListNode>();
+
             foreach (TreeListNode tln in trlMain.Nodes)
-            {
                 if (tln.HasChildren) // khi chọn dòng con
-                {
                     foreach (TreeListNode n in tln.Nodes)
-                        if (n.Checked)
-                            _bll.Delete((Guid)n.GetValue("ID"));
+                        if (n.Checked) lst.Add(n);
+
+            if (lst.Count > 0)
+            {
+                var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
+                        MessageBoxButtons.OKCancel);
+                if (res != DialogResult.OK) return;
+
+                foreach (TreeListNode n in lst)
+                {
+                    _bll.Delete((Guid)n.GetValue("ID"));
                     PerformRefresh();
                 }
             }
+            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 
             base.PerformDelete();
         }

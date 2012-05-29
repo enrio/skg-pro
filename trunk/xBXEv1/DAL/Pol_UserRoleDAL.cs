@@ -33,17 +33,21 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_Role.Id,
+                            UserId = s.Pol_UserId,
                             Format = false,
                             Select = false,
                             Name = s.Pol_User.Name,
                             Descript = s.Pol_User.Acc,
                         };
 
+                Guid? id = new Guid();
+
                 var b = from s in _db.Pol_Roles
                         select new
                         {
                             ID = s.Id,
                             ParentID = s.Id,
+                            UserId = id,
                             Format = true,
                             Select = false,
                             s.Name,

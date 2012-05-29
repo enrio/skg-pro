@@ -61,13 +61,19 @@ namespace PRE.Main
 
                 foreach (var x in frm.ListInfo)
                 {
-                    var r = _dtb.NewRow();
+                    var tmp = String.Format("UserId = '{0}' And ParentID = '{1}'", x.Id + "", _idRole + "");
+                    var dtr = _dtb.Select(tmp);
+                    if (dtr.Length > 0) continue;
+                    else
+                    {
+                        var r = _dtb.NewRow();
 
-                    r["ID"] = x.Id;
-                    r["ParentID"] = _idRole;
-                    r["Name"] = x.Descript;
+                        r["ID"] = x.Id;
+                        r["ParentID"] = _idRole;
+                        r["Name"] = x.Descript;
 
-                    _dtb.Rows.Add(r);
+                        _dtb.Rows.Add(r);
+                    }
                 }
             }
 

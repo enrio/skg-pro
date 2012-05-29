@@ -37,8 +37,8 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-
             _bll = new Pol_UserRoleBLL();
+            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             FormatRows();
         }

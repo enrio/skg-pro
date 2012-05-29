@@ -296,6 +296,9 @@ namespace PRE.Main
             if (e.Node.HasChildren) // khi click dòng cha
                 foreach (TreeListNode n in e.Node.Nodes)
                     n.Checked = e.Node.Checked;
+
+            if (e.Node.Checked == false && e.Node.ParentNode != null)
+                e.Node.ParentNode.Checked = false;
         }
     }
 }

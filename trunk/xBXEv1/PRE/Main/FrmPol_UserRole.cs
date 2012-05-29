@@ -63,6 +63,7 @@ namespace PRE.Main
             using (var frm = new FrmSelect() { Text = Text })
             {
                 frm.ShowDialog();
+                var listInfo = frm.ListInfo;
             }
 
             base.PerformAdd();

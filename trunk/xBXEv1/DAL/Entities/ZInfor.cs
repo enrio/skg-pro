@@ -9,7 +9,7 @@ namespace DAL.Entities
     /// <summary>
     /// Thông tin dữ liệu cơ bản
     /// </summary>
-    public abstract class ZInfor
+    public class ZInfor
     {
         /// <summary>
         /// Khoá chính

@@ -20,7 +20,7 @@ namespace PRE.Main
 
     public partial class FrmSelect : DevExpress.XtraEditors.XtraForm
     {
-        public List<Guid> ListId { private set; get; }
+        public List<ZInfor> ListInfo { private set; get; }
 
         Pol_UserBLL _bll = new Pol_UserBLL();
 
@@ -57,7 +57,12 @@ namespace PRE.Main
         {
             foreach (TreeListNode n in trlMain.Nodes)
                 if (n.Checked)
-                    ListId.Add((Guid)n.GetValue("ID"));
+                {
+                    var id = (Guid)n.GetValue("ID");
+                    var name = n.GetValue("Name") + "";
+                    var o = new ZInfor() { Id = id, Descript = name };
+                    ListInfo.Add(o);
+                }
         }
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)

@@ -26,7 +26,6 @@ namespace PRE.Main
 
             AllowCollapse = true;
             AllowExpand = true;
-            AllowEdit = false;
             AllowFind = false;
 
             dockPanel1.Visibility = DockVisibility.Hidden;
@@ -74,12 +73,28 @@ namespace PRE.Main
                         r["ParentID"] = _idParent;
                         r["Name"] = x.Descript;
 
+                        r["Add"] = false;
+                        r["Edit"] = false;
+                        r["Delete"] = false;
+                        r["Query"] = false;
+                        r["Print"] = false;
+                        r["Access"] = false;
+                        r["Full"] = false;
+                        r["None"] = true;
+
                         _dtb.Rows.Add(r);
                     }
                 }
             }
 
             base.PerformAdd();
+        }
+
+        protected override void PerformEdit()
+        {
+            trlMain.OptionsBehavior.Editable = true;
+
+            base.PerformEdit();
         }
 
         protected override void PerformDelete()
@@ -136,6 +151,13 @@ namespace PRE.Main
             }
 
             base.PerformSave();
+        }
+
+        protected override void ReadOnlyControl(bool isReadOnly = true)
+        {
+            trlMain.OptionsBehavior.Editable = !isReadOnly;
+
+            base.ReadOnlyControl(isReadOnly);
         }
 
         protected override bool UpdateObject()

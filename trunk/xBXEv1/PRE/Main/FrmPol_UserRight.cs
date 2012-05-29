@@ -169,7 +169,7 @@ namespace PRE.Main
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_RoleRight()
+                        var o = new Pol_UserRight()
                         {
                             Id = (Guid)r["ID"],
                             Add = (bool)r["Add"],
@@ -199,10 +199,10 @@ namespace PRE.Main
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_RoleRight()
+                        var o = new Pol_UserRight()
                         {
                             Pol_RightId = (Guid)r["ID"],
-                            Pol_RoleId = (Guid)r["ParentID"],
+                            Pol_UserId = (Guid)r["ParentID"],
                             Add = (bool)r["Add"],
                             Edit = (bool)r["Edit"],
                             Delete = (bool)r["Delete"],

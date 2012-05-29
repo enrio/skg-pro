@@ -84,10 +84,8 @@ namespace PRE.Main
                 if (res != DialogResult.OK) return;
 
                 foreach (TreeListNode n in lst)
-                {
                     _bll.Delete((Guid)n.GetValue("ID"));
-                    PerformRefresh();
-                }
+                PerformRefresh();
             }
             else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 

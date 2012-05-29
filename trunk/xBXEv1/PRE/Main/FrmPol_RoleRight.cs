@@ -16,9 +16,9 @@ namespace PRE.Main
 
     public partial class FrmPol_RoleRight : PRE.Catalog.FrmBase
     {
-        private const string STR_DELETE = "Xoá người dùng trong nhóm";
-        private const string STR_SELECT = "Chọn người dùng!";
-        private const string STR_CONFIRM = "Có muốn xoá người dùng được\nchọn ra khỏi nhóm không?";
+        private const string STR_DELETE = "Xoá chức năng (form) trong nhóm";
+        private const string STR_SELECT = "Chọn chức năng (form)!";
+        private const string STR_CONFIRM = "Có muốn xoá chức năng (form) được\nchọn ra khỏi nhóm không?";
 
         public FrmPol_RoleRight()
         {

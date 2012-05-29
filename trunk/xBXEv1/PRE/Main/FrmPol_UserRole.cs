@@ -56,11 +56,7 @@ namespace PRE.Main
 
         protected override void PerformDelete()
         {
-            var tb = _dtb.GetChanges(DataRowState.Modified);
-
-            // Chọn dòng con được check
-            var dtr = tb == null ? new DataRow[] { } : tb.Select("Format = False And Select = True");
-
+            var dtr = _dtb.Select("Format = False And Select = True"); // chọn dòng con được check
             if (dtr.Length > 0)
             {
                 var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
@@ -253,23 +249,16 @@ namespace PRE.Main
         /// <param name="e"></param>
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
-            var val = (bool)e.Value;
-
-            if (e.Node.HasChildren) // khi click dòng cha
+            if (e.Column.FieldName == "Select")
             {
-                var id = (Guid)e.Node.GetValue("ParentID");
-                var sl = String.Format("ParentID='{0}'", id);
-                DataRow[] sdr = _dtb.Select(sl);
-
-                switch (e.Column.FieldName)
+                var val = (bool)e.Value;
+                if (e.Node.HasChildren) // khi click dòng cha
                 {
-                    case "Select":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Select"] = val;
-                        break;
-
-                    default:
-                        break;
+                    var id = (Guid)e.Node.GetValue("ParentID");
+                    var sl = String.Format("ParentID='{0}'", id);
+                    DataRow[] sdr = _dtb.Select(sl);
+                    if (sdr.Length > 0)
+                        foreach (DataRow dr in sdr) dr["Select"] = val;
                 }
             }
         }

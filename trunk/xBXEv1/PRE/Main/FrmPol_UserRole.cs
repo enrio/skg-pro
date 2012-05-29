@@ -19,7 +19,6 @@ namespace PRE.Main
         private const string STR_SELECT = "Chọn người dùng!";
         private const string STR_CONFIRM = "Có muốn xoá người dùng được\nchọn ra khỏi nhóm không?";
 
-
         public FrmPol_UserRole()
         {
             InitializeComponent();

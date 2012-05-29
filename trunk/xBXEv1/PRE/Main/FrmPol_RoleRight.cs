@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PRE.Main
@@ -11,27 +9,32 @@ namespace PRE.Main
     using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraTreeList.Nodes;
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraTreeList.StyleFormatConditions;
     using System.Drawing.Drawing2D;
 
     public partial class FrmPol_RoleRight : PRE.Catalog.FrmBase
     {
+        private const string STR_DELETE = "Xoá người dùng trong nhóm";
+        private const string STR_SELECT = "Chọn người dùng!";
+        private const string STR_CONFIRM = "Có muốn xoá người dùng được\nchọn ra khỏi nhóm không?";
+
         public FrmPol_RoleRight()
         {
             InitializeComponent();
 
             AllowCollapse = true;
             AllowExpand = true;
+            AllowEdit = false;
+            AllowFind = false;
 
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            trlMain.OptionsBehavior.Editable = false;
             _bll = new Pol_RoleRightBLL();
-
+            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
-
             AddTreeListColumns();
             FormatRows();
         }
@@ -39,7 +42,24 @@ namespace PRE.Main
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = trlMain.GetFocusedRowCellValue("Id") + "";
+            var lst = new List<TreeListNode>();
+
+            foreach (TreeListNode tln in trlMain.Nodes)
+                if (tln.HasChildren) // khi chọn dòng con
+                    foreach (TreeListNode n in tln.Nodes)
+                        if (n.Checked) lst.Add(n);
+
+            if (lst.Count > 0)
+            {
+                var res = BasePRE.ShowMessage(STR_CONFIRM, STR_DELETE,
+                        MessageBoxButtons.OKCancel);
+                if (res != DialogResult.OK) return;
+
+                foreach (TreeListNode n in lst)
+                    _bll.Delete((Guid)n.GetValue("ID"));
+                PerformRefresh();
+            }
+            else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
 
             base.PerformDelete();
         }
@@ -75,30 +95,12 @@ namespace PRE.Main
                         PerformRefresh();
                     }
                     break;
+
+                default:
+                    break;
             }
 
             base.PerformSave();
-        }
-
-        protected override void ResetText()
-        {
-            //txtName.Text = null;
-
-            base.ResetText();
-        }
-
-        protected override void ClearDataBindings()
-        {
-            //txtName.DataBindings.Clear();
-
-            base.ClearDataBindings();
-        }
-
-        protected override void DataBindingControl()
-        {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
-
-            base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
@@ -117,16 +119,18 @@ namespace PRE.Main
 
                 foreach (DataRow r in tb.Rows)
                 {
-                    var o = new Pol_UserRight();
-                    o.Id = (Guid)r["ID"];
-                    o.Add = (bool)r["Add"];
-                    o.Edit = (bool)r["Edit"];
-                    o.Delete = (bool)r["Delete"];
-                    o.Query = (bool)r["Query"];
-                    o.Print = (bool)r["Print"];
-                    o.Access = (bool)r["Access"];
-                    o.Full = (bool)r["Full"];
-                    o.None = (bool)r["None"];
+                    var o = new Pol_UserRight()
+                    {
+                        Id = (Guid)r["ID"],
+                        Add = (bool)r["Add"],
+                        Edit = (bool)r["Edit"],
+                        Delete = (bool)r["Delete"],
+                        Query = (bool)r["Query"],
+                        Print = (bool)r["Print"],
+                        Access = (bool)r["Access"],
+                        Full = (bool)r["Full"],
+                        None = (bool)r["None"]
+                    };
                     BaseBLL._pol_UserRightBLL.Update(o);
                 }
 
@@ -139,21 +143,21 @@ namespace PRE.Main
         {
             try
             {
-                //if (!ValidInput()) ; return false;
                 var tb = _dtb.GetChanges(DataRowState.Added);
 
                 foreach (DataRow r in tb.Rows)
                 {
-                    var o = new Pol_UserRight();
-                    //o.Id = (Guid)r["ID"];
-                    o.Add = (bool)r["Add"];
-                    o.Edit = (bool)r["Edit"];
-                    o.Delete = (bool)r["Delete"];
-                    o.Query = (bool)r["Query"];
-                    o.Print = (bool)r["Print"];
-                    o.Access = (bool)r["Access"];
-                    o.Full = (bool)r["Full"];
-                    o.None = (bool)r["None"];
+                    var o = new Pol_UserRight()
+                    {
+                        Add = (bool)r["Add"],
+                        Edit = (bool)r["Edit"],
+                        Delete = (bool)r["Delete"],
+                        Query = (bool)r["Query"],
+                        Print = (bool)r["Print"],
+                        Access = (bool)r["Access"],
+                        Full = (bool)r["Full"],
+                        None = (bool)r["None"]
+                    };
                     BaseBLL._pol_UserRightBLL.Insert(o);
                 }
 
@@ -408,6 +412,23 @@ namespace PRE.Main
                         e.Node.SetValue("None", false);
                         break;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trlMain_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            if (e.Node.HasChildren) foreach (TreeListNode n in e.Node.Nodes) n.Checked = e.Node.Checked;
+            else if (e.Node.ParentNode != null) // khi click dòng con
+            {
+                bool oki = true;
+                foreach (TreeListNode n in e.Node.ParentNode.Nodes) oki &= n.Checked;
+                if (e.Node.Checked == false) e.Node.ParentNode.Checked = false;
+                if (oki) e.Node.ParentNode.Checked = true;
             }
         }
     }

@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -115,15 +116,18 @@
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
+            this.trlMain.OptionsView.ShowCheckBoxes = true;
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;
             this.trlMain.AfterFocusNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterFocusNode);
+            this.trlMain.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterCheckNode);
             this.trlMain.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.trlMain_CellValueChanging);
             // 
             // treeListColumn1
             // 
             this.treeListColumn1.Caption = "Chọn";
             this.treeListColumn1.FieldName = "Select";
+            this.treeListColumn1.MinWidth = 32;
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 0;

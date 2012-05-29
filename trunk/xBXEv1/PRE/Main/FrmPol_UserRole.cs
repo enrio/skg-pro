@@ -45,11 +45,20 @@ namespace PRE.Main
         }
 
         #region Override
+        Guid _idRole;
         protected override void PerformAdd()
         {
             TreeListNode n = trlMain.FocusedNode;
-            if (n.ParentNode == null) n.Checked = true;
-            else n.ParentNode.Checked = true;
+            if (n.ParentNode == null)
+            {
+                n.Checked = true;
+                _idRole = (Guid)n.GetValue("ID");
+            }
+            else
+            {
+                n.ParentNode.Checked = true;
+                _idRole = (Guid)n.ParentNode.GetValue("ID");
+            }
 
             base.PerformAdd();
         }

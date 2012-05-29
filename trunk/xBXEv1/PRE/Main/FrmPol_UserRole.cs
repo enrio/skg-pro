@@ -12,6 +12,7 @@ namespace PRE.Main
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Columns;
+    using DevExpress.XtraTreeList.Nodes;
     using DevExpress.XtraTreeList.StyleFormatConditions;
     using System.Drawing.Drawing2D;
 
@@ -249,7 +250,7 @@ namespace PRE.Main
         /// <param name="e"></param>
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
-            if (e.Column.FieldName == "Select")
+            /*if (e.Column.FieldName == "Select")
             {
                 if (e.Node.HasChildren) // khi click dòng cha
                 {
@@ -259,7 +260,19 @@ namespace PRE.Main
                     if (sdr.Length > 0)
                         foreach (DataRow dr in sdr) dr["Select"] = e.Value;
                 }
-            }
+            }*/
+        }
+
+        /// <summary>
+        /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void trlMain_AfterCheckNode(object sender, DevExpress.XtraTreeList.NodeEventArgs e)
+        {
+            if (e.Node.HasChildren) // khi click dòng cha
+                foreach (TreeListNode n in e.Node.Nodes)
+                    n.Checked = e.Node.Checked;
         }
     }
 }

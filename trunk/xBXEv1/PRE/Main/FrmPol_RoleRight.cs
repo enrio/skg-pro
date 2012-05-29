@@ -143,25 +143,27 @@ namespace PRE.Main
             try
             {
                 var tb = _dtb.GetChanges(DataRowState.Modified);
-
-                foreach (DataRow r in tb.Rows)
+                if (tb != null)
                 {
-                    var o = new Pol_RoleRight()
+                    foreach (DataRow r in tb.Rows)
                     {
-                        Id = (Guid)r["ID"],
-                        Add = (bool)r["Add"],
-                        Edit = (bool)r["Edit"],
-                        Delete = (bool)r["Delete"],
-                        Query = (bool)r["Query"],
-                        Print = (bool)r["Print"],
-                        Access = (bool)r["Access"],
-                        Full = (bool)r["Full"],
-                        None = (bool)r["None"]
-                    };
-                    _bll.Update(o);
+                        var o = new Pol_RoleRight()
+                        {
+                            Id = (Guid)r["ID"],
+                            Add = (bool)r["Add"],
+                            Edit = (bool)r["Edit"],
+                            Delete = (bool)r["Delete"],
+                            Query = (bool)r["Query"],
+                            Print = (bool)r["Print"],
+                            Access = (bool)r["Access"],
+                            Full = (bool)r["Full"],
+                            None = (bool)r["None"]
+                        };
+                        _bll.Update(o);
+                    }
+                    return true;
                 }
-
-                return true;
+                else return false;
             }
             catch { return false; }
         }
@@ -171,24 +173,26 @@ namespace PRE.Main
             try
             {
                 var tb = _dtb.GetChanges(DataRowState.Added);
-
-                foreach (DataRow r in tb.Rows)
+                if (tb != null)
                 {
-                    var o = new Pol_RoleRight()
+                    foreach (DataRow r in tb.Rows)
                     {
-                        Add = (bool)r["Add"],
-                        Edit = (bool)r["Edit"],
-                        Delete = (bool)r["Delete"],
-                        Query = (bool)r["Query"],
-                        Print = (bool)r["Print"],
-                        Access = (bool)r["Access"],
-                        Full = (bool)r["Full"],
-                        None = (bool)r["None"]
-                    };
-                    _bll.Insert(o);
+                        var o = new Pol_RoleRight()
+                        {
+                            Add = (bool)r["Add"],
+                            Edit = (bool)r["Edit"],
+                            Delete = (bool)r["Delete"],
+                            Query = (bool)r["Query"],
+                            Print = (bool)r["Print"],
+                            Access = (bool)r["Access"],
+                            Full = (bool)r["Full"],
+                            None = (bool)r["None"]
+                        };
+                        _bll.Insert(o);
+                    }
+                    return true;
                 }
-
-                return true;
+                else return false;
             }
             catch { return false; }
         }

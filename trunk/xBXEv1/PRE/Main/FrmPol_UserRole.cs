@@ -47,6 +47,10 @@ namespace PRE.Main
         #region Override
         protected override void PerformAdd()
         {
+            TreeListNode n = trlMain.FocusedNode;
+            if (n.ParentNode == null) n.Checked = true;
+            n.ParentNode.Checked = true;
+
             base.PerformAdd();
         }
 

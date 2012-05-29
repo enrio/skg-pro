@@ -34,10 +34,10 @@
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.chkAll = new DevExpress.XtraEditors.CheckEdit();
             this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // trlMain
@@ -96,13 +96,14 @@
             this.treeListColumn5.FieldName = "Format";
             this.treeListColumn5.Name = "treeListColumn5";
             // 
-            // checkEdit1
+            // chkAll
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(12, 12);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Caption = "Tất cả";
-            this.checkEdit1.Size = new System.Drawing.Size(70, 19);
-            this.checkEdit1.TabIndex = 7;
+            this.chkAll.Location = new System.Drawing.Point(12, 12);
+            this.chkAll.Name = "chkAll";
+            this.chkAll.Properties.Caption = "Tất cả";
+            this.chkAll.Size = new System.Drawing.Size(70, 19);
+            this.chkAll.TabIndex = 7;
+            this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // btnSelect
             // 
@@ -119,7 +120,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 226);
             this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.checkEdit1);
+            this.Controls.Add(this.chkAll);
             this.Controls.Add(this.trlMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmSelect";
@@ -127,7 +128,7 @@
             this.Text = "Chọn dữ liệu";
             this.Load += new System.EventHandler(this.FrmSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -140,7 +141,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.CheckEdit chkAll;
         private DevExpress.XtraEditors.SimpleButton btnSelect;
     }
 }

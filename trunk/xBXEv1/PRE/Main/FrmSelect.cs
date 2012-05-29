@@ -20,6 +20,8 @@ namespace PRE.Main
 
     public partial class FrmSelect : DevExpress.XtraEditors.XtraForm
     {
+        public List<Guid> ListId { private set; get; }
+
         Pol_UserBLL _bll = new Pol_UserBLL();
 
         public FrmSelect()
@@ -53,7 +55,14 @@ namespace PRE.Main
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
+            foreach (TreeListNode n in trlMain.Nodes)
+                if (n.Checked)
+                    ListId.Add((Guid)n.GetValue("ID"));
+        }
 
+        private void chkAll_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (TreeListNode n in trlMain.Nodes) n.Checked = chkAll.Checked;
         }
     }
 }

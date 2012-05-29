@@ -32,7 +32,7 @@ namespace PRE.Main
 
             AllowCollapse = true;
             AllowExpand = true;
-            AllowAdd = false;
+            AllowEdit = false;
             AllowFind = false;
 
             dockPanel1.Visibility = DockVisibility.Hidden;

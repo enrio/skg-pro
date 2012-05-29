@@ -63,6 +63,8 @@ namespace PRE.Main
                     var o = new ZInfor() { Id = id, Descript = name };
                     ListInfo.Add(o);
                 }
+
+            Close();
         }
 
         private void chkAll_CheckedChanged(object sender, EventArgs e)

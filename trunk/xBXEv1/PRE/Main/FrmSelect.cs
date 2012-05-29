@@ -21,8 +21,7 @@ namespace PRE.Main
     public partial class FrmSelect : DevExpress.XtraEditors.XtraForm
     {
         public List<ZInfor> ListInfo { private set; get; }
-
-        Pol_UserBLL _bll = new Pol_UserBLL();
+        public DataTable DataSource { set; get; }
 
         public FrmSelect()
         {
@@ -35,8 +34,7 @@ namespace PRE.Main
 
         private void FrmSelect_Load(object sender, EventArgs e)
         {
-            var tb = _bll.Select();
-            if (tb != null) trlMain.DataSource = tb;
+            if (DataSource != null) trlMain.DataSource = DataSource;
             AutoFit(trlMain);
         }
 

@@ -55,6 +55,7 @@ namespace PRE.Main
 
             using (var frm = new FrmSelect() { Text = Text })
             {
+                frm.DataSource = BaseBLL._pol_UserBLL.Select();
                 frm.ShowDialog();
                 if (frm.ListInfo == null) return;
 

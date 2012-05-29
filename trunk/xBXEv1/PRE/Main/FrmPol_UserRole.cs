@@ -131,7 +131,7 @@ namespace PRE.Main
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_UserRole() { Pol_UserId = (Guid)r["ID"], Pol_RoleId = (Guid)r["ParentID"] };
+                        var o = new Pol_UserRole() { Pol_UserId = (Guid)r["ID"], Pol_RoleId = _idParent };
                         _bll.Insert(o);
                     }
                     return true;

@@ -299,6 +299,13 @@ namespace PRE.Catalog
 
             return z;
         }
+
+        /// <summary>
+        /// Đồng hồ đếm thời gian
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected virtual void tmrMain_Tick(object sender, EventArgs e) { }
         #endregion
 
         #region Cho phép ẩn/hiện các nút lệnh

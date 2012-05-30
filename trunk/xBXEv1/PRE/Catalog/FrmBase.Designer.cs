@@ -45,6 +45,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.tmrMain = new System.Windows.Forms.Timer();
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,6 +201,11 @@
             this.barDockControlRight.Location = new System.Drawing.Point(951, 63);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 503);
             // 
+            // tmrMain
+            // 
+            this.tmrMain.Interval = 1000;
+            this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
+            // 
             // FrmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +241,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private DevExpress.XtraBars.BarLargeButtonItem bbiCollapse;
         private DevExpress.XtraBars.BarLargeButtonItem bbiExpand;
+        protected System.Windows.Forms.Timer tmrMain;
     }
 }

@@ -373,6 +373,16 @@ namespace PRE.Main
                             }
                         break;
 
+                    case "Default":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr)
+                            {
+                                dr["Default"] = val;
+                                dr["Full"] = false;
+                                dr["None"] = false;
+                            }
+                        break;
+
                     case "Full":
                         if (sdr != null && sdr.Length > 0)
                             foreach (DataRow dr in sdr)

@@ -171,7 +171,7 @@ namespace PRE
             }
 
             var z = frm.CheckRight();
-            if (z == null) frm.Dispose();
+            if (z == null || z.Access == false) frm.Dispose();
             else frm.Show();
         }
     }

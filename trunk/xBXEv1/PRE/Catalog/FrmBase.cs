@@ -283,7 +283,7 @@ namespace PRE.Catalog
             var name = frmRight.GetType().Name;
             var z = BasePRE._sss.GetRight(name);
 
-            if (z == null)
+            if (z == null || z.Access == false)
                 BasePRE.ShowMessage("Không có quyền", name, MessageBoxButtons.OK, showMessage);
             else
             {
@@ -303,7 +303,9 @@ namespace PRE.Catalog
 
         #region Cho phép ẩn/hiện các nút lệnh
         private bool _allowAdd;
-        [Description("Hiển thị nút Thêm hay không")]
+        /// <summary>
+        /// Hiển thị nút Thêm hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowAdd
         {
@@ -317,7 +319,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowEdit;
-        [Description("Hiển thị nút Sửa hay không")]
+        /// <summary>
+        /// Hiển thị nút Sửa hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowEdit
         {
@@ -331,7 +335,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowDelete;
-        [Description("Hiển thị nút Xoá hay không")]
+        /// <summary>
+        /// Hiển thị nút Xoá hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowDelete
         {
@@ -345,7 +351,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowSave;
-        [Description("Hiển thị nút Lưu hay không")]
+        /// <summary>
+        /// Hiển thị nút Lưu hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowSave
         {
@@ -359,7 +367,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowCancel;
-        [Description("Hiển thị nút Huỷ hay không")]
+        /// <summary>
+        /// Hiển thị nút Huỷ hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowCancel
         {
@@ -373,7 +383,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowRefresh;
-        [Description("Hiển thị nút Cập nhật hay không")]
+        /// <summary>
+        /// Hiển thị nút Cập nhật hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowRefresh
         {
@@ -387,7 +399,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowFind;
-        [Description("Hiển thị nút Tìm hay không")]
+        /// <summary>
+        /// Hiển thị nút Tìm hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowFind
         {
@@ -401,7 +415,9 @@ namespace PRE.Catalog
         }
 
         private bool _allowPrint;
-        [Description("Hiển thị nút In ấn hay không")]
+        /// <summary>
+        /// Hiển thị nút In ấn hay không
+        /// </summary>
         [DefaultValue(false)]
         public bool AllowPrint
         {

@@ -304,115 +304,72 @@ namespace PRE.Main
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
             var val = (bool)e.Value;
+            var id = (Guid)e.Node.GetValue("ParentID");
+            var sl = String.Format("ParentID='{0}'", id);
+            DataRow[] sdr = _dtb.Select(sl);
+
+            if (sdr.Length < 1) return;
 
             if (e.Node.HasChildren) // khi click dòng cha
-            {
-                var id = (Guid)e.Node.GetValue("ParentID");
-                var sl = String.Format("ParentID='{0}'", id);
-                DataRow[] sdr = _dtb.Select(sl);
-
-                switch (e.Column.FieldName)
+                foreach (DataRow dr in sdr)
                 {
-                    case "Add":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
+                    dr["Full"] = false;
+                    dr["None"] = false;
+
+                    switch (e.Column.FieldName)
+                    {
+                        case "Add":
+                            dr["Add"] = val;
+                            break;
+
+                        case "Edit":
+                            dr["Edit"] = val;
+                            break;
+
+                        case "Delete":
+                            dr["Delete"] = val;
+                            break;
+
+                        case "Print":
+                            dr["Print"] = val;
+                            break;
+
+                        case "Access":
+                            dr["Access"] = val;
+                            break;
+
+                        case "Full":
+                            dr["Full"] = val;
+                            if (val)
                             {
-                                dr["Add"] = val;
-                                dr["Full"] = false;
                                 dr["None"] = false;
+                                dr["Add"] = true;
+                                dr["Edit"] = true;
+                                dr["Delete"] = true;
+                                dr["Query"] = true;
+                                dr["Print"] = true;
+                                dr["Access"] = true;
                             }
-                        break;
+                            break;
 
-                    case "Edit":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
+                        case "None":
+                            dr["None"] = val;
+                            if (val)
                             {
-                                dr["Edit"] = val;
                                 dr["Full"] = false;
-                                dr["None"] = false;
-                            };
-                        break;
-
-                    case "Delete":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["Delete"] = val;
-                                dr["Full"] = false;
-                                dr["None"] = false;
+                                dr["Add"] = false;
+                                dr["Edit"] = false;
+                                dr["Delete"] = false;
+                                dr["Query"] = false;
+                                dr["Print"] = false;
+                                dr["Access"] = false;
                             }
-                        break;
+                            break;
 
-                    case "Query":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["Query"] = val;
-                                dr["Full"] = false;
-                                dr["None"] = false;
-                            }
-                        break;
-
-                    case "Print":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["Print"] = val;
-                                dr["Full"] = false;
-                                dr["None"] = false;
-                            }
-                        break;
-
-                    case "Access":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["Access"] = val;
-                                dr["Full"] = false;
-                                dr["None"] = false;
-                            }
-                        break;
-
-                    case "Full":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["Full"] = val;
-                                if (val)
-                                {
-                                    dr["None"] = false;
-                                    dr["Add"] = true;
-                                    dr["Edit"] = true;
-                                    dr["Delete"] = true;
-                                    dr["Query"] = true;
-                                    dr["Print"] = true;
-                                    dr["Access"] = true;
-                                }
-                            }
-                        break;
-
-                    case "None":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr)
-                            {
-                                dr["None"] = val;
-                                if (val)
-                                {
-                                    dr["Full"] = false;
-                                    dr["Add"] = false;
-                                    dr["Edit"] = false;
-                                    dr["Delete"] = false;
-                                    dr["Query"] = false;
-                                    dr["Print"] = false;
-                                    dr["Access"] = false;
-                                }
-                            }
-                        break;
-
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
-            }
             else // khi click dòng con
             {
                 switch (e.Column.FieldName)
@@ -446,6 +403,9 @@ namespace PRE.Main
                         break;
 
                     case "Default":
+                        if (sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Default"] = false;
+                        e.Node.SetValue("Default", val);
                         break;
 
                     default:

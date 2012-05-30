@@ -39,9 +39,9 @@ namespace PRE
         }
 
         /// <summary>
-        /// Hiện menu, thay đổi nút đăng nhập -> đăng xuất
+        /// Sau khi đăng nhập, hiện menu, thay đổi nút đăng nhập -> đăng xuất
         /// </summary>
-        private void ShowMenu()
+        private void AfterLogon()
         {
             BasePRE.VisibleMenuParentForm(this);
 
@@ -62,9 +62,9 @@ namespace PRE
         }
 
         /// <summary>
-        /// Ẩn menu, thay đổi nút đăng xuất -> đăng nhập
+        /// Trước khi đăng nhập, ẩn menu, thay đổi nút đăng xuất -> đăng nhập
         /// </summary>
-        private void HideMenu()
+        private void BeforeLogon()
         {
             BasePRE.VisibleMenuParentForm(this, false);
 
@@ -88,8 +88,8 @@ namespace PRE
                 var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this };
 
-                frm.BeforeLogon += HideMenu;
-                frm.AfterLogon += ShowMenu;
+                frm.BeforeLogon += BeforeLogon;
+                frm.AfterLogon += AfterLogon;
 
                 frm.Show();
             }

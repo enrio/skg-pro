@@ -40,10 +40,10 @@ namespace DAL
                             s.Delete,
                             s.Query,
                             s.Print,
+                            s.Access,
+                            s.Default,
                             s.Full,
                             s.None,
-                            s.Access,
-                            Select = false,
 
                             Name = s.Pol_Right.Name,
                             Descript = s.Pol_Right.Descript,
@@ -64,10 +64,10 @@ namespace DAL
                             Delete = false,
                             Query = false,
                             Print = false,
+                            Access = false,
+                            Default = false,
                             Full = false,
                             None = false,
-                            Access = false,
-                            Select = false,
 
                             s.Name,
                             s.Descript
@@ -109,15 +109,13 @@ namespace DAL
                 var o = (Pol_RoleRight)obj;
                 var res = _db.Pol_RoleRights.SingleOrDefault(s => s.Id == o.Id);
 
-                //res.Pol_RoleId = o.Pol_RoleId;
-                //res.Pol_RightId = o.Pol_RightId;
-
                 res.Add = o.Add;
                 res.Edit = o.Edit;
                 res.Delete = o.Delete;
                 res.Query = o.Query;
                 res.Print = o.Print;
                 res.Access = o.Access;
+                res.Default = o.Default;
                 res.Full = o.Full;
                 res.None = o.None;
 

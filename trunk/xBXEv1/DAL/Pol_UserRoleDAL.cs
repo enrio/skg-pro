@@ -32,9 +32,10 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_Role.Id,
+
                             UserId = s.Pol_UserId,
                             Format = false,
-                            Select = false,
+
                             Name = s.Pol_User.Name,
                             Descript = s.Pol_User.Acc,
                         };
@@ -46,9 +47,10 @@ namespace DAL
                         {
                             ID = s.Id,
                             ParentID = s.Id,
+
                             UserId = id,
                             Format = true,
-                            Select = false,
+
                             s.Name,
                             s.Descript
                         };

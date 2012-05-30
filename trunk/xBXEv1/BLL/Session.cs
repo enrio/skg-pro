@@ -32,6 +32,19 @@ namespace BLL
         public ZAction LastRight { set; get; }
 
         /// <summary>
+        /// Hiện form mặc định sau khi đăng nhập
+        /// </summary>
+        public ZAction Default
+        {
+            get
+            {
+                foreach (var x in Rights)
+                    if (x.Default) return x;
+                return null;
+            }
+        }
+
+        /// <summary>
         /// Lấy quyền hiện tại của chức năng (form)
         /// </summary>
         /// <param name="codeRight">Mã chức năng (tên form)</param>

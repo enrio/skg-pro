@@ -50,6 +50,12 @@ namespace PRE
 
             bsiUser.Caption = BasePRE._sss.User.Name;
 
+            if (BasePRE._sss.Default != null)
+            {
+                //var frm = (Form)Activator.CreateInstance(typeof(FrmBase), BasePRE._sss.Default.Code);
+                //frm.ShowDialog();
+            }
+
             // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)
 #if DEBUG
             rpgPermission.Visible = true;

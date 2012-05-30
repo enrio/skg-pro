@@ -132,9 +132,10 @@ namespace DAL
                             s.Delete,
                             s.Query,
                             s.Print,
+                            s.Access,
+                            s.Default,
                             s.Full,
-                            s.None,
-                            Only = s.Access,
+                            s.None
                         };
 
                 var b = from s in _db.Pol_RoleRights
@@ -155,9 +156,10 @@ namespace DAL
                             s.Delete,
                             s.Query,
                             s.Print,
+                            s.Access,
+                            s.Default,
                             s.Full,
-                            s.None,
-                            Only = s.Access,
+                            s.None
                         };
 
                 var tmp = a.Union(b);
@@ -174,9 +176,10 @@ namespace DAL
                         Delete = res.Delete,
                         Query = res.Query,
                         Print = res.Print,
+                        Access = res.Access,
+                        Default = res.Default,
                         Full = res.Full,
-                        None = res.None,
-                        Access = res.Only
+                        None = res.None
                     };
 
                     lst.Add(z);

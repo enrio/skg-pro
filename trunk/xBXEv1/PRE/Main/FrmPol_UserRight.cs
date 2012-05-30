@@ -179,6 +179,7 @@ namespace PRE.Main
                             Query = (bool)r["Query"],
                             Print = (bool)r["Print"],
                             Access = (bool)r["Access"],
+                            Default = (bool)r["Default"],
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
@@ -210,6 +211,7 @@ namespace PRE.Main
                             Query = (bool)r["Query"],
                             Print = (bool)r["Print"],
                             Access = (bool)r["Access"],
+                            Default = (bool)r["Default"],
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };

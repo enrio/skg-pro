@@ -50,6 +50,21 @@ namespace PRE
 
             bsiUser.Caption = BasePRE._sss.User.Name;
 
+            // Hiện form mặc định
+            if (BasePRE._sss.Default != null)
+            {
+                Type type = Type.GetType("PRE.Catalog." + BasePRE._sss.Default.Code);
+                if (type != null)
+                {
+                    var frm = Activator.CreateInstance(type) as Form;
+                    if (frm != null)
+                    {
+                        frm.MdiParent = this;
+                        frm.Show();
+                    }
+                }
+            }
+
             if (BasePRE._sss.Default != null)
             {
                 //var frm = (Form)Activator.CreateInstance(typeof(FrmBase), BasePRE._sss.Default.Code);

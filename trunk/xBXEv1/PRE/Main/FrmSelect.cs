@@ -9,8 +9,20 @@ namespace PRE.Main
 
     public partial class FrmSelect : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// Dữ liệu được chọn
+        /// </summary>
         public List<ZInfor> ListInfo { private set; get; }
+
+        /// <summary>
+        /// Dữ liệu cần để chọn
+        /// </summary>
         public DataTable DataSource { set; get; }
+
+        /// <summary>
+        /// Tiêu đề của cột Name
+        /// </summary>
+        public string Caption { set; get; }
 
         public FrmSelect()
         {
@@ -21,6 +33,7 @@ namespace PRE.Main
 
         private void FrmSelect_Load(object sender, EventArgs e)
         {
+            treeListColumn3.Caption = Caption;
             if (DataSource != null) trlMain.DataSource = DataSource;
         }
 

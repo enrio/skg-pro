@@ -70,7 +70,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Họ tên";
+            this.treeListColumn3.Caption = "Họ tên / Tên form (chức năng)";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.ReadOnly = true;

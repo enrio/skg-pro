@@ -258,8 +258,14 @@ namespace BLL
         }
         #endregion
 
+        /// <summary>
+        /// Tự động tạo dữ liễu mẫu
+        /// </summary>
+        /// <param name="isDeleteData"></param>
         public static void CreateData(bool isDeleteData = false)
         {
+            if (_pol_UserBLL.Count() > 0) return;
+
             if (isDeleteData)
             {
                 _pol_ActionBLL.Delete();

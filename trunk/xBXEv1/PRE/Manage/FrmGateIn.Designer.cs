@@ -209,8 +209,15 @@
             this.lkeGroup.Properties.Appearance.Options.UseFont = true;
             this.lkeGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Nhóm xe"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", "Mô tả")});
+            this.lkeGroup.Properties.DisplayMember = "Name";
+            this.lkeGroup.Properties.ValueMember = "Id";
             this.lkeGroup.Size = new System.Drawing.Size(323, 26);
             this.lkeGroup.TabIndex = 1;
+            this.lkeGroup.EditValueChanged += new System.EventHandler(this.lkeGroup_EditValueChanged);
             // 
             // labelControl1
             // 
@@ -308,6 +315,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmGateIn";
             this.Text = "Cổng vào";
+            this.Load += new System.EventHandler(this.FrmGateIn_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

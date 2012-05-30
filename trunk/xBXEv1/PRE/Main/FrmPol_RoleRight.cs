@@ -445,6 +445,9 @@ namespace PRE.Main
                         }
                         break;
 
+                    case "Default":
+                        break;
+
                     default:
                         e.Node.SetValue("Full", false);
                         e.Node.SetValue("None", false);

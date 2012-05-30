@@ -98,5 +98,35 @@ namespace DAL
             catch { return null; }
         }
         #endregion
+
+        public DataTable GetDataInMinute()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+
+                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
+                          where s.DateOut == null && s.DateIn.AddMinutes(1) >= GetDate()
+
+                          orderby s.DateIn
+                          select new
+                          {
+                              s.Id,
+                              AccIn = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              GroupId = k.Tra_Kind.Tra_GroupId,
+                              KindId = k.Tra_KindId,
+                              GroupName = k.Tra_Kind.Tra_Group.Name,
+                              KindName = k.Tra_Kind.Name,
+                              k.Chair
+                          };
+
+                return res.ToDataTable();
+
+            }
+            catch { return null; }
+        }
     }
 }

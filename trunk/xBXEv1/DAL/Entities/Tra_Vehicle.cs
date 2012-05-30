@@ -26,6 +26,11 @@ namespace DAL.Entities
         public string Number { set; get; }
 
         /// <summary>
+        /// Số ghế ngồi
+        /// </summary>
+        public string Chair { set; get; }
+
+        /// <summary>
         /// Họ tên tài xế
         /// </summary>
         public string Driver { set; get; }

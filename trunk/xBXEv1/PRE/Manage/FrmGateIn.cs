@@ -13,6 +13,31 @@ namespace PRE.Manage
 
     public partial class FrmGateIn : PRE.Catalog.FrmBase
     {
+        const string STR_MENU = "Cổng &vào";
+        private const string STR_DESC = "In gate form";
+        private const string STR_DMY = "dd/MM/yyyy HH:mm:ss";
+
+        private const string STR_IN_GATE = "Xe này đang ở trong bến!";
+        private const string STR_IN_MAG = "Xe này đã có trong danh sách quản lí!";
+
+        private const string STR_INP_ERR = "Lỗi, nhập dữ liệu sai{0}{1}";
+        private const string STR_INP_HAD = "&Nhập bằng tay";
+        private const string STR_ADD_SUC = "";// "Đã cho xe vào!";
+        private const string STR_EDI_SUC = "Sửa thành công!";
+
+        private const string STR_DEL_SUC = "Xoá thành công!";
+        private const string STR_DEL_ERR = "Lỗi xoá dữ liệu!";
+
+        private const string STR_NO_SAVE = "Không thêm được!";
+        private const string STR_NOT_EDIT = "Không sửa được!";
+        private const string STR_NOT_DEL = "Không xoá được!";
+        private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
+        private const string STR_NOT_INP = "Chưa nhập biển số!";
+
+        private const string STR_NOT_W = "Tải trọng không hợp lệ!";
+        private const string STR_NOT_L = "Chiều dài không hợp lệ!";
+        private const string STR_NOT_C = "Số ghế không hợp lệ!";
+
         public FrmGateIn()
         {
             InitializeComponent();
@@ -136,7 +161,27 @@ namespace PRE.Manage
 
         protected override bool ValidInput()
         {
-            return base.ValidInput();
+            var oki = txtNumber.Text.Length == 0 ? false : true;
+
+            if (!oki) BasePRE.ShowMessage(STR_NOT_INP, Text);
+            else
+            {
+                // Check format number
+                if (txtNumber.Text.Length > 2)
+                {
+                    int num;
+                    string tmp = txtNumber.Text.Substring(0, 2);
+                    oki = oki && Int32.TryParse(tmp, out num);
+
+                    tmp = txtNumber.Text.Substring(2, 1);
+                    oki = oki && !Int32.TryParse(tmp, out num);
+                }
+                else oki = false;
+
+                if (!oki) BasePRE.ShowMessage(STR_NOT_NUM, Text);
+            }
+
+            return oki;
         }
 
         protected override void tmrMain_Tick(object sender, EventArgs e)

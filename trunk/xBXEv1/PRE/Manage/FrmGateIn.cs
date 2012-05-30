@@ -184,8 +184,10 @@ namespace PRE.Manage
             return oki;
         }
 
+        static int _sec; // current second
         protected override void tmrMain_Tick(object sender, EventArgs e)
         {
+            _sec++; if (_sec >= 10) { GetDataInMinute(); _sec = 0; }
             lblDateIn.Text = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
 
             base.tmrMain_Tick(sender, e);
@@ -203,6 +205,22 @@ namespace PRE.Manage
             var id = (Guid)lkeGroup.GetColumnValue("Id");
             lkeKind.Properties.DataSource = BaseBLL._tra_KindBLL.Select(id);
             lkeKind.ItemIndex = 0;
+        }
+
+        private void GetDataInMinute()
+        {
+            var tb = BaseBLL._tra_DetailBLL.GetDataInMinute();
+            if (tb.Rows.Count > 0)
+                grcMain.DataSource = tb;
+            else
+            {
+                for (int i = 0; i < grvMain.RowCount; i++)
+                    grvMain.DeleteRow(i);
+
+                //cmdIn.Enabled = true;
+                //cmdEdit.Enabled = false;
+                //cmdDelete.Enabled = false;                
+            }
         }
     }
 }

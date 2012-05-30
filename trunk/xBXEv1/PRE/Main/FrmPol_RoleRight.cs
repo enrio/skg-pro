@@ -32,7 +32,6 @@ namespace PRE.Main
             SetDockPanel(dockPanel2, "Danh sách");
 
             _bll = new Pol_RoleRightBLL();
-            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             AddTreeListColumns();
             FormatRows();
@@ -314,11 +313,6 @@ namespace PRE.Main
 
                 switch (e.Column.FieldName)
                 {
-                    case "Select":
-                        if (sdr != null && sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Select"] = val;
-                        break;
-
                     case "Add":
                         if (sdr != null && sdr.Length > 0)
                             foreach (DataRow dr in sdr)

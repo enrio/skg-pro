@@ -40,7 +40,6 @@
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -111,8 +110,7 @@
             this.treeListColumn1,
             this.treeListColumn2,
             this.treeListColumn3,
-            this.treeListColumn4,
-            this.treeListColumn5});
+            this.treeListColumn4});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
@@ -124,20 +122,19 @@
             // 
             // treeListColumn1
             // 
-            this.treeListColumn1.Caption = "Chọn";
-            this.treeListColumn1.FieldName = "Select";
+            this.treeListColumn1.Caption = "Format";
+            this.treeListColumn1.FieldName = "Format";
             this.treeListColumn1.MinWidth = 32;
             this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 0;
             // 
             // treeListColumn2
             // 
             this.treeListColumn2.Caption = "STT";
             this.treeListColumn2.FieldName = "No_";
+            this.treeListColumn2.MinWidth = 32;
             this.treeListColumn2.Name = "treeListColumn2";
             this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 1;
+            this.treeListColumn2.VisibleIndex = 0;
             // 
             // treeListColumn3
             // 
@@ -145,7 +142,7 @@
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 2;
+            this.treeListColumn3.VisibleIndex = 1;
             // 
             // treeListColumn4
             // 
@@ -153,13 +150,7 @@
             this.treeListColumn4.FieldName = "Descript";
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 3;
-            // 
-            // treeListColumn5
-            // 
-            this.treeListColumn5.Caption = "Format";
-            this.treeListColumn5.FieldName = "Format";
-            this.treeListColumn5.Name = "treeListColumn5";
+            this.treeListColumn4.VisibleIndex = 2;
             // 
             // FrmPol_UserRight
             // 
@@ -194,7 +185,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ricSelect;
     }
 }

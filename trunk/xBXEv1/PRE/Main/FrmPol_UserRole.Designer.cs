@@ -40,7 +40,6 @@
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ricSelect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -111,8 +110,7 @@
             this.treeListColumn1,
             this.treeListColumn2,
             this.treeListColumn3,
-            this.treeListColumn4,
-            this.treeListColumn5});
+            this.treeListColumn4});
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
@@ -120,12 +118,11 @@
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;
             this.trlMain.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterCheckNode);
-            
             // 
             // treeListColumn1
             // 
-            this.treeListColumn1.Caption = "Chọn";
-            this.treeListColumn1.FieldName = "Select";
+            this.treeListColumn1.Caption = "Format";
+            this.treeListColumn1.FieldName = "Format";
             this.treeListColumn1.MinWidth = 32;
             this.treeListColumn1.Name = "treeListColumn1";
             this.treeListColumn1.Visible = true;
@@ -157,12 +154,6 @@
             this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 3;
-            // 
-            // treeListColumn5
-            // 
-            this.treeListColumn5.Caption = "Format";
-            this.treeListColumn5.FieldName = "Format";
-            this.treeListColumn5.Name = "treeListColumn5";
             // 
             // FrmPol_UserRole
             // 
@@ -197,7 +188,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit ricSelect;
     }
 }

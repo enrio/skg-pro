@@ -27,8 +27,6 @@ namespace PRE.Main
         {
             InitializeComponent();
 
-
-            trlMain.Columns["Select"].Visible = false; // tạm thời ẩn cột Chọn
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
         }
 
@@ -70,6 +68,11 @@ namespace PRE.Main
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
             foreach (TreeListNode n in trlMain.Nodes) n.Checked = chkAll.Checked;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

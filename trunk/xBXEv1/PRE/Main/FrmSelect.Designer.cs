@@ -29,50 +29,44 @@
         private void InitializeComponent()
         {
             this.trlMain = new DevExpress.XtraTreeList.TreeList();
-            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn4 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.chkAll = new DevExpress.XtraEditors.CheckEdit();
             this.btnSelect = new DevExpress.XtraEditors.SimpleButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // trlMain
             // 
             this.trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.treeListColumn1,
             this.treeListColumn2,
             this.treeListColumn3,
             this.treeListColumn4,
-            this.treeListColumn5,
             this.treeListColumn6});
-            this.trlMain.Location = new System.Drawing.Point(0, 47);
+            this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
             this.trlMain.OptionsView.ShowCheckBoxes = true;
-            this.trlMain.Size = new System.Drawing.Size(470, 179);
-            this.trlMain.TabIndex = 6;
-            // 
-            // treeListColumn1
-            // 
-            this.treeListColumn1.Caption = "Chọn";
-            this.treeListColumn1.FieldName = "Select";
-            this.treeListColumn1.MinWidth = 32;
-            this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 0;
+            this.trlMain.Size = new System.Drawing.Size(494, 299);
+            this.trlMain.TabIndex = 3;
             // 
             // treeListColumn2
             // 
             this.treeListColumn2.Caption = "STT";
             this.treeListColumn2.FieldName = "No_";
+            this.treeListColumn2.MinWidth = 32;
             this.treeListColumn2.Name = "treeListColumn2";
             this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 1;
+            this.treeListColumn2.VisibleIndex = 0;
             // 
             // treeListColumn3
             // 
@@ -81,7 +75,7 @@
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 2;
+            this.treeListColumn3.VisibleIndex = 1;
             // 
             // treeListColumn4
             // 
@@ -90,13 +84,7 @@
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 3;
-            // 
-            // treeListColumn5
-            // 
-            this.treeListColumn5.Caption = "Format";
-            this.treeListColumn5.FieldName = "Format";
-            this.treeListColumn5.Name = "treeListColumn5";
+            this.treeListColumn4.VisibleIndex = 2;
             // 
             // treeListColumn6
             // 
@@ -110,26 +98,56 @@
             this.chkAll.Name = "chkAll";
             this.chkAll.Properties.Caption = "Tất cả";
             this.chkAll.Size = new System.Drawing.Size(70, 19);
-            this.chkAll.TabIndex = 7;
+            this.chkAll.TabIndex = 0;
             this.chkAll.CheckedChanged += new System.EventHandler(this.chkAll_CheckedChanged);
             // 
             // btnSelect
             // 
-            this.btnSelect.Location = new System.Drawing.Point(408, 12);
+            this.btnSelect.Image = global::PRE.Properties.Resources.ok;
+            this.btnSelect.Location = new System.Drawing.Point(326, 12);
             this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(50, 29);
-            this.btnSelect.TabIndex = 8;
+            this.btnSelect.Size = new System.Drawing.Size(75, 36);
+            this.btnSelect.TabIndex = 1;
             this.btnSelect.Text = "Chọn";
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.chkAll);
+            this.panel1.Controls.Add(this.btnSelect);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(494, 54);
+            this.panel1.TabIndex = 4;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = global::PRE.Properties.Resources.closex;
+            this.btnCancel.Location = new System.Drawing.Point(407, 12);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 36);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Huỷ";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.trlMain);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 54);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(494, 299);
+            this.panel2.TabIndex = 5;
             // 
             // FrmSelect
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 226);
-            this.Controls.Add(this.btnSelect);
-            this.Controls.Add(this.chkAll);
-            this.Controls.Add(this.trlMain);
+            this.ClientSize = new System.Drawing.Size(494, 353);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmSelect";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -137,6 +155,8 @@
             this.Load += new System.EventHandler(this.FrmSelect_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trlMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkAll.Properties)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,13 +164,14 @@
         #endregion
 
         private DevExpress.XtraTreeList.TreeList trlMain;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn3;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn4;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraEditors.CheckEdit chkAll;
         private DevExpress.XtraEditors.SimpleButton btnSelect;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
+        private System.Windows.Forms.Panel panel1;
+        private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private System.Windows.Forms.Panel panel2;
     }
 }

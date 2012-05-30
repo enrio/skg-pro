@@ -12,6 +12,7 @@ namespace PRE
     using BLL;
     using Catalog;
     using Main;
+    using Manage;
     using DevExpress.XtraBars.Helpers;
     using DevExpress.XtraBars.Ribbon;
 
@@ -55,6 +56,7 @@ namespace PRE
             {
                 Type type = Type.GetType("PRE.Catalog." + BasePRE._sss.Default.Code);
                 if (type == null) type = Type.GetType("PRE.Main." + BasePRE._sss.Default.Code);
+                if (type == null) type = Type.GetType("PRE.Manage." + BasePRE._sss.Default.Code);
                 if (type == null) type = Type.GetType(BasePRE._sss.Default.Code);
                 if (type == null) return;
 
@@ -272,5 +274,31 @@ namespace PRE
             BLL.BaseBLL.CreateData(true);
         }
         #endregion
+
+        private void bbiGateIn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var x = typeof(FrmGateIn);
+            var frm = (FrmGateIn)BasePRE.GetMdiChilden(this, x.FullName);
+
+            if (frm == null)
+            {
+                frm = new FrmGateIn() { MdiParent = this };
+                frm.ShowForm();
+            }
+            else frm.Activate();
+        }
+
+        private void bbiGateOut_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var x = typeof(FrmGateOut);
+            var frm = (FrmGateOut)BasePRE.GetMdiChilden(this, x.FullName);
+
+            if (frm == null)
+            {
+                frm = new FrmGateOut() { MdiParent = this };
+                frm.ShowForm();
+            }
+            else frm.Activate();
+        }
     }
 }

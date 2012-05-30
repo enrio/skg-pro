@@ -32,6 +32,12 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtAddress = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.dteBirth = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDriver = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
@@ -52,16 +58,14 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDriver = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.dteBirth = new DevExpress.XtraEditors.DateEdit();
-            this.txtAddress = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).BeginInit();
@@ -70,10 +74,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -124,6 +124,56 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 106);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(606, 67);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(175, 20);
+            this.txtAddress.TabIndex = 15;
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(564, 70);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(36, 13);
+            this.labelControl8.TabIndex = 14;
+            this.labelControl8.Text = "Địa chỉ:";
+            // 
+            // dteBirth
+            // 
+            this.dteBirth.EditValue = new System.DateTime(2012, 5, 31, 0, 0, 0, 0);
+            this.dteBirth.Location = new System.Drawing.Point(478, 67);
+            this.dteBirth.Name = "dteBirth";
+            this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteBirth.Size = new System.Drawing.Size(77, 20);
+            this.dteBirth.TabIndex = 14;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(421, 70);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(51, 13);
+            this.labelControl7.TabIndex = 13;
+            this.labelControl7.Text = "Ngày sinh:";
+            // 
+            // txtDriver
+            // 
+            this.txtDriver.Location = new System.Drawing.Point(275, 67);
+            this.txtDriver.Name = "txtDriver";
+            this.txtDriver.Size = new System.Drawing.Size(140, 20);
+            this.txtDriver.TabIndex = 13;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(236, 70);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(33, 13);
+            this.labelControl6.TabIndex = 12;
+            this.labelControl6.Text = "Tài xế:";
+            // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,7 +188,9 @@
             this.txtNumber.Location = new System.Drawing.Point(92, 67);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtNumber.Properties.Appearance.Options.UseForeColor = true;
             this.txtNumber.Size = new System.Drawing.Size(138, 32);
             this.txtNumber.TabIndex = 11;
             // 
@@ -330,56 +382,6 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
             // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(236, 70);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(33, 13);
-            this.labelControl6.TabIndex = 12;
-            this.labelControl6.Text = "Tài xế:";
-            // 
-            // txtDriver
-            // 
-            this.txtDriver.Location = new System.Drawing.Point(275, 67);
-            this.txtDriver.Name = "txtDriver";
-            this.txtDriver.Size = new System.Drawing.Size(140, 20);
-            this.txtDriver.TabIndex = 13;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(421, 70);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(51, 13);
-            this.labelControl7.TabIndex = 13;
-            this.labelControl7.Text = "Ngày sinh:";
-            // 
-            // dteBirth
-            // 
-            this.dteBirth.EditValue = new System.DateTime(2012, 5, 31, 0, 0, 0, 0);
-            this.dteBirth.Location = new System.Drawing.Point(478, 67);
-            this.dteBirth.Name = "dteBirth";
-            this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteBirth.Size = new System.Drawing.Size(77, 20);
-            this.dteBirth.TabIndex = 14;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(606, 67);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(175, 20);
-            this.txtAddress.TabIndex = 15;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(564, 70);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(36, 13);
-            this.labelControl8.TabIndex = 14;
-            this.labelControl8.Text = "Địa chỉ:";
-            // 
             // FrmGateIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,6 +398,10 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).EndInit();
@@ -404,10 +410,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

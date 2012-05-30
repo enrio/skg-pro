@@ -125,17 +125,16 @@
             this.treeListColumn1.FieldName = "Format";
             this.treeListColumn1.MinWidth = 32;
             this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.Visible = true;
-            this.treeListColumn1.VisibleIndex = 0;
             // 
             // treeListColumn2
             // 
             this.treeListColumn2.Caption = "STT";
             this.treeListColumn2.FieldName = "No_";
+            this.treeListColumn2.MinWidth = 32;
             this.treeListColumn2.Name = "treeListColumn2";
             this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 1;
+            this.treeListColumn2.VisibleIndex = 0;
             // 
             // treeListColumn3
             // 
@@ -144,7 +143,7 @@
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 2;
+            this.treeListColumn3.VisibleIndex = 1;
             // 
             // treeListColumn4
             // 
@@ -153,7 +152,7 @@
             this.treeListColumn4.Name = "treeListColumn4";
             this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 3;
+            this.treeListColumn4.VisibleIndex = 2;
             // 
             // FrmPol_UserRole
             // 

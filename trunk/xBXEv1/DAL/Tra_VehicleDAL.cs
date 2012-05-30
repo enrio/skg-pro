@@ -18,6 +18,11 @@ namespace DAL
             return _db.Tra_Vehicles.Count();
         }
 
+        public DataTable Select(Guid fKey)
+        {
+            throw new NotImplementedException();
+        }
+
         public object Select(string code)
         {
             try

@@ -147,12 +147,14 @@ namespace PRE.Manage
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
             lkeGroup.Properties.DataSource = BaseBLL._tra_GroupBLL.Select();
+            lkeGroup.ItemIndex = 0;
         }
 
         private void lkeGroup_EditValueChanged(object sender, EventArgs e)
         {
-            var id = lkeGroup.SelectedText;
-            lkeKind.Properties.DataSource = BaseBLL._tra_KindBLL.Select();
+            var id = (Guid)lkeGroup.GetColumnValue("Id");
+            lkeKind.Properties.DataSource = BaseBLL._tra_KindBLL.Select(id);
+            lkeKind.ItemIndex = 0;
         }
     }
 }

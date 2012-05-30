@@ -18,6 +18,31 @@ namespace DAL
             return _db.Tra_Kinds.Count();
         }
 
+        public DataTable Select(Guid fKey)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Kinds
+                          where s.Tra_GroupId == fKey
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              s.Name,
+                              s.Descript,
+                              s.Price1,
+                              s.Price2,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
         public object Select(string code)
         {
             try

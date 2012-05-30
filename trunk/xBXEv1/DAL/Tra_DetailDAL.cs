@@ -18,6 +18,11 @@ namespace DAL
             return _db.Tra_Details.Count();
         }
 
+        public DataTable Select(Guid fKey)
+        {
+            throw new NotImplementedException();
+        }
+
         public object Select(string code)
         {
             throw new NotImplementedException();

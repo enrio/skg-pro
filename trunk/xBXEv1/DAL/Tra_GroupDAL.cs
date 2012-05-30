@@ -18,6 +18,11 @@ namespace DAL
             return _db.Tra_Groups.Count();
         }
 
+        public DataTable Select(Guid fKey)
+        {
+            throw new NotImplementedException();
+        }
+
         public object Select(string code)
         {
             try
@@ -32,6 +37,7 @@ namespace DAL
             try
             {
                 var res = from s in _db.Tra_Groups
+                          orderby s.Order
                           select new
                           {
                               s.Id,

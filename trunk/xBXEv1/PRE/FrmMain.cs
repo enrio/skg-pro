@@ -60,11 +60,11 @@ namespace PRE
                 if (type == null) type = Type.GetType(BasePRE._sss.Default.Code);
                 if (type == null) return;
 
-                var frm = Activator.CreateInstance(type) as Form;
+                var frm = Activator.CreateInstance(type) as FrmBase;
                 if (frm != null)
                 {
                     frm.MdiParent = this;
-                    frm.Show();
+                    frm.ShowForm();
                 }
             }
 

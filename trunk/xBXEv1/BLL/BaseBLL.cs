@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BLL
 {
-    using System.Data;
     using DAL.Entities;
 
     /// <summary>
@@ -31,21 +29,23 @@ namespace BLL
         {
             if (_pol_ActionBLL.Count() > 0) return;
 
-            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Thêm dữ liệu", Order = 0 };
+            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Sửa dữ liệu", Order = 1 };
+            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Xoá dữ liệu", Order = 2 };
+            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Truy vấn dữ liệu", Order = 3 };
+            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Cho phép truy vấn dữ liệu", Order = 3 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "In ấn dữ liệu", Order = 4 };
+            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Access", Name = "Truy cập", Descript = "Chỉ hiện quyền (form) này", Order = 5 };
+            o = new Pol_Action() { Code = "Access", Name = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
+            o = new Pol_Action() { Code = "Only", Name = "Tất cả", Descript = "Chỉ hiện form (chức năng) này", Order = 6 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 7 };
+            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 7 };
+            _pol_ActionBLL.Insert(o);
+            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 8 };
             _pol_ActionBLL.Insert(o);
         }
 

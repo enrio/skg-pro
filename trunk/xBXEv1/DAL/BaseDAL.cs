@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DAL
 {
@@ -36,7 +35,7 @@ namespace DAL
         }
 
         #region Test
-        public DataTable TestPivot()
+        public static DataTable TestPivot()
         {
             // sample data
             var data = new[] { new { Foo = 1, Bar = "Don Smith" }, 
@@ -67,7 +66,7 @@ namespace DAL
             public double Amount { get; set; }
         }
 
-        public DataTable TestPivot(ref DataTable src)
+        public static DataTable TestPivot(ref DataTable src)
         {
             var week_days = new List<Sales>();
             week_days.Add(new Sales { Sequence = 1, Sequence2 = 8, Day = "Sun", Amount = 23 });

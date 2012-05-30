@@ -18,7 +18,7 @@ namespace BLL
         {
             try
             {
-                var sss = new Session() { User = GetPass(acc), Current = DateTime.Now };
+                var sss = new Session() { User = GetPass(acc), Current = GetDate() };
                 pass = Code.Encode(pass);
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
                 if (sss.User.Pass != pass) return null;

@@ -34,6 +34,15 @@ namespace DAL
             Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());
         }
 
+        /// <summary>
+        /// Lấy giờ hệ thống (SQL Server)
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetDate()
+        {
+            return _db.Database.SqlQuery<DateTime>("SELECT GETDATE()").First();
+        }
+
         #region Test
         public static DataTable TestPivot()
         {

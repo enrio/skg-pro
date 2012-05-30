@@ -40,9 +40,9 @@ namespace DAL.Entities
         public bool Access { set; get; }
 
         /// <summary>
-        /// Chỉ truy cập chức năng (form) này, sau khi đăng nhập thì hiện nó lên
+        /// Mặc định hiện sau khi đăng nhập
         /// </summary>
-        public bool Only { set; get; }
+        public bool Default { set; get; }
 
         private bool _full;
         /// <summary>

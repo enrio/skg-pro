@@ -41,7 +41,7 @@ namespace BLL
             _pol_ActionBLL.Insert(o);
             o = new Pol_Action() { Code = "Access", Name = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
             _pol_ActionBLL.Insert(o);
-            o = new Pol_Action() { Code = "Only", Name = "Tất cả", Descript = "Chỉ hiện form (chức năng) này", Order = 6 };
+            o = new Pol_Action() { Code = "Default", Name = "Mặc định", Descript = "Hiện sau khi đăng nhập", Order = 6 };
             _pol_ActionBLL.Insert(o);
             o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 7 };
             _pol_ActionBLL.Insert(o);

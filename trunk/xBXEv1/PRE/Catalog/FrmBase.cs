@@ -283,7 +283,7 @@ namespace PRE.Catalog
             var name = frmRight.GetType().Name;
             var z = BasePRE._sss.GetRight(name);
 
-            if (z == null || z.Access == false)
+            if (z == null)
                 BasePRE.ShowMessage("Không có quyền", name, MessageBoxButtons.OK, showMessage);
             else
             {

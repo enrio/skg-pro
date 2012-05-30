@@ -17,6 +17,7 @@ namespace PRE.Manage
         {
             InitializeComponent();
 
+            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
             lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
 
             SetDockPanel(dockPanel1, "Nhập liệu");
@@ -140,6 +141,8 @@ namespace PRE.Manage
 
         protected override void tmrMain_Tick(object sender, EventArgs e)
         {
+            lblDateIn.Text = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
+
             base.tmrMain_Tick(sender, e);
         }
         #endregion

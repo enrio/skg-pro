@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -189,6 +190,12 @@
             this.lkeKind.Properties.Appearance.Options.UseFont = true;
             this.lkeKind.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeKind.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Loại xe"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", "Mô tả")});
+            this.lkeKind.Properties.DisplayMember = "Name";
+            this.lkeKind.Properties.ValueMember = "Id";
             this.lkeKind.Size = new System.Drawing.Size(323, 26);
             this.lkeKind.TabIndex = 7;
             // 
@@ -210,7 +217,7 @@
             this.lkeGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkeGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Nhóm xe"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", "Mô tả")});
             this.lkeGroup.Properties.DisplayMember = "Name";

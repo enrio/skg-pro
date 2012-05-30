@@ -78,6 +78,7 @@ namespace PRE.Main
                         r["Query"] = false;
                         r["Print"] = false;
                         r["Access"] = false;
+                        r["Default"] = false;
                         r["Full"] = false;
                         r["None"] = true;
 

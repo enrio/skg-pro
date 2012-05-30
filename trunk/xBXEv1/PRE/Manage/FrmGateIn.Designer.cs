@@ -31,6 +31,9 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtNumber = new DevExpress.XtraEditors.TextEdit();
+            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
             this.lblUserIn = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lblDateIn = new DevExpress.XtraEditors.LabelControl();
@@ -52,6 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeGroup.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -80,12 +85,15 @@
             this.dockPanel1.ID = new System.Guid("82de06b3-fe08-438b-ab24-426659491166");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 200);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 133);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 133);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.labelControl4);
+            this.dockPanel1_Container.Controls.Add(this.txtNumber);
+            this.dockPanel1_Container.Controls.Add(this.timeEdit1);
             this.dockPanel1_Container.Controls.Add(this.lblUserIn);
             this.dockPanel1_Container.Controls.Add(this.labelControl5);
             this.dockPanel1_Container.Controls.Add(this.lblDateIn);
@@ -96,8 +104,45 @@
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 173);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 106);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(8, 75);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(78, 19);
+            this.labelControl4.TabIndex = 7;
+            this.labelControl4.Text = "Biển số xe:";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Location = new System.Drawing.Point(92, 67);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtNumber.Size = new System.Drawing.Size(138, 32);
+            this.txtNumber.TabIndex = 11;
+            // 
+            // timeEdit1
+            // 
+            this.timeEdit1.EditValue = new System.DateTime(2012, 5, 30, 0, 0, 0, 0);
+            this.timeEdit1.Location = new System.Drawing.Point(583, 3);
+            this.timeEdit1.Name = "timeEdit1";
+            this.timeEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.timeEdit1.Properties.Appearance.Options.UseFont = true;
+            this.timeEdit1.Properties.Appearance.Options.UseForeColor = true;
+            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.timeEdit1.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.timeEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.timeEdit1.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.timeEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.timeEdit1.Size = new System.Drawing.Size(198, 26);
+            this.timeEdit1.TabIndex = 10;
+            this.timeEdit1.Visible = false;
             // 
             // lblUserIn
             // 
@@ -181,10 +226,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("804bc57b-767c-4b3f-9512-7be4421dcd18");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 263);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 196);
             this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 303);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 370);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -192,7 +237,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 276);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 343);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -201,7 +246,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 276);
+            this.grcMain.Size = new System.Drawing.Size(943, 343);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -270,6 +315,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeGroup.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -302,5 +349,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LookUpEdit lkeGroup;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.TimeEdit timeEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit txtNumber;
     }
 }

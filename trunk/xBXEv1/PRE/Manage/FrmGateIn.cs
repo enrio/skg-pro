@@ -17,6 +17,8 @@ namespace PRE.Manage
         {
             InitializeComponent();
 
+            lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
+
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 

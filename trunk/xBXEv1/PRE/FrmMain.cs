@@ -54,6 +54,9 @@ namespace PRE
             if (BasePRE._sss.Default != null)
             {
                 Type type = Type.GetType("PRE.Catalog." + BasePRE._sss.Default.Code);
+                if (type == null) type = Type.GetType("PRE.Catalog." + BasePRE._sss.Default.Code);
+                if (type == null) type = Type.GetType(BasePRE._sss.Default.Code);
+
                 if (type != null)
                 {
                     var frm = Activator.CreateInstance(type) as Form;

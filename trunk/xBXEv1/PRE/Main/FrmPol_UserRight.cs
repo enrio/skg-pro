@@ -304,13 +304,12 @@ namespace PRE.Main
         private void trlMain_CellValueChanging(object sender, DevExpress.XtraTreeList.CellValueChangedEventArgs e)
         {
             var val = (bool)e.Value;
+            var id = (Guid)e.Node.GetValue("ParentID");
+            var sl = String.Format("ParentID='{0}'", id);
+            DataRow[] sdr = _dtb.Select(sl);
 
             if (e.Node.HasChildren) // khi click dòng cha
             {
-                var id = (Guid)e.Node.GetValue("ParentID");
-                var sl = String.Format("ParentID='{0}'", id);
-                DataRow[] sdr = _dtb.Select(sl);
-
                 switch (e.Column.FieldName)
                 {
                     case "Add":
@@ -446,6 +445,9 @@ namespace PRE.Main
                         break;
 
                     case "Default":
+                        if (sdr != null && sdr.Length > 0)
+                            foreach (DataRow dr in sdr) dr["Default"] = false;
+                        e.Node.SetValue("Default", val);
                         break;
 
                     default:

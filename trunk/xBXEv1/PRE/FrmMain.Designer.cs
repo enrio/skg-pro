@@ -51,6 +51,8 @@
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.bbiPol_UserRole = new DevExpress.XtraBars.BarButtonItem();
             this.bbiResetDB = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiGateIn = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -59,15 +61,15 @@
             this.rpgTransport = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgInOut = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgInformation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgUse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.rpgInOut = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiGateIn = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
+            this.rpgSumary = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -104,9 +106,10 @@
             this.bbiPol_UserRole,
             this.bbiResetDB,
             this.bbiGateIn,
-            this.bbiGateOut});
+            this.bbiGateOut,
+            this.bbiInDepot});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 24;
+            this.ribbon.MaxItemId = 25;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -278,6 +281,22 @@
             this.bbiResetDB.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiResetDB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetDB_ItemClick);
             // 
+            // bbiGateIn
+            // 
+            this.bbiGateIn.Caption = "Cổng vào";
+            this.bbiGateIn.Id = 22;
+            this.bbiGateIn.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiGateIn.Name = "bbiGateIn";
+            this.bbiGateIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateIn_ItemClick);
+            // 
+            // bbiGateOut
+            // 
+            this.bbiGateOut.Caption = "Cổng ra";
+            this.bbiGateOut.Id = 23;
+            this.bbiGateOut.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiGateOut.Name = "bbiGateOut";
+            this.bbiGateOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateOut_ItemClick);
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -338,9 +357,17 @@
             // rbpManage
             // 
             this.rbpManage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.rpgInOut});
+            this.rpgInOut,
+            this.rpgSumary});
             this.rbpManage.Name = "rbpManage";
             this.rbpManage.Text = "Quản lí";
+            // 
+            // rpgInOut
+            // 
+            this.rpgInOut.ItemLinks.Add(this.bbiGateIn);
+            this.rpgInOut.ItemLinks.Add(this.bbiGateOut);
+            this.rpgInOut.Name = "rpgInOut";
+            this.rpgInOut.Text = "Ra vào";
             // 
             // rbpHelp
             // 
@@ -383,28 +410,19 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
-            // rpgInOut
+            // rpgSumary
             // 
-            this.rpgInOut.ItemLinks.Add(this.bbiGateIn);
-            this.rpgInOut.ItemLinks.Add(this.bbiGateOut);
-            this.rpgInOut.Name = "rpgInOut";
-            this.rpgInOut.Text = "Ra vào";
+            this.rpgSumary.ItemLinks.Add(this.bbiInDepot);
+            this.rpgSumary.Name = "rpgSumary";
+            this.rpgSumary.Text = "Thống kê";
             // 
-            // bbiGateIn
+            // bbiInDepot
             // 
-            this.bbiGateIn.Caption = "Cổng vào";
-            this.bbiGateIn.Id = 22;
-            this.bbiGateIn.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiGateIn.Name = "bbiGateIn";
-            this.bbiGateIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateIn_ItemClick);
-            // 
-            // bbiGateOut
-            // 
-            this.bbiGateOut.Caption = "Cổng ra";
-            this.bbiGateOut.Id = 23;
-            this.bbiGateOut.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiGateOut.Name = "bbiGateOut";
-            this.bbiGateOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateOut_ItemClick);
+            this.bbiInDepot.Caption = "Xe trong bến";
+            this.bbiInDepot.Id = 24;
+            this.bbiInDepot.LargeGlyph = global::PRE.Properties.Resources.main;
+            this.bbiInDepot.Name = "bbiInDepot";
+            this.bbiInDepot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInDepot_ItemClick);
             // 
             // FrmMain
             // 
@@ -467,5 +485,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiGateIn;
         private DevExpress.XtraBars.BarButtonItem bbiGateOut;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInOut;
+        private DevExpress.XtraBars.BarButtonItem bbiInDepot;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSumary;
     }
 }

@@ -300,5 +300,18 @@ namespace PRE
             }
             else frm.Activate();
         }
+
+        private void bbiInDepot_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var x = typeof(FrmInDepot);
+            var frm = (FrmInDepot)BasePRE.GetMdiChilden(this, x.FullName);
+
+            if (frm == null)
+            {
+                frm = new FrmInDepot() { MdiParent = this };
+                frm.ShowForm();
+            }
+            else frm.Activate();
+        }
     }
 }

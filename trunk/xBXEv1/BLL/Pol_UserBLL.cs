@@ -14,11 +14,11 @@ namespace BLL
         /// <param name="acc">Tên tài khoản</param>
         /// <param name="pass">Mật khẩu</param>
         /// <returns>Phiên đăng nhập</returns>
-        public Session CheckLogin(string acc, string pass)
+        public ZSession CheckLogin(string acc, string pass)
         {
             try
             {
-                var sss = new Session() { User = GetPass(acc), Current = GetDate() };
+                var sss = new ZSession() { User = GetPass(acc), Current = GetDate() };
                 pass = Code.Encode(pass);
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
                 if (sss.User.Pass != pass) return null;

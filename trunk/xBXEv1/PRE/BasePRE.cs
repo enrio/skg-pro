@@ -21,7 +21,7 @@ namespace PRE
         /// <summary>
         /// Phiên đăng nhập của người dùng hiện tại
         /// </summary>
-        public static Session _sss = new Session();
+        public static ZSession _sss = new ZSession();
 
         /// <summary>
         /// Ẩn/hiện RibbonControl, DockPanel, BarManager của form cha

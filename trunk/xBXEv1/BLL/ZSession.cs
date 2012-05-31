@@ -9,7 +9,7 @@ namespace BLL
     /// <summary>
     /// Phiên đăng nhập hiện tại của người dùng
     /// </summary>
-    public sealed class Session
+    public sealed class ZSession
     {
         /// <summary>
         /// Người dùng đăng nhập hiện tại

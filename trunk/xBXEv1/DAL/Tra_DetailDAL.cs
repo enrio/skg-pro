@@ -116,7 +116,7 @@ namespace DAL
                           select new
                           {
                               s.Id,
-                              AccIn = s.Pol_UserIn.Name,
+                              UserInName = s.Pol_UserIn.Name,
                               Phone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
@@ -124,7 +124,8 @@ namespace DAL
                               KindId = k.Tra_KindId,
                               GroupName = k.Tra_Kind.Tra_Group.Name,
                               KindName = k.Tra_Kind.Name,
-                              k.Chair
+                              k.Chair,
+                              k.Number
                           };
 
                 return res.ToDataTable();

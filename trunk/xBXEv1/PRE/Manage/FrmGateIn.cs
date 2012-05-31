@@ -211,13 +211,13 @@ namespace PRE.Manage
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            //_dtb = _bll.Select();
 
-            if (_dtb != null)
-            {
-                grcMain.DataSource = _dtb;
-                gridColumn2.BestFit(); // fit column STT
-            }
+            //if (_dtb != null)
+            //{
+            //    grcMain.DataSource = _dtb;
+            //    gridColumn2.BestFit(); // fit column STT
+            //}
 
             base.LoadData();
         }

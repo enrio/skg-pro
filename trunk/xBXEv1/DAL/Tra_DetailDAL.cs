@@ -107,10 +107,12 @@ namespace DAL
         {
             try
             {
+                var d = GetDate().AddMinutes(-1);
+
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null && s.DateIn.AddMinutes(1) >= GetDate()
+                          where s.DateOut == null && s.DateIn >= d
 
                           orderby s.DateIn
                           select new

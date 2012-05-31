@@ -9,11 +9,11 @@ using System.Windows.Forms;
 namespace PRE.Manage
 {
     /// <summary>
-    /// Cổng ra
+    /// Danh sách xe trong bến
     /// </summary>
-    public partial class FrmGateOut : PRE.Catalog.FrmBase
+    public partial class FrmInDepot : PRE.Catalog.FrmBase
     {
-        public FrmGateOut()
+        public FrmInDepot()
         {
             InitializeComponent();
         }

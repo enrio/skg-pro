@@ -159,6 +159,12 @@
     <Compile Include="Manage\FrmGateOut.Designer.cs">
       <DependentUpon>FrmGateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manage\FrmInDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\FrmInDepot.Designer.cs">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Catalog\FrmBase.resx">
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage\FrmGateOut.resx">
       <DependentUpon>FrmGateOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\FrmInDepot.resx">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

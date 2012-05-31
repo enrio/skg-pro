@@ -11,6 +11,9 @@ namespace PRE.Manage
     using BLL;
     using DAL.Entities;
 
+    /// <summary>
+    /// Cổng vào
+    /// </summary>
     public partial class FrmGateIn : PRE.Catalog.FrmBase
     {
         const string STR_MENU = "Cổng &vào";

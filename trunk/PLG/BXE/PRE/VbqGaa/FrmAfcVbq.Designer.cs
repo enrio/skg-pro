@@ -150,7 +150,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(426, 176);
+            this.cmdClose.Location = new System.Drawing.Point(548, 176);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 32);
             this.cmdClose.TabIndex = 10;
@@ -340,13 +340,12 @@
             // cmdInList
             // 
             this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Location = new System.Drawing.Point(354, 382);
+            this.cmdInList.Location = new System.Drawing.Point(426, 176);
             this.cmdInList.Name = "cmdInList";
             this.cmdInList.Size = new System.Drawing.Size(116, 32);
             this.cmdInList.TabIndex = 6;
             this.cmdInList.Text = "Xe trong &bến";
             this.cmdInList.UseVisualStyleBackColor = true;
-            this.cmdInList.Visible = false;
             this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
             // cmdDelete
@@ -365,9 +364,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(520, 176);
+            this.lblInf.Location = new System.Drawing.Point(642, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(486, 32);
+            this.lblInf.Size = new System.Drawing.Size(364, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

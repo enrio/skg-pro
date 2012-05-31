@@ -20,6 +20,7 @@ namespace PRE.Catalog
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
+            grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
             _bll = new Tra_KindBLL();
         }

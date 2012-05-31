@@ -71,6 +71,13 @@ namespace BLL
 
             o = new Pol_Right() { Code = "FrmLogin", Name = "Đăng nhập", Descript = "Form đăng nhập" };
             _pol_RightBLL.Insert(o);
+
+            o = new Pol_Right() { Code = "FrmGateIn", Name = "Cổng vào", Descript = "Form cổng vào" };
+            _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Code = "FrmGateOut", Name = "Cổng ra", Descript = "Form cổng ra" };
+            _pol_RightBLL.Insert(o);
+            o = new Pol_Right() { Code = "FrmInDepot", Name = "Xe trong bến", Descript = "Form xe trong bến" };
+            _pol_RightBLL.Insert(o);
         }
 
         static void CreatePol_Role()
@@ -130,7 +137,7 @@ namespace BLL
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_User");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
             b = (Pol_Right)_pol_RightBLL.Select("FrmPol_UserRight");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
@@ -147,6 +154,16 @@ namespace BLL
             _pol_UserRightBLL.Insert(o);
 
             b = (Pol_Right)_pol_RightBLL.Select("FrmLogin");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            _pol_UserRightBLL.Insert(o);
+
+            b = (Pol_Right)_pol_RightBLL.Select("FrmGateIn");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            _pol_UserRightBLL.Insert(o);
+            b = (Pol_Right)_pol_RightBLL.Select("FrmGateOut");
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            _pol_UserRightBLL.Insert(o);
+            b = (Pol_Right)_pol_RightBLL.Select("FrmInDepot");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             _pol_UserRightBLL.Insert(o);
         }

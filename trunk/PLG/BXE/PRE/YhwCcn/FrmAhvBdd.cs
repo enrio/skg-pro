@@ -73,10 +73,21 @@ namespace BXE.PRE.YhwCcn
 
         private void cmdFind_Click(object sender, EventArgs e)
         {
-            if (txtNumber.Text + "" == "") return;
+            dgvAep.DataSource = _tb;
+        }
+
+        private void txtNumber_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || txtNumber.Text + "" == "") return;
+
             var dtr = _tb.Select(String.Format("Number Like '%{0}%'", txtNumber.Text));
             if (dtr.Length > 0) dgvAep.DataSource = dtr.CopyToDataTable();
             else MessageBox.Show("Không tìm thấy", Text);
+        }
+
+        private void cmdRefresh_Click(object sender, EventArgs e)
+        {
+            dgvAep.DataSource = _tb;
         }
     }
 }

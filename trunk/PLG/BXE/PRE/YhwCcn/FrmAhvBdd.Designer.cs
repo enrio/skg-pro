@@ -46,7 +46,7 @@
             this.lblInf = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNumber = new System.Windows.Forms.TextBox();
-            this.cmdFind = new System.Windows.Forms.Button();
+            this.cmdRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,23 +211,24 @@
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(111, 26);
             this.txtNumber.TabIndex = 4;
+            this.txtNumber.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyUp);
             // 
-            // cmdFind
+            // cmdRefresh
             // 
-            this.cmdFind.Location = new System.Drawing.Point(232, 36);
-            this.cmdFind.Name = "cmdFind";
-            this.cmdFind.Size = new System.Drawing.Size(84, 26);
-            this.cmdFind.TabIndex = 5;
-            this.cmdFind.Text = "&Tìm";
-            this.cmdFind.UseVisualStyleBackColor = true;
-            this.cmdFind.Click += new System.EventHandler(this.cmdFind_Click);
+            this.cmdRefresh.Location = new System.Drawing.Point(232, 36);
+            this.cmdRefresh.Name = "cmdRefresh";
+            this.cmdRefresh.Size = new System.Drawing.Size(84, 26);
+            this.cmdRefresh.TabIndex = 5;
+            this.cmdRefresh.Text = "&Cập nhật";
+            this.cmdRefresh.UseVisualStyleBackColor = true;
+            this.cmdRefresh.Click += new System.EventHandler(this.cmdRefresh_Click);
             // 
             // FrmAhvBdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 592);
-            this.Controls.Add(this.cmdFind);
+            this.Controls.Add(this.cmdRefresh);
             this.Controls.Add(this.txtNumber);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblInf);
@@ -264,6 +265,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNumber;
-        private System.Windows.Forms.Button cmdFind;
+        private System.Windows.Forms.Button cmdRefresh;
     }
 }

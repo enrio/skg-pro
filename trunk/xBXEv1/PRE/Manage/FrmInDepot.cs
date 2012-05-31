@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace PRE.Manage
 {
+    using BLL;
+    using DAL.Entities;
+
     /// <summary>
     /// Danh sách xe trong bến
     /// </summary>
@@ -16,6 +19,12 @@ namespace PRE.Manage
         public FrmInDepot()
         {
             InitializeComponent();
+
+            SetDockPanel(dockPanel1, "Nhập liệu");
+            SetDockPanel(dockPanel2, "Danh sách");
+
+            grvMain.OptionsBehavior.Editable = false;
+            _bll = new Tra_DetailBLL();
         }
     }
 }

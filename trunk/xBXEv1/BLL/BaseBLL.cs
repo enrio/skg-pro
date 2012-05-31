@@ -259,29 +259,29 @@ namespace BLL
         #endregion
 
         /// <summary>
-        /// Tự động tạo dữ liễu mẫu
+        /// Xoá tất cả
         /// </summary>
-        /// <param name="isDeleteData"></param>
-        public static void CreateData(bool isDeleteData = false)
+        static void DeleteAll()
         {
-            if (_pol_UserBLL.Count() > 0) return;
+            _pol_ActionBLL.Delete();
+            _pol_RightBLL.Delete();
+            _pol_RoleBLL.Delete();
+            _pol_UserBLL.Delete();
+            _pol_UserRightBLL.Delete();
+            _pol_UserRoleBLL.Delete();
+            _pol_RoleRightBLL.Delete();
 
-            if (isDeleteData)
-            {
-                _pol_ActionBLL.Delete();
-                _pol_RightBLL.Delete();
-                _pol_RoleBLL.Delete();
-                _pol_UserBLL.Delete();
-                _pol_UserRightBLL.Delete();
-                _pol_UserRoleBLL.Delete();
-                _pol_RoleRightBLL.Delete();
+            _tra_GroupBLL.Delete();
+            _tra_KindBLL.Delete();
+            _tra_VehicleBLL.Delete();
+            _tra_DetailBLL.Delete();
+        }
 
-                _tra_GroupBLL.Delete();
-                _tra_KindBLL.Delete();
-                _tra_VehicleBLL.Delete();
-                _tra_DetailBLL.Delete();
-            }
-
+        /// <summary>
+        /// Tạo mới tất cả
+        /// </summary>
+        static void CreateAll()
+        {
             CreatePol_Action();
             CreatePol_Right();
             CreatePol_Role();
@@ -294,6 +294,17 @@ namespace BLL
             CreateTra_Kind();
             CreateTra_Vehicle();
             CreateTra_Detail();
+        }
+
+        /// <summary>
+        /// Tự động tạo dữ liễu mẫu
+        /// </summary>
+        /// <param name="isDelete"></param>
+        public static void CreateData(bool isDelete = false)
+        {
+            if (isDelete) DeleteAll();
+            if (_pol_UserBLL.Count() > 0) return;
+            CreateAll();
         }
     }
 }

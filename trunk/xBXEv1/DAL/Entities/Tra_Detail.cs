@@ -43,5 +43,20 @@ namespace DAL.Entities
         /// Thời gian cho xe ra bến
         /// </summary>
         public DateTime DateOut { set; get; }
+
+        /// <summary>
+        /// Đơn giá nửa ngày
+        /// </summary>
+        public int Price1 { set; get; }
+
+        /// <summary>
+        /// Đơn giá một ngày
+        /// </summary>
+        public int Price2 { set; get; }
+
+        /// <summary>
+        /// Thành tiền
+        /// </summary>
+        public decimal Money { set; get; }
     }
 }

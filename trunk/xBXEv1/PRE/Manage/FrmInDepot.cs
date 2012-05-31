@@ -26,5 +26,13 @@ namespace PRE.Manage
             grvMain.OptionsBehavior.Editable = false;
             _bll = new Tra_DetailBLL();
         }
+
+        private void FrmInDepot_Load(object sender, EventArgs e)
+        {
+            decimal sum;
+            _dtb = BaseBLL._tra_DetailBLL.GetInDepot(out sum);
+            grcMain.DataSource = _dtb;
+            Text = String.Format("Tổng số xe hiện có: {0}", sum.ToString("0"));
+        }
     }
 }

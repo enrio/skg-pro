@@ -168,6 +168,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmInDepot";
             this.Text = "Danh sách xe trong bến";
+            this.Load += new System.EventHandler(this.FrmInDepot_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

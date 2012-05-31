@@ -132,5 +132,73 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Danh sách xe trong bến (ngoài bến)
+        /// </summary>
+        /// <param name="total">Số lượng xe</param>
+        /// <param name="staIn">Xe trong bến</param>
+        /// <returns>Danh sách xe</returns>
+        public DataTable GetInDepot(out decimal total, bool staIn = true)
+        {
+            total = 0;
+
+            try
+            {
+                if (staIn)
+                {
+                    var res = from s in _db.Tra_Details
+
+                              join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                              join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
+
+                              where s.Pol_UserOutId == null
+                              orderby v.Number
+
+                              select new
+                              {
+                                  s.Id,
+                                  UserInName = s.Pol_UserIn.Name,
+                                  Phone = s.Pol_UserIn.Phone,
+                                  s.DateIn,
+
+                                  v.Number,
+                                  v.Chair,
+
+                                  KindName = k.Name,
+                                  GroupName = k.Tra_Group.Name,
+                              };
+
+                    total = res.Count();
+
+                    return res.ToDataTable();
+                }
+                else
+                {
+                    var res = from s in _db.Tra_Details
+                              where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
+                              && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
+                              orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Number
+                              select new
+                              {
+                                  UserInName = s.Pol_UserIn.Name,
+                                  UserOutName = s.Pol_UserOut.Name,
+                                  s.DateIn,
+                                  s.DateOut,
+
+                                  Number = s.Code,
+                                  s.Price1,
+                                  s.Price2,
+                                  s.Money
+                              };
+
+                    var tmp = res.Sum(k => k.Money);
+                    total = Convert.ToDecimal(tmp);
+
+                    return res.ToDataTable();
+                }
+            }
+            catch { return null; }
+        }
     }
 }

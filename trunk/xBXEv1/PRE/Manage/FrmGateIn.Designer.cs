@@ -40,7 +40,7 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
+            this.tmeDateIn = new DevExpress.XtraEditors.TimeEdit();
             this.lblUserIn = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lblDateIn = new DevExpress.XtraEditors.LabelControl();
@@ -71,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmeDateIn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeGroup.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -114,7 +114,7 @@
             this.dockPanel1_Container.Controls.Add(this.labelControl6);
             this.dockPanel1_Container.Controls.Add(this.labelControl4);
             this.dockPanel1_Container.Controls.Add(this.txtNumber);
-            this.dockPanel1_Container.Controls.Add(this.timeEdit1);
+            this.dockPanel1_Container.Controls.Add(this.tmeDateIn);
             this.dockPanel1_Container.Controls.Add(this.lblUserIn);
             this.dockPanel1_Container.Controls.Add(this.labelControl5);
             this.dockPanel1_Container.Controls.Add(this.lblDateIn);
@@ -198,24 +198,22 @@
             this.txtNumber.Size = new System.Drawing.Size(138, 32);
             this.txtNumber.TabIndex = 11;
             // 
-            // timeEdit1
+            // tmeDateIn
             // 
-            this.timeEdit1.EditValue = new System.DateTime(2012, 5, 30, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(583, 3);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.timeEdit1.Properties.Appearance.Options.UseFont = true;
-            this.timeEdit1.Properties.Appearance.Options.UseForeColor = true;
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tmeDateIn.EditValue = new System.DateTime(2012, 5, 30, 0, 0, 0, 0);
+            this.tmeDateIn.Location = new System.Drawing.Point(583, 3);
+            this.tmeDateIn.Name = "tmeDateIn";
+            this.tmeDateIn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tmeDateIn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.tmeDateIn.Properties.Appearance.Options.UseFont = true;
+            this.tmeDateIn.Properties.Appearance.Options.UseForeColor = true;
+            this.tmeDateIn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.timeEdit1.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.timeEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.timeEdit1.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.timeEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.timeEdit1.Size = new System.Drawing.Size(198, 26);
-            this.timeEdit1.TabIndex = 10;
-            this.timeEdit1.Visible = false;
+            this.tmeDateIn.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.tmeDateIn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.tmeDateIn.Size = new System.Drawing.Size(198, 26);
+            this.tmeDateIn.TabIndex = 10;
+            this.tmeDateIn.Visible = false;
             // 
             // lblUserIn
             // 
@@ -385,6 +383,8 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Thời gian vào";
+            this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -443,7 +443,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmeDateIn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeKind.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeGroup.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -476,7 +476,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LookUpEdit lkeGroup;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
+        private DevExpress.XtraEditors.TimeEdit tmeDateIn;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtNumber;
         private DevExpress.XtraEditors.TextEdit txtAddress;

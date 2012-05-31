@@ -163,6 +163,8 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Thời gian vào";
+            this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;

@@ -140,8 +140,67 @@ namespace PRE.Manage
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var id = BaseBLL._tra_VehicleBLL.CheckExist(txtNumber.Text);
+
+                if (id != new Guid()) // kiểm tra biển số xe trong danh sách các xe được quản lí
+                {
+                    var o = new Tra_Detail()
+                    {
+                        Pol_UserInId = BasePRE._sss.User.Id,
+                        Tra_VehicleId = id,
+                        DateIn = BasePRE._sss.Current.Value
+                    };
+
+                    if (_bll.Insert(o) != null)
+                    {
+                        ResetText();
+                        //lblInf.Text = STR_ADD_SUC;
+                    }
+                    else BasePRE.ShowMessage(STR_IN_GATE, Text);
+                }
+                else
+                {
+                    try
+                    {
+                        var ve = new Tra_Vehicle
+                        {
+                            Number = txtNumber.Text,
+                            Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
+                            //Chair = chair
+                            Driver = txtDriver.Text,
+                            Birth = dteBirth.DateTime,
+                            Address = txtAddress.Text
+                        };
+
+                        if (BaseBLL._tra_VehicleBLL.Insert(ve) != null) // thêm biển số xe nào vào danh sách quản lí
+                        {
+                            var o = new Tra_Detail()
+                            {
+                                Pol_UserInId = BasePRE._sss.User.Id,
+                                Tra_VehicleId = id,
+                                DateIn = BasePRE._sss.Current.Value
+                            };
+
+                            if (_bll.Insert(o) != null)
+                            {
+                                ResetText();
+                                //lblInf.Text = STR_ADD_SUC;
+                            }
+                            else BasePRE.ShowMessage(STR_NO_SAVE, Text);
+                        }
+                        //else lblInf.Text = STR_IN_MAG;
+                    }
+                    catch (Exception ex)
+                    {
+                        BasePRE.ShowMessage(String.Format(STR_INP_ERR, Environment.NewLine, ex.Message), Text);
+                        return false;
+                    }
+                }
+
+                GetDataInMinute();
+                return true;
             }
             catch { return false; }
         }
@@ -207,6 +266,9 @@ namespace PRE.Manage
             lkeKind.ItemIndex = 0;
         }
 
+        /// <summary>
+        /// Danh sách xe vào bến trong vòng 01 phút
+        /// </summary>
         private void GetDataInMinute()
         {
             var tb = BaseBLL._tra_DetailBLL.GetDataInMinute();

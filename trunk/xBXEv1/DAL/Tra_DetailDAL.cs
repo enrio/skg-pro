@@ -99,6 +99,10 @@ namespace DAL
         }
         #endregion
 
+        /// <summary>
+        /// Danh sách xe vào bến trong vòng 01 phút
+        /// </summary>
+        /// <returns>Danh sách</returns>
         public DataTable GetDataInMinute()
         {
             try

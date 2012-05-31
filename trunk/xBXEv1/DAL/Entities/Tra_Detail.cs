@@ -42,7 +42,7 @@ namespace DAL.Entities
         /// <summary>
         /// Thời gian cho xe ra bến
         /// </summary>
-        public DateTime DateOut { set; get; }
+        public DateTime? DateOut { set; get; }
 
         /// <summary>
         /// Đơn giá nửa ngày

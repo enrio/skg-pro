@@ -182,7 +182,7 @@ namespace PRE.Manage
                             var o = new Tra_Detail()
                             {
                                 Pol_UserInId = BasePRE._sss.User.Id,
-                                Tra_VehicleId = id,
+                                Tra_VehicleId = ve.Id,
                                 DateIn = BasePRE._sss.Current.Value
                             };
 

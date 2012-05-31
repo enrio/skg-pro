@@ -114,7 +114,7 @@ namespace DAL
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
                           where s.DateOut == null && s.DateIn >= d
 
-                          orderby s.DateIn
+                          orderby s.DateIn descending
                           select new
                           {
                               s.Id,

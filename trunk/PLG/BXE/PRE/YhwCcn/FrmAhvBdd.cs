@@ -82,7 +82,12 @@ namespace BXE.PRE.YhwCcn
 
             var dtr = _tb.Select(String.Format("Number Like '%{0}%'", txtNumber.Text));
             if (dtr.Length > 0) dgvAep.DataSource = dtr.CopyToDataTable();
-            else MessageBox.Show("Không tìm thấy", Text);
+            else
+            {
+                MessageBox.Show("Không tìm thấy", Text);
+                txtNumber.Text = "";
+                dgvAep.DataSource = _tb;
+            }
         }
 
         private void cmdRefresh_Click(object sender, EventArgs e)

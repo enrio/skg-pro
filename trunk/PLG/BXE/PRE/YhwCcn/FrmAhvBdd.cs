@@ -4,12 +4,15 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.YhwCcn
 {
+    using System.Data;
+
     public partial class FrmAhvBdd : Form, UTL.PLG.ItfPlg
     {
         public UTL.BLL.UecLajVei _sss = new UTL.BLL.UecLajVei();
         private readonly string _menu = "&Xe trong bến";
         protected DAL.DetailDAL _dal = new DAL.DetailDAL();
         protected object _obj;
+        private DataTable _tb;
 
         public FrmAhvBdd()
         {
@@ -34,9 +37,10 @@ namespace BXE.PRE.YhwCcn
         #endregion
 
         private void FrmAhvBdd_Load(object sender, EventArgs e)
-        {            
+        {
             decimal sum;
-            dgvAep.DataSource = _dal.GetListIn(out sum);
+            _tb = _dal.GetListIn(out sum);
+            dgvAep.DataSource = _tb;
             lblInf.Text = String.Format("Tổng số xe hiện có: {0}", sum.ToString("0"));
         }
 
@@ -65,6 +69,14 @@ namespace BXE.PRE.YhwCcn
         {
             for (int i = 0; i < dgvAep.Rows.Count; i++)
                 dgvAep.Rows[i].Cells["colNo_"].Value = i + 1;
+        }
+
+        private void cmdFind_Click(object sender, EventArgs e)
+        {
+            if (txtNumber.Text + "" == "") return;
+            var dtr = _tb.Select(String.Format("Number Like '%{0}%'", txtNumber.Text));
+            if (dtr.Length > 0) dgvAep.DataSource = dtr.CopyToDataTable();
+            else MessageBox.Show("Không tìm thấy", Text);
         }
     }
 }

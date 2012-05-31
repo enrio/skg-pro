@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAep = new System.Windows.Forms.DataGridView();
-            this.lblInf = new System.Windows.Forms.Label();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNo_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +43,10 @@
             this.colChair = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblInf = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.cmdFind = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,25 +79,21 @@
             this.colChair,
             this.colWeight,
             this.colLength});
-            this.dgvAep.Location = new System.Drawing.Point(12, 36);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAep.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAep.Location = new System.Drawing.Point(12, 68);
             this.dgvAep.Name = "dgvAep";
             this.dgvAep.ReadOnly = true;
-            this.dgvAep.Size = new System.Drawing.Size(925, 544);
+            this.dgvAep.Size = new System.Drawing.Size(925, 512);
             this.dgvAep.TabIndex = 2;
             this.dgvAep.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAep_CellPainting);
             this.dgvAep.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAep_ColumnHeaderMouseClick);
-            // 
-            // lblInf
-            // 
-            this.lblInf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(562, 9);
-            this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(375, 24);
-            this.lblInf.TabIndex = 1;
-            this.lblInf.Text = "?";
-            this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // colId
             // 
@@ -182,11 +182,54 @@
             this.colLength.ReadOnly = true;
             this.colLength.Width = 30;
             // 
+            // lblInf
+            // 
+            this.lblInf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblInf.Location = new System.Drawing.Point(562, 9);
+            this.lblInf.Name = "lblInf";
+            this.lblInf.Size = new System.Drawing.Size(375, 24);
+            this.lblInf.TabIndex = 1;
+            this.lblInf.Text = "?";
+            this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Biển số xe:";
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(115, 36);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(111, 26);
+            this.txtNumber.TabIndex = 4;
+            // 
+            // cmdFind
+            // 
+            this.cmdFind.Location = new System.Drawing.Point(232, 36);
+            this.cmdFind.Name = "cmdFind";
+            this.cmdFind.Size = new System.Drawing.Size(84, 26);
+            this.cmdFind.TabIndex = 5;
+            this.cmdFind.Text = "&Tìm";
+            this.cmdFind.UseVisualStyleBackColor = true;
+            this.cmdFind.Click += new System.EventHandler(this.cmdFind_Click);
+            // 
             // FrmAhvBdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(949, 592);
+            this.Controls.Add(this.cmdFind);
+            this.Controls.Add(this.txtNumber);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblInf);
             this.Controls.Add(this.dgvAep);
             this.Controls.Add(this.label1);
@@ -199,6 +242,7 @@
             this.Load += new System.EventHandler(this.FrmAhvBdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -218,5 +262,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNumber;
+        private System.Windows.Forms.Button cmdFind;
     }
 }

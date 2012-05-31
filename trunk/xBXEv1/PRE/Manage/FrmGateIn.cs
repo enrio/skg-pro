@@ -210,6 +210,8 @@ namespace PRE.Manage
         private void GetDataInMinute()
         {
             var tb = BaseBLL._tra_DetailBLL.GetDataInMinute();
+            if (tb == null) return;
+
             if (tb.Rows.Count > 0)
                 grcMain.DataSource = tb;
             else

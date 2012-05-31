@@ -563,6 +563,19 @@ namespace BXE.PRE.VbqGaa
                 EditNumber = null;
             }
         }
+
+        /*string _currentNumber;
+        private void dgvAep_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+            {
+                _currentNumber = null;
+                return;
+            };
+
+            _row = e.RowIndex;
+            _currentNumber = dgvAep.Rows[_row].Cells["colNumber"].Value + "";
+        }*/
         #endregion
 
         #region Methods

@@ -97,7 +97,7 @@ namespace BLL
         #endregion
 
         /// <summary>
-        /// Các thuộc tính truy cập cơ sở dữ liệu
+        /// Khởi tạo các thuộc tính truy cập cơ sở dữ liệu
         /// </summary>
         public BaseBLL()
         {

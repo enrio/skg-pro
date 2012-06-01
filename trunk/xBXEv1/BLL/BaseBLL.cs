@@ -69,7 +69,7 @@ namespace BLL
         public Tra_DetailBLL Tra_Detail { set; get; }
         #endregion
 
-        #region Các trường truy cập cơ sở dữ liệu tĩnh
+        #region Các phương thức tĩnh
         public static Pol_ActionBLL _pol_ActionBLL = new Pol_ActionBLL();
         public static Pol_RightBLL _pol_RightBLL = new Pol_RightBLL();
         public static Pol_RoleBLL _pol_RoleBLL = new Pol_RoleBLL();
@@ -82,6 +82,18 @@ namespace BLL
         public static Tra_KindBLL _tra_KindBLL = new Tra_KindBLL();
         public static Tra_VehicleBLL _tra_VehicleBLL = new Tra_VehicleBLL();
         public static Tra_DetailBLL _tra_DetailBLL = new Tra_DetailBLL();
+
+        /// <summary>
+        /// Tự động tạo dữ liễu mẫu
+        /// </summary>
+        /// <param name="isDelete"></param>
+        public static void CreateData(bool isDelete = false)
+        {
+            var bll = new BaseBLL();
+            if (isDelete) bll.DeleteAll();
+            if (bll.Pol_User.Count() > 0) return;
+            bll.CreateAll();
+        }
         #endregion
 
         /// <summary>
@@ -423,18 +435,6 @@ namespace BLL
             CreateTra_Kind();
             CreateTra_Vehicle();
             CreateTra_Detail();
-        }
-
-        /// <summary>
-        /// Tự động tạo dữ liễu mẫu
-        /// </summary>
-        /// <param name="isDelete"></param>
-        public static void CreateData(bool isDelete = false)
-        {
-            var bll = new BaseBLL();
-            if (isDelete) bll.DeleteAll();
-            if (bll.Pol_User.Count() > 0) return;
-            bll.CreateAll();
         }
     }
 }

@@ -103,7 +103,7 @@ namespace BLL
             Tra_Detail = new Tra_DetailBLL();
         }
 
-        #region Insert template data
+        #region Tạo dữ liệu mẫu
         /// <summary>
         /// Tạo dữ liệu mẫu bảng Pol_Action
         /// </summary>

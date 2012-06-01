@@ -84,7 +84,7 @@ namespace PRE.Manage
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ChangeStatus(); ResetText(); LoadData();
                     }
                     break;
 
@@ -102,7 +102,12 @@ namespace PRE.Manage
 
         protected override void ResetText()
         {
-            //txtName.Text = null;
+            lkeGroup.ItemIndex = 0;
+            lkeKind.ItemIndex = 0;
+
+            txtNumber.Text = null;
+            txtDriver.Text = null;
+            txtAddress.Text = null;
 
             base.ResetText();
         }
@@ -157,12 +162,12 @@ namespace PRE.Manage
                         DateIn = BasePRE._sss.Current.Value
                     };
 
-                    if (_bll.Insert(o) != null)
+                    if (_bll.Insert(o) != null) return true;
+                    else
                     {
-                        ResetText();
-                        //lblInf.Text = STR_ADD_SUC;
+                        BasePRE.ShowMessage(STR_IN_GATE, Text);
+                        return false;
                     }
-                    else BasePRE.ShowMessage(STR_IN_GATE, Text);
                 }
                 else
                 {
@@ -178,7 +183,7 @@ namespace PRE.Manage
                             Address = txtAddress.Text
                         };
 
-                        if (BaseBLL._tra_VehicleBLL.Insert(ve) != null) // thêm biển số xe nào vào danh sách quản lí
+                        if (BaseBLL._tra_VehicleBLL.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ
                         {
                             var o = new Tra_Detail()
                             {
@@ -187,14 +192,18 @@ namespace PRE.Manage
                                 DateIn = BasePRE._sss.Current.Value
                             };
 
-                            if (_bll.Insert(o) != null)
+                            if (_bll.Insert(o) != null) return true;
+                            else
                             {
-                                ResetText();
-                                //lblInf.Text = STR_ADD_SUC;
+                                BasePRE.ShowMessage(STR_NO_SAVE, Text);
+                                return false;
                             }
-                            else BasePRE.ShowMessage(STR_NO_SAVE, Text);
                         }
-                        //else lblInf.Text = STR_IN_MAG;
+                        else
+                        {
+                            BasePRE.ShowMessage(STR_IN_MAG, Text);
+                            return false;
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -202,11 +211,9 @@ namespace PRE.Manage
                         return false;
                     }
                 }
-
-                GetDataInMinute();
-                return true;
             }
             catch { return false; }
+            finally { GetDataInMinute(); }
         }
 
         protected override void LoadData()

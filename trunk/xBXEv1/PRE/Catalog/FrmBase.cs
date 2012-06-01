@@ -27,7 +27,7 @@ namespace PRE.Catalog
         /// <summary>
         /// Truy xuất dữ liệu cơ bản
         /// </summary>
-        protected BaseBLL _bll;
+        protected BaseBLL _bll = new BaseBLL();
 
         /// <summary>
         /// Bảng rỗng mặc định

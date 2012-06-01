@@ -12,17 +12,60 @@ namespace BLL
     public sealed class BaseBLL
     {
         #region Các thuộc tính truy cập cơ sở dữ liệu
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_Action: danh sách các chức năng trên form - thêm, xoá, sửa, truy vấn, 
+        /// in ấn, truy cập, hiện khi đăng nhập, ...
+        /// </summary>
         public Pol_ActionBLL Pol_Action { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_Right: danh mục form.
+        /// </summary>
         public Pol_RightBLL Pol_Right { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_Role: danh mục nhóm quyền. 
+        /// </summary>
         public Pol_RoleBLL Pol_Role { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_User: danh sách người dùng.
+        /// </summary>
         public Pol_UserBLL Pol_User { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_UserRight: quyền người dùng - phân quyền trên từng form theo người dùng.
+        /// </summary>
         public Pol_UserRightBLL Pol_UserRight { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_UserRole - người dùng thuộc nhóm quyền.
+        /// </summary>
         public Pol_UserRoleBLL Pol_UserRole { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_RoleRight: nhóm quyền - phân quyền trên từng form theo nhóm quyền.
+        /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
 
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Group: danh mục nhóm xe.
+        /// </summary>
         public Tra_GroupBLL Tra_Group { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Kind: danh mục loại xe.
+        /// </summary>
         public Tra_KindBLL Tra_Kind { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Vehicle: danh sách xe cộ.
+        /// </summary>
         public Tra_VehicleBLL Tra_Vehicle { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Detail: chi tiết xe ra vào, bến.
+        /// </summary>
         public Tra_DetailBLL Tra_Detail { set; get; }
         #endregion
 

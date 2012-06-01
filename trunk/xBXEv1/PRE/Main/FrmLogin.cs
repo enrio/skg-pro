@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace PRE.Main
 {
     using BLL;
-    using DAL.Entities;
 
     /// <summary>
     /// Form đăng nhập hệ thống
@@ -65,7 +59,9 @@ namespace PRE.Main
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
-            var sss = BaseBLL._pol_UserBLL.CheckLogin(txtUser.Text, txtPass.Text);
+            var bll = new Pol_UserBLL();
+            var sss = bll.CheckLogin(txtUser.Text, txtPass.Text);
+
             if (sss != null)
             {
                 BasePRE._sss = sss;

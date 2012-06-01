@@ -70,19 +70,6 @@ namespace BLL
         #endregion
 
         #region Các phương thức tĩnh
-        public static Pol_ActionBLL _pol_ActionBLL = new Pol_ActionBLL();
-        public static Pol_RightBLL _pol_RightBLL = new Pol_RightBLL();
-        public static Pol_RoleBLL _pol_RoleBLL = new Pol_RoleBLL();
-        public static Pol_UserBLL _pol_UserBLL = new Pol_UserBLL();
-        public static Pol_UserRightBLL _pol_UserRightBLL = new Pol_UserRightBLL();
-        public static Pol_UserRoleBLL _pol_UserRoleBLL = new Pol_UserRoleBLL();
-        public static Pol_RoleRightBLL _pol_RoleRightBLL = new Pol_RoleRightBLL();
-
-        public static Tra_GroupBLL _tra_GroupBLL = new Tra_GroupBLL();
-        public static Tra_KindBLL _tra_KindBLL = new Tra_KindBLL();
-        public static Tra_VehicleBLL _tra_VehicleBLL = new Tra_VehicleBLL();
-        public static Tra_DetailBLL _tra_DetailBLL = new Tra_DetailBLL();
-
         /// <summary>
         /// Tự động tạo dữ liễu mẫu
         /// </summary>

@@ -32,9 +32,8 @@ namespace PRE
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
 
             // Thông tin server, đồng hồ
-            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",
-                                  BaseBLL._pol_ActionBLL.Connection().DataSource,
-                                  BaseBLL._pol_ActionBLL.Connection().Database);
+            var cnn = (new Pol_ActionBLL()).Connection();
+            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", cnn.DataSource, cnn.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
         }

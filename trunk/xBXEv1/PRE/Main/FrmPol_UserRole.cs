@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace PRE.Main
 {
-    using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Nodes;
@@ -31,7 +30,6 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            _bll = new Pol_UserRoleBLL();
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             FormatRows();
         }
@@ -52,10 +50,8 @@ namespace PRE.Main
                 _idParent = (Guid)n.ParentNode.GetValue("ID");
             }
 
-            using (var frm = new FrmSelect() { Text = Text })
+            using (var frm = new FrmSelect() { Text = Text, Caption = "Họ tên", DataSource = _bll.Pol_User.Select() })
             {
-                frm.Caption = "Họ tên";
-                frm.DataSource = BaseBLL._pol_UserBLL.Select();
                 frm.ShowDialog();
                 if (frm.ListInfo == null) return;
 
@@ -96,7 +92,7 @@ namespace PRE.Main
                 if (res != DialogResult.OK) return;
 
                 foreach (TreeListNode n in lst)
-                    _bll.Delete((Guid)n.GetValue("ID"));
+                    _bll.Pol_UserRole.Delete((Guid)n.GetValue("ID"));
                 PerformRefresh();
             }
             else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
@@ -132,7 +128,7 @@ namespace PRE.Main
                     foreach (DataRow r in tb.Rows)
                     {
                         var o = new Pol_UserRole() { Pol_UserId = (Guid)r["ID"], Pol_RoleId = _idParent };
-                        _bll.Insert(o);
+                        _bll.Pol_UserRole.Insert(o);
                     }
                     return true;
                 }
@@ -143,7 +139,7 @@ namespace PRE.Main
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            _dtb = _bll.Pol_UserRole.Select();
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;

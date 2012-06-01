@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace PRE.Catalog
 {
-    using BLL;
-    using DAL.Entities;
-
+    /// <summary>
+    /// Danh mục nhóm quyền
+    /// </summary>
     public partial class FrmPol_Role : PRE.Catalog.FrmBase
     {
         public FrmPol_Role()
@@ -21,8 +16,7 @@ namespace PRE.Catalog
             SetDockPanel(dockPanel2, "Danh sách");
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-            _bll = new Pol_RoleBLL();
+            grvMain.OptionsBehavior.Editable = false;            
         }
 
         #region Override
@@ -121,7 +115,7 @@ namespace PRE.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            _dtb = _bll.Pol_Role.Select();
 
             if (_dtb != null)
             {

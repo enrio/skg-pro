@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace PRE.Main
 {
-    using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Nodes;
@@ -31,7 +30,6 @@ namespace PRE.Main
             dockPanel1.Visibility = DockVisibility.Hidden;
             SetDockPanel(dockPanel2, "Danh sách");
 
-            _bll = new Pol_UserRightBLL();
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             AddTreeListColumns();
             FormatRows();
@@ -53,10 +51,8 @@ namespace PRE.Main
                 _idParent = (Guid)n.ParentNode.GetValue("ID");
             }
 
-            using (var frm = new FrmSelect() { Text = Text })
+            using (var frm = new FrmSelect() { Text = Text, Caption = "Tên form (chức năng)", DataSource = _bll.Pol_Right.Select() })
             {
-                frm.Caption = "Tên form (chức năng)";
-                frm.DataSource = BaseBLL._pol_RightBLL.Select();
                 frm.ShowDialog();
                 if (frm.ListInfo == null) return;
 
@@ -114,7 +110,7 @@ namespace PRE.Main
                 if (res != DialogResult.OK) return;
 
                 foreach (TreeListNode n in lst)
-                    _bll.Delete((Guid)n.GetValue("ID"));
+                    _bll.Pol_UserRight.Delete((Guid)n.GetValue("ID"));
                 PerformRefresh();
             }
             else BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
@@ -183,7 +179,7 @@ namespace PRE.Main
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
-                        _bll.Update(o);
+                        _bll.Pol_UserRight.Update(o);
                     }
                     return true;
                 }
@@ -215,7 +211,7 @@ namespace PRE.Main
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
-                        _bll.Insert(o);
+                        _bll.Pol_UserRight.Insert(o);
                     }
                     return true;
                 }
@@ -226,7 +222,7 @@ namespace PRE.Main
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            _dtb = _bll.Pol_UserRight.Select();
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;
@@ -278,7 +274,7 @@ namespace PRE.Main
         {
             try
             {
-                var tbl = BaseBLL._pol_ActionBLL.Select();
+                var tbl = _bll.Pol_Action.Select();
                 foreach (DataRow drAction in tbl.Rows)
                 {
                     var tlc = new TreeListColumn();

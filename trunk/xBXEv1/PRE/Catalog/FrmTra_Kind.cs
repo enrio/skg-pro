@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace PRE.Catalog
 {
-    using BLL;
-    using DAL.Entities;
-
+    /// <summary>
+    /// Danh mục loại xe
+    /// </summary>
     public partial class FrmTra_Kind : PRE.Catalog.FrmBase
     {
         public FrmTra_Kind()
@@ -22,13 +17,12 @@ namespace PRE.Catalog
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
-            _bll = new Tra_KindBLL();
         }
 
         #region Override
         protected override void PerformDelete()
         {
-            var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
 
             base.PerformDelete();
         }
@@ -63,6 +57,9 @@ namespace PRE.Catalog
                         ChangeStatus(); ReadOnlyControl();
                         PerformRefresh();
                     }
+                    break;
+
+                default:
                     break;
             }
 
@@ -121,7 +118,7 @@ namespace PRE.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Select();
+            _dtb = _bll.Tra_Kind.Select();
 
             if (_dtb != null)
             {

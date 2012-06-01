@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace PRE.Manage
 {
-    using BLL;
     using DAL.Entities;
 
     /// <summary>
@@ -53,13 +47,12 @@ namespace PRE.Manage
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
-            _bll = new Tra_DetailBLL();
         }
 
         #region Override
         protected override void PerformDelete()
         {
-            var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
 
             base.PerformDelete();
         }
@@ -95,6 +88,9 @@ namespace PRE.Manage
                         PerformRefresh();
                     }
                     break;
+
+                default:
+                    break;
             }
 
             base.PerformSave();
@@ -107,8 +103,8 @@ namespace PRE.Manage
 
             txtNumber.Text = null;
             txtChair.Text = null;
-            
-            txtDriver.Text = null;            
+
+            txtDriver.Text = null;
             txtAddress.Text = null;
             txtPhone.Text = null;
 
@@ -119,7 +115,7 @@ namespace PRE.Manage
         {
             txtNumber.DataBindings.Clear();
             txtChair.DataBindings.Clear();
-            
+
             txtDriver.DataBindings.Clear();
             dteBirth.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
@@ -173,7 +169,7 @@ namespace PRE.Manage
             {
                 if (!ValidInput()) return false;
 
-                var id = BaseBLL._tra_VehicleBLL.CheckExist(txtNumber.Text);
+                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text);
 
                 if (id != new Guid()) // kiểm tra biển số xe trong danh sách các xe được quản lí
                 {
@@ -184,7 +180,7 @@ namespace PRE.Manage
                         DateIn = BasePRE._sss.Current.Value
                     };
 
-                    if (_bll.Insert(o) != null) return true;
+                    if (_bll.Tra_Detail.Insert(o) != null) return true;
                     else
                     {
                         BasePRE.ShowMessage(STR_IN_GATE, Text);
@@ -206,7 +202,7 @@ namespace PRE.Manage
                             Phone = txtPhone.Text
                         };
 
-                        if (BaseBLL._tra_VehicleBLL.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ
+                        if (_bll.Tra_Vehicle.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ
                         {
                             var o = new Tra_Detail()
                             {
@@ -215,7 +211,7 @@ namespace PRE.Manage
                                 DateIn = BasePRE._sss.Current.Value
                             };
 
-                            if (_bll.Insert(o) != null) return true;
+                            if (_bll.Tra_Detail.Insert(o) != null) return true;
                             else
                             {
                                 BasePRE.ShowMessage(STR_NO_SAVE, Text);
@@ -289,7 +285,7 @@ namespace PRE.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
-            lkeGroup.Properties.DataSource = BaseBLL._tra_GroupBLL.Select();
+            lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
             lkeGroup.ItemIndex = 0;
 
             ReadOnlyControl();
@@ -298,7 +294,7 @@ namespace PRE.Manage
         private void lkeGroup_EditValueChanged(object sender, EventArgs e)
         {
             var id = (Guid)lkeGroup.GetColumnValue("Id");
-            lkeKind.Properties.DataSource = BaseBLL._tra_KindBLL.Select(id);
+            lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
             lkeKind.ItemIndex = 0;
         }
 
@@ -307,7 +303,7 @@ namespace PRE.Manage
         /// </summary>
         private void GetDataInMinute()
         {
-            _dtb = BaseBLL._tra_DetailBLL.GetDataInMinute();
+            _dtb = _bll.Tra_Detail.GetDataInMinute();
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

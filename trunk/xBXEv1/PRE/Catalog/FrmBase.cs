@@ -7,7 +7,6 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Catalog
 {
-    using UTL;
     using BLL;
     using DAL.Entities;
     using DevExpress.XtraTreeList;
@@ -28,7 +27,7 @@ namespace PRE.Catalog
         /// <summary>
         /// Truy xuất dữ liệu cơ bản
         /// </summary>
-        protected UTL.IBaseDAL _bll;
+        protected BaseBLL _bll;
 
         /// <summary>
         /// Bảng rỗng mặc định
@@ -60,8 +59,7 @@ namespace PRE.Catalog
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
-            //ReadOnlyControl();
-            //PerformRefresh();
+            PerformRefresh();
         }
 
         private void bmgMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

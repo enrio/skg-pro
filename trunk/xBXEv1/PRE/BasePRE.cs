@@ -162,12 +162,14 @@ namespace PRE
         /// <param name="frm">FrmBase</param>
         public static void ShowForm(this FrmBase frm)
         {
+            var bll = new Pol_RightBLL();
             var code = frm.GetType().Name;
-            var o = BaseBLL._pol_RightBLL.Select(code);
+
+            var o = bll.Select(code);
             if (o == null)
             {
                 o = new Pol_Right() { Code = code, Name = frm.Text, Descript = "" };
-                BaseBLL._pol_RightBLL.Insert(o);
+                bll.Insert(o);
             }
 
             var z = frm.CheckRight();

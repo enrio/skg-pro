@@ -106,7 +106,9 @@ namespace PRE.Manage
             lkeKind.ItemIndex = 0;
 
             txtNumber.Text = null;
-            txtDriver.Text = null;
+            txtChair.Text = null;
+            
+            txtDriver.Text = null;            
             txtAddress.Text = null;
             txtPhone.Text = null;
 
@@ -116,7 +118,10 @@ namespace PRE.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
+            txtChair.DataBindings.Clear();
+            
             txtDriver.DataBindings.Clear();
+            dteBirth.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
             txtPhone.DataBindings.Clear();
 
@@ -126,7 +131,9 @@ namespace PRE.Manage
         protected override void DataBindingControl()
         {
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
 
@@ -139,6 +146,7 @@ namespace PRE.Manage
             lkeKind.Properties.ReadOnly = isReadOnly;
 
             txtNumber.Properties.ReadOnly = isReadOnly;
+            txtChair.Properties.ReadOnly = isReadOnly;
             txtDriver.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -191,10 +199,11 @@ namespace PRE.Manage
                         {
                             Number = txtNumber.Text,
                             Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            //Chair = chair
+                            Chair = txtChair.Text,
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
-                            Address = txtAddress.Text
+                            Address = txtAddress.Text,
+                            Phone = txtPhone.Text
                         };
 
                         if (BaseBLL._tra_VehicleBLL.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ
@@ -282,6 +291,8 @@ namespace PRE.Manage
         {
             lkeGroup.Properties.DataSource = BaseBLL._tra_GroupBLL.Select();
             lkeGroup.ItemIndex = 0;
+
+            ReadOnlyControl();
         }
 
         private void lkeGroup_EditValueChanged(object sender, EventArgs e)

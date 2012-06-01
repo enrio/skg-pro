@@ -60,8 +60,8 @@ namespace PRE.Catalog
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
-            ReadOnlyControl();
-            PerformRefresh();
+            //ReadOnlyControl();
+            //PerformRefresh();
         }
 
         private void bmgMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

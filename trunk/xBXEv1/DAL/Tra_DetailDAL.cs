@@ -125,7 +125,7 @@ namespace DAL
                           {
                               s.Id,
                               UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInPhone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
                               GroupId = k.Tra_Kind.Tra_GroupId,
@@ -133,7 +133,11 @@ namespace DAL
                               GroupName = k.Tra_Kind.Tra_Group.Name,
                               KindName = k.Tra_Kind.Name,
                               k.Chair,
-                              k.Number
+                              k.Number,
+                              k.Driver,
+                              k.Birth,
+                              k.Address,
+                              k.Phone
                           };
 
                 return res.ToDataTable();

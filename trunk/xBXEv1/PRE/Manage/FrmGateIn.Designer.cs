@@ -32,7 +32,11 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
+            this.txtChair = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.dteBirth = new DevExpress.XtraEditors.DateEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -62,15 +66,13 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.txtChair = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
@@ -82,8 +84,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -112,7 +112,7 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.textEdit1);
+            this.dockPanel1_Container.Controls.Add(this.txtPhone);
             this.dockPanel1_Container.Controls.Add(this.labelControl10);
             this.dockPanel1_Container.Controls.Add(this.labelControl9);
             this.dockPanel1_Container.Controls.Add(this.txtAddress);
@@ -138,12 +138,47 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 117);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(813, 93);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(102, 20);
+            this.txtPhone.TabIndex = 15;
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(754, 96);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(53, 13);
+            this.labelControl10.TabIndex = 14;
+            this.labelControl10.Text = "Điện thoại:";
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Location = new System.Drawing.Point(272, 75);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(55, 19);
+            this.labelControl9.TabIndex = 6;
+            this.labelControl9.Text = "Số ghế:";
+            // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(475, 93);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(273, 20);
             this.txtAddress.TabIndex = 13;
+            // 
+            // txtChair
+            // 
+            this.txtChair.Location = new System.Drawing.Point(333, 67);
+            this.txtChair.Name = "txtChair";
+            this.txtChair.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtChair.Properties.Appearance.Options.UseFont = true;
+            this.txtChair.Properties.Appearance.Options.UseForeColor = true;
+            this.txtChair.Size = new System.Drawing.Size(82, 32);
+            this.txtChair.TabIndex = 7;
             // 
             // labelControl8
             // 
@@ -432,41 +467,6 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 7;
             // 
-            // labelControl9
-            // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(272, 75);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(55, 19);
-            this.labelControl9.TabIndex = 6;
-            this.labelControl9.Text = "Số ghế:";
-            // 
-            // txtChair
-            // 
-            this.txtChair.Location = new System.Drawing.Point(333, 67);
-            this.txtChair.Name = "txtChair";
-            this.txtChair.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.txtChair.Properties.Appearance.Options.UseFont = true;
-            this.txtChair.Properties.Appearance.Options.UseForeColor = true;
-            this.txtChair.Size = new System.Drawing.Size(82, 32);
-            this.txtChair.TabIndex = 7;
-            // 
-            // textEdit1
-            // 
-            this.textEdit1.Location = new System.Drawing.Point(813, 93);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(102, 20);
-            this.textEdit1.TabIndex = 15;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(754, 96);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(53, 13);
-            this.labelControl10.TabIndex = 14;
-            this.labelControl10.Text = "Điện thoại:";
-            // 
             // FrmGateIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,7 +483,9 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
@@ -495,8 +497,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +536,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtPhone;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit txtChair;

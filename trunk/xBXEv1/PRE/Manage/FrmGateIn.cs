@@ -108,27 +108,41 @@ namespace PRE.Manage
             txtNumber.Text = null;
             txtDriver.Text = null;
             txtAddress.Text = null;
+            txtPhone.Text = null;
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
         {
-            //txtName.DataBindings.Clear();
+            txtNumber.DataBindings.Clear();
+            txtDriver.DataBindings.Clear();
+            txtAddress.DataBindings.Clear();
+            txtPhone.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
+            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
+            lkeGroup.Properties.ReadOnly = isReadOnly;
+            lkeKind.Properties.ReadOnly = isReadOnly;
+
+            txtNumber.Properties.ReadOnly = isReadOnly;
+            txtDriver.Properties.ReadOnly = isReadOnly;
+            dteBirth.Properties.ReadOnly = isReadOnly;
+            txtAddress.Properties.ReadOnly = isReadOnly;
+            txtPhone.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -282,11 +296,11 @@ namespace PRE.Manage
         /// </summary>
         private void GetDataInMinute()
         {
-            var tb = BaseBLL._tra_DetailBLL.GetDataInMinute();
-            if (tb == null) return;
+            _dtb = BaseBLL._tra_DetailBLL.GetDataInMinute();
+            if (_dtb == null) return;
 
-            if (tb.Rows.Count > 0)
-                grcMain.DataSource = tb;
+            if (_dtb.Rows.Count > 0)
+                grcMain.DataSource = _dtb;
             else
             {
                 for (int i = 0; i < grvMain.RowCount; i++)
@@ -294,7 +308,7 @@ namespace PRE.Manage
 
                 //cmdIn.Enabled = true;
                 //cmdEdit.Enabled = false;
-                //cmdDelete.Enabled = false;                
+                //cmdDelete.Enabled = false;
             }
         }
     }

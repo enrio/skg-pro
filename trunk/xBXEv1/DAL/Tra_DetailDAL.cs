@@ -64,6 +64,12 @@ namespace DAL
             try
             {
                 var o = (Tra_Detail)obj;
+
+                var res = from s in _db.Tra_Details
+                          where s.DateOut == null && s.Tra_VehicleId == o.Tra_VehicleId
+                          select s;
+                if (res.Count() > 0) return null; // xe này còn ở trong bến
+
                 o.Id = Guid.NewGuid();
                 var oki = _db.Tra_Details.Add(o);
 

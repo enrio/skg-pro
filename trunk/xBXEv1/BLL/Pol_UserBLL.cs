@@ -6,6 +6,9 @@ namespace BLL
 {
     using UTL.Hasher;
 
+    /// <summary>
+    /// Truy cập cơ sở dữ liệu bảng Pol_User: danh sách người dùng.
+    /// </summary>
     public sealed class Pol_UserBLL : DAL.Pol_UserDAL
     {
         /// <summary>

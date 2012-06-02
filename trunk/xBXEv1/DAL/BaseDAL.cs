@@ -89,7 +89,7 @@ namespace DAL
 
             src = week_days.ToDataTable();
 
-            //Before transpose
+            // before transpose
             foreach (var day in week_days)
                 Console.WriteLine("{0}  {1}  {2}", day.Sequence, day.Day, day.Amount);
 

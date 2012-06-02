@@ -14,8 +14,8 @@ namespace DAL
     /// </summary>
     public abstract class BaseDAL
     {
-        protected ZContext _db = new ZContext();
-        protected DataTable _tb = new DataTable("Tmp");
+        internal ZContext _db = new ZContext();
+        internal DataTable _tb = new DataTable("Tmp");
 
         /// <summary>
         /// Đối tượng kết nối cơ sở dữ liệu

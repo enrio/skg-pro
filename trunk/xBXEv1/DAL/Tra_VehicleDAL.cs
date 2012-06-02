@@ -135,20 +135,5 @@ namespace DAL
             catch { return null; }
         }
         #endregion
-
-        /// <summary>
-        /// Kiểm tra biển số xe
-        /// </summary>
-        /// <param name="number">Biển số</param>
-        /// <returns>Id xe</returns>
-        public Guid CheckExist(string number)
-        {
-            try
-            {
-                var res = _db.Tra_Vehicles.Single(k => k.Number == number);
-                return res == null ? new Guid() : res.Id;
-            }
-            catch { return new Guid(); }
-        }
     }
 }

@@ -130,6 +130,11 @@ namespace DAL
                 res.Pol_UserId = o.Pol_UserId;
                 res.Pol_RoleId = o.Pol_RoleId;
 
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
                 return _db.SaveChanges();
             }
             catch { return null; }

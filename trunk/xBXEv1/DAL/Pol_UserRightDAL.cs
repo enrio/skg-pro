@@ -155,6 +155,11 @@ namespace DAL
                 res.Full = o.Full;
                 res.None = o.None;
 
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
                 return _db.SaveChanges();
             }
             catch { return null; }

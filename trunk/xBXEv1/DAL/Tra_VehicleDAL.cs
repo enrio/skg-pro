@@ -141,6 +141,11 @@ namespace DAL
                 res.Address = o.Address;
                 res.Phone = o.Phone;
 
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
                 return _db.SaveChanges();
             }
             catch { return null; }

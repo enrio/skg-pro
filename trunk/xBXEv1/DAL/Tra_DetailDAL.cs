@@ -113,7 +113,25 @@ namespace DAL
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Tra_VehicleId = o.Tra_VehicleId;
+                res.Pol_UserInId = o.Pol_UserInId;
+                res.Pol_UserOutId = o.Pol_UserOutId;
+                res.DateIn = o.DateIn;
+                res.DateOut = o.DateOut;
+
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
 
         public object Delete(Guid id = new Guid())

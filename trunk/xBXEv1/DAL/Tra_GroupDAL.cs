@@ -104,7 +104,21 @@ namespace DAL
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Tra_Group)obj;
+                var res = _db.Tra_Groups.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Name = o.Name;
+
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
 
         /// <summary>

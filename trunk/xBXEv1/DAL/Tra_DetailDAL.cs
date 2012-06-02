@@ -13,16 +13,30 @@ namespace DAL
     public abstract class Tra_DetailDAL : BaseDAL, UTL.IBaseDAL
     {
         #region Implement
+        /// <summary>
+        /// Đếm số dòng trong bảng
+        /// </summary>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Tra_Details.Count();
         }
 
+        /// <summary>
+        /// Tìm theo khoá ngoại
+        /// </summary>
+        /// <param name="fKey">Khoá ngoại</param>
+        /// <returns>Dữ liệu</returns>
         public DataTable Select(Guid fKey)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
         public object Select(string code)
         {
             throw new NotImplementedException();
@@ -31,7 +45,7 @@ namespace DAL
         /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng  cần lọc</param>
+        /// <param name="obj">Đối tượng Tra_Detail cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -42,6 +56,7 @@ namespace DAL
                 var res = from s in _db.Tra_Details
                           select new
                           {
+                              s.Id,
                               s.Tra_VehicleId,
                               s.Pol_UserInId,
                               s.Pol_UserOutId,
@@ -56,7 +71,7 @@ namespace DAL
                 if (obj != null)
                 {
                     var o = (Tra_Detail)obj;
-                    res = res.Where(s => s.Tra_VehicleId == o.Tra_VehicleId && s.Pol_UserInId == o.Pol_UserInId && s.Pol_UserOutId == o.Pol_UserOutId);
+                    res = res.Where(s => s.Id == o.Id);
                 }
 
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -66,6 +81,11 @@ namespace DAL
             catch { return _tb; }
         }
 
+        /// <summary>
+        /// Thêm dữ liệu
+        /// </summary>
+        /// <param name="obj">Đối tượng Tra_Detail</param>
+        /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
             try
@@ -86,6 +106,11 @@ namespace DAL
             catch { return null; }
         }
 
+        /// <summary>
+        /// Sửa dữ liệu
+        /// </summary>
+        /// <param name="obj">Đối tượng Tra_Detail</param>
+        /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
             throw new NotImplementedException();

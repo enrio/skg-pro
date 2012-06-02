@@ -110,69 +110,6 @@ namespace DAL
 
             return tr.ToDataTable();
         }
-
-        public DataTable TestUnion()
-        {
-            try
-            {
-                var a = from s in _db.Pol_RoleRights
-                        select new
-                        {
-                            CodeRight = s.Pol_Right.Code,
-                            CodeRole = s.Pol_Role.Code,
-
-                            ID = s.Pol_Right.Code + s.Pol_Role.Code,
-                            ParentID = s.Pol_Right.Code,
-
-                            /*s.Pol_RoleId,
-                            s.Pol_RightId,*/
-                            s.Add,
-                            s.Edit,
-                            s.Delete,
-                            s.Query,
-                            s.Print,
-                            s.Full,
-                            s.None,
-
-                            RoleName = s.Pol_Role.Name,
-                            RoleDescript = s.Pol_Role.Descript,
-                            /*RightName = s.Pol_Right.Name,
-                            RightDescript = s.Pol_Right.Descript*/
-                        };
-
-
-                Guid? id = Guid.NewGuid();
-
-                var b = from s in _db.Pol_Rights
-                        select new
-                        {
-                            CodeRight = s.Code,
-                            CodeRole = "",
-
-                            ID = s.Code + "",
-                            ParentID = s.Code,
-
-                            //Pol_RoleId = s.Id,
-                            /*Pol_RoleId = id,
-                            Pol_RightId = id,*/
-                            Add = false,
-                            Edit = false,
-                            Delete = false,
-                            Query = false,
-                            Print = false,
-                            Full = false,
-                            None = false,
-
-                            RoleName = s.Name,
-                            RoleDescript = s.Descript,
-                            /*RightName = s.Name,
-                            RightDescript = s.Descript*/
-                        };
-
-                return a.Union(b).ToDataTable();
-            }
-            catch { return _tb; }
-        }
         #endregion
     }
 }

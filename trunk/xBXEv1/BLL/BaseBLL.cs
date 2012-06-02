@@ -391,18 +391,18 @@ namespace BLL
         /// </summary>
         void DeleteAll()
         {
-            Pol_Action.Delete();
-            Pol_Right.Delete();
-            Pol_Role.Delete();
-            Pol_User.Delete();
-            Pol_UserRight.Delete();
-            Pol_UserRole.Delete();
             Pol_RoleRight.Delete();
+            Pol_UserRole.Delete();
+            Pol_UserRight.Delete();
+            Pol_User.Delete();
+            Pol_Role.Delete();
+            Pol_Right.Delete();
+            Pol_Action.Delete();
 
-            Tra_Group.Delete();
-            Tra_Kind.Delete();
-            Tra_Vehicle.Delete();
             Tra_Detail.Delete();
+            Tra_Vehicle.Delete();
+            Tra_Kind.Delete();
+            Tra_Group.Delete();
         }
 
         /// <summary>

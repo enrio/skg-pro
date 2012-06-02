@@ -13,16 +13,30 @@ namespace DAL
     public abstract class Pol_UserRoleDAL : BaseDAL, UTL.IBaseDAL
     {
         #region Implement
+        /// <summary>
+        /// Đếm số dòng trong bảng
+        /// </summary>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Pol_UserRoles.Count();
         }
 
+        /// <summary>
+        /// Tìm theo khoá ngoại
+        /// </summary>
+        /// <param name="fKey">Khoá ngoại</param>
+        /// <returns>Dữ liệu</returns>
         public DataTable Select(Guid fKey)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
         public object Select(string code)
         {
             throw new NotImplementedException();
@@ -31,7 +45,7 @@ namespace DAL
         /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng  cần lọc</param>
+        /// <param name="obj">Đối tượng Pol_UserRole cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -82,6 +96,11 @@ namespace DAL
             catch { return _tb; }
         }
 
+        /// <summary>
+        /// Thêm dữ liệu
+        /// </summary>
+        /// <param name="obj">Đối tượng Pol_UserRole</param>
+        /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
             try
@@ -96,6 +115,11 @@ namespace DAL
             catch { return null; }
         }
 
+        /// <summary>
+        /// Sửa dữ liệu
+        /// </summary>
+        /// <param name="obj">Đối tượng Pol_UserRole</param>
+        /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
             try
@@ -111,6 +135,11 @@ namespace DAL
             catch { return null; }
         }
 
+        /// <summary>
+        /// Xoá dữ liệu, không nhập khoá sẽ xoá tất cả
+        /// </summary>
+        /// <param name="id">Khoá chính</param>
+        /// <returns>Khác null: xoá thành công</returns>
         public object Delete(Guid id = new Guid())
         {
             try

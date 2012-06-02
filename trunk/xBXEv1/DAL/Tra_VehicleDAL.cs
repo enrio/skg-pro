@@ -83,7 +83,7 @@ namespace DAL
         {
             try
             {
-                if (id != null)
+                if (id != new Guid())
                 {
                     var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == id);
                     _db.Tra_Vehicles.Remove(res);

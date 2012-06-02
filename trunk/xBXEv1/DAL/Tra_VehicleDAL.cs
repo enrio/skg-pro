@@ -29,7 +29,29 @@ namespace DAL
         /// <returns>Dữ liệu</returns>
         public DataTable Select(Guid fKey)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          where s.Tra_KindId == fKey
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              s.Number,
+                              s.Descript,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
         }
 
         /// <summary>
@@ -107,7 +129,21 @@ namespace DAL
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Tra_Vehicle)obj;
+                var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Number = o.Number;
+                res.Descript = o.Descript;
+                res.Driver = o.Driver;
+                res.Birth = o.Birth;
+                res.Address = o.Address;
+                res.Phone = o.Phone;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
 
         /// <summary>

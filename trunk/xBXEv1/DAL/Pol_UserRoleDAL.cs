@@ -28,6 +28,13 @@ namespace DAL
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Lấy dữ liệu, obj = null: lấy tất cả
+        /// </summary>
+        /// <param name="obj">Đối tượng  cần lọc</param>
+        /// <param name="skip">Số dòng bỏ qua</param>
+        /// <param name="take">Số dòng cần lấy</param>
+        /// <returns>Dữ liệu</returns>
         public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try

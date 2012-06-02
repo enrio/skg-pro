@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace BLL
 {
+    using DAL.Entities;
     using UTL.Hasher;
 
     /// <summary>
@@ -21,7 +22,7 @@ namespace BLL
         {
             try
             {
-                var sss = new ZSession() { User = GetPass(acc), Current = GetDate() };
+                var sss = new ZSession() { User = (Pol_User)Select(acc), Current = GetDate() };
                 pass = Code.Encode(pass);
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
                 if (sss.User.Pass != pass) return null;

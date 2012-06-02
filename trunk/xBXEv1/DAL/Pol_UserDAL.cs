@@ -134,20 +134,6 @@ namespace DAL
         #endregion
 
         /// <summary>
-        /// Lấy thông tin người dùng đăng nhập thông qua tài khoản
-        /// </summary>
-        /// <param name="acc">Tài khoản đăng nhập</param>
-        /// <returns>Thông tin người dùng</returns>
-        protected Pol_User GetPass(string acc)
-        {
-            try
-            {
-                return _db.Pol_Users.SingleOrDefault(s => s.Acc == acc);
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
         /// Lấy tất cả các quyền (chức năng) của người dùng
         /// </summary>
         /// <param name="userId">Id người dùng đăng nhập</param>

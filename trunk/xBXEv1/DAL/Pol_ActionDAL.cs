@@ -101,7 +101,21 @@ namespace DAL
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var o = (Pol_Action)obj;
+                var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Name = o.Name;
+
+                res.Code = o.Code;
+                res.Descript = o.Descript;
+                res.Order = o.Order;
+                res.Show = o.Show;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
         }
 
         /// <summary>

@@ -77,15 +77,14 @@ namespace PRE.Manage
                 case State.Add:
                     if (InsertObject())
                     {
-                        ChangeStatus(); ResetText(); LoadData();
+                        PerformCancel();
                     }
                     break;
 
                 case State.Edit:
                     if (UpdateObject())
                     {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
+                        PerformCancel();
                     }
                     break;
 
@@ -107,6 +106,7 @@ namespace PRE.Manage
             txtDriver.Text = null;
             txtAddress.Text = null;
             txtPhone.Text = null;
+            txtDescript.Text = null;
 
             base.ResetText();
         }
@@ -160,7 +160,23 @@ namespace PRE.Manage
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
+
+                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+                var o = new Tra_Detail()
+                {
+                    Id = id,
+                    //Pol_UserInId = BasePRE._sss.User.Id,
+                    //Tra_VehicleId = id,
+                    DateIn = BasePRE._sss.Current.Value
+                };
+
+                if (_bll.Tra_Detail.Update(o) != null) return true;
+                else
+                {
+                    BasePRE.ShowMessage(STR_IN_GATE, Text);
+                    return false;
+                }
 
             }
             catch { return false; }

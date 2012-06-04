@@ -16,6 +16,15 @@ namespace PRE.Manage
         public FrmGateOut()
         {
             InitializeComponent();
+
+            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            //lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
+
+            SetDockPanel(dockPanel1, "Nhập liệu");
+            SetDockPanel(dockPanel2, "Danh sách");
+
+            //grvMain.OptionsView.ShowAutoFilterRow = true;
+            //grvMain.OptionsBehavior.Editable = false;
         }
     }
 }

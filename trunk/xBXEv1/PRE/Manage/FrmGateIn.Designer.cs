@@ -197,6 +197,8 @@
             this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.txtChair.Properties.Appearance.Options.UseFont = true;
             this.txtChair.Properties.Appearance.Options.UseForeColor = true;
+            this.txtChair.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtChair.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtChair.Size = new System.Drawing.Size(82, 32);
             this.txtChair.TabIndex = 7;
             // 

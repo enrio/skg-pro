@@ -282,7 +282,7 @@ namespace DAL
             try
             {
                 // Cập nhật thông tin xe ra
-                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Id && k.Pol_UserOutId == null);
+                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Tra_VehicleId && k.Pol_UserOutId == null);
 
                 d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
                 d.DateOut = obj.DateOut; // thời gian hiện tại trên server
@@ -299,7 +299,7 @@ namespace DAL
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
                           join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
 
-                          where s.Tra_VehicleId == obj.Id
+                          where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Number
 
                           select new

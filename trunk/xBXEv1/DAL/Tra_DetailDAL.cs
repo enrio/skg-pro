@@ -182,8 +182,10 @@ namespace DAL
                               KindId = k.Tra_KindId,
                               GroupName = k.Tra_Kind.Tra_Group.Name,
                               KindName = k.Tra_Kind.Name,
-                              k.Chair,
+
                               k.Number,
+                              k.Chair,
+                              k.Descript,
                               k.Driver,
                               k.Birth,
                               k.Address,

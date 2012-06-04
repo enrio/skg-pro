@@ -66,6 +66,8 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -84,6 +86,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -112,6 +115,8 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtDescript);
+            this.dockPanel1_Container.Controls.Add(this.labelControl11);
             this.dockPanel1_Container.Controls.Add(this.txtPhone);
             this.dockPanel1_Container.Controls.Add(this.labelControl10);
             this.dockPanel1_Container.Controls.Add(this.labelControl9);
@@ -140,14 +145,14 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(813, 93);
+            this.txtPhone.Location = new System.Drawing.Point(810, 67);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(102, 20);
             this.txtPhone.TabIndex = 15;
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(754, 96);
+            this.labelControl10.Location = new System.Drawing.Point(751, 70);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(53, 13);
             this.labelControl10.TabIndex = 14;
@@ -166,7 +171,7 @@
             // 
             this.txtAddress.Location = new System.Drawing.Point(475, 93);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(273, 20);
+            this.txtAddress.Size = new System.Drawing.Size(199, 20);
             this.txtAddress.TabIndex = 13;
             // 
             // txtChair
@@ -467,6 +472,21 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 7;
             // 
+            // txtDescript
+            // 
+            this.txtDescript.Location = new System.Drawing.Point(722, 93);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Size = new System.Drawing.Size(190, 20);
+            this.txtDescript.TabIndex = 15;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(684, 96);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(31, 13);
+            this.labelControl11.TabIndex = 14;
+            this.labelControl11.Text = "Mô tả:";
+            // 
             // FrmGateIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +517,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,5 +561,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.TextEdit txtChair;
+        private DevExpress.XtraEditors.TextEdit txtDescript;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
     }
 }

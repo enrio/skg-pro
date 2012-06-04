@@ -120,6 +120,7 @@ namespace PRE.Manage
             dteBirth.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
             txtPhone.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -132,6 +133,7 @@ namespace PRE.Manage
             dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
@@ -147,6 +149,7 @@ namespace PRE.Manage
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
             txtPhone.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -199,7 +202,8 @@ namespace PRE.Manage
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,
-                            Phone = txtPhone.Text
+                            Phone = txtPhone.Text,
+                            Descript = txtDescript.Text
                         };
 
                         if (_bll.Tra_Vehicle.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ

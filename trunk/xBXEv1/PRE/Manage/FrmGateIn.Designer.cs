@@ -354,7 +354,8 @@
             this.lkeGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Nhóm xe"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", "Mô tả")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", "Mô tả"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default)});
             this.lkeGroup.Properties.DisplayMember = "Name";
             this.lkeGroup.Properties.ValueMember = "Id";
             this.lkeGroup.Size = new System.Drawing.Size(323, 26);

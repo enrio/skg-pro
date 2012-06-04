@@ -30,10 +30,7 @@ namespace PRE.Manage
         private const string STR_NOT_DEL = "Không xoá được!";
         private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
         private const string STR_NOT_INP = "Chưa nhập biển số!";
-
-        private const string STR_NOT_W = "Tải trọng không hợp lệ!";
-        private const string STR_NOT_L = "Chiều dài không hợp lệ!";
-        private const string STR_NOT_C = "Số ghế không hợp lệ!";
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
 
         public FrmGateIn()
         {
@@ -288,6 +285,12 @@ namespace PRE.Manage
                 else oki = false;
 
                 if (!oki) BasePRE.ShowMessage(STR_NOT_NUM, Text);
+            }
+
+            if (lkeGroup.GetColumnValue("Code") + "" == "E")
+            {
+                oki = txtChair.Text.Length == 0 ? false : true;
+                if (!oki) BasePRE.ShowMessage(STR_NOT_C, Text);
             }
 
             return oki;

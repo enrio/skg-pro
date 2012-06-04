@@ -265,5 +265,117 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Tính tiền, cho xe ra
+        /// </summary>
+        /// <param name="obj">Đối tượng Tra_Detail</param>
+        /// <param name="day">Số ngày đậu tại bến</param>
+        /// <param name="hour">Số giờ lẻ đậu tại bến</param>
+        /// <param name="money">Thành tiền</param>
+        /// <param name="price1">Đơn giá nửa ngày</param>
+        /// <param name="price2">Đơn giá một ngày</param>
+        /// <param name="isOut">Cho xe ra</param>
+        /// <returns></returns>
+        public DataTable InvoiceOut(Tra_Detail obj, ref int day, ref int hour, ref decimal money, ref int price1, ref int price2, bool isOut = false)
+        {
+            try
+            {
+                // Cập nhật thông tin xe ra
+                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Id && k.Pol_UserOutId == null);
+
+                d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
+                d.DateOut = obj.DateOut; // thời gian hiện tại trên server
+
+                TimeSpan? dt = d.DateOut - d.DateIn; // tính số giờ đậu tại bến                
+                hour = dt.Value.Hours;
+                day = dt.Value.Days;
+
+                //d.Day = day;
+                //d.Hour = hour;
+
+                var res = from s in _db.Tra_Details
+
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
+
+                          where s.Tra_VehicleId == obj.Id
+                          orderby v.Number
+
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+                              UserOutName = s.Pol_UserOut.Name,
+                              v.Number,
+                              s.DateIn,
+                              s.DateOut,
+
+                              //s.Day,
+                              //s.Hour,
+
+                              v.Chair,
+                              k.Name,
+                              k.Tra_GroupId,
+                              GroupName = k.Tra_Group.Name,
+                              GroupCode = k.Tra_Group.Code,
+                              k.Price1,
+                              k.Price2,
+                              s.Money
+                          };
+
+                var ok = res.Single(h => h.DateOut == null);
+
+                int dayL = (hour > 0 && hour < 12) ? 1 : 0;
+                int dayF = (hour >= 12) ? day + 1 : day;
+
+                price1 = ok.Price1 != null ? ok.Price1 : 0;
+                price2 = ok.Price2 != null ? ok.Price2 : 0;
+
+                int chair = ok.Chair != null ? ok.Chair : 0;
+
+                money = 0;
+
+                switch (ok.GroupCode)
+                {
+                    case "A":
+                        if (dayF == 0) money = price1;
+                        else money = dayF * price2 + dayL * price1;
+                        break;
+
+                    case "B":
+                        price1 = price2 / 2;
+                        if (dayF == 0) money = price1;
+                        else money = dayF * price2 + dayL * price1;
+                        break;
+
+                    case "C":
+                        money = price2;
+                        break;
+
+                    case "D":
+                        money = price2;
+                        break;
+
+                    case "E":
+                        if (day == 0) money = price2 * chair;
+                        else money = (day * 60 + hour) * price2 * chair;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                d.Money = money;
+                d.Price1 = price1;
+                d.Price2 = price2;
+
+                if (isOut) _db.SaveChanges();
+
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
     }
 }

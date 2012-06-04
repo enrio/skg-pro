@@ -43,6 +43,7 @@
     <Compile Include="BaseUTL.cs" />
     <Compile Include="Hasher\Code.cs" />
     <Compile Include="IBaseDAL.cs" />
+    <Compile Include="Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

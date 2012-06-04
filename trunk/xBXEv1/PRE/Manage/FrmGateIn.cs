@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace PRE.Manage
 {
+    using UTL;
     using DAL.Entities;
 
     /// <summary>
@@ -211,7 +212,7 @@ namespace PRE.Manage
                         {
                             Number = txtNumber.Text,
                             Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            Chair = txtChair.Text,
+                            Chair = Number.ToInt32(txtChair.Text),
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,

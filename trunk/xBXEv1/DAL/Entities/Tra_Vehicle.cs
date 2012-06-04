@@ -28,7 +28,7 @@ namespace DAL.Entities
         /// <summary>
         /// Số ghế ngồi
         /// </summary>
-        public string Chair { set; get; }
+        public int Chair { set; get; }
 
         /// <summary>
         /// Họ tên tài xế

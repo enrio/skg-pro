@@ -167,8 +167,9 @@ namespace PRE.Catalog
         protected virtual void PerformAdd()
         {
             ChangeStatus(false);
-            ClearDataBindings();
             ReadOnlyControl(false);
+
+            ClearDataBindings();
             ResetText();
         }
 
@@ -204,7 +205,7 @@ namespace PRE.Catalog
         /// <summary>
         /// Load data or perform when click refresh button
         /// </summary>
-        protected virtual void PerformRefresh() { ReadOnlyControl(); }
+        protected virtual void PerformRefresh() { }
 
         /// <summary>
         /// Perform when click find button

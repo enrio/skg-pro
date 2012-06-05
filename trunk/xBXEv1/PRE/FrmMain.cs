@@ -63,7 +63,7 @@ namespace PRE
                 if (frm != null)
                 {
                     frm.MdiParent = this;
-                    frm.ShowForm();
+                    frm.ShowRight();
                 }
             }
 
@@ -127,7 +127,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_Right() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -140,7 +140,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_Role() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -153,7 +153,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmPol_User() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -166,7 +166,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Group() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -179,7 +179,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Kind() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -192,7 +192,7 @@ namespace PRE
             if (frm == null)
             {
                 frm = new FrmTra_Vehicle() { MdiParent = this };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }
@@ -222,41 +222,17 @@ namespace PRE
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmPol_UserRight);
-            var frm = (FrmPol_UserRight)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmPol_UserRight() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmPol_UserRight>(this);
         }
 
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmPol_RoleRight);
-            var frm = (FrmPol_RoleRight)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmPol_RoleRight() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmPol_RoleRight>(this);
         }
 
         private void bbiPol_UserRole_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmPol_UserRole);
-            var frm = (FrmPol_UserRole)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmPol_UserRole() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmPol_UserRole>(this);
         }
 
         private void tmrMain_Tick(object sender, EventArgs e)
@@ -274,43 +250,21 @@ namespace PRE
         }
         #endregion
 
+        #region Manage
         private void bbiGateIn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmGateIn);
-            var frm = (FrmGateIn)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmGateIn() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmGateIn>(this);
         }
 
         private void bbiGateOut_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmGateOut);
-            var frm = (FrmGateOut)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmGateOut() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmGateOut>(this);
         }
 
         private void bbiInDepot_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var x = typeof(FrmInDepot);
-            var frm = (FrmInDepot)BasePRE.GetMdiChilden(this, x.FullName);
-
-            if (frm == null)
-            {
-                frm = new FrmInDepot() { MdiParent = this };
-                frm.ShowForm();
-            }
-            else frm.Activate();
+            BasePRE.ShowRight<FrmInDepot>(this);
         }
+        #endregion
     }
 }

@@ -160,7 +160,7 @@ namespace PRE
         /// Hiện form với quyền của người dùng
         /// </summary>
         /// <param name="frm">FrmBase</param>
-        public static void ShowForm(this FrmBase frm)
+        public static void ShowRight(this FrmBase frm)
         {
             var bll = new Pol_RightBLL();
             var code = frm.GetType().Name;
@@ -182,7 +182,7 @@ namespace PRE
         /// </summary>
         /// <typeparam name="T">Class của form cần tạo</typeparam>
         /// <param name="parent">Form cha</param>
-        public static void CreateMdiChildOrActivate<T>(Form parent) where T : FrmBase, new()
+        public static void ShowRight<T>(Form parent) where T : FrmBase, new()
         {
             var x = typeof(T);
             var frm = (T)GetMdiChilden(parent, x.FullName);
@@ -190,7 +190,7 @@ namespace PRE
             if (frm == null || frm.IsDisposed)
             {
                 frm = new T() { MdiParent = parent };
-                frm.ShowForm();
+                frm.ShowRight();
             }
             else frm.Activate();
         }

@@ -176,5 +176,24 @@ namespace PRE
             if (z == null || z.Access == false) frm.Dispose();
             else frm.Show();
         }
+
+        /// <summary>
+        /// Hiện form với quyền của người dùng, kiểm tra form, tạo form từ class
+        /// </summary>
+        /// <typeparam name="T">Class của form cần tạo</typeparam>
+        /// <param name="parent">Form cha</param>
+        public static void CreateMdiChildOrActivate<T>(Form parent) where T : FrmBase, new()
+        {
+            var x = typeof(T);
+            var frm = (T)GetMdiChilden(parent, x.FullName);
+
+            if (frm == null || frm.IsDisposed)
+            {
+                frm = new T();
+                frm.MdiParent = parent;
+                frm.ShowForm();
+            }
+            else frm.Activate();
+        }
     }
 }

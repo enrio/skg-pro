@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.DAL
 {
@@ -38,7 +37,7 @@ namespace SKG.DAL
         /// <summary>
         /// Lấy giờ hệ thống (SQL Server)
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Thời gian hiện tại</returns>
         public DateTime GetDate()
         {
             return _db.Database.SqlQuery<DateTime>("SELECT GETDATE()").First();

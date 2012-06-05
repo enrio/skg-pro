@@ -9,9 +9,9 @@ namespace SKG.DAL
     using Entities;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_Action
+    /// Chính sách - Xử lí bảng Pol_User
     /// </summary>
-    public abstract class Pol_ActionDAL : BaseDAL, IBaseDAL
+    public abstract class Pol_UserDAL : BaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>
@@ -20,7 +20,7 @@ namespace SKG.DAL
         /// <returns>Số dòng</returns>
         public int Count()
         {
-            return _db.Pol_Actions.Count();
+            return _db.Pol_Users.Count();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Pol_Actions.SingleOrDefault(s => s.Code == code);
+                return _db.Pol_Users.SingleOrDefault(s => s.Acc == code);
             }
             catch { return null; }
         }
@@ -58,12 +58,17 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Pol_Actions
+                var res = from s in _db.Pol_Users
                           orderby s.Order
                           select new
                           {
                               s.Id,
+                              s.Acc,
+                              s.Pass,
                               s.Name,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
 
                               s.Code,
                               s.Descript,
@@ -88,9 +93,9 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
+                var o = (Pol_User)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Pol_Actions.Add(o);
+                var oki = _db.Pol_Users.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -107,10 +112,14 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
-                var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == o.Id);
+                var o = (Pol_User)obj;
+                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
 
+                res.Pass = o.Pass;
                 res.Name = o.Name;
+                res.Birth = o.Birth;
+                res.Address = o.Address;
+                res.Phone = o.Phone;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;
@@ -133,13 +142,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == id);
-                    _db.Pol_Actions.Remove(res);
+                    var res = _db.Pol_Users.SingleOrDefault(s => s.Id == id);
+                    _db.Pol_Users.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Pol_Actions.ToList();
-                    tmp.ForEach(s => _db.Pol_Actions.Remove(s));
+                    var tmp = _db.Pol_Users.ToList();
+                    tmp.ForEach(s => _db.Pol_Users.Remove(s));
                 }
 
                 return _db.SaveChanges();

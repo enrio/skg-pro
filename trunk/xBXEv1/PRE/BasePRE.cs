@@ -178,11 +178,11 @@ namespace PRE
         }
 
         /// <summary>
-        /// Hiện form với quyền của người dùng, kiểm tra form, tạo form từ class
+        /// Hiện form với quyền của người dùng, tạo form từ class
         /// </summary>
         /// <typeparam name="T">Class của form cần tạo</typeparam>
         /// <param name="parent">Form cha</param>
-        public static void ShowRight<T>(Form parent) where T : FrmBase, new()
+        public static void ShowRight<T>(Form parent) where T : Form, new()
         {
             var x = typeof(T);
             var frm = (T)GetMdiChilden(parent, x.FullName);
@@ -190,7 +190,9 @@ namespace PRE
             if (frm == null || frm.IsDisposed)
             {
                 frm = new T() { MdiParent = parent };
-                frm.ShowRight();
+                if (x == typeof(FrmBase))
+                    (frm as FrmBase).ShowRight();
+                else frm.Show();
             }
             else frm.Activate();
         }

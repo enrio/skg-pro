@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BXE" Class="BXEDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=BXE;User ID=sa" SettingsObjectName="BXE.Properties.Settings" SettingsPropertyName="BXEConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Vehicles" Member="Vehicles">
+    <Type Name="Vehicle" Id="ID2">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="KindId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Descript" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Length" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Chair" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Weight" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Birth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Kind_Vehicle" Member="Kind" ThisKey="KindId" OtherKey="Id" Type="Kind" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Details" Member="Details">
+    <Type Name="Detail" Id="ID1">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AccIn" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AccOut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Number" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DateIn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DateOut" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Day" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Hour" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Price2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Money" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="User_Detail" Member="User" ThisKey="AccIn" OtherKey="Id" Type="User" IsForeignKey="true" />
+      <Association Name="User_Detail1" Member="User1" ThisKey="AccOut" OtherKey="Id" Type="User" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Group_Kind" Member="Kinds" ThisKey="Id" OtherKey="GroupId" Type="Kind" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Kinds" Member="Kinds">
+    <Type Name="Kind">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="GroupId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Descript" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LengthMin" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="LengthMax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ChairMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ChairMax" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WeightMin" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="WeightMax" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Money1" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Money2" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="Kind_Vehicle" Member="Vehicles" ThisKey="Id" OtherKey="KindId" Type="Vehicle" />
+      <Association Name="Group_Kind" Member="Group" ThisKey="GroupId" OtherKey="Id" Type="Group" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Users" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Acc" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pass" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Birth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Role" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="User_Detail" Member="Details" ThisKey="Id" OtherKey="AccIn" Type="Detail" />
+      <Association Name="User_Detail1" Member="Details1" ThisKey="Id" OtherKey="AccOut" Type="Detail" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Details_In" Method="Details_In">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.Details_Out" Method="Details_Out">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.Vehicles_In" Method="Vehicles_In">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.Vehicles_Out" Method="Vehicles_Out">
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.CurrentTime" Method="CurrentTime" IsComposable="true">
+    <Return Type="System.DateTime" />
+  </Function>
+</Database>

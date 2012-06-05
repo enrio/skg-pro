@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74D995CE-849A-4D83-8EB3-03522F4C1895}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BXE</RootNamespace>
+    <AssemblyName>BXE</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\EXE\PLG\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\EXE\PLG\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CsoBXE.cs" />
+    <Compile Include="BLL\CsoBLL.cs" />
+    <Compile Include="DAL\CsoDAL.cs" />
+    <Compile Include="DAL\BXE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BXE.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DetailDAL.cs" />
+    <Compile Include="DAL\GroupDAL.cs" />
+    <Compile Include="DAL\KindDAL.cs" />
+    <Compile Include="DAL\Sumary.cs">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DAL\Sumary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\UserDAL.cs" />
+    <Compile Include="DAL\VehicleDAL.cs" />
+    <Compile Include="PRE\CsoPRE.cs" />
+    <Compile Include="PRE\FrmFawObj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\FrmFawObj.Designer.cs">
+      <DependentUpon>FrmFawObj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\ObjDul\FrmIkkDka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\ObjDul\FrmIkkDka.Designer.cs">
+      <DependentUpon>FrmIkkDka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\ObjDul\FrmLgoSci.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\ObjDul\FrmLgoSci.Designer.cs">
+      <DependentUpon>FrmLgoSci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\VbqGaa\FrmAfcGaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\VbqGaa\FrmAfcGaa.Designer.cs">
+      <DependentUpon>FrmAfcGaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\VbqGaa\FrmAfcVbq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\VbqGaa\FrmAfcVbq.Designer.cs">
+      <DependentUpon>FrmAfcVbq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmAhvBdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmAhvBdd.Designer.cs">
+      <DependentUpon>FrmAhvBdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmRepOrt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmRepOrt.Designer.cs">
+      <DependentUpon>FrmRepOrt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmTkeGaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmTkeGaa.Designer.cs">
+      <DependentUpon>FrmTkeGaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmTkeVbq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PRE\YhwCcn\FrmTkeVbq.Designer.cs">
+      <DependentUpon>FrmTkeVbq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\UTL\UTL.csproj">
+      <Project>{2D1ACFFC-F9BB-4E87-831D-1AB797A60617}</Project>
+      <Name>UTL</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BXE.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAL\BXE.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>BXE.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DAL\Sumary.xsc">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="DAL\Sumary.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Sumary.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DAL\Sumary.xss">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\BXE.DAL.Sumary.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DAL\BXE.dbml.layout">
+      <DependentUpon>BXE.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PRE\FrmFawObj.resx">
+      <DependentUpon>FrmFawObj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\ObjDul\FrmIkkDka.resx">
+      <DependentUpon>FrmIkkDka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\ObjDul\FrmLgoSci.resx">
+      <DependentUpon>FrmLgoSci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\VbqGaa\FrmAfcGaa.resx">
+      <DependentUpon>FrmAfcGaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\VbqGaa\FrmAfcVbq.resx">
+      <DependentUpon>FrmAfcVbq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\Banke1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\Banke2.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\FrmAhvBdd.resx">
+      <DependentUpon>FrmAhvBdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\FrmRepOrt.resx">
+      <DependentUpon>FrmRepOrt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\FrmTkeGaa.resx">
+      <DependentUpon>FrmTkeGaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\FrmTkeVbq.resx">
+      <DependentUpon>FrmTkeVbq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PRE\YhwCcn\RptDbbYii.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

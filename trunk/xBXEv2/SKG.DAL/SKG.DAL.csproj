@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="BaseDAL.cs" />
     <Compile Include="Entities\Pol_Action.cs" />
     <Compile Include="Entities\Pol_Right.cs" />
     <Compile Include="Entities\Pol_Role.cs" />

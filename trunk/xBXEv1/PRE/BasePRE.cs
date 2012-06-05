@@ -190,7 +190,7 @@ namespace PRE
             if (frm == null || frm.IsDisposed)
             {
                 frm = new T() { MdiParent = parent };
-                if (x == typeof(FrmBase))
+                if (x.BaseType == typeof(FrmBase))
                     (frm as FrmBase).ShowRight();
                 else frm.Show();
             }

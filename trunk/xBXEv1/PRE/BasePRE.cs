@@ -182,7 +182,7 @@ namespace PRE
         /// </summary>
         /// <typeparam name="T">Class của form cần tạo</typeparam>
         /// <param name="parent">Form cha</param>
-        public static void ShowRight<T>(Form parent) where T : Form, new()
+        public static void ShowRight<T>(this Form parent) where T : Form, new()
         {
             var x = typeof(T);
             var frm = (T)GetMdiChilden(parent, x.FullName);

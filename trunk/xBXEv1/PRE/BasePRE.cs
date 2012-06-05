@@ -162,10 +162,12 @@ namespace PRE
         /// <param name="frm">FrmBase</param>
         public static void ShowRight(this FrmBase frm)
         {
-            var bll = new Pol_RightBLL();
             var code = frm.GetType().Name;
+            if (code == typeof(FrmLogin).Name) return;
 
+            var bll = new Pol_RightBLL();
             var o = bll.Select(code);
+
             if (o == null)
             {
                 o = new Pol_Right() { Code = code, Name = frm.Text, Descript = "" };

@@ -157,9 +157,6 @@ namespace BLL
             o = new Pol_Right() { Code = "FrmTra_Vehicle", Name = "Danh sách xe", Descript = "Danh sách xe" };
             Pol_Right.Insert(o);
 
-            o = new Pol_Right() { Code = "FrmLogin", Name = "Đăng nhập", Descript = "Form đăng nhập" };
-            Pol_Right.Insert(o);
-
             o = new Pol_Right() { Code = "FrmGateIn", Name = "Cổng vào", Descript = "Form cổng vào" };
             Pol_Right.Insert(o);
             o = new Pol_Right() { Code = "FrmGateOut", Name = "Cổng ra", Descript = "Form cổng ra" };
@@ -256,10 +253,6 @@ namespace BLL
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
 
-            b = (Pol_Right)Pol_Right.Select("FrmLogin");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
-            Pol_UserRight.Insert(o);
-
             b = (Pol_Right)Pol_Right.Select("FrmGateIn");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
             Pol_UserRight.Insert(o);
@@ -338,10 +331,6 @@ namespace BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmTra_Vehicle");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
-            Pol_RoleRight.Insert(o);
-
-            b = (Pol_Right)Pol_Right.Select("FrmLogin");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
 

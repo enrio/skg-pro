@@ -9,9 +9,9 @@ namespace SKG.DAL
     using Entities;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_Action
+    /// Chính sách - Xử lí bảng Pol_UserRight
     /// </summary>
-    public abstract class Pol_ActionDAL : BaseDAL, IBaseDAL
+    public abstract class Pol_UserRightDAL : BaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>
@@ -20,7 +20,7 @@ namespace SKG.DAL
         /// <returns>Số dòng</returns>
         public int Count()
         {
-            return _db.Pol_Actions.Count();
+            return _db.Pol_UserRights.Count();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Pol_Actions.SingleOrDefault(s => s.Code == code);
+                return _db.Pol_UserRights.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -58,23 +58,63 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Pol_Actions
-                          orderby s.Order
-                          select new
-                          {
-                              s.Id,
-                              s.Name,
+                var a = from s in _db.Pol_UserRights
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Pol_User.Id,
+                            RightId = s.Pol_RightId,
+                            Format = false,
 
-                              s.Code,
-                              s.Descript,
-                              s.Order,
-                              s.Show
-                          };
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Query,
+                            s.Print,
+                            s.Access,
+                            s.Default,
+                            s.Full,
+                            s.None,
 
-                if (obj != null) res = res.Where(s => s.Code == obj + "");
+                            Name = s.Pol_Right.Name,
+                            Descript = s.Pol_Right.Descript,
+                        };
+
+                Guid? id = new Guid();
+
+                var b = from s in _db.Pol_Users
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Id,
+                            RightId = id,
+                            Format = true,
+
+                            Add = false,
+                            Edit = false,
+                            Delete = false,
+                            Query = false,
+                            Print = false,
+                            Access = false,
+                            Default = false,
+                            Full = false,
+                            None = false,
+
+                            s.Name,
+                            s.Descript
+                        };
+
+                var res = a.Union(b);
+
+                if (obj != null)
+                {
+                    var o = (Pol_UserRight)obj;
+                    res = res.Where(s => s.ID == o.Id);
+                }
+
                 if (take > 0) res = res.Skip(skip).Take(take);
 
-                return res.ToDataTable();
+                return res.OrderBy(s => s.Name).ToDataTable();
             }
             catch { return _tb; }
         }
@@ -88,9 +128,9 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
+                var o = (Pol_UserRight)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Pol_Actions.Add(o);
+                var oki = _db.Pol_UserRights.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -107,10 +147,18 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
-                var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == o.Id);
+                var o = (Pol_UserRight)obj;
+                var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Name = o.Name;
+                res.Add = o.Add;
+                res.Edit = o.Edit;
+                res.Delete = o.Delete;
+                res.Query = o.Query;
+                res.Print = o.Print;
+                res.Access = o.Access;
+                res.Default = o.Default;
+                res.Full = o.Full;
+                res.None = o.None;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;
@@ -133,13 +181,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == id);
-                    _db.Pol_Actions.Remove(res);
+                    var res = _db.Pol_UserRights.SingleOrDefault(s => s.Id == id);
+                    _db.Pol_UserRights.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Pol_Actions.ToList();
-                    tmp.ForEach(s => _db.Pol_Actions.Remove(s));
+                    var tmp = _db.Pol_UserRights.ToList();
+                    tmp.ForEach(s => _db.Pol_UserRights.Remove(s));
                 }
 
                 return _db.SaveChanges();

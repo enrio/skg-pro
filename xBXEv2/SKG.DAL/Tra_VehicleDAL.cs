@@ -9,9 +9,9 @@ namespace SKG.DAL
     using Entities;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_Action
+    /// Vận tải - Xử lí bảng Tra_Vehicle
     /// </summary>
-    public abstract class Pol_ActionDAL : BaseDAL, IBaseDAL
+    public abstract class Tra_VehicleDAL : BaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>
@@ -20,7 +20,7 @@ namespace SKG.DAL
         /// <returns>Số dòng</returns>
         public int Count()
         {
-            return _db.Pol_Actions.Count();
+            return _db.Tra_Vehicles.Count();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Pol_Actions.SingleOrDefault(s => s.Code == code);
+                return _db.Tra_Vehicles.SingleOrDefault(s => s.Number == code);
             }
             catch { return null; }
         }
@@ -44,7 +44,31 @@ namespace SKG.DAL
         /// <returns>Dữ liệu</returns>
         public DataTable Select(Guid fKey)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+
+                          where s.Tra_KindId == fKey
+                          orderby s.Order
+
+                          select new
+                          {
+                              s.Id,
+                              s.Number,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Code,
+                              s.Descript,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
         }
 
         /// <summary>
@@ -58,12 +82,15 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Pol_Actions
-                          orderby s.Order
+                var res = from s in _db.Tra_Vehicles
                           select new
                           {
                               s.Id,
-                              s.Name,
+                              s.Number,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
 
                               s.Code,
                               s.Descript,
@@ -71,7 +98,7 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                if (obj != null) res = res.Where(s => s.Code == obj + "");
+                if (obj != null) res = res.Where(s => s.Number == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();
@@ -88,9 +115,9 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
+                var o = (Tra_Vehicle)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Pol_Actions.Add(o);
+                var oki = _db.Tra_Vehicles.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -107,10 +134,15 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
-                var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == o.Id);
+                var o = (Tra_Vehicle)obj;
+                var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Name = o.Name;
+                res.Tra_KindId = o.Tra_KindId;
+                res.Number = o.Number;
+                res.Driver = o.Driver;
+                res.Birth = o.Birth;
+                res.Address = o.Address;
+                res.Phone = o.Phone;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;
@@ -133,13 +165,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == id);
-                    _db.Pol_Actions.Remove(res);
+                    var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == id);
+                    _db.Tra_Vehicles.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Pol_Actions.ToList();
-                    tmp.ForEach(s => _db.Pol_Actions.Remove(s));
+                    var tmp = _db.Tra_Vehicles.ToList();
+                    tmp.ForEach(s => _db.Tra_Vehicles.Remove(s));
                 }
 
                 return _db.SaveChanges();

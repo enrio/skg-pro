@@ -9,9 +9,9 @@ namespace SKG.DAL
     using Entities;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_Action
+    /// Chính sách - Xử lí bảng Pol_UserRole
     /// </summary>
-    public abstract class Pol_ActionDAL : BaseDAL, IBaseDAL
+    public abstract class Pol_UserRoleDAL : BaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>
@@ -20,7 +20,7 @@ namespace SKG.DAL
         /// <returns>Số dòng</returns>
         public int Count()
         {
-            return _db.Pol_Actions.Count();
+            return _db.Pol_UserRoles.Count();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Pol_Actions.SingleOrDefault(s => s.Code == code);
+                return _db.Pol_UserRoles.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -58,23 +58,45 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Pol_Actions
-                          orderby s.Order
-                          select new
-                          {
-                              s.Id,
-                              s.Name,
+                var a = from s in _db.Pol_UserRoles
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Pol_Role.Id,
 
-                              s.Code,
-                              s.Descript,
-                              s.Order,
-                              s.Show
-                          };
+                            UserId = s.Pol_UserId,
+                            Format = false,
 
-                if (obj != null) res = res.Where(s => s.Code == obj + "");
+                            Name = s.Pol_User.Name,
+                            Descript = s.Pol_User.Acc,
+                        };
+
+                Guid? id = new Guid();
+
+                var b = from s in _db.Pol_Roles
+                        select new
+                        {
+                            ID = s.Id,
+                            ParentID = s.Id,
+
+                            UserId = id,
+                            Format = true,
+
+                            s.Name,
+                            s.Descript
+                        };
+
+                var res = a.Union(b);
+
+                if (obj != null)
+                {
+                    var o = (Pol_UserRole)obj;
+                    res = res.Where(s => s.ID == o.Id);
+                }
+
                 if (take > 0) res = res.Skip(skip).Take(take);
 
-                return res.ToDataTable();
+                return res.OrderBy(s => s.Name).ToDataTable();
             }
             catch { return _tb; }
         }
@@ -88,9 +110,9 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
+                var o = (Pol_UserRole)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Pol_Actions.Add(o);
+                var oki = _db.Pol_UserRoles.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -107,10 +129,11 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Action)obj;
-                var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == o.Id);
+                var o = (Pol_UserRole)obj;
+                var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Name = o.Name;
+                res.Pol_UserId = o.Pol_UserId;
+                res.Pol_RoleId = o.Pol_RoleId;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;
@@ -133,13 +156,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Pol_Actions.SingleOrDefault(s => s.Id == id);
-                    _db.Pol_Actions.Remove(res);
+                    var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == id);
+                    _db.Pol_UserRoles.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Pol_Actions.ToList();
-                    tmp.ForEach(s => _db.Pol_Actions.Remove(s));
+                    var tmp = _db.Pol_UserRoles.ToList();
+                    tmp.ForEach(s => _db.Pol_UserRoles.Remove(s));
                 }
 
                 return _db.SaveChanges();

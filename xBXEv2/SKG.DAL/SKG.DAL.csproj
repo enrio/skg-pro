@@ -44,7 +44,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Pol_Action.cs" />
+    <Compile Include="Entities\Pol_Right.cs" />
+    <Compile Include="Entities\Pol_Role.cs" />
+    <Compile Include="Entities\Pol_RoleRight.cs" />
+    <Compile Include="Entities\Pol_User.cs" />
+    <Compile Include="Entities\Pol_UserRight.cs" />
+    <Compile Include="Entities\Pol_UserRole.cs" />
+    <Compile Include="Entities\Tra_Detail.cs" />
+    <Compile Include="Entities\Tra_Group.cs" />
+    <Compile Include="Entities\Tra_Kind.cs" />
+    <Compile Include="Entities\Tra_Vehicle.cs" />
     <Compile Include="Entities\ZAction.cs" />
+    <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Entities\ZInfor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -122,11 +122,11 @@ namespace BLL
             Pol_Action.Insert(o);
             o = new Pol_Action() { Code = "Access", Name = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
             Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Default", Name = "Mặc định", Descript = "Hiện sau khi đăng nhập", Order = 6 };
+            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
             Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 7 };
+            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 7 };
             Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 8 };
+            o = new Pol_Action() { Code = "Default", Name = "Mặc định", Descript = "Hiện sau khi đăng nhập", Order = 8 };
             Pol_Action.Insert(o);
         }
 

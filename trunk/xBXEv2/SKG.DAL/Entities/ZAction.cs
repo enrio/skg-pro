@@ -8,7 +8,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Các chức năng thao tác cơ bản đối với dữ liệu
     /// </summary>
-    public class ZAction
+    public class ZAction : ZInfor
     {
         /// <summary>
         /// Cho phép thêm

@@ -72,14 +72,14 @@ namespace PRE.Manage
                     DateTime timeIn = Convert.ToDateTime(tb.Rows[0]["DateIn"]);
                     DateTime timeOut = isOut ? Convert.ToDateTime(tb.Rows[0]["DateOut"]) : o.DateOut.Value;
 
-                    string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] +"": "";
+                    string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
                     int chair = tb.Rows[0]["Chair"] + "" != "" ? Convert.ToInt32(tb.Rows[0]["Chair"]) : 0;
                     //decimal weight = tb.Rows[0]["Weight"] + "" != "" ? Convert.ToDecimal(tb.Rows[0]["Weight"]) : 0;
 
                     lblDateIn.Text = timeIn.ToString("dd/MM/yyyy HH:mm:ss");
                     lblDateOut.Text = timeOut.ToString("dd/MM/yyyy HH:mm:ss");
 
-                    lblNumber.Text = tb.Rows[0]["Number"].ToString();
+                    lblNumber.Text = (tb.Rows[0]["Number"] + "").ToUpper();
                     lblGroup.Text = tb.Rows[0]["GroupName"].ToString();
                     lblKind.Text = tb.Rows[0]["Name"].ToString();
                     lblAccIn.Text = tb.Rows[0]["UserInName"].ToString().ToUpper();

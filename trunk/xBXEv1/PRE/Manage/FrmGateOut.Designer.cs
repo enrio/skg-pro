@@ -43,7 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblMoney = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblDuration = new System.Windows.Forms.Label();
@@ -120,7 +119,6 @@
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.tblAep);
-            this.dockPanel2_Container.Controls.Add(this.cbbNumber);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 476);
@@ -135,6 +133,7 @@
             this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tblAep.Controls.Add(this.lblAccOut, 1, 11);
+            this.tblAep.Controls.Add(this.cbbNumber, 1, 0);
             this.tblAep.Controls.Add(this.label6, 2, 0);
             this.tblAep.Controls.Add(this.label15, 0, 11);
             this.tblAep.Controls.Add(this.label2, 0, 2);
@@ -142,7 +141,6 @@
             this.tblAep.Controls.Add(this.label1, 0, 1);
             this.tblAep.Controls.Add(this.label13, 0, 10);
             this.tblAep.Controls.Add(this.label4, 0, 0);
-            this.tblAep.Controls.Add(this.comboBox1, 1, 0);
             this.tblAep.Controls.Add(this.lblMoney, 1, 9);
             this.tblAep.Controls.Add(this.lblPrice, 1, 8);
             this.tblAep.Controls.Add(this.lblDuration, 1, 7);
@@ -277,20 +275,6 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Tìm biển số:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DisplayMember = "Number";
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.Gray;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(183, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 33);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.ValueMember = "Id";
             // 
             // lblMoney
             // 
@@ -527,7 +511,7 @@
             this.cbbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
             this.cbbNumber.FormattingEnabled = true;
-            this.cbbNumber.Location = new System.Drawing.Point(50, 18);
+            this.cbbNumber.Location = new System.Drawing.Point(183, 5);
             this.cbbNumber.Name = "cbbNumber";
             this.cbbNumber.Size = new System.Drawing.Size(152, 33);
             this.cbbNumber.TabIndex = 3;
@@ -573,7 +557,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblDuration;

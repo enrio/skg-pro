@@ -26,6 +26,8 @@ namespace PRE.Manage
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
+            AllowBar = false;
+
             //grvMain.OptionsView.ShowAutoFilterRow = true;
             //grvMain.OptionsBehavior.Editable = false;
         }

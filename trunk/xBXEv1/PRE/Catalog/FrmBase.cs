@@ -307,7 +307,21 @@ namespace PRE.Catalog
         protected virtual void tmrMain_Tick(object sender, EventArgs e) { }
         #endregion
 
-        #region Cho phép ẩn/hiện các nút lệnh
+        #region Cho phép ẩn/hiện các nút lệnh, thanh công cụ
+        private bool _allowBar;
+        /// <summary>
+        /// Ẩn/hiện thanh công cụ
+        /// </summary>
+        public bool AllowBar
+        {
+            get { return _allowBar; }
+            set
+            {
+                bar1.Visible = value;
+                _allowBar = value;
+            }
+        }
+
         private bool _allowAdd;
         /// <summary>
         /// Hiển thị nút Thêm hay không

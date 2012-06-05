@@ -189,8 +189,7 @@ namespace PRE
 
             if (frm == null || frm.IsDisposed)
             {
-                frm = new T();
-                frm.MdiParent = parent;
+                frm = new T() { MdiParent = parent };
                 frm.ShowForm();
             }
             else frm.Activate();

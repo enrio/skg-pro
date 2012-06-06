@@ -16,6 +16,10 @@ namespace PRE.Main
 
     public partial class FrmPrint : DevExpress.XtraEditors.XtraForm
     {
+        public DataTable SumaryData { set; get; }
+        public decimal SumaryMoney { set; get; }
+        public DateTime? Current { set; get; }
+
         public FrmPrint()
         {
             InitializeComponent();

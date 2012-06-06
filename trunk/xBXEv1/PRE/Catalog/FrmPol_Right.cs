@@ -11,17 +11,15 @@ namespace PRE.Catalog
     /// </summary>
     public partial class FrmPol_Right : PRE.Catalog.FrmBase
     {
-        private const string STR_ADD = "Thêm người dùng";
-        private const string STR_EDIT = "Sửa người dùng";
-        private const string STR_DELETE = "Xoá người dùng";
+        private const string STR_ADD = "Thêm form, menu";
+        private const string STR_EDIT = "Sửa form, menu";
+        private const string STR_DELETE = "Xoá form, menu";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá tài khoản '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Tài khoản này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
-
-        private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+        private const string STR_DUPLICATE = "Mã này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";        
 
         public FrmPol_Right()
         {
@@ -194,6 +192,7 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
+
             return base.ValidInput();
         }
         #endregion

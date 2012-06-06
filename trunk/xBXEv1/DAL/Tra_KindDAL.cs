@@ -81,6 +81,8 @@ namespace DAL
                           select new
                           {
                               s.Id,
+                              s.Tra_GroupId,
+                              GroupName = s.Tra_Group.Name,
                               s.Name,
                               s.Descript,
                               s.Price1,

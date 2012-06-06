@@ -3,11 +3,26 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using DAL.Entities;
+    using System.Windows.Forms;
+
     /// <summary>
     /// Danh mục quyền (form, chức năng)
     /// </summary>
     public partial class FrmPol_Right : PRE.Catalog.FrmBase
     {
+        private const string STR_ADD = "Thêm người dùng";
+        private const string STR_EDIT = "Sửa người dùng";
+        private const string STR_DELETE = "Xoá người dùng";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá tài khoản '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Tài khoản này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
+
+        private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+
         public FrmPol_Right()
         {
             InitializeComponent();
@@ -22,7 +37,18 @@ namespace PRE.Catalog
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+            if (id == new Guid()) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtName.Text);
+                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Pol_Right.Delete(id) != null) PerformRefresh();
+                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -36,6 +62,8 @@ namespace PRE.Catalog
                 ClearDataBindings();
                 if (_dtb.Rows.Count > 0) DataBindingControl();
             }
+
+            ReadOnlyControl();
 
             base.PerformRefresh();
         }
@@ -68,30 +96,40 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            //txtName.Text = null;
+            txtName.Text = null;
+            txtCode.Text = null;
+            txtDescript.Text = null;
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
         {
-            //txtName.DataBindings.Clear();
+            txtName.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
+            txtCode.Properties.ReadOnly = isReadOnly;
+            txtName.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
+
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -100,8 +138,22 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+                var o = new Pol_Right()
+                {
+                    Id = id,
+                    Code = txtCode.Text,
+                    Name = txtName.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Pol_Right.Update(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_EDIT);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }
@@ -110,8 +162,19 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var o = new Pol_Right()
+                {
+                    Code = txtCode.Text,
+                    Name = txtName.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Pol_Right.Insert(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_ADD);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }

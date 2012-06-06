@@ -63,6 +63,8 @@ namespace PRE.Catalog
                 if (_dtb.Rows.Count > 0) DataBindingControl();
             }
 
+            ReadOnlyControl();
+
             base.PerformRefresh();
         }
 
@@ -131,6 +133,7 @@ namespace PRE.Catalog
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtName.Properties.ReadOnly = isReadOnly;
+            txtAcc.Properties.ReadOnly = isReadOnly;
             txtPass.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -138,7 +141,6 @@ namespace PRE.Catalog
 
             grcMain.Enabled = isReadOnly;
 
-            if (_state == State.Add) txtAcc.Properties.ReadOnly = false;
             if (_state == State.Edit) txtAcc.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);

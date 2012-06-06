@@ -10,6 +10,7 @@ namespace PRE.Manage
 {
     using UTL;
     using DAL.Entities;
+    using Main;
 
     /// <summary>
     /// Cổng ra
@@ -26,10 +27,30 @@ namespace PRE.Manage
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
-            AllowBar = false;
+            //AllowBar = false;
+            AllowPrint = true;
 
             //grvMain.OptionsView.ShowAutoFilterRow = true;
             //grvMain.OptionsBehavior.Editable = false;
+        }
+
+        /// <summary>
+        /// Perform when click print button
+        /// </summary>
+        protected override void PerformPrint()
+        {
+            var frm = new FrmPrint();
+            frm.Text = "In: " + Text;
+
+            var rpt = new Report.Rpt_Sumary1();
+            rpt.DataSource = _dtb;
+            frm.SetReport(rpt);
+
+            frm.MdiParent = MdiParent;
+            frm.Show();
+            frm.Activate();
+
+            base.PerformPrint();
         }
 
         private void FrmGateOut_Load(object sender, EventArgs e)
@@ -40,8 +61,8 @@ namespace PRE.Manage
         protected override void LoadData()
         {
             decimal sum;
-            var _tb = _bll.Tra_Detail.GetInDepot(out sum);
-            cbbNumber.DataSource = _tb;
+            _dtb = _bll.Tra_Detail.GetInDepot(out sum);
+            cbbNumber.DataSource = _dtb;
             cbbNumber.ValueMember = "Id";
             cbbNumber.DisplayMember = "Number";
 

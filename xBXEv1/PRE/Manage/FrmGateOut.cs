@@ -43,7 +43,8 @@ namespace PRE.Manage
             frm.Text = "In: " + Text;
 
             var rpt = new Report.Rpt_Sumary1();
-            rpt.DataSource = _dtb;
+            //rpt.DataSource = _dtb;
+            rpt.DataSource = _bll.Pol_Action.Select();
             frm.SetReport(rpt);
 
             frm.MdiParent = MdiParent;

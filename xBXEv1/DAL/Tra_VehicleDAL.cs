@@ -83,6 +83,8 @@ namespace DAL
                           select new
                           {
                               s.Id,
+                              s.Tra_KindId,
+                              KindName = s.Tra_Kind.Name,
                               s.Number,
                               s.Descript,
                               s.Driver,

@@ -84,6 +84,9 @@ namespace DAL
             try
             {
                 var o = (Pol_Role)obj;
+
+                if (Select(o.Code) != null) return null; // mã này có rồi
+
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Roles.Add(o);
 

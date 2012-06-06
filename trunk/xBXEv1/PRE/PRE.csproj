@@ -251,6 +251,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\Rpt_Sumary1.resx">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DataSet\Sumary.xsc">
       <DependentUpon>Sumary.xsd</DependentUpon>

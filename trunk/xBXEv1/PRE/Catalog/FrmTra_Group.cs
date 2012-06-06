@@ -3,11 +3,24 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using DAL.Entities;
+    using System.Windows.Forms;
+
     /// <summary>
     /// Danh mục nhóm xe
     /// </summary>
     public partial class FrmTra_Group : PRE.Catalog.FrmBase
     {
+        private const string STR_ADD = "Thêm nhóm xe";
+        private const string STR_EDIT = "Sửa nhóm xe";
+        private const string STR_DELETE = "Xoá nhóm xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Nhóm này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
+
         public FrmTra_Group()
         {
             InitializeComponent();
@@ -22,7 +35,18 @@ namespace PRE.Catalog
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+            if (id == new Guid()) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtName.Text);
+                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Group.Delete(id) != null) PerformRefresh();
+                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -36,6 +60,8 @@ namespace PRE.Catalog
                 ClearDataBindings();
                 if (_dtb.Rows.Count > 0) DataBindingControl();
             }
+
+            ReadOnlyControl();
 
             base.PerformRefresh();
         }
@@ -58,9 +84,6 @@ namespace PRE.Catalog
                         PerformRefresh();
                     }
                     break;
-
-                default:
-                    break;
             }
 
             base.PerformSave();
@@ -68,28 +91,32 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            //txtName.Text = null;
+            txtName.Text = null;
+            txtDescript.Text = null;
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
         {
-            //txtName.DataBindings.Clear();
+            txtName.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
+            txtName.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -100,8 +127,21 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+                var o = new Tra_Group()
+                {
+                    Id = id,
+                    Name = txtName.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Tra_Group.Update(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_EDIT);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }
@@ -110,8 +150,18 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var o = new Tra_Group()
+                {
+                    Name = txtName.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Tra_Group.Insert(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_ADD);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }

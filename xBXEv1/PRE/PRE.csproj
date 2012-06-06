@@ -107,6 +107,11 @@
     <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataSet\Sumary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +252,17 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="DataSet\Sumary.xsc">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Sumary.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Sumary.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet\Sumary.xss">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

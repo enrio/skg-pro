@@ -3,11 +3,25 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using System.Windows.Forms;
+
     /// <summary>
     /// Danh sách người dùng
     /// </summary>
     public partial class FrmPol_User : PRE.Catalog.FrmBase
     {
+        private const string STR_ADD = "Thêm người dùng";
+        private const string STR_EDIT = "Sửa người dùng";
+        private const string STR_DELETE = "Xoá người dùng";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá tài khoản '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Tài khoản này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
+
+        private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+
         public FrmPol_User()
         {
             InitializeComponent();
@@ -22,7 +36,18 @@ namespace PRE.Catalog
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+            if (id == new Guid()) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtName.Text);
+                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Pol_User.Delete(id) != null) PerformRefresh();
+                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -68,28 +93,48 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            //txtName.Text = null;
+            txtName.Text = null;
+            txtAcc.Text = null;
+            txtPass.Text = null;
+            dteBirth.EditValue = null;
+            txtAddress.Text = null;
+            txtPhone.Text = null;            
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
-        {
-            //txtName.DataBindings.Clear();
+        {            
+            txtName.DataBindings.Clear();
+            txtAcc.DataBindings.Clear();
+            txtPass.DataBindings.Clear();
+            dteBirth.DataBindings.Clear();
+            txtAddress.DataBindings.Clear();
+            txtPhone.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
-        {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+        {            
+            txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            txtAcc.DataBindings.Add("EditValue", _dtb, ".Acc");
+            txtPass.DataBindings.Add("EditValue", _dtb, ".Pass");
+            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
+            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
+            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
+            txtName.Properties.ReadOnly = isReadOnly;
+            txtAcc.Properties.ReadOnly = isReadOnly;
+            txtPass.Properties.ReadOnly = isReadOnly;
+            dteBirth.Properties.ReadOnly = isReadOnly;
+            txtAddress.Properties.ReadOnly = isReadOnly;
+            txtPhone.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 

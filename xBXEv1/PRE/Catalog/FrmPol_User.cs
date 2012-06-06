@@ -131,13 +131,15 @@ namespace PRE.Catalog
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtName.Properties.ReadOnly = isReadOnly;
-            txtAcc.Properties.ReadOnly = isReadOnly;
             txtPass.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
             txtPhone.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
+
+            if (_state == State.Add) txtAcc.Properties.ReadOnly = false;
+            if (_state == State.Edit) txtAcc.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }

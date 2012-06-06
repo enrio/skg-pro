@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace DAL
 {
+    using UTL.Hasher;
     using System.Data;
     using Entities;
 
@@ -91,7 +92,7 @@ namespace DAL
                 if (Select(o.Acc) != null) return null; // tài khoản này có rồi
 
                 o.Id = Guid.NewGuid();
-                o.Pass = UTL.Hasher.Code.Encode(o.Pass);
+                o.Pass = Code.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);
 
                 _db.SaveChanges();
@@ -112,7 +113,7 @@ namespace DAL
                 var o = (Pol_User)obj;
                 var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
 
-                res.Pass = o.Pass;
+                res.Pass = Code.Encode(o.Pass);
                 res.Name = o.Name;
                 res.Birth = o.Birth;
                 res.Address = o.Address;

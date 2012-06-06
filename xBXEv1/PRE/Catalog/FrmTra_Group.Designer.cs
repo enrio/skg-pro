@@ -41,13 +41,20 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.lblName = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -70,15 +77,19 @@
             this.dockPanel1.ID = new System.Guid("f82f19cf-a408-437b-8c69-00c09650fb7f");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 200);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 98);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 98);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtDescript);
+            this.dockPanel1_Container.Controls.Add(this.labelControl3);
+            this.dockPanel1_Container.Controls.Add(this.txtName);
+            this.dockPanel1_Container.Controls.Add(this.lblName);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 173);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 71);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // dockPanel2
@@ -86,10 +97,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("a872bda8-3c64-459e-8e23-1413f11881f5");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 263);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 161);
             this.dockPanel2.Name = "dockPanel2";
-            this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 303);
+            this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 405);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -97,7 +108,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 276);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 378);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -106,7 +117,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 276);
+            this.grcMain.Size = new System.Drawing.Size(943, 378);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -158,6 +169,36 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
             // 
+            // txtDescript
+            // 
+            this.txtDescript.Location = new System.Drawing.Point(68, 39);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Size = new System.Drawing.Size(268, 20);
+            this.txtDescript.TabIndex = 46;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(11, 42);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(31, 13);
+            this.labelControl3.TabIndex = 49;
+            this.labelControl3.Text = "Mô tả:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(68, 13);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(268, 20);
+            this.txtName.TabIndex = 45;
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(11, 16);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(51, 13);
+            this.lblName.TabIndex = 47;
+            this.lblName.Text = "Tên nhóm:";
+            // 
             // FrmTra_Group
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,10 +212,14 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            this.dockPanel1_Container.PerformLayout();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -193,5 +238,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
+        private DevExpress.XtraEditors.TextEdit txtDescript;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit txtName;
+        private DevExpress.XtraEditors.LabelControl lblName;
     }
 }

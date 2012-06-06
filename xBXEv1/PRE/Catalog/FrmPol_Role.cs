@@ -16,10 +16,10 @@ namespace PRE.Catalog
         private const string STR_DELETE = "Xoá nhóm người dùng";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Mã này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";        
+        private const string STR_DUPLICATE = "Nhóm này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
 
         public FrmPol_Role()
         {
@@ -29,7 +29,7 @@ namespace PRE.Catalog
             SetDockPanel(dockPanel2, "Danh sách");
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;            
+            grvMain.OptionsBehavior.Editable = false;
         }
 
         #region Override
@@ -92,7 +92,6 @@ namespace PRE.Catalog
         protected override void ResetText()
         {
             txtName.Text = null;
-            txtCode.Text = null;
             txtDescript.Text = null;
 
             base.ResetText();
@@ -101,7 +100,6 @@ namespace PRE.Catalog
         protected override void ClearDataBindings()
         {
             txtName.DataBindings.Clear();
-            txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -110,7 +108,6 @@ namespace PRE.Catalog
         protected override void DataBindingControl()
         {
             txtName.DataBindings.Add("EditValue", _dtb, ".Name");
-            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
@@ -118,13 +115,10 @@ namespace PRE.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
-
-            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -140,7 +134,6 @@ namespace PRE.Catalog
                 var o = new Pol_Role()
                 {
                     Id = id,
-                    Code = txtCode.Text,
                     Name = txtName.Text,
                     Descript = txtDescript.Text
                 };
@@ -161,7 +154,6 @@ namespace PRE.Catalog
 
                 var o = new Pol_Role()
                 {
-                    Code = txtCode.Text,
                     Name = txtName.Text,
                     Descript = txtDescript.Text
                 };

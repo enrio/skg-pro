@@ -41,7 +41,7 @@ namespace DAL
         {
             try
             {
-                return _db.Tra_Groups.SingleOrDefault(s => s.Code == code);
+                return _db.Tra_Groups.SingleOrDefault(s => s.Name == code);
             }
             catch { return null; }
         }

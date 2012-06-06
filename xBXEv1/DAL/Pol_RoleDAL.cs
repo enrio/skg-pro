@@ -41,7 +41,7 @@ namespace DAL
         {
             try
             {
-                return _db.Pol_Roles.SingleOrDefault(s => s.Name == code);
+                return _db.Pol_Roles.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }

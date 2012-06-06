@@ -45,6 +45,16 @@ namespace DAL.Entities
         public DateTime? DateOut { set; get; }
 
         /// <summary>
+        /// Số ngày lưu đậu
+        /// </summary>
+        public int Days { set; get; }
+
+        /// <summary>
+        /// Số giờ lưu đậu
+        /// </summary>
+        public int Hours { set; get; }
+
+        /// <summary>
         /// Đơn giá nửa ngày
         /// </summary>
         public int Price1 { set; get; }
@@ -58,5 +68,7 @@ namespace DAL.Entities
         /// Thành tiền
         /// </summary>
         public decimal Money { set; get; }
+
+        public Tra_Detail() { Days = 0; Hours = 0; }
     }
 }

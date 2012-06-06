@@ -3,11 +3,25 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using UTL;
+    using DAL.Entities;
+    using System.Windows.Forms;
+
     /// <summary>
     /// Danh sách xe cộ
     /// </summary>
     public partial class FrmTra_Vehicle : PRE.Catalog.FrmBase
     {
+        private const string STR_ADD = "Thêm xe";
+        private const string STR_EDIT = "Sửa xe";
+        private const string STR_DELETE = "Xoá xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Xe này có rồi";
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
+
         public FrmTra_Vehicle()
         {
             InitializeComponent();
@@ -22,7 +36,18 @@ namespace PRE.Catalog
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+            if (id == new Guid()) BasePRE.ShowMessage(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
+                var oki = BasePRE.ShowMessage(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Vehicle.Delete(id) != null) PerformRefresh();
+                    else BasePRE.ShowMessage(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -36,6 +61,8 @@ namespace PRE.Catalog
                 ClearDataBindings();
                 if (_dtb.Rows.Count > 0) DataBindingControl();
             }
+
+            ReadOnlyControl();
 
             base.PerformRefresh();
         }
@@ -58,9 +85,6 @@ namespace PRE.Catalog
                         PerformRefresh();
                     }
                     break;
-
-                default:
-                    break;
             }
 
             base.PerformSave();
@@ -68,28 +92,52 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            //txtName.Text = null;
+            lokKind.ItemIndex = 0;
+            txtNumber.Text = null;
+            txtDescript.Text = null;
+            txtDriver.Text = null;
+            txtAddress.Text = null;
+            txtPhone.Text = null;
+            dteBirth.EditValue = null;
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
         {
-            //txtName.DataBindings.Clear();
+            lokKind.DataBindings.Clear();
+            txtNumber.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
+            txtDriver.DataBindings.Clear();
+            txtAddress.DataBindings.Clear();
+            txtPhone.DataBindings.Clear();
+            dteBirth.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            lokKind.DataBindings.Add("EditValue", _dtb, ".Tra_KindId");
+            txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
+            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //txtName.Properties.ReadOnly = isReadOnly;
+            lokKind.Properties.ReadOnly = isReadOnly;
+            txtNumber.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
+            txtDriver.Properties.ReadOnly = isReadOnly;
+            txtAddress.Properties.ReadOnly = isReadOnly;
+            txtPhone.Properties.ReadOnly = isReadOnly;
+            dteBirth.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -100,8 +148,27 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+                var o = new Tra_Vehicle()
+                {
+                    Id = id,
+                    Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
+                    Number = txtNumber.Text,
+                    Chair = Number.ToInt32(txtChair.Text),
+                    Driver = txtDriver.Text,
+                    Birth = dteBirth.DateTime,
+                    Address = txtAddress.Text,
+                    Phone = txtPhone.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Tra_Vehicle.Update(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_EDIT);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }
@@ -110,8 +177,24 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var o = new Tra_Vehicle()
+                {
+                    Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
+                    Number = txtNumber.Text,
+                    Chair = Number.ToInt32(txtChair.Text),
+                    Driver = txtDriver.Text,
+                    Birth = dteBirth.DateTime,
+                    Address = txtAddress.Text,
+                    Phone = txtPhone.Text,
+                    Descript = txtDescript.Text
+                };
+
+                var oki = _bll.Tra_Vehicle.Insert(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_ADD);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }
@@ -134,5 +217,11 @@ namespace PRE.Catalog
             return base.ValidInput();
         }
         #endregion
+
+        private void FrmTra_Vehicle_Load(object sender, EventArgs e)
+        {
+            lokKind.Properties.DataSource = _bll.Tra_Kind.Select();
+            lokKind.ItemIndex = 0;
+        }
     }
 }

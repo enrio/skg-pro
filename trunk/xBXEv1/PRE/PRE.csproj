@@ -35,14 +35,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.OfficeSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -135,6 +143,12 @@
     <Compile Include="Main\FrmPol_UserRole.Designer.cs">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPrint.Designer.cs">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main\FrmSelect.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +175,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Rpt_Sumary1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Rpt_Sumary1.Designer.cs">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Catalog\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FrmPol_UserRole.resx">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPrint.resx">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FrmSelect.resx">
       <DependentUpon>FrmSelect.cs</DependentUpon>
@@ -338,9 +361,7 @@
   <ItemGroup>
     <None Include="Resources\logon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

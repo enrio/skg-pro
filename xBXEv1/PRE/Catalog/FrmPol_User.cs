@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using DAL.Entities;
     using System.Windows.Forms;
 
     /// <summary>
@@ -98,13 +99,13 @@ namespace PRE.Catalog
             txtPass.Text = null;
             dteBirth.EditValue = null;
             txtAddress.Text = null;
-            txtPhone.Text = null;            
+            txtPhone.Text = null;
 
             base.ResetText();
         }
 
         protected override void ClearDataBindings()
-        {            
+        {
             txtName.DataBindings.Clear();
             txtAcc.DataBindings.Clear();
             txtPass.DataBindings.Clear();
@@ -116,7 +117,7 @@ namespace PRE.Catalog
         }
 
         protected override void DataBindingControl()
-        {            
+        {
             txtName.DataBindings.Add("EditValue", _dtb, ".Name");
             txtAcc.DataBindings.Add("EditValue", _dtb, ".Acc");
             txtPass.DataBindings.Add("EditValue", _dtb, ".Pass");
@@ -145,8 +146,25 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+                var o = new Pol_User()
+                {
+                    Id = id,
+                    Acc = txtAcc.Text,
+                    Pass = txtPass.Text,
+                    Name = txtName.Text,
+                    Birth = dteBirth.DateTime,
+                    Phone = txtPhone.Text,
+                    Address = txtAddress.Text
+                };
+
+                var oki = _bll.Pol_User.Update(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_EDIT);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }
@@ -155,8 +173,22 @@ namespace PRE.Catalog
         {
             try
             {
-                if (!ValidInput()) ; return false;
+                if (!ValidInput()) return false;
 
+                var o = new Pol_User()
+                {
+                    Acc = txtAcc.Text,
+                    Pass = txtPass.Text,
+                    Name = txtName.Text,
+                    Birth = dteBirth.DateTime,
+                    Phone = txtPhone.Text,
+                    Address = txtAddress.Text
+                };
+
+                var oki = _bll.Pol_User.Insert(o);
+                if (oki == null) BasePRE.ShowMessage(STR_DUPLICATE, STR_ADD);
+
+                return oki != null ? true : false;
             }
             catch { return false; }
         }

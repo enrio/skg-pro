@@ -87,6 +87,9 @@ namespace DAL
             try
             {
                 var o = (Pol_User)obj;
+
+                if (Select(o.Acc) != null) return null; // tài khoản này có rồi
+
                 o.Id = Guid.NewGuid();
                 o.Pass = UTL.Hasher.Code.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);

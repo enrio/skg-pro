@@ -44,7 +44,14 @@ namespace PRE.Manage
 
             var rpt = new Report.Rpt_Sumary1();
             //rpt.DataSource = _dtb;
-            rpt.DataSource = _bll.Pol_Action.Select();
+
+            DateTime fr, to;
+            fr = TimeDate.GetStartOfDay(BasePRE._sss.Current.Value);
+            to = TimeDate.GetEndOfDay(BasePRE._sss.Current.Value);
+
+            decimal _sum;
+            rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
+
             frm.SetReport(rpt);
 
             frm.MdiParent = MdiParent;

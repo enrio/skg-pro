@@ -426,6 +426,15 @@ namespace BLL
         void CreateTra_Detail()
         {
             if (Tra_Detail.Count() > 0) return;
+
+            var a = (Tra_Vehicle)Tra_Vehicle.Select("66F-123.09");
+            var b = (Pol_User)Pol_User.Select("nvt");
+            var c = (Pol_User)Pol_User.Select("admin");
+            var o = new Tra_Detail() { Pol_UserInId = b.Id, Pol_UserOutId = c.Id, Tra_VehicleId = a.Id, DateIn = DateTime.Now.AddDays(-1), DateOut = DateTime.Now };
+            Tra_Detail.Insert(o);
+            a = (Tra_Vehicle)Tra_Vehicle.Select("65F-888.09");
+            o = new Tra_Detail() { Pol_UserInId = b.Id, Pol_UserOutId = c.Id, Tra_VehicleId = a.Id, DateIn = DateTime.Now, DateOut = DateTime.Now };
+            Tra_Detail.Insert(o);
         }
         #endregion
 

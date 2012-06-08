@@ -34,8 +34,12 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.tblAep = new System.Windows.Forms.TableLayoutPanel();
             this.lblAccOut = new System.Windows.Forms.Label();
+            this.cbbNumber = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,12 +65,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cbbNumber = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
             this.tblAep.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,15 +123,45 @@
             // 
             // dockPanel2_Container
             // 
-            this.dockPanel2_Container.Controls.Add(this.tblAep);
+            this.dockPanel2_Container.Controls.Add(this.groupControl1);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 476);
             this.dockPanel2_Container.TabIndex = 0;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.cmdOut);
+            this.groupControl1.Controls.Add(this.cmdInvoice);
+            this.groupControl1.Controls.Add(this.tblAep);
+            this.groupControl1.Location = new System.Drawing.Point(88, 27);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(756, 418);
+            this.groupControl1.TabIndex = 5;
+            this.groupControl1.Text = "Cho xe ra bến";
+            // 
+            // cmdOut
+            // 
+            this.cmdOut.Enabled = false;
+            this.cmdOut.Location = new System.Drawing.Point(106, 375);
+            this.cmdOut.Name = "cmdOut";
+            this.cmdOut.Size = new System.Drawing.Size(95, 37);
+            this.cmdOut.TabIndex = 7;
+            this.cmdOut.Text = "&Cho ra";
+            this.cmdOut.Click += new System.EventHandler(this.cmdOut_Click);
+            // 
+            // cmdInvoice
+            // 
+            this.cmdInvoice.Location = new System.Drawing.Point(5, 375);
+            this.cmdInvoice.Name = "cmdInvoice";
+            this.cmdInvoice.Size = new System.Drawing.Size(95, 37);
+            this.cmdInvoice.TabIndex = 6;
+            this.cmdInvoice.Text = "&Tính tiền";
+            this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
+            // 
             // tblAep
             // 
-            this.tblAep.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tblAep.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.tblAep.ColumnCount = 3;
             this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -159,7 +194,7 @@
             this.tblAep.Controls.Add(this.label5, 0, 5);
             this.tblAep.Controls.Add(this.label3, 0, 4);
             this.tblAep.Controls.Add(this.label12, 0, 3);
-            this.tblAep.Location = new System.Drawing.Point(98, 66);
+            this.tblAep.Location = new System.Drawing.Point(5, 25);
             this.tblAep.Name = "tblAep";
             this.tblAep.RowCount = 12;
             this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -175,7 +210,7 @@
             this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblAep.Size = new System.Drawing.Size(747, 344);
-            this.tblAep.TabIndex = 4;
+            this.tblAep.TabIndex = 5;
             // 
             // lblAccOut
             // 
@@ -189,6 +224,20 @@
             this.lblAccOut.TabIndex = 27;
             this.lblAccOut.Text = "?";
             this.lblAccOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbbNumber
+            // 
+            this.cbbNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbbNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbbNumber.DisplayMember = "Number";
+            this.cbbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
+            this.cbbNumber.FormattingEnabled = true;
+            this.cbbNumber.Location = new System.Drawing.Point(183, 5);
+            this.cbbNumber.Name = "cbbNumber";
+            this.cbbNumber.Size = new System.Drawing.Size(152, 33);
+            this.cbbNumber.TabIndex = 3;
+            this.cbbNumber.ValueMember = "Id";
             // 
             // label6
             // 
@@ -503,22 +552,6 @@
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label12.Visible = false;
             // 
-            // cbbNumber
-            // 
-            this.cbbNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbNumber.DisplayMember = "Number";
-            this.cbbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
-            this.cbbNumber.FormattingEnabled = true;
-            this.cbbNumber.Location = new System.Drawing.Point(183, 5);
-            this.cbbNumber.Name = "cbbNumber";
-            this.cbbNumber.Size = new System.Drawing.Size(152, 33);
-            this.cbbNumber.TabIndex = 3;
-            this.cbbNumber.ValueMember = "Id";
-            this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
-            this.cbbNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNumber_KeyDown);
-            // 
             // FrmGateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,6 +567,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
             this.tblAep.ResumeLayout(false);
             this.tblAep.PerformLayout();
             this.ResumeLayout(false);
@@ -547,9 +582,12 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
-        private System.Windows.Forms.ComboBox cbbNumber;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SimpleButton cmdOut;
+        private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.TableLayoutPanel tblAep;
         private System.Windows.Forms.Label lblAccOut;
+        private System.Windows.Forms.ComboBox cbbNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label2;

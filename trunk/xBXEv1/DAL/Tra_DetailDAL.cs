@@ -399,7 +399,7 @@ namespace DAL
                           && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.Pol_UserOutId == UserId
-                          && k.Tra_Kind.Tra_Group.Code == "A" // nhóm xe tải lưu đậu
+                          //&& k.Tra_Kind.Tra_Group.Code == "A" // nhóm xe tải lưu đậu
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
                           select new
                           {

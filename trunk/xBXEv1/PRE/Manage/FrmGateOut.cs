@@ -28,6 +28,12 @@ namespace PRE.Manage
             SetDockPanel(dockPanel2, "Danh sách");
 
             //AllowBar = false;
+            AllowAdd = false;
+            AllowEdit = false;
+            AllowDelete = false;
+            AllowSave = false;
+            AllowCancel = false;
+            AllowFind = false;
             AllowPrint = true;
 
             //grvMain.OptionsView.ShowAutoFilterRow = true;
@@ -153,6 +159,20 @@ namespace PRE.Manage
         private void cbbNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) Invoice();
+        }
+
+        private void cmdInvoice_Click(object sender, EventArgs e)
+        {
+            Invoice();
+            cmdOut.Enabled = true;
+            //lblInf.Text = "ĐANG TÍNH TIỀN";
+        }
+
+        private void cmdOut_Click(object sender, EventArgs e)
+        {
+            Invoice(true);
+            cmdOut.Enabled = false;
+            //lblInf.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
         }
     }
 }

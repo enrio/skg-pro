@@ -10,7 +10,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Net;
-using System.Threading;
 
 namespace Yahoo
 {
@@ -23,11 +22,11 @@ namespace Yahoo
             InitializeComponent();
 
             Worker1 = new BackgroundWorker();
-            Worker1.RunWorkerCompleted +=new RunWorkerCompletedEventHandler(Worker1_RunWorkerCompleted);
-          
+            Worker1.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker1_RunWorkerCompleted);
+
         }
 
-       
+
         delegate void SetTexCallback(String thu);
 
         Thread ThreadGuiDinhKi = null;
@@ -47,60 +46,60 @@ namespace Yahoo
 
         void Worker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-           TaoDSfrmChat();
+            TaoDSfrmChat();
         }
         void TaoDSfrmChat()
         {
-           // IList<ArrayList> thu = Catchuoi(DSLienHe);
+            // IList<ArrayList> thu = Catchuoi(DSLienHe);
             //foreach (ArrayList s in thu)
-           // {
-               // treeView1.Nodes.Add(s[0].ToString());
-           // }
+            // {
+            // treeView1.Nodes.Add(s[0].ToString());
+            // }
             for (int i = 0; i < treeView1.Nodes.Count; i++)
             {
                 for (int j = 0; j < treeView1.Nodes[i].Nodes.Count; j++)
                 {
-                   // treeView1.Nodes[i].Nodes.Add(thu[i][j].ToString());
+                    // treeView1.Nodes[i].Nodes.Add(thu[i][j].ToString());
                     frmChat tamp = new frmChat();
-                    tamp.Text =treeView1.Nodes[i].Nodes[j].Text.ToString();
-                   // tamp.MdiParent = this;
+                    tamp.Text = treeView1.Nodes[i].Nodes[j].Text.ToString();
+                    // tamp.MdiParent = this;
                     tamp.thu = new Mess(gui);
                     ListChat.Add(tamp);
 
                 }
             }
         }
-        
-         private void btDangNhap_Click(object sender, EventArgs e)
+
+        private void btDangNhap_Click(object sender, EventArgs e)
         {
             _socket = new TCPSocket();
             _ymsg = new ymsg();
-         
-             DangNhap();
-             //txtPass.Hide();
-             //txtYID.Hide();
-             //btDangNhap.Hide();
-             //label1.Hide();
-             //label2.Hide();
-             //button2.Location = new Point(panel1.Width/2, panel1.Height / 2);
-             //button1.Enabled = true;
-             //thu1 = new Thu(DuaDSVao);
-             
-        }
-         public void DangNhap()
-         {
-            
 
-             _socket.connect("scs.msg.yahoo.com", 5050);
-             // _socket.sendData(_ymsg.GetChallenge(txtYID.Text));
-             _socket.onConnect += new TCPSocket.onConnectEventHandler(_socket_onConnect);
-             _socket.onDataArrival += new TCPSocket.onDataArrivalEventHandler(_socket_onDataArrival);
-             
-         }
-        
-         public void _socket_onDataArrival(int socId, string Data, string utf8, int BytesTotal)
+            DangNhap();
+            //txtPass.Hide();
+            //txtYID.Hide();
+            //btDangNhap.Hide();
+            //label1.Hide();
+            //label2.Hide();
+            //button2.Location = new Point(panel1.Width/2, panel1.Height / 2);
+            //button1.Enabled = true;
+            //thu1 = new Thu(DuaDSVao);
+
+        }
+        public void DangNhap()
         {
-            
+
+
+            _socket.connect("scs.msg.yahoo.com", 5050);
+            // _socket.sendData(_ymsg.GetChallenge(txtYID.Text));
+            _socket.onConnect += new TCPSocket.onConnectEventHandler(_socket_onConnect);
+            _socket.onDataArrival += new TCPSocket.onDataArrivalEventHandler(_socket_onDataArrival);
+
+        }
+
+        public void _socket_onDataArrival(int socId, string Data, string utf8, int BytesTotal)
+        {
+
             switch ((int)Data[11])
             {
                 case 85:
@@ -109,7 +108,7 @@ namespace Yahoo
                     ThreadGuiDinhKi.Start();
                     break;
                 case 87:
-                  
+
                     WebClient webC = new WebClient();
                     string remoteURI;
                     string chall = getValue(Data, "À€94À€", (char)0xC0);
@@ -118,7 +117,7 @@ namespace Yahoo
                     byte[] buff;
                     buff = webC.DownloadData(remoteURI);
                     Response = Encoding.ASCII.GetString(buff);
-                    
+
                     Console.WriteLine("Đang kiểm tra Token...");
                     //Kiem tra token
                     if (Response.Contains("ymsgr="))
@@ -126,7 +125,7 @@ namespace Yahoo
                         remoteURI = "https://login.yahoo.com/config/pwtoken_login?src=ymsgr&ts=&token=" + getValue(Response, "ymsgr=", (char)0xa);
                         buff = webC.DownloadData(remoteURI);
                         Response = Encoding.ASCII.GetString(buff);
-                       
+
                         _socket.sendDataLogin((string)_ymsg.Login(txtYID.Text, chall,
                             getValue(Response, "Y=", (char)0xd),
                             getValue(Response, "T=", (char)0xd),
@@ -152,14 +151,14 @@ namespace Yahoo
                     DSban = Data.Substring(20, (Data.Length - 20));
 
                     if (Data.Contains("302À€318À€300À€318À€65À€"))
-                    {    
+                    {
                         DSLienHe = DSban;
                         //Worker1.RunWorkerAsync();
                         DuaDSLen(DSban);
                         Thread Th = new Thread(new ThreadStart(thuWorker1));
                         Th.Start();
-                       // Worker1.RunWorkerAsync();
-                        
+                        // Worker1.RunWorkerAsync();
+
                     }
                     //else if (DSban.Contains("TYPING"))
                     //{
@@ -197,20 +196,20 @@ namespace Yahoo
                         }
 
                     }
-                   
-                    Console.WriteLine(Data.Substring(20, (Data.Length - 20)),"Thong bao");
-                   
+
+                    Console.WriteLine(Data.Substring(20, (Data.Length - 20)), "Thong bao");
+
                     Data = "";
                     break;
             }
-            
+
         }
         public string getValue(string src, string strBegin, char strEnd)
         {
             string[] strStart = Regex.Split(src, strBegin);
             string[] strResult = Regex.Split(strStart[1], strEnd.ToString());
             return strResult[0];
-        }       
+        }
         public void _socket_onConnect(int ID)
         {
 
@@ -219,15 +218,15 @@ namespace Yahoo
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-           
+
+
         }
         public void HienThiDS()
         {
             IList<ArrayList> thu = Catchuoi(DSLienHe);
             foreach (ArrayList s in thu)
-            {              
-               treeView1.Nodes.Add(s[0].ToString()); 
+            {
+                treeView1.Nodes.Add(s[0].ToString());
             }
             for (int i = 0; i < treeView1.Nodes.Count; i++)
             {
@@ -237,13 +236,13 @@ namespace Yahoo
                     //frmChat tamp = new frmChat();
                     //tamp.Text = thu[i][j].ToString();                  
                     //ListChat.Add(tamp);
-                    
+
                 }
             }
-           
+
         }
 
-       
+
         private void button2_Click(object sender, EventArgs e)
         {
             //button1.Enabled = true;
@@ -255,28 +254,28 @@ namespace Yahoo
             btDangNhap.Show();
             //button2.Location = new Point(btDangNhap.Location.X, btDangNhap.Location.Y+35);
             //listBox1.Items.Clear();
-           //_socket.onConnect = null;
+            //_socket.onConnect = null;
             //_socket.onDataArrival = null;
             _socket.Close();
-           // _socket = null;
-           // _ymsg = null;
+            // _socket = null;
+            // _ymsg = null;
 
         }
-       
+
         public void gui(string Mess, String Ten)
         {
             //byte[] data = Encoding.UTF8.GetBytes(Mess);
             //string kq = Encoding.UTF8.GetString(data);
             ///this.MdiChildren["Ten"].
-             _socket.sendDataMess(_ymsg.GuiMess(txtYID.Text, Ten, Mess));
-             foreach (frmChat tamp in ListChat)
-             {
-                 if (tamp.Text == Ten)
-                 {
-                     tamp.richTextBox1.Text += txtYID.Text+": "+ Mess+"\n";
-                     break;
-                 }
-             }
+            _socket.sendDataMess(_ymsg.GuiMess(txtYID.Text, Ten, Mess));
+            foreach (frmChat tamp in ListChat)
+            {
+                if (tamp.Text == Ten)
+                {
+                    tamp.richTextBox1.Text += txtYID.Text + ": " + Mess + "\n";
+                    break;
+                }
+            }
         }
         void GuiTuDinhKy(string Mess, String Ten)
         {
@@ -300,14 +299,14 @@ namespace Yahoo
 
 
         public IList<ArrayList> Catchuoi(String DS)
-        {        
+        {
             IList<ArrayList> t = new List<ArrayList>();
             IList<ArrayList> ListKQ = new List<ArrayList>();
             String[] Tamp = Regex.Split(DS, "À€319À€301À€318À€303À€318À€");
             DS = Tamp[0];
             while (DS.IndexOf("À€318À€300À€318À€65À€") > 0)
             {
-               // DS = DS.Replace("À€317À€2", ";");
+                // DS = DS.Replace("À€317À€2", ";");
                 DS = DS.Replace("À€317À€2À€301À€319À€303", ";");
                 DS = DS.Replace("À€317À€2À€301À€319À€300À€319À€7À€", ";");
                 DS = DS.Replace("À€302À€319À€300À€319À€7À€", ",");
@@ -353,36 +352,36 @@ namespace Yahoo
 
         private void treeView1_DoubleClick(object sender, EventArgs e)
         {
-           bool kt = true;
-           if(!(KiemTraNode(treeView1.SelectedNode)))
-           {
-              
-               foreach(frmChat tamp in ListChat)
-               {  
-                   if (tamp.Text == treeView1.SelectedNode.Text)
-                   {
-                       kt = false;
-                       tamp.Activate();
-                       tamp.MdiParent = this;
-                       tamp.WindowState = FormWindowState.Maximized;
-                                             
-                       tamp.Show();
-                       break;
-                   }
-               }           
-           }
-           if (kt)
-           {
-               frmChat tam = new frmChat();
-               tam.Text = treeView1.SelectedNode.Text;
-               tam.Activate();
-               tam.MdiParent = this;
-               tam.WindowState = FormWindowState.Maximized;
-               tam.thu = new Mess(gui);
-               tam.Show();
-               ListChat.Add(tam);
-           }
-            
+            bool kt = true;
+            if (!(KiemTraNode(treeView1.SelectedNode)))
+            {
+
+                foreach (frmChat tamp in ListChat)
+                {
+                    if (tamp.Text == treeView1.SelectedNode.Text)
+                    {
+                        kt = false;
+                        tamp.Activate();
+                        tamp.MdiParent = this;
+                        tamp.WindowState = FormWindowState.Maximized;
+
+                        tamp.Show();
+                        break;
+                    }
+                }
+            }
+            if (kt)
+            {
+                frmChat tam = new frmChat();
+                tam.Text = treeView1.SelectedNode.Text;
+                tam.Activate();
+                tam.MdiParent = this;
+                tam.WindowState = FormWindowState.Maximized;
+                tam.thu = new Mess(gui);
+                tam.Show();
+                ListChat.Add(tam);
+            }
+
         }
         public bool KiemTraNode(TreeNode nod)
         {
@@ -449,9 +448,9 @@ namespace Yahoo
                 kq.richTextBox1.ScrollToCaret();
                 kq.Show();
             }
-            
+
         }
-        
+
 
         private void YahooChat_Load(object sender, EventArgs e)
         {
@@ -472,6 +471,6 @@ namespace Yahoo
                 Thread.Sleep(1000);
             }
         }
-        
+
     }
 }

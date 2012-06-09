@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{447BBE32-8509-49D6-8857-A4DD7752A148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{BDC878CC-3C35-4685-8EB8-625C8D285A9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{C92268FE-F7CB-43CB-B388-2FBBC23122BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yahoo", "Yahoo\Yahoo.csproj", "{2D2DEE6A-301C-43DD-94B6-08BF758245A2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{447BBE32-8509-49D6-8857-A4DD7752A148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{447BBE32-8509-49D6-8857-A4DD7752A148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{447BBE32-8509-49D6-8857-A4DD7752A148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{447BBE32-8509-49D6-8857-A4DD7752A148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDC878CC-3C35-4685-8EB8-625C8D285A9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDC878CC-3C35-4685-8EB8-625C8D285A9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDC878CC-3C35-4685-8EB8-625C8D285A9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDC878CC-3C35-4685-8EB8-625C8D285A9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C92268FE-F7CB-43CB-B388-2FBBC23122BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92268FE-F7CB-43CB-B388-2FBBC23122BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92268FE-F7CB-43CB-B388-2FBBC23122BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92268FE-F7CB-43CB-B388-2FBBC23122BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2DEE6A-301C-43DD-94B6-08BF758245A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2DEE6A-301C-43DD-94B6-08BF758245A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2DEE6A-301C-43DD-94B6-08BF758245A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2DEE6A-301C-43DD-94B6-08BF758245A2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

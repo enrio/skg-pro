@@ -54,9 +54,8 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=7.5.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\source bao cao thuc tap\6th1\QLHS_Trung\QLHocSinhTHPTv3.0\QLHocSinhTHPT\bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>..\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />

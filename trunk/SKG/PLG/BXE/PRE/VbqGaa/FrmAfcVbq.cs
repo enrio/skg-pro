@@ -179,68 +179,94 @@ namespace BXE.PRE.VbqGaa
 
         private void cmdEdit_Click(object sender, EventArgs e)
         {
-            GetCurrObj(_currTabPageIndex);
+            if (_num == null) return;
 
-            if (ValidNumber())
+            if (cmdEdit.Text == "&Sửa")
             {
-                int chair;
-                decimal length, weight;
-                if (!ConvertText(out chair, out length, out weight)) return; // fail to exit
-
-                var o = new DAL.Vehicle()
+                if (CheckExistsNumber(_num))
                 {
-                    //Number = _obj.Number,
-                    //KindId = Convert.ToInt64(cbbKind.SelectedValue),
-                    Chair = chair,
-                    Length = length,
-                    Weight = weight
-                };
-
-                switch (_currTabPageIndex)
-                {
-                    case 1: // group 1 taxi                        
-                        o.Number = mskTaxiNumber.Text;
-                        o.KindId = 10;
-                        break;
-
-                    case 2: // group 2 three circle                        
-                        o.Number = mskThreeNumber.Text;
-                        o.KindId = 11;
-                        break;
-
-                    case 0: // group 3 truck                        
-                        o.Number = mskTruckNumber.Text;
-                        o.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
-                        break;
-
-                    case 4: // group 4 car               
-                        o.Number = mskCarNumber.Text;
-                        o.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
-                        break;
-
-                    case 3: // group 5 medium                        
-                        o.Number = mskMediumNumber.Text;
-                        o.KindId = 12;
-
-                        break;
-
-                    default:
-                        break;
+                    cmdEdit.Enabled = true;
+                    cmdDelete.Enabled = true;
+                    //cmdIn.Enabled = false;
+                    EditNumber = _num;
                 }
-
-                if (_dal.UpdateNumber(EditNumber, o))
+                else
                 {
-                    UTL.CsoUTL.Show(STR_EDI_SUC);
-                    GetInMinute();
-                    cmdIn.Enabled = true;
-                    cmdDelete.Enabled = false;
                     cmdEdit.Enabled = false;
+                    cmdDelete.Enabled = false;
+                    //cmdIn.Enabled = true;
                     EditNumber = null;
-                    ClearText();
-                    if (!EditMode) Close();
                 }
-                else UTL.CsoUTL.Show(STR_NOT_EDIT);
 
+                cmdEdit.Text = "&Lưu";
+            }
+            else
+            {
+                GetCurrObj(_currTabPageIndex);
+
+                if (ValidNumber())
+                {
+                    int chair;
+                    decimal length, weight;
+                    if (!ConvertText(out chair, out length, out weight)) return; // fail to exit
+
+                    var o = new DAL.Vehicle()
+                    {
+                        //Number = _obj.Number,
+                        //KindId = Convert.ToInt64(cbbKind.SelectedValue),
+                        Chair = chair,
+                        Length = length,
+                        Weight = weight
+                    };
+
+                    switch (_currTabPageIndex)
+                    {
+                        case 1: // group 1 taxi                        
+                            o.Number = mskTaxiNumber.Text;
+                            o.KindId = 10;
+                            break;
+
+                        case 2: // group 2 three circle                        
+                            o.Number = mskThreeNumber.Text;
+                            o.KindId = 11;
+                            break;
+
+                        case 0: // group 3 truck                        
+                            o.Number = mskTruckNumber.Text;
+                            o.KindId = Convert.ToInt64(cbbTruckKind.SelectedValue);
+                            break;
+
+                        case 4: // group 4 car               
+                            o.Number = mskCarNumber.Text;
+                            o.KindId = Convert.ToInt64(cbbCarKind.SelectedValue);
+                            break;
+
+                        case 3: // group 5 medium                        
+                            o.Number = mskMediumNumber.Text;
+                            o.KindId = 12;
+
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    if (_dal.UpdateNumber(EditNumber, o))
+                    {
+                        UTL.CsoUTL.Show(STR_EDI_SUC);
+                        GetInMinute();
+                        cmdIn.Enabled = true;
+                        cmdDelete.Enabled = false;
+                        cmdEdit.Enabled = false;
+                        EditNumber = null;
+                        ClearText();
+                        if (!EditMode) Close();
+                    }
+                    else UTL.CsoUTL.Show(STR_NOT_EDIT);
+
+                }
+
+                cmdEdit.Text = "&Sửa";
             }
         }
 
@@ -541,25 +567,26 @@ namespace BXE.PRE.VbqGaa
                 UTL.CsoUTL.Show(STR_NOT_DEL);
         }
 
+        string _num;
         private void dgvAep_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
             _row = e.RowIndex;
-            string num = dgvAep.Rows[_row].Cells["colNumber"].Value.ToString();
+             _num = dgvAep.Rows[_row].Cells["colNumber"].Value.ToString();
 
-            if (CheckExistsNumber(num))
+            if (CheckExistsNumber(_num))
             {
                 cmdEdit.Enabled = true;
                 cmdDelete.Enabled = true;
-                cmdIn.Enabled = false;
-                EditNumber = num;
+                //cmdIn.Enabled = false;
+                EditNumber = _num;
             }
             else
             {
                 cmdEdit.Enabled = false;
                 cmdDelete.Enabled = false;
-                cmdIn.Enabled = true;
+                //cmdIn.Enabled = true;
                 EditNumber = null;
             }
         }

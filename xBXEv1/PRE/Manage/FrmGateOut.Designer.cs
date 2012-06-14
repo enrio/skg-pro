@@ -238,6 +238,7 @@
             this.cbbNumber.Size = new System.Drawing.Size(152, 33);
             this.cbbNumber.TabIndex = 3;
             this.cbbNumber.ValueMember = "Id";
+            this.cbbNumber.Enter += new System.EventHandler(this.cbbNumber_Enter);
             // 
             // label6
             // 

@@ -291,8 +291,8 @@ namespace DAL
                 hour = dt.Value.Hours;
                 day = dt.Value.Days;
 
-                //d.Day = day;
-                //d.Hour = hour;
+                d.Days = day;
+                d.Hours = hour;
 
                 var res = from s in _db.Tra_Details
 
@@ -309,11 +309,11 @@ namespace DAL
                               UserInPhone = s.Pol_UserIn.Phone,
                               UserOutName = s.Pol_UserOut.Name,
                               v.Number,
+
                               s.DateIn,
                               s.DateOut,
-
-                              //s.Day,
-                              //s.Hour,
+                              s.Days,
+                              s.Hours,
 
                               v.Chair,
                               k.Name,
@@ -330,10 +330,9 @@ namespace DAL
                 int dayL = (hour > 0 && hour < 12) ? 1 : 0;
                 int dayF = (hour >= 12) ? day + 1 : day;
 
-                price1 = ok.Price1 != null ? ok.Price1 : 0;
-                price2 = ok.Price2 != null ? ok.Price2 : 0;
-
-                int chair = ok.Chair != null ? ok.Chair : 0;
+                price1 = ok.Price1;
+                price2 = ok.Price2;
+                int chair = ok.Chair;
 
                 money = 0;
 
@@ -401,6 +400,7 @@ namespace DAL
                           && s.Pol_UserOutId == UserId
                           //&& k.Tra_Kind.Tra_Group.Code == "A" // nhóm xe tải lưu đậu
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
+
                           select new
                           {
                               AccIn = s.Pol_UserIn.Name,

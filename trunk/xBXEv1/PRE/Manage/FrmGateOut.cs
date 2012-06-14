@@ -175,11 +175,9 @@ namespace PRE.Manage
             //lblInf.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
         }
 
-        protected override void tmrMain_Tick(object sender, EventArgs e)
+        private void cbbNumber_Enter(object sender, EventArgs e)
         {
             LoadData();
-
-            base.tmrMain_Tick(sender, e);
         }
     }
 }

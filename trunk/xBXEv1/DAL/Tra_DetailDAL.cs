@@ -449,6 +449,53 @@ namespace DAL
                           && s.Pol_UserOutId == UserId
                           && k.Tra_Kind.Tra_Group.Code != "A" // nhóm xe tải lưu đậu
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
+
+                          select new
+                          {
+                              AccIn = s.Pol_UserIn.Name,
+                              AccOut = s.Pol_UserOut.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.Tra_Vehicle.Number,
+                              s.DateIn,
+                              s.DateOut,
+                              s.Days,
+                              HalfDay = (s.Days == 0 && s.Hours < 12) ? 1 : 0,
+                              s.Price1,
+                              s.Price2,
+                              s.Money,
+
+                              KindName = k.Tra_Kind.Name,
+                              GroupName = k.Tra_Kind.Tra_Group.Name,
+                              k.Chair
+                          };
+
+                total = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Thống kê theo thời gian ra bến
+        /// </summary>
+        /// <param name="total">Doanh thu</param>
+        /// <param name="fr">Từ ngày</param>
+        /// <param name="to">Đến ngày</param>
+        /// <returns>Dữ liệu</returns>
+        public DataTable SumaryDateOut(out decimal total, DateTime fr, DateTime to)
+        {
+            total = 0;
+
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
+
+                          where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
+                          && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
+                          && s.DateOut >= fr && s.DateOut <= to
+                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
+
                           select new
                           {
                               AccIn = s.Pol_UserIn.Name,

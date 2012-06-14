@@ -53,6 +53,7 @@
             this.bbiResetDB = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGateIn = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -62,14 +63,14 @@
             this.rpgPolicy = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpManage = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgInOut = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgSumary = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHelp = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgInformation = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgUse = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.rpgSumary = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSales = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -107,9 +108,10 @@
             this.bbiResetDB,
             this.bbiGateIn,
             this.bbiGateOut,
-            this.bbiInDepot});
+            this.bbiInDepot,
+            this.bbiSales});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 25;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -297,6 +299,14 @@
             this.bbiGateOut.Name = "bbiGateOut";
             this.bbiGateOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateOut_ItemClick);
             // 
+            // bbiInDepot
+            // 
+            this.bbiInDepot.Caption = "Xe trong bến";
+            this.bbiInDepot.Id = 24;
+            this.bbiInDepot.LargeGlyph = global::PRE.Properties.Resources.main;
+            this.bbiInDepot.Name = "bbiInDepot";
+            this.bbiInDepot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInDepot_ItemClick);
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -369,6 +379,13 @@
             this.rpgInOut.Name = "rpgInOut";
             this.rpgInOut.Text = "Ra vào";
             // 
+            // rpgSumary
+            // 
+            this.rpgSumary.ItemLinks.Add(this.bbiInDepot);
+            this.rpgSumary.ItemLinks.Add(this.bbiSales);
+            this.rpgSumary.Name = "rpgSumary";
+            this.rpgSumary.Text = "Thống kê";
+            // 
             // rbpHelp
             // 
             this.rbpHelp.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -410,19 +427,13 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
-            // rpgSumary
+            // bbiSales
             // 
-            this.rpgSumary.ItemLinks.Add(this.bbiInDepot);
-            this.rpgSumary.Name = "rpgSumary";
-            this.rpgSumary.Text = "Thống kê";
-            // 
-            // bbiInDepot
-            // 
-            this.bbiInDepot.Caption = "Xe trong bến";
-            this.bbiInDepot.Id = 24;
-            this.bbiInDepot.LargeGlyph = global::PRE.Properties.Resources.main;
-            this.bbiInDepot.Name = "bbiInDepot";
-            this.bbiInDepot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInDepot_ItemClick);
+            this.bbiSales.Caption = "Doanh thu";
+            this.bbiSales.Id = 25;
+            this.bbiSales.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiSales.Name = "bbiSales";
+            this.bbiSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSales_ItemClick);
             // 
             // FrmMain
             // 
@@ -487,5 +498,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInOut;
         private DevExpress.XtraBars.BarButtonItem bbiInDepot;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSumary;
+        private DevExpress.XtraBars.BarButtonItem bbiSales;
     }
 }

@@ -217,6 +217,11 @@ namespace PRE
         {
             BasePRE.ShowRight<FrmInDepot>(this);
         }
+
+        private void bbiSales_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BasePRE.ShowRight<FrmSales>(this);
+        }
         #endregion
     }
 }

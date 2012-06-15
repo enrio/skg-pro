@@ -62,9 +62,21 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Membership\CodeFirstMembershipProvider.cs" />
+    <Compile Include="Membership\CodeFirstRoleProvider.cs" />
+    <Compile Include="Membership\Crypto.cs" />
+    <Compile Include="Membership\WebSecurity.cs" />
+    <Compile Include="Models\ChangePasswordModel.cs" />
+    <Compile Include="Models\Entities\Role.cs" />
+    <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Models\Entities\ZContext.cs" />
+    <Compile Include="Models\Entities\ZInitializer.cs" />
+    <Compile Include="Models\LogOnModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,10 +141,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

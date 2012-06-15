@@ -7,6 +7,8 @@ using System.Web.Routing;
 
 namespace xMBSv2
 {
+    using Models.Entities;
+
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
@@ -35,6 +37,13 @@ namespace xMBSv2
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            System.Data.Entity.Database.SetInitializer<ZContext>(new ZInitializer());
+
+            using (var TestContext = new ZContext())
+            {
+                TestContext.Users.Count();
+            }
         }
     }
 }

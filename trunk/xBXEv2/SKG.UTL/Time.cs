@@ -112,7 +112,6 @@ namespace SKG.UTL
         #endregion
 
         #region Months
-
         /// <summary>
         /// Get start of month
         /// </summary>

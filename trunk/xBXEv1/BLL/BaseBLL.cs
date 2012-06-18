@@ -5,6 +5,7 @@ using System.Linq;
 namespace BLL
 {
     using DAL.Entities;
+    using System.Data;
 
     /// <summary>
     /// Lớp nghiệp vụ cơ sở của Bussiness Logic Layer (BLL), các luồng xử lí dữ liệu sử dụng tại đây
@@ -488,6 +489,25 @@ namespace BLL
             a = (Tra_Vehicle)Tra_Vehicle.Select("65F-888.09");
             o = new Tra_Detail() { Pol_UserInId = b.Id, Pol_UserOutId = c.Id, Tra_VehicleId = a.Id, DateIn = DateTime.Now, DateOut = DateTime.Now };
             Tra_Detail.Insert(o);*/
+
+            var tbl = Tra_Vehicle.Select();
+            if (tbl == null) return;
+
+            var d = Tra_Vehicle.GetDate();
+            var ui = (Pol_User)Pol_User.Select("nvt");
+            var uo = (Pol_User)Pol_User.Select("admin");
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Pol_UserOutId = uo.Id, Tra_VehicleId = (Guid)r["Id"], DateIn = DateTime.Now.AddDays(-1), DateOut = d };
+                Tra_Detail.Insert(o);
+
+                decimal money = 0;
+                int price1 = 0, price2 = 0;
+                int day = 0, hour = 0;
+
+                var tb = Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, true);
+            }
         }
         #endregion
 

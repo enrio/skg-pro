@@ -499,13 +499,15 @@ namespace BLL
 
             foreach (DataRow r in tbl.Rows)
             {
-                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Pol_UserOutId = uo.Id, Tra_VehicleId = (Guid)r["Id"], DateIn = DateTime.Now.AddDays(-1), DateOut = d };
+                var id = (Guid)r["Id"];
+
+                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddDays(-1) };
                 Tra_Detail.Insert(o);
 
                 decimal money = 0;
                 int price1 = 0, price2 = 0;
                 int day = 0, hour = 0;
-
+                o = new Tra_Detail() { Pol_UserOutId = uo.Id, Tra_VehicleId = id, DateOut = d };
                 var tb = Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, true);
             }
         }

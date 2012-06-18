@@ -15,6 +15,14 @@ namespace xMBSv2.Controllers
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
+            var db = new Models.Entities.ZContext();
+
+            var a = db.Users.ToList();
+            var b = db.Roles.ToList();
+
+            ViewBag.a = a;
+            ViewBag.b = b;
+
             return View();
         }
 

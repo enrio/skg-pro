@@ -1,4 +1,20 @@
 ﻿@{
+    
     ViewBag.Title = "Index";
+    
 }
 <h2>@ViewBag.Message</h2>
+@{
+    foreach (var x in ViewBag.a)
+    {
+    @x.Username
+    <br />
+    }
+
+
+    foreach (var y in ViewBag.b)
+    {
+    @y.RoleName
+    <br />
+    }    
+}

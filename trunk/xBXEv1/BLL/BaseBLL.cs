@@ -211,6 +211,8 @@ namespace BLL
             Pol_User.Insert(o);
             o = new Pol_User() { Acc = "admin", Pass = "", Name = "Siêu Quản Trị", Birth = new DateTime(1988, 1, 5), Address = "Âm Tàu, Địa Phủ", Phone = "+841699 999 666" };
             Pol_User.Insert(o);
+            o = new Pol_User() { Acc = "edmin", Pass = "edmin", Name = "Em Quản Trị", Birth = new DateTime(1989, 1, 5), Address = "Phương Trời, Xa Lạ", Phone = "+841699 999 686" };
+            Pol_User.Insert(o);
         }
 
         /// <summary>
@@ -225,7 +227,7 @@ namespace BLL
             var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
 
-            a = (Pol_User)Pol_User.Select("admin");
+            a = (Pol_User)Pol_User.Select("edmin");
             b = (Pol_Right)Pol_Right.Select("FrmPol_Right");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
@@ -233,15 +235,6 @@ namespace BLL
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_User");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
-            Pol_UserRight.Insert(o);
-            b = (Pol_Right)Pol_Right.Select("FrmPol_UserRight");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
-            Pol_UserRight.Insert(o);
-            b = (Pol_Right)Pol_Right.Select("FrmPol_RoleRight");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
-            Pol_UserRight.Insert(o);
-            b = (Pol_Right)Pol_Right.Select("FrmPol_UserRole");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
 
@@ -255,10 +248,10 @@ namespace BLL
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
 
-            b = (Pol_Right)Pol_Right.Select("FrmGateIn");
+            b = (Pol_Right)Pol_Right.Select("FrmGateOut");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
             Pol_UserRight.Insert(o);
-            b = (Pol_Right)Pol_Right.Select("FrmGateOut");
+            b = (Pol_Right)Pol_Right.Select("FrmGateIn");
             o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmInDepot");
@@ -285,6 +278,11 @@ namespace BLL
 
             a = (Pol_User)Pol_User.Select("nvl");
             b = (Pol_Role)Pol_Role.Select("ND");
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
+            Pol_UserRole.Insert(o);
+
+            a = (Pol_User)Pol_User.Select("admin");
+            b = (Pol_Role)Pol_Role.Select("QT");
             o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
             Pol_UserRole.Insert(o);
         }

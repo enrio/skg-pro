@@ -165,7 +165,7 @@
             // 
             this.bbiPol_Role.Caption = "Nhóm người dùng";
             this.bbiPol_Role.Id = 6;
-            this.bbiPol_Role.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiPol_Role.LargeGlyph = global::PRE.Properties.Resources.users;
             this.bbiPol_Role.Name = "bbiPol_Role";
             this.bbiPol_Role.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_Role_ItemClick);
             // 
@@ -232,7 +232,7 @@
             // 
             this.bbiTra_Vehicle.Caption = "Danh mục xe cộ";
             this.bbiTra_Vehicle.Id = 15;
-            this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Vehicle.LargeGlyph = global::PRE.Properties.Resources.car;
             this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
             this.bbiTra_Vehicle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Vehicle_ItemClick);
             // 
@@ -295,7 +295,7 @@
             // 
             this.bbiGateOut.Caption = "Cổng ra";
             this.bbiGateOut.Id = 23;
-            this.bbiGateOut.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiGateOut.LargeGlyph = global::PRE.Properties.Resources._out;
             this.bbiGateOut.Name = "bbiGateOut";
             this.bbiGateOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiGateOut_ItemClick);
             // 

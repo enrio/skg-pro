@@ -56,6 +56,7 @@
             this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
             this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSales = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiHelp = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -110,9 +111,10 @@
             this.bbiGateIn,
             this.bbiGateOut,
             this.bbiInDepot,
-            this.bbiSales});
+            this.bbiSales,
+            this.bbiHelp});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 26;
+            this.ribbon.MaxItemId = 27;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rbpMain,
@@ -316,6 +318,14 @@
             this.bbiSales.Name = "bbiSales";
             this.bbiSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSales_ItemClick);
             // 
+            // bbiHelp
+            // 
+            this.bbiHelp.Caption = "Hướng dẫn";
+            this.bbiHelp.Id = 26;
+            this.bbiHelp.LargeGlyph = global::PRE.Properties.Resources.infor;
+            this.bbiHelp.Name = "bbiHelp";
+            this.bbiHelp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiHelp_ItemClick);
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -413,6 +423,7 @@
             // 
             // rpgUse
             // 
+            this.rpgUse.ItemLinks.Add(this.bbiHelp);
             this.rpgUse.Name = "rpgUse";
             this.rpgUse.Text = "&Sử dụng";
             // 
@@ -501,5 +512,6 @@
         private DevExpress.XtraBars.BarButtonItem bbiInDepot;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSumary;
         private DevExpress.XtraBars.BarButtonItem bbiSales;
+        private DevExpress.XtraBars.BarButtonItem bbiHelp;
     }
 }

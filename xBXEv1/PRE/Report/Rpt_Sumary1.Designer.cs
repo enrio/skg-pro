@@ -284,7 +284,7 @@
             this.xrLabel1.SizeF = new System.Drawing.SizeF(447.2083F, 51.56249F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
+            this.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable2

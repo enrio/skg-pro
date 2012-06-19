@@ -8,6 +8,7 @@ namespace DAL
     using System.Data;
     using System.Data.Common;
     using System.Data.Entity;
+    using System.Data.Sql;
 
     /// <summary>
     /// Base abstract class Data Access Layer
@@ -42,6 +43,58 @@ namespace DAL
         {
             return _db.Database.SqlQuery<DateTime>("SELECT GETDATE()").First();
         }
+
+        #region Statics
+        /// <summary>
+        /// Get all SQL Server in LAN
+        /// </summary>
+        /// <returns>Data</returns>
+        public static DataTable GetSQLServers()
+        {
+            try
+            {
+                SqlDataSourceEnumerator lst = SqlDataSourceEnumerator.Instance;
+                var tbl = lst.GetDataSources();
+                tbl.Columns.Add("name");
+                string tmp = "";
+
+                foreach (DataRow dtr in tbl.Rows)
+                {
+                    if (dtr["InstanceName"] + "" == "") tmp = @"{0}{1}";
+                    else tmp = @"{0}\{1}";
+                    dtr["name"] = String.Format(tmp, dtr["ServerName"], dtr["InstanceName"]);
+                }
+
+                return tbl;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Get all database in SQL Server
+        /// </summary>
+        /// <returns>Data</returns>
+        public static List<string> GetDatabases()
+        {
+            try
+            {
+                var db = new ZContext();
+                return db.Database.SqlQuery<string>("select name from sys.sysdatabases").ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Current information connection
+        /// </summary>
+        public class ConnectInfo
+        {
+            public string Server { set; get; }
+            public string Database { set; get; }
+            public string User { set; get; }
+            public string Password { set; get; }
+        }
+        #endregion
 
         #region Test
         public static DataTable TestPivot()

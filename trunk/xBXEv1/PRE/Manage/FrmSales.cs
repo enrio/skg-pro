@@ -85,6 +85,7 @@ namespace PRE.Manage
 
             var d = BasePRE._sss.Current.Value;
             rpt.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
+            rpt.xrcAccount.Text = BasePRE._sss.User.Name;
 
             var frm = new FrmPrint();
             frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);

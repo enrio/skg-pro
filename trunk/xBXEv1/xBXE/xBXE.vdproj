@@ -333,6 +333,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_95E1E209B82742F0B9EBA4478B605FF4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9D9355DDDA6C7FD80B704824A31678FA"
         "OwnerKey" = "8:_B130F133C130870314A075252B5D0F86"
         "MsmSig" = "8:_UNDEFINED"
@@ -1371,6 +1377,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_95E1E209B82742F0B9EBA4478B605FF4"
+            {
+            "SourcePath" = "8:ferrari.ico"
+            "TargetName" = "8:ferrari.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_033392554D474B7E9AAD8DD4311E3704"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9D9355DDDA6C7FD80B704824A31678FA"
             {
             "AssemblyRegister" = "3:1"
@@ -1676,7 +1702,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xBXE"
         "ProductCode" = "8:{A53FDC2D-03C1-415F-89DB-5EFB810961A9}"
-        "PackageCode" = "8:{3F0ED683-DA6B-4577-ACC2-A081BB2323AF}"
+        "PackageCode" = "8:{9268C930-978C-46D4-8A31-17920CB31449}"
         "UpgradeCode" = "8:{AD2ADE26-6BCA-47B0-BFB0-B3B0A14D4453}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1807,7 +1833,7 @@
             "Target" = "8:_4250C4E066CA412A995AF55A2C63DF77"
             "Folder" = "8:_A668E964BF374632815CB14745659951"
             "WorkingFolder" = "8:_033392554D474B7E9AAD8DD4311E3704"
-            "Icon" = "8:"
+            "Icon" = "8:_95E1E209B82742F0B9EBA4478B605FF4"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_DA93D1EA9BD94B508B43E9FA50A4F1B5"
@@ -1821,7 +1847,7 @@
             "Target" = "8:_4250C4E066CA412A995AF55A2C63DF77"
             "Folder" = "8:_13982E1ED4104425A3E2679875DF2535"
             "WorkingFolder" = "8:_033392554D474B7E9AAD8DD4311E3704"
-            "Icon" = "8:"
+            "Icon" = "8:_95E1E209B82742F0B9EBA4478B605FF4"
             "Feature" = "8:"
             }
         }

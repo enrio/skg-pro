@@ -281,19 +281,6 @@ namespace DAL
         {
             try
             {
-                // Cập nhật thông tin xe ra
-                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Tra_VehicleId && k.Pol_UserOutId == null);
-
-                d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
-                d.DateOut = obj.DateOut; // thời gian hiện tại trên server
-
-                TimeSpan? dt = d.DateOut - d.DateIn; // tính số giờ đậu tại bến                
-                hour = dt.Value.Hours;
-                day = dt.Value.Days;
-
-                d.Days = day + hour >= 12 ? 1 : 0;
-                d.Hours = hour;
-
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
@@ -327,13 +314,18 @@ namespace DAL
 
                 var ok = res.Single(h => h.DateOut == null);
 
-                int dayL = (hour > 0 && hour < 12) ? 1 : 0;
-                int dayF = (hour >= 12) ? day + 1 : day;
+                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Tra_VehicleId && k.DateOut == null);
+                TimeSpan? dt = obj.DateOut - d.DateIn; // tính số giờ đậu tại bến
+                hour = dt.Value.Hours;
+                day = dt.Value.Days;
+
+                int dayL = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
+                int dayF = (hour >= 12) ? day + 1 : day; // lớn hơn bằng 12 giờ thì tính một ngày
 
                 price1 = ok.Price1;
                 price2 = ok.Price2;
-                int chair = ok.Chair;
 
+                int chair = ok.Chair;
                 money = 0;
 
                 switch (ok.GroupCode)
@@ -366,11 +358,19 @@ namespace DAL
                         break;
                 }
 
-                d.Money = money;
-                d.Price1 = price1;
-                d.Price2 = price2;
+                if (isOut)
+                {
+                    d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
+                    d.DateOut = obj.DateOut; // thời gian hiện tại trên server
+                    d.Days = dayF;
+                    d.Hours = hour;
 
-                if (isOut) _db.SaveChanges();
+                    d.Money = money;
+                    d.Price1 = price1;
+                    d.Price2 = price2;
+
+                    _db.SaveChanges();
+                }
 
                 return res.ToDataTable();
             }

@@ -109,6 +109,7 @@ namespace PRE.Manage
             {
                 grcMain.DataSource = _dtb;
                 gridColumn2.BestFit(); // fit column STT
+                gridColumn3.BestFit(); // fit column BSX
             }
 
             base.LoadData();

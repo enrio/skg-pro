@@ -158,7 +158,7 @@ namespace PRE
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            BasePRE.ShowRight<FrmSetting>(this);
         }
 
         private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)

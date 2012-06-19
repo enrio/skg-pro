@@ -347,18 +347,24 @@ namespace UTL
         /// <param name="num">Number need to change</param>
         /// <param name="curency">Kind of money</param>
         /// <returns>Vietnamese money string</returns>
-        public static string ChangeNum2VNStr(double num, string curency)
+        public static string ChangeNum2VNStr(decimal num, string curency)
         {
             string strTemp = num.ToString();
             int daucham = strTemp.IndexOf(".") + strTemp.IndexOf(",") + 1;
+            var res = "";
 
             if (daucham > 0)
             {
-                string s1 = strTemp.Substring(0, daucham);
-                string s2 = (strTemp + "00").Substring(daucham + 1, 2);
-                return String.Format("{0} phẩy {1}{2}", Num2Vi(s1), Num2Vi(s2), curency);
+                var s1 = strTemp.Substring(0, daucham);
+                var s2 = (strTemp).Substring(daucham + 1, 2);
+
+                if (s2 == "00") res = Num2Vi(s1);
+                else res = String.Format("{0} phẩy {1}", Num2Vi(s1), Num2Vi(s2));
             }
-            else return Num2Vi(strTemp) + curency;
+            else res = Num2Vi(strTemp);
+            var x = res.ToUpperInvariant();
+
+            return UppercaseFirst(res + " " + curency);
         }
 
         /// <summary>
@@ -371,6 +377,46 @@ namespace UTL
             int vt = 0;
             while (num[vt].Equals('0')) vt++;
             return num.Substring(vt, num.Length - vt);
+        }
+
+        /// <summary>
+        /// Uppercase first
+        /// </summary>
+        /// <param name="s">String</param>
+        /// <returns>String's uppercase first</returns>
+        public static string UppercaseFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return string.Empty;
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        static string UppercaseWords(string value)
+        {
+            char[] array = value.ToCharArray();
+
+            // Handle the first letter in the string.
+            if (array.Length >= 1)
+            {
+                if (char.IsLower(array[0]))
+                {
+                    array[0] = char.ToUpper(array[0]);
+                }
+            }
+
+            // Scan through the letters, checking for spaces.
+            // ... Uppercase the lowercase letters following spaces.
+            for (int i = 1; i < array.Length; i++)
+            {
+                if (array[i - 1] == ' ')
+                {
+                    if (char.IsLower(array[i]))
+                    {
+                        array[i] = char.ToUpper(array[i]);
+                    }
+                }
+            }
+
+            return new string(array);
         }
     }
 }

@@ -291,7 +291,7 @@ namespace DAL
                 hour = dt.Value.Hours;
                 day = dt.Value.Days;
 
-                d.Days = day;
+                d.Days = day + hour >= 12 ? 1 : 0;
                 d.Hours = hour;
 
                 var res = from s in _db.Tra_Details

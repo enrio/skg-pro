@@ -672,7 +672,7 @@
             this.xrTableCell53.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseFont = false;
-            xrSummary2.FormatString = "{0:#,#}";
+            xrSummary2.FormatString = "{0:#,#.0}";
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell53.Summary = xrSummary2;
             this.xrTableCell53.Text = "xrTableCell53";

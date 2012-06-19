@@ -499,7 +499,7 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RevenueRow AddRevenueRow(string No_, string UserInName, string UserOutName, string Number, System.DateTime DateIn, System.DateTime DateOut, int Days, int Hours, decimal Money, string KindName, decimal Price1, decimal Price2, int FullDays, int HalfDay, string UserInPhone) {
+            public RevenueRow AddRevenueRow(string No_, string UserInName, string UserOutName, string Number, System.DateTime DateIn, System.DateTime DateOut, int Days, int Hours, decimal Money, string KindName, decimal Price1, decimal Price2, decimal FullDays, int HalfDay, string UserInPhone) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -583,7 +583,7 @@ namespace PRE.DataSet {
                 base.Columns.Add(this.columnPrice1);
                 this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice2);
-                this.columnFullDays = new global::System.Data.DataColumn("FullDays", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnFullDays = new global::System.Data.DataColumn("FullDays", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFullDays);
                 this.columnHalfDay = new global::System.Data.DataColumn("HalfDay", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHalfDay);
@@ -923,10 +923,10 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int FullDays {
+            public decimal FullDays {
                 get {
                     try {
-                        return ((int)(this[this.tableRevenue.FullDaysColumn]));
+                        return ((decimal)(this[this.tableRevenue.FullDaysColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'FullDays\' in table \'Revenue\' is DBNull.", e);

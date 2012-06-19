@@ -28,6 +28,10 @@ namespace PRE.Manage
             AllowFind = false;
             AllowPrint = true;
 
+            var d = BasePRE._sss.Current.Value;
+            dteFrom.DateTime = d;
+            dteTo.DateTime = d;
+
             grvMain.OptionsView.ShowAutoFilterRow = true;
             //grvMain.OptionsBehavior.Editable = false;
         }
@@ -73,18 +77,12 @@ namespace PRE.Manage
         /// </summary>
         protected override void PerformPrint()
         {
+            LoadData();
+
             var frm = new FrmPrint();
             frm.Text = "In: " + Text;
 
-            var rpt = new Report.Rpt_Sumary1();
-            //rpt.DataSource = _dtb;
-
-            DateTime fr, to;
-            fr = TimeDate.GetStartOfDay(BasePRE._sss.Current.Value);
-            to = TimeDate.GetEndOfDay(BasePRE._sss.Current.Value);
-
-            //rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
-            rpt.DataSource = _dtb;
+            var rpt = new Report.Rpt_Sumary1() { DataSource = _dtb };
 
             frm.SetReport(rpt);
 
@@ -98,7 +96,10 @@ namespace PRE.Manage
         protected override void LoadData()
         {
             decimal sum;
-            _dtb = _bll.Tra_Detail.SumaryDateOut(out sum, dteFrom.DateTime, dteTo.DateTime);
+            DateTime fr, to;
+            fr = TimeDate.GetStartOfDay(dteFrom.DateTime);
+            to = TimeDate.GetEndOfDay(dteTo.DateTime);
+            _dtb = _bll.Tra_Detail.SumaryDateOut(out sum, fr, to);
 
             base.LoadData();
         }

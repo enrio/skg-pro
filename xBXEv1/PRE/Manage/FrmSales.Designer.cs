@@ -164,7 +164,7 @@
             // 
             // dteTo
             // 
-            this.dteTo.EditValue = new System.DateTime(2012, 6, 14, 11, 24, 23, 984);
+            this.dteTo.EditValue = null;
             this.dteTo.Location = new System.Drawing.Point(38, 29);
             this.dteTo.Name = "dteTo";
             this.dteTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -186,7 +186,7 @@
             // 
             // dteFrom
             // 
-            this.dteFrom.EditValue = new System.DateTime(2012, 6, 14, 11, 24, 23, 984);
+            this.dteFrom.EditValue = null;
             this.dteFrom.Location = new System.Drawing.Point(38, 3);
             this.dteFrom.Name = "dteFrom";
             this.dteFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

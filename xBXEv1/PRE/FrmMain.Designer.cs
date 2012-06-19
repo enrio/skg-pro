@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bbiLogin = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSetting = new DevExpress.XtraBars.BarButtonItem();
@@ -442,6 +443,7 @@
             this.ClientSize = new System.Drawing.Size(1015, 580);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;

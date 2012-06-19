@@ -33,7 +33,7 @@ namespace PRE.Manage
             dteTo.DateTime = d;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
-            //grvMain.OptionsBehavior.Editable = false;
+            grvMain.OptionsBehavior.Editable = false;
         }
 
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
@@ -105,12 +105,9 @@ namespace PRE.Manage
             _to = TimeDate.GetEndOfDay(dteTo.DateTime);
             _dtb = _bll.Tra_Detail.Sumary(out _sum, _fr, _to);
 
-            if (_dtb != null)
-            {
-                grcMain.DataSource = _dtb;
-                gridColumn2.BestFit(); // fit column STT
-                gridColumn3.BestFit(); // fit column BSX
-            }
+            grcMain.DataSource = _dtb;
+            gridColumn2.BestFit(); // fit column STT
+            gridColumn3.BestFit(); // fit column BSX
 
             base.LoadData();
         }

@@ -50,16 +50,12 @@ namespace PRE.Manage
             frm.Text = "In: " + Text;
 
             var rpt = new Report.Rpt_Sumary1();
-            //rpt.DataSource = _dtb;
-
             var d = BasePRE._sss.Current.Value;
             var fr = TimeDate.GetStartOfDay(d);
             var to = TimeDate.GetEndOfDay(d); decimal _sum;
-            rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
 
-            //var x = new Parameter();
-            //x.Value = TimeDate.GetWatch2(d);
-            //rpt.parWatch = x;
+            rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
+            rpt.xrcWatch.Text = TimeDate.GetWatch2(d) + "";
 
             frm.SetReport(rpt);
 

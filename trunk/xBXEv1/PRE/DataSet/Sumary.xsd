@@ -38,14 +38,6 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Pol_Action" msprop:Generator_TableClassName="Pol_ActionDataTable" msprop:Generator_TableVarName="tablePol_Action" msprop:Generator_TablePropName="Pol_Action" msprop:Generator_RowDeletingName="Pol_ActionRowDeleting" msprop:Generator_UserTableName="Pol_Action" msprop:Generator_RowChangingName="Pol_ActionRowChanging" msprop:Generator_RowEvHandlerName="Pol_ActionRowChangeEventHandler" msprop:Generator_RowDeletedName="Pol_ActionRowDeleted" msprop:Generator_RowEvArgName="Pol_ActionRowChangeEvent" msprop:Generator_RowChangedName="Pol_ActionRowChanged" msprop:Generator_RowClassName="Pol_ActionRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
-              <xs:element name="Descript" msprop:Generator_ColumnVarNameInTable="columnDescript" msprop:Generator_ColumnPropNameInRow="Descript" msprop:Generator_ColumnPropNameInTable="DescriptColumn" msprop:Generator_UserColumnName="Descript" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

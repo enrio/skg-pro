@@ -230,5 +230,10 @@ namespace PRE
             BasePRE.ShowRight<FrmSales>(this);
         }
         #endregion
+
+        private void bbiHelp_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Help.ShowHelp(this, @"help.chm");
+        }
     }
 }

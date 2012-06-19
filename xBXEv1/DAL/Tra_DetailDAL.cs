@@ -398,7 +398,7 @@ namespace DAL
                           && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.Pol_UserOutId == UserId
-                          //&& k.Tra_Kind.Tra_Group.Code == "A" // nhóm xe tải lưu đậu
+                          && k.Tra_Kind.Tra_Group.Code == "A" // nhóm xe tải lưu đậu
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
 
                           select new
@@ -406,11 +406,15 @@ namespace DAL
                               AccIn = s.Pol_UserIn.Name,
                               AccOut = s.Pol_UserOut.Name,
                               Phone = s.Pol_UserIn.Phone,
+
                               s.Tra_Vehicle.Number,
                               s.DateIn,
                               s.DateOut,
+
                               s.Days,
-                              HalfDay = (s.Days == 0 && s.Hours < 12) ? 1 : 0,
+                              HalfDay = s.Hours < 12 ? 1 : 0,
+                              FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
+
                               s.Price1,
                               s.Price2,
                               s.Money,

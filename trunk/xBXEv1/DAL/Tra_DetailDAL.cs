@@ -415,8 +415,7 @@ namespace DAL
                               HalfDay = s.Hours < 12 ? 1 : 0,
                               FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
 
-                              s.Price1,
-                              s.Price2,
+                              Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
@@ -467,8 +466,7 @@ namespace DAL
                               HalfDay = s.Hours < 12 ? 1 : 0,
                               FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
 
-                              s.Price1,
-                              s.Price2,
+                              Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
@@ -516,8 +514,7 @@ namespace DAL
                               HalfDay = s.Hours < 12 ? 1 : 0,
                               FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
 
-                              s.Price1,
-                              s.Price2,
+                              Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,

@@ -54,6 +54,7 @@
             this.bbiGateIn = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
             this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSales = new DevExpress.XtraBars.BarButtonItem();
             this.rbpMain = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgSystem = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgPermission = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -70,7 +71,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bbiSales = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -307,6 +307,14 @@
             this.bbiInDepot.Name = "bbiInDepot";
             this.bbiInDepot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiInDepot_ItemClick);
             // 
+            // bbiSales
+            // 
+            this.bbiSales.Caption = "Doanh thu";
+            this.bbiSales.Id = 25;
+            this.bbiSales.LargeGlyph = global::PRE.Properties.Resources.cost;
+            this.bbiSales.Name = "bbiSales";
+            this.bbiSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSales_ItemClick);
+            // 
             // rbpMain
             // 
             this.rbpMain.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -426,14 +434,6 @@
             this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
-            // 
-            // bbiSales
-            // 
-            this.bbiSales.Caption = "Doanh thu";
-            this.bbiSales.Id = 25;
-            this.bbiSales.LargeGlyph = global::PRE.Properties.Resources.palette;
-            this.bbiSales.Name = "bbiSales";
-            this.bbiSales.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSales_ItemClick);
             // 
             // FrmMain
             // 

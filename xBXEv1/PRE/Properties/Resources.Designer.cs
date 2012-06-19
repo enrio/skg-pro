@@ -88,6 +88,13 @@ namespace PRE.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap cost {
+            get {
+                object obj = ResourceManager.GetObject("cost", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap db {
             get {
                 object obj = ResourceManager.GetObject("db", resourceCulture);

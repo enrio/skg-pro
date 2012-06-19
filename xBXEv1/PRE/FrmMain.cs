@@ -115,6 +115,13 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            if (!BaseBLL.CheckDb())
+            {
+                BasePRE.ShowRight<FrmSetting>(this);
+                return;
+            }
+            else bbiSetting.Visibility = BarItemVisibility.Never;
+
             Login();
         }
 

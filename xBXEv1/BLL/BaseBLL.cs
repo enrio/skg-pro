@@ -82,6 +82,17 @@ namespace BLL
             if (bll.Pol_User.Count() > 0) return;
             bll.CreateAll();
         }
+
+        /// <summary>
+        /// Check database exists
+        /// </summary>
+        /// <returns>Exists or not exists</returns>
+        public static bool CheckDb()
+        {
+            var bll = new BaseBLL();
+            if (bll.Pol_User.Count() > 0) return true;
+            return false;
+        }
         #endregion
 
         /// <summary>

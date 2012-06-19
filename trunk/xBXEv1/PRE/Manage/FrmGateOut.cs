@@ -11,6 +11,7 @@ namespace PRE.Manage
     using UTL;
     using DAL.Entities;
     using Main;
+    using DevExpress.XtraReports.Parameters;
 
     /// <summary>
     /// Cổng ra
@@ -53,13 +54,12 @@ namespace PRE.Manage
 
             var d = BasePRE._sss.Current.Value;
             var fr = TimeDate.GetStartOfDay(d);
-            var to = TimeDate.GetEndOfDay(d);
-
-            var w2 = TimeDate.GetWatch2(d);
-            var w3 = TimeDate.GetWatch3(d);
-
-            decimal _sum;
+            var to = TimeDate.GetEndOfDay(d); decimal _sum;
             rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
+
+            //var x = new Parameter();
+            //x.Value = TimeDate.GetWatch2(d);
+            //rpt.parWatch = x;
 
             frm.SetReport(rpt);
 

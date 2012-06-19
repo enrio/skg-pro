@@ -105,6 +105,12 @@ namespace PRE.Manage
             _to = TimeDate.GetEndOfDay(dteTo.DateTime);
             _dtb = _bll.Tra_Detail.Sumary(out _sum, _fr, _to);
 
+            if (_dtb != null)
+            {
+                grcMain.DataSource = _dtb;
+                gridColumn2.BestFit(); // fit column STT
+            }
+
             base.LoadData();
         }
 

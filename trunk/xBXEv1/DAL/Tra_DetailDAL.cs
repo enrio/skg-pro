@@ -403,9 +403,9 @@ namespace DAL
 
                           select new
                           {
-                              AccIn = s.Pol_UserIn.Name,
-                              AccOut = s.Pol_UserOut.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserOutName = s.Pol_UserOut.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
 
                               s.Tra_Vehicle.Number,
                               s.DateIn,
@@ -420,8 +420,7 @@ namespace DAL
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
-                              GroupName = k.Tra_Kind.Tra_Group.Name,
-                              k.Chair
+                              GroupName = k.Tra_Kind.Tra_Group.Name
                           };
 
                 total = res.Sum(k => k.Money);
@@ -456,21 +455,24 @@ namespace DAL
 
                           select new
                           {
-                              AccIn = s.Pol_UserIn.Name,
-                              AccOut = s.Pol_UserOut.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserOutName = s.Pol_UserOut.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+
                               s.Tra_Vehicle.Number,
                               s.DateIn,
                               s.DateOut,
+
                               s.Days,
-                              HalfDay = (s.Days == 0 && s.Hours < 12) ? 1 : 0,
+                              HalfDay = s.Hours < 12 ? 1 : 0,
+                              FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
+
                               s.Price1,
                               s.Price2,
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
-                              GroupName = k.Tra_Kind.Tra_Group.Name,
-                              k.Chair
+                              GroupName = k.Tra_Kind.Tra_Group.Name
                           };
 
                 total = res.Sum(k => k.Money);
@@ -502,21 +504,24 @@ namespace DAL
 
                           select new
                           {
-                              AccIn = s.Pol_UserIn.Name,
-                              AccOut = s.Pol_UserOut.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserOutName = s.Pol_UserOut.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+
                               s.Tra_Vehicle.Number,
                               s.DateIn,
                               s.DateOut,
+
                               s.Days,
-                              HalfDay = (s.Days == 0 && s.Hours < 12) ? 1 : 0,
+                              HalfDay = s.Hours < 12 ? 1 : 0,
+                              FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
+
                               s.Price1,
                               s.Price2,
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
-                              GroupName = k.Tra_Kind.Tra_Group.Name,
-                              k.Chair
+                              GroupName = k.Tra_Kind.Tra_Group.Name
                           };
 
                 total = res.Sum(k => k.Money);

@@ -281,9 +281,9 @@ namespace PRE.DataSet {
             
             private global::System.Data.DataColumn columnNo_;
             
-            private global::System.Data.DataColumn columnAccIn;
+            private global::System.Data.DataColumn columnUserInName;
             
-            private global::System.Data.DataColumn columnAccOut;
+            private global::System.Data.DataColumn columnUserOutName;
             
             private global::System.Data.DataColumn columnNumber;
             
@@ -299,8 +299,6 @@ namespace PRE.DataSet {
             
             private global::System.Data.DataColumn columnKindName;
             
-            private global::System.Data.DataColumn columnChair;
-            
             private global::System.Data.DataColumn columnPrice1;
             
             private global::System.Data.DataColumn columnPrice2;
@@ -309,7 +307,7 @@ namespace PRE.DataSet {
             
             private global::System.Data.DataColumn columnHalfDay;
             
-            private global::System.Data.DataColumn columnPhone;
+            private global::System.Data.DataColumn columnUserInPhone;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -354,17 +352,17 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AccInColumn {
+            public global::System.Data.DataColumn UserInNameColumn {
                 get {
-                    return this.columnAccIn;
+                    return this.columnUserInName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AccOutColumn {
+            public global::System.Data.DataColumn UserOutNameColumn {
                 get {
-                    return this.columnAccOut;
+                    return this.columnUserOutName;
                 }
             }
             
@@ -426,14 +424,6 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChairColumn {
-                get {
-                    return this.columnChair;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Price1Column {
                 get {
                     return this.columnPrice1;
@@ -466,9 +456,9 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PhoneColumn {
+            public global::System.Data.DataColumn UserInPhoneColumn {
                 get {
-                    return this.columnPhone;
+                    return this.columnUserInPhone;
                 }
             }
             
@@ -509,28 +499,12 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RevenueRow AddRevenueRow(
-                        string No_, 
-                        string AccIn, 
-                        string AccOut, 
-                        string Number, 
-                        System.DateTime DateIn, 
-                        System.DateTime DateOut, 
-                        int Days, 
-                        int Hours, 
-                        decimal Money, 
-                        string KindName, 
-                        string Chair, 
-                        decimal Price1, 
-                        decimal Price2, 
-                        int FullDays, 
-                        int HalfDay, 
-                        string Phone) {
+            public RevenueRow AddRevenueRow(string No_, string UserInName, string UserOutName, string Number, System.DateTime DateIn, System.DateTime DateOut, int Days, int Hours, decimal Money, string KindName, decimal Price1, decimal Price2, int FullDays, int HalfDay, string UserInPhone) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
-                        AccIn,
-                        AccOut,
+                        UserInName,
+                        UserOutName,
                         Number,
                         DateIn,
                         DateOut,
@@ -538,12 +512,11 @@ namespace PRE.DataSet {
                         Hours,
                         Money,
                         KindName,
-                        Chair,
                         Price1,
                         Price2,
                         FullDays,
                         HalfDay,
-                        Phone};
+                        UserInPhone};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -567,8 +540,8 @@ namespace PRE.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnNo_ = base.Columns["No_"];
-                this.columnAccIn = base.Columns["AccIn"];
-                this.columnAccOut = base.Columns["AccOut"];
+                this.columnUserInName = base.Columns["UserInName"];
+                this.columnUserOutName = base.Columns["UserOutName"];
                 this.columnNumber = base.Columns["Number"];
                 this.columnDateIn = base.Columns["DateIn"];
                 this.columnDateOut = base.Columns["DateOut"];
@@ -576,12 +549,11 @@ namespace PRE.DataSet {
                 this.columnHours = base.Columns["Hours"];
                 this.columnMoney = base.Columns["Money"];
                 this.columnKindName = base.Columns["KindName"];
-                this.columnChair = base.Columns["Chair"];
                 this.columnPrice1 = base.Columns["Price1"];
                 this.columnPrice2 = base.Columns["Price2"];
                 this.columnFullDays = base.Columns["FullDays"];
                 this.columnHalfDay = base.Columns["HalfDay"];
-                this.columnPhone = base.Columns["Phone"];
+                this.columnUserInPhone = base.Columns["UserInPhone"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,10 +561,10 @@ namespace PRE.DataSet {
             private void InitClass() {
                 this.columnNo_ = new global::System.Data.DataColumn("No_", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNo_);
-                this.columnAccIn = new global::System.Data.DataColumn("AccIn", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccIn);
-                this.columnAccOut = new global::System.Data.DataColumn("AccOut", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAccOut);
+                this.columnUserInName = new global::System.Data.DataColumn("UserInName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserInName);
+                this.columnUserOutName = new global::System.Data.DataColumn("UserOutName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserOutName);
                 this.columnNumber = new global::System.Data.DataColumn("Number", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumber);
                 this.columnDateIn = new global::System.Data.DataColumn("DateIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -607,8 +579,6 @@ namespace PRE.DataSet {
                 base.Columns.Add(this.columnMoney);
                 this.columnKindName = new global::System.Data.DataColumn("KindName", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKindName);
-                this.columnChair = new global::System.Data.DataColumn("Chair", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChair);
                 this.columnPrice1 = new global::System.Data.DataColumn("Price1", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice1);
                 this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(decimal), null, global::System.Data.MappingType.Element);
@@ -617,8 +587,8 @@ namespace PRE.DataSet {
                 base.Columns.Add(this.columnFullDays);
                 this.columnHalfDay = new global::System.Data.DataColumn("HalfDay", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHalfDay);
-                this.columnPhone = new global::System.Data.DataColumn("Phone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPhone);
+                this.columnUserInPhone = new global::System.Data.DataColumn("UserInPhone", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserInPhone);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -777,33 +747,33 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AccIn {
+            public string UserInName {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.AccInColumn]));
+                        return ((string)(this[this.tableRevenue.UserInNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccIn\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserInName\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.AccInColumn] = value;
+                    this[this.tableRevenue.UserInNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AccOut {
+            public string UserOutName {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.AccOutColumn]));
+                        return ((string)(this[this.tableRevenue.UserOutNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AccOut\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserOutName\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.AccOutColumn] = value;
+                    this[this.tableRevenue.UserOutNameColumn] = value;
                 }
             }
             
@@ -921,22 +891,6 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Chair {
-                get {
-                    try {
-                        return ((string)(this[this.tableRevenue.ChairColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Chair\' in table \'Revenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableRevenue.ChairColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Price1 {
                 get {
                     try {
@@ -1001,17 +955,17 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Phone {
+            public string UserInPhone {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.PhoneColumn]));
+                        return ((string)(this[this.tableRevenue.UserInPhoneColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Phone\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserInPhone\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.PhoneColumn] = value;
+                    this[this.tableRevenue.UserInPhoneColumn] = value;
                 }
             }
             
@@ -1029,26 +983,26 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAccInNull() {
-                return this.IsNull(this.tableRevenue.AccInColumn);
+            public bool IsUserInNameNull() {
+                return this.IsNull(this.tableRevenue.UserInNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAccInNull() {
-                this[this.tableRevenue.AccInColumn] = global::System.Convert.DBNull;
+            public void SetUserInNameNull() {
+                this[this.tableRevenue.UserInNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAccOutNull() {
-                return this.IsNull(this.tableRevenue.AccOutColumn);
+            public bool IsUserOutNameNull() {
+                return this.IsNull(this.tableRevenue.UserOutNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAccOutNull() {
-                this[this.tableRevenue.AccOutColumn] = global::System.Convert.DBNull;
+            public void SetUserOutNameNull() {
+                this[this.tableRevenue.UserOutNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1137,18 +1091,6 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChairNull() {
-                return this.IsNull(this.tableRevenue.ChairColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChairNull() {
-                this[this.tableRevenue.ChairColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPrice1Null() {
                 return this.IsNull(this.tableRevenue.Price1Column);
             }
@@ -1197,14 +1139,14 @@ namespace PRE.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPhoneNull() {
-                return this.IsNull(this.tableRevenue.PhoneColumn);
+            public bool IsUserInPhoneNull() {
+                return this.IsNull(this.tableRevenue.UserInPhoneColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPhoneNull() {
-                this[this.tableRevenue.PhoneColumn] = global::System.Convert.DBNull;
+            public void SetUserInPhoneNull() {
+                this[this.tableRevenue.UserInPhoneColumn] = global::System.Convert.DBNull;
             }
         }
         

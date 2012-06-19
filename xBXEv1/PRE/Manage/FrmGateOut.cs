@@ -52,10 +52,12 @@ namespace PRE.Manage
             var rpt = new Report.Rpt_Sumary1();
             var d = BasePRE._sss.Current.Value;
             var fr = TimeDate.GetStartOfDay(d);
-            var to = TimeDate.GetEndOfDay(d); decimal _sum;
+            var to = TimeDate.GetEndOfDay(d);
+            decimal _sum;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
             rpt.xrcWatch.Text = TimeDate.GetWatch2(d) + "";
+            rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
 
             frm.SetReport(rpt);
 

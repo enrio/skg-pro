@@ -470,7 +470,7 @@ namespace BLL
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("L");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091", Chair = 50 };
             Tra_Vehicle.Insert(o);
         }
 

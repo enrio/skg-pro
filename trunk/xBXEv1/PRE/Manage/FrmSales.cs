@@ -99,7 +99,7 @@ namespace PRE.Manage
             DateTime fr, to;
             fr = TimeDate.GetStartOfDay(dteFrom.DateTime);
             to = TimeDate.GetEndOfDay(dteTo.DateTime);
-            _dtb = _bll.Tra_Detail.SumaryDateOut(out sum, fr, to);
+            _dtb = _bll.Tra_Detail.Sumary(out sum, fr, to);
 
             base.LoadData();
         }

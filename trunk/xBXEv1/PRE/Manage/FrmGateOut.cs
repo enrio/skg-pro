@@ -55,7 +55,7 @@ namespace PRE.Manage
             var to = TimeDate.GetEndOfDay(d);
             decimal _sum;
 
-            rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);
+            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, BasePRE._sss.User.Id);
             rpt.xrcWatch.Text = TimeDate.GetWatch2(d) + "";
             rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
 

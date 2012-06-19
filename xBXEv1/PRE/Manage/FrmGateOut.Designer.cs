@@ -238,7 +238,9 @@
             this.cbbNumber.Size = new System.Drawing.Size(152, 33);
             this.cbbNumber.TabIndex = 3;
             this.cbbNumber.ValueMember = "Id";
+            this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
             this.cbbNumber.Enter += new System.EventHandler(this.cbbNumber_Enter);
+            this.cbbNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNumber_KeyDown);
             // 
             // label6
             // 

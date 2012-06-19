@@ -46,9 +46,6 @@ namespace PRE.Manage
         /// </summary>
         protected override void PerformPrint()
         {
-            var frm = new FrmPrint();
-            frm.Text = "In: " + Text;
-
             var rpt = new Report.Rpt_Sumary1();
             var d = BasePRE._sss.Current.Value;
             var fr = TimeDate.GetStartOfDay(d);
@@ -59,11 +56,12 @@ namespace PRE.Manage
             rpt.xrcWatch.Text = TimeDate.GetWatch2(d) + "";
             rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
 
+            var frm = new FrmPrint();
+            frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);
             frm.SetReport(rpt);
 
             frm.MdiParent = MdiParent;
             frm.Show();
-            frm.Activate();
 
             base.PerformPrint();
         }

@@ -238,6 +238,18 @@ namespace UTL
         {
             return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
         }
+
+        public static int GetWatch2(DateTime date)
+        {
+            return date < new DateTime(date.Year, date.Month, date.Day, 12, 0, 0, 0) ? 1 : 2;
+        }
+
+        public static int GetWatch3(DateTime date)
+        {
+            var t1 = new DateTime(date.Year, date.Month, date.Day, 8, 0, 0, 0);
+            var t2 = new DateTime(date.Year, date.Month, date.Day, 16, 0, 0, 0);
+            return date < t1 ? 1 : date < t2 ? 2 : 3;
+        }
         #endregion
     }
 }

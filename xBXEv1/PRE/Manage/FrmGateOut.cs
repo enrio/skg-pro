@@ -51,9 +51,12 @@ namespace PRE.Manage
             var rpt = new Report.Rpt_Sumary1();
             //rpt.DataSource = _dtb;
 
-            DateTime fr, to;
-            fr = TimeDate.GetStartOfDay(BasePRE._sss.Current.Value);
-            to = TimeDate.GetEndOfDay(BasePRE._sss.Current.Value);
+            var d = BasePRE._sss.Current.Value;
+            var fr = TimeDate.GetStartOfDay(d);
+            var to = TimeDate.GetEndOfDay(d);
+
+            var w2 = TimeDate.GetWatch2(d);
+            var w3 = TimeDate.GetWatch3(d);
 
             decimal _sum;
             rpt.DataSource = _bll.Tra_Detail.SumaryDateOutByUser_1(out _sum, fr, to, BasePRE._sss.User.Id);

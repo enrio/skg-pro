@@ -395,10 +395,10 @@
             // xrTableCell4
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.AccOut")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOutName")});
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
-            this.xrTableCell4.Text = "Siêu Văn Nhân";
+            this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell4.Weight = 1.691530873566123D;
             // 
@@ -505,16 +505,17 @@
             // xrTableCell25
             // 
             this.xrTableCell25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sumary1, "Revenue.Day")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sumary1, "Revenue.Days", "{0:#,#}")});
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.StylePriority.UseTextAlignment = false;
+            this.xrTableCell25.Text = "xrTableCell25";
             this.xrTableCell25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell25.Weight = 0.27312516471185377D;
             // 
             // xrTableCell24
             // 
             this.xrTableCell24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sumary1, "Revenue.HalfDay")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sumary1, "Revenue.HalfDay", "{0:#,#}")});
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.StylePriority.UseTextAlignment = false;
             this.xrTableCell24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
@@ -522,8 +523,6 @@
             // 
             // xrTableCell28
             // 
-            this.xrTableCell28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sumary1, "Revenue.Price")});
             this.xrTableCell28.Name = "xrTableCell28";
             this.xrTableCell28.StylePriority.UseTextAlignment = false;
             this.xrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
@@ -669,7 +668,7 @@
             // xrTableCell53
             // 
             this.xrTableCell53.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.FullDay")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.FullDays")});
             this.xrTableCell53.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseFont = false;
@@ -744,8 +743,9 @@
             // xrTableCell45
             // 
             this.xrTableCell45.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Phone")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserInPhone")});
             this.xrTableCell45.Name = "xrTableCell45";
+            this.xrTableCell45.Text = "xrTableCell45";
             this.xrTableCell45.Weight = 2.6852283779810149D;
             // 
             // xrTable5
@@ -786,7 +786,7 @@
             // xrTableCell33
             // 
             this.xrTableCell33.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Day")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Days")});
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StylePriority.UseTextAlignment = false;
             xrSummary4.FormatString = "{0:#,#}";

@@ -79,27 +79,30 @@ namespace PRE.Manage
         {
             LoadData();
 
+            var rpt = new Report.Rpt_Sumary2() { DataSource = _dtb };
+            rpt.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}", _fr.ToString("dd/MM/yyyy"), _to.ToString("dd/MM/yyyy"));
+            rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
+
+            var d = BasePRE._sss.Current.Value;
+            rpt.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
+
             var frm = new FrmPrint();
-            frm.Text = "In: " + Text;
-
-            var rpt = new Report.Rpt_Sumary1() { DataSource = _dtb };
-
+            frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);
             frm.SetReport(rpt);
 
             frm.MdiParent = MdiParent;
             frm.Show();
-            frm.Activate();
 
             base.PerformPrint();
         }
 
+        decimal _sum;
+        DateTime _fr, _to;
         protected override void LoadData()
         {
-            decimal sum;
-            DateTime fr, to;
-            fr = TimeDate.GetStartOfDay(dteFrom.DateTime);
-            to = TimeDate.GetEndOfDay(dteTo.DateTime);
-            _dtb = _bll.Tra_Detail.Sumary(out sum, fr, to);
+            _fr = TimeDate.GetStartOfDay(dteFrom.DateTime);
+            _to = TimeDate.GetEndOfDay(dteTo.DateTime);
+            _dtb = _bll.Tra_Detail.Sumary(out _sum, _fr, _to);
 
             base.LoadData();
         }

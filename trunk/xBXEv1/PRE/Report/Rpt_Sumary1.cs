@@ -6,12 +6,14 @@ using DevExpress.XtraReports.UI;
 
 namespace PRE.Report
 {
+    /// <summary>
+    /// Bảng kê thu phí (dành cho nhân viên gác cổng ra)
+    /// </summary>
     public partial class Rpt_Sumary1 : DevExpress.XtraReports.UI.XtraReport
     {
         public Rpt_Sumary1()
         {
             InitializeComponent();
         }
-
     }
 }

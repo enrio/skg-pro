@@ -286,6 +286,11 @@ namespace BLL
             b = (Pol_Role)Pol_Role.Select("QT");
             o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
             Pol_UserRole.Insert(o);
+
+            a = (Pol_User)Pol_User.Select("kt");
+            b = (Pol_Role)Pol_Role.Select("TK");
+            o = new Pol_UserRole() { Pol_UserId = a.Id, Pol_RoleId = b.Id };
+            Pol_UserRole.Insert(o);
         }
 
         /// <summary>
@@ -346,6 +351,11 @@ namespace BLL
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmSales");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            Pol_RoleRight.Insert(o);
+
+            a = (Pol_Role)Pol_Role.Select("TK");
+            b = (Pol_Right)Pol_Right.Select("FrmSales");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
             Pol_RoleRight.Insert(o);
         }
 

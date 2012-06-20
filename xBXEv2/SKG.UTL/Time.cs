@@ -191,27 +191,49 @@ namespace SKG.UTL
 
         #region Months
         /// <summary>
-        /// Get start of month
+        /// Return a start of month of this integer
         /// </summary>
-        /// <param name="month">Month</param>
-        /// <param name="year">Year</param>
-        /// <returns>DateTime's start of month</returns>
-        public static DateTime GetStartOfMonth(Month month, int year)
+        /// <param name="y">Year</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfMonth(this int y, Month m)
         {
-            return new DateTime(year, (int)month, 1, 0, 0, 0, 0);
+            return new DateTime(y, (int)m, 1, 0, 0, 0, 0);
         }
 
         /// <summary>
-        /// Get end of month
+        /// Return a copy of this DateTime to start of month
         /// </summary>
-        /// <param name="month">Month</param>
-        /// <param name="year">Year</param>
-        /// <returns>DateTime's end of month</returns>
-        public static DateTime GetEndOfMonth(Month month, int year)
+        /// <param name="d">Date & time</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfMonth(this DateTime d, Month m)
         {
-            var m = (int)month;
-            var d = DateTime.DaysInMonth(year, m);
-            return new DateTime(year, m, d, 23, 59, 59, 999);
+            return d.Year.ToStartOfMonth(m);
+        }
+
+        /// <summary>
+        /// Return a end of month of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfMonth(this int y, Month m)
+        {
+            var a = (int)m;
+            var d = DateTime.DaysInMonth(y, a);
+            return new DateTime(y, a, d, 23, 59, 59, 999);
+        }
+
+        /// <summary>
+        /// Return a copy of this DateTime to end of month
+        /// </summary>
+        /// <param name="d">Date & time</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfMonth(this DateTime d, Month m)
+        {
+            return d.Year.ToEndOfMonth(m);
         }
         #endregion
 

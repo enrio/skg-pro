@@ -24,14 +24,6 @@ namespace SKG.UTL
             May = 5, June = 6, July = 7, August = 8,
             September = 9, October = 10, November = 11, December = 12
         }
-
-        /// <summary>
-        /// Enums's week
-        /// </summary>
-        public enum Week
-        {
-            Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
-        }
         #endregion
 
         #region Years
@@ -160,22 +152,12 @@ namespace SKG.UTL
         /// </summary>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static Quarter ToQuarter(this Month m)
-        {
-            if (m <= Month.March) return Quarter.First; // 1st Quarter = January 1 to March 31
-            else if ((m >= Month.April) && (m <= Month.June)) return Quarter.Second; // 2nd Quarter = April 1 to June 30
-            else if ((m >= Month.July) && (m <= Month.September)) return Quarter.Third; // 3rd Quarter = July 1 to September 30
-            else return Quarter.Fourth; // 4th Quarter = October 1 to December 31
-        }
-
-        /// <summary>
-        /// Return a quarter of this Month
-        /// </summary>
-        /// <param name="m">Month</param>
-        /// <returns></returns>
         public static Quarter ToQuarter(this int m)
         {
-            return ((Month)m).ToQuarter();
+            if (m <= 3) return Quarter.First; // 1st Quarter = January 1 to March 31
+            else if ((m >= 4) && (m <= 6)) return Quarter.Second; // 2nd Quarter = April 1 to June 30
+            else if ((m >= 7) && (m <= 9)) return Quarter.Third; // 3rd Quarter = July 1 to September 30
+            else return Quarter.Fourth; // 4th Quarter = October 1 to December 31
         }
 
         /// <summary>

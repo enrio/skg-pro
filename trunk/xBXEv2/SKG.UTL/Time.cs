@@ -157,6 +157,28 @@ namespace SKG.UTL
         {
             return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
         }
+
+        /// <summary>
+        /// Return a watch of this DateTime by two watches
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static int ToWatch2(this DateTime d)
+        {
+            return d < new DateTime(d.Year, d.Month, d.Day, 12, 0, 0, 0) ? 1 : 2;
+        }
+
+        /// <summary>
+        /// Return a watch of this DateTime by three watches
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        public static int ToWatch3(this DateTime d)
+        {
+            var t1 = new DateTime(d.Year, d.Month, d.Day, 8, 0, 0, 0);
+            var t2 = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0, 0);
+            return d < t1 ? 1 : d < t2 ? 2 : 3;
+        }
         #endregion
     }
 }

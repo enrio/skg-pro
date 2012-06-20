@@ -9,11 +9,18 @@ using System.Windows.Forms;
 
 namespace SKG.PRE
 {
-    public partial class Form1 : Form
+    using UTL;
+
+    public partial class FrmTest : Form
     {
-        public Form1()
+        public FrmTest()
         {
             InitializeComponent();
+        }
+
+        private void FrmTest_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

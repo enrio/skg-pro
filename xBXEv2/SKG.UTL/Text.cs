@@ -111,24 +111,52 @@ namespace SKG.UTL
             return true;
         }
 
-        public static bool CheckNumber(string num, int min, int max)
-        {           
-           return num.ToInt32().CheckNumber(min, max);           
+        /// <summary>
+        /// Check number between min & max
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(string n, int min, int max)
+        {
+            return n.ToInt32().CheckNumber(min, max);
         }
 
-        public static bool CheckNumber(string num, long min, long max)
+        /// <summary>
+        /// Check number between min & max
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(string n, long min, long max)
         {
-            return num.ToInt64().CheckNumber(min, max);
+            return n.ToInt64().CheckNumber(min, max);
         }
 
-        public static bool CheckNumber(string num, double min, double max)
+        /// <summary>
+        /// Check number between min & max
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(string n, double min, double max)
         {
-            return num.ToDouble().CheckNumber(min, max);
+            return n.ToDouble().CheckNumber(min, max);
         }
 
-        public static bool CheckNumber(string num, decimal min, decimal max)
+        /// <summary>
+        /// Check number between min & max
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(string n, decimal min, decimal max)
         {
-            return num.ToDecimal().CheckNumber(min, max);
+            return n.ToDecimal().CheckNumber(min, max);
         }
         #endregion
 

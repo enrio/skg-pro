@@ -183,7 +183,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(80, 20);
             this.dteTo.TabIndex = 3;
-            
             // 
             // lblTo
             // 
@@ -206,7 +205,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(80, 20);
             this.dteFrom.TabIndex = 2;
-            
             // 
             // lblFrom
             // 
@@ -360,7 +358,7 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "Một ngày";
+            this.gridColumn9.Caption = "Một ngày (lần)";
             this.gridColumn9.FieldName = "Days";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -376,13 +374,17 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Nửa ngày";
+            this.gridColumn10.DisplayFormat.FormatString = "#,#";
+            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn10.FieldName = "Price1";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "Một ngày";
+            this.gridColumn11.Caption = "Một ngày (lần)";
+            this.gridColumn11.DisplayFormat.FormatString = "#,#";
+            this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn11.FieldName = "Price2";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
@@ -397,6 +399,8 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Thành tiền";
+            this.gridColumn12.DisplayFormat.FormatString = "#,#";
+            this.gridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn12.FieldName = "Money";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;

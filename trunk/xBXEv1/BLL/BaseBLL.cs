@@ -502,15 +502,6 @@ namespace BLL
         {
             if (Tra_Detail.Count() > 0) return;
 
-            /*var a = (Tra_Vehicle)Tra_Vehicle.Select("66F-123.09");
-            var b = (Pol_User)Pol_User.Select("nvt");
-            var c = (Pol_User)Pol_User.Select("admin");
-            var o = new Tra_Detail() { Pol_UserInId = b.Id, Pol_UserOutId = c.Id, Tra_VehicleId = a.Id, DateIn = DateTime.Now.AddDays(-1), DateOut = DateTime.Now };
-            Tra_Detail.Insert(o);
-            a = (Tra_Vehicle)Tra_Vehicle.Select("65F-888.09");
-            o = new Tra_Detail() { Pol_UserInId = b.Id, Pol_UserOutId = c.Id, Tra_VehicleId = a.Id, DateIn = DateTime.Now, DateOut = DateTime.Now };
-            Tra_Detail.Insert(o);*/
-
             var tbl = Tra_Vehicle.Select();
             if (tbl == null) return;
 
@@ -524,9 +515,9 @@ namespace BLL
 
                 var a = new Random();
                 var b = -a.Next();
-                var c = b % 30;
+                var c = b % 36;
 
-                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddDays(c) };
+                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);
 
                 decimal money = 0;

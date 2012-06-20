@@ -41,17 +41,17 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="q">Quarter</param>
         /// <returns></returns>
-        public static DateTime ToStartOfQuarter(this int y, Time.Quarter q)
+        public static DateTime ToStartOfQuarter(this int y, int q)
         {
             switch (q)
             {
-                case Time.Quarter.First: // 1st Quarter = January 1 to March 31
+                case 1: // 1st Quarter = January 1 to March 31
                     return new DateTime(y, 1, 1, 0, 0, 0, 0);
 
-                case Time.Quarter.Second: // 2nd Quarter = April 1 to June 30
+                case 2: // 2nd Quarter = April 1 to June 30
                     return new DateTime(y, 4, 1, 0, 0, 0, 0);
 
-                case Time.Quarter.Third: // 3rd Quarter = July 1 to September 30
+                case 3: // 3rd Quarter = July 1 to September 30
                     return new DateTime(y, 7, 1, 0, 0, 0, 0);
 
                 default: // 4th Quarter = October 1 to December 31
@@ -65,17 +65,17 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="q">Quarter</param>
         /// <returns></returns>
-        public static DateTime ToEndOfQuarter(this int y, Time.Quarter q)
+        public static DateTime ToEndOfQuarter(this int y, int q)
         {
             switch (q)
             {
-                case Time.Quarter.First: // 1st Quarter = January 1 to March 31
+                case 1: // 1st Quarter = January 1 to March 31
                     return new DateTime(y, 3, 31, 23, 59, 59, 999);
 
-                case Time.Quarter.Second: // 2nd Quarter = April 1 to June 30
+                case 2: // 2nd Quarter = April 1 to June 30
                     return new DateTime(y, 6, 30, 23, 59, 59, 999);
 
-                case Time.Quarter.Third: // 3rd Quarter = July 1 to September 30
+                case 3: // 3rd Quarter = July 1 to September 30
                     return new DateTime(y, 9, 30, 23, 59, 59, 999);
 
                 default: // 4th Quarter = October 1 to December 31
@@ -104,9 +104,9 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToStartOfMonth(this int y, Time.Month m)
+        public static DateTime ToStartOfMonth(this int y, int m)
         {
-            return new DateTime(y, (int)m, 1, 0, 0, 0, 0);
+            return new DateTime(y, m, 1, 0, 0, 0, 0);
         }
 
         /// <summary>
@@ -115,11 +115,10 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToEndOfMonth(this int y, Time.Month m)
+        public static DateTime ToEndOfMonth(this int y, int m)
         {
-            var a = (int)m;
-            var b = DateTime.DaysInMonth(y, a);
-            return new DateTime(y, a, b, 23, 59, 59, 999);
+            var a = DateTime.DaysInMonth(y, m);
+            return new DateTime(y, m, a, 23, 59, 59, 999);
         }
         #endregion
 

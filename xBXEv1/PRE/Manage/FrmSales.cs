@@ -41,6 +41,8 @@ namespace PRE.Manage
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
+
+            LoadData();
         }
 
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,16 +58,16 @@ namespace PRE.Manage
 
         private void dteFrom_EditValueChanged(object sender, EventArgs e)
         {
-            var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
-            if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            else LoadData();
+            //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
+            //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
+            //else LoadData();
         }
 
         private void dteTo_EditValueChanged(object sender, EventArgs e)
         {
-            var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
-            if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            else LoadData();
+            //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
+            //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
+            //else LoadData();
         }
         #endregion
 

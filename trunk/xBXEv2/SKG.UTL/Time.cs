@@ -28,20 +28,6 @@ namespace SKG.UTL
 
         #region Years
         /// <summary>
-        /// Return a start of year of this integer
-        /// </summary>
-        /// <param name="y">Year</param>
-        /// <returns></returns>
-        public static DateTime ToStartOfYear(this int y)
-        {
-            try
-            {
-                return new DateTime(y, 1, 1, 0, 0, 0, 0);
-            }
-            catch { return DateTime.Now.ToStartOfYear(); }
-        }
-
-        /// <summary>
         /// Return a copy of this DateTime to start of year
         /// </summary>
         /// <param name="d">Date & time</param>
@@ -49,20 +35,6 @@ namespace SKG.UTL
         public static DateTime ToStartOfYear(this DateTime d)
         {
             return d.Year.ToStartOfYear();
-        }
-
-        /// <summary>
-        /// Return a end of year of this integer
-        /// </summary>
-        /// <param name="y">Year</param>
-        /// <returns></returns>
-        public static DateTime ToEndOfYear(this int y)
-        {
-            try
-            {
-                return new DateTime(y, 12, 31, 23, 59, 59, 999);
-            }
-            catch { return DateTime.Now.ToEndOfYear(); }
         }
 
         /// <summary>

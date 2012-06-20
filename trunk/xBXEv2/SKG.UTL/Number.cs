@@ -12,6 +12,28 @@ namespace SKG.UTL
     /// </summary>
     public static class Number
     {
+        #region Years
+        /// <summary>
+        /// Return a start of year of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfYear(this int y)
+        {
+            return new DateTime(y, 1, 1, 0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Return a end of year of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfYear(this int y)
+        {
+            return new DateTime(y, 12, 31, 23, 59, 59, 999);
+        }
+        #endregion
+
         #region Quarters
         /// <summary>
         /// Return a start of quarter of this integer
@@ -73,7 +95,7 @@ namespace SKG.UTL
             else if ((m >= 7) && (m <= 9)) return Time.Quarter.Third; // 3rd Quarter = July 1 to September 30
             else return Time.Quarter.Fourth; // 4th Quarter = October 1 to December 31
         }
-        #endregion
+        #endregion        
 
         /// <summary>
         /// Convert to int 32bit

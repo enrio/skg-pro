@@ -174,6 +174,18 @@ namespace SKG.UTL
         #endregion
 
         /// <summary>
+        /// Remove number zero
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <returns></returns>
+        private static string RemoveZero(this string n)
+        {
+            int vt = 0;
+            while (n[vt].Equals('0')) vt++;
+            return n.Substring(vt, n.Length - vt);
+        }
+
+        /// <summary>
         /// Converts number to Vietnamese
         /// </summary>
         /// <param name="n">Number</param>
@@ -366,18 +378,6 @@ namespace SKG.UTL
             else c = ToVietnamese(a);
 
             return (String.Format("{0} {1}", c, curency)).ToUpperFirst();
-        }
-
-        /// <summary>
-        /// Remove number zero
-        /// </summary>
-        /// <param name="n">Number</param>
-        /// <returns></returns>
-        public static string RemoveZero(this string n)
-        {
-            int vt = 0;
-            while (n[vt].Equals('0')) vt++;
-            return n.Substring(vt, n.Length - vt);
         }
     }
 }

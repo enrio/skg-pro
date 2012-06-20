@@ -239,67 +239,48 @@ namespace SKG.UTL
 
         #region Weeks
         /// <summary>
-        /// Get start of last week
+        /// Return a copy of this DateTime to start of week
         /// </summary>
-        /// <returns>DateTime's start of last week</returns>
-        public static DateTime GetStartOfLastWeek()
+        /// <param name="d">Date & time</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfWeek(this DateTime d)
         {
-            var tmp = (int)DateTime.Now.DayOfWeek + 7;
-            var dt = DateTime.Now.Subtract(TimeSpan.FromDays(tmp));
-            return new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0);
+            var a = (int)d.DayOfWeek;
+            var b = d.Subtract(TimeSpan.FromDays(a));
+            return b.ToStartOfDay();
         }
 
         /// <summary>
-        /// Get end of last week
+        /// Return a copy of this DateTime to end of week
         /// </summary>
-        /// <returns>DateTime's end of last week</returns>
-        public static DateTime GetEndOfLastWeek()
+        /// <param name="d">Date & time</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfWeek(this DateTime d)
         {
-            var dt = GetStartOfLastWeek().AddDays(6);
-            return new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999);
-        }
-
-        /// <summary>
-        /// Get start of current week
-        /// </summary>
-        /// <returns>DateTime's start of current week</returns>
-        public static DateTime GetStartOfCurrentWeek()
-        {
-            var tmp = (int)DateTime.Now.DayOfWeek;
-            var dt = DateTime.Now.Subtract(TimeSpan.FromDays(tmp));
-            return new DateTime(dt.Year, dt.Month, dt.Day, 0, 0, 0, 0);
-        }
-
-        /// <summary>
-        /// Get end of current week
-        /// </summary>
-        /// <returns>DateTime's end of current week</returns>
-        public static DateTime GetEndOfCurrentWeek()
-        {
-            var dt = GetStartOfCurrentWeek().AddDays(6);
-            return new DateTime(dt.Year, dt.Month, dt.Day, 23, 59, 59, 999);
+            var a = d.ToStartOfWeek().AddDays(6);
+            return a.ToEndOfDay();
         }
         #endregion
 
         #region Days
         /// <summary>
-        /// Get start of day
+        /// Return a copy of this DateTime to start of week
         /// </summary>
-        /// <param name="date">Date</param>
-        /// <returns>DateTime's start of day</returns>
-        public static DateTime GetStartOfDay(DateTime date)
+        /// <param name="d">Date & time</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfDay(this DateTime d)
         {
-            return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0, 0);
+            return new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, 0);
         }
 
         /// <summary>
-        /// Get end of day
+        /// Return a copy of this DateTime to end of week
         /// </summary>
-        /// <param name="date">Date</param>
-        /// <returns>DateTime's end of day</returns>
-        public static DateTime GetEndOfDay(DateTime date)
+        /// <param name="d">Date & time</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfDay(this DateTime d)
         {
-            return new DateTime(date.Year, date.Month, date.Day, 23, 59, 59, 999);
+            return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
         }
         #endregion
     }

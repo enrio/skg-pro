@@ -20,7 +20,13 @@ namespace SKG.PRE
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
+            var d = DateTime.Now;
 
+            var d1 = d.ToStartOfDay();
+            var d2 = d.ToEndOfDay();
+
+            var w1 = d.ToStartOfWeek();
+            var v2 = d.ToEndOfWeek();
         }
     }
 }

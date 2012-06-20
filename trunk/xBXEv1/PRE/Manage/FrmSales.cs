@@ -58,14 +58,14 @@ namespace PRE.Manage
         {
             //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
             //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            //else LoadData();
+            LoadData();
         }
 
         private void dteTo_EditValueChanged(object sender, EventArgs e)
         {
             //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
             //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            //else LoadData();
+            LoadData();
         }
         #endregion
 
@@ -107,7 +107,7 @@ namespace PRE.Manage
         {
             var d = BasePRE._sss.Current.Value;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
-            
+
             dteFrom.DateTime = d.ToStartOfDay();
             dteTo.DateTime = d.ToEndOfDay();
 

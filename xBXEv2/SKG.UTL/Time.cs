@@ -78,30 +78,6 @@ namespace SKG.UTL
 
         #region Quarters
         /// <summary>
-        /// Return a start of quarter of this integer
-        /// </summary>
-        /// <param name="y">Year</param>
-        /// <param name="q">Quarter</param>
-        /// <returns></returns>
-        public static DateTime ToStartOfQuarter(this int y, Quarter q)
-        {
-            switch (q)
-            {
-                case Quarter.First: // 1st Quarter = January 1 to March 31
-                    return new DateTime(y, 1, 1, 0, 0, 0, 0);
-
-                case Quarter.Second: // 2nd Quarter = April 1 to June 30
-                    return new DateTime(y, 4, 1, 0, 0, 0, 0);
-
-                case Quarter.Third: // 3rd Quarter = July 1 to September 30
-                    return new DateTime(y, 7, 1, 0, 0, 0, 0);
-
-                default: // 4th Quarter = October 1 to December 31
-                    return new DateTime(y, 10, 1, 0, 0, 0, 0);
-            }
-        }
-
-        /// <summary>
         /// Return a copy of this DateTime to start of quarter
         /// </summary>
         /// <param name="d">Date & time</param>
@@ -110,31 +86,7 @@ namespace SKG.UTL
         {
             var q = d.Month.ToQuarter();
             return d.Year.ToStartOfQuarter(q);
-        }
-
-        /// <summary>
-        /// Return a end of quarter of this integer
-        /// </summary>
-        /// <param name="y">Year</param>
-        /// <param name="q">Quarter</param>
-        /// <returns></returns>
-        public static DateTime ToEndOfQuarter(this int y, Quarter q)
-        {
-            switch (q)
-            {
-                case Quarter.First: // 1st Quarter = January 1 to March 31
-                    return new DateTime(y, 3, 31, 23, 59, 59, 999);
-
-                case Quarter.Second: // 2nd Quarter = April 1 to June 30
-                    return new DateTime(y, 6, 30, 23, 59, 59, 999);
-
-                case Quarter.Third: // 3rd Quarter = July 1 to September 30
-                    return new DateTime(y, 9, 30, 23, 59, 59, 999);
-
-                default: // 4th Quarter = October 1 to December 31
-                    return new DateTime(y, 12, 31, 23, 59, 59, 999);
-            }
-        }
+        }       
 
         /// <summary>
         /// Return a copy of this DateTime to end of quarter

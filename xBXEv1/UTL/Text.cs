@@ -92,23 +92,10 @@ namespace SKG.UTL
         /// </summary>
         /// <param name="s">Number</param>
         /// <returns></returns>
-        public static bool IsNumberR(this string s)
+        public static bool IsNumber(this string s)
         {
             Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
             return regex.IsMatch(s);
-        }
-
-        /// <summary>
-        /// Check text is number using Char class
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static bool IsNumberC(this string s)
-        {
-            foreach (Char c in s)
-                if (!Char.IsDigit(c))
-                    return false;
-            return true;
         }
 
         /// <summary>
@@ -168,7 +155,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static int ToInt32(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToInt32(s);
+            if (IsNumber(s)) return Convert.ToInt32(s);
             return 0;
         }
 
@@ -179,7 +166,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static long ToInt64(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToInt64(s);
+            if (IsNumber(s)) return Convert.ToInt64(s);
             return 0;
         }
 
@@ -190,7 +177,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static double ToDouble(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToDouble(s);
+            if (IsNumber(s)) return Convert.ToDouble(s);
             return 0;
         }
 
@@ -201,7 +188,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static decimal ToDecimal(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToDecimal(s);
+            if (IsNumber(s)) return Convert.ToDecimal(s);
             return 0;
         }
         #endregion

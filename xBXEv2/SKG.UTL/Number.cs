@@ -173,6 +173,7 @@ namespace SKG.UTL
         }
         #endregion
 
+        #region Converts
         /// <summary>
         /// Remove number zero
         /// </summary>
@@ -379,5 +380,6 @@ namespace SKG.UTL
 
             return (String.Format("{0} {1}", c, curency)).ToUpperFirst();
         }
+        #endregion
     }
 }

@@ -77,59 +77,42 @@ namespace SKG.UTL
         #endregion
 
         #region Quarters
-        /// <summary>
-        /// Get start of quarter
-        /// </summary>
-        /// <param name="year">Year</param>
-        /// <param name="quarter">Quarter</param>
-        /// <returns>DateTime's start of quarter</returns>
-        public static DateTime GetStartOfQuarter(int year, Quarter quarter)
+        public static DateTime GetStartOfQuarter(int y, Quarter q)
         {
-            switch (quarter)
+            switch (q)
             {
                 case Quarter.First: // 1st Quarter = January 1 to March 31
-                    return new DateTime(year, 1, 1, 0, 0, 0, 0);
+                    return new DateTime(y, 1, 1, 0, 0, 0, 0);
 
                 case Quarter.Second: // 2nd Quarter = April 1 to June 30
-                    return new DateTime(year, 4, 1, 0, 0, 0, 0);
+                    return new DateTime(y, 4, 1, 0, 0, 0, 0);
 
                 case Quarter.Third: // 3rd Quarter = July 1 to September 30
-                    return new DateTime(year, 7, 1, 0, 0, 0, 0);
+                    return new DateTime(y, 7, 1, 0, 0, 0, 0);
 
                 default: // 4th Quarter = October 1 to December 31
-                    return new DateTime(year, 10, 1, 0, 0, 0, 0);
+                    return new DateTime(y, 10, 1, 0, 0, 0, 0);
             }
         }
 
-        /// <summary>
-        /// Get end of quarter
-        /// </summary>
-        /// <param name="year">Year</param>
-        /// <param name="quarter">Quarter</param>
-        /// <returns>DateTime's end of quarter</returns>
-        public static DateTime GetEndOfQuarter(int year, Quarter quarter)
+        public static DateTime GetEndOfQuarter(int y, Quarter q)
         {
-            switch (quarter)
+            switch (q)
             {
                 case Quarter.First: // 1st Quarter = January 1 to March 31
-                    return new DateTime(year, 3, 31, 23, 59, 59, 999);
+                    return new DateTime(y, 3, 31, 23, 59, 59, 999);
 
                 case Quarter.Second: // 2nd Quarter = April 1 to June 30
-                    return new DateTime(year, 6, 30, 23, 59, 59, 999);
+                    return new DateTime(y, 6, 30, 23, 59, 59, 999);
 
                 case Quarter.Third: // 3rd Quarter = July 1 to September 30
-                    return new DateTime(year, 9, 30, 23, 59, 59, 999);
+                    return new DateTime(y, 9, 30, 23, 59, 59, 999);
 
                 default: // 4th Quarter = October 1 to December 31
-                    return new DateTime(year, 12, 31, 23, 59, 59, 999);
+                    return new DateTime(y, 12, 31, 23, 59, 59, 999);
             }
         }
 
-        /// <summary>
-        /// Get quarter
-        /// </summary>
-        /// <param name="month">Month</param>
-        /// <returns>Quarter</returns>
         public static Quarter GetQuarter(Month month)
         {
             if (month <= Month.March) return Quarter.First; // 1st Quarter = January 1 to March 31

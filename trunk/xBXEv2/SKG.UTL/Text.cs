@@ -11,7 +11,7 @@ namespace SKG.UTL
     /// </summary>
     public static class Text
     {
-        #region Text
+        #region Strings
         /// <summary>
         /// Return a copy of this string between two strings
         /// </summary>
@@ -86,7 +86,33 @@ namespace SKG.UTL
         }
         #endregion
 
-        #region Convert
+        #region Checks
+        /// <summary>
+        /// Check text is number using Regex class
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
+        public static bool IsNumberR(this string s)
+        {
+            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
+            return regex.IsMatch(s);
+        }
+
+        /// <summary>
+        /// Check text is number using Char class
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
+        public static bool IsNumberC(this string s)
+        {
+            foreach (Char c in s)
+                if (!Char.IsDigit(c))
+                    return false;
+            return true;
+        }
+        #endregion
+
+        #region Converts
         /// <summary>
         /// Converts the specified string representation of a number to an equivalent 32-bit signed integer
         /// </summary>
@@ -110,17 +136,6 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Converts the specified string representation of a number to an equivalent decimal number
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static decimal ToDecimal(this string s)
-        {
-            if (IsNumberC(s)) return Convert.ToDecimal(s);
-            return 0;
-        }
-
-        /// <summary>
         /// Converts the specified string representation of a number to an equivalent double number
         /// </summary>
         /// <param name="s">Number</param>
@@ -132,27 +147,14 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Check text is number using Regex class
+        /// Converts the specified string representation of a number to an equivalent decimal number
         /// </summary>
         /// <param name="s">Number</param>
         /// <returns></returns>
-        public static bool IsNumberR(this string s)
+        public static decimal ToDecimal(this string s)
         {
-            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
-            return regex.IsMatch(s);
-        }
-
-        /// <summary>
-        /// Check text is number using Char class
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static bool IsNumberC(this string s)
-        {
-            foreach (Char c in s)
-                if (!Char.IsDigit(c))
-                    return false;
-            return true;
+            if (IsNumberC(s)) return Convert.ToDecimal(s);
+            return 0;
         }
         #endregion
     }

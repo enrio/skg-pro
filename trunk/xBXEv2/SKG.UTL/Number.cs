@@ -122,127 +122,63 @@ namespace SKG.UTL
         }
         #endregion
 
+        #region Checks
         /// <summary>
-        /// Convert to int 32bit
+        /// Check number between min & max
         /// </summary>
-        /// <param name="num">String need to convert</param>
-        /// <returns>Number converted</returns>
-        public static int ToInt32(string num)
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(this int n, int min, int max)
         {
-            if (IsNumberR(num)) return Convert.ToInt32(num);
-            return 0;
-        }
-
-        /// <summary>
-        /// Convert to int 64bit
-        /// </summary>
-        /// <param name="num">String need to convert</param>
-        /// <returns>Number converted</returns>
-        public static long ToInt64(string num)
-        {
-            if (IsNumberR(num)) return Convert.ToInt64(num);
-            return 0;
-        }
-
-        /// <summary>
-        /// Convert to decimal
-        /// </summary>
-        /// <param name="num">String need to convert</param>
-        /// <returns>Number converted</returns>
-        public static decimal ToDecimal(string num)
-        {
-            if (IsNumberR(num)) return Convert.ToDecimal(num);
-            return 0;
-        }
-
-        /// <summary>
-        /// Convert to double
-        /// </summary>
-        /// <param name="num">String need to convert</param>
-        /// <returns>Number converted</returns>
-        public static double ToDouble(string num)
-        {
-            if (IsNumberR(num)) return Convert.ToDouble(num);
-            return 0;
-        }
-
-        /// <summary>
-        /// Check text is number using Regex class
-        /// </summary>
-        /// <param name="num">String need to check</param>
-        /// <returns>True if number else false</returns>
-        public static bool IsNumberR(string num)
-        {
-            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
-            return regex.IsMatch(num);
-        }
-
-        /// <summary>
-        /// Check text is number using Char class
-        /// </summary>
-        /// <param name="num">String need to check</param>
-        /// <returns>True if number else false</returns>
-        public static bool IsNumberC(string num)
-        {
-            foreach (Char c in num)
-            {
-                if (!Char.IsDigit(c))
-                    return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Check number bettween min & max
-        /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(int num, int min, int max)
-        {
-            if (num >= min && num <= max) return true;
+            if (n >= min && n <= max) return true;
             return false;
         }
 
         /// <summary>
-        /// Check number bettween min & max
+        /// Check number between min & max
         /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(decimal num, decimal min, decimal max)
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(long n, long min, long max)
         {
-            if (num >= min && num <= max) return true;
+            if (n >= min && n <= max) return true;
             return false;
         }
 
         /// <summary>
-        /// Check number bettween min & max
+        /// Check number between min & max
         /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(double num, double min, double max)
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(double n, double min, double max)
         {
-            if (num >= min && num <= max) return true;
+            if (n >= min && n <= max) return true;
             return false;
         }
 
         /// <summary>
-        /// Check number bettween min & max
+        /// Check number between min & max
         /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(long num, long min, long max)
+        /// <param name="n">Number</param>
+        /// <param name="min">Minimum number</param>
+        /// <param name="max">Maximum number</param>
+        /// <returns></returns>
+        public static bool CheckNumber(decimal n, decimal min, decimal max)
         {
-            if (num >= min && num <= max) return true;
+            if (n >= min && n <= max) return true;
             return false;
         }
+        #endregion
+
+
+
+
 
         /// <summary>
         /// Check number bettween min & max

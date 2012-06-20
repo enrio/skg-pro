@@ -105,10 +105,10 @@ namespace SKG.UTL
         /// Return a copy of this DateTime to start of quarter
         /// </summary>
         /// <param name="d">Date & time</param>
-        /// <param name="q">Quarter</param>
         /// <returns></returns>
-        public static DateTime ToStartOfQuarter(this DateTime d, Quarter q)
+        public static DateTime ToStartOfQuarter(this DateTime d)
         {
+            var q = d.Month.ToQuarter();
             return d.Year.ToStartOfQuarter(q);
         }
 
@@ -134,16 +134,16 @@ namespace SKG.UTL
                 default: // 4th Quarter = October 1 to December 31
                     return new DateTime(y, 12, 31, 23, 59, 59, 999);
             }
-        }
+        }        
 
         /// <summary>
-        /// Return a copy of this DateTime to start of quarter
+        /// Return a copy of this DateTime to end of quarter
         /// </summary>
         /// <param name="d">Date & time</param>
-        /// <param name="q">Quarter</param>
         /// <returns></returns>
-        public static DateTime ToEndOfQuarter(this DateTime d, Quarter q)
+        public static DateTime ToEndOfQuarter(this DateTime d)
         {
+            var q = d.Month.ToQuarter();
             return d.Year.ToEndOfQuarter(q);
         }
 

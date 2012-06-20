@@ -56,8 +56,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d)
         {
-            var a = d.Month.ToQuarter();
-            return d.Year.ToStartOfQuarter(a);
+            return d.Year.ToStartOfQuarter(d.Month);
         }
 
         /// <summary>
@@ -67,8 +66,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d)
         {
-            var a = d.Month.ToQuarter();
-            return d.Year.ToEndOfQuarter(a);
+            return d.Year.ToEndOfQuarter(d.Month);
         }
 
         /// <summary>
@@ -90,7 +88,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfMonth(this DateTime d)
         {
-            return new DateTime(d.Year, d.Month, 1, 0, 0, 0, 0);
+            return d.Year.ToStartOfMonth(d.Month);
         }
 
         /// <summary>
@@ -100,8 +98,17 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfMonth(this DateTime d)
         {
-            var a = DateTime.DaysInMonth(d.Year, d.Month);
-            return new DateTime(d.Year, d.Month, a, 23, 59, 59, 999);
+            return d.Year.ToEndOfMonth(d.Month);
+        }
+
+        /// <summary>
+        /// Return a quarter of this DateTime
+        /// </summary>
+        /// <param name="m">Date & time</param>
+        /// <returns></returns>
+        public static Month ToMonth(this DateTime d)
+        {
+            return (Month)d.Month;
         }
         #endregion
 

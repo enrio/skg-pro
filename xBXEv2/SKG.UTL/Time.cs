@@ -196,9 +196,9 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToStartOfMonth(this int y, Month m)
+        public static DateTime ToStartOfMonth(this int y, int m)
         {
-            return new DateTime(y, (int)m, 1, 0, 0, 0, 0);
+            return new DateTime(y, m, 1, 0, 0, 0, 0);
         }
 
         /// <summary>
@@ -208,8 +208,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfMonth(this DateTime d)
         {
-            var m = (Month)d.Month;
-            return d.Year.ToStartOfMonth(m);
+            return d.Year.ToStartOfMonth(d.Month);
         }
 
         /// <summary>
@@ -218,11 +217,10 @@ namespace SKG.UTL
         /// <param name="y">Year</param>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToEndOfMonth(this int y, Month m)
+        public static DateTime ToEndOfMonth(this int y, int m)
         {
-            var a = (int)m;
-            var d = DateTime.DaysInMonth(y, a);
-            return new DateTime(y, a, d, 23, 59, 59, 999);
+            var d = DateTime.DaysInMonth(y, m);
+            return new DateTime(y, m, d, 23, 59, 59, 999);
         }
 
         /// <summary>
@@ -232,8 +230,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfMonth(this DateTime d)
         {
-            var m = (Month)d.Month;
-            return d.Year.ToEndOfMonth(m);
+            return d.Year.ToEndOfMonth(d.Month);
         }
         #endregion
 

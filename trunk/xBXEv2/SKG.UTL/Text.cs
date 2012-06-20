@@ -87,24 +87,44 @@ namespace SKG.UTL
         #endregion
 
         #region Convert
+        /// <summary>
+        /// Converts the specified string representation of a number to an equivalent 32-bit signed integer
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
         public static int ToInt32(this string s)
         {
             if (IsNumberC(s)) return Convert.ToInt32(s);
             return 0;
         }
 
+        /// <summary>
+        /// Converts the specified string representation of a number to an equivalent 64-bit signed integer
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
         public static long ToInt64(this string s)
         {
             if (IsNumberC(s)) return Convert.ToInt64(s);
             return 0;
         }
 
+        /// <summary>
+        /// Converts the specified string representation of a number to an equivalent decimal number
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
         public static decimal ToDecimal(this string s)
         {
             if (IsNumberC(s)) return Convert.ToDecimal(s);
             return 0;
         }
 
+        /// <summary>
+        /// Converts the specified string representation of a number to an equivalent double number
+        /// </summary>
+        /// <param name="s">Number</param>
+        /// <returns></returns>
         public static double ToDouble(this string s)
         {
             if (IsNumberC(s)) return Convert.ToDouble(s);

@@ -56,7 +56,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d)
         {
-            return d.Year.ToStartOfQuarter(d.Month);
+            return d.Year.ToStartOfQuarter(d.Month.ToQuarter());
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d)
         {
-            return d.Year.ToEndOfQuarter(d.Month);
+            return d.Year.ToEndOfQuarter(d.Month.ToQuarter());
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static Quarter ToQuarter(this DateTime d)
         {
-            return d.Month.ToQuarter();
+            return (Quarter)d.Month.ToQuarter();
         }
         #endregion
 

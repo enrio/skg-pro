@@ -13,9 +13,9 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this string between two strings
         /// </summary>
-        /// <param name="s"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
+        /// <param name="s">String</param>
+        /// <param name="start">String start</param>
+        /// <param name="end">String end</param>
         /// <returns></returns>
         public static string ToBetween(this string s, string start, string end)
         {
@@ -31,9 +31,9 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this string between two chars
         /// </summary>
-        /// <param name="s"></param>
-        /// <param name="start"></param>
-        /// <param name="end"></param>
+        /// <param name="s">String</param>
+        /// <param name="start">Char start</param>
+        /// <param name="end">Char end</param>
         /// <returns></returns>
         public static string ToBetween(this string s, char start, char end)
         {
@@ -49,7 +49,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this string with first letter converted to uppercase
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="s">String</param>
         /// <returns></returns>
         public static string ToUpperFirst(this string s)
         {
@@ -64,7 +64,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this string with first letter of each word converted to uppercase
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="s">String</param>
         /// <returns></returns>
         public static string ToUpperWords(this string s)
         {

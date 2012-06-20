@@ -249,11 +249,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfDay(this DateTime d)
         {
-            try
-            {
-                return new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, 0);
-            }
-            catch (Exception x) { throw new Exception(x.Message, x); }
+            return new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, 0);
         }
 
         /// <summary>
@@ -263,11 +259,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfDay(this DateTime d)
         {
-            try
-            {
-                return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
-            }
-            catch (Exception x) { throw new Exception(x.Message, x); }
+            return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
         }
         #endregion
     }

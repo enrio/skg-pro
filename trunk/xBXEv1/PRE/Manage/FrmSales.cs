@@ -39,32 +39,26 @@ namespace PRE.Manage
 
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var tmp = cbeQuater.Text.Trim();
+            var a = cbeQuater.SelectedIndex + 1;
+            var b = BasePRE._sss.Current.Value.Year;
 
-            if (tmp != "")
-            {
-                var y = BasePRE._sss.Current.Value.Year;
-                var m = tmp.ToInt32();
+            dteFrom.DateTime = b.ToStartOfQuarter(a);
+            dteTo.DateTime = b.ToEndOfQuarter(a);
 
-                dteFrom.DateTime = y.ToStartOfQuarter(m);
-                dteTo.DateTime = y.ToEndOfQuarter(m);
-            }
+            LoadData();
         }
 
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var tmp = cbeMonth.Text.Trim();
+            var a = cbeMonth.SelectedIndex + 1;
+            var b = BasePRE._sss.Current.Value.Year;
+            var c = b.ToStartOfMonth(a);
 
-            if (tmp != "")
-            {
-                var y = BasePRE._sss.Current.Value.Year;
-                var m = tmp.ToInt32();
-                var a = y.ToStartOfMonth(m);
+            cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
+            dteFrom.DateTime = c;
+            dteTo.DateTime = b.ToEndOfMonth(a);
 
-                cbeQuater.SelectedIndex = (int)a.ToQuarter() - 1;
-                dteFrom.DateTime = a;
-                dteTo.DateTime = y.ToEndOfMonth(m);
-            }
+            LoadData();
         }
 
         /// <summary>
@@ -72,10 +66,9 @@ namespace PRE.Manage
         /// </summary>
         protected override void PerformPrint()
         {
-            LoadData();
-
             var rpt = new Report.Rpt_Sumary2() { DataSource = _dtb };
-            rpt.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}", _fr.ToString("dd/MM/yyyy"), _to.ToString("dd/MM/yyyy"));
+            rpt.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
+                dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var d = BasePRE._sss.Current.Value;
@@ -93,12 +86,9 @@ namespace PRE.Manage
         }
 
         decimal _sum;
-        DateTime _fr, _to;
         protected override void LoadData()
         {
-            _fr = dteFrom.DateTime.ToStartOfDay();
-            _to = dteTo.DateTime.ToEndOfDay();
-            _dtb = _bll.Tra_Detail.Sumary(out _sum, _fr, _to);
+            _dtb = _bll.Tra_Detail.Sumary(out _sum, dteFrom.DateTime, dteTo.DateTime);
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT
@@ -109,6 +99,10 @@ namespace PRE.Manage
 
         protected override void PerformRefresh()
         {
+            var d = BasePRE._sss.Current.Value;
+            dteFrom.DateTime = d.ToStartOfDay();
+            dteTo.DateTime = d.ToEndOfDay();
+
             LoadData();
 
             base.PerformRefresh();

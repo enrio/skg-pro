@@ -411,23 +411,23 @@ namespace BLL
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("B");
-            o = new Tra_Kind() { Code = "G", Tra_GroupId = a.Id, Name = "Số ghế < 16", Descript = "", Price1 = 0, Price2 = 20000, Order = 6 };
+            o = new Tra_Kind() { Code = "G", Tra_GroupId = a.Id, Name = "Số ghế < 16", Descript = "", Price1 = 20000, Price2 = 20000, Order = 6 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "H", Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Descript = "", Price1 = 0, Price2 = 25000, Order = 7 };
+            o = new Tra_Kind() { Code = "H", Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Descript = "", Price1 = 25000, Price2 = 25000, Order = 7 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "I", Tra_GroupId = a.Id, Name = "Số ghế > 40", Descript = "", Price1 = 0, Price2 = 30000, Order = 8 };
+            o = new Tra_Kind() { Code = "I", Tra_GroupId = a.Id, Name = "Số ghế > 40", Descript = "", Price1 = 30000, Price2 = 30000, Order = 8 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("C");
-            o = new Tra_Kind() { Code = "J", Tra_GroupId = a.Id, Name = "Taxi vãng lai", Descript = "", Price1 = 0, Price2 = 8000, Order = 9 };
+            o = new Tra_Kind() { Code = "J", Tra_GroupId = a.Id, Name = "Taxi vãng lai", Descript = "", Price1 = 8000, Price2 = 8000, Order = 9 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("D");
-            o = new Tra_Kind() { Code = "K", Tra_GroupId = a.Id, Name = "Xe ba bánh", Descript = "", Price1 = 0, Price2 = 5000, Order = 10 };
+            o = new Tra_Kind() { Code = "K", Tra_GroupId = a.Id, Name = "Xe ba bánh", Descript = "", Price1 = 5000, Price2 = 5000, Order = 10 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("E");
-            o = new Tra_Kind() { Code = "L", Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Price1 = 0, Price2 = 2030, Order = 11 };
+            o = new Tra_Kind() { Code = "L", Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2030, Order = 11 };
             Tra_Kind.Insert(o);
         }
 
@@ -507,7 +507,7 @@ namespace BLL
 
             var d = Tra_Vehicle.GetDate();
             var ui = (Pol_User)Pol_User.Select("nvt");
-            var uo = (Pol_User)Pol_User.Select("admin");
+            var uo = (Pol_User)Pol_User.Select("ntt");
 
             var kj = (Tra_Kind)Tra_Kind.Select("J");
             var kk = (Tra_Kind)Tra_Kind.Select("K");
@@ -520,7 +520,7 @@ namespace BLL
                 var a = new Random();
                 var b = -a.Next();
                 var x = (Guid)r["Tra_KindId"];
-                var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 36;
+                var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 49;
 
                 var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);

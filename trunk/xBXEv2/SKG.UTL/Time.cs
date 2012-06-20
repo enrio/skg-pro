@@ -84,9 +84,9 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d)
         {
-            var q = d.Month.ToQuarter();
-            return d.Year.ToStartOfQuarter(q);
-        }       
+            var a = d.Month.ToQuarter();
+            return d.Year.ToStartOfQuarter(a);
+        }
 
         /// <summary>
         /// Return a copy of this DateTime to end of quarter
@@ -95,21 +95,8 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d)
         {
-            var q = d.Month.ToQuarter();
-            return d.Year.ToEndOfQuarter(q);
-        }
-
-        /// <summary>
-        /// Return a quarter of this Month
-        /// </summary>
-        /// <param name="m">Month</param>
-        /// <returns></returns>
-        public static Quarter ToQuarter(this int m)
-        {
-            if (m <= 3) return Quarter.First; // 1st Quarter = January 1 to March 31
-            else if ((m >= 4) && (m <= 6)) return Quarter.Second; // 2nd Quarter = April 1 to June 30
-            else if ((m >= 7) && (m <= 9)) return Quarter.Third; // 3rd Quarter = July 1 to September 30
-            else return Quarter.Fourth; // 4th Quarter = October 1 to December 31
+            var a = d.Month.ToQuarter();
+            return d.Year.ToEndOfQuarter(a);
         }
 
         /// <summary>

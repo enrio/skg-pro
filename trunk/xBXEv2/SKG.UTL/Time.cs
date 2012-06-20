@@ -77,7 +77,7 @@ namespace SKG.UTL
         #endregion
 
         #region Quarters
-        public static DateTime GetStartOfQuarter(int y, Quarter q)
+        public static DateTime ToStartOfQuarter(this int y, Quarter q)
         {
             switch (q)
             {
@@ -95,7 +95,12 @@ namespace SKG.UTL
             }
         }
 
-        public static DateTime GetEndOfQuarter(int y, Quarter q)
+        public static DateTime ToStartOfQuarter(this DateTime d, Quarter q)
+        {
+            return d.Year.ToStartOfQuarter(q);
+        }
+
+        public static DateTime ToEndOfQuarter(this int y, Quarter q)
         {
             switch (q)
             {
@@ -111,6 +116,11 @@ namespace SKG.UTL
                 default: // 4th Quarter = October 1 to December 31
                     return new DateTime(y, 12, 31, 23, 59, 59, 999);
             }
+        }
+
+        public static DateTime ToEndOfQuarter(this DateTime d, Quarter q)
+        {
+            return d.Year.ToEndOfQuarter(q);
         }
 
         public static Quarter GetQuarter(Month month)

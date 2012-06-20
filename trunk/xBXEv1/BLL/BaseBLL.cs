@@ -509,13 +509,18 @@ namespace BLL
             var ui = (Pol_User)Pol_User.Select("nvt");
             var uo = (Pol_User)Pol_User.Select("admin");
 
+            var kj = (Tra_Kind)Tra_Kind.Select("J");
+            var kk = (Tra_Kind)Tra_Kind.Select("K");
+            var kl = (Tra_Kind)Tra_Kind.Select("L");
+
             foreach (DataRow r in tbl.Rows)
             {
                 var id = (Guid)r["Id"];
 
                 var a = new Random();
                 var b = -a.Next();
-                var c = b % 36;
+                var x = (Guid)r["Tra_KindId"];
+                var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 36;
 
                 var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);

@@ -183,7 +183,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(80, 20);
             this.dteTo.TabIndex = 3;
-            this.dteTo.EditValueChanged += new System.EventHandler(this.dteTo_EditValueChanged);
+            
             // 
             // lblTo
             // 
@@ -206,7 +206,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(80, 20);
             this.dteFrom.TabIndex = 2;
-            this.dteFrom.EditValueChanged += new System.EventHandler(this.dteFrom_EditValueChanged);
+            
             // 
             // lblFrom
             // 

@@ -364,11 +364,11 @@ namespace DAL
 
                     case "C":
                     case "D":
-                        money = (day * 24 + hour) * price2;
+                        money = (dayL + dayF) * price2;
                         break;
 
                     case "E":
-                        money = (day * 24 + hour) * price2 * chair;
+                        money = (dayL + dayF) * price2 * chair;
                         break;
 
                     default:

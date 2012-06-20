@@ -363,7 +363,7 @@ namespace SKG.UTL
             else res = Num2Vi(strTemp);
             var x = res.ToUpperInvariant();
 
-            return Text.UppercaseFirst(res + " " + curency);
+            return Text.ToUpperFirst(res + " " + curency);
         }
 
         /// <summary>

@@ -28,43 +28,51 @@ namespace SKG.UTL
 
         #region Years
         /// <summary>
-        /// Get start of year
+        /// Return a copy of this integer to start of year
         /// </summary>
-        /// <param name="year">Year</param>
-        /// <returns>DateTime's start of year</returns>
-        public static DateTime GetStartOfYear(int year)
+        /// <param name="y">Year</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfYear(this int y)
         {
-            return new DateTime(year, 1, 1, 0, 0, 0, 0);
-        }
-
-        /// <summary>
-        /// Get end of year
-        /// </summary>
-        /// <param name="year">Year</param>
-        /// <returns>DateTime's end of year</returns>
-        public static DateTime GetEndOfYear(int year)
-        {
-            return new DateTime(year, 12, 31, 23, 59, 59, 999);
+            try
+            {
+                return new DateTime(y, 1, 1, 0, 0, 0, 0);
+            }
+            catch { return DateTime.Now.ToStartOfYear(); }
         }
 
         /// <summary>
         /// Return a copy of this DateTime to start of year
         /// </summary>
-        /// <param name="d">DateTime</param>
+        /// <param name="d">Date & time</param>
         /// <returns></returns>
         public static DateTime ToStartOfYear(this DateTime d)
         {
-            return new DateTime(d.Year, 1, 1, 0, 0, 0, 0);
+            return d.Year.ToStartOfYear();
+        }
+
+        /// <summary>
+        /// Return a copy of this integer to end of year
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfYear(this int y)
+        {
+            try
+            {
+                return new DateTime(y, 12, 31, 23, 59, 59, 999);
+            }
+            catch { return DateTime.Now.ToEndOfYear(); }
         }
 
         /// <summary>
         /// Return a copy of this DateTime to end of year
         /// </summary>
-        /// <param name="d">DateTime</param>
+        /// <param name="d">Date & time</param>
         /// <returns></returns>
         public static DateTime ToEndOfYear(this DateTime d)
         {
-            return new DateTime(d.Year, 12, 31, 23, 59, 59, 999);
+            return d.Year.ToEndOfYear();
         }
         #endregion
 

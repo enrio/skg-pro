@@ -72,7 +72,7 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Return a quarter of this Month
+        /// Return a quarter of this DateTime
         /// </summary>
         /// <param name="m">Month</param>
         /// <returns></returns>

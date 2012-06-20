@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 
 namespace PRE.Manage
 {
-    using UTL;
     using Main;
     using SKG.UTL;
 
@@ -31,6 +25,12 @@ namespace PRE.Manage
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
+
+            var d = BasePRE._sss.Current.Value;
+            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
+
+            dteFrom.DateTime = d.ToStartOfDay();
+            dteTo.DateTime = d.ToEndOfDay();
         }
 
         #region Events
@@ -53,37 +53,22 @@ namespace PRE.Manage
             dteFrom.DateTime = c;
             dteTo.DateTime = b.ToEndOfMonth(a);
         }
-
-        private void dteFrom_EditValueChanged(object sender, EventArgs e)
-        {
-            //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
-            //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            LoadData();
-        }
-
-        private void dteTo_EditValueChanged(object sender, EventArgs e)
-        {
-            //var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
-            //if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
-            LoadData();
-        }
         #endregion
 
         #region Override
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_Sumary2() { DataSource = _dtb };
-            rpt.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
+            var a = new Report.Rpt_Sumary2() { DataSource = _dtb };
+            a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
                 dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            a.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var d = BasePRE._sss.Current.Value;
-            rpt.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
-            rpt.xrcAccount.Text = BasePRE._sss.User.Name;
+            a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
+            a.xrcAccount.Text = BasePRE._sss.User.Name;
 
-            var frm = new FrmPrint();
-            frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);
-            frm.SetReport(rpt);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(a);
 
             frm.MdiParent = MdiParent;
             frm.Show();
@@ -105,12 +90,6 @@ namespace PRE.Manage
 
         protected override void PerformRefresh()
         {
-            var d = BasePRE._sss.Current.Value;
-            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
-
-            dteFrom.DateTime = d.ToStartOfDay();
-            dteTo.DateTime = d.ToEndOfDay();
-
             LoadData();
 
             base.PerformRefresh();

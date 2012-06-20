@@ -102,6 +102,7 @@ namespace PRE.Manage
             var d = BasePRE._sss.Current.Value;
             dteFrom.DateTime = d.ToStartOfDay();
             dteTo.DateTime = d.ToEndOfDay();
+            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
             LoadData();
 

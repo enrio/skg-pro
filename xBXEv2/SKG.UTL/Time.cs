@@ -5,9 +5,9 @@ using System.Linq;
 namespace SKG.UTL
 {
     /// <summary>
-    /// Perform with date & time
+    /// Date & time processing
     /// </summary>
-    public sealed class Time
+    public static class Time
     {
         #region Enums
         /// <summary>
@@ -45,6 +45,26 @@ namespace SKG.UTL
         public static DateTime GetEndOfYear(int year)
         {
             return new DateTime(year, 12, 31, 23, 59, 59, 999);
+        }
+
+        /// <summary>
+        /// Return a copy of this DateTime to start of year
+        /// </summary>
+        /// <param name="d">DateTime</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfYear(this DateTime d)
+        {
+            return new DateTime(d.Year, 1, 1, 0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Return a copy of this DateTime to end of year
+        /// </summary>
+        /// <param name="d">DateTime</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfYear(this DateTime d)
+        {
+            return new DateTime(d.Year, 12, 31, 23, 59, 59, 999);
         }
         #endregion
 

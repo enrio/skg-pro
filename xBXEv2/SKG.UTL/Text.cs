@@ -5,84 +5,82 @@ using System.Text;
 
 namespace SKG.UTL
 {
-    public sealed class Text
+    /// <summary>
+    /// Text processing
+    /// </summary>
+    public static class Text
     {
         /// <summary>
-        /// Get string between
+        /// Return a copy of this string between two strings
         /// </summary>
-        /// <param name="str">String need to get</param>
-        /// <param name="start">String start</param>
-        /// <param name="end">String end</param>
-        /// <returns>String</returns>
-        public static string GetBetween(string str, string start, string end)
+        /// <param name="s"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public static string ToBetween(this string s, string start, string end)
         {
             try
             {
-                var s = str.IndexOf(start);
-                var e = str.IndexOf(end);
-
-                return str.Substring(s, e - s);
+                var a = s.IndexOf(start);
+                var b = s.IndexOf(end);
+                return s.Substring(a, b - a);
             }
-            catch { return ""; }
+            catch { return String.Empty; }
         }
 
         /// <summary>
-        /// Get string between
+        /// Return a copy of this string between two chars
         /// </summary>
-        /// <param name="str">String need to get</param>
-        /// <param name="start">Char start</param>
-        /// <param name="end">Char end</param>
-        /// <returns>String</returns>
-        public static string GetBetween(string str, char start, char end)
+        /// <param name="s"></param>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        public static string ToBetween(this string s, char start, char end)
         {
             try
             {
-                var s = str.IndexOf(start);
-                var e = str.IndexOf(end);
-
-                return str.Substring(s, e - s);
+                var a = s.IndexOf(start);
+                var b = s.IndexOf(end);
+                return s.Substring(a, b - a);
             }
-            catch { return ""; }
+            catch { return String.Empty; }
         }
 
         /// <summary>
-        /// Uppercase first
+        /// Return a copy of this string with first letter converted to uppercase
         /// </summary>
-        /// <param name="s">String</param>
-        /// <returns>String's uppercase first</returns>
-        public static string UppercaseFirst(string s)
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToUpperFirst(this string s)
         {
-            if (string.IsNullOrEmpty(s)) return string.Empty;
-            return char.ToUpper(s[0]) + s.Substring(1);
+            try
+            {
+                if (String.IsNullOrEmpty(s)) return String.Empty;
+                return Char.ToUpper(s[0]) + s.Substring(1);
+            }
+            catch { return s; }
         }
 
-        static string UppercaseWords(string value)
+        /// <summary>
+        /// Return a copy of this string with first letter of each word converted to uppercase
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static string ToUpperWords(this string s)
         {
-            char[] array = value.ToCharArray();
-
-            // Handle the first letter in the string.
-            if (array.Length >= 1)
+            try
             {
-                if (char.IsLower(array[0]))
-                {
-                    array[0] = char.ToUpper(array[0]);
-                }
+                var arr = s.ToCharArray();
+                if (arr.Length >= 1)
+                    if (Char.IsLower(arr[0]))
+                        arr[0] = Char.ToUpper(arr[0]);
+                for (var i = 1; i < arr.Length; i++)
+                    if (arr[i - 1] == ' ')
+                        if (Char.IsLower(arr[i]))
+                            arr[i] = Char.ToUpper(arr[i]);
+                return new string(arr);
             }
-
-            // Scan through the letters, checking for spaces.
-            // ... Uppercase the lowercase letters following spaces.
-            for (int i = 1; i < array.Length; i++)
-            {
-                if (array[i - 1] == ' ')
-                {
-                    if (char.IsLower(array[i]))
-                    {
-                        array[i] = char.ToUpper(array[i]);
-                    }
-                }
-            }
-
-            return new string(array);
+            catch { return s; }
         }
     }
 }

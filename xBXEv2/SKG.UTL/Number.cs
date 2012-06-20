@@ -95,7 +95,33 @@ namespace SKG.UTL
             else if ((m >= 7) && (m <= 9)) return Time.Quarter.Third; // 3rd Quarter = July 1 to September 30
             else return Time.Quarter.Fourth; // 4th Quarter = October 1 to December 31
         }
-        #endregion        
+        #endregion
+
+        #region Months
+        /// <summary>
+        /// Return a start of Month of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfMonth(this int y, Time.Month m)
+        {
+            return new DateTime(y, (int)m, 1, 0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Return a end of Month of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <param name="m">Month</param>
+        /// <returns></returns>
+        public static DateTime ToEndOfMonth(this int y, Time.Month m)
+        {
+            var a = (int)m;
+            var b = DateTime.DaysInMonth(y, a);
+            return new DateTime(y, a, b, 23, 59, 59, 999);
+        }
+        #endregion
 
         /// <summary>
         /// Convert to int 32bit

@@ -41,8 +41,6 @@ namespace PRE.Manage
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
-
-            LoadData();
         }
 
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,9 +106,10 @@ namespace PRE.Manage
         protected override void PerformRefresh()
         {
             var d = BasePRE._sss.Current.Value;
+            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
+            
             dteFrom.DateTime = d.ToStartOfDay();
             dteTo.DateTime = d.ToEndOfDay();
-            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
             LoadData();
 

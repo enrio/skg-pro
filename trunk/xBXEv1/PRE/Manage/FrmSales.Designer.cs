@@ -37,9 +37,9 @@
             this.cbeMonth = new DevExpress.XtraEditors.ComboBoxEdit();
             this.cbeQuater = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dteTo = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lblTo = new DevExpress.XtraEditors.LabelControl();
             this.dteFrom = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblFrom = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -108,9 +108,9 @@
             this.dockPanel1_Container.Controls.Add(this.cbeMonth);
             this.dockPanel1_Container.Controls.Add(this.cbeQuater);
             this.dockPanel1_Container.Controls.Add(this.dteTo);
-            this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Controls.Add(this.lblTo);
             this.dockPanel1_Container.Controls.Add(this.dteFrom);
-            this.dockPanel1_Container.Controls.Add(this.labelControl1);
+            this.dockPanel1_Container.Controls.Add(this.lblFrom);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 27);
@@ -183,14 +183,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(80, 20);
             this.dteTo.TabIndex = 3;
+            this.dteTo.EditValueChanged += new System.EventHandler(this.dteTo_EditValueChanged);
             // 
-            // labelControl2
+            // lblTo
             // 
-            this.labelControl2.Location = new System.Drawing.Point(334, 6);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(51, 13);
-            this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Đến ngày:";
+            this.lblTo.Location = new System.Drawing.Point(334, 6);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(51, 13);
+            this.lblTo.TabIndex = 3;
+            this.lblTo.Text = "Đến ngày:";
             // 
             // dteFrom
             // 
@@ -205,14 +206,15 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(80, 20);
             this.dteFrom.TabIndex = 2;
+            this.dteFrom.EditValueChanged += new System.EventHandler(this.dteFrom_EditValueChanged);
             // 
-            // labelControl1
+            // lblFrom
             // 
-            this.labelControl1.Location = new System.Drawing.Point(198, 6);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(44, 13);
-            this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "Từ ngày:";
+            this.lblFrom.Location = new System.Drawing.Point(198, 6);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(44, 13);
+            this.lblFrom.TabIndex = 2;
+            this.lblFrom.Text = "Từ ngày:";
             // 
             // dockPanel2
             // 
@@ -437,13 +439,13 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
         private DevExpress.XtraEditors.DateEdit dteFrom;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblFrom;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.ComboBoxEdit cbeMonth;
         private DevExpress.XtraEditors.ComboBoxEdit cbeQuater;
         private DevExpress.XtraEditors.DateEdit dteTo;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl lblTo;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;

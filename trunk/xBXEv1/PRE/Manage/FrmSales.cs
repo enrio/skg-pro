@@ -29,14 +29,11 @@ namespace PRE.Manage
             AllowFind = false;
             AllowPrint = true;
 
-            var d = BasePRE._sss.Current.Value;
-            dteFrom.DateTime = d;
-            dteTo.DateTime = d;
-
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
 
+        #region Events
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
         {
             var a = cbeQuater.SelectedIndex + 1;
@@ -44,8 +41,6 @@ namespace PRE.Manage
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
-
-            LoadData();
         }
 
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,13 +52,24 @@ namespace PRE.Manage
             cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
             dteFrom.DateTime = c;
             dteTo.DateTime = b.ToEndOfMonth(a);
-
-            LoadData();
         }
 
-        /// <summary>
-        /// Perform when click print button
-        /// </summary>
+        private void dteFrom_EditValueChanged(object sender, EventArgs e)
+        {
+            var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
+            if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
+            else LoadData();
+        }
+
+        private void dteTo_EditValueChanged(object sender, EventArgs e)
+        {
+            var a = String.Format("{0} phải nhỏ hơn {1}", lblFrom.Text, lblTo.Text);
+            if (dteFrom.DateTime > dteTo.DateTime) BasePRE.ShowMessage(a, Text);
+            else LoadData();
+        }
+        #endregion
+
+        #region Override
         protected override void PerformPrint()
         {
             var rpt = new Report.Rpt_Sumary2() { DataSource = _dtb };
@@ -108,5 +114,6 @@ namespace PRE.Manage
 
             base.PerformRefresh();
         }
+        #endregion
     }
 }

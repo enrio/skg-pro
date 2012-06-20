@@ -5,7 +5,7 @@ using System.Linq;
 namespace SKG.UTL
 {
     /// <summary>
-    /// Date & time processing
+    /// Date and time processing
     /// </summary>
     public static class Time
     {
@@ -30,7 +30,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to start of year
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToStartOfYear(this DateTime d)
         {
@@ -40,7 +40,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to end of year
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToEndOfYear(this DateTime d)
         {
@@ -52,7 +52,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to start of quarter
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d)
         {
@@ -62,7 +62,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to end of quarter
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d)
         {
@@ -84,7 +84,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to start of month
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToStartOfMonth(this DateTime d)
         {
@@ -94,7 +94,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to end of month
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToEndOfMonth(this DateTime d)
         {
@@ -104,7 +104,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a quarter of this DateTime
         /// </summary>
-        /// <param name="m">Date & time</param>
+        /// <param name="m">Date and time</param>
         /// <returns></returns>
         public static Month ToMonth(this DateTime d)
         {
@@ -116,7 +116,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to start of week
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToStartOfWeek(this DateTime d)
         {
@@ -128,7 +128,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to end of week
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToEndOfWeek(this DateTime d)
         {
@@ -141,7 +141,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to start of day
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToStartOfDay(this DateTime d)
         {
@@ -151,7 +151,7 @@ namespace SKG.UTL
         /// <summary>
         /// Return a copy of this DateTime to end of day
         /// </summary>
-        /// <param name="d">Date & time</param>
+        /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static DateTime ToEndOfDay(this DateTime d)
         {

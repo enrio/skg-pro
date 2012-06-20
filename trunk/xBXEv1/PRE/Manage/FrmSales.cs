@@ -10,6 +10,7 @@ namespace PRE.Manage
 {
     using UTL;
     using Main;
+    using SKG.UTL;
 
     public partial class FrmSales : PRE.Catalog.FrmBase
     {
@@ -42,12 +43,9 @@ namespace PRE.Manage
             cbeMonth.Text = "";
 
             if (tmp != "")
-            {
-                int y = BasePRE._sss.Current.Value.Year;
-                int m = Convert.ToInt32(tmp);
-
-                var fr = TimeDate.GetStartOfQuarter(y, (TimeDate.Quarter)m);
-                var to = TimeDate.GetEndOfQuarter(y, (TimeDate.Quarter)m);
+            {                
+                var fr = BasePRE._sss.Current.Value.ToStartOfQuarter();
+                var to = BasePRE._sss.Current.Value.ToEndOfQuarter();
 
                 dteFrom.EditValue = fr;
                 dteTo.EditValue = to;
@@ -81,7 +79,7 @@ namespace PRE.Manage
 
             var rpt = new Report.Rpt_Sumary2() { DataSource = _dtb };
             rpt.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}", _fr.ToString("dd/MM/yyyy"), _to.ToString("dd/MM/yyyy"));
-            rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var d = BasePRE._sss.Current.Value;
             rpt.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
@@ -101,8 +99,8 @@ namespace PRE.Manage
         DateTime _fr, _to;
         protected override void LoadData()
         {
-            _fr = TimeDate.GetStartOfDay(dteFrom.DateTime);
-            _to = TimeDate.GetEndOfDay(dteTo.DateTime);
+            _fr = dteFrom.DateTime.ToStartOfDay();
+            _to = dteTo.DateTime.ToEndOfDay();
             _dtb = _bll.Tra_Detail.Sumary(out _sum, _fr, _to);
 
             grcMain.DataSource = _dtb;

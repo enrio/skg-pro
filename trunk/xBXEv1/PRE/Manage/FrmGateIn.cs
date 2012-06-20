@@ -5,6 +5,7 @@ namespace PRE.Manage
 {
     using UTL;
     using DAL.Entities;
+    using SKG.UTL;
 
     /// <summary>
     /// Cổng vào
@@ -212,7 +213,7 @@ namespace PRE.Manage
                         {
                             Number = txtNumber.Text,
                             Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            Chair = Number.ToInt32(txtChair.Text),
+                            Chair = txtChair.Text.ToInt32(),
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,

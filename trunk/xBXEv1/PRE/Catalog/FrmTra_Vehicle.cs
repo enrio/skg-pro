@@ -6,6 +6,7 @@ namespace PRE.Catalog
     using UTL;
     using DAL.Entities;
     using System.Windows.Forms;
+    using SKG.UTL;
 
     /// <summary>
     /// Danh sách xe cộ
@@ -157,7 +158,7 @@ namespace PRE.Catalog
                     Id = id,
                     Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
                     Number = txtNumber.Text,
-                    Chair = Number.ToInt32(txtChair.Text),
+                    Chair = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,
                     Birth = dteBirth.DateTime,
                     Address = txtAddress.Text,
@@ -183,7 +184,7 @@ namespace PRE.Catalog
                 {
                     Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
                     Number = txtNumber.Text,
-                    Chair = Number.ToInt32(txtChair.Text),
+                    Chair = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,
                     Birth = dteBirth.DateTime,
                     Address = txtAddress.Text,

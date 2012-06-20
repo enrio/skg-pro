@@ -12,6 +12,7 @@ namespace PRE.Manage
     using DAL.Entities;
     using Main;
     using DevExpress.XtraReports.Parameters;
+    using SKG.UTL;
 
     /// <summary>
     /// Cổng ra
@@ -48,13 +49,13 @@ namespace PRE.Manage
         {
             var rpt = new Report.Rpt_Sumary1();
             var d = BasePRE._sss.Current.Value;
-            var fr = TimeDate.GetStartOfDay(d);
-            var to = TimeDate.GetEndOfDay(d);
+            var fr = d.ToStartOfDay();
+            var to = d.ToEndOfDay();
             decimal _sum;
 
             rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, BasePRE._sss.User.Id);
-            rpt.xrcWatch.Text = TimeDate.GetWatch2(d) + "";
-            rpt.xrcMoney.Text = Number.ChangeNum2VNStr(_sum, "đồng");
+            rpt.xrcWatch.Text = d.ToWatch2()+ "";
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint();
             frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);

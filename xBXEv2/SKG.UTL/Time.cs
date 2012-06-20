@@ -134,7 +134,7 @@ namespace SKG.UTL
                 default: // 4th Quarter = October 1 to December 31
                     return new DateTime(y, 12, 31, 23, 59, 59, 999);
             }
-        }        
+        }
 
         /// <summary>
         /// Return a copy of this DateTime to end of quarter
@@ -249,7 +249,11 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfDay(this DateTime d)
         {
-            return new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, 0);
+            try
+            {
+                return new DateTime(d.Year, d.Month, d.Day, 0, 0, 0, 0);
+            }
+            catch (Exception x) { throw new Exception(x.Message, x); }
         }
 
         /// <summary>
@@ -259,7 +263,11 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfDay(this DateTime d)
         {
-            return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
+            try
+            {
+                return new DateTime(d.Year, d.Month, d.Day, 23, 59, 59, 999);
+            }
+            catch (Exception x) { throw new Exception(x.Message, x); }
         }
         #endregion
     }

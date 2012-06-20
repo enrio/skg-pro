@@ -39,34 +39,31 @@ namespace PRE.Manage
 
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tmp = cbeQuater.Text.Trim();
-            cbeMonth.Text = "";
+            var tmp = cbeQuater.Text.Trim();
 
             if (tmp != "")
-            {                
-                var fr = BasePRE._sss.Current.Value.ToStartOfQuarter();
-                var to = BasePRE._sss.Current.Value.ToEndOfQuarter();
+            {
+                var y = BasePRE._sss.Current.Value.Year;
+                var m = tmp.ToInt32();
 
-                dteFrom.EditValue = fr;
-                dteTo.EditValue = to;
+                dteFrom.DateTime = y.ToStartOfQuarter(m);
+                dteTo.DateTime = y.ToEndOfQuarter(m);
             }
         }
 
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string tmp = cbeMonth.Text.Trim();
-            cbeQuater.Text = "";
+            var tmp = cbeMonth.Text.Trim();
 
             if (tmp != "")
             {
-                int y = BasePRE._sss.Current.Value.Year;
-                int m = Convert.ToInt32(tmp);
+                var y = BasePRE._sss.Current.Value.Year;
+                var m = tmp.ToInt32();
+                var a = y.ToStartOfMonth(m);
 
-                var fr = new DateTime(y, m, 1);
-                var to = new DateTime(y, m, DateTime.DaysInMonth(y, m), 23, 59, 59, 999);
-
-                dteFrom.EditValue = fr;
-                dteTo.EditValue = to;
+                cbeQuater.SelectedIndex = (int)a.ToQuarter() - 1;
+                dteFrom.DateTime = a;
+                dteTo.DateTime = y.ToEndOfMonth(m);
             }
         }
 

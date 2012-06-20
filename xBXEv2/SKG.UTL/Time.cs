@@ -184,16 +184,6 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Return a copy of this DateTime to start of month
-        /// </summary>
-        /// <param name="d">Date & time</param>
-        /// <returns></returns>
-        public static DateTime ToStartOfMonth(this DateTime d)
-        {
-            return d.Year.ToStartOfMonth(d.Month);
-        }
-
-        /// <summary>
         /// Return a end of month of this integer
         /// </summary>
         /// <param name="y">Year</param>
@@ -203,6 +193,16 @@ namespace SKG.UTL
         {
             var d = DateTime.DaysInMonth(y, m);
             return new DateTime(y, m, d, 23, 59, 59, 999);
+        }
+
+        /// <summary>
+        /// Return a copy of this DateTime to start of month
+        /// </summary>
+        /// <param name="d">Date & time</param>
+        /// <returns></returns>
+        public static DateTime ToStartOfMonth(this DateTime d)
+        {
+            return d.Year.ToStartOfMonth(d.Month);
         }
 
         /// <summary>

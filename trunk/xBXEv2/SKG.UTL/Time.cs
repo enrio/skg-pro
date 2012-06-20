@@ -28,7 +28,7 @@ namespace SKG.UTL
 
         #region Years
         /// <summary>
-        /// Return a copy of this integer to start of year
+        /// Return a start of year of this integer
         /// </summary>
         /// <param name="y">Year</param>
         /// <returns></returns>
@@ -52,7 +52,7 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Return a copy of this integer to end of year
+        /// Return a end of year of this integer
         /// </summary>
         /// <param name="y">Year</param>
         /// <returns></returns>
@@ -77,6 +77,12 @@ namespace SKG.UTL
         #endregion
 
         #region Quarters
+        /// <summary>
+        /// Return a start of quarter of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <param name="q">Quarter</param>
+        /// <returns></returns>
         public static DateTime ToStartOfQuarter(this int y, Quarter q)
         {
             switch (q)
@@ -95,11 +101,23 @@ namespace SKG.UTL
             }
         }
 
+        /// <summary>
+        /// Return a copy of this DateTime to start of quarter
+        /// </summary>
+        /// <param name="d">Date & time</param>
+        /// <param name="q">Quarter</param>
+        /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d, Quarter q)
         {
             return d.Year.ToStartOfQuarter(q);
         }
 
+        /// <summary>
+        /// Return a end of quarter of this integer
+        /// </summary>
+        /// <param name="y">Year</param>
+        /// <param name="q">Quarter</param>
+        /// <returns></returns>
         public static DateTime ToEndOfQuarter(this int y, Quarter q)
         {
             switch (q)
@@ -118,6 +136,12 @@ namespace SKG.UTL
             }
         }
 
+        /// <summary>
+        /// Return a copy of this DateTime to start of quarter
+        /// </summary>
+        /// <param name="d">Date & time</param>
+        /// <param name="q">Quarter</param>
+        /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d, Quarter q)
         {
             return d.Year.ToEndOfQuarter(q);

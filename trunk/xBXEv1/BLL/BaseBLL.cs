@@ -338,7 +338,7 @@ namespace BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_UserRole");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
             Pol_RoleRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmTra_Group");
@@ -352,7 +352,7 @@ namespace BLL
             Pol_RoleRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmGateIn");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmGateOut");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
@@ -522,7 +522,11 @@ namespace BLL
             {
                 var id = (Guid)r["Id"];
 
-                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddDays(-1) };
+                var a = new Random();
+                var b = -a.Next();
+                var c = b % 30;
+
+                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddDays(c) };
                 Tra_Detail.Insert(o);
 
                 decimal money = 0;

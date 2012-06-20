@@ -110,6 +110,26 @@ namespace SKG.UTL
                     return false;
             return true;
         }
+
+        public static bool CheckNumber(string num, int min, int max)
+        {           
+           return num.ToInt32().CheckNumber(min, max);           
+        }
+
+        public static bool CheckNumber(string num, long min, long max)
+        {
+            return num.ToInt64().CheckNumber(min, max);
+        }
+
+        public static bool CheckNumber(string num, double min, double max)
+        {
+            return num.ToDouble().CheckNumber(min, max);
+        }
+
+        public static bool CheckNumber(string num, decimal min, decimal max)
+        {
+            return num.ToDecimal().CheckNumber(min, max);
+        }
         #endregion
 
         #region Converts

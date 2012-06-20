@@ -143,7 +143,7 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(long n, long min, long max)
+        public static bool CheckNumber(this long n, long min, long max)
         {
             if (n >= min && n <= max) return true;
             return false;
@@ -156,7 +156,7 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(double n, double min, double max)
+        public static bool CheckNumber(this double n, double min, double max)
         {
             if (n >= min && n <= max) return true;
             return false;
@@ -169,90 +169,12 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(decimal n, decimal min, decimal max)
+        public static bool CheckNumber(this decimal n, decimal min, decimal max)
         {
             if (n >= min && n <= max) return true;
             return false;
         }
         #endregion
-
-
-
-
-
-        /// <summary>
-        /// Check number bettween min & max
-        /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(string num, int min, int max)
-        {
-            if (num.Trim() == "") num = "0";
-
-            var oki = false;
-            int sfi;
-
-            if (Int32.TryParse(num, out sfi)) oki = CheckNumber(sfi, min, max);
-            else oki = false;
-
-            return oki;
-        }
-
-        /// <summary>
-        /// Check number bettween min & max
-        /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(string num, decimal min, decimal max)
-        {
-            var oki = false;
-            decimal sfi;
-
-            if (Decimal.TryParse(num, out sfi)) oki = CheckNumber(sfi, min, max);
-            else oki = false;
-
-            return oki;
-        }
-
-        /// <summary>
-        /// Check number bettween min & max
-        /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(string num, double min, double max)
-        {
-            var oki = false;
-            double sfi;
-
-            if (Double.TryParse(num, out sfi)) oki = CheckNumber(sfi, min, max);
-            else oki = false;
-
-            return oki;
-        }
-
-        /// <summary>
-        /// Check number bettween min & max
-        /// </summary>
-        /// <param name="num">number need to check</param>
-        /// <param name="min">ower limited</param>
-        /// <param name="max">upper limited</param>
-        /// <returns>is true if number bettween min & max else false</returns>
-        public static bool CheckNumber(string num, long min, long max)
-        {
-            var oki = false;
-            long sfi;
-
-            if (Int64.TryParse(num, out sfi)) oki = CheckNumber(sfi, min, max);
-            else oki = false;
-
-            return oki;
-        }
 
         /// <summary>
         /// Convert number to Vietnamese string

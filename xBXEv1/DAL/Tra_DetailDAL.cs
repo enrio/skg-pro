@@ -363,16 +363,12 @@ namespace DAL
                         break;
 
                     case "C":
-                        money = price2;
-                        break;
-
                     case "D":
-                        money = price2;
+                        money = (day * 24 + hour) * price2;
                         break;
 
                     case "E":
-                        if (day == 0) money = price2 * chair;
-                        else money = (day * 60 + hour) * price2 * chair;
+                        money = (day * 24 + hour) * price2 * chair;
                         break;
 
                     default:

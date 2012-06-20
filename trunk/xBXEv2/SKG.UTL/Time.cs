@@ -243,7 +243,7 @@ namespace SKG.UTL
 
         #region Days
         /// <summary>
-        /// Return a copy of this DateTime to start of week
+        /// Return a copy of this DateTime to start of day
         /// </summary>
         /// <param name="d">Date & time</param>
         /// <returns></returns>
@@ -253,7 +253,7 @@ namespace SKG.UTL
         }
 
         /// <summary>
-        /// Return a copy of this DateTime to end of week
+        /// Return a copy of this DateTime to end of day
         /// </summary>
         /// <param name="d">Date & time</param>
         /// <returns></returns>

@@ -27,6 +27,14 @@ namespace SKG.PRE
 
             var w1 = d.ToStartOfWeek();
             var v2 = d.ToEndOfWeek();
+
+            var n1 = 100;
+            var n2 = 100L;
+            var n3 = 100D;
+
+            var t = n1.ToVietnamese("đồng");
+            t = n2.ToVietnamese("đồng");
+            t = n3.ToVietnamese("đồng");
         }
     }
 }

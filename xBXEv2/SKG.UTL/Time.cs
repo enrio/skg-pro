@@ -205,10 +205,10 @@ namespace SKG.UTL
         /// Return a copy of this DateTime to start of month
         /// </summary>
         /// <param name="d">Date & time</param>
-        /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToStartOfMonth(this DateTime d, Month m)
+        public static DateTime ToStartOfMonth(this DateTime d)
         {
+            var m = (Month)d.Month;
             return d.Year.ToStartOfMonth(m);
         }
 
@@ -229,10 +229,10 @@ namespace SKG.UTL
         /// Return a copy of this DateTime to end of month
         /// </summary>
         /// <param name="d">Date & time</param>
-        /// <param name="m">Month</param>
         /// <returns></returns>
-        public static DateTime ToEndOfMonth(this DateTime d, Month m)
+        public static DateTime ToEndOfMonth(this DateTime d)
         {
+            var m = (Month)d.Month;
             return d.Year.ToEndOfMonth(m);
         }
         #endregion

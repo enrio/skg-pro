@@ -164,6 +164,7 @@ namespace SKG.UTL
         }
         #endregion
 
+        #region Ages
         /// <summary>
         /// Calculate age
         /// </summary>
@@ -176,5 +177,19 @@ namespace SKG.UTL
             if (now.Month < d.Month || (now.Month == d.Month && now.Day < d.Day)) years--;
             return years;
         }
+
+        /// <summary>
+        /// Return a copy of this DateTime to enough age
+        /// </summary>
+        /// <param name="d">Birthday</param>
+        /// <param name="age">Age</param>
+        /// <returns></returns>
+        public static DateTime ToBirth(this DateTime d, int age)
+        {
+            if (d.Year - age < 1) return new DateTime();
+            return new DateTime(d.Year - age, d.Month, d.Day,
+                d.Hour, d.Minute, d.Second, d.Millisecond);
+        }
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace PRE.Manage
 {
@@ -15,11 +16,22 @@ namespace PRE.Manage
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
+            AllowAdd = false;
+            AllowEdit = false;
+            AllowDelete = false;
+            AllowSave = false;
+            AllowCancel = false;
+            AllowPrint = false;
+
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
 
         #region Events
+        private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) PerformFind();
+        }
         #endregion
 
         #region Override
@@ -43,6 +55,11 @@ namespace PRE.Manage
             LoadData();
 
             base.PerformRefresh();
+        }
+
+        protected override void PerformFind()
+        {
+            base.PerformFind();
         }
         #endregion
     }

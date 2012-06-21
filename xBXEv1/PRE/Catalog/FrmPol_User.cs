@@ -97,12 +97,15 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            txtName.Text = null; txtName.Properties.NullText = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtName.Text = null;
             txtAcc.Text = null;
             txtPass.Text = null;
             dteBirth.EditValue = null;
             txtAddress.Text = null;
             txtPhone.Text = null;
+
+            txtName.Properties.NullText = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtAcc.Properties.NullText = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
 
             base.ResetText();
         }

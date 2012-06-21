@@ -104,8 +104,8 @@ namespace PRE.Catalog
             txtAddress.Text = null;
             txtPhone.Text = null;
 
-            txtName.Properties.NullText = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
-            txtAcc.Properties.NullText = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
+            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtAcc.Properties.NullValuePrompt = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
 
             base.ResetText();
         }

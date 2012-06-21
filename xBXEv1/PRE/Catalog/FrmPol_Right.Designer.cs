@@ -32,6 +32,12 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
+            this.lblCode = new DevExpress.XtraEditors.LabelControl();
+            this.txtName = new DevExpress.XtraEditors.TextEdit();
+            this.lblName = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -41,23 +47,17 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtCode = new DevExpress.XtraEditors.TextEdit();
-            this.lblAcc = new DevExpress.XtraEditors.LabelControl();
-            this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.lblName = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -89,13 +89,58 @@
             this.dockPanel1_Container.Controls.Add(this.txtDescript);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Controls.Add(this.txtCode);
-            this.dockPanel1_Container.Controls.Add(this.lblAcc);
+            this.dockPanel1_Container.Controls.Add(this.lblCode);
             this.dockPanel1_Container.Controls.Add(this.txtName);
             this.dockPanel1_Container.Controls.Add(this.lblName);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 93);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtDescript
+            // 
+            this.txtDescript.Location = new System.Drawing.Point(95, 64);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Size = new System.Drawing.Size(268, 20);
+            this.txtDescript.TabIndex = 2;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(9, 67);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(31, 13);
+            this.labelControl3.TabIndex = 37;
+            this.labelControl3.Text = "Mô tả:";
+            // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(95, 9);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(268, 20);
+            this.txtCode.TabIndex = 0;
+            // 
+            // lblCode
+            // 
+            this.lblCode.Location = new System.Drawing.Point(9, 12);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(76, 13);
+            this.lblCode.TabIndex = 34;
+            this.lblCode.Text = "Mã form, menu:";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(94, 35);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(268, 20);
+            this.txtName.TabIndex = 1;
+            // 
+            // lblName
+            // 
+            this.lblName.Location = new System.Drawing.Point(8, 38);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(80, 13);
+            this.lblName.TabIndex = 33;
+            this.lblName.Text = "Tên form, menu:";
             // 
             // dockPanel2
             // 
@@ -177,51 +222,6 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
             // 
-            // txtDescript
-            // 
-            this.txtDescript.Location = new System.Drawing.Point(95, 64);
-            this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Size = new System.Drawing.Size(268, 20);
-            this.txtDescript.TabIndex = 2;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Location = new System.Drawing.Point(9, 67);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(31, 13);
-            this.labelControl3.TabIndex = 37;
-            this.labelControl3.Text = "Mô tả:";
-            // 
-            // txtCode
-            // 
-            this.txtCode.Location = new System.Drawing.Point(95, 9);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(268, 20);
-            this.txtCode.TabIndex = 0;
-            // 
-            // lblAcc
-            // 
-            this.lblAcc.Location = new System.Drawing.Point(9, 12);
-            this.lblAcc.Name = "lblAcc";
-            this.lblAcc.Size = new System.Drawing.Size(76, 13);
-            this.lblAcc.TabIndex = 34;
-            this.lblAcc.Text = "Mã form, menu:";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(94, 35);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 20);
-            this.txtName.TabIndex = 1;
-            // 
-            // lblName
-            // 
-            this.lblName.Location = new System.Drawing.Point(8, 38);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(80, 13);
-            this.lblName.TabIndex = 33;
-            this.lblName.Text = "Tên form, menu:";
-            // 
             // FrmPol_Right
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,13 +237,13 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,7 +265,7 @@
         private DevExpress.XtraEditors.TextEdit txtDescript;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtCode;
-        private DevExpress.XtraEditors.LabelControl lblAcc;
+        private DevExpress.XtraEditors.LabelControl lblCode;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblName;
     }

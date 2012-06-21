@@ -20,7 +20,6 @@ namespace PRE.Catalog
         private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Nhóm này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
 
         public FrmPol_Role()
         {
@@ -34,6 +33,13 @@ namespace PRE.Catalog
         }
 
         #region Override
+        protected override void SetNullPrompt()
+        {
+            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+
+            base.SetNullPrompt();
+        }
+
         protected override void PerformDelete()
         {
             var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
@@ -182,7 +188,10 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            return base.ValidInput();
+            var a = txtName.Text.Length == 0 ? false : true;
+            if (!a) txtName.Focus();
+
+            return a;
         }
         #endregion
     }

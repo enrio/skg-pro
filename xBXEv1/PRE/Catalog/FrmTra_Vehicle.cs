@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
-    using UTL;
     using DAL.Entities;
     using System.Windows.Forms;
     using SKG.UTL;
@@ -21,7 +20,6 @@ namespace PRE.Catalog
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Xe này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
 
         public FrmTra_Vehicle()
         {
@@ -35,6 +33,13 @@ namespace PRE.Catalog
         }
 
         #region Override
+        protected override void SetNullPrompt()
+        {
+            txtNumber.Properties.NullValuePrompt = String.Format("Nhập {0}", lblNumber.Text.ToBetween(null, ":", Format.Lower));
+
+            base.SetNullPrompt();
+        }
+
         protected override void PerformDelete()
         {
             var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
@@ -215,7 +220,10 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            return base.ValidInput();
+            var a = txtNumber.Text.Length == 0 ? false : true;
+            if (!a) txtNumber.Focus();
+
+            return a;
         }
         #endregion
 

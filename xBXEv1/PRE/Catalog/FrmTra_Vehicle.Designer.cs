@@ -37,7 +37,7 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.lokKind = new DevExpress.XtraEditors.LookUpEdit();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
-            this.lblName = new DevExpress.XtraEditors.LabelControl();
+            this.lblNumber = new DevExpress.XtraEditors.LabelControl();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtChair = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -112,7 +112,7 @@
             this.dockPanel1_Container.Controls.Add(this.labelControl11);
             this.dockPanel1_Container.Controls.Add(this.lokKind);
             this.dockPanel1_Container.Controls.Add(this.txtPhone);
-            this.dockPanel1_Container.Controls.Add(this.lblName);
+            this.dockPanel1_Container.Controls.Add(this.lblNumber);
             this.dockPanel1_Container.Controls.Add(this.labelControl10);
             this.dockPanel1_Container.Controls.Add(this.txtChair);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
@@ -175,13 +175,13 @@
             this.txtPhone.Size = new System.Drawing.Size(102, 20);
             this.txtPhone.TabIndex = 29;
             // 
-            // lblName
+            // lblNumber
             // 
-            this.lblName.Location = new System.Drawing.Point(10, 46);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 58;
-            this.lblName.Text = "Biển số:";
+            this.lblNumber.Location = new System.Drawing.Point(10, 46);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(38, 13);
+            this.lblNumber.TabIndex = 58;
+            this.lblNumber.Text = "Biển số:";
             // 
             // labelControl10
             // 
@@ -443,7 +443,7 @@
         private DevExpress.XtraEditors.TextEdit txtDescript;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit txtPhone;
-        private DevExpress.XtraEditors.LabelControl lblName;
+        private DevExpress.XtraEditors.LabelControl lblNumber;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.TextEdit txtChair;
         private DevExpress.XtraEditors.LabelControl labelControl3;

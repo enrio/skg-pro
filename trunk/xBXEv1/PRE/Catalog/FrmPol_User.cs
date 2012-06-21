@@ -5,6 +5,7 @@ namespace PRE.Catalog
 {
     using DAL.Entities;
     using System.Windows.Forms;
+    using SKG.UTL;
 
     /// <summary>
     /// Danh sách người dùng
@@ -96,7 +97,7 @@ namespace PRE.Catalog
 
         protected override void ResetText()
         {
-            txtName.Text = null;
+            txtName.Text = null; txtName.Properties.NullText = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":"));
             txtAcc.Text = null;
             txtPass.Text = null;
             dteBirth.EditValue = null;

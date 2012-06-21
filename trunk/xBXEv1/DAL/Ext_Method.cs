@@ -5,6 +5,8 @@ using System.Linq;
 namespace DAL
 {
     using System.Data;
+    using UTL;
+    using SKG.UTL;
 
     /// <summary>
     /// Extend methods
@@ -19,10 +21,11 @@ namespace DAL
         /// <param name="numbered">Numbered if true else not numbered</param>
         /// <param name="tableName">Table name</param>
         /// <returns>Data</returns>
-        public static DataTable ToDataTable<T>(this IEnumerable<T> data, bool numbered = true, string tableName = "Tmp")
+        public static DataTable ToDataTable<T>(this IEnumerable<T> data, string tableName = "Tmp", bool numbered = true)
         {
-            var res = UTL.BaseUTL.Linq2Table((IEnumerable<T>)data, tableName);
-            res.Numbered(numbered);
+            var res = BaseUTL.Linq2Table((IEnumerable<T>)data, tableName);
+            if (res.Rows.Count > 0) res.Numbered(numbered);
+            else res = null;
             return res;
         }
 

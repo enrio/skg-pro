@@ -133,6 +133,8 @@ namespace DAL
                 var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Name = o.Name;
+                res.Price1 = o.Price1;
+                res.Price2 = o.Price2;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;

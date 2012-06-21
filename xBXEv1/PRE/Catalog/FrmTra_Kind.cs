@@ -102,6 +102,8 @@ namespace PRE.Catalog
         {
             lokGroup.DataBindings.Clear();
             txtName.DataBindings.Clear();
+            calPrice1.DataBindings.Clear();
+            calPrice2.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -111,6 +113,8 @@ namespace PRE.Catalog
         {
             lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
             txtName.DataBindings.Add("EditValue", _dtb, ".Name");
+            calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
+            calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
@@ -120,6 +124,8 @@ namespace PRE.Catalog
         {
             lokGroup.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
+            calPrice1.Properties.ReadOnly = isReadOnly;
+            calPrice2.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;

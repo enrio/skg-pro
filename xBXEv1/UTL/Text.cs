@@ -11,36 +11,6 @@ namespace SKG.UTL
     /// </summary>
     public static class Text
     {
-        #region Enums
-        public enum Format
-        {
-            /// <summary>
-            /// Sentence case
-            /// </summary>
-            Sentence,
-
-            /// <summary>
-            /// lower case
-            /// </summary>
-            Lower,
-
-            /// <summary>
-            /// UPPER CASE
-            /// </summary>
-            Upper,
-
-            /// <summary>
-            /// Capitalized Case
-            /// </summary>
-            Capitalized,
-
-            /// <summary>
-            /// Orginal string
-            /// </summary>
-            Orginal
-        }
-        #endregion
-
         #region Strings
         /// <summary>
         /// Return a copy of this string between two strings with format case

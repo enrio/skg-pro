@@ -20,6 +20,7 @@ namespace PRE.Catalog
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Loại này có rồi";
         private const string STR_EMPTY = "Chưa nhập [{0}]";
+        private const string STR_NOT_INP = "Chưa nhập tên loại xe!";
 
         public FrmTra_Kind()
         {
@@ -93,6 +94,8 @@ namespace PRE.Catalog
         {
             lokGroup.ItemIndex = 0;
             txtName.Text = null;
+            calPrice1.Text = null;
+            calPrice2.Text = null;
             txtDescript.Text = null;
 
             base.ResetText();
@@ -146,6 +149,8 @@ namespace PRE.Catalog
                     Id = id,
                     Tra_GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Name = txtName.Text,
+                    Price1 = (int)calPrice1.Value,
+                    Price2 = (int)calPrice2.Value,
                     Descript = txtDescript.Text
                 };
 
@@ -167,6 +172,8 @@ namespace PRE.Catalog
                 {
                     Tra_GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Name = txtName.Text,
+                    Price1 = (int)calPrice1.Value,
+                    Price2 = (int)calPrice2.Value,
                     Descript = txtDescript.Text
                 };
 
@@ -193,7 +200,14 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            return base.ValidInput();
+            var oki = txtName.Text.Length == 0 ? false : true;
+            if (!oki)
+            {
+                BasePRE.ShowMessage(STR_NOT_INP, Text);
+                txtName.Focus();
+            }
+
+            return oki;
         }
         #endregion
 

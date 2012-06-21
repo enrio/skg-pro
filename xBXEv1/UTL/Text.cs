@@ -23,7 +23,7 @@ namespace SKG.UTL
         {
             try
             {
-                var a = s.IndexOf(start);
+                var a = start == null ? 0 : s.IndexOf(start);
                 var b = s.IndexOf(end);
                 return s.Substring(a, b - a);
             }

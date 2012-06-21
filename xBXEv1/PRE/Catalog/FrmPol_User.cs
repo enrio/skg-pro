@@ -76,7 +76,7 @@ namespace PRE.Catalog
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ResetInput(); LoadData();
                     }
                     break;
 
@@ -95,7 +95,7 @@ namespace PRE.Catalog
             base.PerformSave();
         }
 
-        protected override void ResetText()
+        protected override void ResetInput()
         {
             txtName.Text = null;
             txtAcc.Text = null;
@@ -107,7 +107,7 @@ namespace PRE.Catalog
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
             txtAcc.Properties.NullValuePrompt = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
 
-            base.ResetText();
+            base.ResetInput();
         }
 
         protected override void ClearDataBindings()

@@ -204,7 +204,7 @@
             // tmrMain
             // 
             this.tmrMain.Interval = 1000;
-            this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
+            this.tmrMain.Tick += new System.EventHandler(this.TimerTick);
             // 
             // FrmBase
             // 

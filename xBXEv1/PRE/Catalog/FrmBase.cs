@@ -38,6 +38,7 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
+            SetNullPrompt();
 
 #if !DEBUG
             CheckRight(this, true);
@@ -166,7 +167,7 @@ namespace PRE.Catalog
             ReadOnlyControl(false);
 
             ClearDataBindings();
-            ResetText();
+            ResetInput();
         }
 
         /// <summary>
@@ -224,9 +225,14 @@ namespace PRE.Catalog
         protected virtual void PerformExpand() { }
 
         /// <summary>
+        /// Set null value prompt
+        /// </summary>
+        protected virtual void SetNullPrompt() { }
+
+        /// <summary>
         /// Reset all input control
         /// </summary>
-        protected new virtual void ResetText() { }
+        protected virtual void ResetInput() { }
 
         /// <summary>
         /// Clear data binding
@@ -300,7 +306,7 @@ namespace PRE.Catalog
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected virtual void tmrMain_Tick(object sender, EventArgs e) { }
+        protected virtual void TimerTick(object sender, EventArgs e) { }
         #endregion
 
         #region Cho phép ẩn/hiện các nút lệnh, thanh công cụ

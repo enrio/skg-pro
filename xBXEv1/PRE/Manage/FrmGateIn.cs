@@ -94,7 +94,7 @@ namespace PRE.Manage
             base.PerformSave();
         }
 
-        protected override void ResetText()
+        protected override void ResetInput()
         {
             lkeGroup.ItemIndex = 0;
             lkeKind.ItemIndex = 0;
@@ -107,7 +107,7 @@ namespace PRE.Manage
             txtPhone.Text = null;
             txtDescript.Text = null;
 
-            base.ResetText();
+            base.ResetInput();
         }
 
         protected override void ClearDataBindings()
@@ -299,12 +299,12 @@ namespace PRE.Manage
         }
 
         static int _sec; // current second
-        protected override void tmrMain_Tick(object sender, EventArgs e)
+        protected override void TimerTick(object sender, EventArgs e)
         {
             _sec++; if (_sec >= 10) { GetDataInMinute(); _sec = 0; }
             lblDateIn.Text = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
 
-            base.tmrMain_Tick(sender, e);
+            base.TimerTick(sender, e);
         }
         #endregion
 

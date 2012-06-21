@@ -75,7 +75,7 @@ namespace PRE.Catalog
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ResetInput(); LoadData();
                     }
                     break;
 
@@ -91,7 +91,7 @@ namespace PRE.Catalog
             base.PerformSave();
         }
 
-        protected override void ResetText()
+        protected override void ResetInput()
         {
             lokKind.ItemIndex = 0;
             txtNumber.Text = null;
@@ -101,7 +101,7 @@ namespace PRE.Catalog
             txtPhone.Text = null;
             dteBirth.EditValue = null;
 
-            base.ResetText();
+            base.ResetInput();
         }
 
         protected override void ClearDataBindings()

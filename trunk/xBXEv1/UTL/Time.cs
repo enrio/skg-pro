@@ -163,5 +163,18 @@ namespace SKG.UTL
             return d < t1 ? 1 : d < t2 ? 2 : 3;
         }
         #endregion
+
+        /// <summary>
+        /// Calculate age
+        /// </summary>
+        /// <param name="d">Birthday</param>
+        /// <param name="now">Current year</param>
+        /// <returns></returns>
+        public static int ToAge(this DateTime d, DateTime now)
+        {
+            int years = now.Year - d.Year;
+            if (now.Month < d.Month || (now.Month == d.Month && now.Day < d.Day)) years--;
+            return years;
+        }
     }
 }

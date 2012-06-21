@@ -255,8 +255,8 @@ namespace DAL
                           };
 
                 total = res.Count();
+                if (number != null) res = res.Where(p => p.Number == number);
 
-                if (number != null) res.Where(p => p.Number == number).ToDataTable();
                 return res.ToDataTable();
             }
             catch { return null; }

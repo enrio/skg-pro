@@ -223,26 +223,27 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            var oki = txtName.Text.Length == 0 ? false : true;
-            if (!oki) txtName.Focus();
+            var a = txtName.Text.Length == 0 ? false : true;
+            if (!a) txtName.Focus();
 
-            oki &= txtAcc.Text.Length == 0 ? false : true;
-            if (!oki) txtAcc.Focus();
+            var b = txtAcc.Text.Length == 0 ? false : true;
+            if (!b) txtAcc.Focus();
 
-            oki &= txtPass.Text.Length < 6 ? false : true;
-            if (!oki)
+            var c = txtPass.Text.Length < 6 ? false : true;
+            if (!c)
             {
                 BasePRE.ShowMessage(STR_PASS, Text);
                 txtPass.Focus();
             }
 
-            oki &= dteBirth.DateTime.ToAge(BasePRE._sss.Current.Value) < 18 ? false : true;
-            if (!oki)
+            var d = dteBirth.DateTime.ToAge(BasePRE._sss.Current.Value) < 18 ? false : true;
+            if (!d)
             {
                 BasePRE.ShowMessage(STR_AGE, Text);
                 dteBirth.Focus();
             }
-            return oki;
+
+            return a && b && c && d;
         }
         #endregion
     }

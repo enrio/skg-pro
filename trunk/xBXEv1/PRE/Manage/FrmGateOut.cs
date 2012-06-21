@@ -32,9 +32,38 @@ namespace PRE.Manage
             AllowPrint = true;
         }
 
-        /// <summary>
-        /// Perform when click print button
-        /// </summary>
+        #region Events
+        private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Invoice();
+        }
+
+        private void cbbNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) Invoice();
+        }
+
+        private void cmdInvoice_Click(object sender, EventArgs e)
+        {
+            Invoice();
+            cmdOut.Enabled = true;
+            lblInfo.Text = "ĐANG TÍNH TIỀN";
+        }
+
+        private void cmdOut_Click(object sender, EventArgs e)
+        {
+            Invoice(true);
+            cmdOut.Enabled = false;
+            lblInfo.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
+        }
+
+        private void cbbNumber_Enter(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+        #endregion
+
+        #region Override
         protected override void PerformPrint()
         {
             var rpt = new Report.Rpt_Sumary1();
@@ -54,21 +83,26 @@ namespace PRE.Manage
             base.PerformPrint();
         }
 
-        private void FrmGateOut_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        int _sum;
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.GetInDepot(out _sum);
+            int sum;
+            _dtb = _bll.Tra_Detail.GetInDepot(out sum);
+            cmdInvoice.Enabled = sum > 0 ? true : false;
+
             cbbNumber.DataSource = _dtb;
             cbbNumber.ValueMember = "Id";
             cbbNumber.DisplayMember = "Number";
 
             base.LoadData();
         }
+
+        protected override void PerformRefresh()
+        {
+            LoadData();
+
+            base.PerformRefresh();
+        }
+        #endregion
 
         /// <summary>
         /// Tính tiền
@@ -103,13 +137,12 @@ namespace PRE.Manage
                     lblDateOut.Text = timeOut.ToString("dd/MM/yyyy HH:mm:ss");
 
                     lblNumber.Text = (tb.Rows[0]["Number"] + "").ToUpper();
-                    lblGroup.Text = tb.Rows[0]["GroupName"].ToString();
+                    lblGroup.Text = tb.Rows[0]["GroupName"] + "";
                     lblKind.Text = tb.Rows[0]["Name"].ToString();
-                    lblAccIn.Text = tb.Rows[0]["UserInName"].ToString().ToUpper();
+                    lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
                     lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
 
-                    //lblWeight.Text = weight.ToString();
-                    lblChair.Text = chair.ToString();
+                    lblChair.Text = chair + "";
 
                     string dayL = (hour > 0 && hour < 12) ? ".5" : "";
                     int dayF = (hour >= 12) ? day + 1 : day;
@@ -135,36 +168,6 @@ namespace PRE.Manage
                 }
             }
             catch (Exception ex) { BasePRE.ShowMessage("Lỗi tính tiền;" + ex.Message, Text); }
-        }
-
-        private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Invoice();
-        }
-
-        private void cbbNumber_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) Invoice();
-        }
-
-        private void cmdInvoice_Click(object sender, EventArgs e)
-        {
-            Invoice();
-            cmdOut.Enabled = true;
-            lblInfo.Text = "ĐANG TÍNH TIỀN";
-        }
-
-        private void cmdOut_Click(object sender, EventArgs e)
-        {
-            Invoice(true);
-            cmdOut.Enabled = false;
-            if (_sum == 0) cmdInvoice.Enabled = false;
-            lblInfo.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
-        }
-
-        private void cbbNumber_Enter(object sender, EventArgs e)
-        {
-            LoadData();
         }
     }
 }

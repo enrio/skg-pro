@@ -20,8 +20,8 @@ namespace PRE.Catalog
         private const string STR_CONFIRM = "Có xoá tài khoản '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Tài khoản này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
 
+        private const string STR_AGE = "Phải 18 tuổi trở lên!";
         private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
 
         public FrmPol_User()
@@ -224,27 +224,24 @@ namespace PRE.Catalog
         protected override bool ValidInput()
         {
             var oki = txtName.Text.Length == 0 ? false : true;
-
-            if (!oki)
-            {
-                BasePRE.ShowMessage(String.Format(STR_EMPTY, lblName.Text), Text);
-                txtName.Focus();
-            }
+            if (!oki) txtName.Focus();
 
             oki &= txtAcc.Text.Length == 0 ? false : true;
+            if (!oki) txtAcc.Focus();
 
-            if (!oki)
-            {
-                BasePRE.ShowMessage(String.Format(STR_EMPTY, lblAcc.Text), Text);
-                txtAcc.Focus();
-            }
-
+            oki &= txtPass.Text.Length < 6 ? false : true;
             if (!oki)
             {
                 BasePRE.ShowMessage(STR_PASS, Text);
                 txtPass.Focus();
             }
 
+            oki &= dteBirth.DateTime.ToAge(BasePRE._sss.Current.Value) < 18 ? false : true;
+            if (!oki)
+            {
+                BasePRE.ShowMessage(STR_AGE, Text);
+                dteBirth.Focus();
+            }
             return oki;
         }
         #endregion

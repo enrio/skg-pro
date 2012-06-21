@@ -306,7 +306,7 @@
     <None Include="DataSet\Sumary.xss">
       <DependentUpon>Sumary.xsd</DependentUpon>
     </None>
-    <None Include="help.chm">
+    <None Include="Guide.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\Settings.settings">

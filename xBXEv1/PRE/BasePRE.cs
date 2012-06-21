@@ -160,7 +160,7 @@ namespace PRE
         /// Hiện form với quyền của người dùng
         /// </summary>
         /// <param name="frm">FrmBase</param>
-        public static void ShowRight(this FrmBase frm)
+        static void ShowRight(this FrmBase frm)
         {
             var code = frm.GetType().Name;
             if (code == typeof(FrmLogin).Name) return;
@@ -197,6 +197,24 @@ namespace PRE
                 else frm.Show();
             }
             else frm.Activate();
+        }
+
+        /// <summary>
+        /// Show form with user's rights
+        /// </summary>
+        /// <param name="f">Form childen</param>
+        /// <param name="parent">Form parent</param>
+        public static void ShowRight(this FrmBase f, Form parent)
+        {
+            var a = f.GetType();
+            var b = (FrmBase)GetMdiChilden(parent, a.FullName);
+
+            if (b == null || b.IsDisposed)
+            {
+                f.MdiParent = parent;
+                f.ShowRight();
+            }
+            else b.Activate();
         }
     }
 }

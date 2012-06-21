@@ -38,7 +38,6 @@ namespace PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
-            SetNullPrompt();
 
 #if !DEBUG
             CheckRight(this, true);
@@ -56,6 +55,7 @@ namespace PRE.Catalog
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
+            SetNullPrompt();
             PerformRefresh();
         }
 

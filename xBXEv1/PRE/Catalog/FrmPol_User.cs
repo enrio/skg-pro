@@ -108,7 +108,7 @@ namespace PRE.Catalog
             txtName.Text = null;
             txtAcc.Text = null;
             txtPass.Text = null;
-            dteBirth.EditValue = null;
+            dteBirth.DateTime = BasePRE._sss.Current.Value.ToBirth(18);
             txtAddress.Text = null;
             txtPhone.Text = null;
 

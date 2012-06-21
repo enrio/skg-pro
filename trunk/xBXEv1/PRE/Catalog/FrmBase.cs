@@ -13,17 +13,13 @@ namespace PRE.Catalog
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraBars;
+    using SKG.UTL;
 
     /// <summary>
     /// Standard input form
     /// </summary>
     public partial class FrmBase : XtraForm
     {
-        /// <summary>
-        /// Các trạng thái của form nhập liệu
-        /// </summary>
-        public enum State { View, Add, Edit, Delete, Save, Cancel, }
-
         /// <summary>
         /// Truy xuất dữ liệu cơ bản
         /// </summary>

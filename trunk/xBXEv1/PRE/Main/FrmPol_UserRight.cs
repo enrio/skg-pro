@@ -12,6 +12,7 @@ namespace PRE.Main
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraTreeList.StyleFormatConditions;
     using System.Drawing.Drawing2D;
+    using SKG.UTL;
 
     public partial class FrmPol_UserRight : PRE.Catalog.FrmBase
     {

@@ -5,6 +5,7 @@ namespace PRE.Catalog
 {
     using DAL.Entities;
     using System.Windows.Forms;
+    using SKG.UTL;
 
     /// <summary>
     /// Danh mục quyền (form, chức năng)
@@ -19,7 +20,7 @@ namespace PRE.Catalog
         private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";        
+        private const string STR_EMPTY = "Chưa nhập [{0}]";
 
         public FrmPol_Right()
         {

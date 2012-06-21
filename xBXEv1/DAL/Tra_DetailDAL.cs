@@ -225,7 +225,7 @@ namespace DAL
         /// <param name="total">Số lượng xe</param>
         /// <param name="staIn">Xe trong bến</param>
         /// <returns>Danh sách xe</returns>
-        public DataTable GetInDepot(out decimal total, bool staIn = true)
+        public DataTable GetInDepot(out int total, bool staIn = true)
         {
             total = 0;
 
@@ -279,7 +279,7 @@ namespace DAL
                               };
 
                     var tmp = res.Sum(k => k.Money);
-                    total = Convert.ToDecimal(tmp);
+                    total = Convert.ToInt32(tmp);
 
                     return res.ToDataTable();
                 }

@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace PRE.Manage
 {
-    using UTL;
     using DAL.Entities;
     using Main;
-    using DevExpress.XtraReports.Parameters;
     using SKG.UTL;
 
     /// <summary>
@@ -36,9 +30,6 @@ namespace PRE.Manage
             AllowCancel = false;
             AllowFind = false;
             AllowPrint = true;
-
-            cbbNumber.ValueMember = "Id";
-            cbbNumber.DisplayMember = "Number";
         }
 
         /// <summary>
@@ -68,11 +59,13 @@ namespace PRE.Manage
             LoadData();
         }
 
+        int _sum;
         protected override void LoadData()
         {
-            decimal sum;
-            _dtb = _bll.Tra_Detail.GetInDepot(out sum);
+            _dtb = _bll.Tra_Detail.GetInDepot(out _sum);
             cbbNumber.DataSource = _dtb;
+            cbbNumber.ValueMember = "Id";
+            cbbNumber.DisplayMember = "Number";
 
             base.LoadData();
         }
@@ -165,6 +158,7 @@ namespace PRE.Manage
         {
             Invoice(true);
             cmdOut.Enabled = false;
+            if (_sum == 0) cmdInvoice.Enabled = false;
             lblInfo.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
         }
 

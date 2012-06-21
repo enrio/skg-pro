@@ -36,6 +36,14 @@ namespace PRE.Catalog
         }
 
         #region Override
+        protected override void SetNullPrompt()
+        {
+            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtAcc.Properties.NullValuePrompt = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
+
+            base.SetNullPrompt();
+        }
+
         protected override void PerformDelete()
         {
             var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
@@ -103,9 +111,6 @@ namespace PRE.Catalog
             dteBirth.EditValue = null;
             txtAddress.Text = null;
             txtPhone.Text = null;
-
-            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
-            txtAcc.Properties.NullValuePrompt = String.Format("Nhập {0}", lblAcc.Text.ToBetween(null, ":", Format.Lower));
 
             base.ResetInput();
         }
@@ -232,6 +237,12 @@ namespace PRE.Catalog
             {
                 BasePRE.ShowMessage(String.Format(STR_EMPTY, lblAcc.Text), Text);
                 txtAcc.Focus();
+            }
+
+            if (!oki)
+            {
+                BasePRE.ShowMessage(STR_PASS, Text);
+                txtPass.Focus();
             }
 
             return oki;

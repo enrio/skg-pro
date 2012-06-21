@@ -214,7 +214,23 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            return base.ValidInput();
+            var oki = txtName.Text.Length == 0 ? false : true;
+
+            if (!oki)
+            {
+                BasePRE.ShowMessage(String.Format(STR_EMPTY, lblName.Text), Text);
+                txtName.Focus();
+            }
+
+            oki &= txtAcc.Text.Length == 0 ? false : true;
+
+            if (!oki)
+            {
+                BasePRE.ShowMessage(String.Format(STR_EMPTY, lblAcc.Text), Text);
+                txtAcc.Focus();
+            }
+
+            return oki;
         }
         #endregion
     }

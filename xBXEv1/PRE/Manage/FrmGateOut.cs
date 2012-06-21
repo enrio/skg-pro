@@ -36,6 +36,9 @@ namespace PRE.Manage
             AllowCancel = false;
             AllowFind = false;
             AllowPrint = true;
+
+            cbbNumber.ValueMember = "Id";
+            cbbNumber.DisplayMember = "Number";
         }
 
         /// <summary>
@@ -70,8 +73,6 @@ namespace PRE.Manage
             decimal sum;
             _dtb = _bll.Tra_Detail.GetInDepot(out sum);
             cbbNumber.DataSource = _dtb;
-            cbbNumber.ValueMember = "Id";
-            cbbNumber.DisplayMember = "Number";
 
             base.LoadData();
         }

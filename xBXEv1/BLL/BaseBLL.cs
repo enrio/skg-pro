@@ -177,6 +177,8 @@ namespace BLL
             Pol_Right.Insert(o);
             o = new Pol_Right() { Code = "FrmSales", Name = "Doanh thu", Descript = "Form doanh thu" };
             Pol_Right.Insert(o);
+            o = new Pol_Right() { Code = "FrmShowPrint", Name = "In thống kê", Descript = "Form in thống kê" };
+            Pol_Right.Insert(o);
         }
 
         /// <summary>
@@ -320,6 +322,9 @@ namespace BLL
             b = (Pol_Right)Pol_Right.Select("FrmGateOut");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
             Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            Pol_RoleRight.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("QT");
             b = (Pol_Right)Pol_Right.Select("FrmPol_Right");
@@ -363,10 +368,16 @@ namespace BLL
             b = (Pol_Right)Pol_Right.Select("FrmSales");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            Pol_RoleRight.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("TK");
             b = (Pol_Right)Pol_Right.Select("FrmSales");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
             Pol_RoleRight.Insert(o);
         }
 

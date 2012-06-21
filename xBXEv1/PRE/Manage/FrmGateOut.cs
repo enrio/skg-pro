@@ -54,15 +54,12 @@ namespace PRE.Manage
             decimal _sum;
 
             rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, BasePRE._sss.User.Id);
-            rpt.xrcWatch.Text = d.ToWatch2()+ "";
+            rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
-            var frm = new FrmPrint();
-            frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);
+            var frm = new FrmShowPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
-
-            frm.MdiParent = MdiParent;
-            frm.Show();
+            frm.ShowRight();
 
             base.PerformPrint();
         }

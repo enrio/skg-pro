@@ -59,7 +59,7 @@ namespace PRE.Manage
 
             var frm = new FrmShowPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
-            frm.ShowRight();
+            frm.ShowRight(MdiParent);
 
             base.PerformPrint();
         }

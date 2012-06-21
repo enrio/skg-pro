@@ -60,11 +60,7 @@ namespace PRE
                 if (type == null) return;
 
                 var frm = Activator.CreateInstance(type) as FrmBase;
-                if (frm != null)
-                {
-                    frm.MdiParent = this;
-                    frm.ShowRight();
-                }
+                if (frm != null) frm.ShowRight(this);
             }
 
             // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)

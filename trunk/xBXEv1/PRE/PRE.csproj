@@ -170,6 +170,12 @@
     <Compile Include="Main\FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmShowPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmShowPrint.Designer.cs">
+      <DependentUpon>FrmShowPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage\FrmGateIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\FrmSetting.resx">
       <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmShowPrint.resx">
+      <DependentUpon>FrmShowPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage\FrmGateIn.resx">
       <DependentUpon>FrmGateIn.cs</DependentUpon>

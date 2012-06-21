@@ -226,16 +226,18 @@ namespace PRE.Catalog
             var a = dteBirth.DateTime.ToAge(BasePRE._sss.Current.Value) < 18 ? false : true;
             if (!a)
             {
-                BasePRE.ShowMessage(STR_AGE, Text);
+                lblInfo.Text = STR_AGE;
                 dteBirth.Focus();
-            }
+            }            
 
             var b = txtPass.Text.Length < 6 ? false : true;
             if (!b)
             {
-                BasePRE.ShowMessage(STR_PASS, Text);
+                lblInfo.Text = STR_PASS;
                 txtPass.Focus();
             }
+
+            if (a && b) lblInfo.Text = null;
 
             var c = txtAcc.Text.Length == 0 ? false : true;
             if (!c) txtAcc.Focus();

@@ -46,4 +46,11 @@
         September = 9, October = 10, November = 11, December = 12
     }
     #endregion
+
+    #region Form
+    /// <summary>
+    /// State's input form
+    /// </summary>
+    public enum State { View, Add, Edit, Delete, Save, Cancel, }
+    #endregion
 }

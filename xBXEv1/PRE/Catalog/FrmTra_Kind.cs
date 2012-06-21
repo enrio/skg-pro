@@ -5,6 +5,7 @@ namespace PRE.Catalog
 {
     using DAL.Entities;
     using System.Windows.Forms;
+    using SKG.UTL;
 
     /// <summary>
     /// Danh mục loại xe

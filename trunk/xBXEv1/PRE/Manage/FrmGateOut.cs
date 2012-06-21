@@ -24,12 +24,11 @@ namespace PRE.Manage
             InitializeComponent();
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            //lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
+            lblAccOut.Text = BasePRE._sss.User.Name.ToUpper();
 
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
-            //AllowBar = false;
             AllowAdd = false;
             AllowEdit = false;
             AllowDelete = false;
@@ -37,9 +36,6 @@ namespace PRE.Manage
             AllowCancel = false;
             AllowFind = false;
             AllowPrint = true;
-
-            //grvMain.OptionsView.ShowAutoFilterRow = true;
-            //grvMain.OptionsBehavior.Editable = false;
         }
 
         /// <summary>
@@ -162,14 +158,14 @@ namespace PRE.Manage
         {
             Invoice();
             cmdOut.Enabled = true;
-            //lblInf.Text = "ĐANG TÍNH TIỀN";
+            lblInfo.Text = "ĐANG TÍNH TIỀN";
         }
 
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
             cmdOut.Enabled = false;
-            //lblInf.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
+            lblInfo.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
         }
 
         private void cbbNumber_Enter(object sender, EventArgs e)

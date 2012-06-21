@@ -126,7 +126,7 @@
             // 
             // bbiLogin
             // 
-            this.bbiLogin.Caption = "Đăng &nhập";
+            this.bbiLogin.Caption = "Đăng nhập";
             this.bbiLogin.Id = 1;
             this.bbiLogin.LargeGlyph = global::PRE.Properties.Resources.login;
             this.bbiLogin.Name = "bbiLogin";
@@ -134,7 +134,7 @@
             // 
             // bbiSetting
             // 
-            this.bbiSetting.Caption = "&Cài đặt";
+            this.bbiSetting.Caption = "Cài đặt";
             this.bbiSetting.Id = 2;
             this.bbiSetting.LargeGlyph = global::PRE.Properties.Resources.setting;
             this.bbiSetting.Name = "bbiSetting";
@@ -142,7 +142,7 @@
             // 
             // bbiCloseAll
             // 
-            this.bbiCloseAll.Caption = "Đóng &hết";
+            this.bbiCloseAll.Caption = "Đóng hết cửa sổ";
             this.bbiCloseAll.Id = 3;
             this.bbiCloseAll.LargeGlyph = global::PRE.Properties.Resources.close;
             this.bbiCloseAll.Name = "bbiCloseAll";
@@ -150,7 +150,7 @@
             // 
             // bbiExit
             // 
-            this.bbiExit.Caption = "&Thoát";
+            this.bbiExit.Caption = "Thoát";
             this.bbiExit.Id = 4;
             this.bbiExit.LargeGlyph = global::PRE.Properties.Resources.exit;
             this.bbiExit.Name = "bbiExit";
@@ -201,7 +201,7 @@
             // 
             // bbiPol_UserRight
             // 
-            this.bbiPol_UserRight.Caption = "Pol_UserRight";
+            this.bbiPol_UserRight.Caption = "Cho người dùng";
             this.bbiPol_UserRight.Id = 11;
             this.bbiPol_UserRight.LargeGlyph = global::PRE.Properties.Resources.user;
             this.bbiPol_UserRight.Name = "bbiPol_UserRight";
@@ -209,7 +209,7 @@
             // 
             // bbiPol_RoleRight
             // 
-            this.bbiPol_RoleRight.Caption = "Pol_RoleRight";
+            this.bbiPol_RoleRight.Caption = "Cho nhóm người";
             this.bbiPol_RoleRight.Id = 12;
             this.bbiPol_RoleRight.LargeGlyph = global::PRE.Properties.Resources.main;
             this.bbiPol_RoleRight.Name = "bbiPol_RoleRight";
@@ -271,7 +271,7 @@
             // 
             // bbiPol_UserRole
             // 
-            this.bbiPol_UserRole.Caption = "Pol_UserRole";
+            this.bbiPol_UserRole.Caption = "Người dùng thuộc nhóm";
             this.bbiPol_UserRole.Id = 20;
             this.bbiPol_UserRole.LargeGlyph = global::PRE.Properties.Resources.users;
             this.bbiPol_UserRole.Name = "bbiPol_UserRole";

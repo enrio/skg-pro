@@ -28,6 +28,9 @@ namespace PRE.Catalog
             SetDockPanel(dockPanel1, "Nhập liệu");
             SetDockPanel(dockPanel2, "Danh sách");
 
+            AllowAdd = false;
+            AllowDelete = false;
+
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }

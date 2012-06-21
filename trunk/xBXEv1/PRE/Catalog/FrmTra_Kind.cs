@@ -75,7 +75,7 @@ namespace PRE.Catalog
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ResetInput(); LoadData();
                     }
                     break;
 
@@ -91,7 +91,7 @@ namespace PRE.Catalog
             base.PerformSave();
         }
 
-        protected override void ResetText()
+        protected override void ResetInput()
         {
             lokGroup.ItemIndex = 0;
             txtName.Text = null;
@@ -99,7 +99,7 @@ namespace PRE.Catalog
             calPrice2.Text = null;
             txtDescript.Text = null;
 
-            base.ResetText();
+            base.ResetInput();
         }
 
         protected override void ClearDataBindings()

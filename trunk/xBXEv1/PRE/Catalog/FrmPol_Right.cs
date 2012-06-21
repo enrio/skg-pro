@@ -74,7 +74,7 @@ namespace PRE.Catalog
                 case State.Add:
                     if (InsertObject())
                     {
-                        ResetText(); LoadData();
+                        ResetInput(); LoadData();
                     }
                     break;
 
@@ -93,13 +93,13 @@ namespace PRE.Catalog
             base.PerformSave();
         }
 
-        protected override void ResetText()
+        protected override void ResetInput()
         {
             txtName.Text = null;
             txtCode.Text = null;
             txtDescript.Text = null;
 
-            base.ResetText();
+            base.ResetInput();
         }
 
         protected override void ClearDataBindings()

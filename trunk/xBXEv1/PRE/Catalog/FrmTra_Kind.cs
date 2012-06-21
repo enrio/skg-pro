@@ -201,6 +201,7 @@ namespace PRE.Catalog
         protected override bool ValidInput()
         {
             var oki = txtName.Text.Length == 0 ? false : true;
+
             if (!oki)
             {
                 BasePRE.ShowMessage(STR_NOT_INP, Text);

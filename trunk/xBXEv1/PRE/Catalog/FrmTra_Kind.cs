@@ -20,8 +20,6 @@ namespace PRE.Catalog
         private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Loại này có rồi";
-        private const string STR_EMPTY = "Chưa nhập [{0}]";
-        private const string STR_NOT_INP = "Chưa nhập tên loại xe!";
 
         public FrmTra_Kind()
         {
@@ -35,6 +33,13 @@ namespace PRE.Catalog
         }
 
         #region Override
+        protected override void SetNullPrompt()
+        {
+            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+
+            base.SetNullPrompt();
+        }
+
         protected override void PerformDelete()
         {
             var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
@@ -201,15 +206,10 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            var oki = txtName.Text.Length == 0 ? false : true;
+            var a = txtName.Text.Length == 0 ? false : true;
+            if (!a) txtName.Focus();
 
-            if (!oki)
-            {
-                BasePRE.ShowMessage(STR_NOT_INP, Text);
-                txtName.Focus();
-            }
-
-            return oki;
+            return a;
         }
         #endregion
 

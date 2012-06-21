@@ -224,8 +224,9 @@ namespace DAL
         /// </summary>
         /// <param name="total">Số lượng xe</param>
         /// <param name="staIn">Xe trong bến</param>
-        /// <returns>Danh sách xe</returns>
-        public DataTable GetInDepot(out int total, bool staIn = true)
+        /// <param name="number">Biển số xe</param>
+        /// <returns></returns>
+        public DataTable GetInDepot(out int total, bool staIn = true, string number = null)
         {
             total = 0;
 
@@ -257,6 +258,7 @@ namespace DAL
 
                     total = res.Count();
 
+                    if (number != null) res.Where(p => p.Number == number).ToDataTable();
                     return res.ToDataTable();
                 }
                 else
@@ -281,6 +283,7 @@ namespace DAL
                     var tmp = res.Sum(k => k.Money);
                     total = Convert.ToInt32(tmp);
 
+                    if (number != null) res.Where(p => p.Number == number).ToDataTable();
                     return res.ToDataTable();
                 }
             }

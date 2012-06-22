@@ -48,11 +48,11 @@ namespace DAL
 
         #region User
         /// <summary>
-        /// Returns all roles
+        /// Returns all list roles
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Role> ToRoles(this Pol_User u)
+        public static List<Pol_Role> ToListRoles(this Pol_User u)
         {
             try
             {
@@ -64,17 +64,64 @@ namespace DAL
         }
 
         /// <summary>
-        /// Returns all rights
+        /// Returns all list rights
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Right> ToRights(this Pol_User u)
+        public static List<Pol_Right> ToListRights(this Pol_User u)
         {
             try
             {
                 var r = from s in u.Pol_UserRights
                         select s.Pol_Right;
                 return r.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Returns all rights
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static List<ZAction> ToRights(this Pol_User u)
+        {
+            try
+            {
+                var a = u.ToRoleRights();
+                var b = u.ToRoleRights();
+                var c = a.Union(b);
+                return c.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Returns a right
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <param name="c">Code's right</param>
+        /// <returns></returns>
+        public static ZAction ToRight(this Pol_User u, string c)
+        {
+            try
+            {
+                var res = u.ToRights().Where(s => s.Code == c);
+                var zac = res.FirstOrDefault();
+
+                if (res.Count() < 2) return zac;
+                if (zac.Full || zac.None) return zac;
+
+                foreach (var i in res)
+                {
+                    zac.Add |= i.Add;
+                    zac.Edit |= i.Edit;
+                    zac.Delete |= i.Delete;
+                    zac.Default |= i.Default;
+                    zac.Print |= i.Print;
+                    zac.Access |= i.Access;
+                }
+                return zac;
             }
             catch { return null; }
         }
@@ -99,6 +146,7 @@ namespace DAL
         /// Returns all user's right
         /// </summary>
         /// <param name="u">User</param>
+        /// <param name="c">Code's right</param>
         /// <returns></returns>
         public static ZAction ToUserRight(this Pol_User u, string c)
         {

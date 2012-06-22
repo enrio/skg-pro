@@ -131,6 +131,27 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Returns role's right
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <param name="c">Code's right</param>
+        /// <returns></returns>
+        public static ZAction ToRoleRight(this Pol_User u, string c)
+        {
+            try
+            {
+                var res = u.ToRoleRights().Where(p => p.Code == c);
+
+                if (res.Count() > 1)
+                {
+                }
+
+                return res.SingleOrDefault();
+            }
+            catch { return null; }
+        }
         #endregion
     }
 }

@@ -145,8 +145,8 @@ namespace DAL
                 var res = u.ToRoleRights().Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 
-                if (zac.Default || zac.Full || zac.None) return zac;
                 if (res.Count() < 2) return zac;
+                if (zac.Full || zac.None) return zac;
 
                 foreach (var i in res)
                 {
@@ -157,8 +157,6 @@ namespace DAL
                     zac.Print |= i.Print;
                     zac.Access |= i.Access;
                     zac.Default |= i.Default;
-                    zac.Full |= i.Full;
-                    zac.None |= i.None;
                 }
                 return zac;
             }

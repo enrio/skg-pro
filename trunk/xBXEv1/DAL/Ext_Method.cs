@@ -143,10 +143,10 @@ namespace DAL
             try
             {
                 var res = u.ToRoleRights().Where(s => s.Code == c);
-                var zac = res.SingleOrDefault();
+                var zac = res.FirstOrDefault();
 
+                if (zac.Default || zac.Full || zac.None) return zac;
                 if (res.Count() < 2) return zac;
-                if (!zac.Full && !zac.None) ;
 
                 foreach (var i in res)
                 {

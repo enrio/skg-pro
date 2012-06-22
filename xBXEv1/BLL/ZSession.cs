@@ -63,7 +63,7 @@ namespace BLL
         public Pol_UserRole GetUserRole(string s)
         {
             var a = from b in User.Pol_UserRoles
-                    where b.Pol_Role.Code.Equals(s)
+                    where b.Pol_Role.Code == s
                     select b;
             return a.SingleOrDefault();
         }
@@ -71,7 +71,7 @@ namespace BLL
         public Pol_UserRight GetUserRight(string s)
         {
             var a = from b in User.Pol_UserRights
-                    where b.Pol_Right.Code.Equals(s)
+                    where b.Pol_Right.Code == s
                     select b;
             return a.SingleOrDefault();
         }

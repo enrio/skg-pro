@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace BLL
 {
+    using DAL;
     using DAL.Entities;
     using UTL.Hasher;
 
@@ -27,6 +28,10 @@ namespace BLL
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
                 if (sss.User.Pass != pass) return null;
                 sss.Rights = GetRights(sss.User.Id);
+
+                var a = sss.User.ToRoleRights();
+                var b = sss.User.ToUserRights();
+
                 return sss;
             }
             catch { return null; }

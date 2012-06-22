@@ -7,6 +7,7 @@ namespace DAL
     using System.Data;
     using UTL;
     using SKG.UTL;
+    using Entities;
 
     /// <summary>
     /// Extend methods
@@ -45,5 +46,39 @@ namespace DAL
 
             dtb.AcceptChanges();
         }
+
+        #region User
+        /// <summary>
+        /// Get all user's roles
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static List<Pol_Role> GetRoles(this Pol_User u)
+        {
+            try
+            {
+                var r = from s in u.Pol_UserRoles
+                        select s.Pol_Role;
+                return r.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Get all user's rights
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static List<Pol_Right> GetRights(this Pol_User u)
+        {
+            try
+            {
+                var r = from s in u.Pol_UserRights
+                        select s.Pol_Right;
+                return r.ToList();
+            }
+            catch { return null; }
+        }
+        #endregion
     }
 }

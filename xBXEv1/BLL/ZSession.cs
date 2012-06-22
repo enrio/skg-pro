@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace BLL
 {
+    using DAL;
     using DAL.Entities;
 
     /// <summary>
@@ -24,7 +25,10 @@ namespace BLL
         /// <summary>
         /// Danh sách các quyền của người dùng
         /// </summary>
-        public List<ZAction> Rights { set; get; }
+        public List<ZAction> Rights
+        {
+            get { return User.ToRights(); }
+        }
 
         /// <summary>
         /// Quyền hiện tại sau cùng
@@ -36,39 +40,17 @@ namespace BLL
         /// </summary>
         public List<ZAction> Default
         {
-            get { return Rights.Where(p => p.Default).ToList(); }
+            get { return User.ToDefaults(); }
         }
 
         /// <summary>
         /// Lấy quyền hiện tại của chức năng (form)
         /// </summary>
-        /// <param name="codeRight">Mã chức năng (tên form)</param>
+        /// <param name="c">Mã chức năng (tên form)</param>
         /// <returns>Quyền truy cập</returns>
-        public ZAction GetRight(string codeRight)
+        public ZAction GetRight(string c)
         {
-            foreach (var x in Rights)
-                if (x.Code == codeRight)
-                {
-                    LastRight = x;
-                    return x;
-                };
-            return null;
-        }
-
-        public Pol_UserRole GetUserRole(string s)
-        {
-            var a = from b in User.Pol_UserRoles
-                    where b.Pol_Role.Code == s
-                    select b;
-            return a.SingleOrDefault();
-        }
-
-        public Pol_UserRight GetUserRight(string s)
-        {
-            var a = from b in User.Pol_UserRights
-                    where b.Pol_Right.Code == s
-                    select b;
-            return a.SingleOrDefault();
+            return User.ToRight(c);
         }
     }
 }

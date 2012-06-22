@@ -31,6 +31,7 @@ namespace BLL
 
                 var a = sss.User.ToRoleRights();
                 var b = sss.User.ToUserRights();
+                var c = sss.User.ToRoleRight("FrmGateIn");
 
                 return sss;
             }

@@ -98,12 +98,12 @@ namespace PRE.Main
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            txtUser.SelectAll();
+            txtUser.Selection();
         }
 
         private void txtPass_Enter(object sender, EventArgs e)
         {
-            txtPass.SelectAll();
+            txtPass.Selection();
         }
     }
 }

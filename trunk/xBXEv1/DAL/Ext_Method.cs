@@ -106,6 +106,34 @@ namespace DAL
         {
             try
             {
+                var a = u.ToUserRight(c);
+                var b = u.ToRoleRight(c);
+
+                if (a.Full || a.None) return a;
+                if (b.Full || b.None) return b;
+
+                a.Add |= b.Add;
+                a.Edit |= b.Edit;
+                a.Delete |= b.Delete;
+                a.Default |= b.Default;
+                a.Print |= b.Print;
+                a.Access |= b.Access;
+
+                return a;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Returns a right
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <param name="c">Code's right</param>
+        /// <returns></returns>
+        public static ZAction ToRight2(this Pol_User u, string c)
+        {
+            try
+            {
                 var res = u.ToRights().Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 

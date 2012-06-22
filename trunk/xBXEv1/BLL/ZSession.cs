@@ -55,7 +55,7 @@ namespace BLL
         /// <returns></returns>
         public Pol_Role GetUserRole(string c)
         {
-            return User.ToListRole(c);
+            return User.ToRole(c);
         }
     }
 }

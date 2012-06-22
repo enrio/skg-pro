@@ -50,11 +50,11 @@ namespace DAL
 
         #region User
         /// <summary>
-        /// Returns all list roles
+        /// Returns all roles
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Role> ToListRoles(this Pol_User u)
+        public static List<Pol_Role> ToRoles(this Pol_User u)
         {
             try
             {
@@ -66,15 +66,15 @@ namespace DAL
         }
 
         /// <summary>
-        /// Returns all list role
+        /// Returns a role
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static Pol_Role ToListRole(this Pol_User u, string c)
+        public static Pol_Role ToRole(this Pol_User u, string c)
         {
             try
             {
-                return u.ToListRoles().
+                return u.ToRoles().
                     Where(s => s.Code == c)
                     .FirstOrDefault();
             }
@@ -82,11 +82,11 @@ namespace DAL
         }
 
         /// <summary>
-        /// Returns all list rights
+        /// Returns all rights
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Right> ToListRights(this Pol_User u)
+        public static List<Pol_Right> ToRights(this Pol_User u)
         {
             try
             {
@@ -98,15 +98,15 @@ namespace DAL
         }
 
         /// <summary>
-        /// Returns all list right
+        /// Returns a right
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static Pol_Right ToListRight(this Pol_User u, string c)
+        public static Pol_Right ToRight(this Pol_User u, string c)
         {
             try
             {
-                return u.ToListRights().
+                return u.ToRights().
                    Where(s => s.Code == c)
                    .FirstOrDefault();
             }
@@ -114,7 +114,7 @@ namespace DAL
         }
 
         /// <summary>
-        /// Returns all rights
+        /// Returns all actions
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
@@ -140,15 +140,15 @@ namespace DAL
         {
             try
             {
-                var res = u.ToZActions()
-                    .Where(s => s.Default);
-                return res.ToList();
+                return u.ToZActions()
+                    .Where(s => s.Default)
+                 .ToList();
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Returns a right
+        /// Returns a action
         /// </summary>
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>

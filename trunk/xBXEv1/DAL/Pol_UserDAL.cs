@@ -238,5 +238,23 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Get all user's roles
+        /// </summary>
+        /// <param name="userId">User's Id</param>
+        /// <returns></returns>
+        public List<Pol_Role> GetRoles(Guid userId)
+        {
+            try
+            {
+                var a = from s in _db.Pol_UserRoles
+                        join r in _db.Pol_Roles on s.Pol_RoleId equals r.Id
+                        where s.Pol_UserId == userId
+                        select r;
+                return a.ToList();
+            }
+            catch { return null; }
+        }
     }
 }

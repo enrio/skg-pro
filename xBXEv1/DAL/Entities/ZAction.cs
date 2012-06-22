@@ -27,7 +27,7 @@ namespace DAL.Entities
         /// <summary>
         /// Cho phép tự động hiện chức năng (form)
         /// </summary>
-        public bool Query { set; get; }
+        public bool Default { set; get; }
 
         /// <summary>
         /// Cho phép in ấn
@@ -40,9 +40,9 @@ namespace DAL.Entities
         public bool Access { set; get; }
 
         /// <summary>
-        /// Mặc định hiện sau khi đăng nhập
+        /// Chức năng dự phòng (không sử dụng)
         /// </summary>
-        public bool Default { set; get; }
+        public bool Query { set; get; }
 
         private bool _full;
         /// <summary>
@@ -59,7 +59,7 @@ namespace DAL.Entities
                     Add = value;
                     Edit = value;
                     Delete = value;
-                    Query = value;
+                    Default = value;
                     Print = value;
                     Access = value;
                     None = !value;
@@ -83,7 +83,7 @@ namespace DAL.Entities
                     Add = !value;
                     Edit = !value;
                     Delete = !value;
-                    Query = !value;
+                    Default = !value;
                     Print = !value;
                     Access = !value;
                     Full = !value;

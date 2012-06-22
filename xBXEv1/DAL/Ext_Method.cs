@@ -118,10 +118,10 @@ namespace DAL
                             Add = j.Add,
                             Edit = j.Edit,
                             Delete = j.Delete,
-                            Query = j.Query,
+                            Default = j.Default,
                             Print = j.Print,
                             Access = j.Access,
-                            Default = j.Default,
+                            Query = j.Query,
                             Full = j.Full,
                             None = j.None
                         };
@@ -153,10 +153,10 @@ namespace DAL
                     zac.Add |= i.Add;
                     zac.Edit |= i.Edit;
                     zac.Delete |= i.Delete;
-                    zac.Query |= i.Query;
+                    zac.Default |= i.Default;
                     zac.Print |= i.Print;
                     zac.Access |= i.Access;
-                    zac.Default |= i.Default;
+                    zac.Query |= i.Query;
                 }
                 return zac;
             }

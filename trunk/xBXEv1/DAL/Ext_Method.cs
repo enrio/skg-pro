@@ -88,7 +88,7 @@ namespace DAL
         {
             try
             {
-                var a = u.ToRoleRights();
+                var a = u.ToUserRights();
                 var b = u.ToRoleRights();
                 var c = a.Union(b);
                 return c.ToList();

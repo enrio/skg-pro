@@ -282,7 +282,7 @@ namespace PRE.Catalog
         protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().Name;
-            var z = BasePRE._sss.GetRight(name);
+            var z = BasePRE._sss.GetZAction(name);
 
             if (z == null || z.Access == false)
                 BasePRE.ShowMessage("Không có quyền", name, MessageBoxButtons.OK, showMessage);

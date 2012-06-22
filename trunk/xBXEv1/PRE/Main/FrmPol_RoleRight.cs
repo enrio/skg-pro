@@ -73,10 +73,9 @@ namespace PRE.Main
                         r["Add"] = false;
                         r["Edit"] = false;
                         r["Delete"] = false;
-                        r["Query"] = false;
+                        r["Default"] = false;
                         r["Print"] = false;
                         r["Access"] = false;
-                        r["Default"] = false;
                         r["Full"] = false;
                         r["None"] = true;
 
@@ -329,6 +328,10 @@ namespace PRE.Main
                             dr["Delete"] = val;
                             break;
 
+                        case "Default":
+                            dr["Default"] = val;
+                            break;
+
                         case "Print":
                             dr["Print"] = val;
                             break;
@@ -345,7 +348,7 @@ namespace PRE.Main
                                 dr["Add"] = true;
                                 dr["Edit"] = true;
                                 dr["Delete"] = true;
-                                dr["Query"] = true;
+                                dr["Default"] = true;
                                 dr["Print"] = true;
                                 dr["Access"] = true;
                             }
@@ -359,7 +362,7 @@ namespace PRE.Main
                                 dr["Add"] = false;
                                 dr["Edit"] = false;
                                 dr["Delete"] = false;
-                                dr["Query"] = false;
+                                dr["Default"] = false;
                                 dr["Print"] = false;
                                 dr["Access"] = false;
                             }
@@ -379,8 +382,7 @@ namespace PRE.Main
                             e.Node.SetValue("Add", true);
                             e.Node.SetValue("Edit", true);
                             e.Node.SetValue("Delete", true);
-                            e.Node.SetValue("Query", true);
-                            e.Node.SetValue("Query", true);
+                            e.Node.SetValue("Default", true);                            
                             e.Node.SetValue("Print", true);
                             e.Node.SetValue("Access", true);
                             e.Node.SetValue("None", false);
@@ -393,19 +395,18 @@ namespace PRE.Main
                             e.Node.SetValue("Add", false);
                             e.Node.SetValue("Edit", false);
                             e.Node.SetValue("Delete", false);
-                            e.Node.SetValue("Query", false);
-                            e.Node.SetValue("Query", false);
+                            e.Node.SetValue("Default", false);                            
                             e.Node.SetValue("Print", false);
                             e.Node.SetValue("Access", false);
                             e.Node.SetValue("Full", false);
                         }
                         break;
 
-                    case "Default":
-                        if (sdr.Length > 0)
-                            foreach (DataRow dr in sdr) dr["Default"] = false;
-                        e.Node.SetValue("Default", val);
-                        break;
+                    //case "Default":
+                    //    if (sdr.Length > 0)
+                    //        foreach (DataRow dr in sdr) dr["Default"] = false;
+                    //    e.Node.SetValue("Default", val);
+                    //    break;
 
                     default:
                         e.Node.SetValue("Full", false);

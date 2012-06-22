@@ -123,6 +123,12 @@ namespace DAL
             {
                 var o = (Pol_UserRight)obj;
                 o.Id = Guid.NewGuid();
+
+                var r = _db.Pol_Rights.
+                    Where(s => s.Id == o.Pol_RightId)
+                    .FirstOrDefault();
+                o.Code = r.Code;
+
                 var oki = _db.Pol_UserRights.Add(o);
 
                 _db.SaveChanges();

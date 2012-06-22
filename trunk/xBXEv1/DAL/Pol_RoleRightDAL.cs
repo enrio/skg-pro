@@ -122,7 +122,13 @@ namespace DAL
             try
             {
                 var o = (Pol_RoleRight)obj;
+
                 o.Id = Guid.NewGuid();
+                var r = _db.Pol_Rights.
+                    Where(s => s.Id == o.Pol_RightId)
+                    .FirstOrDefault();
+                o.Code = r.Code;
+
                 var oki = _db.Pol_RoleRights.Add(o);
 
                 _db.SaveChanges();

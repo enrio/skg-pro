@@ -13,37 +13,57 @@ namespace SKG.UTL
     {
         #region Strings
         /// <summary>
-        /// Return a copy of this string between two strings
+        /// Return a copy of this string between two strings with format case
         /// </summary>
         /// <param name="s">String</param>
         /// <param name="start">String start</param>
         /// <param name="end">String end</param>
+        /// <param name="format">Format case</param>
         /// <returns></returns>
-        public static string ToBetween(this string s, string start, string end)
+        public static string ToBetween(this string s, string start, string end, Format format = Format.Orginal)
         {
             try
             {
-                var a = s.IndexOf(start);
+                var a = start == null ? 0 : s.IndexOf(start);
                 var b = s.IndexOf(end);
-                return s.Substring(a, b - a);
+                var c = s.Substring(a, b - a);
+
+                switch (format)
+                {
+                    case Format.Sentence: return c.ToUpperFirst();
+                    case Format.Lower: return c.ToLower();
+                    case Format.Upper: return c.ToUpper();
+                    case Format.Capitalized: return c.ToUpperWords();
+                    default: return c;
+                }
             }
             catch { return String.Empty; }
         }
 
         /// <summary>
-        /// Return a copy of this string between two chars
+        /// Return a copy of this string between two chars with format case
         /// </summary>
         /// <param name="s">String</param>
         /// <param name="start">Char start</param>
         /// <param name="end">Char end</param>
+        /// <param name="format">Format case</param>
         /// <returns></returns>
-        public static string ToBetween(this string s, char start, char end)
+        public static string ToBetween(this string s, char start, char end, Format format = Format.Orginal)
         {
             try
             {
                 var a = s.IndexOf(start);
                 var b = s.IndexOf(end);
-                return s.Substring(a, b - a);
+                var c = s.Substring(a, b - a);
+
+                switch (format)
+                {
+                    case Format.Sentence: return c.ToUpperFirst();
+                    case Format.Lower: return c.ToLower();
+                    case Format.Upper: return c.ToUpper();
+                    case Format.Capitalized: return c.ToUpperWords();
+                    default: return c;
+                }
             }
             catch { return String.Empty; }
         }
@@ -92,23 +112,10 @@ namespace SKG.UTL
         /// </summary>
         /// <param name="s">Number</param>
         /// <returns></returns>
-        public static bool IsNumberR(this string s)
+        public static bool IsNumber(this string s)
         {
             Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
             return regex.IsMatch(s);
-        }
-
-        /// <summary>
-        /// Check text is number using Char class
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static bool IsNumberC(this string s)
-        {
-            foreach (Char c in s)
-                if (!Char.IsDigit(c))
-                    return false;
-            return true;
         }
 
         /// <summary>
@@ -168,7 +175,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static int ToInt32(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToInt32(s);
+            if (IsNumber(s)) return Convert.ToInt32(s);
             return 0;
         }
 
@@ -179,7 +186,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static long ToInt64(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToInt64(s);
+            if (IsNumber(s)) return Convert.ToInt64(s);
             return 0;
         }
 
@@ -190,7 +197,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static double ToDouble(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToDouble(s);
+            if (IsNumber(s)) return Convert.ToDouble(s);
             return 0;
         }
 
@@ -201,7 +208,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static decimal ToDecimal(this string s)
         {
-            if (IsNumberC(s)) return Convert.ToDecimal(s);
+            if (IsNumber(s)) return Convert.ToDecimal(s);
             return 0;
         }
         #endregion

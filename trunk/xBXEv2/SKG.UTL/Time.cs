@@ -9,23 +9,6 @@ namespace SKG.UTL
     /// </summary>
     public static class Time
     {
-        #region Enums
-        /// <summary>
-        /// Enums's quarter
-        /// </summary>
-        public enum Quarter { First = 1, Second = 2, Third = 3, Fourth = 4 }
-
-        /// <summary>
-        /// Enums's month
-        /// </summary>
-        public enum Month
-        {
-            January = 1, February = 2, March = 3, April = 4,
-            May = 5, June = 6, July = 7, August = 8,
-            September = 9, October = 10, November = 11, December = 12
-        }
-        #endregion
-
         #region Years
         /// <summary>
         /// Return a copy of this DateTime to start of year
@@ -56,7 +39,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToStartOfQuarter(this DateTime d)
         {
-            return d.Year.ToStartOfQuarter(d.Month);
+            return d.Year.ToStartOfQuarter(d.Month.ToQuarter());
         }
 
         /// <summary>
@@ -66,7 +49,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static DateTime ToEndOfQuarter(this DateTime d)
         {
-            return d.Year.ToEndOfQuarter(d.Month);
+            return d.Year.ToEndOfQuarter(d.Month.ToQuarter());
         }
 
         /// <summary>
@@ -76,7 +59,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static Quarter ToQuarter(this DateTime d)
         {
-            return d.Month.ToQuarter();
+            return (Quarter)d.Month.ToQuarter();
         }
         #endregion
 
@@ -178,6 +161,34 @@ namespace SKG.UTL
             var t1 = new DateTime(d.Year, d.Month, d.Day, 8, 0, 0, 0);
             var t2 = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0, 0);
             return d < t1 ? 1 : d < t2 ? 2 : 3;
+        }
+        #endregion
+
+        #region Ages
+        /// <summary>
+        /// Calculate age
+        /// </summary>
+        /// <param name="d">Birthday</param>
+        /// <param name="now">Current year</param>
+        /// <returns></returns>
+        public static int ToAge(this DateTime d, DateTime now)
+        {
+            int years = now.Year - d.Year;
+            if (now.Month < d.Month || (now.Month == d.Month && now.Day < d.Day)) years--;
+            return years;
+        }
+
+        /// <summary>
+        /// Return a copy of this DateTime to enough age
+        /// </summary>
+        /// <param name="d">Birthday</param>
+        /// <param name="age">Age</param>
+        /// <returns></returns>
+        public static DateTime ToBirth(this DateTime d, int age)
+        {
+            if (d.Year - age < 1) return new DateTime();
+            return new DateTime(d.Year - age, d.Month, d.Day,
+                d.Hour, d.Minute, d.Second, d.Millisecond);
         }
         #endregion
     }

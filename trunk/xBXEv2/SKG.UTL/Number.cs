@@ -85,12 +85,12 @@ namespace SKG.UTL
         /// </summary>
         /// <param name="m">Month</param>
         /// <returns></returns>
-        public static Time.Quarter ToQuarter(this int m)
+        public static int ToQuarter(this int m)
         {
-            if (m <= 3) return Time.Quarter.First; // 1st Quarter = January 1 to March 31
-            else if ((m >= 4) && (m <= 6)) return Time.Quarter.Second; // 2nd Quarter = April 1 to June 30
-            else if ((m >= 7) && (m <= 9)) return Time.Quarter.Third; // 3rd Quarter = July 1 to September 30
-            else return Time.Quarter.Fourth; // 4th Quarter = October 1 to December 31
+            if (m <= 3) return 1; // 1st Quarter = January 1 to March 31
+            else if ((m >= 4) && (m <= 6)) return 2; // 2nd Quarter = April 1 to June 30
+            else if ((m >= 7) && (m <= 9)) return 3; // 3rd Quarter = July 1 to September 30
+            else return 4; // 4th Quarter = October 1 to December 31
         }
         #endregion
 

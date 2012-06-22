@@ -27,7 +27,7 @@ namespace BLL
         /// </summary>
         public List<ZAction> Rights
         {
-            get { return User.ToRights(); }
+            get { return User.ToZActions(); }
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace BLL
         /// <returns>Quyền truy cập</returns>
         public ZAction GetRight(string c)
         {
-            return User.ToRight(c);
+            return User.ToZAction(c);
         }
     }
 }

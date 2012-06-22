@@ -47,5 +47,15 @@ namespace BLL
         {
             return User.ToZAction(c);
         }
+
+        /// <summary>
+        /// Get a user's role
+        /// </summary>
+        /// <param name="c">Code's role</param>
+        /// <returns></returns>
+        public Pol_Role GetUserRole(string c)
+        {
+            return User.ToListRole(c);
+        }
     }
 }

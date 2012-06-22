@@ -66,6 +66,22 @@ namespace DAL
         }
 
         /// <summary>
+        /// Returns all list role
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static Pol_Role ToListRole(this Pol_User u, string c)
+        {
+            try
+            {
+                return u.ToListRoles().
+                    Where(s => s.Code == c)
+                    .FirstOrDefault();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Returns all list rights
         /// </summary>
         /// <param name="u">User</param>
@@ -77,6 +93,22 @@ namespace DAL
                 var r = from s in u.Pol_UserRights
                         select s.Pol_Right;
                 return r.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Returns all list right
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static Pol_Right ToListRight(this Pol_User u, string c)
+        {
+            try
+            {
+                return u.ToListRights().
+                   Where(s => s.Code == c)
+                   .FirstOrDefault();
             }
             catch { return null; }
         }

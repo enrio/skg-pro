@@ -25,15 +25,10 @@ namespace BLL
         /// <summary>
         /// Danh sách các quyền của người dùng
         /// </summary>
-        public List<ZAction> Rights
+        public List<ZAction> ZActions
         {
             get { return User.ToZActions(); }
         }
-
-        /// <summary>
-        /// Quyền hiện tại sau cùng
-        /// </summary>
-        public ZAction LastRight { set; get; }
 
         /// <summary>
         /// Hiện form mặc định sau khi đăng nhập
@@ -48,7 +43,7 @@ namespace BLL
         /// </summary>
         /// <param name="c">Mã chức năng (tên form)</param>
         /// <returns>Quyền truy cập</returns>
-        public ZAction GetRight(string c)
+        public ZAction GetZAction(string c)
         {
             return User.ToZAction(c);
         }

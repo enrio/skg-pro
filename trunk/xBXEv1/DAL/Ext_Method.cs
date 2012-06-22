@@ -4,15 +4,16 @@ using System.Linq;
 
 namespace DAL
 {
-    using System.Data;
     using UTL;
     using Entities;
+    using System.Data;
 
     /// <summary>
     /// Extend methods
     /// </summary>
     public static class Ext_Method
     {
+        #region LINQ
         /// <summary>
         /// Convert from IEnumerable (LINQ object) to DataTable
         /// </summary>
@@ -45,6 +46,7 @@ namespace DAL
 
             dtb.AcceptChanges();
         }
+        #endregion
 
         #region User
         /// <summary>
@@ -84,14 +86,15 @@ namespace DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<ZAction> ToRights(this Pol_User u)
+        public static List<ZAction> ToZActions(this Pol_User u)
         {
             try
             {
-                var a = u.ToUserRights();
-                var b = u.ToRoleRights();
-                var c = a.Union(b);
-                return c.ToList();
+                var a = u.ToUserRights()
+                    .ToList<ZAction>();
+                var b = u.ToRoleRights()
+                    .ToList<ZAction>();
+                return a.Union(b).ToList();
             }
             catch { return null; }
         }
@@ -105,7 +108,7 @@ namespace DAL
         {
             try
             {
-                var res = u.ToRights()
+                var res = u.ToZActions()
                     .Where(s => s.Default);
                 return res.ToList();
             }
@@ -118,11 +121,11 @@ namespace DAL
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>
         /// <returns></returns>
-        public static ZAction ToRight(this Pol_User u, string c)
+        public static ZAction ToZAction(this Pol_User u, string c)
         {
             try
             {
-                var res = u.ToRights()
+                var res = u.ToZActions()
                     .Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 
@@ -150,12 +153,11 @@ namespace DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<ZAction> ToUserRights(this Pol_User u)
+        public static List<Pol_UserRight> ToUserRights(this Pol_User u)
         {
             try
             {
-                return u.Pol_UserRights
-                    .ToList<ZAction>();
+                return u.Pol_UserRights.ToList();
             }
             catch { return null; }
         }
@@ -166,27 +168,27 @@ namespace DAL
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>
         /// <returns></returns>
-        public static ZAction ToUserRight(this Pol_User u, string c)
+        public static Pol_UserRight ToUserRight(this Pol_User u, string c)
         {
             try
             {
-                var res = u.ToUserRights()
+                var a = u.ToUserRights()
                     .Where(s => s.Code == c);
-                var zac = res.FirstOrDefault();
+                var b = a.FirstOrDefault();
 
-                if (res.Count() < 2) return zac;
-                if (zac.Full || zac.None) return zac;
+                if (a.Count() < 2) return b;
+                if (b.Full || b.None) return b;
 
-                foreach (var i in res)
+                foreach (var i in a)
                 {
-                    zac.Add |= i.Add;
-                    zac.Edit |= i.Edit;
-                    zac.Delete |= i.Delete;
-                    zac.Default |= i.Default;
-                    zac.Print |= i.Print;
-                    zac.Access |= i.Access;
+                    b.Add |= i.Add;
+                    b.Edit |= i.Edit;
+                    b.Delete |= i.Delete;
+                    b.Default |= i.Default;
+                    b.Print |= i.Print;
+                    b.Access |= i.Access;
                 }
-                return zac;
+                return b;
             }
             catch { return null; }
         }
@@ -198,32 +200,18 @@ namespace DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<ZAction> ToRoleRights(this Pol_User u)
+        public static List<Pol_RoleRight> ToRoleRights(this Pol_User u)
         {
             try
             {
-                var res = from s in u.Pol_UserRoles
-                          select s.Pol_Role.Pol_RoleRights;
-                var zac = new List<ZAction>();
+                var a = from s in u.Pol_UserRoles
+                        select s.Pol_Role.Pol_RoleRights;
+                var b = new List<Pol_RoleRight>();
 
-                foreach (var i in res)
+                foreach (var i in a)
                     foreach (var j in i)
-                    {
-                        var z = new ZAction()
-                        {
-                            Code = j.Pol_Right.Code,
-                            Add = j.Add,
-                            Edit = j.Edit,
-                            Delete = j.Delete,
-                            Default = j.Default,
-                            Print = j.Print,
-                            Access = j.Access,
-                            Full = j.Full,
-                            None = j.None
-                        };
-                        zac.Add(z);
-                    }
-                return zac;
+                        b.Add(j);
+                return b;
             }
             catch { return null; }
         }
@@ -234,27 +222,27 @@ namespace DAL
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>
         /// <returns></returns>
-        public static ZAction ToRoleRight(this Pol_User u, string c)
+        public static Pol_RoleRight ToRoleRight(this Pol_User u, string c)
         {
             try
             {
-                var res = u.ToRoleRights()
+                var a = u.ToRoleRights()
                     .Where(s => s.Code == c);
-                var zac = res.FirstOrDefault();
+                var b = a.FirstOrDefault();
 
-                if (res.Count() < 2) return zac;
-                if (zac.Full || zac.None) return zac;
+                if (a.Count() < 2) return b;
+                if (b.Full || b.None) return b;
 
-                foreach (var i in res)
+                foreach (var i in a)
                 {
-                    zac.Add |= i.Add;
-                    zac.Edit |= i.Edit;
-                    zac.Delete |= i.Delete;
-                    zac.Default |= i.Default;
-                    zac.Print |= i.Print;
-                    zac.Access |= i.Access;
+                    b.Add |= i.Add;
+                    b.Edit |= i.Edit;
+                    b.Delete |= i.Delete;
+                    b.Default |= i.Default;
+                    b.Print |= i.Print;
+                    b.Access |= i.Access;
                 }
-                return zac;
+                return b;
             }
             catch { return null; }
         }

@@ -63,7 +63,7 @@ namespace PRE
                 if (frm != null) frm.ShowRight(this);
             }
 
-            // Tài khoản siêu quản trị mới có quyền phân quyền (cao nhất)
+            // Tài khoản là admin hoặc thuộc nhóm Quản trị mới có quyền phân quyền
 #if DEBUG
             rpgPermission.Visible = true;
             bbiResetDB.Visibility = BarItemVisibility.Always;
@@ -111,13 +111,14 @@ namespace PRE
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+#if !DEBUG
             if (!BaseBLL.CheckDb())
             {
                 BasePRE.ShowRight<FrmSetting>(this);
                 return;
             }
             else bbiSetting.Visibility = BarItemVisibility.Never;
-
+#endif
             Login();
         }
 

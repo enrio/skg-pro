@@ -54,6 +54,24 @@ namespace PRE.Main
             InitializeComponent();
         }
 
+        #region Events
+        Configuration _config;
+        private void FrmSetting_Load(object sender, EventArgs e)
+        {
+            _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var a = _config.ConnectionStrings.ConnectionStrings[1];
+
+            if (a.ProviderName.Equals("System.Data.SqlServerCe.4.0"))
+            {
+                cmdOk.Enabled = false;
+                cbbServer.Enabled = false;
+                cbbAuthen.Enabled = false;
+                cbbUser.Enabled = false;
+                txtPass.Enabled = false;
+                cbbDb.Enabled = false;
+            }
+        }
+
         private void cmdClose_Click(object sender, EventArgs e) { Close(); }
 
         private void cmdSetup_Click(object sender, EventArgs e)
@@ -66,7 +84,6 @@ namespace PRE.Main
         {
             try
             {
-                Configuration _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
                 _config.ConnectionStrings.ConnectionStrings[1].ConnectionString = StringConnect;
 
                 _config.Save(ConfigurationSaveMode.Modified);
@@ -136,5 +153,6 @@ namespace PRE.Main
             }
             catch { return; }
         }
+        #endregion
     }
 }

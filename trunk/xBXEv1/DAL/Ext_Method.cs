@@ -85,11 +85,11 @@ namespace DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_UserRight> ToUserRights(this Pol_User u)
+        public static List<ZAction> ToUserRights(this Pol_User u)
         {
             try
             {
-                return u.Pol_UserRights.ToList();
+                return u.Pol_UserRights.ToList<ZAction>();
             }
             catch { return null; }
         }
@@ -101,7 +101,7 @@ namespace DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_RoleRight> ToRoleRights(this Pol_User u)
+        public static List<ZAction> ToRoleRights(this Pol_User u)
         {
             try
             {

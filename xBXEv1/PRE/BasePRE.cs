@@ -12,7 +12,6 @@ namespace PRE
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
-    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Xử lí các chức năng trên form
@@ -33,11 +32,12 @@ namespace PRE
         {
             if (parent != null)
             {
-                foreach (Control ctr in parent.Controls)
+                foreach (Control i in parent.Controls)
                 {
-                    if (ctr.GetType() == typeof(RibbonControl)) ctr.Visible = visible;
-                    if (ctr.GetType() == typeof(DockPanel)) ctr.Visible = visible;
-                    if (ctr.GetType() == typeof(BarManager)) ctr.Visible = visible;
+                    var a = i.GetType();
+                    if (a == typeof(RibbonControl)) i.Visible = visible;
+                    if (a == typeof(DockPanel)) i.Visible = visible;
+                    if (a == typeof(BarManager)) i.Visible = visible;
                 }
             }
         }
@@ -70,8 +70,12 @@ namespace PRE
                     while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
                         ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
 
-                    while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
-                        ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
+                    while (((ApplicationMenu)((RibbonForm)parent)
+                        .Ribbon.ApplicationButtonDropDownControl)
+                        .ItemLinks.Count > 1)
+                        ((ApplicationMenu)((RibbonForm)parent)
+                            .Ribbon.ApplicationButtonDropDownControl)
+                            .ItemLinks[1].Dispose();
                 }
             }
             catch { return; }
@@ -217,33 +221,5 @@ namespace PRE
             }
             else b.Activate();
         }
-
-        #region Selection
-        /// <summary>
-        /// Selection text
-        /// </summary>
-        /// <param name="t">TextBox</param>
-        public static void Selection(this TextBox t)
-        {
-            if (!String.IsNullOrEmpty(t.Text))
-            {
-                t.SelectionStart = 0;
-                t.SelectionLength = t.Text.Length;
-            }
-        }
-
-        /// <summary>
-        /// Selection text
-        /// </summary>
-        /// <param name="t">TextEdit</param>
-        public static void Selection(this TextEdit t)
-        {
-            if (!String.IsNullOrEmpty(t.Text))
-            {
-                t.SelectionStart = 0;
-                t.SelectionLength = t.Text.Length;
-            }
-        }
-        #endregion
     }
 }

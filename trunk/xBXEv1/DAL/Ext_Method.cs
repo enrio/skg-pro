@@ -107,7 +107,28 @@ namespace DAL
             {
                 var r = from s in u.Pol_UserRoles
                         select s.Pol_Role.Pol_RoleRights;
-                return null;
+                var a = new List<ZAction>();
+
+                foreach (var b in r)
+                    foreach (var c in b)
+                    {
+                        var z = new ZAction()
+                        {
+                            Code = c.Code,
+                            Add = c.Add,
+                            Edit = c.Edit,
+                            Delete = c.Delete,
+                            Query = c.Query,
+                            Print = c.Print,
+                            Access = c.Access,
+                            Default = c.Default,
+                            Full = c.Full,
+                            None = c.None
+                        };
+                        a.Add(z);
+                    }
+                return a;
+
             }
             catch { return null; }
         }

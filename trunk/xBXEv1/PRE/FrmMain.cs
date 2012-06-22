@@ -68,6 +68,7 @@ namespace PRE
 #if DEBUG
             rpgPermission.Visible = true;
             bbiResetDB.Visibility = BarItemVisibility.Always;
+            bbiSetting.Visibility = BarItemVisibility.Always;
 #else
             var a = BasePRE._sss.GetUserRole("QT");
             var b = BasePRE._sss.User.Acc.ToUpper();

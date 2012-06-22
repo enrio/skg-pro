@@ -138,6 +138,7 @@
             this.bbiSetting.Id = 2;
             this.bbiSetting.LargeGlyph = global::PRE.Properties.Resources.setting;
             this.bbiSetting.Name = "bbiSetting";
+            this.bbiSetting.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbiSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSetting_ItemClick);
             // 
             // bbiCloseAll

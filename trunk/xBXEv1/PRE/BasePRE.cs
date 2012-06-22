@@ -12,6 +12,7 @@ namespace PRE
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Xử lí các chức năng trên form
@@ -216,5 +217,33 @@ namespace PRE
             }
             else b.Activate();
         }
+
+        #region Selection
+        /// <summary>
+        /// Selection text
+        /// </summary>
+        /// <param name="t">TextBox</param>
+        public static void Selection(this TextBox t)
+        {
+            if (!String.IsNullOrEmpty(t.Text))
+            {
+                t.SelectionStart = 0;
+                t.SelectionLength = t.Text.Length;
+            }
+        }
+
+        /// <summary>
+        /// Selection text
+        /// </summary>
+        /// <param name="t">TextEdit</param>
+        public static void Selection(this TextEdit t)
+        {
+            if (!String.IsNullOrEmpty(t.Text))
+            {
+                t.SelectionStart = 0;
+                t.SelectionLength = t.Text.Length;
+            }
+        }
+        #endregion
     }
 }

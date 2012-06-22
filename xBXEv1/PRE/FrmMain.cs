@@ -51,14 +51,15 @@ namespace PRE
             bsiUser.Caption = BasePRE._sss.User.Name;
 
             // Hiện form mặc định
-            if (BasePRE._sss.Default != null)
+            var d = BasePRE._sss.Default;
+            foreach (var r in d)
             {
-                Type type = Type.GetType("PRE.Catalog." + BasePRE._sss.Default.Code);
-                if (type == null) type = Type.GetType("PRE.Main." + BasePRE._sss.Default.Code);
-                if (type == null) type = Type.GetType("PRE.Manage." + BasePRE._sss.Default.Code);
-                if (type == null) type = Type.GetType(BasePRE._sss.Default.Code);
-                if (type == null) return;
+                var type = Type.GetType("PRE.Catalog." + r.Code);
+                if (type == null) type = Type.GetType("PRE.Main." + r.Code);
+                if (type == null) type = Type.GetType("PRE.Manage." + r.Code);
+                if (type == null) type = Type.GetType(r.Code);
 
+                if (type == null) return;
                 var frm = Activator.CreateInstance(type) as FrmBase;
                 if (frm != null) frm.ShowRight(this);
             }

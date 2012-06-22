@@ -142,7 +142,7 @@ namespace DAL
         {
             try
             {
-                var res = u.ToRoleRights().Where(p => p.Code == c);
+                var res = u.ToRoleRights().Where(s => s.Code == c);
 
                 if (res.Count() > 1)
                 {

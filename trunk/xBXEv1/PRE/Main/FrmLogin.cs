@@ -95,15 +95,5 @@ namespace PRE.Main
             if (txtPass.Text == "")
                 txtPass_KeyDown(sender, e);
         }
-
-        private void txtUser_Enter(object sender, EventArgs e)
-        {
-            txtUser.Selection();
-        }
-
-        private void txtPass_Enter(object sender, EventArgs e)
-        {
-            txtPass.Selection();
-        }
     }
 }

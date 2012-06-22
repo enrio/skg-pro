@@ -39,7 +39,7 @@ namespace BLL
             get
             {
                 foreach (var x in Rights)
-                    if (x.Query) return x;
+                    if (x.Default) return x;
                 return null;
             }
         }

@@ -179,10 +179,9 @@ namespace DAL
                             s.Add,
                             s.Edit,
                             s.Delete,
-                            Query = s.Default,
+                            s.Default,
                             s.Print,
                             s.Access,
-                            Default = s.Query,
                             s.Full,
                             s.None
                         };
@@ -203,10 +202,9 @@ namespace DAL
                             s.Add,
                             s.Edit,
                             s.Delete,
-                            Query = s.Default,
+                            s.Default,
                             s.Print,
                             s.Access,
-                            Default = s.Query,
                             s.Full,
                             s.None
                         };
@@ -223,10 +221,9 @@ namespace DAL
                         Add = res.Add,
                         Edit = res.Edit,
                         Delete = res.Delete,
-                        Default = res.Query,
+                        Default = res.Default,
                         Print = res.Print,
                         Access = res.Access,
-                        Query = res.Default,
                         Full = res.Full,
                         None = res.None
                     };

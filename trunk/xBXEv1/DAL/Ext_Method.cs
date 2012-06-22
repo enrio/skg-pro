@@ -94,5 +94,23 @@ namespace DAL
             catch { return null; }
         }
         #endregion
+
+        #region Role
+        /// <summary>
+        /// Returns all role's rights
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static List<Pol_RoleRight> ToRoleRights(this Pol_User u)
+        {
+            try
+            {
+                var r = from s in u.Pol_UserRoles
+                        select s.Pol_Role.Pol_RoleRights;
+                return null;
+            }
+            catch { return null; }
+        }
+        #endregion
     }
 }

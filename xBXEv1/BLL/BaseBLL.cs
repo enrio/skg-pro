@@ -236,38 +236,38 @@ namespace BLL
 
             var a = (Pol_User)Pol_User.Select("xyz");
             var b = (Pol_Right)Pol_Right.Select("FrmPol_Right");
-            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
 
             a = (Pol_User)Pol_User.Select("edmin");
             b = (Pol_Right)Pol_Right.Select("FrmPol_Right");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_Role");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_User");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmTra_Group");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmTra_Kind");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmTra_Vehicle");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmGateOut");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmGateIn");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmInDepot");
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
         }
 
@@ -313,69 +313,69 @@ namespace BLL
 
             var a = (Pol_Role)Pol_Role.Select("CV");
             var b = (Pol_Right)Pol_Right.Select("FrmGateIn");
-            var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_RoleRight.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("CR");
             b = (Pol_Right)Pol_Right.Select("FrmGateOut");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("QT");
             b = (Pol_Right)Pol_Right.Select("FrmPol_Right");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_Role");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_User");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_UserRight");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_RoleRight");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmPol_UserRole");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_RoleRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmTra_Group");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmTra_Kind");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmTra_Vehicle");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
 
             b = (Pol_Right)Pol_Right.Select("FrmGateIn");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmGateOut");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmInDepot");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmSales");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("TK");
             b = (Pol_Right)Pol_Right.Select("FrmSales");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true, Default = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Full = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
         }
 

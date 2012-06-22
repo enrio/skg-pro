@@ -128,6 +128,7 @@ namespace DAL
                     Where(s => s.Id == o.Pol_RightId)
                     .FirstOrDefault();
                 o.Code = r.Code;
+                o.Descript = r.Descript;
 
                 var oki = _db.Pol_RoleRights.Add(o);
 
@@ -158,8 +159,8 @@ namespace DAL
                 res.Full = o.Full;
                 res.None = o.None;
 
-                res.Code = o.Code;
-                res.Descript = o.Descript;
+                //res.Code = o.Code;
+                //res.Descript = o.Descript;
                 res.Order = o.Order;
                 res.Show = o.Show;
 

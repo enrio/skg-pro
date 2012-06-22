@@ -105,30 +105,29 @@ namespace DAL
         {
             try
             {
-                var r = from s in u.Pol_UserRoles
-                        select s.Pol_Role.Pol_RoleRights;
-                var a = new List<ZAction>();
+                var res = from s in u.Pol_UserRoles
+                          select s.Pol_Role.Pol_RoleRights;
+                var zac = new List<ZAction>();
 
-                foreach (var b in r)
-                    foreach (var c in b)
+                foreach (var rol in res)
+                    foreach (var rig in rol)
                     {
                         var z = new ZAction()
                         {
-                            Code = c.Pol_Right.Code,
-                            Add = c.Add,
-                            Edit = c.Edit,
-                            Delete = c.Delete,
-                            Query = c.Query,
-                            Print = c.Print,
-                            Access = c.Access,
-                            Default = c.Default,
-                            Full = c.Full,
-                            None = c.None
+                            Code = rig.Pol_Right.Code,
+                            Add = rig.Add,
+                            Edit = rig.Edit,
+                            Delete = rig.Delete,
+                            Query = rig.Query,
+                            Print = rig.Print,
+                            Access = rig.Access,
+                            Default = rig.Default,
+                            Full = rig.Full,
+                            None = rig.None
                         };
-                        a.Add(z);
+                        zac.Add(z);
                     }
-                return a;
-
+                return zac;
             }
             catch { return null; }
         }

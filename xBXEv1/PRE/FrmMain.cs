@@ -68,8 +68,11 @@ namespace PRE
             rpgPermission.Visible = true;
             bbiResetDB.Visibility = BarItemVisibility.Always;
 #else
-            string acc = BasePRE._sss.User.Acc.ToUpper();
-            if (acc == "ADMIN") rpgPermission.Visible = true;
+            var a = BasePRE._sss.GetUserRole("QT");
+            var b = BasePRE._sss.User.Acc.ToUpper();
+
+            if (a != null || b == "ADMIN")
+                rpgPermission.Visible = true;
             else rpgPermission.Visible = false;
 #endif
         }

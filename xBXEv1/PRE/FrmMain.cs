@@ -74,8 +74,15 @@ namespace PRE
             var b = BasePRE._sss.User.Acc.ToUpper();
 
             if (a != null || b == "ADMIN")
+            {
                 rpgPermission.Visible = true;
-            else rpgPermission.Visible = false;
+                bbiSetting.Visibility = BarItemVisibility.Always;
+            }
+            else
+            {
+                rpgPermission.Visible = false;
+                bbiSetting.Visibility = BarItemVisibility.Never;
+            }
 #endif
         }
 

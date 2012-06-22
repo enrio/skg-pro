@@ -64,10 +64,10 @@ namespace DAL
                             s.Add,
                             s.Edit,
                             s.Delete,
-                            s.Query,
+                            Query = s.Default,
                             s.Print,
                             s.Access,
-                            s.Default,
+                            Default = s.Query,
                             s.Full,
                             s.None,
 
@@ -148,10 +148,10 @@ namespace DAL
                 res.Add = o.Add;
                 res.Edit = o.Edit;
                 res.Delete = o.Delete;
-                res.Query = o.Query;
+                res.Default = o.Default;
                 res.Print = o.Print;
                 res.Access = o.Access;
-                res.Default = o.Default;
+                res.Query = o.Query;
                 res.Full = o.Full;
                 res.None = o.None;
 

@@ -34,14 +34,9 @@ namespace BLL
         /// <summary>
         /// Hiện form mặc định sau khi đăng nhập
         /// </summary>
-        public ZAction Default
+        public List<ZAction> Default
         {
-            get
-            {
-                foreach (var x in Rights)
-                    if (x.Default) return x;
-                return null;
-            }
+            get { return Rights.Where(p => p.Default).ToList(); }
         }
 
         /// <summary>

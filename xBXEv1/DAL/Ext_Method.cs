@@ -97,6 +97,22 @@ namespace DAL
         }
 
         /// <summary>
+        /// Returns all defaults
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static List<ZAction> ToDefaults(this Pol_User u)
+        {
+            try
+            {
+                var res = u.ToRights()
+                    .Where(s => s.Default);
+                return res.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Returns a right
         /// </summary>
         /// <param name="u">User</param>
@@ -106,7 +122,8 @@ namespace DAL
         {
             try
             {
-                var res = u.ToRights().Where(s => s.Code == c);
+                var res = u.ToRights()
+                    .Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 
                 if (res.Count() < 2) return zac;
@@ -137,7 +154,8 @@ namespace DAL
         {
             try
             {
-                return u.Pol_UserRights.ToList<ZAction>();
+                return u.Pol_UserRights
+                    .ToList<ZAction>();
             }
             catch { return null; }
         }
@@ -152,7 +170,8 @@ namespace DAL
         {
             try
             {
-                var res = u.ToUserRights().Where(s => s.Code == c);
+                var res = u.ToUserRights()
+                    .Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 
                 if (res.Count() < 2) return zac;
@@ -219,7 +238,8 @@ namespace DAL
         {
             try
             {
-                var res = u.ToRoleRights().Where(s => s.Code == c);
+                var res = u.ToRoleRights()
+                    .Where(s => s.Code == c);
                 var zac = res.FirstOrDefault();
 
                 if (res.Count() < 2) return zac;

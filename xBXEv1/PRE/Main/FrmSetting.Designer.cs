@@ -215,6 +215,7 @@
             this.Controls.Add(this.gctMain);
             this.Name = "FrmSetting";
             this.Text = "Cài đặt";
+            this.Load += new System.EventHandler(this.FrmSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gctMain)).EndInit();
             this.gctMain.ResumeLayout(false);
             this.gctMain.PerformLayout();

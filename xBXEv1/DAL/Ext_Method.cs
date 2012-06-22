@@ -109,21 +109,21 @@ namespace DAL
                           select s.Pol_Role.Pol_RoleRights;
                 var zac = new List<ZAction>();
 
-                foreach (var rol in res)
-                    foreach (var rig in rol)
+                foreach (var i in res)
+                    foreach (var j in i)
                     {
                         var z = new ZAction()
                         {
-                            Code = rig.Pol_Right.Code,
-                            Add = rig.Add,
-                            Edit = rig.Edit,
-                            Delete = rig.Delete,
-                            Query = rig.Query,
-                            Print = rig.Print,
-                            Access = rig.Access,
-                            Default = rig.Default,
-                            Full = rig.Full,
-                            None = rig.None
+                            Code = j.Pol_Right.Code,
+                            Add = j.Add,
+                            Edit = j.Edit,
+                            Delete = j.Delete,
+                            Query = j.Query,
+                            Print = j.Print,
+                            Access = j.Access,
+                            Default = j.Default,
+                            Full = j.Full,
+                            None = j.None
                         };
                         zac.Add(z);
                     }
@@ -143,12 +143,24 @@ namespace DAL
             try
             {
                 var res = u.ToRoleRights().Where(s => s.Code == c);
+                var zac = res.SingleOrDefault();
 
-                if (res.Count() > 1)
+                if (res.Count() < 2) return zac;
+                if (!zac.Full && !zac.None) ;
+
+                foreach (var i in res)
                 {
+                    zac.Add |= i.Add;
+                    zac.Edit |= i.Edit;
+                    zac.Delete |= i.Delete;
+                    zac.Query |= i.Query;
+                    zac.Print |= i.Print;
+                    zac.Access |= i.Access;
+                    zac.Default |= i.Default;
+                    zac.Full |= i.Full;
+                    zac.None |= i.None;
                 }
-
-                return res.SingleOrDefault();
+                return zac;
             }
             catch { return null; }
         }

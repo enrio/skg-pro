@@ -25,7 +25,7 @@ namespace DAL.Entities
         public bool Delete { set; get; }
 
         /// <summary>
-        /// Cho phép truy vấn
+        /// Cho phép tự động hiện chức năng (form)
         /// </summary>
         public bool Query { set; get; }
 

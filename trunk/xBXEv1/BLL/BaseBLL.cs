@@ -128,7 +128,7 @@ namespace BLL
             Pol_Action.Insert(o);
             o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
             Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Query", Name = "Truy vấn", Descript = "Cho phép truy vấn dữ liệu", Order = 3 };
+            o = new Pol_Action() { Code = "Query", Name = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
             Pol_Action.Insert(o);
             o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
             Pol_Action.Insert(o);
@@ -137,8 +137,6 @@ namespace BLL
             o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
             Pol_Action.Insert(o);
             o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 7 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Default", Name = "Mặc định", Descript = "Hiện sau khi đăng nhập", Order = 8 };
             Pol_Action.Insert(o);
         }
 

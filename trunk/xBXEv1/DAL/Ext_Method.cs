@@ -78,7 +78,9 @@ namespace DAL
             }
             catch { return null; }
         }
+        #endregion
 
+        #region User's rights
         /// <summary>
         /// Returns all user's rights
         /// </summary>
@@ -92,9 +94,38 @@ namespace DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Returns all user's right
+        /// </summary>
+        /// <param name="u">User</param>
+        /// <returns></returns>
+        public static ZAction ToUserRight(this Pol_User u, string c)
+        {
+            try
+            {
+                var res = u.ToUserRights().Where(s => s.Code == c);
+                var zac = res.FirstOrDefault();
+
+                if (res.Count() < 2) return zac;
+                if (zac.Full || zac.None) return zac;
+
+                foreach (var i in res)
+                {
+                    zac.Add |= i.Add;
+                    zac.Edit |= i.Edit;
+                    zac.Delete |= i.Delete;
+                    zac.Default |= i.Default;
+                    zac.Print |= i.Print;
+                    zac.Access |= i.Access;
+                }
+                return zac;
+            }
+            catch { return null; }
+        }
         #endregion
 
-        #region Role
+        #region Role's rights
         /// <summary>
         /// Returns all role's rights
         /// </summary>

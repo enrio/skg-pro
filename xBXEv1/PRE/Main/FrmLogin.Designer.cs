@@ -116,6 +116,7 @@
             this.txtUser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtUser.Size = new System.Drawing.Size(229, 20);
             this.txtUser.TabIndex = 0;
+            this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter);
             this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtPass
@@ -134,6 +135,7 @@
             this.txtPass.Properties.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(229, 20);
             this.txtPass.TabIndex = 1;
+            this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPass_KeyDown);
             // 
             // panelControl1

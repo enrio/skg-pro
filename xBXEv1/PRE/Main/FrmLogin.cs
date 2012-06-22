@@ -95,5 +95,15 @@ namespace PRE.Main
             if (txtPass.Text == "")
                 txtPass_KeyDown(sender, e);
         }
+
+        private void txtUser_Enter(object sender, EventArgs e)
+        {
+            txtUser.SelectAll();
+        }
+
+        private void txtPass_Enter(object sender, EventArgs e)
+        {
+            txtPass.SelectAll();
+        }
     }
 }

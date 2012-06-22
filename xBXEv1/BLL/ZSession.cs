@@ -59,5 +59,21 @@ namespace BLL
                 };
             return null;
         }
+
+        public Pol_UserRole GetUserRole(string s)
+        {
+            foreach (var x in User.Pol_UserRoles)
+                if (x.Code == s)
+                    return x;
+            return null;
+        }
+
+        public Pol_UserRight GetUserRight(string s)
+        {
+            foreach (var x in User.Pol_UserRights)
+                if (x.Code == s)
+                    return x;
+            return null;
+        }
     }
 }

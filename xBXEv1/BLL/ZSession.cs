@@ -62,18 +62,18 @@ namespace BLL
 
         public Pol_UserRole GetUserRole(string s)
         {
-            foreach (var x in User.Pol_UserRoles)
-                if (x.Code == s)
-                    return x;
-            return null;
+            var a = from b in User.Pol_UserRoles
+                    where b.Code == s
+                    select b;
+            return a.SingleOrDefault();
         }
 
         public Pol_UserRight GetUserRight(string s)
         {
-            foreach (var x in User.Pol_UserRights)
-                if (x.Code == s)
-                    return x;
-            return null;
+            var a = from b in User.Pol_UserRights
+                    where b.Code == s
+                    select b;
+            return a.SingleOrDefault();
         }
     }
 }

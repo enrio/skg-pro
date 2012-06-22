@@ -114,7 +114,7 @@ namespace DAL
                     {
                         var z = new ZAction()
                         {
-                            Code = c.Code,
+                            Code = c.Pol_Right.Code,
                             Add = c.Add,
                             Edit = c.Edit,
                             Delete = c.Delete,

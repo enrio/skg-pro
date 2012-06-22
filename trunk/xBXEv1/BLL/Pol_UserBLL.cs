@@ -27,12 +27,8 @@ namespace BLL
                 pass = Code.Encode(pass);
                 //sss.Pol_User.Pass = UTL.Hasher.Code.Decode(sss.Pol_User.Pass);
                 if (sss.User.Pass != pass) return null;
-                sss.Rights = GetRights(sss.User.Id);
-
-                var a = sss.User.ToRoleRights();
-                var b = sss.User.ToUserRights();
-                var c = sss.User.ToRoleRight("FrmGateIn");
-
+                //sss.Rights = GetRights(sss.User.Id);
+                sss.Rights = sss.User.ToRights();
                 return sss;
             }
             catch { return null; }

@@ -6,7 +6,6 @@ namespace DAL
 {
     using System.Data;
     using UTL;
-    using SKG.UTL;
     using Entities;
 
     /// <summary>
@@ -121,7 +120,6 @@ namespace DAL
                             Default = j.Default,
                             Print = j.Print,
                             Access = j.Access,
-                            Query = j.Query,
                             Full = j.Full,
                             None = j.None
                         };
@@ -156,7 +154,6 @@ namespace DAL
                     zac.Default |= i.Default;
                     zac.Print |= i.Print;
                     zac.Access |= i.Access;
-                    zac.Query |= i.Query;
                 }
                 return zac;
             }

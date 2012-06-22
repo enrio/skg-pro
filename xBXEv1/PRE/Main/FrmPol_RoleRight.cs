@@ -173,10 +173,9 @@ namespace PRE.Main
                             Add = (bool)r["Add"],
                             Edit = (bool)r["Edit"],
                             Delete = (bool)r["Delete"],
-                            Default = (bool)r["Query"],
+                            Default = (bool)r["Default"],
                             Print = (bool)r["Print"],
                             Access = (bool)r["Access"],
-                            Query = (bool)r["Default"],
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
@@ -205,10 +204,9 @@ namespace PRE.Main
                             Add = (bool)r["Add"],
                             Edit = (bool)r["Edit"],
                             Delete = (bool)r["Delete"],
-                            Default = (bool)r["Query"],
+                            Default = (bool)r["Default"],
                             Print = (bool)r["Print"],
                             Access = (bool)r["Access"],
-                            Query = (bool)r["Default"],
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };

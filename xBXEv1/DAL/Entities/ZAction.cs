@@ -39,11 +39,6 @@ namespace DAL.Entities
         /// </summary>
         public bool Access { set; get; }
 
-        /// <summary>
-        /// Chức năng dự phòng (không sử dụng)
-        /// </summary>
-        public bool Query { set; get; }
-
         private bool _full;
         /// <summary>
         /// Toàn quyền

@@ -50,9 +50,12 @@ namespace SKG.UTL.Db
         /// Get all database in SQL Server
         /// </summary>
         /// <returns>Data</returns>
-        public DataTable GetDatabases()
+        public List<string> GetDatabases()
         {
-            return ExecuteQuery("select name from sys.sysdatabases");
+            var tbl = ExecuteQuery("select name from sys.sysdatabases");
+            var lst = new List<string>();
+            foreach (DataRow r in tbl.Rows) lst.Add(r["name"] + "");
+            return lst;
         }
 
         /// <summary>
@@ -63,11 +66,7 @@ namespace SKG.UTL.Db
         public bool CheckDbExists(string dbName)
         {
             var res = GetDatabases();
-            if (res == null) return false;
-
-            DataRow[] dtr = res.Select(String.Format("[name]='{0}'", dbName));
-            if (dtr.Length > 0) return true;
-            return false;
+            return res.Contains(dbName);
         }
 
         /// <summary>

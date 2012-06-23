@@ -57,24 +57,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1B0C4151A175727F9CFC14F49F39090B"
-        "OwnerKey" = "8:_2C7005BF600EBB028E317372301D972D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1B0C4151A175727F9CFC14F49F39090B"
-        "OwnerKey" = "8:_4250C4E066CA412A995AF55A2C63DF77"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1B0C4151A175727F9CFC14F49F39090B"
-        "OwnerKey" = "8:_8B26722679C635EBB1DE0782E5FA7753"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2250BFC4476C5D365409F27272E3EC83"
         "OwnerKey" = "8:_EBF0A07DEF0E01D75112885757A11E6B"
         "MsmSig" = "8:_UNDEFINED"
@@ -317,6 +299,24 @@
         {
         "MsmKey" = "8:_729538C23C170EC08A392D2541EA38B9"
         "OwnerKey" = "8:_4250C4E066CA412A995AF55A2C63DF77"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84A10C5B72113D8405CB54A3D7D0BFFB"
+        "OwnerKey" = "8:_2C7005BF600EBB028E317372301D972D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84A10C5B72113D8405CB54A3D7D0BFFB"
+        "OwnerKey" = "8:_4250C4E066CA412A995AF55A2C63DF77"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_84A10C5B72113D8405CB54A3D7D0BFFB"
+        "OwnerKey" = "8:_8B26722679C635EBB1DE0782E5FA7753"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -640,7 +640,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1B0C4151A175727F9CFC14F49F39090B"
+        "OwnerKey" = "8:_84A10C5B72113D8405CB54A3D7D0BFFB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -820,10 +820,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.0"
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SQL.Server.Compact.4.0"
                     {
@@ -962,37 +962,6 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.XtraLayout.v11.1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_033392554D474B7E9AAD8DD4311E3704"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1B0C4151A175727F9CFC14F49F39090B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:UTL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1B0C4151A175727F9CFC14F49F39090B"
-                    {
-                    "Name" = "8:UTL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:UTL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_033392554D474B7E9AAD8DD4311E3704"
@@ -1303,6 +1272,37 @@
                     }
                 }
             "SourcePath" = "8:DevExpress.XtraGrid.v11.1.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_033392554D474B7E9AAD8DD4311E3704"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_84A10C5B72113D8405CB54A3D7D0BFFB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SKG.UTL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_84A10C5B72113D8405CB54A3D7D0BFFB"
+                    {
+                    "Name" = "8:SKG.UTL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SKG.UTL.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_033392554D474B7E9AAD8DD4311E3704"
@@ -1738,7 +1738,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xBXE"
         "ProductCode" = "8:{A53FDC2D-03C1-415F-89DB-5EFB810961A9}"
-        "PackageCode" = "8:{951AF40E-0987-4C1C-BCAC-13463F69F57E}"
+        "PackageCode" = "8:{F0C53BF3-84B6-4DC8-803F-DF40EF3B939E}"
         "UpgradeCode" = "8:{AD2ADE26-6BCA-47B0-BFB0-B3B0A14D4453}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

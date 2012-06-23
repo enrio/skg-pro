@@ -53,4 +53,11 @@
     /// </summary>
     public enum State { View, Add, Edit, Delete, Save, Cancel, }
     #endregion
+
+    #region License
+    /// <summary>
+    /// License's software
+    /// </summary>
+    public enum License { Unlimited, Trial, None }
+    #endregion
 }

@@ -5,13 +5,15 @@ using DevExpress.XtraBars;
 
 namespace PRE
 {
+    using SKG.UTL;
+    using SKG.UTL.Hasher;
+
     using BLL;
     using Catalog;
     using Main;
     using Manage;
     using DevExpress.XtraBars.Helpers;
     using DevExpress.XtraBars.Ribbon;
-    using SKG.UTL;
 
     /// <summary>
     /// Chương trình chính (xBXE - Quản lí xe ra, vào bến tại bến xe Ngã Tư Ga - TP.HCM)
@@ -27,6 +29,13 @@ namespace PRE
         {
             InitializeComponent();
             SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
+
+            // Check license
+            var key = (new Registri()).Read("License");
+            var ok = License.IsLincense(key);
+
+            if (ok == LicState.None) BasePRE.ShowRight<FrmLicense>(this);
+            else bbiRegistry.Enabled = false;
 
             // Thông tin server, đồng hồ
             var cnn = (new Pol_ActionBLL()).Connection();

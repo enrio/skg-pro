@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.UTL
 {
+    using System.Data.SqlClient;
     using System.Text.RegularExpressions;
 
     /// <summary>
@@ -125,7 +126,7 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(string n, int min, int max)
+        public static bool CheckNumber(this string n, int min, int max)
         {
             return n.ToInt32().CheckNumber(min, max);
         }
@@ -137,7 +138,7 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(string n, long min, long max)
+        public static bool CheckNumber(this string n, long min, long max)
         {
             return n.ToInt64().CheckNumber(min, max);
         }
@@ -149,7 +150,7 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(string n, double min, double max)
+        public static bool CheckNumber(this string n, double min, double max)
         {
             return n.ToDouble().CheckNumber(min, max);
         }
@@ -161,9 +162,25 @@ namespace SKG.UTL
         /// <param name="min">Minimum number</param>
         /// <param name="max">Maximum number</param>
         /// <returns></returns>
-        public static bool CheckNumber(string n, decimal min, decimal max)
+        public static bool CheckNumber(this string n, decimal min, decimal max)
         {
             return n.ToDecimal().CheckNumber(min, max);
+        }
+
+        /// <summary>
+        /// Check SQL Server connection
+        /// </summary>
+        /// <param name="n">Connection string</param>
+        /// <returns></returns>
+        public static bool CheckSqlConnect(this string n)
+        {
+            try
+            {
+                var a = new SqlConnection(n);
+                a.Open();
+                return true;
+            }
+            catch { return false; }
         }
         #endregion
 

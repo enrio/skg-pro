@@ -46,7 +46,7 @@
             this.bbiTra_Group = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTra_Kind = new DevExpress.XtraBars.BarButtonItem();
             this.bbiTra_Vehicle = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonGalleryBarItem1 = new DevExpress.XtraBars.RibbonGalleryBarItem();
+            this.rgbMain = new DevExpress.XtraBars.RibbonGalleryBarItem();
             this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
@@ -101,7 +101,7 @@
             this.bbiTra_Group,
             this.bbiTra_Kind,
             this.bbiTra_Vehicle,
-            this.ribbonGalleryBarItem1,
+            this.rgbMain,
             this.bsiServer,
             this.bsiUser,
             this.bsiTimer,
@@ -197,6 +197,7 @@
             this.bbiRegistry.Id = 10;
             this.bbiRegistry.LargeGlyph = global::PRE.Properties.Resources.registry;
             this.bbiRegistry.Name = "bbiRegistry";
+            this.bbiRegistry.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiRegistry_ItemClick);
             // 
             // bbiPol_UserRight
             // 
@@ -238,11 +239,11 @@
             this.bbiTra_Vehicle.Name = "bbiTra_Vehicle";
             this.bbiTra_Vehicle.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Vehicle_ItemClick);
             // 
-            // ribbonGalleryBarItem1
+            // rgbMain
             // 
-            this.ribbonGalleryBarItem1.Caption = "ribbonGalleryBarItem1";
-            this.ribbonGalleryBarItem1.Id = 16;
-            this.ribbonGalleryBarItem1.Name = "ribbonGalleryBarItem1";
+            this.rgbMain.Caption = "ribbonGalleryBarItem1";
+            this.rgbMain.Id = 16;
+            this.rgbMain.Name = "rgbMain";
             // 
             // bsiServer
             // 
@@ -344,7 +345,7 @@
             // 
             // rpgSkin
             // 
-            this.rpgSkin.ItemLinks.Add(this.ribbonGalleryBarItem1);
+            this.rpgSkin.ItemLinks.Add(this.rgbMain);
             this.rpgSkin.Name = "rpgSkin";
             this.rpgSkin.Text = "&Giao diện";
             // 
@@ -488,7 +489,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiTra_Group;
         private DevExpress.XtraBars.BarButtonItem bbiTra_Kind;
         private DevExpress.XtraBars.BarButtonItem bbiTra_Vehicle;
-        private DevExpress.XtraBars.RibbonGalleryBarItem ribbonGalleryBarItem1;
+        private DevExpress.XtraBars.RibbonGalleryBarItem rgbMain;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSkin;
         private DevExpress.XtraBars.BarStaticItem bsiServer;
         private DevExpress.XtraBars.BarStaticItem bsiUser;

@@ -38,11 +38,11 @@ namespace PRE.Manage
         {
             InitializeComponent();
 
-            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
+            dockPanel1.SetDockPanel("Nhập liệu");
+            dockPanel2.SetDockPanel("Danh sách");
 
-            SetDockPanel(dockPanel1, "Nhập liệu");
-            SetDockPanel(dockPanel2, "Danh sách");
+            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();            
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;

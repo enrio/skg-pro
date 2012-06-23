@@ -51,7 +51,6 @@
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.bbiPol_UserRole = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiResetDB = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGateIn = new DevExpress.XtraBars.BarButtonItem();
             this.bbiGateOut = new DevExpress.XtraBars.BarButtonItem();
             this.bbiInDepot = new DevExpress.XtraBars.BarButtonItem();
@@ -107,7 +106,6 @@
             this.bsiUser,
             this.bsiTimer,
             this.bbiPol_UserRole,
-            this.bbiResetDB,
             this.bbiGateIn,
             this.bbiGateOut,
             this.bbiInDepot,
@@ -278,15 +276,6 @@
             this.bbiPol_UserRole.Name = "bbiPol_UserRole";
             this.bbiPol_UserRole.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPol_UserRole_ItemClick);
             // 
-            // bbiResetDB
-            // 
-            this.bbiResetDB.Caption = "Tạo lại DB";
-            this.bbiResetDB.Id = 21;
-            this.bbiResetDB.LargeGlyph = global::PRE.Properties.Resources.db;
-            this.bbiResetDB.Name = "bbiResetDB";
-            this.bbiResetDB.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.bbiResetDB.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiResetDB_ItemClick);
-            // 
             // bbiGateIn
             // 
             this.bbiGateIn.Caption = "Cổng vào";
@@ -350,7 +339,6 @@
             this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRight);
             this.rpgPermission.ItemLinks.Add(this.bbiPol_RoleRight);
             this.rpgPermission.ItemLinks.Add(this.bbiPol_UserRole);
-            this.rpgPermission.ItemLinks.Add(this.bbiResetDB);
             this.rpgPermission.Name = "rpgPermission";
             this.rpgPermission.Text = "&Phân quyền";
             // 
@@ -506,7 +494,6 @@
         private DevExpress.XtraBars.BarStaticItem bsiUser;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
         private DevExpress.XtraBars.BarButtonItem bbiPol_UserRole;
-        private DevExpress.XtraBars.BarButtonItem bbiResetDB;
         private DevExpress.XtraBars.BarButtonItem bbiGateIn;
         private DevExpress.XtraBars.BarButtonItem bbiGateOut;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgInOut;

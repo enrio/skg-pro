@@ -25,8 +25,8 @@ namespace PRE.Catalog
         {
             InitializeComponent();
 
-            SetDockPanel(dockPanel1, "Nhập liệu");
-            SetDockPanel(dockPanel2, "Danh sách");
+            dockPanel1.SetDockPanel("Nhập liệu");
+            dockPanel2.SetDockPanel("Danh sách");
 
             AllowAdd = false;
             AllowDelete = false;

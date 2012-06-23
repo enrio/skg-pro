@@ -28,8 +28,8 @@ namespace PRE.Main
             AllowExpand = true;
             AllowFind = false;
 
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            SetDockPanel(dockPanel2, "Danh sách");
+            dockPanel1.Visibility = DockVisibility.Hidden;            
+            dockPanel2.SetDockPanel("Danh sách");
 
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             AddTreeListColumns();
@@ -226,7 +226,7 @@ namespace PRE.Main
                 trlMain.DataSource = _dtb;
                 trlMain.ExpandAll();
             }
-            AutoFit(trlMain);
+            trlMain.AutoFit();
 
             base.LoadData();
         }

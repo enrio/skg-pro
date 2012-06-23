@@ -30,13 +30,6 @@ namespace PRE
             InitializeComponent();
             SkinHelper.InitSkinGallery(rgbMain, true);
 
-            // Check license
-            var key = (new Registri()).Read("License");
-            var ok = License.IsLincense(key);
-
-            if (ok == LicState.None) BasePRE.ShowRight<FrmLicense>(this);
-            else bbiRegistry.Enabled = false;
-
             // Thông tin server, đồng hồ
             var cnn = (new Pol_ActionBLL()).Connection();
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", cnn.DataSource, cnn.Database);
@@ -131,6 +124,16 @@ namespace PRE
         private void FrmMain_Load(object sender, EventArgs e)
         {
 #if !DEBUG
+            // Check license
+            var key = (new Registri()).Read("License");
+            var ok = License.IsLincense(key);
+            if (ok == LicState.None)
+            {
+                BasePRE.ShowRight<FrmLicense>(this);
+                return;
+            }
+            else bbiRegistry.Enabled = false;
+
             if (!BaseBLL.CheckDb())
             {
                 BasePRE.ShowRight<FrmSetting>(this);

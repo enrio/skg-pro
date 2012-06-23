@@ -73,7 +73,9 @@ namespace PRE.Main
             _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var a = _config.ConnectionStrings.ConnectionStrings[1];
 
-            if (a.ProviderName == _b.ProviderName) chkSQLCE.Checked = false;
+            if (a.ProviderName == _b.ProviderName) chkSQLCE.Checked = true;
+            else chkSQLCE.Checked = false;
+
             chkSQLCE_CheckedChanged(sender, e);
         }
 

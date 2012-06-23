@@ -190,12 +190,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static bool CheckSqlCeConnect(this string n)
         {
-            try
-            {
-                var a = n.Split(new char[] { '|' });
-                var b = String.Format("{0}{1}", App.StartupPath, a[2]);
-                return File.Exists(b);
-            }
+            try { return File.Exists(n); }
             catch { return false; }
         }
         #endregion

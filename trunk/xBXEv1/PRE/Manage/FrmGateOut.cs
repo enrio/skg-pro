@@ -21,7 +21,7 @@ namespace PRE.Manage
             dockPanel2.SetDockPanel("Danh sách");
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            lblAccOut.Text = BasePRE._sss.User.Name.ToUpper();            
+            lblAccOut.Text = BasePRE._sss.User.Name.ToUpper();
 
             AllowAdd = false;
             AllowEdit = false;
@@ -67,7 +67,7 @@ namespace PRE.Manage
         protected override void PerformPrint()
         {
             var rpt = new Report.Rpt_Sumary1();
-            var d = BasePRE._sss.Current.Value;
+            var d = BasePRE._sss.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();
             decimal _sum;
@@ -133,8 +133,8 @@ namespace PRE.Manage
                     string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
                     int chair = (tb.Rows[0]["Chair"] + "").ToInt32();
 
-                    lblDateIn.Text = timeIn.ToString("dd/MM/yyyy HH:mm:ss");
-                    lblDateOut.Text = timeOut.ToString("dd/MM/yyyy HH:mm:ss");
+                    lblDateIn.Text = timeIn.ToStringVN();
+                    lblDateOut.Text = timeOut.ToStringVN();
 
                     lblNumber.Text = (tb.Rows[0]["Number"] + "").ToUpper();
                     lblGroup.Text = tb.Rows[0]["GroupName"] + "";

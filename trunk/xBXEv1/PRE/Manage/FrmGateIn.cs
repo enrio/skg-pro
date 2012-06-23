@@ -167,7 +167,7 @@ namespace PRE.Manage
                     Id = id,
                     //Pol_UserInId = BasePRE._sss.User.Id,
                     //Tra_VehicleId = id,
-                    DateIn = BasePRE._sss.Current.Value
+                    DateIn = BasePRE._sss.Current
                 };
 
                 if (_bll.Tra_Detail.Update(o) != null) return true;
@@ -195,7 +195,7 @@ namespace PRE.Manage
                     {
                         Pol_UserInId = BasePRE._sss.User.Id,
                         Tra_VehicleId = id,
-                        DateIn = BasePRE._sss.Current.Value
+                        DateIn = BasePRE._sss.Current
                     };
 
                     if (_bll.Tra_Detail.Insert(o) != null) return true;
@@ -227,7 +227,7 @@ namespace PRE.Manage
                             {
                                 Pol_UserInId = BasePRE._sss.User.Id,
                                 Tra_VehicleId = ve.Id,
-                                DateIn = BasePRE._sss.Current.Value
+                                DateIn = BasePRE._sss.Current
                             };
 
                             if (_bll.Tra_Detail.Insert(o) != null) return true;
@@ -302,7 +302,7 @@ namespace PRE.Manage
         protected override void TimerTick(object sender, EventArgs e)
         {
             _sec++; if (_sec >= 10) { GetDataInMinute(); _sec = 0; }
-            lblDateIn.Text = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
+            lblDateIn.Text = BasePRE._sss.Current.ToStringVN();
 
             base.TimerTick(sender, e);
         }

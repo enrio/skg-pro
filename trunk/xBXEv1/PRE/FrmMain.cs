@@ -11,6 +11,7 @@ namespace PRE
     using Manage;
     using DevExpress.XtraBars.Helpers;
     using DevExpress.XtraBars.Ribbon;
+    using SKG.UTL;
 
     /// <summary>
     /// Chương trình chính (xBXE - Quản lí xe ra, vào bến tại bến xe Ngã Tư Ga - TP.HCM)
@@ -204,8 +205,8 @@ namespace PRE
         {
             if (BasePRE._sss.Current != null)
             {
-                bsiTimer.Caption = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
-                BasePRE._sss.Current = BasePRE._sss.Current.Value.AddSeconds(1);
+                bsiTimer.Caption = BasePRE._sss.Current.ToStringVN();
+                BasePRE._sss.Current = BasePRE._sss.Current.AddSeconds(1);
             }
         }
         #endregion

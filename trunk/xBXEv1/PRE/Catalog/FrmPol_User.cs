@@ -108,7 +108,7 @@ namespace PRE.Catalog
             txtName.Text = null;
             txtAcc.Text = null;
             txtPass.Text = null;
-            dteBirth.DateTime = BasePRE._sss.Current.Value.ToBirth(18);
+            dteBirth.DateTime = BasePRE._sss.Current.ToBirth(18);
             txtAddress.Text = null;
             txtPhone.Text = null;
 
@@ -223,7 +223,7 @@ namespace PRE.Catalog
 
         protected override bool ValidInput()
         {
-            var a = dteBirth.DateTime.ToAge(BasePRE._sss.Current.Value) < 18 ? false : true;
+            var a = dteBirth.DateTime.ToAge(BasePRE._sss.Current) < 18 ? false : true;
             if (!a)
             {
                 lblInfo.Text = STR_AGE;

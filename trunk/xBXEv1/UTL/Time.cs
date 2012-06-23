@@ -162,6 +162,16 @@ namespace SKG.UTL
             var t2 = new DateTime(d.Year, d.Month, d.Day, 16, 0, 0, 0);
             return d < t1 ? 1 : d < t2 ? 2 : 3;
         }
+
+        /// <summary>
+        /// Converts the value of the current DateTime object to its equivalent string representation using the Vietnamese format information
+        /// </summary>
+        /// <param name="d">Date and time</param>
+        /// <returns></returns>
+        public static string ToStringVN(this DateTime d)
+        {
+            return d.ToString("dd/MM/yyyy HH:mm:ss");
+        }
         #endregion
 
         #region Ages

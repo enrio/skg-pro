@@ -219,7 +219,7 @@
             // 
             this.bbiTra_Group.Caption = "Danh mục nhóm xe";
             this.bbiTra_Group.Id = 13;
-            this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Group.LargeGlyph = global::PRE.Properties.Resources.group;
             this.bbiTra_Group.Name = "bbiTra_Group";
             this.bbiTra_Group.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Group_ItemClick);
             // 
@@ -227,7 +227,7 @@
             // 
             this.bbiTra_Kind.Caption = "Danh mục loại xe";
             this.bbiTra_Kind.Id = 14;
-            this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.palette;
+            this.bbiTra_Kind.LargeGlyph = global::PRE.Properties.Resources.kind;
             this.bbiTra_Kind.Name = "bbiTra_Kind";
             this.bbiTra_Kind.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiTra_Kind_ItemClick);
             // 

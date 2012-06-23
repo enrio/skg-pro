@@ -47,12 +47,12 @@ namespace SKG.UTL.Db
 
         #region Methods
         /// <summary>
-        /// Get all database in SQL Server
+        /// Get all database in SQL Server (not sysdatabases)
         /// </summary>
         /// <returns>Data</returns>
         public List<string> GetDatabases()
         {
-            var tbl = ExecuteQuery("select name from sys.sysdatabases");
+            var tbl = ExecuteQuery("select name from sys.sysdatabases where sid <> 0x01");
             var lst = new List<string>();
             foreach (DataRow r in tbl.Rows) lst.Add(r["name"] + "");
             return lst;

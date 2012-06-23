@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.UTL
 {
+    using System.IO;
     using System.Data.SqlClient;
     using System.Text.RegularExpressions;
 
@@ -176,11 +177,18 @@ namespace SKG.UTL
         {
             try
             {
-                var a = new SqlConnection(n);
-                a.Open();
+                using (var a = new SqlConnection(n))
+                {
+                    a.Open();
+                }
                 return true;
             }
-            catch { return false; }
+            catch
+            {
+                var a = n.Split(new char[] { '|' });
+                var b = String.Format("{0}{1}", App.StartupPath, a[2]);
+                return File.Exists(b);
+            }
         }
         #endregion
 

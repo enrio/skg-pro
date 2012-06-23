@@ -1738,7 +1738,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xBXE"
         "ProductCode" = "8:{A53FDC2D-03C1-415F-89DB-5EFB810961A9}"
-        "PackageCode" = "8:{F0C53BF3-84B6-4DC8-803F-DF40EF3B939E}"
+        "PackageCode" = "8:{9E2E7B6D-3C11-4E4A-B981-221141236EAB}"
         "UpgradeCode" = "8:{AD2ADE26-6BCA-47B0-BFB0-B3B0A14D4453}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -266,6 +266,8 @@
             this.gridColumn12,
             this.gridColumn13});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "\"Tổng tiền: {0:0,0}\"")});
             this.grvMain.Name = "grvMain";
             // 
             // gridBand1

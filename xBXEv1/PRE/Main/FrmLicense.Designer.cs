@@ -196,7 +196,7 @@
             this.ClientSize = new System.Drawing.Size(320, 268);
             this.Controls.Add(this.groupControl1);
             this.Name = "FrmLicense";
-            this.Text = "FrmLicense";
+            this.Text = "Đăng kí bản quyền";
             this.Load += new System.EventHandler(this.FrmLicense_Load);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);

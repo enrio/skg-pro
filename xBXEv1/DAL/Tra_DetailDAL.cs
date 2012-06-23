@@ -4,13 +4,15 @@ using System.Linq;
 
 namespace DAL
 {
+    using SKG.UTL;
+
     using System.Data;
     using Entities;
 
     /// <summary>
     /// Vận tải - Xử lí bảng Tra_Detail
     /// </summary>
-    public abstract class Tra_DetailDAL : BaseDAL, UTL.IBaseDAL
+    public abstract class Tra_DetailDAL : BaseDAL, IBaseDAL
     {
         /// <summary>
         /// Nhóm xe khi in

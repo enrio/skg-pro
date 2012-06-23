@@ -73,13 +73,13 @@
     <Compile Include="Tra_VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UTL\UTL.csproj">
-      <Project>{2DEFFA90-76DD-458C-93F4-62C2737F3BF0}</Project>
-      <Name>UTL</Name>
-    </ProjectReference>
+    <Content Include="zTest.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="zTest.sql" />
+    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
+      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
+      <Name>SKG.UTL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

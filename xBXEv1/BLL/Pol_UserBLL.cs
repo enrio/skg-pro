@@ -4,9 +4,10 @@ using System.Linq;
 
 namespace BLL
 {
+    using SKG.UTL;
+    using SKG.UTL.Hasher;
     using DAL;
     using DAL.Entities;
-    using UTL.Hasher;
 
     /// <summary>
     /// Truy cập cơ sở dữ liệu bảng Pol_User: danh sách người dùng.

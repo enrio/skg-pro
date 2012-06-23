@@ -4,13 +4,15 @@ using System.Linq;
 
 namespace DAL
 {
+    using SKG.UTL;
+
     using System.Data;
     using Entities;
 
     /// <summary>
     /// Chính sách - Xử lí bảng Pol_RoleRight
     /// </summary>
-    public abstract class Pol_RoleRightDAL : BaseDAL, UTL.IBaseDAL
+    public abstract class Pol_RoleRightDAL : BaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>

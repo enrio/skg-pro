@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace PRE.Manage
 {
-    using UTL;
-    using DAL.Entities;
     using SKG.UTL;
+
+    using DAL.Entities;
 
     /// <summary>
     /// Cổng vào
@@ -42,7 +42,7 @@ namespace PRE.Manage
             dockPanel2.SetDockPanel("Danh sách");
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();            
+            lblUserIn.Text = BasePRE._sss.User.Name.ToUpper();
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;

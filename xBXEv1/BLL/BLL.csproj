@@ -60,9 +60,9 @@
       <Project>{F85E7B52-2159-4B9D-BC9A-25767CD48BA4}</Project>
       <Name>DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UTL\UTL.csproj">
-      <Project>{2DEFFA90-76DD-458C-93F4-62C2737F3BF0}</Project>
-      <Name>UTL</Name>
+    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
+      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
+      <Name>SKG.UTL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

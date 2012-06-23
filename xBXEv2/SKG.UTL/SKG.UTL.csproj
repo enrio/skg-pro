@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseUTL.cs" />
+    <Compile Include="Db\BaseDb.cs" />
+    <Compile Include="Db\SQLServer.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Hasher\Code.cs" />
     <Compile Include="IBaseDAL.cs" />

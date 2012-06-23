@@ -28,7 +28,7 @@ namespace PRE
         public FrmMain()
         {
             InitializeComponent();
-            SkinHelper.InitSkinGallery(ribbonGalleryBarItem1, true);
+            SkinHelper.InitSkinGallery(rgbMain, true);
 
             // Check license
             var key = (new Registri()).Read("License");
@@ -245,6 +245,11 @@ namespace PRE
         private void bbiHelp_ItemClick(object sender, ItemClickEventArgs e)
         {
             Help.ShowHelp(this, @"Guide.chm");
+        }
+
+        private void bbiRegistry_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            BasePRE.ShowRight<FrmLicense>(this);
         }
     }
 }

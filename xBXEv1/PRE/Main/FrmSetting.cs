@@ -9,6 +9,8 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Main
 {
+    using SKG.UTL.Db;
+
     using System.Configuration;
     using DAL;
 
@@ -25,9 +27,6 @@ namespace PRE.Main
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
         private const string STR_SAVE = "Đã lưu cấu hình!";
 
-        public const string STR_SEC = "Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
-        public const string STR_TRU = "Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
-
         /// <summary>
         /// Connection string for SQL Server
         /// </summary>
@@ -41,7 +40,7 @@ namespace PRE.Main
         /// <summary>
         /// Get string connect
         /// </summary>
-        private ConnectionStringSettings ConnectionStringSettings
+        private ConnectionStringSettings ConnectionStringSetting
         {
             get
             {
@@ -54,8 +53,8 @@ namespace PRE.Main
                 var str = "";
 
                 if (data == "" || data == STR_FIND) data = "xBXEv1";
-                if (cbbAuthen.Text == STR_WIND) str = String.Format(STR_TRU, sver, data);
-                else str = String.Format(STR_SEC, sver, data, user, pass);
+                if (cbbAuthen.Text == STR_WIND) str = String.Format(SQLServer.STR_TRU, sver, data);
+                else str = String.Format(SQLServer.STR_SEC, sver, data, user, pass);
 
                 _a.ConnectionString = str;
                 return _a;
@@ -89,7 +88,7 @@ namespace PRE.Main
         {
             try
             {
-                _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSettings;
+                _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
                 _config.Save(ConfigurationSaveMode.Modified);
 
                 ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
@@ -143,7 +142,8 @@ namespace PRE.Main
             {
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
-                    var tbl = BaseDAL.GetDatabases();
+                    var db = new SQLServer(ConnectionStringSetting.ConnectionString);
+                    var tbl = db.GetDatabases();
                     cbbDb.Properties.Items.Remove(STR_FIND);
 
                     cbbDb.Properties.Items.Clear();

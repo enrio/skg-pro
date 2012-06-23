@@ -74,8 +74,6 @@ namespace PRE.Main
             var a = _config.ConnectionStrings.ConnectionStrings[1];
 
             if (a.ProviderName == _b.ProviderName) chkSQLCE.Checked = false;
-            else chkSQLCE.Checked = true;
-
             chkSQLCE_CheckedChanged(sender, e);
         }
 

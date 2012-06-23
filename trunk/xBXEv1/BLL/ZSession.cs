@@ -20,7 +20,12 @@ namespace BLL
         /// <summary>
         /// Thời gian lúc đăng nhập
         /// </summary>
-        public DateTime? Current { set; get; }
+        public DateTime? Login { set; get; }
+
+        /// <summary>
+        /// Thời gian hiện tại
+        /// </summary>
+        public DateTime Current { set; get; }
 
         /// <summary>
         /// Danh sách các quyền của người dùng

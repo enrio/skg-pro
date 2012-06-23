@@ -100,7 +100,7 @@ namespace DAL
                           };
 
                 if (obj != null) res = res.Where(s => s.Number == obj + "");
-                if (take > 0) res = res.Skip(skip).Take(take);
+                if (take > 0) res = res.Take(take);
 
                 return res.ToDataTable();
             }

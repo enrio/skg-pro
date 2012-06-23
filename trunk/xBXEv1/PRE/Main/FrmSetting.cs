@@ -58,6 +58,33 @@ namespace PRE.Main
             }
         }
 
+        private bool IsValid
+        {
+            get
+            {
+                var a = ConnectionStringSetting.ConnectionString;
+
+                if (chkSQLCE.Checked)
+                {
+                    if (!a.CheckSqlCeConnect())
+                    {
+                        BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (!a.CheckSqlConnect())
+                    {
+                        BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        }
+
         public FrmSetting()
         {
             InitializeComponent();
@@ -80,12 +107,7 @@ namespace PRE.Main
 
         private void cmdSetup_Click(object sender, EventArgs e)
         {
-            var a = ConnectionStringSetting.ConnectionString;
-            if (!a.CheckSqlConnect())
-            {
-                BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
-                return;
-            }
+            if (!IsValid) return;
 
             BLL.BaseBLL.CreateData(true);
             BasePRE.ShowMessage(STR_TEMPLATE, STR_SETUP);
@@ -93,15 +115,10 @@ namespace PRE.Main
 
         private void cmdOk_Click(object sender, EventArgs e)
         {
+            if (!IsValid) return;
+
             try
             {
-                var a = ConnectionStringSetting.ConnectionString;
-                if (!a.CheckSqlConnect())
-                {
-                    BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
-                    return;
-                }
-
                 _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
                 _config.Save(ConfigurationSaveMode.Modified);
 

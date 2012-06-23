@@ -26,7 +26,7 @@ namespace PRE.Manage
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
-            var d = BasePRE._sss.Current.Value;
+            var d = BasePRE._sss.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
             dteFrom.DateTime = d.ToStartOfDay();
@@ -37,7 +37,7 @@ namespace PRE.Manage
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
         {
             var a = cbeQuater.SelectedIndex + 1;
-            var b = BasePRE._sss.Current.Value.Year;
+            var b = BasePRE._sss.Current.Year;
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
@@ -46,7 +46,7 @@ namespace PRE.Manage
         private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             var a = cbeMonth.SelectedIndex + 1;
-            var b = BasePRE._sss.Current.Value.Year;
+            var b = BasePRE._sss.Current.Year;
             var c = b.ToStartOfMonth(a);
 
             cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
@@ -63,7 +63,7 @@ namespace PRE.Manage
                 dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
             a.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
-            var d = BasePRE._sss.Current.Value;
+            var d = BasePRE._sss.Current;
             a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
             a.xrcAccount.Text = BasePRE._sss.User.Name;
 

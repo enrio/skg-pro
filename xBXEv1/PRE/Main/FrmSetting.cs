@@ -25,7 +25,7 @@ namespace PRE.Main
         private const string STR_TEMPLATE = "Đã tạo xong dữ liễu mẫu!";
         private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
-        private const string STR_SAVE = "Đã lưu cấu hình!";
+        private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";
 
         /// <summary>
         /// Connection string for SQL Server
@@ -95,7 +95,9 @@ namespace PRE.Main
                 Properties.Settings.Default.Reload();
 
                 BasePRE.ShowMessage(STR_SAVE, STR_SETUP);
-                Close(); // close form                
+
+                Application.ExitThread();
+                Application.Exit();
             }
             catch { BasePRE.ShowMessage(STR_NOT_FOUND, STR_SETUP); }
         }

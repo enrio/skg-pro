@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gctMain = new DevExpress.XtraEditors.GroupControl();
+            this.chkSQLCE = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.cbbDb = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -43,15 +44,14 @@
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.cbbUser = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.chkSQLCE = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gctMain)).BeginInit();
             this.gctMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSQLCE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDb.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbServer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbAuthen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbUser.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSQLCE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gctMain
@@ -77,6 +77,16 @@
             this.gctMain.Size = new System.Drawing.Size(318, 236);
             this.gctMain.TabIndex = 0;
             this.gctMain.Text = "Cài đặt";
+            // 
+            // chkSQLCE
+            // 
+            this.chkSQLCE.EditValue = true;
+            this.chkSQLCE.Location = new System.Drawing.Point(15, 204);
+            this.chkSQLCE.Name = "chkSQLCE";
+            this.chkSQLCE.Properties.Caption = "SQL CE";
+            this.chkSQLCE.Size = new System.Drawing.Size(64, 19);
+            this.chkSQLCE.TabIndex = 6;
+            this.chkSQLCE.CheckedChanged += new System.EventHandler(this.chkSQLCE_CheckedChanged);
             // 
             // labelControl6
             // 
@@ -210,15 +220,6 @@
             this.cbbUser.Size = new System.Drawing.Size(188, 20);
             this.cbbUser.TabIndex = 3;
             // 
-            // chkSQLCE
-            // 
-            this.chkSQLCE.Location = new System.Drawing.Point(15, 204);
-            this.chkSQLCE.Name = "chkSQLCE";
-            this.chkSQLCE.Properties.Caption = "SQL CE";
-            this.chkSQLCE.Size = new System.Drawing.Size(64, 19);
-            this.chkSQLCE.TabIndex = 6;
-            this.chkSQLCE.CheckedChanged += new System.EventHandler(this.chkSQLCE_CheckedChanged);
-            // 
             // FrmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -231,12 +232,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gctMain)).EndInit();
             this.gctMain.ResumeLayout(false);
             this.gctMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkSQLCE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDb.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbServer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbAuthen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbUser.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkSQLCE.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

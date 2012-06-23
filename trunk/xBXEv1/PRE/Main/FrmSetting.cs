@@ -142,7 +142,8 @@ namespace PRE.Main
             {
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
-                    var db = new SQLServer(ConnectionStringSetting.ConnectionString);
+                    var a = ConnectionStringSetting.ConnectionString.Replace("xBXEv1", "master");
+                    var db = new SQLServer(a);
                     var tbl = db.GetDatabases();
                     cbbDb.Properties.Items.Remove(STR_FIND);
 

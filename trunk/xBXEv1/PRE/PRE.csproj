@@ -442,6 +442,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ferrari.ico" />
+    <None Include="Resources\expand.png" />
+    <None Include="Resources\collapse.png" />
     <None Include="Resources\kind.png" />
     <None Include="Resources\group.png" />
   </ItemGroup>

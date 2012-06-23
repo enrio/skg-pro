@@ -88,8 +88,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiFind, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiCollapse, true),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiExpand),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiCollapse, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExpand, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiClose, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -155,6 +155,7 @@
             // bbiCollapse
             // 
             this.bbiCollapse.Caption = "Thu &gọn";
+            this.bbiCollapse.Glyph = global::PRE.Properties.Resources.collapse;
             this.bbiCollapse.Id = 9;
             this.bbiCollapse.Name = "bbiCollapse";
             this.bbiCollapse.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -162,6 +163,7 @@
             // bbiExpand
             // 
             this.bbiExpand.Caption = "Mở &rộng";
+            this.bbiExpand.Glyph = global::PRE.Properties.Resources.expand;
             this.bbiExpand.Id = 10;
             this.bbiExpand.Name = "bbiExpand";
             this.bbiExpand.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;

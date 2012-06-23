@@ -74,15 +74,7 @@ namespace PRE.Main
             _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var a = _config.ConnectionStrings.ConnectionStrings[1];
 
-            if (a.ProviderName.Equals("System.Data.SqlServerCe.4.0"))
-            {
-                cmdOk.Enabled = false;
-                cbbServer.Enabled = false;
-                cbbAuthen.Enabled = false;
-                cbbUser.Enabled = false;
-                txtPass.Enabled = false;
-                cbbDb.Enabled = false;
-            }
+            chkSQLCE_CheckedChanged(sender, e);
         }
 
         private void cmdClose_Click(object sender, EventArgs e) { Close(); }
@@ -169,7 +161,22 @@ namespace PRE.Main
 
         private void chkSQLCE_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkSQLCE.Checked)
+            {
+                cbbServer.Enabled = false;
+                cbbAuthen.Enabled = false;
+                cbbUser.Enabled = false;
+                txtPass.Enabled = false;
+                cbbDb.Enabled = false;
+            }
+            else
+            {
+                cbbServer.Enabled = true;
+                cbbAuthen.Enabled = true;
+                cbbUser.Enabled = true;
+                txtPass.Enabled = true;
+                cbbDb.Enabled = true;
+            }
         }
         #endregion
     }

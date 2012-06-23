@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace PRE.Main
 {
@@ -84,6 +80,13 @@ namespace PRE.Main
 
         private void cmdSetup_Click(object sender, EventArgs e)
         {
+            var a = ConnectionStringSetting.ConnectionString;
+            if (!a.CheckSqlConnect())
+            {
+                BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
+                return;
+            }
+
             BLL.BaseBLL.CreateData(true);
             BasePRE.ShowMessage(STR_TEMPLATE, STR_SETUP);
         }

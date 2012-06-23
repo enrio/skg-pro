@@ -45,6 +45,8 @@
     <Compile Include="Db\BaseDb.cs" />
     <Compile Include="Db\SQLServer.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="Hasher\Base64Decoder.cs" />
+    <Compile Include="Hasher\Base64Encoder.cs" />
     <Compile Include="Hasher\Code.cs" />
     <Compile Include="Hasher\License.cs" />
     <Compile Include="Hasher\Registri.cs" />

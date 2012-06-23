@@ -148,14 +148,16 @@ namespace SKG.UTL.Hasher
         /// <summary>
         /// Check is lincense
         /// </summary>
-        /// <param name="key">Product key</param>
+        /// <param name="k">Product key</param>
         /// <returns>True is lincense else false</returns>
-        public static LicState IsLincense(string key)
+        public static LicState IsLincense(string k)
         {
-            string licen = GetLincense();
-            string trial = GetTrial();
-            if (key == licen) return LicState.Unlimited;
-            else if (key == trial) return LicState.Trial;
+            if (k == null) return LicState.None;
+            var a = GetLincense();
+            var b = GetTrial();
+
+            if (k == a) return LicState.Unlimited;
+            else if (k == b) return LicState.Trial;
             return LicState.None;
         }
     }

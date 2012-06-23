@@ -177,18 +177,26 @@ namespace SKG.UTL
         {
             try
             {
-                using (var a = new SqlConnection(n))
-                {
-                    a.Open();
-                }
+                using (var a = new SqlConnection(n)) { a.Open(); }
                 return true;
             }
-            catch
+            catch { return false; }
+        }
+
+        /// <summary>
+        /// Check SQL Server CE connection
+        /// </summary>
+        /// <param name="n">Connection string</param>
+        /// <returns></returns>
+        public static bool CheckSqlCeConnect(this string n)
+        {
+            try
             {
                 var a = n.Split(new char[] { '|' });
                 var b = String.Format("{0}{1}", App.StartupPath, a[2]);
                 return File.Exists(b);
             }
+            catch { return false; }
         }
         #endregion
 

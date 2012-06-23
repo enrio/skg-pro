@@ -55,6 +55,9 @@
     <Reference Include="DevExpress.XtraReports.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="SKG.UTL">
+      <HintPath>..\UTL\SKG.UTL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -327,10 +330,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{F85E7B52-2159-4B9D-BC9A-25767CD48BA4}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
-      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
-      <Name>SKG.UTL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

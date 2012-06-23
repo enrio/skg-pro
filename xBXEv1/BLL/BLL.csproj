@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SKG.UTL">
+      <HintPath>..\UTL\SKG.UTL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,10 +62,6 @@
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{F85E7B52-2159-4B9D-BC9A-25767CD48BA4}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
-      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
-      <Name>SKG.UTL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

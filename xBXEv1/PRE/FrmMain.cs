@@ -54,13 +54,15 @@ namespace PRE
             var d = BasePRE._sss.Default;
             foreach (var r in d)
             {
-                var type = Type.GetType("PRE.Catalog." + r.Code);
-                if (type == null) type = Type.GetType("PRE.Main." + r.Code);
-                if (type == null) type = Type.GetType("PRE.Manage." + r.Code);
-                if (type == null) type = Type.GetType(r.Code);
+                if (r.Code == null) break;
 
-                if (type == null) return;
-                var frm = Activator.CreateInstance(type) as FrmBase;
+                var t = Type.GetType("PRE.Catalog." + r.Code);
+                if (t == null) t = Type.GetType("PRE.Main." + r.Code);
+                if (t == null) t = Type.GetType("PRE.Manage." + r.Code);
+                if (t == null) t = Type.GetType(r.Code);
+
+                if (t == null) return;
+                var frm = Activator.CreateInstance(t) as FrmBase;
                 if (frm != null) frm.ShowRight(this);
             }
 

@@ -63,12 +63,10 @@ namespace PRE.Main
             get
             {
                 var a = ConnectionStringSetting.ConnectionString;
-
                 if (chkSQLCE.Checked)
                 {
                     var b = a.Split(new char[] { '|' });
                     var c = String.Format("{0}{1}", App.StartupPath, b[2]);
-
                     if (!c.CheckSqlCeConnect())
                     {
                         BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
@@ -77,13 +75,13 @@ namespace PRE.Main
                 }
                 else
                 {
-                    if (!a.CheckSqlConnect())
+                    var b = a.Replace("xBXEv1", "master");
+                    if (!b.CheckSqlConnect())
                     {
                         BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
                         return false;
                     }
                 }
-
                 return true;
             }
         }

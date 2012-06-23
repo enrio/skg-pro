@@ -12,7 +12,7 @@ namespace SKG.UTL.Hasher
     /// <summary>
     /// License processing
     /// </summary>
-    public static class Registry
+    public static class License
     {
         /// <summary>
         /// ID's this computer
@@ -150,13 +150,13 @@ namespace SKG.UTL.Hasher
         /// </summary>
         /// <param name="key">Product key</param>
         /// <returns>True is lincense else false</returns>
-        public static License IsLincense(string key)
+        public static LicState IsLincense(string key)
         {
             string licen = GetLincense();
             string trial = GetTrial();
-            if (key == licen) return License.Unlimited;
-            else if (key == trial) return License.Trial;
-            return License.None;
+            if (key == licen) return LicState.Unlimited;
+            else if (key == trial) return LicState.Trial;
+            return LicState.None;
         }
     }
 }

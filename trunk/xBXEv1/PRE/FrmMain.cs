@@ -29,6 +29,7 @@ namespace PRE
         {
             InitializeComponent();
             SkinHelper.InitSkinGallery(rgbMain, true);
+            BeforeLogon();
 
             // Thông tin server, đồng hồ
             var cnn = (new Pol_ActionBLL()).Connection();

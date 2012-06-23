@@ -12,6 +12,8 @@ namespace PRE
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraTreeList;
+    using DevExpress.XtraTreeList.Columns;
 
     /// <summary>
     /// Xử lí các chức năng trên form
@@ -220,6 +222,34 @@ namespace PRE
                 f.ShowRight();
             }
             else b.Activate();
+        }
+
+        /// <summary>
+        /// Set false some properties's DockPanel
+        /// </summary>
+        /// <param name="d">DockPanel</param>
+        /// <param name="caption">Caption's DockPanel</param>
+        public static void SetDockPanel(this DockPanel d, string caption)
+        {
+            d.Options.AllowFloating = false;
+            d.Options.FloatOnDblClick = false;
+            d.Options.ShowAutoHideButton = false;
+            d.Options.ShowCloseButton = false;
+            d.Options.ShowMaximizeButton = false;
+            d.Text = caption;
+        }
+
+        /// <summary>
+        /// Best fit columns
+        /// </summary>
+        /// <param name="t">TreeList</param>
+        public static void AutoFit(this TreeList t)
+        {
+            foreach (TreeListColumn x in t.Columns)
+            {
+                if (x.VisibleIndex != t.Columns.Count - 1)
+                    x.BestFit();
+            }
         }
     }
 }

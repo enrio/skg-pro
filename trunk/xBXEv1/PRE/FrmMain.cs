@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 
@@ -69,7 +65,6 @@ namespace PRE
             // Tài khoản là admin hoặc thuộc nhóm Quản trị mới có quyền phân quyền
 #if DEBUG
             rpgPermission.Visible = true;
-            bbiResetDB.Visibility = BarItemVisibility.Always;
             bbiSetting.Visibility = BarItemVisibility.Always;
 #else
             var a = BasePRE._sss.GetUserRole("QT");
@@ -212,11 +207,6 @@ namespace PRE
                 bsiTimer.Caption = BasePRE._sss.Current.Value.ToString("dd/MM/yyyy hh:mm:ss");
                 BasePRE._sss.Current = BasePRE._sss.Current.Value.AddSeconds(1);
             }
-        }
-
-        private void bbiResetDB_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            BLL.BaseBLL.CreateData(true);
         }
         #endregion
 

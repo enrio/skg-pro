@@ -9,9 +9,6 @@ namespace PRE.Catalog
 {
     using BLL;
     using DAL.Entities;
-    using DevExpress.XtraTreeList;
-    using DevExpress.XtraTreeList.Columns;
-    using DevExpress.XtraBars.Docking;
     using DevExpress.XtraBars;
     using SKG.UTL;
 
@@ -127,34 +124,6 @@ namespace PRE.Catalog
             bbiRefresh.Enabled = isEnable;
             bbiFind.Enabled = isEnable;
             bbiPrint.Enabled = isEnable;
-        }
-
-        /// <summary>
-        /// Set false some properties's DockPanel
-        /// </summary>
-        /// <param name="dPanel">DockPanel</param>
-        /// <param name="caption">Caption's DockPanel</param>
-        protected static void SetDockPanel(DockPanel dPanel, string caption)
-        {
-            dPanel.Options.AllowFloating = false;
-            dPanel.Options.FloatOnDblClick = false;
-            dPanel.Options.ShowAutoHideButton = false;
-            dPanel.Options.ShowCloseButton = false;
-            dPanel.Options.ShowMaximizeButton = false;
-            dPanel.Text = caption;
-        }
-
-        /// <summary>
-        /// Thu gọn cột
-        /// </summary>
-        /// <param name="trl">TreeList</param>
-        protected static void AutoFit(TreeList trl)
-        {
-            foreach (TreeListColumn x in trl.Columns)
-            {
-                if (x.VisibleIndex != trl.Columns.Count - 1)
-                    x.BestFit();
-            }
         }
 
         #region Virtual

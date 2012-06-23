@@ -23,13 +23,13 @@ namespace PRE.Main
         {
             InitializeComponent();
 
+            dockPanel1.Visibility = DockVisibility.Hidden;
+            dockPanel2.SetDockPanel("Danh sách");
+
             AllowCollapse = true;
             AllowExpand = true;
             AllowEdit = false;
-            AllowFind = false;
-
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            SetDockPanel(dockPanel2, "Danh sách");
+            AllowFind = false;            
 
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             FormatRows();
@@ -146,7 +146,7 @@ namespace PRE.Main
                 trlMain.DataSource = _dtb;
                 trlMain.ExpandAll();
             }
-            AutoFit(trlMain);
+            trlMain.AutoFit();
 
             base.LoadData();
         }

@@ -29,23 +29,36 @@ namespace PRE.Main
         public const string STR_TRU = "Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
 
         /// <summary>
+        /// Connection string for SQL Server
+        /// </summary>
+        ConnectionStringSettings _a = new ConnectionStringSettings("xBXEv1", "Data Source=.;Initial Catalog=xBXEv1;Integrated Security=True", "System.Data.SqlClient");
+
+        /// <summary>
+        /// Connection string for SQL CE 4.0
+        /// </summary>
+        ConnectionStringSettings _b = new ConnectionStringSettings("xBXEv1", "Data Source=|DataDirectory|\xBXEv1.sdf", "System.Data.SqlServerCe.4.0");
+
+        /// <summary>
         /// Get string connect
         /// </summary>
-        private string StringConnect
+        private ConnectionStringSettings ConnectionStringSettings
         {
             get
             {
-                string sver = cbbServer.Text;
-                string user = cbbUser.Text;
-                string pass = txtPass.Text;
-                string data = cbbDb.Text;
-                string str = "";
+                if (chkSQLCE.Checked) return _b;
+
+                var sver = cbbServer.Text;
+                var user = cbbUser.Text;
+                var pass = txtPass.Text;
+                var data = cbbDb.Text;
+                var str = "";
 
                 if (data == "" || data == STR_FIND) data = "xBXEv1";
                 if (cbbAuthen.Text == STR_WIND) str = String.Format(STR_TRU, sver, data);
                 else str = String.Format(STR_SEC, sver, data, user, pass);
 
-                return str;
+                _a.ConnectionString = str;
+                return _a;
             }
         }
 
@@ -84,9 +97,9 @@ namespace PRE.Main
         {
             try
             {
-                _config.ConnectionStrings.ConnectionStrings[1].ConnectionString = StringConnect;
-
+                _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSettings;
                 _config.Save(ConfigurationSaveMode.Modified);
+
                 ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
                 Properties.Settings.Default.Reload();
 

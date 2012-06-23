@@ -517,6 +517,7 @@ namespace BLL
         {
             if (Tra_Detail.Count() > 0) return;
 
+            #region Bộ dữ liệu 1
             var tbl = Tra_Vehicle.Select();
             if (tbl == null) return;
 
@@ -547,6 +548,33 @@ namespace BLL
 
                 Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, true);
             }
+            #endregion
+
+            #region Bộ dữ liệu 2
+            tbl = Tra_Vehicle.Select(null, 0, 5);
+            ui = (Pol_User)Pol_User.Select("cv");
+            uo = (Pol_User)Pol_User.Select("cr");
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var id = (Guid)r["Id"];
+
+                var a = new Random();
+                var b = -a.Next();
+                var x = (Guid)r["Tra_KindId"];
+                var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 49;
+
+                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
+                Tra_Detail.Insert(o);
+
+                decimal money = 0;
+                int price1 = 0, price2 = 0;
+                int day = 0, hour = 0;
+                o = new Tra_Detail() { Pol_UserOutId = uo.Id, Tra_VehicleId = id, DateOut = d };
+
+                Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, true);
+            }
+            #endregion
         }
         #endregion
 

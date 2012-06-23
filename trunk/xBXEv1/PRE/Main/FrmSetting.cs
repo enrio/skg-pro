@@ -153,6 +153,11 @@ namespace PRE.Main
             }
             catch { return; }
         }
+
+        private void chkSQLCE_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
         #endregion
     }
 }

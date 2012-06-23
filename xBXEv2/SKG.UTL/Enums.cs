@@ -58,6 +58,6 @@
     /// <summary>
     /// License's software
     /// </summary>
-    public enum License { Unlimited, Trial, None }
+    public enum LicState { Unlimited, Trial, None }
     #endregion
 }

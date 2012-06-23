@@ -66,7 +66,10 @@ namespace PRE.Main
 
                 if (chkSQLCE.Checked)
                 {
-                    if (!a.CheckSqlCeConnect())
+                    var b = a.Split(new char[] { '|' });
+                    var c = String.Format("{0}{1}", App.StartupPath, b[2]);
+
+                    if (!c.CheckSqlCeConnect())
                     {
                         BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
                         return false;

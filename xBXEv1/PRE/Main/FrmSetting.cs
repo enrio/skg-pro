@@ -30,12 +30,12 @@ namespace PRE.Main
         /// <summary>
         /// Connection string for SQL Server
         /// </summary>
-        ConnectionStringSettings _a = new ConnectionStringSettings("xBXEv1", "Data Source=.;Initial Catalog=xBXEv1;Integrated Security=True", "System.Data.SqlClient");
+        ConnectionStringSettings _a = new ConnectionStringSettings("xBXEv1", @"Data Source=.;Initial Catalog=xBXEv1;Integrated Security=True", "System.Data.SqlClient");
 
         /// <summary>
         /// Connection string for SQL CE 4.0
         /// </summary>
-        ConnectionStringSettings _b = new ConnectionStringSettings("xBXEv1", "Data Source=|DataDirectory|\xBXEv1.sdf", "System.Data.SqlServerCe.4.0");
+        ConnectionStringSettings _b = new ConnectionStringSettings("xBXEv1", @"Data Source=|DataDirectory|\xBXEv1.sdf", "System.Data.SqlServerCe.4.0");
 
         /// <summary>
         /// Get string connect

@@ -72,7 +72,7 @@ namespace PRE.Manage
             var to = d.ToEndOfDay();
             decimal _sum;
 
-            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, BasePRE._sss.User.Id);
+            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.Z, BasePRE._sss.User.Id);
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 

@@ -23,7 +23,8 @@ namespace BLL
         {
             try
             {
-                var sss = new ZSession() { User = (Pol_User)Select(acc), Current = GetDate() };
+                var sss = new ZSession() { User = (Pol_User)Select(acc), Login = GetDate() };
+                sss.Current = sss.Login.Value;
                 pass = Code.Encode(pass);
                 if (sss.User.Pass != pass) return null;
                 return sss;

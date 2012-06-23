@@ -9,6 +9,7 @@ using DevExpress.XtraEditors;
 
 namespace PRE.Main
 {
+    using SKG.UTL;
     using SKG.UTL.Db;
 
     using System.Configuration;
@@ -91,6 +92,13 @@ namespace PRE.Main
         {
             try
             {
+                var a = ConnectionStringSetting.ConnectionString;
+                if (!a.CheckSqlConnect())
+                {
+                    BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);
+                    return;
+                }
+
                 _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
                 _config.Save(ConfigurationSaveMode.Modified);
 

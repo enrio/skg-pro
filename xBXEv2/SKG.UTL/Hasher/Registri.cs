@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL.Hasher
 {
@@ -16,34 +15,14 @@ namespace SKG.UTL.Hasher
     {
         public const string STR_RUN = @"Software\Microsoft\Windows\CurrentVersion\Run";
 
-        public string ProductName { private set; get; }
-        public string StartupPath { private set; get; }
-
         public bool ShowError { set; get; }
         public string SubKey { set; get; }
         public RegistryKey CurrKey { set; get; }
 
         public Registri(bool isLocal = true)
         {
-            var s1 = System.Reflection.Assembly.GetCallingAssembly().Location;
-            var s2 = System.Reflection.Assembly.GetEntryAssembly().Location;
-            var s3 = System.Reflection.Assembly.GetEntryAssembly().FullName;
-
-            var s4 = System.IO.Path.GetFileName(s2);
-            var s7 = System.IO.Path.GetDirectoryName(s2);
-            var s5 = System.AppDomain.CurrentDomain.FriendlyName;
-
-            ProductName = s4;
-            StartupPath = s7;
-
-            //{
-            //    var s6 = System.AppDomain.CreateDomain("NewApplicationDomain");
-            //    s6.ExecuteAssembly(s2);
-            //    System.AppDomain.Unload(s6);
-            //}
-
             ShowError = false;
-            SubKey = @"SOFTWARE\" + ProductName.ToUpper();
+            SubKey = @"SOFTWARE\" + App.ProductName.ToUpper();
             CurrKey = isLocal ? Registry.LocalMachine : Registry.CurrentUser;
         }
 
@@ -54,16 +33,16 @@ namespace SKG.UTL.Hasher
                        RegistryRights.FullControl);
         }
 
-        public bool Autorun()
+        public static bool Autorun()
         {
-            string key = ProductName.ToUpper();
+            string key = App.ProductName.ToUpper();
             try
             {
                 var rk = Registry.CurrentUser.OpenSubKey(STR_RUN,
                                      RegistryKeyPermissionCheck.ReadWriteSubTree,
                                      RegistryRights.FullControl);
 
-                rk.SetValue(key, String.Format(@"{0}\{1}.exe", StartupPath, key));
+                rk.SetValue(key, String.Format(@"{0}\{1}.exe", App.StartupPath, key));
                 return true;
             }
             catch (Exception e)
@@ -185,7 +164,7 @@ namespace SKG.UTL.Hasher
             }
         }
 
-        private void ShowErrorMessage(Exception e, string title)
+        private static void ShowErrorMessage(Exception e, string title)
         {
             //if (ShowError == true)
             //    MessageBox.Show(e.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);

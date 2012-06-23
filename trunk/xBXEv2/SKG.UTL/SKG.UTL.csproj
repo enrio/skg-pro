@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,6 +46,8 @@
     <Compile Include="Db\SQLServer.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Hasher\Code.cs" />
+    <Compile Include="Hasher\Registry.cs" />
+    <Compile Include="Hasher\Windows.cs" />
     <Compile Include="IBaseDAL.cs" />
     <Compile Include="Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

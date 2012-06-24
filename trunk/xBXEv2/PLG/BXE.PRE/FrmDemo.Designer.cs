@@ -1,4 +1,4 @@
-﻿namespace xBXEv1.PRE
+﻿namespace BXE.PRE
 {
     partial class FrmDemo
     {
@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FrmDemo";
+            this.Text = "Form1";
         }
 
         #endregion
     }
 }
+

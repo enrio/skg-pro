@@ -23,13 +23,13 @@ namespace SKG.PRE.PlugTypes
             var b = ExeConfig();
 
             var c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll";
-            var d = ConfigurationManager.OpenExeConfiguration(c + ".config");
-
             var fileMap = new ExeConfigurationFileMap();
             fileMap.ExeConfigFilename = c + ".config";
 
-            Configuration config = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
-            var configSection = (System.Configuration.DefaultSection)config.GetSection("applicationSettings");
+            var d = ConfigurationManager.OpenExeConfiguration(c + ".config");
+            var e = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+
+            var configSection = (System.Configuration.DefaultSection)e.GetSection("applicationSettings");
             var result = configSection.SectionInformation.GetRawXml();
         }
 

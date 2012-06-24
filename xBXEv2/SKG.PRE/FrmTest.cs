@@ -43,10 +43,10 @@ namespace SKG.PRE
         {
             if (Global.Plugins.AvailablePlugins.Count > 0)
             {
-                //AddMenu(ref mnuSys);
-                //AddMenu(ref mnuSys, "FrmFawObj");
-                //AddMenu(ref mnuSys);
-                //mnuSys.DropDownItems.Add("&Thoát");
+                AddMenu(ref tsmSystem);
+                AddMenu(ref tsmSystem, "FrmFawObj");
+                AddMenu(ref tsmSystem);
+                tsmSystem.DropDownItems.Add("&Thoát");
 
                 //AddMenu(ref mnuDsa, "FrmAfcVbq");
                 //AddMenu(ref mnuDsa, "FrmAfcGaa");
@@ -75,6 +75,15 @@ namespace SKG.PRE
             {
                 var res = FindPlugin(name);
                 if (res != null) mnu.DropDownItems.Add(res.Instance.Name);
+            }
+        }
+
+        private static void DisMenu(ref ToolStripMenuItem mnu, string name, bool enabled = true)
+        {
+            for (int i = 0; i < mnu.DropDownItems.Count; i++)
+            {
+                var o = mnu.DropDownItems[i];
+                if (o.Text == name) o.Enabled = enabled;
             }
         }
     }

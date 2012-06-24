@@ -29,15 +29,33 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.tsmSystem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmCatalog = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmSystem,
+            this.tsmCatalog});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(292, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // tsmSystem
+            // 
+            this.tsmSystem.Name = "tsmSystem";
+            this.tsmSystem.Size = new System.Drawing.Size(63, 20);
+            this.tsmSystem.Text = "&Hệ thống";
+            // 
+            // tsmCatalog
+            // 
+            this.tsmCatalog.Name = "tsmCatalog";
+            this.tsmCatalog.Size = new System.Drawing.Size(66, 20);
+            this.tsmCatalog.Text = "&Danh mục";
             // 
             // FrmTest
             // 
@@ -50,6 +68,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Test";
             this.Load += new System.EventHandler(this.FrmTest_Load);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -58,6 +78,8 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmSystem;
+        private System.Windows.Forms.ToolStripMenuItem tsmCatalog;
     }
 }
 

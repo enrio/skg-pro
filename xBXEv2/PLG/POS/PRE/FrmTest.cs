@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BXE.PRE
+namespace POS.PRE
 {
     using SKG.UTL.Plugin;
 
-    public partial class FrmDemo : Form, IPlugin
+    public partial class FrmTest : Form, IPlugin
     {
-        public FrmDemo()
+        public FrmTest()
         {
             InitializeComponent();
         }

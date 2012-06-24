@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace SKG.PRE
 {
     using UTL;
-    using PlugTypes;
+    using UTL.Plugin;
 
     public partial class FrmTest : Form
     {

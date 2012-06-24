@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
-namespace SKG.PRE.PlugTypes
+namespace SKG.UTL.Plugin
 {
-    using UTL;
-    using UTL.Plugin;
-    using System.Xml.Linq;
-
-    public class AvailablePlugin
+    public sealed class AvailablePlugin
     {
         public IPlugin Instance { set; get; }
         public Info Menu { set; get; }

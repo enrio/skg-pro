@@ -19,6 +19,34 @@ namespace SKG.PRE
             set { colAvailablePlugins = value; }
         }
 
+        #region Load menu of plugin
+        /// <summary>
+        /// Find menus of plugins in Plugins folder
+        /// </summary>
+        public void FindMenus()
+        {
+            FindPlugins(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");
+        }
+
+        /// <summary>
+        /// Find menus of plugins
+        /// </summary>
+        /// <param name="s">Path</param>
+        public void FindMenus(string s)
+        {
+            try
+            {
+                colAvailablePlugins.Clear();
+                foreach (var i in Directory.GetFiles(s))
+                {
+                    var f = new FileInfo(i);
+                    if (f.Extension.Equals(".config")) AddPlugin(i);
+                }
+            }
+            catch { }
+        }
+        #endregion
+
         public void FindPlugins()
         {
             FindPlugins(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");

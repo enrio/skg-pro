@@ -11,9 +11,9 @@ namespace POS.PRE
 {
     using SKG.UTL.Plugin;
 
-    public partial class FrmTest : Form, IPlugin
+    public partial class FrmBase : Form, IPlugin
     {
-        public FrmTest()
+        public FrmBase()
         {
             InitializeComponent();
         }

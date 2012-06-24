@@ -8,6 +8,7 @@ namespace SKG.PRE.PlugTypes
     using UTL.Plugin;
     using System.Configuration;
     using System.Reflection;
+    using System.Xml;
 
     public class AvailablePlugin
     {
@@ -32,6 +33,12 @@ namespace SKG.PRE.PlugTypes
             var s1 = e.GetSection("appSettings");
             var s2 = e.GetSection("connectionStrings");
             var result = s1.SectionInformation.GetRawXml();
+
+            var x = new XmlDocument();
+            x.Load(c + ".config");
+
+            var y = new ConfigXmlDocument();
+            y.LoadXml(result);
         }
 
         public static Configuration ExeConfig()

@@ -11,9 +11,9 @@ namespace BXE.PRE
 {
     using SKG.UTL.Plugin;
 
-    public partial class FrmDemo : Form, IPlugin
+    public partial class FrmBase : Form, IPlugin
     {
-        public FrmDemo()
+        public FrmBase()
         {
             InitializeComponent();
         }

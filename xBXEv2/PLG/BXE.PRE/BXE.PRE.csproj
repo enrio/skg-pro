@@ -46,15 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmDemo.cs">
+    <Compile Include="Catalog\FrmGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDemo.Designer.cs">
-      <DependentUpon>FrmDemo.cs</DependentUpon>
+    <Compile Include="Catalog\FrmGroup.Designer.cs">
+      <DependentUpon>FrmGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmKind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmKind.Designer.cs">
+      <DependentUpon>FrmKind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmVehicle.Designer.cs">
+      <DependentUpon>FrmVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Plugin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FrmPrint.Designer.cs">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sumary\FrmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sumary\FrmSales.Designer.cs">
+      <DependentUpon>FrmSales.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

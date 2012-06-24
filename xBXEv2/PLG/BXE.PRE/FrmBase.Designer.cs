@@ -1,6 +1,6 @@
 ﻿namespace BXE.PRE
 {
-    partial class FrmDemo
+    partial class FrmBase
     {
         /// <summary>
         /// Required designer variable.

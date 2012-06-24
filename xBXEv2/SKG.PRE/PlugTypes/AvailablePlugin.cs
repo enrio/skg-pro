@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.PRE.PlugTypes
 {
     using UTL.Plugin;
-    using System.Configuration;
-    using System.Reflection;
-    using System.Xml;
+    using System.Xml.Linq;
 
     public class AvailablePlugin
     {
@@ -19,32 +16,17 @@ namespace SKG.PRE.PlugTypes
         {
             Instance = null;
             AssemblyPath = "";
-
-            var a = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var b = ExeConfig();
-
-            var c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll";
-            var fileMap = new ExeConfigurationFileMap();
-            fileMap.ExeConfigFilename = c + ".config";
-
-            var d = ConfigurationManager.OpenExeConfiguration(c + ".config");
-            var e = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
-
-            var s1 = e.GetSection("appSettings");
-            var s2 = e.GetSection("connectionStrings");
-            var result = s1.SectionInformation.GetRawXml();
-
-            var x = new XmlDocument();
-            x.Load(c + ".config");
-
-            var y = new ConfigXmlDocument();
-            y.LoadXml(result);
         }
 
-        public static Configuration ExeConfig()
+        public static void ExeConfig(string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll")
         {
-            var a = Assembly.GetAssembly(typeof(AvailablePlugin));
-            return ConfigurationManager.OpenExeConfiguration(a.Location);
+            var loaded = XDocument.Load(c + ".config");
+            var q = from s in loaded.Descendants("contact")
+                    where (int)s.Attribute("contactId") < 4
+                    select String.Format("{0} {1}", s.Element("firstName"), s.Element("lastName"));
+
+            foreach (string name in q)
+                Console.WriteLine("Customer name = {0}", name);
         }
     }
 }

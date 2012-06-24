@@ -39,9 +39,9 @@ namespace SKG.UTL.Plugin
             {
                 var p = new AvailablePlugin()
                 {
-                    Vn = i.Vn.Value,
-                    En = i.En.Value,
-                    Ns = i.Ns.Value
+                    Text1 = i.Vn.Value,
+                    Text2 = i.En.Value,
+                    Type = i.Ns.Value
                 };
                 l.Add(p);
             }

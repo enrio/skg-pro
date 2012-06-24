@@ -249,7 +249,7 @@ namespace SKG.UTL
         /// <param name="s">App.Config file</param>
         /// <param name="c">Menu's name</param>
         /// <returns></returns>
-        public static List<Info> ToMenu(this string s, string c)
+        public static List<AvailablePlugin> ToMenu(this string s, string c)
         {
             try
             {

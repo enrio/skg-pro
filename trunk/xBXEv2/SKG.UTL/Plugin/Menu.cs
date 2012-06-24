@@ -24,7 +24,7 @@ namespace SKG.UTL.Plugin
         /// </summary>
         /// <param name="c">Menu's name</param>
         /// <returns></returns>
-        public List<Info> Select(string c)
+        public List<AvailablePlugin> Select(string c)
         {
             var a = XDocument.Load(_c);
             var b = from s in a.Descendants(c)
@@ -34,10 +34,10 @@ namespace SKG.UTL.Plugin
                         En = s.Attribute("en"),
                         Ns = s.Attribute("ns")
                     };
-            var l = new List<Info>();
+            var l = new List<AvailablePlugin>();
             foreach (var i in b)
             {
-                var p = new Info()
+                var p = new AvailablePlugin()
                 {
                     Vn = i.Vn.Value,
                     En = i.En.Value,

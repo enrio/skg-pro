@@ -18,6 +18,11 @@ namespace SKG.PRE.PlugTypes
             AssemblyPath = "";
 
             ExeConfig();
+
+            var x = new SKG.UTL.Xmlz();
+            var project = x.Select("project");
+            var menu = x.Select("menu");
+            var form = x.Select("form");
         }
 
         public static void ExeConfig(string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll")

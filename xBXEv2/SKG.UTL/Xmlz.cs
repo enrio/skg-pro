@@ -15,7 +15,8 @@ namespace SKG.UTL
         {
             _c = c + ".config";
         }
-        public IQueryable<PlugInfo> Select(string c)
+
+        public List<dynamic> Select(string c)
         {
             var loaded = XDocument.Load(_c);
 
@@ -26,7 +27,7 @@ namespace SKG.UTL
                               En = s.Attribute("en"),
                               Ns = s.Attribute("ns")
                           };
-            return (IQueryable<PlugInfo>)project;
+            return project.ToList<dynamic>();
         }
 
         public class PlugInfo

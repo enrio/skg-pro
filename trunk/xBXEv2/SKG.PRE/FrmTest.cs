@@ -35,7 +35,9 @@ namespace SKG.PRE
             //t = n2.ToVietnamese("đồng");
             //t = n3.ToVietnamese("đồng");
 
-            Global.Plugins.FindPlugins();
+            var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
+            var b = Global.Plugins.FindConfigs(a);
+
             LoadMenu();
         }
 

@@ -1,22 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace SKG.UTL
+namespace SKG.UTL.Plugin
 {
     using System.Xml.Linq;
 
-    public class Xmlz
+    /// <summary>
+    /// Load plugin's menu
+    /// </summary>
+    public class Menu
     {
-        string _c;
+        readonly string _c;
 
-        public Xmlz(string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll")
-        {
-            _c = c + ".config";
-        }
+        /// <summary>
+        /// Load plugin's menu
+        /// </summary>
+        /// <param name="c">App.Config file</param>
+        public Menu(string c) { _c = c + ".config"; }
 
-        public List<PlugInfo> Select(string c)
+        /// <summary>
+        /// Select menu's level
+        /// </summary>
+        /// <param name="c">Menu's name</param>
+        /// <returns></returns>
+        public List<Info> Select(string c)
         {
             var a = XDocument.Load(_c);
             var b = from s in a.Descendants(c)
@@ -26,10 +34,10 @@ namespace SKG.UTL
                         En = s.Attribute("en"),
                         Ns = s.Attribute("ns")
                     };
-            var l = new List<PlugInfo>();
+            var l = new List<Info>();
             foreach (var i in b)
             {
-                var p = new PlugInfo()
+                var p = new Info()
                 {
                     Vn = i.Vn.Value,
                     En = i.En.Value,
@@ -38,13 +46,6 @@ namespace SKG.UTL
                 l.Add(p);
             }
             return l;
-        }
-
-        public class PlugInfo
-        {
-            public string Vn { set; get; }
-            public string En { set; get; }
-            public string Ns { set; get; }
         }
     }
 }

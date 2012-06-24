@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{214019A7-E8FC-4523-8008-A6DE7F626E8F}</ProjectGuid>
+    <ProjectGuid>{CA23C864-4F29-48B9-B0F6-364B855DF4AC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BXE.DAL</RootNamespace>
-    <AssemblyName>BXE.DAL</AssemblyName>
+    <RootNamespace>BXE.BLL</RootNamespace>
+    <AssemblyName>BXE.BLL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,12 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
+    <ProjectReference Include="..\..\SKG.UTL\SKG.UTL.csproj">
       <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
       <Name>SKG.UTL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BXE.DAL\BXE.DAL.csproj">
+      <Project>{7D59A747-CBE0-4860-945B-D23B3F9C71B3}</Project>
+      <Name>BXE.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

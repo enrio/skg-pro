@@ -38,5 +38,44 @@ namespace SKG.PRE
 
             Global.Plugins.FindPlugins();
         }
+
+        private void LoadMenu()
+        {
+            if (Global.Plugins.AvailablePlugins.Count > 0)
+            {
+                //AddMenu(ref mnuSys);
+                //AddMenu(ref mnuSys, "FrmFawObj");
+                //AddMenu(ref mnuSys);
+                //mnuSys.DropDownItems.Add("&Thoát");
+
+                //AddMenu(ref mnuDsa, "FrmAfcVbq");
+                //AddMenu(ref mnuDsa, "FrmAfcGaa");
+                //AddMenu(ref mnuDsa);
+                //AddMenu(ref mnuDsa, "FrmIkkDka");
+                //AddMenu(ref mnuDsa, "FrmLgoSci");
+
+                //AddMenu(ref mnuTke, "FrmTkeVbq");
+                //AddMenu(ref mnuTke, "FrmTkeGaa");
+                //AddMenu(ref mnuTke, "FrmAhvBdd");
+            }
+        }
+
+        private static PlugTypes.AvailablePlugin FindPlugin(string name)
+        {
+            foreach (PlugTypes.AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
+                if (pluginOn.Instance.Frmcontrol.Name == name)
+                    return pluginOn;
+            return null;
+        }
+
+        private static void AddMenu(ref ToolStripMenuItem mnu, string name = null)
+        {
+            if (name == null) mnu.DropDownItems.Add(new ToolStripSeparator());
+            else
+            {
+                var res = FindPlugin(name);
+                if (res != null) mnu.DropDownItems.Add(res.Instance.Name);
+            }
+        }
     }
 }

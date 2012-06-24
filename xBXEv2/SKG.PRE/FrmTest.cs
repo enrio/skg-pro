@@ -37,8 +37,12 @@ namespace SKG.PRE
 
             var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
             var b = Global.Plugins.FindConfigs(a);
+            LoadMenu(b);
+        }
 
-            LoadMenu();
+        private void LoadMenu(List<string> l)
+        {
+            menuStrip1.Items.Add("Toàn");
         }
 
         private void LoadMenu()

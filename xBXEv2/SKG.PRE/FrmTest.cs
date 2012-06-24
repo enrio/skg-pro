@@ -43,6 +43,11 @@ namespace SKG.PRE
         private void LoadMenu(List<string> l)
         {
             menuStrip1.Items.Add("Toàn");
+
+            foreach (var i in l)
+            {
+                var a = i.ToMenu("form");
+            }
         }
 
         private void LoadMenu()

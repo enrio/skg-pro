@@ -6,6 +6,8 @@ using System.Text;
 namespace SKG.PRE.PlugTypes
 {
     using UTL.Plugin;
+    using System.Configuration;
+    using System.Reflection;
 
     public class AvailablePlugin
     {
@@ -16,6 +18,18 @@ namespace SKG.PRE.PlugTypes
         {
             Instance = null;
             AssemblyPath = "";
+
+            var a = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var b = ExeConfig();
+
+            var c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll";
+            var d = ConfigurationManager.OpenExeConfiguration(c + ".config");
+        }
+
+        public static Configuration ExeConfig()
+        {
+            var a = Assembly.GetAssembly(typeof(AvailablePlugin));
+            return ConfigurationManager.OpenExeConfiguration(a.Location);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace SKG.PRE
 
     public partial class FrmTest : Form
     {
+        private const string STR_PREFIX = "xBXEv1.PRE.";
+
         public FrmTest()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace SKG.PRE
             if (Global.Plugins.AvailablePlugins.Count > 0)
             {
                 AddMenu(ref tsmSystem);
-                AddMenu(ref tsmSystem, "FrmDemo");
+                AddMenu(ref tsmSystem, STR_PREFIX + "FrmDemo");
                 AddMenu(ref tsmSystem);
                 tsmSystem.DropDownItems.Add("&Thoát");
 
@@ -72,7 +74,8 @@ namespace SKG.PRE
             else
             {
                 var res = FindPlugin(name);
-                if (res != null) mnu.DropDownItems.Add(res.Instance.Name);
+                //if (res != null) mnu.DropDownItems.Add(res.Instance.Name);
+                if (res != null) mnu.DropDownItems.Add(name);
             }
         }
 

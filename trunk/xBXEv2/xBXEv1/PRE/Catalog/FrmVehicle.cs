@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace xBXEv1.PRE.Catalog
 {
-    public partial class FrmVehicle : Form
+    public partial class FrmVehicle : FrmDemo
     {
         public FrmVehicle()
         {

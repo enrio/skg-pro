@@ -52,10 +52,12 @@
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="PlugTypes\AvailablePlugin.cs" />
     <Compile Include="PlugTypes\AvailablePlugins.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
     <EmbeddedResource Include="FrmTest.resx">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </EmbeddedResource>

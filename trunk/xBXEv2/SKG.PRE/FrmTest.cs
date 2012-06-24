@@ -37,6 +37,7 @@ namespace SKG.PRE
             //t = n3.ToVietnamese("đồng");
 
             Global.Plugins.FindPlugins();
+            LoadMenu();
         }
 
         private void LoadMenu()
@@ -44,7 +45,7 @@ namespace SKG.PRE
             if (Global.Plugins.AvailablePlugins.Count > 0)
             {
                 AddMenu(ref tsmSystem);
-                AddMenu(ref tsmSystem, "FrmFawObj");
+                AddMenu(ref tsmSystem, "FrmDemo");
                 AddMenu(ref tsmSystem);
                 tsmSystem.DropDownItems.Add("&Thoát");
 

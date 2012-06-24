@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SKG.PRE.PlugTypes
+namespace SKG.UTL.Plugin
 {
     using System.Collections;
 

@@ -56,6 +56,8 @@
     <Compile Include="Hasher\Windows.cs" />
     <Compile Include="IBaseDAL.cs" />
     <Compile Include="Number.cs" />
+    <Compile Include="Plugin\AvailablePlugin.cs" />
+    <Compile Include="Plugin\AvailablePlugins.cs" />
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\Info.cs" />
     <Compile Include="Plugin\IPlugin.cs" />

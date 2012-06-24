@@ -6,7 +6,6 @@ using System.Text;
 namespace SKG.PRE
 {
     using UTL.Plugin;
-    using PlugTypes;
     using System.IO;
     using System.Reflection;
 

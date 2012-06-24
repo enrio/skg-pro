@@ -29,8 +29,9 @@ namespace SKG.PRE.PlugTypes
             var d = ConfigurationManager.OpenExeConfiguration(c + ".config");
             var e = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
 
-            var configSection = (System.Configuration.DefaultSection)e.GetSection("applicationSettings");
-            var result = configSection.SectionInformation.GetRawXml();
+            var s1 = e.GetSection("appSettings");
+            var s2 = e.GetSection("connectionStrings");
+            var result = s1.SectionInformation.GetRawXml();
         }
 
         public static Configuration ExeConfig()

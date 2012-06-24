@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="PRE\FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +59,9 @@
       <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
       <Name>SKG.UTL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -17,7 +17,7 @@ namespace SKG.UTL.Plugin
         /// Load plugin's menu
         /// </summary>
         /// <param name="c">App.Config file</param>
-        public Menu(string c) { _c = c + ".config"; }
+        public Menu(string c) { _c = c; }
 
         /// <summary>
         /// Select menu's level

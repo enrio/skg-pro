@@ -20,7 +20,10 @@ namespace SKG.PRE
             set { colAvailablePlugins = value; }
         }
 
-        public void FindPlugins() { FindPlugins(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins"); }
+        public void FindPlugins()
+        {
+            FindPlugins(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");
+        }
 
         public void FindPlugins(string path)
         {

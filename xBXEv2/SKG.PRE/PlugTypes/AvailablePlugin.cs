@@ -19,7 +19,8 @@ namespace SKG.PRE.PlugTypes
 
             ExeConfig();
 
-            var x = new SKG.UTL.Xmlz();
+            const string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll";
+            var x = new Menu(c);
             var project = x.Select("project");
             var menu = x.Select("menu");
             var form = x.Select("form");

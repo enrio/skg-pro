@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL.Plugin
 {
@@ -22,16 +21,16 @@ namespace SKG.UTL.Plugin
         /// <returns></returns>
         public AvailablePlugin Find(string s)
         {
-            AvailablePlugin toReturn = null;
+            AvailablePlugin a = null;
             foreach (AvailablePlugin i in List)
             {
-                if ((i.Instance.Name.Equals(s)) || i.AssemblyPath.Equals(s))
+                if ((i.Instance.Name.Equals(s)) || i.Path.Equals(s))
                 {
-                    toReturn = i;
+                    a = i;
                     break;
                 }
             }
-            return toReturn;
+            return a;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace BXE.PRE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDemo());
+            Application.Run(new FrmBase());
         }
     }
 }

@@ -30,11 +30,8 @@ namespace SKG.PRE
                 foreach (string fileOn in Directory.GetFiles(path))
                 {
                     FileInfo file = new FileInfo(fileOn);
-
-                    if (file.Extension.Equals(".dll"))
-                    {
-                        AddPlugin(fileOn);
-                    }
+                    if (file.Name.Equals("SKG.UTL.dll")) continue;
+                    if (file.Extension.Equals(".dll")) AddPlugin(fileOn);
                 }
             }
             catch { }
@@ -60,7 +57,7 @@ namespace SKG.PRE
                 {
                     if (!pluginType.IsAbstract)
                     {
-                        Type typeInterface = pluginType.GetInterface("SKG.UTL.Plugin", true);
+                        Type typeInterface = pluginType.GetInterface("SKG.UTL.Plugin.IPlugin", true);
                         if (typeInterface != null)
                         {
                             AvailablePlugin newPlugin = new AvailablePlugin

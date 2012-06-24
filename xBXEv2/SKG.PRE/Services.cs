@@ -49,50 +49,37 @@ namespace SKG.PRE
 
         private void AddPlugin(string FileName)
         {
-            Assembly pluginAssembly = Assembly.LoadFrom(FileName);
-
+            var pluginAssembly = Assembly.LoadFrom(FileName);
             foreach (Type pluginType in pluginAssembly.GetTypes())
             {
                 if (pluginType.IsPublic)
                 {
                     if (!pluginType.IsAbstract)
                     {
-                        var a = typeof(SKG.UTL.Plugin.IPlugin);
-                        var b = pluginType.GetInterface(a.FullName, true);
-
-                        if (b != null)
+                        var a = pluginType.GetInterface(typeof(IPlugin).FullName, true);
+                        if (a != null)
                         {
-                            AvailablePlugin newPlugin = new AvailablePlugin
+                            var b = pluginAssembly.GetType(pluginType + "");
+                            var c = new AvailablePlugin
                             {
                                 AssemblyPath = FileName,
-                                Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType + ""))
+                                Instance = (IPlugin)Activator.CreateInstance(b)
                             };
 
-                            newPlugin.Instance.Host = this;
-                            newPlugin.Instance.Initialize();
-                            colAvailablePlugins.Add(newPlugin);
-                            newPlugin = null;
+                            c.Instance.Host = this;
+                            c.Instance.Initialize();
+                            colAvailablePlugins.Add(c);
+                            c = null;
                         }
-                        b = null;
+                        a = null;
                     }
                 }
             }
             pluginAssembly = null;
         }
 
-        public void FeedBack(string feedBack, IPlugin plug)
-        {
-            return;
-        }
-
-        public bool Register(IPlugin plug)
-        {
-            return true;
-        }
-
-        public void LoadPlugins()
-        {
-            return;
-        }
+        public void FeedBack(string feedBack, IPlugin plug) { return; }
+        public bool Register(IPlugin plug) { return true; }
+        public void LoadPlugins() { return; }
     }
 }

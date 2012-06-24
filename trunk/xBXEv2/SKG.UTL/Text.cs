@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.UTL
 {
+    using SKG.UTL.Plugin;
     using System.IO;
     using System.Data.SqlClient;
     using System.Text.RegularExpressions;
@@ -238,6 +239,20 @@ namespace SKG.UTL
         {
             if (IsNumber(s)) return Convert.ToDecimal(s);
             return 0;
+        }
+        #endregion
+
+        #region Menu
+        /// <summary>
+        /// Load plugin's menu
+        /// </summary>
+        /// <param name="s">App.Config file</param>
+        /// <param name="c">Menu's name</param>
+        /// <returns></returns>
+        public static List<Info> ToMenu(this string s, string c)
+        {
+            var x = new Menu(s);
+            return x.Select(c);
         }
         #endregion
     }

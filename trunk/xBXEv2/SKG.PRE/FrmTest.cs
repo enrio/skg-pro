@@ -69,11 +69,15 @@ namespace SKG.PRE
             //var x = UTL.BaseUTL.Linq2Table(u, "menu");
             ////x.WriteXml("c:\\t.xml");
 
-            menuStrip1.Items.Add("Toàn");
-
             foreach (var i in l)
             {
-                var a = i.ToMenu("form");
+                var a = i.ToMenu("menu");
+                if (a == null) continue;
+
+                var oo = new ToolStripMenuItem(a[0].Text1);
+                var b = menuStrip1.Items.Add(oo);
+
+                for (int j = 1; j < a.Count; j++) oo.DropDownItems.Add(a[j].Text1);
             }
         }
 

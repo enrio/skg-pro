@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace xBXEv1.PRE.Sumary
 {
-    public partial class FrmSales : Form
+    public partial class FrmSales : FrmDemo
     {
         public FrmSales()
         {

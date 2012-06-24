@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace xBXEv1.PRE.Report
 {
-    public partial class FrmPrint : Form
+    public partial class FrmPrint : FrmDemo
     {
         public FrmPrint()
         {

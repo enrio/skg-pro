@@ -57,13 +57,15 @@ namespace SKG.PRE
                 {
                     if (!pluginType.IsAbstract)
                     {
-                        Type typeInterface = pluginType.GetInterface("SKG.UTL.Plugin.IPlugin", true);
-                        if (typeInterface != null)
+                        var a = typeof(SKG.UTL.Plugin.IPlugin);
+                        var b = pluginType.GetInterface(a.FullName, true);
+
+                        if (b != null)
                         {
                             AvailablePlugin newPlugin = new AvailablePlugin
                             {
                                 AssemblyPath = FileName,
-                                Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType.ToString()))
+                                Instance = (IPlugin)Activator.CreateInstance(pluginAssembly.GetType(pluginType + ""))
                             };
 
                             newPlugin.Instance.Host = this;
@@ -71,7 +73,7 @@ namespace SKG.PRE
                             colAvailablePlugins.Add(newPlugin);
                             newPlugin = null;
                         }
-                        typeInterface = null;
+                        b = null;
                     }
                 }
             }

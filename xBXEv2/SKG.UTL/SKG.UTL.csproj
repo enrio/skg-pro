@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="BaseUTL.cs" />
+    <Compile Include="Ctrl.cs" />
     <Compile Include="Db\BaseDb.cs" />
     <Compile Include="Db\SQLServer.cs" />
     <Compile Include="Enums.cs" />

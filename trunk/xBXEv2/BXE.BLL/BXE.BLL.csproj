@@ -40,8 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BXE.DAL\BXE.DAL.csproj">
+      <Project>{214019A7-E8FC-4523-8008-A6DE7F626E8F}</Project>
+      <Name>BXE.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
+      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
+      <Name>SKG.UTL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

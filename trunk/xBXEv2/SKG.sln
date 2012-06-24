@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.BLL", "SKG.BLL\SKG.BLL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.UTL", "SKG.UTL\SKG.UTL.csproj", "{24995697-0C20-4261-8623-E977B55AA15E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{1CF7587E-AC65-4FB5-8E43-85BADCA4048D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xBXEv1", "xBXEv1\xBXEv1.csproj", "{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,9 +63,22 @@ Global
 		{24995697-0C20-4261-8623-E977B55AA15E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{24995697-0C20-4261-8623-E977B55AA15E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{24995697-0C20-4261-8623-E977B55AA15E}.Release|x86.ActiveCfg = Release|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B95C36B-D6B5-4611-91D1-9EB991D99CFA} = {1CF7587E-AC65-4FB5-8E43-85BADCA4048D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .

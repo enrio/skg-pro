@@ -251,8 +251,12 @@ namespace SKG.UTL
         /// <returns></returns>
         public static List<Info> ToMenu(this string s, string c)
         {
-            var x = new Menu(s);
-            return x.Select(c);
+            try
+            {
+                var x = new Menu(s);
+                return x.Select(c);
+            }
+            catch { return null; }
         }
         #endregion
     }

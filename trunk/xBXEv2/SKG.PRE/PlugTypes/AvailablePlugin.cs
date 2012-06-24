@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.PRE.PlugTypes
 {
+    using UTL;
     using UTL.Plugin;
     using System.Xml.Linq;
 
@@ -20,10 +21,9 @@ namespace SKG.PRE.PlugTypes
             ExeConfig();
 
             const string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll";
-            var x = new Menu(c);
-            var project = x.Select("project");
-            var menu = x.Select("menu");
-            var form = x.Select("form");
+            var project = c.ToMenu("project");
+            var menu = c.ToMenu("menu");
+            var form = c.ToMenu("form");
         }
 
         public static void ExeConfig(string c = @"D:\HgqOhc\NL\xBXEv2\EXE\Plugins\xBXEv1.dll")

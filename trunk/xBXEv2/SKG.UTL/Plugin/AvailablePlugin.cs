@@ -10,9 +10,14 @@ namespace SKG.UTL.Plugin
     public sealed class AvailablePlugin
     {
         /// <summary>
-        /// Primary key (ID)
+        /// Primary key
         /// </summary>
-        public Guid Id { set; get; }
+        public string Id { set; get; }
+
+        /// <summary>
+        /// Parent ID
+        /// </summary>
+        public string ParentId { set; get; }
 
         /// <summary>
         /// Assembly path
@@ -35,8 +40,20 @@ namespace SKG.UTL.Plugin
         public string Type { set; get; }
 
         /// <summary>
+        /// Enable
+        /// </summary>
+        public bool Show { set; get; }
+
+        /// <summary>
+        /// Order by
+        /// </summary>
+        public int Order { set; get; }
+
+        /// <summary>
         /// Instance of plugin
         /// </summary>
         public IPlugin Instance { set; get; }
+
+        public AvailablePlugin() { Show = true; }
     }
 }

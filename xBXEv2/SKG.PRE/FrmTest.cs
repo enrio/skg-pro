@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.PRE
 {
     using UTL;
+    using PlugTypes;
 
     public partial class FrmTest : Form
     {
@@ -61,10 +58,10 @@ namespace SKG.PRE
             }
         }
 
-        private static PlugTypes.AvailablePlugin FindPlugin(string name)
+        private static AvailablePlugin FindPlugin(string name)
         {
-            foreach (PlugTypes.AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
-                if (pluginOn.Instance.Frmcontrol.Name == name)
+            foreach (AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
+                if (pluginOn.Instance.Frmcontrol.GetFullName() == name)
                     return pluginOn;
             return null;
         }

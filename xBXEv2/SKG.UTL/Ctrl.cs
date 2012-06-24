@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL
 {
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Form, UserControl processing
+    /// </summary>
     public static class Ctrl
     {
-        public static string FullName(this Form f)
+        /// <summary>
+        /// Get full name
+        /// </summary>
+        /// <param name="f">Form</param>
+        /// <returns></returns>
+        public static string GetFullName(this Form f)
         {
             return f.GetType().FullName;
         }

@@ -64,7 +64,7 @@ namespace SKG.PRE
                             var b = pluginAssembly.GetType(pluginType + "");
                             var c = new AvailablePlugin
                             {
-                                AssemblyPath = FileName,
+                                Path = FileName,
                                 Instance = (IPlugin)Activator.CreateInstance(b)
                             };
 

@@ -10,9 +10,9 @@ namespace SKG.UTL.Plugin
     public sealed class AvailablePlugin
     {
         /// <summary>
-        /// Instance of plugin
+        /// Primary key (ID)
         /// </summary>
-        public IPlugin Instance { set; get; }
+        public Guid Id { set; get; }
 
         /// <summary>
         /// Assembly path
@@ -20,20 +20,23 @@ namespace SKG.UTL.Plugin
         public string Path { set; get; }
 
         /// <summary>
-        /// Vietnamese name
+        /// Default language
         /// </summary>
-        public string Vn { set; get; }
+        public string Text1 { set; get; }
 
         /// <summary>
-        /// English name
+        /// Second language
         /// </summary>
-        public string En { set; get; }
+        public string Text2 { set; get; }
 
         /// <summary>
-        /// Namespace name
+        /// Namespace or type name
         /// </summary>
-        public string Ns { set; get; }
+        public string Type { set; get; }
 
-        public AvailablePlugin() { Instance = null; Path = ""; }
+        /// <summary>
+        /// Instance of plugin
+        /// </summary>
+        public IPlugin Instance { set; get; }
     }
 }

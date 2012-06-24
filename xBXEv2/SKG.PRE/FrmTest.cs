@@ -20,21 +20,23 @@ namespace SKG.PRE
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
-            var d = DateTime.Now;
+            //var d = DateTime.Now;
 
-            var d1 = d.ToStartOfDay();
-            var d2 = d.ToEndOfDay();
+            //var d1 = d.ToStartOfDay();
+            //var d2 = d.ToEndOfDay();
 
-            var w1 = d.ToStartOfWeek();
-            var v2 = d.ToEndOfWeek();
+            //var w1 = d.ToStartOfWeek();
+            //var v2 = d.ToEndOfWeek();
 
-            var n1 = 100;
-            var n2 = 100L;
-            var n3 = 100D;
+            //var n1 = 100;
+            //var n2 = 100L;
+            //var n3 = 100D;
 
-            var t = n1.ToVietnamese("đồng");
-            t = n2.ToVietnamese("đồng");
-            t = n3.ToVietnamese("đồng");
+            //var t = n1.ToVietnamese("đồng");
+            //t = n2.ToVietnamese("đồng");
+            //t = n3.ToVietnamese("đồng");
+
+            Global.Plugins.FindPlugins();
         }
     }
 }

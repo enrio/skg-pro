@@ -6,6 +6,7 @@ using System.Text;
 namespace SKG.PRE
 {
     using UTL;
+    using UTL.Plugin;
     using System.Windows.Forms;
 
     /// <summary>
@@ -22,8 +23,8 @@ namespace SKG.PRE
         {
             foreach (var i in l)
             {
-                var a = i.ToMenu("menu");
-                if (a == null) continue;
+                var a = i.ToMenu(typeof(AvailablePlugin).Name);
+                if (a == null || a.Count < 1) continue;
 
                 // Menu's level 1 (root)
                 var m1 = new ToolStripMenuItem(a[0].Text1);

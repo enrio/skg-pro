@@ -6,6 +6,7 @@ namespace BXE.DAL
 {
     using SKG.UTL;
     using SKG.DAL;
+    using SKG.UTL.Extension;
     using System.Data;
     using Entities;
 

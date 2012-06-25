@@ -48,6 +48,10 @@
     <Compile Include="Tra_VehicleBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SKG.BLL\SKG.BLL.csproj">
+      <Project>{BF36B456-B5EF-4B7B-989A-DC9A289CE55F}</Project>
+      <Name>SKG.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SKG.DAL\SKG.DAL.csproj">
       <Project>{C3C7524A-D919-4585-AC94-E34C0BD17A80}</Project>
       <Name>SKG.DAL</Name>

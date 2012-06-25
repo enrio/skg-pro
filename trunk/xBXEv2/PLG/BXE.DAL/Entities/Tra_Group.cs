@@ -10,7 +10,7 @@ namespace BXE.DAL.Entities
     /// <summary>
     /// Vận tải - Nhóm xe
     /// </summary>
-    public class Tra_Group : ZInfor
+    public class Tra_Group : SBase
     {
         /// <summary>
         /// Tên nhóm xe

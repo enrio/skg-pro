@@ -9,7 +9,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Thông tin dữ liệu cơ bản
     /// </summary>
-    public class ZInfor
+    public class SBase
     {
         /// <summary>
         /// Khoá chính
@@ -41,6 +41,6 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Mặc định dữ liệu được hiện
         /// </summary>
-        public ZInfor() { Show = true; }
+        public SBase() { Show = true; }
     }
 }

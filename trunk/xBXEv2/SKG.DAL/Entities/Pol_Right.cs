@@ -7,7 +7,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Chính sách - Danh sách tên các form, menu (chức năng) của hệ thống
     /// </summary>
-    public class Pol_Right : ZInfor
+    public class Pol_Right : SBase
     {
         /// <summary>
         /// Tên form, menu

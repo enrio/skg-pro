@@ -11,7 +11,7 @@ namespace BXE.DAL.Entities
     /// <summary>
     /// Vận tải - Chi tiết xe ra vào bến
     /// </summary>
-    public class Tra_Detail : ZInfor
+    public class Tra_Detail : SBase
     {
         #region Khoá ngoại
         /// <summary>

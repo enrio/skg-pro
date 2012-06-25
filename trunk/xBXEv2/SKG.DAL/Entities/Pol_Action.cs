@@ -7,7 +7,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Chính sách - Danh sách tên các hành động: Thêm, Sửa, Xoá, In ấn, Truy cập, Tất cả, Không có, Mặc định
     /// </summary>
-    public class Pol_Action : ZInfor
+    public class Pol_Action : SBase
     {
         /// <summary>
         /// Tên hành động

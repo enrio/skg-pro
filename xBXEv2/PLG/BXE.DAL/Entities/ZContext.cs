@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SKG.DAL.Entities
+namespace BXE.DAL.Entities
 {
-    using System.Data.Entity;
-    using System.Data.Entity.ModelConfiguration.Conventions;
+    using SKG.UTL;
+    using SKG.DAL;
 
-    public partial class ZContext
+    public class ZContext : SKG.DAL.Entities.ZContext
     {
-        public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
     }
 }

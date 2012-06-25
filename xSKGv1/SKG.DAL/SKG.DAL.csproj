@@ -31,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,13 +43,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="Entities\Pol_Action.cs" />
+    <Compile Include="Entities\Pol_Right.cs" />
+    <Compile Include="Entities\Pol_Role.cs" />
+    <Compile Include="Entities\Pol_RoleRight.cs" />
+    <Compile Include="Entities\Pol_User.cs" />
+    <Compile Include="Entities\Pol_UserRight.cs" />
+    <Compile Include="Entities\Pol_UserRole.cs" />
+    <Compile Include="Entities\Tra_Detail.cs" />
+    <Compile Include="Entities\Tra_Group.cs" />
+    <Compile Include="Entities\Tra_Kind.cs" />
+    <Compile Include="Entities\Tra_Vehicle.cs" />
+    <Compile Include="Entities\ZAction.cs" />
+    <Compile Include="Entities\ZContext.cs" />
+    <Compile Include="Entities\ZInfor.cs" />
+    <Compile Include="Ext_Method.cs" />
+    <Compile Include="Pol_ActionDAL.cs" />
+    <Compile Include="Pol_RightDAL.cs" />
+    <Compile Include="Pol_RoleDAL.cs" />
+    <Compile Include="Pol_RoleRightDAL.cs" />
+    <Compile Include="Pol_UserDAL.cs" />
+    <Compile Include="Pol_UserRightDAL.cs" />
+    <Compile Include="Pol_UserRoleDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tra_DetailDAL.cs" />
+    <Compile Include="Tra_GroupDAL.cs" />
+    <Compile Include="Tra_KindDAL.cs" />
+    <Compile Include="Tra_VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
       <Project>{E23FDF8E-3FC9-46DD-8222-95779F4D3369}</Project>
       <Name>SKG.UTL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="zTest.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

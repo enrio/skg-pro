@@ -59,26 +59,22 @@ namespace SKG.UTL.Plugin
             var b = from s in a.Descendants(c)
                     select new
                     {
-                        Id = s.Element("Id").Value,
-                        ParentId = s.Element("ParentId").Value,
+                        Level = s.Element("Level").Value,
                         Text1 = s.Element("Text1").Value,
                         Text2 = s.Element("Text2").Value,
                         Type = s.Element("Type").Value,
                         Show = s.Element("Show").Value,
-                        Order = s.Element("Order").Value
                     };
             var l = new List<AvailablePlugin>();
             foreach (var s in b)
             {
                 var p = new AvailablePlugin()
                 {
-                    Id = s.Id,
-                    ParentId = s.ParentId,
+                    Level = Convert.ToInt32(s.Level),
                     Text1 = s.Text1,
                     Text2 = s.Text2,
                     Type = s.Type,
-                    Show = Convert.ToBoolean(s.Show),
-                    Order = Convert.ToInt32(s.Order)
+                    Show = Convert.ToBoolean(s.Show)
                 };
                 l.Add(p);
             }

@@ -42,32 +42,32 @@ namespace SKG.PRE
 
         private void LoadMenu(List<string> l)
         {
-            //var u = new List<AvailablePlugin>();
-            //var o = new AvailablePlugin() { Id = "1", ParentId = "0", Text1 = "Vận tải", Text2 = "Transport", Type = "BXE" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "2", ParentId = "1", Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "3", ParentId = "2", Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "4", ParentId = "2", Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "5", ParentId = "2", Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "6", ParentId = "1", Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "7", ParentId = "6", Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.Print" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "8", ParentId = "1", Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "9", ParentId = "8", Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.Sales" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "10", ParentId = "1", Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE.Test" };
-            //u.Add(o);
-            //o = new AvailablePlugin() { Id = "11", ParentId = "10", Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.Test.FrmBase" };
-            //u.Add(o);
+            var u = new List<AvailablePlugin>();
+            var o = new AvailablePlugin() { Level = 1, Text1 = "Vận tải", Text2 = "Transport", Type = "BXE" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 2, Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.Print" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.Sales" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE" };
+            u.Add(o);
+            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.Test.FrmBase" };
+            u.Add(o);
 
-            //var x = UTL.BaseUTL.Linq2Table(u, "menu");
-            ////x.WriteXml("c:\\t.xml");
+            var x = UTL.BaseUTL.Linq2Table(u, "menu");
+            //x.WriteXml("c:\\t.xml");
 
             menuStrip1.LoadMenu(l);
         }

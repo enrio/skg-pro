@@ -33,7 +33,7 @@ namespace SKG.PRE
                 ToolStripMenuItem m2 = null;
                 for (int j = 1; j < a.Count; j++)
                 {
-                    if (a[j].ParentId == "1") // Menu's level 2
+                    if (a[j].Level == 1) // Menu's level 2
                     {
                         m2 = new ToolStripMenuItem(a[j].Text1);
                         m1.DropDownItems.Add(m2);

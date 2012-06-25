@@ -90,30 +90,6 @@
     <Compile Include="Catalog\FrmPol_User.Designer.cs">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmTra_Group.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\FrmTra_Group.Designer.cs">
-      <DependentUpon>FrmTra_Group.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Catalog\FrmTra_Kind.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\FrmTra_Kind.Designer.cs">
-      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Catalog\FrmTra_Vehicle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DataSet\Sumary.Designer.cs" />
-    <Compile Include="DataSet\Sumary1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Sumary.xsd</DependentUpon>
-    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,44 +156,8 @@
     <Compile Include="Main\FrmShowPrint.Designer.cs">
       <DependentUpon>FrmShowPrint.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage\FrmGateIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage\FrmGateIn.Designer.cs">
-      <DependentUpon>FrmGateIn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\FrmGateOut.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage\FrmGateOut.Designer.cs">
-      <DependentUpon>FrmGateOut.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\FrmInDepot.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage\FrmInDepot.Designer.cs">
-      <DependentUpon>FrmInDepot.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Manage\FrmSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Manage\FrmSales.Designer.cs">
-      <DependentUpon>FrmSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\Rpt_Sumary1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\Rpt_Sumary1.Designer.cs">
-      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Report\Rpt_Sumary2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\Rpt_Sumary2.Designer.cs">
-      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Catalog\FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </EmbeddedResource>
@@ -229,15 +169,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Catalog\FrmPol_User.resx">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\FrmTra_Group.resx">
-      <DependentUpon>FrmTra_Group.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\FrmTra_Kind.resx">
-      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Catalog\FrmTra_Vehicle.resx">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -272,18 +203,6 @@
     <EmbeddedResource Include="Main\FrmShowPrint.resx">
       <DependentUpon>FrmShowPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Manage\FrmGateIn.resx">
-      <DependentUpon>FrmGateIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manage\FrmGateOut.resx">
-      <DependentUpon>FrmGateOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manage\FrmInDepot.resx">
-      <DependentUpon>FrmInDepot.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Manage\FrmSales.resx">
-      <DependentUpon>FrmSales.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -293,24 +212,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report\Rpt_Sumary1.resx">
-      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Report\Rpt_Sumary2.resx">
-      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="DataSet\Sumary.xsc">
-      <DependentUpon>Sumary.xsd</DependentUpon>
-    </None>
-    <None Include="DataSet\Sumary.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Sumary1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataSet\Sumary.xss">
-      <DependentUpon>Sumary.xsd</DependentUpon>
-    </None>
     <None Include="Guide.chm" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -11,7 +11,7 @@ namespace PRE
     using BLL;
     using Catalog;
     using Main;
-    using Manage;
+    //using Manage;
     using DevExpress.XtraBars.Helpers;
     using DevExpress.XtraBars.Ribbon;
 
@@ -163,17 +163,17 @@ namespace PRE
 
         private void bbiTra_Group_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmTra_Group>(this);
+            //BasePRE.ShowRight<FrmTra_Group>(this);
         }
 
         private void bbiTra_Kind_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmTra_Kind>(this);
+            //BasePRE.ShowRight<FrmTra_Kind>(this);
         }
 
         private void bbiTra_Vehicle_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmTra_Vehicle>(this);
+            //BasePRE.ShowRight<FrmTra_Vehicle>(this);
         }
         #endregion
 
@@ -227,22 +227,22 @@ namespace PRE
         #region Manage
         private void bbiGateIn_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmGateIn>(this);
+            //BasePRE.ShowRight<FrmGateIn>(this);
         }
 
         private void bbiGateOut_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmGateOut>(this);
+            //BasePRE.ShowRight<FrmGateOut>(this);
         }
 
         private void bbiInDepot_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmInDepot>(this);
+            //BasePRE.ShowRight<FrmInDepot>(this);
         }
 
         private void bbiSales_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmSales>(this);
+            //BasePRE.ShowRight<FrmSales>(this);
         }
         #endregion
 

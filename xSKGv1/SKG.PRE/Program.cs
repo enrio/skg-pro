@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SKG.PRE
+namespace PRE
 {
+    using DevExpress.LookAndFeel;
+
     static class Program
     {
         /// <summary>
@@ -15,6 +17,15 @@ namespace SKG.PRE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.OfficeSkins.Register();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+#if DEBUG
+            BLL.BaseBLL.CreateData(false);
+#endif
             Application.Run(new FrmMain());
         }
     }

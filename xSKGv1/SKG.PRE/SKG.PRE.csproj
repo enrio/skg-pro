@@ -34,6 +34,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Charts.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.OfficeSkins.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System.configuration" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +65,224 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePRE.cs" />
+    <Compile Include="Catalog\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Right.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.Designer.cs">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.Designer.cs">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Group.Designer.cs">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Kind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Kind.Designer.cs">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Vehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet\Sumary.Designer.cs" />
+    <Compile Include="DataSet\Sumary1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmLicense.Designer.cs">
+      <DependentUpon>FrmLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmMessage.Designer.cs">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.Designer.cs">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.Designer.cs">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.Designer.cs">
+      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPrint.Designer.cs">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmSelect.Designer.cs">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmShowPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmShowPrint.Designer.cs">
+      <DependentUpon>FrmShowPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\FrmGateIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\FrmGateIn.Designer.cs">
+      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\FrmGateOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\FrmGateOut.Designer.cs">
+      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\FrmInDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\FrmInDepot.Designer.cs">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\FrmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manage\FrmSales.Designer.cs">
+      <DependentUpon>FrmSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\Rpt_Sumary1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Rpt_Sumary1.Designer.cs">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Rpt_Sumary2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\Rpt_Sumary2.Designer.cs">
+      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Catalog\FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_Right.resx">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_Role.resx">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmPol_User.resx">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Group.resx">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Kind.resx">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalog\FrmTra_Vehicle.resx">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmLicense.resx">
+      <DependentUpon>FrmLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmMessage.resx">
+      <DependentUpon>FrmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPol_RoleRight.resx">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPol_UserRight.resx">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPol_UserRole.resx">
+      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmPrint.resx">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmSelect.resx">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmSetting.resx">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\FrmShowPrint.resx">
+      <DependentUpon>FrmShowPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\FrmGateIn.resx">
+      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\FrmGateOut.resx">
+      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\FrmInDepot.resx">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manage\FrmSales.resx">
+      <DependentUpon>FrmSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,7 +293,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\Rpt_Sumary1.resx">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\Rpt_Sumary2.resx">
+      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="DataSet\Sumary.xsc">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet\Sumary.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Sumary1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet\Sumary.xss">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="Guide.chm" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +335,46 @@
       <Project>{E23FDF8E-3FC9-46DD-8222-95779F4D3369}</Project>
       <Name>SKG.UTL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ferrari.ico" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\car.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\closex.png" />
+    <Content Include="Resources\collapse.png" />
+    <Content Include="Resources\cost.png" />
+    <Content Include="Resources\db.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\edit.png" />
+    <Content Include="Resources\exit.png" />
+    <Content Include="Resources\expand.png" />
+    <Content Include="Resources\fee.png" />
+    <Content Include="Resources\find.png" />
+    <Content Include="Resources\group.png" />
+    <Content Include="Resources\guest.png" />
+    <Content Include="Resources\infor.png" />
+    <Content Include="Resources\kind.png" />
+    <Content Include="Resources\lease.png" />
+    <Content Include="Resources\lgout.png" />
+    <Content Include="Resources\login.png" />
+    <Content Include="Resources\loginx.png" />
+    <Content Include="Resources\logon.png" />
+    <Content Include="Resources\logout.png" />
+    <Content Include="Resources\main.png" />
+    <Content Include="Resources\ok.png" />
+    <Content Include="Resources\out.png" />
+    <Content Include="Resources\palette.png" />
+    <Content Include="Resources\printer.png" />
+    <Content Include="Resources\refresh.png" />
+    <Content Include="Resources\registry.png" />
+    <Content Include="Resources\report.png" />
+    <Content Include="Resources\room.png" />
+    <Content Include="Resources\save.png" />
+    <Content Include="Resources\setting.png" />
+    <Content Include="Resources\user.png" />
+    <Content Include="Resources\users.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

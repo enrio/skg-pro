@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SKG.PRE")]
+[assembly: AssemblyTitle("PRE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SKG")]
-[assembly: AssemblyProduct("SKG.PRE")]
+[assembly: AssemblyProduct("PRE")]
 [assembly: AssemblyCopyright("Copyright © SKG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9be077d0-9db5-401a-a5c7-3e8bd4ffa6e7")]
+[assembly: Guid("d669a6a7-5e54-4aeb-89e2-642a2c305fc6")]
 
 // Version information for an assembly consists of the following four values:
 //

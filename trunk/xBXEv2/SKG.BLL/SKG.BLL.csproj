@@ -40,8 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Pol_ActionBLL.cs" />
+    <Compile Include="Pol_RightBLL.cs" />
+    <Compile Include="Pol_RoleBLL.cs" />
+    <Compile Include="Pol_RoleRightBLL.cs" />
+    <Compile Include="Pol_UserBLL.cs" />
+    <Compile Include="Pol_UserRightBLL.cs" />
+    <Compile Include="Pol_UserRoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZSession.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SKG.DAL\SKG.DAL.csproj">
+      <Project>{C3C7524A-D919-4585-AC94-E34C0BD17A80}</Project>
+      <Name>SKG.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
+      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
+      <Name>SKG.UTL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,7 +7,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Chính sách - Danh sách tên các nhóm người dùng của hệ thống
     /// </summary>
-    public class Pol_Role : ZInfor
+    public class Pol_Role : SBase
     {
         /// <summary>
         /// Tên nhóm người dùng

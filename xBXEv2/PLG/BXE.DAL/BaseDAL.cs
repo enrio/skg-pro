@@ -8,7 +8,7 @@ namespace BXE.DAL
     using Entities;
     using System.Data;
 
-    public class BaseDAL : SKG.DAL.BaseDAL
+    public class BaseDAL : SKG.DAL.SBaseDAL
     {
         internal ZContext _db = new ZContext();
         internal DataTable _tb = new DataTable("Tmp");

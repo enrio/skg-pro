@@ -12,7 +12,7 @@ namespace SKG.DAL
     /// <summary>
     /// Chính sách - Xử lí bảng Pol_Role
     /// </summary>
-    public abstract class Pol_RoleDAL : BaseDAL, IBaseDAL
+    public abstract class Pol_RoleDAL : SBaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>

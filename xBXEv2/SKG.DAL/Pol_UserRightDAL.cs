@@ -12,7 +12,7 @@ namespace SKG.DAL
     /// <summary>
     /// Chính sách - Xử lí bảng Pol_UserRight
     /// </summary>
-    public abstract class Pol_UserRightDAL : BaseDAL, IBaseDAL
+    public abstract class Pol_UserRightDAL : SBaseDAL, IBaseDAL
     {
         #region Implement
         /// <summary>

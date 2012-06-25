@@ -12,9 +12,9 @@ namespace SKG.DAL
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseDAL
+    public abstract class SBaseDAL
     {
-        internal ZContext _db = new ZContext();
+        internal SContext _db = new SContext();
         internal DataTable _tb = new DataTable("Tmp");
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace SKG.DAL
         /// <summary>
         /// Xoá cơ sở dữ liệu, nếu mô hình thay đổi
         /// </summary>
-        public BaseDAL()
+        public SBaseDAL()
         {
-            Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());
+            Database.SetInitializer<SContext>(new DropCreateDatabaseIfModelChanges<SContext>());
         }
 
         /// <summary>

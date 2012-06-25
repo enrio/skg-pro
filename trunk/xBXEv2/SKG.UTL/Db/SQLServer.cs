@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL.Db
 {
     using System.IO;
     using System.Data.SqlClient;
-    using System.Data.Sql;
     using System.Data;
-    using System.Configuration;
 
     public sealed class SQLServer : BaseDb
     {

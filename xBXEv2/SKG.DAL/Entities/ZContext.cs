@@ -20,12 +20,7 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_UserRight> Pol_UserRights { get; set; }
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
 
-        public DbSet<Tra_Group> Tra_Groups { get; set; }
-        public DbSet<Tra_Kind> Tra_Kinds { get; set; }
-        public DbSet<Tra_Vehicle> Tra_Vehicles { get; set; }
-        public DbSet<Tra_Detail> Tra_Details { get; set; }
-
-        public ZContext() : base("xBXEv1") { }
+        public ZContext() : base("xSKGv1") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -9,7 +9,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Chính sách - Danh sách nhóm người dùng có quyền trên form, menu (chức năng) của hệ thống
     /// </summary>
-    public class Pol_RoleRight : SAction
+    public class Pol_RoleRight : ZAction
     {
         #region Khoá ngoại
         /// <summary>

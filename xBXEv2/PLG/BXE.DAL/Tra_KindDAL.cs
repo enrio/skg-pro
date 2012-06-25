@@ -5,6 +5,7 @@ using System.Linq;
 namespace BXE.DAL
 {
     using SKG.UTL;
+    using SKG.UTL.Extension;
     using SKG.DAL;
     using System.Data;
     using Entities;

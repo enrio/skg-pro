@@ -66,7 +66,7 @@ namespace SKG.PRE
             o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.Test.FrmBase" };
             u.Add(o);
 
-            var x = UTL.BaseUTL.Linq2Table(u, typeof(AvailablePlugin).Name);
+            //var x = UTL.BaseUTL.Linq2Table(u, typeof(AvailablePlugin).Name);
             //x.WriteXml("c:\\t.xml");
 
             menuStrip1.LoadMenu(l);

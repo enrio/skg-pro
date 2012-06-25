@@ -18,7 +18,11 @@ namespace SKG.UTL
         /// <returns></returns>
         public static string GetFullName(this Form f)
         {
-            return f.GetType().FullName;
+            try
+            {
+                return f.GetType().FullName;
+            }
+            catch { return String.Empty; }
         }
     }
 }

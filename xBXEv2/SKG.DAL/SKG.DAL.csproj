@@ -54,7 +54,6 @@
     <Compile Include="Entities\ZAction.cs" />
     <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Entities\ZInfor.cs" />
-    <Compile Include="Ext_Method.cs" />
     <Compile Include="Pol_ActionDAL.cs" />
     <Compile Include="Pol_RightDAL.cs" />
     <Compile Include="Pol_RoleDAL.cs" />

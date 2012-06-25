@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.UTL.Hasher
 {
+    using UTL.Extension;
     using Microsoft.Win32;
     //using System.Windows.Forms;
     using System.Security.AccessControl;

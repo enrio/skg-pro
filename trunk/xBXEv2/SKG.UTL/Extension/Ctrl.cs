@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.UTL
+namespace SKG.UTL.Extension
 {
     using System.Windows.Forms;
 
@@ -18,10 +18,7 @@ namespace SKG.UTL
         /// <returns></returns>
         public static string GetFullName(this Form f)
         {
-            try
-            {
-                return f.GetType().FullName;
-            }
+            try { return f.GetType().FullName; }
             catch { return String.Empty; }
         }
     }

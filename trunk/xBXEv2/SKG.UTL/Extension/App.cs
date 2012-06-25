@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.UTL
+namespace SKG.UTL.Extension
 {
     using System.Reflection;
     using System.IO;
@@ -12,12 +12,10 @@ namespace SKG.UTL
         public static string StartupPath
         {
             get
-            {//var s1 = Assembly.GetCallingAssembly().Location;
-                var s2 = Assembly.GetEntryAssembly().Location;
+            {
+                //var s1 = Assembly.GetCallingAssembly().Location;
                 //var s3 = Assembly.GetEntryAssembly().FullName;
-
                 //var s4 = Path.GetFileName(s2);
-                var s7 = Path.GetDirectoryName(s2);
                 //var s5 = AppDomain.CurrentDomain.FriendlyName;
 
                 //{
@@ -26,6 +24,8 @@ namespace SKG.UTL
                 //    System.AppDomain.Unload(s6);
                 //}
 
+                var s2 = Assembly.GetEntryAssembly().Location;
+                var s7 = Path.GetDirectoryName(s2);
                 return s7;
             }
         }

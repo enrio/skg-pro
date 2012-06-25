@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SKG.PRE
 {
-    using UTL;
+    using UTL.Extension;
 
     static class Program
     {

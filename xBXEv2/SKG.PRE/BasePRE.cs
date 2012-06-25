@@ -25,10 +25,25 @@ namespace SKG.PRE
                 var a = i.ToMenu("menu");
                 if (a == null) continue;
 
-                var oo = new ToolStripMenuItem(a[0].Text1);
-                var b = m.Items.Add(oo);
+                // Menu's level 1 (root)
+                var m1 = new ToolStripMenuItem(a[0].Text1);
+                m.Items.Add(m1);
 
-                for (int j = 1; j < a.Count; j++) oo.DropDownItems.Add(a[j].Text1);
+                // Menu's level 2, 3
+                ToolStripMenuItem m2 = null;
+                for (int j = 1; j < a.Count; j++)
+                {
+                    if (a[j].ParentId == "1") // Menu's level 2
+                    {
+                        m2 = new ToolStripMenuItem(a[j].Text1);
+                        m1.DropDownItems.Add(m2);
+                    }
+                    else if (m2 != null)
+                    {
+                        var m3 = new ToolStripMenuItem(a[j].Text1);
+                        m2.DropDownItems.Add(m3);
+                    }
+                }
             }
         }
     }

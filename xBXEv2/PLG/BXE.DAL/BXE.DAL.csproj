@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,9 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\SKG.DAL\SKG.DAL.csproj">
+      <Project>{C3C7524A-D919-4585-AC94-E34C0BD17A80}</Project>
+      <Name>SKG.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SKG.UTL\SKG.UTL.csproj">
       <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
       <Name>SKG.UTL</Name>

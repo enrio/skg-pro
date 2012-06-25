@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="BaseUTL.cs" />
+    <Compile Include="Db\BaseDb.cs" />
+    <Compile Include="Db\SQLServer.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Hasher\Base64Decoder.cs" />
+    <Compile Include="Hasher\Base64Encoder.cs" />
+    <Compile Include="Hasher\Code.cs" />
+    <Compile Include="Hasher\License.cs" />
+    <Compile Include="Hasher\Registri.cs" />
+    <Compile Include="Hasher\Windows.cs" />
+    <Compile Include="IBaseDAL.cs" />
+    <Compile Include="Number.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Text.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

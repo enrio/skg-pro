@@ -13,11 +13,11 @@ namespace SKG.UTL.Extension
     public static class Data
     {
         /// <summary>
-        /// 
+        /// Convert from IEnumerable (LINQ object) to DataTable
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="l"></param>
-        /// <param name="s"></param>
+        /// <typeparam name="T">Type of data</typeparam>
+        /// <param name="l">Data</param>
+        /// <param name="s">Table's name</param>
         /// <returns></returns>
         private static DataTable Linq2Table<T>(IEnumerable<T> l, string s)
         {
@@ -40,7 +40,6 @@ namespace SKG.UTL.Extension
                             tb.Columns.Add(new DataColumn(pi.Name, colType));
                         }
                     }
-
                     DataRow dr = tb.NewRow();
                     foreach (var pi in pro) dr[pi.Name] = pi.GetValue(rec, null) ?? DBNull.Value;
                     tb.Rows.Add(dr);
@@ -51,12 +50,12 @@ namespace SKG.UTL.Extension
         }
 
         /// <summary>
-        /// 
+        /// Convert from IEnumerable (LINQ object) to DataTable
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="d"></param>
-        /// <param name="n"></param>
-        /// <param name="s"></param>
+        /// <typeparam name="T">Type of data</typeparam>
+        /// <param name="d">Data</param>
+        /// <param name="n">Numbered</param>
+        /// <param name="s">Table's name</param>
         /// <returns></returns>
         public static DataTable ToDataTable<T>(this IEnumerable<T> d, bool n = true, string s = "Tmp")
         {
@@ -66,10 +65,10 @@ namespace SKG.UTL.Extension
         }
 
         /// <summary>
-        /// 
+        /// Make numbered
         /// </summary>
-        /// <param name="t"></param>
-        /// <param name="n"></param>
+        /// <param name="t">Data</param>
+        /// <param name="n">Numbered</param>
         public static void Numbered(this DataTable t, bool n = true)
         {
             if (n)
@@ -78,7 +77,6 @@ namespace SKG.UTL.Extension
                 for (int i = 0; i < t.Rows.Count; i++)
                     t.Rows[i].SetField("No_", i + 1); // numbered
             }
-
             t.AcceptChanges();
         }
     }

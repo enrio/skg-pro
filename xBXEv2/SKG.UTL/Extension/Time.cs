@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.UTL
+namespace SKG.UTL.Extension
 {
     /// <summary>
     /// Date and time processing

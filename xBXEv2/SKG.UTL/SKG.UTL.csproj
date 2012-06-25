@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App.cs" />
+    <Compile Include="Extension\App.cs" />
     <Compile Include="Extension\Ctrl.cs" />
     <Compile Include="Db\BaseDb.cs" />
     <Compile Include="Db\SQLServer.cs" />

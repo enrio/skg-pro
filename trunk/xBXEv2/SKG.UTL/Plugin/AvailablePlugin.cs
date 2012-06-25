@@ -9,20 +9,11 @@ namespace SKG.UTL.Plugin
     /// </summary>
     public sealed class AvailablePlugin
     {
+        #region Menu
         /// <summary>
-        /// Primary key
+        /// Menu's level
         /// </summary>
-        public string Id { set; get; }
-
-        /// <summary>
-        /// Parent ID
-        /// </summary>
-        public string ParentId { set; get; }
-
-        /// <summary>
-        /// Assembly path
-        /// </summary>
-        public string Path { set; get; }
+        public int Level { set; get; }
 
         /// <summary>
         /// Default language
@@ -43,16 +34,19 @@ namespace SKG.UTL.Plugin
         /// Enable
         /// </summary>
         public bool Show { set; get; }
+        #endregion
 
-        /// <summary>
-        /// Order by
-        /// </summary>
-        public int Order { set; get; }
-
+        #region Plugin
         /// <summary>
         /// Instance of plugin
         /// </summary>
         public IPlugin Instance { set; get; }
+
+        /// <summary>
+        /// Assembly path
+        /// </summary>
+        public string Path { set; get; }
+        #endregion
 
         public AvailablePlugin() { Show = true; }
     }

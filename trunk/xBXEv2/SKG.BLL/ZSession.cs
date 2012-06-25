@@ -31,7 +31,7 @@ namespace SKG.BLL
         /// <summary>
         /// Danh sách các quyền của người dùng
         /// </summary>
-        public List<SAction> ZActions
+        public List<ZAction> ZActions
         {
             get { return User.ToZActions(); }
         }
@@ -39,7 +39,7 @@ namespace SKG.BLL
         /// <summary>
         /// Hiện form mặc định sau khi đăng nhập
         /// </summary>
-        public List<SAction> Default
+        public List<ZAction> Default
         {
             get { return User.ToDefaults(); }
         }
@@ -49,7 +49,7 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="c">Mã chức năng (tên form)</param>
         /// <returns>Quyền truy cập</returns>
-        public SAction GetZAction(string c)
+        public ZAction GetZAction(string c)
         {
             return User.ToZAction(c);
         }

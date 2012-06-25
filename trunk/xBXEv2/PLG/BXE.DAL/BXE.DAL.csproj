@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAL.cs" />
     <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tra_GroupDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SKG.DAL\SKG.DAL.csproj">

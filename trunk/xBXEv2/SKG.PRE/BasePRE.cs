@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace SKG.PRE
 {
     using UTL.Extension;
     using UTL.Plugin;
-    using System.Windows.Forms;
     using System.Reflection;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
@@ -29,7 +30,7 @@ namespace SKG.PRE
                 if (a == null || a.Count < 1) continue;
 
                 // Menu's level 1 (root)
-                var m1 = new ToolStripMenuItem(a[0].Text1);
+                var m1 = new ToolStripMenuItem() { Text = a[0].Text1, Image = Image.FromFile(String.Format(@"{0}\Plugins\{1}", App.StartupPath, a[0].Icon)) };
                 m.Items.Add(m1);
 
                 // Menu's level 2, 3
@@ -39,6 +40,7 @@ namespace SKG.PRE
                     if (a[j].Level == 2) // Menu's level 2
                     {
                         m2 = new ToolStripMenuItem(a[j].Text1);
+                        m2.Image = Image.FromFile(String.Format(@"{0}\Plugins\{1}", App.StartupPath, a[j].Icon));
                         m1.DropDownItems.Add(m2);
                     }
                     else if (m2 != null)
@@ -49,7 +51,8 @@ namespace SKG.PRE
                         var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
                         var y = Assembly.LoadFile(x);
                         m3.Tag = y.CreateInstance(a[j].Type);
-                        m3.Click += new EventHandler(MenuItem_Click);
+                        m3.Image = Image.FromFile(String.Format(@"{0}\Plugins\{1}", App.StartupPath, a[j].Icon));
+                        m3.Click += MenuItem_Click;
                     }
                 }
             }
@@ -63,7 +66,7 @@ namespace SKG.PRE
                 var f = (Form)t.Tag;
                 f.ShowDialog();
             }
-            catch { }
+            catch { return; }
         }
 
         public static void LoadMenu(this RibbonControl m, List<string> l)
@@ -88,15 +91,14 @@ namespace SKG.PRE
                     }
                     else if (m2 != null)
                     {
-                        var m3 = new BarButtonItem();
-                        m3.Caption = a[j].Text1;
+                        var m3 = new BarButtonItem() { Caption = a[j].Text1 };
                         m2.ItemLinks.Add(m3);
 
                         var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
                         var y = Assembly.LoadFile(x);
                         m3.Tag = y.CreateInstance(a[j].Type);
-                        m3.LargeGlyph = System.Drawing.Image.FromFile(App.StartupPath + @"\Plugins\" + a[j].Icon);
-                        m3.ItemClick += new ItemClickEventHandler(ButtonItem_ItemClick);
+                        m3.LargeGlyph = Image.FromFile(String.Format(@"{0}\Plugins\{1}", App.StartupPath, a[j].Icon));
+                        m3.ItemClick += ButtonItem_ItemClick;
                     }
                 }
             }
@@ -109,7 +111,7 @@ namespace SKG.PRE
                 var f = (Form)e.Item.Tag;
                 f.ShowDialog();
             }
-            catch { }
+            catch { return; }
         }
     }
 }

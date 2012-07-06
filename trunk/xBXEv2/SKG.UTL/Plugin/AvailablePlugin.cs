@@ -31,6 +31,11 @@ namespace SKG.UTL.Plugin
         public string Type { set; get; }
 
         /// <summary>
+        /// Picture for icon
+        /// </summary>
+        public string Icon { set; get; }
+
+        /// <summary>
         /// Enable
         /// </summary>
         public bool Show { set; get; }

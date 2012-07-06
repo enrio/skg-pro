@@ -43,27 +43,27 @@ namespace SKG.PRE
         private void LoadMenu(List<string> l)
         {
             var u = new List<AvailablePlugin>();
-            var o = new AvailablePlugin() { Level = 1, Text1 = "Vận tải", Text2 = "Transport", Type = "BXE" };
+            var o = new AvailablePlugin() { Level = 1, Text1 = "Vận tải", Text2 = "Transport", Type = "BXE", Icon = @"Resources\Transport.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog", Icon = @"Resources\Catalog.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup", Icon = @"Resources\Group.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind", Icon = @"Resources\Kind.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle", Icon = @"Resources\Vehicle.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report", Icon = @"Resources\Report.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.FrmPrint" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.FrmPrint", Icon = @"Resources\Print.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary", Icon = @"Resources\Sumary.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.FrmSales" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.FrmSales", Icon = @"Resources\Sales.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE", Icon = @"Resources\Test.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.FrmBase" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "Base", Type = "BXE.PRE.FrmBase", Icon = @"Resources\Base.png" };
             u.Add(o);
 
             //var x = u.ToDataTable(false, typeof(AvailablePlugin).Name);

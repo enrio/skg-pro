@@ -52,35 +52,35 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.BonusSkins.v11.2">
-      
+    <Reference Include="DevExpress.BonusSkins.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.BonusSkins.v11.1\11.1.8.0__95fc6c5621878f0a\DevExpress.BonusSkins.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v11.2">
-      
+    <Reference Include="DevExpress.Data.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.Data.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.Data.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.OfficeSkins.v11.2">
-      
+    <Reference Include="DevExpress.OfficeSkins.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.OfficeSkins.v11.1\11.1.8.0__95fc6c5621878f0a\DevExpress.OfficeSkins.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Printing.v11.2.Core">
-      
+    <Reference Include="DevExpress.Printing.v11.1.Core">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.Printing.v11.1.Core\11.1.8.0__b88d1754d700e49a\DevExpress.Printing.v11.1.Core.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Utils.v11.2">
-      
+    <Reference Include="DevExpress.Utils.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.Utils.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.Utils.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraBars.v11.2">
-      
+    <Reference Include="DevExpress.XtraBars.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraBars.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.XtraBars.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraEditors.v11.2">
-      
+    <Reference Include="DevExpress.XtraEditors.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraEditors.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.XtraEditors.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraGrid.v11.2">
-      
+    <Reference Include="DevExpress.XtraGrid.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraGrid.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.XtraGrid.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraLayout.v11.2">
-      
+    <Reference Include="DevExpress.XtraLayout.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraLayout.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.XtraLayout.v11.1.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.XtraNavBar.v11.2">
-      
+    <Reference Include="DevExpress.XtraNavBar.v11.1">
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\DevExpress.XtraNavBar.v11.1\11.1.8.0__b88d1754d700e49a\DevExpress.XtraNavBar.v11.1.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

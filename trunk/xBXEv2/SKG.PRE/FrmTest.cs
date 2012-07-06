@@ -55,18 +55,18 @@ namespace SKG.PRE
             u.Add(o);
             o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.Print" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.FrmPrint" };
             u.Add(o);
             o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.Sales" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.FrmSales" };
             u.Add(o);
             o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.Test.FrmBase" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "", Type = "BXE.PRE.FrmBase" };
             u.Add(o);
 
-            //var x = UTL.BaseUTL.Linq2Table(u, typeof(AvailablePlugin).Name);
+            //var x = u.ToDataTable(false, typeof(AvailablePlugin).Name);
             //x.WriteXml("c:\\t.xml");
 
             menuStrip1.LoadMenu(l);

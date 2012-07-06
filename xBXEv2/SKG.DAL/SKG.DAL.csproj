@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Pol_Menu.cs" />
     <Compile Include="SBaseDAL.cs" />
     <Compile Include="Entities\Pol_Action.cs" />
     <Compile Include="Entities\Pol_Right.cs" />

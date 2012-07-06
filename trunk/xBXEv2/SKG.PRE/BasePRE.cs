@@ -47,9 +47,21 @@ namespace SKG.PRE
                         var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
                         var y = Assembly.LoadFile(x);
                         m3.Tag = y.CreateInstance(a[j].Type);
+                        m3.Click += new EventHandler(MenuItemClicked);
                     }
                 }
             }
+        }
+
+        private static void MenuItemClicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var t = (ToolStripMenuItem)sender;
+                var f = (Form)t.Tag;
+                f.ShowDialog();
+            }
+            catch { }
         }
     }
 }

@@ -8,6 +8,8 @@ namespace SKG.PRE
     using UTL.Plugin;
     using System.Windows.Forms;
     using System.Reflection;
+    using DevExpress.XtraBars;
+    using DevExpress.XtraBars.Ribbon;
 
     /// <summary>
     /// Extension Methods
@@ -47,17 +49,63 @@ namespace SKG.PRE
                         var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
                         var y = Assembly.LoadFile(x);
                         m3.Tag = y.CreateInstance(a[j].Type);
-                        m3.Click += new EventHandler(MenuItemClicked);
+                        m3.Click += new EventHandler(MenuItem_Click);
                     }
                 }
             }
         }
 
-        private static void MenuItemClicked(object sender, EventArgs e)
+        private static void MenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 var t = (ToolStripMenuItem)sender;
+                var f = (Form)t.Tag;
+                f.ShowDialog();
+            }
+            catch { }
+        }
+
+        public static void LoadMenu(this RibbonControl m, List<string> l)
+        {
+            foreach (var i in l)
+            {
+                var a = i.ToMenu(typeof(AvailablePlugin).Name);
+                if (a == null || a.Count < 1) continue;
+
+                // Menu's level 1 (root)
+                var m1 = new RibbonPage(a[0].Text1);
+                m.Pages.Add(m1);
+
+                // Menu's level 2, 3
+                RibbonPageGroup m2 = null;
+                for (int j = 1; j < a.Count; j++)
+                {
+                    if (a[j].Level == 2) // Menu's level 2
+                    {
+                        m2 = new RibbonPageGroup(a[j].Text1);
+                        m1.Groups.Add(m2);
+                    }
+                    else if (m2 != null)
+                    {
+                        var m3 = new BarButtonItem();
+                        m3.Caption = a[j].Text1;
+                        m2.ItemLinks.Add(m3);
+
+                        var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
+                        var y = Assembly.LoadFile(x);
+                        m3.Tag = y.CreateInstance(a[j].Type);
+                        m3.ItemClick += new ItemClickEventHandler(ButtonItem_ItemClick);
+                    }
+                }
+            }
+        }
+
+        private static void ButtonItem_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var t = (BarButtonItem)sender;
                 var f = (Form)t.Tag;
                 f.ShowDialog();
             }

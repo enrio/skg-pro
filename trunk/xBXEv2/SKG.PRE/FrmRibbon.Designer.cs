@@ -1,6 +1,6 @@
 ﻿namespace SKG.PRE
 {
-    partial class RibbonForm1
+    partial class FrmRibbon
     {
         /// <summary>
         /// Required designer variable.

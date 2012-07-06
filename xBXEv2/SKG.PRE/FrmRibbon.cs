@@ -9,9 +9,9 @@ using DevExpress.XtraBars;
 
 namespace SKG.PRE
 {
-    public partial class RibbonForm1 : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmRibbon : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public RibbonForm1()
+        public FrmRibbon()
         {
             InitializeComponent();
         }

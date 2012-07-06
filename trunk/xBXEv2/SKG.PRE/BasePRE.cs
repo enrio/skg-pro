@@ -95,6 +95,7 @@ namespace SKG.PRE
                         var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
                         var y = Assembly.LoadFile(x);
                         m3.Tag = y.CreateInstance(a[j].Type);
+                        m3.LargeGlyph = System.Drawing.Image.FromFile(App.StartupPath + @"\Resources\logout.png");
                         m3.ItemClick += new ItemClickEventHandler(ButtonItem_ItemClick);
                     }
                 }

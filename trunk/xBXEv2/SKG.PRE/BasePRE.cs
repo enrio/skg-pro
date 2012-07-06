@@ -105,8 +105,10 @@ namespace SKG.PRE
         {
             try
             {
-                var t = (BarButtonItem)sender;
-                var f = (Form)t.Tag;
+                var t = (RibbonBarManager)sender;
+                var u = t.Ribbon.Pages;
+                var uu = u[1];
+                var f = (Form)uu.Groups[0].Tag;
                 f.ShowDialog();
             }
             catch { }

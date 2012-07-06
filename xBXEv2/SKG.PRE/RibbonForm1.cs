@@ -20,7 +20,7 @@ namespace SKG.PRE
         {
             var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
             var b = Global.Plugins.FindConfigs(a);
-            //menuStrip1.LoadMenu(b);
+            ribbon.LoadMenu(b);
         }
     }
 }

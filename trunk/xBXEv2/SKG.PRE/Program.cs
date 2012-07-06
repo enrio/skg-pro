@@ -25,7 +25,7 @@ namespace SKG.PRE
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmDemo());
+            Application.Run(new RibbonForm1());
         }
     }
 }

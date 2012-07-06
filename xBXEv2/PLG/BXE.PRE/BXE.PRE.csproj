@@ -119,6 +119,19 @@
       <Name>BXE.DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\Base.png" />
+    <Content Include="Icon\Catalog.png" />
+    <Content Include="Icon\Group.png" />
+    <Content Include="Icon\Kind.png" />
+    <Content Include="Icon\Print.png" />
+    <Content Include="Icon\Report.png" />
+    <Content Include="Icon\Sales.png" />
+    <Content Include="Icon\Sumary.png" />
+    <Content Include="Icon\Test.png" />
+    <Content Include="Icon\Transport.png" />
+    <Content Include="Icon\Vehicle.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

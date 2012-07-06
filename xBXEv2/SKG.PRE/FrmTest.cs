@@ -43,27 +43,27 @@ namespace SKG.PRE
         private void LoadMenu(List<string> l)
         {
             var u = new List<AvailablePlugin>();
-            var o = new AvailablePlugin() { Level = 1, Text1 = "Vận tải", Text2 = "Transport", Type = "BXE", Icon = @"Resources\Transport.png" };
+            var o = new AvailablePlugin() { Level = 1, Text1 = "Vận tải", Text2 = "Transport", Type = "BXE", Icon = @"Icon\Transport.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog", Icon = @"Resources\Catalog.png" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Danh mục", Text2 = "Catalog", Type = "BXE.PRE.Catalog", Icon = @"Icon\Catalog.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup", Icon = @"Resources\Group.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Nhóm xe", Text2 = "Group", Type = "BXE.PRE.Catalog.FrmGroup", Icon = @"Icon\Group.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind", Icon = @"Resources\Kind.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Loại xe", Text2 = "Kind", Type = "BXE.PRE.Catalog.FrmKind", Icon = @"Icon\Kind.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle", Icon = @"Resources\Vehicle.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Xe cộ", Text2 = "Vehicle", Type = "BXE.PRE.Catalog.FrmVehicle", Icon = @"Icon\Vehicle.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report", Icon = @"Resources\Report.png" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Báo cáo", Text2 = "Report", Type = "BXE.PRE.Report", Icon = @"Icon\Report.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.FrmPrint", Icon = @"Resources\Print.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "In ấn", Text2 = "Print", Type = "BXE.PRE.Report.FrmPrint", Icon = @"Icon\Print.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary", Icon = @"Resources\Sumary.png" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Thống kê", Text2 = "Sumary", Type = "BXE.PRE.Sumary", Icon = @"Icon\Sumary.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.FrmSales", Icon = @"Resources\Sales.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Doanh thu", Text2 = "Sales", Type = "BXE.PRE.Sumary.FrmSales", Icon = @"Icon\Sales.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE", Icon = @"Resources\Test.png" };
+            o = new AvailablePlugin() { Level = 2, Text1 = "Kiểm tra", Text2 = "Test", Type = "BXE.PRE", Icon = @"Icon\Test.png" };
             u.Add(o);
-            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "Base", Type = "BXE.PRE.FrmBase", Icon = @"Resources\Base.png" };
+            o = new AvailablePlugin() { Level = 3, Text1 = "Cơ sở", Text2 = "Base", Type = "BXE.PRE.FrmBase", Icon = @"Icon\Base.png" };
             u.Add(o);
 
             //var x = u.ToDataTable(false, typeof(AvailablePlugin).Name);

@@ -7,6 +7,7 @@ namespace SKG.PRE
     using UTL.Extension;
     using UTL.Plugin;
     using System.Windows.Forms;
+    using System.Reflection;
 
     /// <summary>
     /// Extension Methods
@@ -42,6 +43,10 @@ namespace SKG.PRE
                     {
                         var m3 = new ToolStripMenuItem(a[j].Text1);
                         m2.DropDownItems.Add(m3);
+
+                        var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
+                        var y = Assembly.LoadFile(x);
+                        m3.Tag = y.CreateInstance(a[j].Type);
                     }
                 }
             }

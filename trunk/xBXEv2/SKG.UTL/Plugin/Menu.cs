@@ -64,6 +64,7 @@ namespace SKG.UTL.Plugin
                         Text2 = s.Element("Text2").Value,
                         Type = s.Element("Type").Value,
                         Show = s.Element("Show").Value,
+                        Icon = s.Element("Icon").Value
                     };
             var l = new List<AvailablePlugin>();
             foreach (var s in b)
@@ -74,7 +75,8 @@ namespace SKG.UTL.Plugin
                     Text1 = s.Text1,
                     Text2 = s.Text2,
                     Type = s.Type,
-                    Show = Convert.ToBoolean(s.Show)
+                    Show = Convert.ToBoolean(s.Show),
+                    Icon = s.Icon
                 };
                 l.Add(p);
             }

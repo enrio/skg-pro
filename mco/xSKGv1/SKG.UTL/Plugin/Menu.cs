@@ -19,35 +19,6 @@ namespace SKG.UTL.Plugin
         /// <param name="c">App.Config file</param>
         public Menu(string c) { _c = c; }
 
-        ///// <summary>
-        ///// Select menu's level
-        ///// </summary>
-        ///// <param name="c">Menu's name</param>
-        ///// <returns></returns>
-        //public List<AvailablePlugin> Select(string c)
-        //{
-        //    var a = XDocument.Load(_c);
-        //    var b = from s in a.Descendants(c)
-        //            select new
-        //            {
-        //                Vn = s.Attribute("vn"),
-        //                En = s.Attribute("en"),
-        //                Ns = s.Attribute("ns")
-        //            };
-        //    var l = new List<AvailablePlugin>();
-        //    foreach (var i in b)
-        //    {
-        //        var p = new AvailablePlugin()
-        //        {
-        //            Text1 = i.Vn.Value,
-        //            Text2 = i.En.Value,
-        //            Type = i.Ns.Value
-        //        };
-        //        l.Add(p);
-        //    }
-        //    return l;
-        //}
-
         /// <summary>
         /// Select menu's level
         /// </summary>
@@ -66,7 +37,9 @@ namespace SKG.UTL.Plugin
                         Show = s.Element("Show").Value,
                         Icon = s.Element("Icon").Value
                     };
+
             var l = new List<AvailablePlugin>();
+
             foreach (var s in b)
             {
                 var p = new AvailablePlugin()

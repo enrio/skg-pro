@@ -17,9 +17,8 @@ namespace POS
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
 
-        public virtual string Text1 { get { return "Bán hàng"; } }
-        public virtual string Text2 { get { return "Point of sales"; } }
-        public virtual string Icon { get { return @"Icon\POS.png"; } }
+        public virtual string Caption { get { return "Bán hàng"; } }        
+        public virtual string Picture { get { return @"Icon\POS.png"; } }
 
         public void Initialize() { }
         public void Dispose() { Form.Dispose(); }

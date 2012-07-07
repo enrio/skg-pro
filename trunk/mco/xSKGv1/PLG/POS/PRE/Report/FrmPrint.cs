@@ -19,9 +19,8 @@ namespace POS.PRE.Report
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override string Text1 { get { return "In ấn"; } }
-        public override string Text2 { get { return "Print"; } }
-        public override string Icon { get { return @"Icon\Print.png"; } }
+        public override string Caption { get { return "In ấn"; } }
+        public override string Picture { get { return @"Icon\Print.png"; } }
         #endregion
     }
 }

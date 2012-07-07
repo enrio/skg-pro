@@ -19,9 +19,8 @@ namespace BXE.PRE.Catalog
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override string Text1 { get { return "Loại xe"; } }
-        public override string Text2 { get { return "Kind"; } }
-        public override string Icon { get { return @"Icon\Kind.png"; } }
+        public override string Caption { get { return "Loại xe"; } }
+        public override string Picture { get { return @"Icon\Kind.png"; } }
         #endregion
     }
 }

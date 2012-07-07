@@ -12,9 +12,9 @@ namespace SKG.PRE
 
         private void RibbonForm1_Load(object sender, EventArgs e)
         {
-            var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
-            var b = Services.FindConfigs(a);
-            ribbon.LoadMenu(b);
+            //var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
+            //var b = Services.FindConfigs(a);
+            //ribbon.LoadMenu(b);
         }
     }
 }

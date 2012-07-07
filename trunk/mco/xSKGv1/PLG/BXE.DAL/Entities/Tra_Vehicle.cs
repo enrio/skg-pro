@@ -11,7 +11,7 @@ namespace BXE.DAL.Entities
     /// <summary>
     /// Vận tải - Danh sách xe
     /// </summary>
-    public class Tra_Vehicle : SBase
+    public class Tra_Vehicle : Base
     {
         #region Khoá ngoại
         /// <summary>

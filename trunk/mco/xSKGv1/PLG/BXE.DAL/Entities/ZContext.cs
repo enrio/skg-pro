@@ -10,7 +10,7 @@ namespace BXE.DAL.Entities
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
-    public class ZContext : SKG.DAL.Entities.SContext
+    public class ZContext : SKG.DAL.Entities.Context
     {
         public DbSet<Tra_Group> Tra_Groups { get; set; }
         public DbSet<Tra_Kind> Tra_Kinds { get; set; }

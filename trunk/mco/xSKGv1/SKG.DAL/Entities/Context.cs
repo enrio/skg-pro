@@ -10,7 +10,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Cơ sở dữ liệu chính thức
     /// </summary>
-    public class SContext : DbContext
+    public class Context : DbContext
     {
         public DbSet<Pol_Action> Pol_Actions { get; set; }
         public DbSet<Pol_Role> Pol_Roles { get; set; }
@@ -20,7 +20,7 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_UserRight> Pol_UserRights { get; set; }
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
 
-        public SContext() : base("xSKGv1") { }
+        public Context() : base("xSKGv1") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

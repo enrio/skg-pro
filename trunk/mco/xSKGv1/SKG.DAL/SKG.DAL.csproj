@@ -51,9 +51,9 @@
     <Compile Include="Entities\Pol_User.cs" />
     <Compile Include="Entities\Pol_UserRight.cs" />
     <Compile Include="Entities\Pol_UserRole.cs" />
-    <Compile Include="Entities\SBase.cs" />
-    <Compile Include="Entities\SContext.cs" />
-    <Compile Include="Entities\ZAction.cs" />
+    <Compile Include="Entities\Base.cs" />
+    <Compile Include="Entities\Context.cs" />
+    <Compile Include="Entities\Action.cs" />
     <Compile Include="IBase.cs" />
     <Compile Include="Pol_ActionDAL.cs" />
     <Compile Include="Pol_RightDAL.cs" />
@@ -63,9 +63,9 @@
     <Compile Include="Pol_UserRightDAL.cs" />
     <Compile Include="Pol_UserRoleDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SBaseDAL.cs" />
-    <Compile Include="STest.cs" />
-    <Compile Include="ZExtend.cs" />
+    <Compile Include="Base.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="Extend.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">

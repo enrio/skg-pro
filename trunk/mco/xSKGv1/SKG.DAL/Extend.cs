@@ -8,7 +8,7 @@ namespace SKG.DAL
     using UTL.Extension;
     using Entities;
 
-    public static class ZExtend
+    public static class Extend
     {
         #region User
         /// <summary>
@@ -80,14 +80,14 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<ZAction> ToZActions(this Pol_User u)
+        public static List<Action> ToZActions(this Pol_User u)
         {
             try
             {
                 var a = u.ToUserRights()
-                    .ToList<ZAction>();
+                    .ToList<Action>();
                 var b = u.ToRoleRights()
-                    .ToList<ZAction>();
+                    .ToList<Action>();
                 return a.Union(b).ToList();
             }
             catch { return null; }
@@ -98,7 +98,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<ZAction> ToDefaults(this Pol_User u)
+        public static List<Action> ToDefaults(this Pol_User u)
         {
             try
             {
@@ -115,7 +115,7 @@ namespace SKG.DAL
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>
         /// <returns></returns>
-        public static ZAction ToZAction(this Pol_User u, string c)
+        public static Action ToZAction(this Pol_User u, string c)
         {
             try
             {

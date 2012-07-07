@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SKG.DAL.Entities
 {
-    public class Pol_Menu : SBase
+    public class Pol_Menu : Base
     {
     }
 }

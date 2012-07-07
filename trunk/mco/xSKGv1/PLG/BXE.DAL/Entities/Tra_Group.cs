@@ -10,7 +10,7 @@ namespace BXE.DAL.Entities
     /// <summary>
     /// Vận tải - Nhóm xe
     /// </summary>
-    public class Tra_Group : SBase
+    public class Tra_Group : Base
     {
         /// <summary>
         /// Tên nhóm xe

@@ -13,16 +13,6 @@ namespace SKG.PRE
     /// </summary>
     public class Services : IHost
     {
-        private AvailablePlugins _availablePlugins = new AvailablePlugins();
-        /// <summary>
-        /// Available all plugins
-        /// </summary>
-        public AvailablePlugins AvailablePlugins
-        {
-            get { return _availablePlugins; }
-            set { _availablePlugins = value; }
-        }
-
         private List<AvailablePlugin> _plugins = new List<AvailablePlugin>();
         /// <summary>
         /// Available all plugins
@@ -72,13 +62,6 @@ namespace SKG.PRE
         /// </summary>
         public void ClosePlugins()
         {
-            foreach (AvailablePlugin pluginOn in _availablePlugins)
-            {
-                pluginOn.Instance.Dispose();
-                pluginOn.Instance = null;
-            }
-            _availablePlugins.Clear();
-
             foreach (AvailablePlugin pluginOn in _plugins)
             {
                 pluginOn.Instance.Dispose();
@@ -96,11 +79,11 @@ namespace SKG.PRE
             var pluginAssembly = Assembly.LoadFrom(fileName);
             foreach (Type pluginType in pluginAssembly.GetTypes())
             {
-                if (!pluginType.IsPublic) continue;
-                if (pluginType.IsAbstract) continue;
-
-                var a = pluginType.GetInterface(typeof(IPlugin).FullName, true);
-                if (a == null) continue;
+                #region Skip
+                if (!pluginType.IsPublic || pluginType.IsAbstract) continue;
+                var iPlugin = pluginType.GetInterface(typeof(IPlugin).FullName, true);
+                if (iPlugin == null) continue;
+                #endregion
 
                 var type = pluginAssembly.GetType(pluginType + "");
                 var plugin = new AvailablePlugin
@@ -111,8 +94,6 @@ namespace SKG.PRE
 
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
-
-                _availablePlugins.Add(plugin);
                 _plugins.Add(plugin);
             }
         }

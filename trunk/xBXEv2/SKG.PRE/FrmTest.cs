@@ -10,8 +10,6 @@ namespace SKG.PRE
 
     public partial class FrmTest : Form
     {
-        private const string STR_PREFIX = "xBXEv1.PRE.";
-
         public FrmTest()
         {
             InitializeComponent();
@@ -19,25 +17,7 @@ namespace SKG.PRE
 
         private void FrmTest_Load(object sender, EventArgs e)
         {
-            //var d = DateTime.Now;
-
-            //var d1 = d.ToStartOfDay();
-            //var d2 = d.ToEndOfDay();
-
-            //var w1 = d.ToStartOfWeek();
-            //var v2 = d.ToEndOfWeek();
-
-            //var n1 = 100;
-            //var n2 = 100L;
-            //var n3 = 100D;
-
-            //var t = n1.ToVietnamese("đồng");
-            //t = n2.ToVietnamese("đồng");
-            //t = n3.ToVietnamese("đồng");
-
-            //var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
-            //var b = Services.FindConfigs(a);
-            //LoadMenu(b);
+            var a = AppDomain.CurrentDomain.BaseDirectory + @"\Plugins";
         }
 
         private void LoadMenu(List<string> l)
@@ -72,30 +52,11 @@ namespace SKG.PRE
             menuStrip1.LoadMenu(l);
         }
 
-        private void LoadMenu()
-        {
-            if (Global.Plugins.AvailablePlugins.Count > 0)
-            {
-                AddMenu(ref tsmSystem);
-                AddMenu(ref tsmSystem, STR_PREFIX + "FrmDemo");
-                AddMenu(ref tsmSystem);
-                tsmSystem.DropDownItems.Add("&Thoát");
 
-                //AddMenu(ref mnuDsa, "FrmAfcVbq");
-                //AddMenu(ref mnuDsa, "FrmAfcGaa");
-                //AddMenu(ref mnuDsa);
-                //AddMenu(ref mnuDsa, "FrmIkkDka");
-                //AddMenu(ref mnuDsa, "FrmLgoSci");
-
-                //AddMenu(ref mnuTke, "FrmTkeVbq");
-                //AddMenu(ref mnuTke, "FrmTkeGaa");
-                //AddMenu(ref mnuTke, "FrmAhvBdd");
-            }
-        }
 
         private static AvailablePlugin FindPlugin(string name)
         {
-            foreach (AvailablePlugin pluginOn in Global.Plugins.AvailablePlugins)
+            foreach (AvailablePlugin pluginOn in Global.Plugins.Plugins)
                 if (pluginOn.Instance.Frmcontrol.GetFullName() == name)
                     return pluginOn;
             return null;

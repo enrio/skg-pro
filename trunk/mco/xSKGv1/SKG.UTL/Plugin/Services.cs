@@ -102,6 +102,43 @@ namespace SKG.UTL.Plugin
             }
         }
 
+        /// <summary>
+        /// Get plugin
+        /// </summary>
+        /// <param name="fileName">Path file name</param>
+        /// <returns></returns>
+        public List<Plugin> GetPlugin(string fileName)
+        {
+            var lst = new List<Plugin>();
+            var pluginAssembly = Assembly.LoadFrom(fileName);
+
+            foreach (Type pluginType in pluginAssembly.GetTypes())
+            {
+                #region Skip
+                if (!pluginType.IsPublic || pluginType.IsAbstract) continue;
+                var iPlugin = pluginType.GetInterface(typeof(IPlugin).FullName, true);
+                if (iPlugin == null) continue;
+                #endregion
+
+                var type = pluginAssembly.GetType(pluginType + "");
+                var plugin = new Plugin
+                {
+                    Path = fileName,
+                    Instance = (IPlugin)Activator.CreateInstance(type)
+                };
+
+                plugin.Instance.Host = this;
+                plugin.Instance.Initialize();
+
+                plugin.Caption = plugin.Instance.Caption;
+                plugin.Picture = plugin.Instance.Picture;
+                plugin.Type = plugin.Instance.GetType().FullName;
+
+                lst.Add(plugin);
+            }
+            return lst;
+        }
+
         #region Implement
         public void FeedBack(string feedBack, IPlugin plugin) { return; }
         public bool Register(IPlugin plugin) { return true; }

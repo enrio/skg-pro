@@ -25,7 +25,7 @@ namespace POS.PRE.Report
         {
             get
             {
-                var menu = new Menuz() { Caption = "In ấn", Level = 3, Order = 1, Picture = @"Icon\Print.png" };
+                var menu = new Menuz() { Caption = "In ấn", Level = 3, Order = 7, Picture = @"Icon\Print.png" };
                 return menu;
             }
         }

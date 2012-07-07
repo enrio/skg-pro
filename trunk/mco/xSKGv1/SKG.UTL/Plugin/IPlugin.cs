@@ -13,8 +13,7 @@ namespace SKG.UTL.Plugin
         string Author { get; }
         string Version { get; }
 
-        UserControl Usrcontrol { get; }
-        Form Frmcontrol { get; }
+        Form Form { get; }
         IHost Host { get; set; }
 
         void Initialize();

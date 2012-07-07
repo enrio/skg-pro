@@ -43,7 +43,7 @@ namespace SKG.UTL.Plugin
 
         #region Plugin
         /// <summary>
-        /// Instance of plugin
+        /// Instance's plugin
         /// </summary>
         public IPlugin Instance { set; get; }
 

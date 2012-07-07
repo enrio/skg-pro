@@ -4,8 +4,9 @@ using System.Linq;
 
 namespace SKG.UTL.Extension
 {
-    using SKG.UTL.Plugin;
     using System.IO;
+    using SKG.UTL.Plugin;
+    using System.Xml.Linq;
     using System.Data.SqlClient;
     using System.Text.RegularExpressions;
 
@@ -244,6 +245,48 @@ namespace SKG.UTL.Extension
 
         #region Menu
         /// <summary>
+        /// Select menu's level
+        /// </summary>
+        /// <param name="menuFile">Path menu XML file</param>
+        /// <param name="menuName">Menu's name</param>
+        /// <returns></returns>
+        private static List<AvailablePlugin> Select(string menuFile, string menuName)
+        {
+            try
+            {
+                var xmlDoc = XDocument.Load(menuFile);
+                var res = from s in xmlDoc.Descendants(menuName)
+                          select new
+                          {
+                              Level = s.Element("Level").Value,
+                              Text1 = s.Element("Text1").Value,
+                              Text2 = s.Element("Text2").Value,
+                              Type = s.Element("Type").Value,
+                              Show = s.Element("Show").Value,
+                              Icon = s.Element("Icon").Value
+                          };
+
+                var lst = new List<AvailablePlugin>();
+
+                foreach (var s in res)
+                {
+                    var p = new AvailablePlugin()
+                    {
+                        Level = Convert.ToInt32(s.Level),
+                        Text1 = s.Text1,
+                        Text2 = s.Text2,
+                        Type = s.Type,
+                        Show = Convert.ToBoolean(s.Show),
+                        Icon = s.Icon
+                    };
+                    lst.Add(p);
+                }
+                return lst;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Load plugin's menu
         /// </summary>
         /// <param name="s">App.Config file</param>
@@ -251,12 +294,7 @@ namespace SKG.UTL.Extension
         /// <returns></returns>
         public static List<AvailablePlugin> ToMenu(this string s, string c)
         {
-            try
-            {
-                var x = new Menu(s);
-                return x.Select(c);
-            }
-            catch { return null; }
+            return Select(s, c);
         }
         #endregion
     }

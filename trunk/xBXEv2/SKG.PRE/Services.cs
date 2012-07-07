@@ -47,10 +47,10 @@ namespace SKG.PRE
                     FileInfo file = new FileInfo(fileOn);
 
                     #region Skip
-                    if (file.Name.Equals("SKG.UTL.dll")) continue;
-                    if (file.Name.Equals("SKG.DAL.dll")) continue;
-                    if (file.Name.Equals("SKG.BLL.dll")) continue;
-                    if (file.Name.Equals("SKG.PRE.exe")) continue;
+                    if (file.Name.Equals("UTL.dll")) continue;
+                    if (file.Name.Equals("DAL.dll")) continue;
+                    if (file.Name.Equals("BLL.dll")) continue;
+                    if (file.Name.Equals("PRE.exe")) continue;
                     #endregion
 
                     if (file.Extension.Equals(".dll")) AddPlugin(fileOn);
@@ -82,11 +82,11 @@ namespace SKG.PRE
             var pluginAssembly = Assembly.LoadFrom(fileName);
             foreach (Type pluginType in pluginAssembly.GetTypes())
             {
-                if (!pluginType.IsPublic) return;
-                if (pluginType.IsAbstract) return;
+                if (!pluginType.IsPublic) continue;
+                if (pluginType.IsAbstract) continue;
 
                 var a = pluginType.GetInterface(typeof(IPlugin).FullName, true);
-                if (a == null) return;
+                if (a == null) continue;
 
                 var type = pluginAssembly.GetType(pluginType + "");
                 var plugin = new AvailablePlugin

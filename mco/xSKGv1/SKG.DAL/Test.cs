@@ -10,7 +10,7 @@ namespace SKG.DAL
     /// <summary>
     /// Lớp thử nghiệm - kiểm tra một số chức năng, công nghệ, ...
     /// </summary>
-    public static class STest
+    public static class Test
     {
         public static DataTable TestPivot()
         {

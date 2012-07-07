@@ -6,7 +6,6 @@ using System.Text;
 namespace SKG.UTL.Hasher
 {
     using System.IO;
-    //using System.Windows.Forms;
     using System.Security.Cryptography;
 
     /// <summary>
@@ -14,23 +13,36 @@ namespace SKG.UTL.Hasher
     /// </summary>
     public static class License
     {
-        /// <summary>
-        /// ID's this computer
-        /// </summary>
         static readonly string a = Windows.ProcessorID();
         static readonly string b = Windows.MACAddress();
         static readonly string c = Windows.SerialNumber();
 
+        /// <summary>
+        /// Convert string to byte array
+        /// </summary>
+        /// <param name="data">Data</param>
+        /// <returns></returns>
         private static byte[] ConvertStringToByteArray(string data)
         {
             return (new UnicodeEncoding()).GetBytes(data);
         }
 
+        /// <summary>
+        /// Get file stream
+        /// </summary>
+        /// <param name="pathName">Path name</param>
+        /// <returns></returns>
         private static FileStream GetFileStream(string pathName)
         {
             return (new FileStream(pathName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
         }
 
+        /// <summary>
+        /// Get SHA1 hash
+        /// </summary>
+        /// <param name="pathName">Path name</param>
+        /// <param name="isFile">Is file</param>
+        /// <returns></returns>
         public static string GetSHA1Hash(string pathName, bool isFile = false)
         {
             string res = "";
@@ -56,16 +68,20 @@ namespace SKG.UTL.Hasher
                         val = hsh.ComputeHash(b);
                         strHashData = BitConverter.ToString(val);
                     }
-
                     strHashData = strHashData.Replace("-", "");
                     res = strHashData;
                 }
                 catch { return null; }
             }
-
             return res;
         }
 
+        /// <summary>
+        /// Get MD5 hash
+        /// </summary>
+        /// <param name="pathName">Path name</param>
+        /// <param name="isFile">Is file</param>
+        /// <returns></returns>
         public static string GetMD5Hash(string pathName, bool isFile = false)
         {
             string res = "";
@@ -91,26 +107,23 @@ namespace SKG.UTL.Hasher
                         val = hsh.ComputeHash(b);
                         strHashData = BitConverter.ToString(val);
                     }
-
                     strHashData = strHashData.Replace("-", "");
                     res = strHashData;
                 }
                 catch { return null; }
             }
-
             return res;
         }
 
         /// <summary>
         /// Get key (product or lincense key)
         /// </summary>
-        /// <param name="proId">Is null the get lincense key else get product key</param>
-        /// <returns>Key</returns>
-        static string GetKey(string proId = null)
+        /// <param name="key">Is null lincense key else product key</param>
+        /// <returns></returns>
+        static string GetKey(string key = null)
         {
             string f;
-
-            if (proId != null) f = GetMD5Hash(proId);
+            if (key != null) f = GetMD5Hash(key);
             else f = GetSHA1Hash(a + b + c); // lincense
 
             f = f.Substring(0, 25);
@@ -118,43 +131,42 @@ namespace SKG.UTL.Hasher
 
             for (int i = 0; i < 5; i++)
                 tmp += f.Substring(i * 5, 5) + (i == 4 ? "" : "-");
-
             return tmp;
         }
 
         /// <summary>
-        /// Get lincense key
+        /// Get license key
         /// </summary>
-        /// <param name="proId">Product key</param>
-        /// <returns>Lincense key</returns>
-        public static string GetLincense(string proId = null)
+        /// <param name="key">Product key</param>
+        /// <returns></returns>
+        public static string GetLicenseKey(string key = null)
         {
-            if (proId == null) return GetKey(GetProuctId());
-            else return GetKey(proId);
+            if (key == null) return GetKey(GetProuctKey());
+            else return GetKey(key);
         }
 
         /// <summary>
         /// Get trial key
         /// </summary>
-        /// <returns>Trial key</returns>
-        public static string GetTrial() { return GetKey("F7DF8-A184F-0X0X-AB15A-7C8AB"); }
+        /// <returns></returns>
+        public static string GetTrialKey() { return GetKey("F7DF8-A184F-0X0X-AB15A-7C8AB"); }
 
         /// <summary>
         /// Get product key
         /// </summary>
-        /// <returns>Product key</returns>
-        public static string GetProuctId() { return GetKey(); }
+        /// <returns></returns>
+        public static string GetProuctKey() { return GetKey(); }
 
         /// <summary>
-        /// Check is lincense
+        /// Check license
         /// </summary>
-        /// <param name="k">Product key</param>
-        /// <returns>True is lincense else false</returns>
+        /// <param name="k">License key</param>
+        /// <returns></returns>
         public static LicState IsLincense(string k)
         {
             if (k == null) return LicState.None;
-            var a = GetLincense();
-            var b = GetTrial();
+            var a = GetLicenseKey();
+            var b = GetTrialKey();
 
             if (k == a) return LicState.Unlimited;
             else if (k == b) return LicState.Trial;

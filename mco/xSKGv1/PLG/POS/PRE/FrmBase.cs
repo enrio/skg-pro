@@ -29,6 +29,11 @@ namespace POS.PRE
 
         public void Initialize() { }
         public new void Dispose() { }
+
+        public new string Icon { get { return ""; } }
+        public string Text1 { get { return ""; } }
+        public string Text2 { get { return ""; } }
+        public string Type { get { return ""; } }
         #endregion
     }
 }

@@ -50,5 +50,25 @@ namespace SKG.UTL.Plugin
         /// Dispose plugin
         /// </summary>
         void Dispose();
+
+        /// <summary>
+        /// Default language
+        /// </summary>
+        string Text1 { get; }
+
+        /// <summary>
+        /// Second language
+        /// </summary>
+        string Text2 { get; }
+
+        /// <summary>
+        /// Namespace or type name
+        /// </summary>
+        string Type { get; }
+
+        /// <summary>
+        /// Picture for icon
+        /// </summary>
+        string Icon { get; }
     }
 }

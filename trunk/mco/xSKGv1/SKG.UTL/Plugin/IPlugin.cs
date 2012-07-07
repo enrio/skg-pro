@@ -49,6 +49,6 @@ namespace SKG.UTL.Plugin
         /// <summary>
         /// Menu information
         /// </summary>
-        Menu Menu { get; set; }
+        Menuz Menu { get; }
     }
 }

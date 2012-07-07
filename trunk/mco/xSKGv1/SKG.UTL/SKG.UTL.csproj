@@ -56,7 +56,7 @@
     <Compile Include="Hasher\License.cs" />
     <Compile Include="Hasher\Registri.cs" />
     <Compile Include="Hasher\Windows.cs" />
-    <Compile Include="Plugin\Menu.cs" />
+    <Compile Include="Plugin\Menuz.cs" />
     <Compile Include="Plugin\Plugin.cs" />
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\IPlugin.cs" />

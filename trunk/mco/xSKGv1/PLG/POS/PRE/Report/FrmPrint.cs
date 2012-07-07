@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 namespace POS.PRE.Report
 {
+    using SKG.UTL.Plugin;
+
     public partial class FrmPrint : FrmBase
     {
         public FrmPrint()
@@ -19,8 +21,14 @@ namespace POS.PRE.Report
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override string Caption { get { return "In ấn"; } }
-        public override string Picture { get { return @"Icon\Print.png"; } }
+        public override Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "In ấn", Level = 3, Order = 1, Picture = @"Icon\Print.png" };
+                return menu;
+            }
+        }
         #endregion
     }
 }

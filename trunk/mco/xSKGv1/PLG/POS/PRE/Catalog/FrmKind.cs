@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 namespace POS.PRE.Catalog
 {
+    using SKG.UTL.Plugin;
+
     public partial class FrmKind : FrmBase
     {
         public FrmKind()
@@ -19,8 +21,14 @@ namespace POS.PRE.Catalog
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override string Caption { get { return "Loại hàng"; } }
-        public override string Picture { get { return @"Icon\Kind.png"; } }
+        public override Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Loại hàng", Level = 3, Order = 1, Picture = @"Icon\Kind.png" };
+                return menu;
+            }
+        }
         #endregion
     }
 }

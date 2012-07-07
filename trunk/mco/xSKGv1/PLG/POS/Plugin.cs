@@ -7,7 +7,7 @@ namespace POS
     using SKG.UTL.Plugin;
     using System.Windows.Forms;
 
-    public abstract class Plugin : IPlugin
+    public class Plugin : IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }
@@ -17,8 +17,14 @@ namespace POS
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
 
-        public virtual string Caption { get { return "Bán hàng"; } }        
-        public virtual string Picture { get { return @"Icon\POS.png"; } }
+        public virtual Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Bán hàng", Level = 1, Order = 1, Picture = @"Icon\POS.png" };
+                return menu;
+            }
+        }
 
         public void Initialize() { }
         public void Dispose() { Form.Dispose(); }

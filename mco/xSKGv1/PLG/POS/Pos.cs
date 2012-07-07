@@ -7,7 +7,7 @@ namespace POS
     using SKG.UTL.Plugin;
     using System.Windows.Forms;
 
-    public class Plugin : IPlugin
+    public class Pos : IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }

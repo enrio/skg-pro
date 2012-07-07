@@ -24,7 +24,7 @@ namespace SKG.PRE
         {
             foreach (var i in l)
             {
-                var a = i.ToMenu(typeof(AvailablePlugin).Name);
+                var a = i.ToMenu(typeof(Plugin).Name);
                 if (a == null || a.Count < 1) continue;
 
                 // Menu's level 1 (root)
@@ -63,7 +63,7 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this MenuStrip m, string s)
         {
-            var a = (s + "Menu.xml").ToMenu(typeof(AvailablePlugin).Name);
+            var a = (s + "Menu.xml").ToMenu(typeof(Plugin).Name);
 
             // Menu's level 1 (root)
             var m1 = new ToolStripMenuItem() { Text = a[0].Text1, Image = Image.FromFile(s + a[0].Icon) };

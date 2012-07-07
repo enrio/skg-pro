@@ -250,7 +250,7 @@ namespace SKG.UTL.Extension
         /// <param name="menuFile">Path menu XML file</param>
         /// <param name="menuName">Menu's name</param>
         /// <returns></returns>
-        private static List<AvailablePlugin> Select(string menuFile, string menuName)
+        private static List<Plugin> Select(string menuFile, string menuName)
         {
             try
             {
@@ -266,11 +266,11 @@ namespace SKG.UTL.Extension
                               Icon = s.Element("Icon").Value
                           };
 
-                var lst = new List<AvailablePlugin>();
+                var lst = new List<Plugin>();
 
                 foreach (var s in res)
                 {
-                    var p = new AvailablePlugin()
+                    var p = new Plugin()
                     {
                         Level = Convert.ToInt32(s.Level),
                         Text1 = s.Text1,
@@ -287,14 +287,14 @@ namespace SKG.UTL.Extension
         }
 
         /// <summary>
-        /// Load plugin's menu
+        /// Return menu (plugins)
         /// </summary>
-        /// <param name="s">Path menu XML file</param>
-        /// <param name="c">Menu's name</param>
+        /// <param name="menuFile">Path menu XML file</param>
+        /// <param name="menuName">Menu's name</param>
         /// <returns></returns>
-        public static List<AvailablePlugin> ToMenu(this string s, string c)
+        public static List<Plugin> ToMenu(this string menuFile, string menuName)
         {
-            return Select(s, c);
+            return Select(menuFile, menuName);
         }
         #endregion
     }

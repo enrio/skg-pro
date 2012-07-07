@@ -57,11 +57,6 @@ namespace SKG.UTL.Plugin
         string Text2 { get; }
 
         /// <summary>
-        /// Namespace or type name
-        /// </summary>
-        string Type { get; }
-
-        /// <summary>
         /// Picture for icon
         /// </summary>
         string Icon { get; }

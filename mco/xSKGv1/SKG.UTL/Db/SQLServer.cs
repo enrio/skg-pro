@@ -7,6 +7,7 @@ namespace SKG.UTL.Db
     using System.IO;
     using System.Data.SqlClient;
     using System.Data;
+    using System.Windows.Forms;
 
     /// <summary>
     /// SQL Server processing
@@ -17,22 +18,12 @@ namespace SKG.UTL.Db
         public const string STR_SEC = @"Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
         public const string STR_TRU = @"Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
 
+        private const string STR_SUCCESS = "Cài đặt thành công!";
+        private const string STR_SETUP = "Cài đặt";
         private const string STR_NOT_FOUND = "Không tìm thấy file dữ liệu!";
         private const string STR_NOCONNECT = "Không kết nối được server!";
         private const string STR_ERR_EXCUTE = "Lỗi thực thi lệnh SQL!";
         private const string STR_ERR_SET = "Lỗi cài đặt!";
-        #endregion
-
-        #region Default objects
-        #endregion
-
-        #region More objects
-        #endregion
-
-        #region Properties
-        #endregion
-
-        #region Implements
         #endregion
 
         #region Constructors
@@ -40,14 +31,11 @@ namespace SKG.UTL.Db
         public SQLServer(string connectString) : base(connectString) { }
         #endregion
 
-        #region Events
-        #endregion
-
         #region Methods
         /// <summary>
-        /// Get all database in SQL Server (not sysdatabases)
+        /// Get all database name in SQL Server (not sysdatabases)
         /// </summary>
-        /// <returns>Data</returns>
+        /// <returns></returns>
         public List<string> GetDatabases()
         {
             var tbl = ExecuteQuery("select name from sys.sysdatabases where sid <> 0x01");
@@ -60,7 +48,7 @@ namespace SKG.UTL.Db
         /// Check database exitst
         /// </summary>
         /// <param name="dbName">Database name</param>
-        /// <returns>True is exists else false</returns>
+        /// <returns></returns>
         public bool CheckDbExists(string dbName)
         {
             var res = GetDatabases();
@@ -71,8 +59,8 @@ namespace SKG.UTL.Db
         /// Create a database
         /// </summary>
         /// <param name="dbName">Database name</param>
-        /// <param name="path">Path store database</param>
-        /// <returns>True is ok else false</returns>
+        /// <param name="path">Path database file name</param>
+        /// <returns></returns>
         public bool CreateDbName(string dbName, string path = null)
         {
             string sql;
@@ -87,9 +75,9 @@ namespace SKG.UTL.Db
         /// Execute SQL file
         /// </summary>
         /// <param name="dbName">Database name</param>
-        /// <param name="fileName">File SQL name</param>
-        /// <param name="showInfo">Show message is true else not show</param>
-        /// <returns>True is successfull else false</returns>
+        /// <param name="fileName">Path SQL script file name</param>
+        /// <param name="showInfo">Show message</param>
+        /// <returns></returns>
         public bool ExecuteFileSQL(string dbName, string fileName, bool showInfo = false)
         {
             bool res = true;
@@ -140,7 +128,6 @@ namespace SKG.UTL.Db
                     catch
                     {
                         trs.Rollback();
-
                         err = STR_ERR_EXCUTE;
                         res = false;
                     }
@@ -160,7 +147,7 @@ namespace SKG.UTL.Db
 
             if (res)
             {
-                //if (showInfo) UTL.Message.Show(STR_SUCCESS, STR_SETUP);
+                if (showInfo) MessageBox.Show(STR_SUCCESS, STR_SETUP);
                 return true;
             }
             else
@@ -168,15 +155,11 @@ namespace SKG.UTL.Db
                 if (showInfo)
                 {
                     if (err == null) err = STR_ERR_SET;
-                    //UTL.Message.Show(err, STR_SETUP);
+                    MessageBox.Show(err, STR_SETUP);
                 }
-
                 return false;
             }
         }
-        #endregion
-
-        #region More
         #endregion
     }
 }

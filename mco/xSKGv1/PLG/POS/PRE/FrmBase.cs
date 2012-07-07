@@ -19,17 +19,17 @@ namespace POS.PRE
         }
 
         #region Implement plugin
-        public string Author { get { return ""; } }
-        public string Description { get { return ""; } }
-        public string Version { get { return ""; } }
+        public string Author { get { return "Zng Tfy"; } }
+        public string Description { get { return "Demo"; } }
+        public string Version { get { return "1.0"; } }
 
         public Form Form { get { return this; } }
         public IHost Host { get; set; }
 
         public void Initialize() { }
 
-        public string Text1 { get { return ""; } }
-        public string Text2 { get { return ""; } }
+        public string Text1 { get { return "Cơ sở"; } }
+        public string Text2 { get { return "Base"; } }
         public string Type { get { return GetType().FullName; } }
         public new string Icon { get { return ""; } }
         #endregion

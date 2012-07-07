@@ -7,6 +7,7 @@ namespace SKG.UTL.Db
     using System.Data.SqlClient;
     using System.Data.Sql;
     using System.Data;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Database processing
@@ -129,9 +130,9 @@ namespace SKG.UTL.Db
         }
 
         /// <summary>
-        /// Current date time form system (SQL Server)
+        /// Current date time from system (SQL Server)
         /// </summary>
-        //public static DateTime? CurrentTime { get { return new xG14DataContext().CurrentTime(); } }
+        public static DateTime Now { get { return DateTime.Now; } }
         #endregion
 
         #region Constructors
@@ -142,9 +143,9 @@ namespace SKG.UTL.Db
             _cnn = new SqlConnection(connectString);
             _cmd = new SqlCommand() { Connection = _cnn };
 
-            DbName = "xG14";
-            //FileX = Application.StartupPath + @"\xG14.sql";
-            //FileY = Application.StartupPath + @"\yG14.sql";
+            DbName = "xSKGv1";
+            FileX = Application.StartupPath + @"\xSKGv1.sql";
+            FileY = Application.StartupPath + @"\ySKGv1.sql";
         }
         #endregion
 
@@ -160,14 +161,11 @@ namespace SKG.UTL.Db
         }
         #endregion
 
-        #region Events
-        #endregion
-
         #region Methods
         /// <summary>
         /// Open connection
         /// </summary>
-        /// <returns>True is open successfull else false</returns>
+        /// <returns></returns>
         public bool Open()
         {
             try
@@ -192,8 +190,8 @@ namespace SKG.UTL.Db
         /// Execute query SQL command text
         /// </summary>
         /// <param name="sqlCommand">T-SQL</param>
-        /// <param name="tableName">table name</param>
-        /// <returns>data</returns>
+        /// <param name="tableName">Table name</param>
+        /// <returns></returns>
         protected DataTable ExecuteQuery(string sqlCommand, string tableName = "Tmp")
         {
             try
@@ -212,7 +210,7 @@ namespace SKG.UTL.Db
         /// Execute non query SQL command text
         /// </summary>
         /// <param name="sqlCommand">T-SQL</param>
-        /// <returns>number of records affect</returns>
+        /// <returns></returns>
         protected int ExecuteNonQuery(string sqlCommand)
         {
             try
@@ -226,14 +224,11 @@ namespace SKG.UTL.Db
         }
         #endregion
 
-        #region Overrides
-        #endregion
-
         #region Statics
         /// <summary>
         /// Get all SQL Server in LAN
         /// </summary>
-        /// <returns>Data</returns>
+        /// <returns></returns>
         public static DataTable GetSQLServers()
         {
             try

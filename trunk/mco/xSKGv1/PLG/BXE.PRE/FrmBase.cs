@@ -19,21 +19,19 @@ namespace BXE.PRE
         }
 
         #region Implement plugin
-        public new string Name { get { return ""; } }
-        public string Description { get { return "Demo plugin"; } }
-        public string Author { get { return "Zng Tfy"; } }
-        public string Version { get { return "1.0"; } }
+        public string Author { get { return ""; } }
+        public string Description { get { return ""; } }
+        public string Version { get { return ""; } }
 
-        public Form Form { get { return this; } }
+        public new Form Form { get { return this; } }
         public IHost Host { get; set; }
 
         public void Initialize() { }
-        public new void Dispose() { }
 
-        public new string Icon { get { return @"Icon\Base.png"; } }
-        public string Text1 { get { return "Cơ sở"; } }
-        public string Text2 { get { return "Base"; } }
+        public string Text1 { get { return ""; } }
+        public string Text2 { get { return ""; } }
         public string Type { get { return GetType().FullName; } }
+        public new string Icon { get { return ""; } }
         #endregion
     }
 }

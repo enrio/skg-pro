@@ -12,11 +12,6 @@ namespace SKG.UTL.Plugin
     public interface IPlugin
     {
         /// <summary>
-        /// Name of plugin
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
         /// Description of plugin
         /// </summary>
         string Description { get; }

@@ -7,7 +7,7 @@ namespace SKG.UTL.Plugin
     /// <summary>
     /// Information menu
     /// </summary>
-    public class Menu
+    public class Menuz
     {
         /// <summary>
         /// Menu of level
@@ -39,6 +39,6 @@ namespace SKG.UTL.Plugin
         /// </summary>
         public bool Show { set; get; }
 
-        public Menu() { Show = true; }
+        public Menuz() { Show = true; }
     }
 }

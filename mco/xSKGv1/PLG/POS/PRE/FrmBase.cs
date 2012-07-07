@@ -26,8 +26,14 @@ namespace POS.PRE
         public virtual Form Form { get { return this; } }
         public virtual IHost Host { get; set; }
 
-        public virtual string Caption { get { return "Cơ sở"; } }
-        public virtual string Picture { get { return @"Icon\Base.png"; } }
+        public virtual new Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cơ sở", Level = 1, Order = 1, Picture = @"Icon\Base.png" };
+                return menu;
+            }
+        }
 
         public void Initialize() { }
         #endregion

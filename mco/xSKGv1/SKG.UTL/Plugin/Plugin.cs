@@ -12,7 +12,7 @@ namespace SKG.UTL.Plugin
         /// <summary>
         /// Menu information
         /// </summary>
-        public Menu Menu { get; set; }
+        public Menuz Menu { get; set; }
 
         /// <summary>
         /// Instance of plugin

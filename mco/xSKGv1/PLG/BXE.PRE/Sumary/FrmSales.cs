@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.Sumary
 {
+    using SKG.UTL.Plugin;
+
     public partial class FrmSales : FrmBase
     {
         public FrmSales()
@@ -19,8 +21,14 @@ namespace BXE.PRE.Sumary
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override string Caption { get { return "Doanh thu"; } }
-        public override string Picture { get { return @"Icon\Sales.png"; } }
+        public override Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 1, Order = 1, Picture = @"Icon\Sales.png" };
+                return menu;
+            }
+        }
         #endregion
     }
 }

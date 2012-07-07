@@ -17,6 +17,11 @@ namespace SKG.PRE
     /// </summary>
     public static class Base
     {
+        /// <summary>
+        /// Load menu for RibbonControl
+        /// </summary>
+        /// <param name="m">RibbonControl</param>
+        /// <param name="l">List App.Config file</param>
         public static void LoadMenu(this RibbonControl m, List<string> l)
         {
             foreach (var i in l)

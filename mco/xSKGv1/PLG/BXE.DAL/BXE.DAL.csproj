@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4DFC069A-A00D-4D24-94BC-BDA69C44E7EF}</ProjectGuid>
+    <ProjectGuid>{7D59A747-CBE0-4860-945B-D23B3F9C71B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SKG.DAL</RootNamespace>
-    <AssemblyName>SKG.DAL</AssemblyName>
+    <RootNamespace>BXE.DAL</RootNamespace>
+    <AssemblyName>BXE.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,9 +33,7 @@
   <ItemGroup>
     <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,32 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Pol_Action.cs" />
-    <Compile Include="Entities\Pol_Right.cs" />
-    <Compile Include="Entities\Pol_Role.cs" />
-    <Compile Include="Entities\Pol_RoleRight.cs" />
-    <Compile Include="Entities\Pol_User.cs" />
-    <Compile Include="Entities\Pol_UserRight.cs" />
-    <Compile Include="Entities\Pol_UserRole.cs" />
-    <Compile Include="Entities\SBase.cs" />
-    <Compile Include="Entities\SContext.cs" />
-    <Compile Include="Entities\ZAction.cs" />
-    <Compile Include="IBase.cs" />
-    <Compile Include="Pol_ActionDAL.cs" />
-    <Compile Include="Pol_RightDAL.cs" />
-    <Compile Include="Pol_RoleDAL.cs" />
-    <Compile Include="Pol_RoleRightDAL.cs" />
-    <Compile Include="Pol_UserDAL.cs" />
-    <Compile Include="Pol_UserRightDAL.cs" />
-    <Compile Include="Pol_UserRoleDAL.cs" />
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="Entities\Tra_Detail.cs" />
+    <Compile Include="Entities\Tra_Group.cs" />
+    <Compile Include="Entities\Tra_Kind.cs" />
+    <Compile Include="Entities\Tra_Vehicle.cs" />
+    <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SBaseDAL.cs" />
-    <Compile Include="STest.cs" />
-    <Compile Include="ZExtend.cs" />
+    <Compile Include="Tra_DetailDAL.cs" />
+    <Compile Include="Tra_GroupDAL.cs" />
+    <Compile Include="Tra_KindDAL.cs" />
+    <Compile Include="Tra_VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SKG.UTL\SKG.UTL.csproj">
-      <Project>{E23FDF8E-3FC9-46DD-8222-95779F4D3369}</Project>
+    <ProjectReference Include="..\..\SKG.DAL\SKG.DAL.csproj">
+      <Project>{C3C7524A-D919-4585-AC94-E34C0BD17A80}</Project>
+      <Name>SKG.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SKG.UTL\SKG.UTL.csproj">
+      <Project>{24995697-0C20-4261-8623-E977B55AA15E}</Project>
       <Name>SKG.UTL</Name>
     </ProjectReference>
   </ItemGroup>

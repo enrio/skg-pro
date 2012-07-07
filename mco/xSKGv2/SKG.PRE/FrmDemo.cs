@@ -12,9 +12,12 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 
-
 namespace SKG.PRE
 {
+    using UTL.Plugin;
+    using UTL.Extension;
+    using System.Linq;
+
     public partial class FrmDemo : RibbonForm
     {
         public FrmDemo()
@@ -24,10 +27,12 @@ namespace SKG.PRE
             InitGrid();
 
         }
+
         void InitSkinGallery()
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
+
         BindingList<Person> gridDataList = new BindingList<Person>();
         void InitGrid()
         {
@@ -39,5 +44,37 @@ namespace SKG.PRE
             gridControl.DataSource = gridDataList;
         }
 
+        private void FrmDemo_Load(object sender, EventArgs e)
+        {
+            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
+            ribbonControl.LoadMenu(a);
+
+            var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
+            ribbonControl.LoadMenu(b);
+
+            Global.Plugins.FindPlugins();
+            var f = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
+            foreach (Plugin i in Global.Plugins.Plugins)
+                i.Type = i.Instance.GetType() + "";
+
+            var res = from p in f
+                      join c in Global.Plugins.Plugins on p.Type equals c.Type into j1
+                      from j2 in j1.DefaultIfEmpty()
+                      select new
+                      {
+                          p.Level,
+                          p.Text1,
+                          p.Text2,
+                          p.Type,
+                          p.Icon,
+                          p.Show,
+
+                          //Instance = j2 == null ? null : j2.Instance,
+                          //Path = j2 == null ? null : j2.Path
+                      };
+
+            var x = res.ToDataTable(false, typeof(Plugin).Name);
+            x.WriteXml(Application.StartupPath + @"\Menu.xml");
+        }
     }
 }

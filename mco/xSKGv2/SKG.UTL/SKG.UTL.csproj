@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Db\BaseDb.cs" />
+    <Compile Include="Db\SQLServer.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extension\Ctrl.cs" />
+    <Compile Include="Extension\Data.cs" />
+    <Compile Include="Extension\Number.cs" />
+    <Compile Include="Extension\Text.cs" />
+    <Compile Include="Extension\Time.cs" />
+    <Compile Include="Hasher\Base64Decoder.cs" />
+    <Compile Include="Hasher\Base64Encoder.cs" />
+    <Compile Include="Hasher\Code.cs" />
+    <Compile Include="Hasher\License.cs" />
+    <Compile Include="Hasher\Registri.cs" />
+    <Compile Include="Hasher\Windows.cs" />
+    <Compile Include="Plugin\Plugin.cs" />
+    <Compile Include="Plugin\IHost.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

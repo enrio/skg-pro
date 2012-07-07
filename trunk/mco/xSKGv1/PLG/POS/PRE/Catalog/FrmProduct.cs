@@ -15,5 +15,13 @@ namespace POS.PRE.Catalog
         {
             InitializeComponent();
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override string Text1 { get { return "Sản phẩm"; } }
+        public override string Text2 { get { return "Product"; } }
+        public override string Icon { get { return @"Icon\Product.png"; } }
+        #endregion
     }
 }

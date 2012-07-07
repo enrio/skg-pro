@@ -8,31 +8,42 @@ namespace SKG.UTL.Db
     using System.Data.Sql;
     using System.Data;
 
-    public abstract class BaseDb
+    /// <summary>
+    /// Database processing
+    /// </summary>
+    public abstract class BaseDb : IDisposable
     {
         #region Contansts
+        /// <summary>
+        /// Backup database
+        /// </summary>
         protected const string STR_BACKUP = @"BACKUP DATABASE {0} " +
             @"TO DISK = N'{1}' WITH NOFORMAT, NOINIT, " +
             @"NAME = N'{2}', SKIP, NOREWIND, NOUNLOAD, STATS = 10";
 
+        /// <summary>
+        /// Restore database
+        /// </summary>
         protected const string STR_RESTOR = @"USE MASTER; DROP DATABASE {0}; RESTORE DATABASE {0} " +
             @"FROM  DISK = N'{1}' WITH  FILE = 1, NOUNLOAD, STATS = 10";
 
+        /// <summary>
+        /// Create database
+        /// </summary>
         protected const string STR_CREATE = @"CREATE DATABASE {0} " +
             @"ON  PRIMARY (NAME = N'{0}', FILENAME = N'{1}\{0}.mdf', SIZE = 3072KB, FILEGROWTH = 1024KB) " +
             @"LOG ON (NAME = N'{0}_log', FILENAME = N'{1}\{0}_log.ldf', SIZE = 1024KB, FILEGROWTH = 10%) " +
             @"COLLATE VIETNAMESE_CI_AI";
 
-        protected const string STR_DBNAME = "master";
+        /// <summary>
+        /// Master database
+        /// </summary>
+        protected const string STR_DBN = "master";
+
+        /// <summary>
+        /// Format dd/MM/yyyy
+        /// </summary>
         protected const string STR_DFO = "set dateformat dmy";
-
-        public const string STR_ESEC = "metadata=res://*/xG14.csdl|res://*/xG14.ssdl|res://*/xG14.msl;" +
-            "provider=System.Data.SqlClient;provider connection string='Data Source={0};Initial Catalog={1};" +
-            "Persist Security Info=True;User ID={2};Password={3};MultipleActiveResultSets=True'";
-
-        public const string STR_ETRU = "metadata=res://*/xG14.csdl|res://*/xG14.ssdl|res://*/xG14.msl;" +
-            "provider=System.Data.SqlClient;provider connection string='Data Source={0};Initial Catalog={1};" +
-            "Integrated Security=True;MultipleActiveResultSets=True'";
         #endregion
 
         #region Objects
@@ -138,6 +149,15 @@ namespace SKG.UTL.Db
         #endregion
 
         #region Implements
+        /// <summary>
+        /// Dispose all fields
+        /// </summary>
+        public void Dispose()
+        {
+            _cnn.Dispose();
+            _cmd.Dispose();
+            _dtb.Dispose();
+        }
         #endregion
 
         #region Events
@@ -234,7 +254,9 @@ namespace SKG.UTL.Db
             }
             catch { return null; }
         }
+        #endregion
 
+        #region More
         /// <summary>
         /// Current information connection
         /// </summary>
@@ -245,9 +267,6 @@ namespace SKG.UTL.Db
             public string User { set; get; }
             public string Password { set; get; }
         }
-        #endregion
-
-        #region More
         #endregion
     }
 }

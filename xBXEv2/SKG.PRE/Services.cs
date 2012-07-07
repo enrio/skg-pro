@@ -41,7 +41,6 @@ namespace SKG.PRE
         {
             try
             {
-                _availablePlugins.Clear();
                 foreach (string fileOn in Directory.GetFiles(path))
                 {
                     FileInfo file = new FileInfo(fileOn);
@@ -50,7 +49,6 @@ namespace SKG.PRE
                     if (file.Name.Contains("UTL.dll")) continue;
                     if (file.Name.Contains("DAL.dll")) continue;
                     if (file.Name.Contains("BLL.dll")) continue;
-                    if (file.Name.Contains("PRE.exe")) continue;
                     #endregion
 
                     if (file.Extension.Equals(".dll")) AddPlugin(fileOn);

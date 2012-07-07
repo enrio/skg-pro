@@ -6,15 +6,15 @@ using System.Text;
 namespace SKG.UTL.Hasher
 {
     /// <summary>
-    /// Mã hoá và giải mã chuỗi
+    /// Encode and decode processing
     /// </summary>
     public static class Code
     {
         /// <summary>
-        /// Mã hoá chuỗi
+        /// Encoding
         /// </summary>
-        /// <param name="data">Chuỗi cần mã</param>
-        /// <returns>Chuỗi đã được mã</returns>
+        /// <param name="data">Data</param>
+        /// <returns></returns>
         public static string Encode(string data)
         {
             try
@@ -26,15 +26,15 @@ namespace SKG.UTL.Hasher
             }
             catch (Exception e)
             {
-                throw new Exception("Lỗi mã hoá: " + e.Message);
+                throw new Exception("Error encoding: " + e.Message);
             }
         }
 
         /// <summary>
-        /// Giải mã chuỗi
+        /// Decoding
         /// </summary>
-        /// <param name="data">Chuỗi cần giải mã</param>
-        /// <returns>Chuỗi đã được giải mã</returns>
+        /// <param name="data">Data</param>
+        /// <returns></returns>
         public static string Decode(string data)
         {
             try
@@ -52,7 +52,7 @@ namespace SKG.UTL.Hasher
             }
             catch (Exception e)
             {
-                throw new Exception("Lỗi giải mã: " + e.Message);
+                throw new Exception("Error decoding: " + e.Message);
             }
         }
     }

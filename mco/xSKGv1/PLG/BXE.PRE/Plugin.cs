@@ -17,9 +17,8 @@ namespace BXE.PRE
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
 
-        public virtual string Text1 { get { return "Vận tải"; } }
-        public virtual string Text2 { get { return "Transport"; } }
-        public virtual string Icon { get { return @"Icon\Transport.png"; } }
+        public virtual string Caption { get { return "Vận tải"; } }        
+        public virtual string Picture { get { return @"Icon\Transport.png"; } }
 
         public void Initialize() { }
         public void Dispose() { Form.Dispose(); }

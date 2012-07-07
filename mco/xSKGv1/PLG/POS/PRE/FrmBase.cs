@@ -26,9 +26,8 @@ namespace POS.PRE
         public virtual Form Form { get { return this; } }
         public virtual IHost Host { get; set; }
 
-        public virtual string Text1 { get { return "Cơ sở"; } }
-        public virtual string Text2 { get { return "Base"; } }
-        public virtual new string Icon { get { return @"Icon\Base.png"; } }
+        public virtual string Caption { get { return "Cơ sở"; } }
+        public virtual string Picture { get { return @"Icon\Base.png"; } }
 
         public void Initialize() { }
         #endregion

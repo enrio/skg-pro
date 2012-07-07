@@ -49,16 +49,11 @@ namespace SKG.UTL.Plugin
         /// <summary>
         /// Default language
         /// </summary>
-        string Text1 { get; }
-
-        /// <summary>
-        /// Second language
-        /// </summary>
-        string Text2 { get; }
+        string Caption { get; }
 
         /// <summary>
         /// Picture for icon
         /// </summary>
-        string Icon { get; }
+        string Picture { get; }
     }
 }

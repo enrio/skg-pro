@@ -259,11 +259,11 @@ namespace SKG.UTL.Extension
                           select new
                           {
                               Level = s.Element("Level").Value,
-                              Text1 = s.Element("Text1").Value,
-                              Text2 = s.Element("Text2").Value,
+                              Caption = s.Element("Caption").Value,
                               Type = s.Element("Type").Value,
-                              Show = s.Element("Show").Value,
-                              Icon = s.Element("Icon").Value
+                              Picture = s.Element("Picture").Value,
+                              Order = s.Element("Order").Value,
+                              Show = s.Element("Show").Value
                           };
 
                 var lst = new List<Plugin>();
@@ -273,11 +273,11 @@ namespace SKG.UTL.Extension
                     var p = new Plugin()
                     {
                         Level = Convert.ToInt32(s.Level),
-                        Text1 = s.Text1,
-                        Text2 = s.Text2,
+                        Caption = s.Caption,
                         Type = s.Type,
+                        Picture = s.Picture,
                         Show = Convert.ToBoolean(s.Show),
-                        Icon = s.Icon
+                        Order = Convert.ToInt32(s.Order)
                     };
                     lst.Add(p);
                 }

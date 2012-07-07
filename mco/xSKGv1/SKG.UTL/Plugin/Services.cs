@@ -94,9 +94,8 @@ namespace SKG.UTL.Plugin
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
 
-                plugin.Text1 = plugin.Instance.Text1;
-                plugin.Text2 = plugin.Instance.Text2;
-                plugin.Icon = plugin.Instance.Icon;
+                plugin.Caption = plugin.Instance.Caption;
+                plugin.Picture = plugin.Instance.Picture;
                 plugin.Type = plugin.Instance.GetType().FullName;
 
                 _plugins.Add(plugin);

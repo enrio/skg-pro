@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL.Plugin
 {
@@ -14,6 +13,11 @@ namespace SKG.UTL.Plugin
         /// Menu of level
         /// </summary>
         public int Level { set; get; }
+
+        /// <summary>
+        /// Order
+        /// </summary>
+        public int Order { set; get; }
 
         /// <summary>
         /// Default language

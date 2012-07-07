@@ -17,6 +17,12 @@ namespace SKG.PRE
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
+            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
+            Global.Service.FindPlugins(a);
+
+            var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
+            Global.Service.FindPlugins(b);
+
             CreateMenu();
         }
 

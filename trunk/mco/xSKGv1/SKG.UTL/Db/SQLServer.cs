@@ -8,14 +8,15 @@ namespace SKG.UTL.Db
     using System.Data.SqlClient;
     using System.Data;
 
+    /// <summary>
+    /// SQL Server processing
+    /// </summary>
     public sealed class SQLServer : BaseDb
     {
         #region Contansts
         public const string STR_SEC = @"Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
         public const string STR_TRU = @"Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
 
-        private const string STR_SUCCESS = "Cài đặt thành công!";
-        private const string STR_SETUP = "Cài đặt";
         private const string STR_NOT_FOUND = "Không tìm thấy file dữ liệu!";
         private const string STR_NOCONNECT = "Không kết nối được server!";
         private const string STR_ERR_EXCUTE = "Lỗi thực thi lệnh SQL!";
@@ -173,26 +174,6 @@ namespace SKG.UTL.Db
                 return false;
             }
         }
-
-        /// <summary>
-        /// Execute SQL file
-        /// </summary>
-        /// <param name="fileName">File SQL name</param>
-        /// <returns>True is successfull else false</returns>
-        /*public bool ExecuteFileSQL(string fileName)
-        {
-            try
-            {
-                FileInfo file = new FileInfo(@fileName);
-                string script = file.OpenText().ReadToEnd();
-
-                Server server = new Server();
-                server.ConnectionContext.ConnectionString = DAL.Properties.Settings.Default.Setting;
-                server.ConnectionContext.ExecuteNonQuery(script);
-                return true;
-            }
-            catch { return false; }
-        }*/
         #endregion
 
         #region More

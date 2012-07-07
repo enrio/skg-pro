@@ -14,7 +14,6 @@ namespace SKG.PRE
     public class Services : IHost
     {
         private AvailablePlugins _availablePlugins = new AvailablePlugins();
-
         /// <summary>
         /// Available all plugins
         /// </summary>
@@ -22,6 +21,16 @@ namespace SKG.PRE
         {
             get { return _availablePlugins; }
             set { _availablePlugins = value; }
+        }
+
+        private List<AvailablePlugin> _plugins = new List<AvailablePlugin>();
+        /// <summary>
+        /// Available all plugins
+        /// </summary>
+        public List<AvailablePlugin> Plugins
+        {
+            get { return _plugins; }
+            set { _plugins = value; }
         }
 
         /// <summary>
@@ -69,6 +78,13 @@ namespace SKG.PRE
                 pluginOn.Instance = null;
             }
             _availablePlugins.Clear();
+
+            foreach (AvailablePlugin pluginOn in _plugins)
+            {
+                pluginOn.Instance.Dispose();
+                pluginOn.Instance = null;
+            }
+            _plugins.Clear();
         }
 
         /// <summary>
@@ -95,7 +111,9 @@ namespace SKG.PRE
 
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
+
                 _availablePlugins.Add(plugin);
+                _plugins.Add(plugin);
             }
         }
 

@@ -23,7 +23,7 @@ namespace BXE.PRE
         public string Description { get { return ""; } }
         public string Version { get { return ""; } }
 
-        public new Form Form { get { return this; } }
+        public Form Form { get { return this; } }
         public IHost Host { get; set; }
 
         public void Initialize() { }

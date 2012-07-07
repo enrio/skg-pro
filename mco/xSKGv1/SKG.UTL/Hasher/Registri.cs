@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace SKG.UTL.Hasher
 {
-    using UTL.Extension;
     using Microsoft.Win32;
     using System.Windows.Forms;
     using System.Security.AccessControl;
@@ -20,6 +19,9 @@ namespace SKG.UTL.Hasher
         public string Subkey { set; get; }
         public RegistryKey CurrKey { set; get; }
 
+        private readonly string _productName = Application.ProductName.ToUpper();
+        private readonly string _startupPath = Application.StartupPath;
+
         /// <summary>
         /// Set local
         /// </summary>
@@ -27,7 +29,7 @@ namespace SKG.UTL.Hasher
         public Registri(bool isLocal = true)
         {
             ShowError = false;
-            Subkey = @"SOFTWARE\" + App.ProductName.ToUpper();
+            Subkey = @"SOFTWARE\" + _productName;
             CurrKey = isLocal ? Registry.LocalMachine : Registry.CurrentUser;
         }
 
@@ -49,19 +51,18 @@ namespace SKG.UTL.Hasher
         /// <returns></returns>
         public bool Autorun()
         {
-            string key = App.ProductName.ToUpper();
             try
             {
                 var rk = Registry.CurrentUser.OpenSubKey(STR_RUN,
                                      RegistryKeyPermissionCheck.ReadWriteSubTree,
                                      RegistryRights.FullControl);
 
-                rk.SetValue(key, String.Format(@"{0}\{1}.exe", App.StartupPath, key));
+                rk.SetValue(_productName, String.Format(@"{0}\{1}.exe", _startupPath, _productName));
                 return true;
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Writing registry {0}", key));
+                ShowErrorMessage(e, String.Format("Writing registry {0}", _productName));
                 return false;
             }
         }

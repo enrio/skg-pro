@@ -68,6 +68,7 @@
     <Compile Include="PRE\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRE\Pre.cs" />
     <Compile Include="PRE\Report\FrmPrint.cs">
       <SubType>Form</SubType>
     </Compile>

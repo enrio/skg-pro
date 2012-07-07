@@ -31,7 +31,7 @@ namespace BXE.PRE
         public string Text1 { get { return "Cơ sở"; } }
         public string Text2 { get { return "Base"; } }
         public string Type { get { return GetType().FullName; } }
-        public new string Icon { get { return ""; } }
+        public new string Icon { get { return @"Icon\Base.png"; } }
         #endregion
     }
 }

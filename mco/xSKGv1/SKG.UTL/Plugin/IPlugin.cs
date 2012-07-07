@@ -47,13 +47,8 @@ namespace SKG.UTL.Plugin
         void Dispose();
 
         /// <summary>
-        /// Default language
+        /// Menu information
         /// </summary>
-        string Caption { get; }
-
-        /// <summary>
-        /// Picture for icon
-        /// </summary>
-        string Picture { get; }
+        Menu Menu { get; set; }
     }
 }

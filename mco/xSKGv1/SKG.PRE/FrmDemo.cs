@@ -48,28 +48,28 @@ namespace SKG.PRE
             var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
             menuStrip1.LoadMenu(b);
 
-            Global.Service.FindPlugins();
-            var menu = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
-            foreach (Plugin i in Global.Service.Plugins)
-                i.Type = i.Instance.GetType() + "";
+            //Global.Service.FindPlugins();
+            //var menu = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
+            //foreach (Plugin i in Global.Service.Plugins)
+            //    i.Type = i.Instance.GetType() + "";
 
-            var res = from s in menu
-                      join p in Global.Service.Plugins on s.Type equals p.Type into k
-                      from q in k.DefaultIfEmpty()
-                      select new
-                      {
-                          s.Level,
-                          s.Caption,
-                          s.Type,
-                          s.Picture,
-                          s.Show,
+            //var res = from s in menu
+            //          join p in Global.Service.Plugins on s.Type equals p.Type into k
+            //          from q in k.DefaultIfEmpty()
+            //          select new
+            //          {
+            //              s.Level,
+            //              s.Caption,
+            //              s.Type,
+            //              s.Picture,
+            //              s.Show,
 
-                          //Instance = q == null ? null : q.Instance,
-                          Path = q == null ? null : q.Path
-                      };
+            //              //Instance = q == null ? null : q.Instance,
+            //              Path = q == null ? null : q.Path
+            //          };
 
-            var x = res.ToDataTable(false, typeof(Plugin).Name);
-            x.WriteXml(Application.StartupPath + @"\Menu.xml");
+            //var x = res.ToDataTable(false, typeof(Plugin).Name);
+            //x.WriteXml(Application.StartupPath + @"\Menu.xml");
         }
     }
 }

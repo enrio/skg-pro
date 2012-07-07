@@ -38,5 +38,7 @@ namespace SKG.UTL.Plugin
         /// Allow menu show
         /// </summary>
         public bool Show { set; get; }
+
+        public Menu() { Show = true; }
     }
 }

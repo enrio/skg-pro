@@ -94,9 +94,8 @@ namespace SKG.UTL.Plugin
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
 
-                plugin.Caption = plugin.Instance.Caption;
-                plugin.Picture = plugin.Instance.Picture;
-                plugin.Type = plugin.Instance.GetType().FullName;
+                plugin.Menu = plugin.Instance.Menu;
+                plugin.Menu.Type = plugin.Instance.GetType().FullName;
 
                 _plugins.Add(plugin);
             }
@@ -130,9 +129,8 @@ namespace SKG.UTL.Plugin
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
 
-                plugin.Caption = plugin.Instance.Caption;
-                plugin.Picture = plugin.Instance.Picture;
-                plugin.Type = plugin.Instance.GetType().FullName;
+                plugin.Menu = plugin.Instance.Menu;
+                plugin.Menu.Type = plugin.Instance.GetType().FullName;
 
                 lst.Add(plugin);
             }

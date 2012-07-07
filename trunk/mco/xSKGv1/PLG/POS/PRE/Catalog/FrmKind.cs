@@ -25,7 +25,7 @@ namespace POS.PRE.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Loại hàng", Level = 3, Order = 1, Picture = @"Icon\Kind.png" };
+                var menu = new Menuz() { Caption = "Loại hàng", Level = 3, Order = 4, Picture = @"Icon\Kind.png" };
                 return menu;
             }
         }

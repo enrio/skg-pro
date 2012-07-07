@@ -45,7 +45,6 @@
     <Compile Include="Db\BaseDb.cs" />
     <Compile Include="Db\SQLServer.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="Extension\App.cs" />
     <Compile Include="Extension\Ctrl.cs" />
     <Compile Include="Extension\Data.cs" />
     <Compile Include="Extension\Number.cs" />

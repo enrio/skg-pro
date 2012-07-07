@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.PRE
 {
@@ -24,7 +23,7 @@ namespace SKG.PRE
         /// Find App.Config file
         /// </summary>
         /// <param name="s">Path</param>
-        public List<string> FindConfigs(string s)
+        public static List<string> FindConfigs(string s)
         {
             try
             {
@@ -42,9 +41,14 @@ namespace SKG.PRE
 
         public void FindPlugins()
         {
-            FindPlugins(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");
+            var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");
+            foreach (DirectoryInfo i in dir.GetDirectories()) FindPlugins(i.FullName);
         }
 
+        /// <summary>
+        /// Find all plugins
+        /// </summary>
+        /// <param name="path">Path's plugin</param>
         public void FindPlugins(string path)
         {
             try
@@ -53,13 +57,24 @@ namespace SKG.PRE
                 foreach (string fileOn in Directory.GetFiles(path))
                 {
                     FileInfo file = new FileInfo(fileOn);
+
+                    #region Skip
                     if (file.Name.Equals("SKG.UTL.dll")) continue;
+                    if (file.Name.Equals("SKG.DAL.dll")) continue;
+                    if (file.Name.Equals("SKG.BLL.dll")) continue;
+                    if (file.Name.Equals("SKG.PRE.exe")) continue;
+                    #endregion
+
                     if (file.Extension.Equals(".dll")) AddPlugin(fileOn);
+                    if (file.Extension.Equals(".exe")) AddPlugin(fileOn);
                 }
             }
-            catch { }
+            catch { return; }
         }
 
+        /// <summary>
+        /// Close all plugins
+        /// </summary>
         public void ClosePlugins()
         {
             foreach (AvailablePlugin pluginOn in colAvailablePlugins)
@@ -70,39 +85,36 @@ namespace SKG.PRE
             colAvailablePlugins.Clear();
         }
 
-        private void AddPlugin(string FileName)
+        /// <summary>
+        /// Add plugin
+        /// </summary>
+        /// <param name="fileName">Path file name</param>
+        private void AddPlugin(string fileName)
         {
-            var pluginAssembly = Assembly.LoadFrom(FileName);
+            var pluginAssembly = Assembly.LoadFrom(fileName);
             foreach (Type pluginType in pluginAssembly.GetTypes())
             {
-                if (pluginType.IsPublic)
-                {
-                    if (!pluginType.IsAbstract)
-                    {
-                        var a = pluginType.GetInterface(typeof(IPlugin).FullName, true);
-                        if (a != null)
-                        {
-                            var b = pluginAssembly.GetType(pluginType + "");
-                            var c = new AvailablePlugin
-                            {
-                                Path = FileName,
-                                Instance = (IPlugin)Activator.CreateInstance(b)
-                            };
+                if (!pluginType.IsPublic) return;
+                if (pluginType.IsAbstract) return;
 
-                            c.Instance.Host = this;
-                            c.Instance.Initialize();
-                            colAvailablePlugins.Add(c);
-                            c = null;
-                        }
-                        a = null;
-                    }
-                }
+                var a = pluginType.GetInterface(typeof(IPlugin).FullName, true);
+                if (a == null) return;
+
+                var type = pluginAssembly.GetType(pluginType + "");
+                var plugin = new AvailablePlugin
+                {
+                    Path = fileName,
+                    Instance = (IPlugin)Activator.CreateInstance(type)
+                };
+
+                plugin.Instance.Host = this;
+                plugin.Instance.Initialize();
+                colAvailablePlugins.Add(plugin);
             }
-            pluginAssembly = null;
         }
 
-        public void FeedBack(string feedBack, IPlugin plug) { return; }
-        public bool Register(IPlugin plug) { return true; }
+        public void FeedBack(string feedBack, IPlugin plugin) { return; }
+        public bool Register(IPlugin plugin) { return true; }
         public void LoadPlugins() { return; }
     }
 }

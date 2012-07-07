@@ -19,6 +19,8 @@ namespace SKG.PRE
 
             a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
             menuStrip1.LoadMenu(a);
+
+            Global.Plugins.FindPlugins();
         }
     }
 }

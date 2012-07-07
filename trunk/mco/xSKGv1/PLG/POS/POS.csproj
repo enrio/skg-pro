@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plugin.cs" />
     <Compile Include="PRE\Catalog\FrmGroup.cs">
       <SubType>Form</SubType>
     </Compile>

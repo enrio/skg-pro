@@ -15,5 +15,12 @@ namespace POS.PRE.Sumary
         {
             InitializeComponent();
         }
+
+        #region Override plugin
+        public new string Text1 { get { return "Doanh thu"; } }
+        public new string Text2 { get { return "Sale"; } }
+        public new string Type { get { return GetType().FullName; } }
+        public new string Icon { get { return @"Icon\Sales.png"; } }
+        #endregion
     }
 }

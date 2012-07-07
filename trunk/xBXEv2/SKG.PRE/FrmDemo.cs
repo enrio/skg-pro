@@ -14,13 +14,11 @@ namespace SKG.PRE
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
-            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE";
-            var b = Global.Plugins.FindConfigs(a);
-            menuStrip1.LoadMenu(b);
+            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
+            menuStrip1.LoadMenu(a);
 
-            a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS";
-            b = Global.Plugins.FindConfigs(a);
-            menuStrip1.LoadMenu(b);
+            a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
+            menuStrip1.LoadMenu(a);
         }
     }
 }

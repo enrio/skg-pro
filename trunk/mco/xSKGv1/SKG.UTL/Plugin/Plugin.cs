@@ -7,7 +7,7 @@ namespace SKG.UTL.Plugin
     /// <summary>
     /// Available plugin
     /// </summary>
-    public sealed class AvailablePlugin
+    public sealed class Plugin
     {
         #region Menu
         /// <summary>
@@ -53,6 +53,6 @@ namespace SKG.UTL.Plugin
         public string Path { set; get; }
         #endregion
 
-        public AvailablePlugin() { Show = true; }
+        public Plugin() { Show = true; }
     }
 }

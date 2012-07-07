@@ -13,11 +13,11 @@ namespace SKG.PRE
     /// </summary>
     public class Services : IHost
     {
-        private List<AvailablePlugin> _plugins = new List<AvailablePlugin>();
+        private List<Plugin> _plugins = new List<Plugin>();
         /// <summary>
         /// Available all plugins
         /// </summary>
-        public List<AvailablePlugin> Plugins
+        public List<Plugin> Plugins
         {
             get { return _plugins; }
             set { _plugins = value; }
@@ -62,7 +62,7 @@ namespace SKG.PRE
         /// </summary>
         public void ClosePlugins()
         {
-            foreach (AvailablePlugin pluginOn in _plugins)
+            foreach (Plugin pluginOn in _plugins)
             {
                 pluginOn.Instance.Dispose();
                 pluginOn.Instance = null;
@@ -86,7 +86,7 @@ namespace SKG.PRE
                 #endregion
 
                 var type = pluginAssembly.GetType(pluginType + "");
-                var plugin = new AvailablePlugin
+                var plugin = new Plugin
                 {
                     Path = fileName,
                     Instance = (IPlugin)Activator.CreateInstance(type)

@@ -52,13 +52,13 @@ namespace SKG.PRE
             var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
             ribbonControl.LoadMenu(b);
 
-            Global.Plugins.FindPlugins();
+            Global.Service.FindPlugins();
             var f = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
-            foreach (Plugin i in Global.Plugins.Plugins)
+            foreach (Plugin i in Global.Service.Plugins)
                 i.Type = i.Instance.GetType() + "";
 
             var res = from p in f
-                      join c in Global.Plugins.Plugins on p.Type equals c.Type into j1
+                      join c in Global.Service.Plugins on p.Type equals c.Type into j1
                       from j2 in j1.DefaultIfEmpty()
                       select new
                       {

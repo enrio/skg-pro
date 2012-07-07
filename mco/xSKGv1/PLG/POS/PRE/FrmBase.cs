@@ -30,10 +30,10 @@ namespace POS.PRE
         public void Initialize() { }
         public new void Dispose() { }
 
-        public new string Icon { get { return ""; } }
-        public string Text1 { get { return ""; } }
-        public string Text2 { get { return ""; } }
-        public string Type { get { return ""; } }
+        public new string Icon { get { return @"Icon\Base.png"; } }
+        public string Text1 { get { return "Cơ sở"; } }
+        public string Text2 { get { return "Base"; } }
+        public string Type { get { return GetType().FullName; } }
         #endregion
     }
 }

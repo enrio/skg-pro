@@ -32,12 +32,12 @@
 
     #region Date
     /// <summary>
-    /// Enums's quarter
+    /// Enums of quarter
     /// </summary>
     public enum Quarter { First = 1, Second = 2, Third = 3, Fourth = 4 }
 
     /// <summary>
-    /// Enums's month
+    /// Enums of month
     /// </summary>
     public enum Month
     {
@@ -49,14 +49,14 @@
 
     #region Form
     /// <summary>
-    /// State's input form
+    /// State of input form
     /// </summary>
     public enum State { View, Add, Edit, Delete, Save, Cancel, }
     #endregion
 
     #region License
     /// <summary>
-    /// License's software
+    /// License of software
     /// </summary>
     public enum LicState { Unlimited, Trial, None }
     #endregion

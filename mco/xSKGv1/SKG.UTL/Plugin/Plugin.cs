@@ -11,7 +11,7 @@ namespace SKG.UTL.Plugin
     {
         #region Menu
         /// <summary>
-        /// Menu's level
+        /// Menu of level
         /// </summary>
         public int Level { set; get; }
 
@@ -36,14 +36,14 @@ namespace SKG.UTL.Plugin
         public string Icon { set; get; }
 
         /// <summary>
-        /// Enable
+        /// Allow menu show
         /// </summary>
         public bool Show { set; get; }
         #endregion
 
         #region Plugin
         /// <summary>
-        /// Instance's plugin
+        /// Instance of plugin
         /// </summary>
         public IPlugin Instance { set; get; }
 

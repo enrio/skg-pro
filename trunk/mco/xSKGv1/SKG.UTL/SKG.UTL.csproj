@@ -58,10 +58,8 @@
     <Compile Include="Hasher\Registri.cs" />
     <Compile Include="Hasher\Windows.cs" />
     <Compile Include="Plugin\AvailablePlugin.cs" />
-    <Compile Include="Plugin\AvailablePlugins.cs" />
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\IPlugin.cs" />
-    <Compile Include="Plugin\Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

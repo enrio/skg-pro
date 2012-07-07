@@ -289,7 +289,7 @@ namespace SKG.UTL.Extension
         /// <summary>
         /// Load plugin's menu
         /// </summary>
-        /// <param name="s">App.Config file</param>
+        /// <param name="s">Path menu XML file</param>
         /// <param name="c">Menu's name</param>
         /// <returns></returns>
         public static List<AvailablePlugin> ToMenu(this string s, string c)

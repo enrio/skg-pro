@@ -17,13 +17,24 @@ namespace SKG.PRE
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
-            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
-            Global.Service.FindPlugins(a);
-
-            var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
-            Global.Service.FindPlugins(b);
-
+            GetPlugin();
             CreateMenu();
+        }
+
+        /// <summary>
+        /// Get plugin
+        /// </summary>
+        private void GetPlugin()
+        {
+            var a = Application.StartupPath + @"\Plugins\BXE\";
+            var b = Global.Service.GetPlugin(a + "BXE.PRE.exe");
+            var c = b.ToDataTable(false, typeof(Plugin).Name);
+            //c.WriteXml(a + "Menu.xml");
+
+            a = Application.StartupPath + @"\Plugins\POS\";
+            b = Global.Service.GetPlugin(a + "POS.dll");
+            c = b.ToDataTable(false, typeof(Plugin).Name);
+            //c.WriteXml(a + "Menu.xml");
         }
 
         /// <summary>

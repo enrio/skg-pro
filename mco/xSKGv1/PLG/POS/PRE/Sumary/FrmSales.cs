@@ -17,10 +17,11 @@ namespace POS.PRE.Sumary
         }
 
         #region Override plugin
-        public new string Text1 { get { return "Doanh thu"; } }
-        public new string Text2 { get { return "Sale"; } }
-        public new string Type { get { return GetType().FullName; } }
-        public new string Icon { get { return @"Icon\Sales.png"; } }
+        public override Form Form { get { return this; } }
+
+        public override string Text1 { get { return "Doanh thu"; } }
+        public override string Text2 { get { return "Sale"; } }
+        public override string Icon { get { return @"Icon\Sales.png"; } }
         #endregion
     }
 }

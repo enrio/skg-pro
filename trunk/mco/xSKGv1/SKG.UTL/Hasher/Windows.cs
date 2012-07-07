@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.UTL.Hasher
 {
@@ -357,38 +356,50 @@ namespace SKG.UTL.Hasher
         public const string Win32_WMIElementSetting = "Win32_WMIElementSetting";
         public const string Win32_WMISetting = "Win32_WMISetting";
 
-        private const string Select = "Select * From ";
+        private const string STR_SELECT = "Select * From ";
         private const string STR_SPACE = "---~~---~~~---~~~---~~~---~~~---~~---";
         #endregion
 
         #region Static method
+        /// <summary>
+        /// List information
+        /// </summary>
+        /// <param name="win32">Constant Win32</param>
+        /// <returns></returns>
         public static List<PropertyData> ListInfo(string win32)
         {
             var lst = new List<PropertyData>();
-
-            using (var mbs = new ManagementObjectSearcher(Select + win32))
+            using (var mbs = new ManagementObjectSearcher(STR_SELECT + win32))
             {
                 foreach (ManagementObject mo in mbs.Get())
                     foreach (var p in mo.Properties)
                         lst.Add(p);
             }
-
             return lst;
         }
 
+        /// <summary>
+        /// Get information
+        /// </summary>
+        /// <param name="win32">Constant Win32</param>
+        /// <param name="key">Key</param>
+        /// <returns></returns>
         public static string GetInfo(string win32, string key)
         {
             string s = "";
-
-            using (var mbs = new ManagementObjectSearcher(Select + win32))
+            using (var mbs = new ManagementObjectSearcher(STR_SELECT + win32))
             {
                 foreach (ManagementObject mo in mbs.Get())
                     s = mo[key].ToString().Trim();
             }
-
             return s;
         }
 
+        /// <summary>
+        /// Get information
+        /// </summary>
+        /// <param name="win32">Constant Win32</param>
+        /// <returns></returns>
         public static DataTable GetInfo(string win32)
         {
             const string STR_Name = "Name";
@@ -398,7 +409,7 @@ namespace SKG.UTL.Hasher
             tb.Columns.Add(STR_Name);
             tb.Columns.Add(STR_Value);
 
-            using (var mbs = new ManagementObjectSearcher(Select + win32))
+            using (var mbs = new ManagementObjectSearcher(STR_SELECT + win32))
             {
                 int s = mbs.Get().Count;
                 int i = 1;
@@ -418,24 +429,34 @@ namespace SKG.UTL.Hasher
                         drs[STR_Name] = STR_SPACE;
                         drs[STR_Value] = STR_SPACE;
                     }
-
                     i++;
                 }
             }
-
             return tb;
         }
 
+        /// <summary>
+        /// Get serial number
+        /// </summary>
+        /// <returns></returns>
         public static string SerialNumber()
         {
             return GetInfo(Win32_BaseBoard, "SerialNumber");
         }
 
+        /// <summary>
+        /// Get processor ID
+        /// </summary>
+        /// <returns></returns>
         public static string ProcessorID()
         {
             return GetInfo(Win32_Processor, "ProcessorID");
         }
 
+        /// <summary>
+        /// Get MAC address
+        /// </summary>
+        /// <returns></returns>
         public static string MACAddress()
         {
             using (var mc = new ManagementClass(Win32_NetworkAdapterConfiguration))
@@ -450,7 +471,6 @@ namespace SKG.UTL.Hasher
                                 s = mo["MacAddress"].ToString().Trim();
                         mo.Dispose();
                     }
-
                     s = s.Replace(":", "");
                     return s;
                 }

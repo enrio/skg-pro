@@ -149,7 +149,10 @@ namespace SKG.UTL.Hasher
         /// Get trial key
         /// </summary>
         /// <returns></returns>
-        public static string GetTrialKey() { return GetKey("F7DF8-A184F-0X0X-AB15A-7C8AB"); }
+        public static string GetTrialKey()
+        {
+            return GetKey("F7DF8-A184F-0X0X-AB15A-7C8AB");
+        }
 
         /// <summary>
         /// Get product key

@@ -15,5 +15,13 @@ namespace BXE.PRE.Catalog
         {
             InitializeComponent();
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override string Text1 { get { return "Xe cộ"; } }
+        public override string Text2 { get { return "Vehicle"; } }
+        public override string Icon { get { return @"Icon\Vehicle.png"; } }
+        #endregion
     }
 }

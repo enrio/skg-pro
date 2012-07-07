@@ -119,10 +119,10 @@
     <Content Include="Icon\Test.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icon\Transport.png">
+    <Content Include="Icon\POS.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icon\Vehicle.png">
+    <Content Include="Icon\Product.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Menu.xml">

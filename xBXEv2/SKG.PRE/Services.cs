@@ -8,37 +8,25 @@ namespace SKG.PRE
     using System.IO;
     using System.Reflection;
 
+    /// <summary>
+    /// Services for plugin
+    /// </summary>
     public class Services : IHost
     {
-        private AvailablePlugins colAvailablePlugins = new AvailablePlugins();
+        private AvailablePlugins _availablePlugins = new AvailablePlugins();
 
+        /// <summary>
+        /// Available all plugins
+        /// </summary>
         public AvailablePlugins AvailablePlugins
         {
-            get { return colAvailablePlugins; }
-            set { colAvailablePlugins = value; }
+            get { return _availablePlugins; }
+            set { _availablePlugins = value; }
         }
 
-        #region App.Config file
         /// <summary>
-        /// Find App.Config file
+        /// Find all plugins
         /// </summary>
-        /// <param name="s">Path</param>
-        public static List<string> FindConfigs(string s)
-        {
-            try
-            {
-                var l = new List<string>();
-                foreach (var i in Directory.GetFiles(s))
-                {
-                    var f = new FileInfo(i);
-                    if (f.Extension.Equals(".config")) l.Add(i);
-                }
-                return l;
-            }
-            catch { return null; }
-        }
-        #endregion
-
         public void FindPlugins()
         {
             var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + @"\Plugins");
@@ -53,7 +41,7 @@ namespace SKG.PRE
         {
             try
             {
-                colAvailablePlugins.Clear();
+                _availablePlugins.Clear();
                 foreach (string fileOn in Directory.GetFiles(path))
                 {
                     FileInfo file = new FileInfo(fileOn);
@@ -77,12 +65,12 @@ namespace SKG.PRE
         /// </summary>
         public void ClosePlugins()
         {
-            foreach (AvailablePlugin pluginOn in colAvailablePlugins)
+            foreach (AvailablePlugin pluginOn in _availablePlugins)
             {
                 pluginOn.Instance.Dispose();
                 pluginOn.Instance = null;
             }
-            colAvailablePlugins.Clear();
+            _availablePlugins.Clear();
         }
 
         /// <summary>
@@ -109,7 +97,7 @@ namespace SKG.PRE
 
                 plugin.Instance.Host = this;
                 plugin.Instance.Initialize();
-                colAvailablePlugins.Add(plugin);
+                _availablePlugins.Add(plugin);
             }
         }
 

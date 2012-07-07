@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plugin.cs" />
+    <Compile Include="Pos.cs" />
+    <Compile Include="PRE\Catalog\Catalog.cs" />
     <Compile Include="PRE\Catalog\FrmGroup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,12 +74,14 @@
     <Compile Include="PRE\Report\FrmPrint.Designer.cs">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRE\Report\Report.cs" />
     <Compile Include="PRE\Sumary\FrmSales.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PRE\Sumary\FrmSales.Designer.cs">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="PRE\Sumary\Sumary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

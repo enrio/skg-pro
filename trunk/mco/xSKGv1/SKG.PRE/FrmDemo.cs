@@ -29,12 +29,24 @@ namespace SKG.PRE
             var a = Application.StartupPath + @"\Plugins\BXE\";
             var b = Global.Service.GetPlugin(a + "BXE.PRE.exe");
             var c = b.ToDataTable(false, typeof(Plugin).Name);
-            //c.WriteXml(a + "Menu.xml");
+
+            var d = new List<Menuz>();
+            foreach (var i in b)
+                d.Add(i.Menu);
+
+            c = d.ToDataTable(false, typeof(Plugin).Name);
+            c.WriteXml(a + "Menu.xml");
 
             a = Application.StartupPath + @"\Plugins\POS\";
             b = Global.Service.GetPlugin(a + "POS.dll");
             c = b.ToDataTable(false, typeof(Plugin).Name);
-            //c.WriteXml(a + "Menu.xml");
+
+            d = new List<Menuz>();
+            foreach (var i in b)
+                d.Add(i.Menu);
+
+            c = d.ToDataTable(false, typeof(Plugin).Name);
+            c.WriteXml(a + "Menu.xml");
         }
 
         /// <summary>

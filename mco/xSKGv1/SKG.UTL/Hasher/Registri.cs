@@ -6,7 +6,7 @@ namespace SKG.UTL.Hasher
 {
     using UTL.Extension;
     using Microsoft.Win32;
-    //using System.Windows.Forms;
+    using System.Windows.Forms;
     using System.Security.AccessControl;
 
     /// <summary>
@@ -17,24 +17,37 @@ namespace SKG.UTL.Hasher
         public const string STR_RUN = @"Software\Microsoft\Windows\CurrentVersion\Run";
 
         public bool ShowError { set; get; }
-        public string SubKey { set; get; }
+        public string Subkey { set; get; }
         public RegistryKey CurrKey { set; get; }
 
+        /// <summary>
+        /// Set local
+        /// </summary>
+        /// <param name="isLocal">Local</param>
         public Registri(bool isLocal = true)
         {
             ShowError = false;
-            SubKey = @"SOFTWARE\" + App.ProductName.ToUpper();
+            Subkey = @"SOFTWARE\" + App.ProductName.ToUpper();
             CurrKey = isLocal ? Registry.LocalMachine : Registry.CurrentUser;
         }
 
-        private RegistryKey OpenSubKey(string name)
+        /// <summary>
+        /// Open subkey
+        /// </summary>
+        /// <param name="keyName">Key name</param>
+        /// <returns></returns>
+        private RegistryKey OpenSubKey(string keyName)
         {
-            return CurrKey.OpenSubKey(name,
+            return CurrKey.OpenSubKey(keyName,
                        RegistryKeyPermissionCheck.ReadWriteSubTree,
                        RegistryRights.FullControl);
         }
 
-        public static bool Autorun()
+        /// <summary>
+        /// Set autorun
+        /// </summary>
+        /// <returns></returns>
+        public bool Autorun()
         {
             string key = App.ProductName.ToUpper();
             try
@@ -53,9 +66,14 @@ namespace SKG.UTL.Hasher
             }
         }
 
-        public string Read(string KeyName)
+        /// <summary>
+        /// Read key name
+        /// </summary>
+        /// <param name="keyName">Key name</param>
+        /// <returns></returns>
+        public string Read(string keyName)
         {
-            using (RegistryKey sk1 = OpenSubKey(SubKey))
+            using (RegistryKey sk1 = OpenSubKey(Subkey))
             {
                 if (sk1 == null)
                     return null;
@@ -63,75 +81,94 @@ namespace SKG.UTL.Hasher
                 {
                     try
                     {
-                        return (string)sk1.GetValue(KeyName.ToUpper());
+                        return (string)sk1.GetValue(keyName.ToUpper());
                     }
                     catch (Exception e)
                     {
-                        ShowErrorMessage(e, String.Format("Reading registry {0}", KeyName.ToUpper()));
+                        ShowErrorMessage(e, String.Format("Reading registry {0}", keyName.ToUpper()));
                         return null;
                     }
                 }
             }
         }
 
-        public bool Write(string KeyName, object Value)
+        /// <summary>
+        /// Write key name
+        /// </summary>
+        /// <param name="keyName">Key name</param>
+        /// <param name="value">Value</param>
+        /// <returns></returns>
+        public bool Write(string keyName, object value)
         {
             try
             {
-                RegistryKey sk1 = OpenSubKey(SubKey) ?? CurrKey.CreateSubKey(SubKey);
-                sk1.SetValue(KeyName.ToUpper(), Value);
+                RegistryKey sk1 = OpenSubKey(Subkey) ?? CurrKey.CreateSubKey(Subkey);
+                sk1.SetValue(keyName.ToUpper(), value);
                 return true;
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Writing registry {0}", KeyName.ToUpper()));
+                ShowErrorMessage(e, String.Format("Writing registry {0}", keyName.ToUpper()));
                 return false;
             }
         }
 
-        public bool DeleteKey(string KeyName)
+        /// <summary>
+        /// Delete key
+        /// </summary>
+        /// <param name="keyName">Key name</param>
+        /// <returns></returns>
+        public bool DeleteKey(string keyName)
         {
             try
             {
-                using (RegistryKey sk1 = CurrKey.CreateSubKey(SubKey))
+                using (RegistryKey sk1 = CurrKey.CreateSubKey(Subkey))
                 {
                     if (sk1 == null)
                         return true;
                     else
-                        sk1.DeleteValue(KeyName);
+                        sk1.DeleteValue(keyName);
                 }
                 return true;
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Deleting SubKey {0}", SubKey));
+                ShowErrorMessage(e, String.Format("Deleting SubKey {0}", Subkey));
                 return false;
             }
         }
 
+        /// <summary>
+        /// Delete subkey tree
+        /// </summary>
+        /// <returns></returns>
         public bool DeleteSubKeyTree()
         {
             try
             {
-                using (RegistryKey sk1 = OpenSubKey(SubKey))
+                using (RegistryKey sk1 = OpenSubKey(Subkey))
                 {
                     if (sk1 != null)
-                        CurrKey.DeleteSubKeyTree(SubKey);
+                        CurrKey.DeleteSubKeyTree(Subkey);
                 }
                 return true;
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Deleting SubKey {0}", SubKey));
+                ShowErrorMessage(e, String.Format("Deleting SubKey {0}", Subkey));
                 return false;
             }
         }
 
+        /// <summary>
+        /// Subkey count
+        /// </summary>
+        /// <returns></returns>
         public int SubKeyCount()
         {
             try
             {
-                using (RegistryKey sk1 = CurrKey.OpenSubKey(SubKey))
+                using (RegistryKey sk1 = CurrKey.OpenSubKey(Subkey))
                 {
                     if (sk1 != null)
                         return sk1.SubKeyCount;
@@ -141,16 +178,20 @@ namespace SKG.UTL.Hasher
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Retrieving subkey of {0}", SubKey));
+                ShowErrorMessage(e, String.Format("Retrieving subkey of {0}", Subkey));
                 return 0;
             }
         }
 
+        /// <summary>
+        /// Value count
+        /// </summary>
+        /// <returns></returns>
         public int ValueCount()
         {
             try
             {
-                using (RegistryKey sk1 = CurrKey.OpenSubKey(SubKey))
+                using (RegistryKey sk1 = CurrKey.OpenSubKey(Subkey))
                 {
                     if (sk1 != null)
                         return sk1.ValueCount;
@@ -160,15 +201,20 @@ namespace SKG.UTL.Hasher
             }
             catch (Exception e)
             {
-                ShowErrorMessage(e, String.Format("Retrieving subkey of {0}", SubKey));
+                ShowErrorMessage(e, String.Format("Retrieving subkey of {0}", Subkey));
                 return 0;
             }
         }
 
-        private static void ShowErrorMessage(Exception e, string title)
+        /// <summary>
+        /// Show error message
+        /// </summary>
+        /// <param name="e">Exception</param>
+        /// <param name="title">Title</param>
+        private void ShowErrorMessage(Exception e, string title)
         {
-            //if (ShowError == true)
-            //    MessageBox.Show(e.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (ShowError == true)
+                MessageBox.Show(e.Message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

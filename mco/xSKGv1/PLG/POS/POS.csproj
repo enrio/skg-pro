@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pos.cs" />
+    <Compile Include="PRE\Pos.cs" />
     <Compile Include="PRE\Catalog\Catalog.cs" />
     <Compile Include="PRE\Catalog\FrmGroup.cs">
       <SubType>Form</SubType>

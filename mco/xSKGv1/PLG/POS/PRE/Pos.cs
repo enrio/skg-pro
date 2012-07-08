@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace POS
+namespace POS.PRE
 {
     using SKG.UTL.Plugin;
     using System.Windows.Forms;

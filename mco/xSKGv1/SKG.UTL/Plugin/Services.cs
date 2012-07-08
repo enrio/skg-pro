@@ -148,11 +148,14 @@ namespace SKG.UTL.Plugin
         }
 
         /// <summary>
-        /// Get all plugins
+        /// Write Menu.xml file and return list path of plugin
         /// </summary>
-        public void GetPlugins()
+        /// <returns></returns>
+        public List<string> GetPlugins()
         {
+            var lst = new List<string>();
             var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Plugins");
+
             foreach (DirectoryInfo i in dir.GetDirectories())
             {
                 var a = FindPlugin(i.FullName);
@@ -163,8 +166,10 @@ namespace SKG.UTL.Plugin
                         select s.Menu;
 
                 var c = r.ToDataTable(false, typeof(Plugin).Name);
-                c.WriteXml(i.FullName + @"\Menu.xml");
+                c.WriteXml(String.Format(@"{0}\{1}.xml", i.FullName, typeof(Menuz).Name));
+                lst.Add(i.FullName);
             }
+            return lst;
         }
 
         /// <summary>

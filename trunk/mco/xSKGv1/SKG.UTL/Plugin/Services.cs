@@ -166,8 +166,10 @@ namespace SKG.UTL.Plugin
                         select s.Menu;
 
                 var c = r.ToDataTable(false, typeof(Menuz).Name);
-                c.WriteXml(String.Format(@"{0}\{1}.xml", i.FullName, typeof(Menuz).Name));
                 lst.Add(i.FullName + @"\");
+
+                var file = String.Format(@"{0}\{1}.xml", i.FullName, typeof(Menuz).Name);
+                if (!File.Exists(file)) c.WriteXml(file);
             }
             return lst;
         }

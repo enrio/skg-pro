@@ -61,7 +61,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Pol_Menus
-                          orderby s.Order
+                          orderby s.Type.Substring(1, 3), s.Order
                           select new
                           {
                               s.Id,

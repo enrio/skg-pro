@@ -167,7 +167,7 @@ namespace SKG.UTL.Plugin
 
                 var c = r.ToDataTable(false, typeof(Menuz).Name);
                 c.WriteXml(String.Format(@"{0}\{1}.xml", i.FullName, typeof(Menuz).Name));
-                lst.Add(i.FullName);
+                lst.Add(i.FullName + @"\");
             }
             return lst;
         }

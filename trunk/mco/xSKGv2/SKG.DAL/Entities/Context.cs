@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
         public DbSet<Pol_Menu> Pol_Menus { get; set; }
 
-        public Context() : base("xSKGv1") { }
+        public Context() : base("xSKG") { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

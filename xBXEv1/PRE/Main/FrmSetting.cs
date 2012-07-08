@@ -5,9 +5,8 @@ using System.Windows.Forms;
 
 namespace PRE.Main
 {
-    using SKG.UTL;
+    using SKG.UTL.Extension;
     using SKG.UTL.Db;
-
     using System.Configuration;
     using DAL;
 
@@ -66,7 +65,7 @@ namespace PRE.Main
                 if (chkSQLCE.Checked)
                 {
                     var b = a.Split(new char[] { '|' });
-                    var c = String.Format("{0}{1}", App.StartupPath, b[2]);
+                    var c = String.Format("{0}{1}", Application.StartupPath, b[2]);
                     if (!c.CheckSqlCeConnect())
                     {
                         BasePRE.ShowMessage(STR_NOCONNECT, STR_SETUP);

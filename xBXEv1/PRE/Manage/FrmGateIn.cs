@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace PRE.Manage
 {
+    using SKG.UTL.Extension;
     using SKG.UTL;
 
     using DAL.Entities;

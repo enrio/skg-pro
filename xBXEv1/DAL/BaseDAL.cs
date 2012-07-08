@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace DAL
 {
+    using SKG.UTL.Extension;
     using Entities;
     using System.Data;
     using System.Data.Common;

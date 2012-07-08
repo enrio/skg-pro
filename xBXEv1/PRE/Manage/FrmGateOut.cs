@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace PRE.Manage
 {
+    using SKG.UTL.Extension;
     using DAL.Entities;
     using Main;
     using SKG.UTL;

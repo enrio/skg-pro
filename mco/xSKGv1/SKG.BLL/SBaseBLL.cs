@@ -372,8 +372,9 @@ namespace SKG.BLL
         /// </summary>
         void CreatePol_Menu()
         {
-            var Service = new Services();
-            var a = Service.GetPlugins();
+            var a = new Services();
+            var b = a.GetPlugins();
+            var c = Services.GetMenu(b);
         }
         #endregion
 
@@ -389,6 +390,7 @@ namespace SKG.BLL
             Pol_Right.Delete();
             Pol_Action.Delete();
             Pol_User.Delete();
+            Pol_Menu.Delete();
         }
 
         /// <summary>
@@ -403,6 +405,7 @@ namespace SKG.BLL
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
+            CreatePol_Menu();
         }
     }
 }

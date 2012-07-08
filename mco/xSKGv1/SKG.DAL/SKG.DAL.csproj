@@ -56,6 +56,7 @@
     <Compile Include="Entities\Action.cs" />
     <Compile Include="IBase.cs" />
     <Compile Include="Pol_ActionDAL.cs" />
+    <Compile Include="Pol_MenuDAL.cs" />
     <Compile Include="Pol_RightDAL.cs" />
     <Compile Include="Pol_RoleDAL.cs" />
     <Compile Include="Pol_RoleRightDAL.cs" />

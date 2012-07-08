@@ -5,6 +5,7 @@ using System.Linq;
 namespace SKG.UTL.Plugin
 {
     using System.IO;
+    using UTL.Extension;
     using System.Reflection;
 
     /// <summary>
@@ -101,6 +102,13 @@ namespace SKG.UTL.Plugin
             }
         }
 
+        #region Implement
+        public void FeedBack(string feedBack, IPlugin plugin) { return; }
+        public bool Register(IPlugin plugin) { return true; }
+        public void LoadPlugins() { return; }
+        #endregion
+
+        #region New
         /// <summary>
         /// Get plugin
         /// </summary>
@@ -137,10 +145,52 @@ namespace SKG.UTL.Plugin
             return lst;
         }
 
-        #region Implement
-        public void FeedBack(string feedBack, IPlugin plugin) { return; }
-        public bool Register(IPlugin plugin) { return true; }
-        public void LoadPlugins() { return; }
+        /// <summary>
+        /// Get all plugins
+        /// </summary>
+        public void GetPlugins()
+        {
+            var dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "Plugins");
+            foreach (DirectoryInfo i in dir.GetDirectories())
+            {
+                var a = FindPlugin(i.FullName);
+                var b = GetPlugin(a);
+
+                var r = from s in b
+                        orderby s.Menu.Order
+                        select s.Menu;
+
+                var c = r.ToDataTable(false, typeof(Plugin).Name);
+                c.WriteXml(i.FullName + @"\Menu.xml");
+            }
+        }
+
+        /// <summary>
+        /// Find plugin
+        /// </summary>
+        /// <param name="path">Path of plugin</param>
+        /// <returns></returns>
+        public static string FindPlugin(string path)
+        {
+            try
+            {
+                foreach (string fileOn in Directory.GetFiles(path))
+                {
+                    FileInfo file = new FileInfo(fileOn);
+
+                    #region Skip
+                    if (file.Name.Contains("UTL.dll")) continue;
+                    if (file.Name.Contains("DAL.dll")) continue;
+                    if (file.Name.Contains("BLL.dll")) continue;
+                    #endregion
+
+                    if (file.Extension.Equals(".dll")) return fileOn;
+                    if (file.Extension.Equals(".exe")) return fileOn;
+                }
+                return null;
+            }
+            catch { return null; }
+        }
         #endregion
     }
 }

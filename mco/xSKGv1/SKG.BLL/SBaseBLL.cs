@@ -48,6 +48,11 @@ namespace SKG.BLL
         /// Truy cập cơ sở dữ liệu bảng Pol_RoleRight: nhóm quyền - phân quyền trên từng form theo nhóm quyền.
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Pol_Menu: danh sách menu.
+        /// </summary>
+        public Pol_MenuBLL Pol_Menu { set; get; }
         #endregion
 
         #region Các phương thức tĩnh
@@ -87,6 +92,7 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
+            Pol_Menu = new Pol_MenuBLL();
         }
 
         #region Tạo dữ liệu mẫu

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Pol")]
+[assembly: AssemblyTitle("SKG.POL")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SKG")]
-[assembly: AssemblyProduct("Pol")]
+[assembly: AssemblyProduct("SKG.POL")]
 [assembly: AssemblyCopyright("Copyright © SKG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0672c2b9-025b-46fe-9488-91800f4554ad")]
+[assembly: Guid("5c41aa62-d1c6-40ba-a34d-9dd7b388e719")]
 
 // Version information for an assembly consists of the following four values:
 //

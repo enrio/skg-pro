@@ -32,8 +32,7 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this MenuStrip m, string s)
         {
-            var name = typeof(Menuz).Name;
-            var menu = String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
+            var menu = GetMenu(s);
 
             // Menu's level 1 (root)
             var m1 = new ToolStripMenuItem() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };

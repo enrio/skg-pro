@@ -24,37 +24,7 @@ namespace SKG.PRE
         /// <param name="l">List App.Config file</param>
         public static void LoadMenu(this RibbonControl m, List<string> l)
         {
-            foreach (var i in l)
-            {
-                var a = i.ToMenu(typeof(Plugin).Name);
-                if (a == null || a.Count < 1) continue;
-
-                // Menu's level 1 (root)
-                var m1 = new RibbonPage(a[0].Caption);
-                m.Pages.Add(m1);
-
-                // Menu's level 2, 3
-                RibbonPageGroup m2 = null;
-                for (int j = 1; j < a.Count; j++)
-                {
-                    if (a[j].Level == 2) // Menu's level 2
-                    {
-                        m2 = new RibbonPageGroup(a[j].Caption);
-                        m1.Groups.Add(m2);
-                    }
-                    else if (m2 != null)
-                    {
-                        var m3 = new BarButtonItem() { Caption = a[j].Caption };
-                        m2.ItemLinks.Add(m3);
-
-                        var x = i.Substring(0, i.Length - ".exe.config".Length) + ".exe";
-                        var y = Assembly.LoadFile(x);
-                        m3.Tag = y.CreateInstance(a[j].Type);
-                        m3.LargeGlyph = Image.FromFile(String.Format(@"{0}\Plugins\{1}", Application.StartupPath, a[j].Picture));
-                        m3.ItemClick += ButtonItem_ItemClick;
-                    }
-                }
-            }
+            foreach (var i in l) m.LoadMenu(i);
         }
 
         /// <summary>
@@ -64,33 +34,34 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this RibbonControl m, string s)
         {
-            var a = (s + "Menu.xml").ToMenu(typeof(Plugin).Name);
+            var name = typeof(Menuz).Name;
+            var menu = String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
 
             // Menu's level 1 (root)
-            var m1 = new RibbonPage() { Text = a[0].Caption, Image = Image.FromFile(s + a[0].Picture) };
+            var m1 = new RibbonPage() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };
             m.Pages.Add(m1);
 
             // Menu's level 2, 3
             RibbonPageGroup m2 = null;
-            for (int j = 1; j < a.Count; j++)
+            for (int j = 1; j < menu.Count; j++)
             {
-                if (a[j].Level == 2) // Menu's level 2
+                if (menu[j].Level == 2) // Menu's level 2
                 {
-                    m2 = new RibbonPageGroup(a[j].Caption);
-                    m2.Glyph = Image.FromFile(s + a[j].Picture);
+                    m2 = new RibbonPageGroup(menu[j].Caption);
+                    //m2.Glyph = Image.FromFile(s + menu[j].Picture);
                     m1.Groups.Add(m2);
                 }
                 else if (m2 != null)
                 {
-                    var m3 = new BarButtonItem() { Caption = a[j].Caption };
+                    var m3 = new BarButtonItem() { Caption = menu[j].Caption };
                     m2.ItemLinks.Add(m3);
 
                     Assembly y = null;
                     try { y = Assembly.LoadFile(s + "BXE.PRE.exe"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    m3.Tag = y.CreateInstance(a[j].Type);
-                    m3.LargeGlyph = Image.FromFile(s + a[j].Picture);
+                    m3.Tag = y.CreateInstance(menu[j].Type);
+                    m3.LargeGlyph = Image.FromFile(s + menu[j].Picture);
                     m3.ItemClick += ButtonItem_ItemClick;
                 }
             }

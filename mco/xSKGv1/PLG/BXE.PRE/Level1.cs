@@ -7,7 +7,7 @@ namespace BXE.PRE
     using SKG.UTL.Plugin;
     using System.Windows.Forms;
 
-    public class Plugin : IPlugin
+    public class Level1 : IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }

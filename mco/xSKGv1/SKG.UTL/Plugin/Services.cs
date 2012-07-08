@@ -165,7 +165,7 @@ namespace SKG.UTL.Plugin
                         orderby s.Menu.Order
                         select s.Menu;
 
-                var c = r.ToDataTable(false, typeof(Plugin).Name);
+                var c = r.ToDataTable(false, typeof(Menuz).Name);
                 c.WriteXml(String.Format(@"{0}\{1}.xml", i.FullName, typeof(Menuz).Name));
                 lst.Add(i.FullName);
             }

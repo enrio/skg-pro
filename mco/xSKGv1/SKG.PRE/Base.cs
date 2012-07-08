@@ -63,33 +63,34 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this MenuStrip m, string s)
         {
-            var a = (s + "Menu.xml").ToMenu(typeof(Plugin).Name);
+            var name = typeof(Menuz).Name;
+            var menu = String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
 
             // Menu's level 1 (root)
-            var m1 = new ToolStripMenuItem() { Text = a[0].Caption, Image = Image.FromFile(s + a[0].Picture) };
+            var m1 = new ToolStripMenuItem() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };
             m.Items.Add(m1);
 
             // Menu's level 2, 3
             ToolStripMenuItem m2 = null;
-            for (int j = 1; j < a.Count; j++)
+            for (int j = 1; j < menu.Count; j++)
             {
-                if (a[j].Level == 2) // Menu's level 2
+                if (menu[j].Level == 2) // Menu's level 2
                 {
-                    m2 = new ToolStripMenuItem(a[j].Caption);
-                    m2.Image = Image.FromFile(s + a[j].Picture);
+                    m2 = new ToolStripMenuItem(menu[j].Caption);
+                    m2.Image = Image.FromFile(s + menu[j].Picture);
                     m1.DropDownItems.Add(m2);
                 }
                 else if (m2 != null)
                 {
-                    var m3 = new ToolStripMenuItem(a[j].Caption);
+                    var m3 = new ToolStripMenuItem(menu[j].Caption);
                     m2.DropDownItems.Add(m3);
 
                     Assembly y = null;
                     try { y = Assembly.LoadFile(s + "BXE.PRE.exe"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    m3.Tag = y.CreateInstance(a[j].Type);
-                    m3.Image = Image.FromFile(s + a[j].Picture);
+                    m3.Tag = y.CreateInstance(menu[j].Type);
+                    m3.Image = Image.FromFile(s + menu[j].Picture);
                     m3.Click += MenuItem_Click;
                 }
             }

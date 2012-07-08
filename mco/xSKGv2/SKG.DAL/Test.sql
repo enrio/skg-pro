@@ -1,4 +1,4 @@
-Use xSKGv1
+Use xSKG
 Select * From Pol_Action
 Select * From Pol_Right
 Select * From Pol_Role

@@ -7,7 +7,7 @@ namespace POS.PRE
 {
     using SKG.UTL.Plugin;
 
-    public class Pre : Pos
+    public class Level2 : Level1
     {
         #region Override plugin
         public override Menuz Menu

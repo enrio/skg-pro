@@ -13,11 +13,12 @@ namespace SKG.PRE
         public FrmDemo()
         {
             InitializeComponent();
+
+            Global.Service.GetPlugins();
         }
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
-            Global.Service.GetPlugins();
             CreateMenu();
         }
 

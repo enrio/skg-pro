@@ -129,7 +129,7 @@
     <Content Include="Icon\Product.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Menu.xml">
+    <Content Include="Menuz.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

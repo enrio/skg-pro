@@ -13,25 +13,12 @@ namespace SKG.PRE
         public FrmDemo()
         {
             InitializeComponent();
-
-            Global.Service.GetPlugins();
         }
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
-            CreateMenu();
-        }
-
-        /// <summary>
-        /// Load menu of all plugins
-        /// </summary>
-        private void CreateMenu()
-        {
-            var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
+            var a = Global.Service.GetPlugins();
             menuStrip1.LoadMenu(a);
-
-            var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
-            menuStrip1.LoadMenu(b);
         }
     }
 }

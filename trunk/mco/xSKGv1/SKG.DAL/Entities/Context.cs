@@ -19,6 +19,7 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_RoleRight> Pol_RoleRights { get; set; }
         public DbSet<Pol_UserRight> Pol_UserRights { get; set; }
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
+        public DbSet<Pol_Menu> Pol_Menus { get; set; }
 
         public Context() : base("xSKGv1") { }
 

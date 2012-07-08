@@ -11,9 +11,9 @@ namespace SKG.PRE
     using System.Reflection;
 
     /// <summary>
-    /// Extension Methods
+    /// Extension methods
     /// </summary>
-    public static class Base
+    public static class SBasePRE
     {
         /// <summary>
         /// Load menu for MenuStrip

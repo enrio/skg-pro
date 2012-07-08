@@ -46,35 +46,71 @@ namespace SKG.PRE
 
         private void FrmDemo_Load(object sender, EventArgs e)
         {
+            GetPlugin();
+            CreateMenu();
+        }
+
+        /// <summary>
+        /// Get plugin
+        /// </summary>
+        private void GetPlugin()
+        {
+            var a = Application.StartupPath + @"\Plugins\BXE\";
+            var b = Global.Service.GetPlugin(a + "BXE.PRE.exe");
+            var c = b.ToDataTable(false, typeof(Plugin).Name);
+
+            var r = from s in b
+                    orderby s.Menu.Order
+                    select s.Menu;
+
+            c = r.ToDataTable(false, typeof(Plugin).Name);
+            c.WriteXml(a + "Menu.xml");
+
+            a = Application.StartupPath + @"\Plugins\POS\";
+            b = Global.Service.GetPlugin(a + "POS.dll");
+            c = b.ToDataTable(false, typeof(Plugin).Name);
+
+            r = from s in b
+                orderby s.Menu.Order
+                select s.Menu;
+
+            c = r.ToDataTable(false, typeof(Plugin).Name);
+            c.WriteXml(a + "Menu.xml");
+        }
+
+        /// <summary>
+        /// Load menu of all plugins
+        /// </summary>
+        private void CreateMenu()
+        {
             var a = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\BXE\";
             ribbonControl.LoadMenu(a);
 
             var b = AppDomain.CurrentDomain.BaseDirectory + @"Plugins\POS\";
             ribbonControl.LoadMenu(b);
 
-            Global.Service.FindPlugins();
-            var f = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
-            foreach (Plugin i in Global.Service.Plugins)
-                i.Type = i.Instance.GetType() + "";
+            //Global.Service.FindPlugins();
+            //var menu = (a + "Menu.xml").ToMenu(typeof(Plugin).Name);
+            //foreach (Plugin i in Global.Service.Plugins)
+            //    i.Type = i.Instance.GetType() + "";
 
-            var res = from p in f
-                      join c in Global.Service.Plugins on p.Type equals c.Type into j1
-                      from j2 in j1.DefaultIfEmpty()
-                      select new
-                      {
-                          p.Level,
-                          p.Text1,
-                          p.Text2,
-                          p.Type,
-                          p.Icon,
-                          p.Show,
+            //var res = from s in menu
+            //          join p in Global.Service.Plugins on s.Type equals p.Type into k
+            //          from q in k.DefaultIfEmpty()
+            //          select new
+            //          {
+            //              s.Level,
+            //              s.Caption,
+            //              s.Type,
+            //              s.Picture,
+            //              s.Show,
 
-                          //Instance = j2 == null ? null : j2.Instance,
-                          //Path = j2 == null ? null : j2.Path
-                      };
+            //              //Instance = q == null ? null : q.Instance,
+            //              Path = q == null ? null : q.Path
+            //          };
 
-            var x = res.ToDataTable(false, typeof(Plugin).Name);
-            x.WriteXml(Application.StartupPath + @"\Menu.xml");
+            //var x = res.ToDataTable(false, typeof(Plugin).Name);
+            //x.WriteXml(Application.StartupPath + @"\Menu.xml");
         }
     }
 }

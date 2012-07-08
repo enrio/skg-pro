@@ -15,13 +15,13 @@ namespace SKG.PRE
     /// <summary>
     /// Extension Methods
     /// </summary>
-    public static class Base
+    public static class SBasePRE
     {
         /// <summary>
         /// Load menu for RibbonControl
         /// </summary>
         /// <param name="m">RibbonControl</param>
-        /// <param name="l">List App.Config file</param>
+        /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this RibbonControl m, List<string> l)
         {
             foreach (var i in l) m.LoadMenu(i);
@@ -34,24 +34,25 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this RibbonControl m, string s)
         {
-            var name = typeof(Menuz).Name;
-            var menu = String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
-
-            // Menu's level 1 (root)
-            var m1 = new RibbonPage() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };
-            m.Pages.Add(m1);
-
-            // Menu's level 2, 3
+            var menu = Services.GetMenu(s);
+            RibbonPage m1 = null;
             RibbonPageGroup m2 = null;
-            for (int j = 1; j < menu.Count; j++)
+
+            for (int j = 0; j < menu.Count; j++)
             {
-                if (menu[j].Level == 2) // Menu's level 2
+                if (menu[j].Level == 1) // menu level 1 (root)
+                {
+                    m1 = new RibbonPage(menu[j].Caption);
+                    m1.Image = Image.FromFile(s + menu[j].Picture);
+                    m.Pages.Add(m1);
+                }
+                else if (menu[j].Level == 2) // menu level 2
                 {
                     m2 = new RibbonPageGroup(menu[j].Caption);
-                    //m2.Glyph = Image.FromFile(s + menu[j].Picture);
+                    m2.Glyph = Image.FromFile(s + menu[j].Picture);
                     m1.Groups.Add(m2);
                 }
-                else if (m2 != null)
+                else if (m2 != null) // menu level 3
                 {
                     var m3 = new BarButtonItem() { Caption = menu[j].Caption };
                     m2.ItemLinks.Add(m3);

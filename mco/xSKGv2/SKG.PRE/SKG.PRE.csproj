@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base.cs" />
+    <Compile Include="SBasePRE.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>

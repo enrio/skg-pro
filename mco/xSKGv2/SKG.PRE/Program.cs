@@ -19,7 +19,8 @@ namespace SKG.PRE
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-
+            
+            //BLL.SBaseBLL.CreateData(true);
             Application.Run(new FrmDemo());
         }
     }

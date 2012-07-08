@@ -5,6 +5,7 @@ using DevExpress.XtraBars;
 
 namespace PRE
 {
+    using SKG.UTL.Extension;
     using SKG.UTL;
     using SKG.UTL.Hasher;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace PRE.Catalog
 {
+    using SKG.UTL.Extension;
     using DAL.Entities;
     using System.Windows.Forms;
     using SKG.UTL;

@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.BLL
 {
+    using UTL.Plugin;
     using DAL.Entities;
     using System.Data;
 
@@ -364,6 +365,15 @@ namespace SKG.BLL
             b = (Pol_Right)Pol_Right.Select("FrmShowPrint");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
+        }
+
+        /// <summary>
+        /// Tạo dữ liệu mẫu bảng Pol_Menu
+        /// </summary>
+        void CreatePol_Menu()
+        {
+            var Service = new Services();
+            var a = Service.GetPlugins();
         }
         #endregion
 

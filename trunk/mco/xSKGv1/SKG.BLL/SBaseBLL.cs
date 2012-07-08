@@ -372,9 +372,17 @@ namespace SKG.BLL
         /// </summary>
         void CreatePol_Menu()
         {
+            if (Pol_Menu.Count() > 0) return;
+
             var a = new Services();
             var b = a.GetPlugins();
             var c = Services.GetMenu(b);
+
+            foreach (var i in c)
+            {
+                var o = new Pol_Menu() { Level = i.Level, Caption = i.Caption, Type = i.Type, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                Pol_Menu.Insert(o);
+            }
         }
         #endregion
 

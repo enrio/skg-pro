@@ -30,7 +30,7 @@ namespace BXE.PRE
         {
             get
             {
-                var menu = new Menuz() { Caption = "Cơ sở", Level = 1, Order = 1, Picture = @"Icon\Base.png" };
+                var menu = new Menuz() { Caption = "Cơ sở", Level = 1, Order = 11, Picture = @"Icon\Base.png" };
                 return menu;
             }
         }

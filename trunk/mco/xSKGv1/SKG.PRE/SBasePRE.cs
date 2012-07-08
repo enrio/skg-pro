@@ -32,22 +32,24 @@ namespace SKG.PRE
         public static void LoadMenu(this MenuStrip m, string s)
         {
             var menu = Services.GetMenu(s);
-
-            // Menu's level 1 (root)
-            var m1 = new ToolStripMenuItem() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };
-            m.Items.Add(m1);
-
-            // Menu's level 2, 3
+            ToolStripMenuItem m1 = null;
             ToolStripMenuItem m2 = null;
-            for (int j = 1; j < menu.Count; j++)
+
+            for (int j = 0; j < menu.Count; j++)
             {
-                if (menu[j].Level == 2) // Menu's level 2
+                if (menu[j].Level == 1) // menu level 1 (root)
+                {
+                    m1 = new ToolStripMenuItem(menu[j].Caption);
+                    m1.Image = Image.FromFile(s + menu[j].Picture);
+                    m.Items.Add(m1);
+                }
+                else if (menu[j].Level == 2) // menu level 2
                 {
                     m2 = new ToolStripMenuItem(menu[j].Caption);
                     m2.Image = Image.FromFile(s + menu[j].Picture);
                     m1.DropDownItems.Add(m2);
                 }
-                else if (m2 != null)
+                else if (m2 != null) // menu level 3
                 {
                     var m3 = new ToolStripMenuItem(menu[j].Caption);
                     m2.DropDownItems.Add(m3);

@@ -25,7 +25,7 @@ namespace BXE.PRE.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 1, Order = 9, Picture = @"Icon\Sales.png" };
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 9, Picture = @"Icon\Sales.png" };
                 return menu;
             }
         }

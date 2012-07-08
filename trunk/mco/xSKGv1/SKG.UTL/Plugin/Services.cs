@@ -13,6 +13,7 @@ namespace SKG.UTL.Plugin
     /// </summary>
     public class Services : IHost
     {
+        #region Old
         private List<Plugin> _plugins = new List<Plugin>();
         /// <summary>
         /// Available all plugins
@@ -101,6 +102,7 @@ namespace SKG.UTL.Plugin
                 _plugins.Add(plugin);
             }
         }
+        #endregion
 
         #region Implement
         public void FeedBack(string feedBack, IPlugin plugin) { return; }

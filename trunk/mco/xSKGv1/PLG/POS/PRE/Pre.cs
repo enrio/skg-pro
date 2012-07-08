@@ -6,6 +6,7 @@ using System.Text;
 namespace POS.PRE
 {
     using SKG.UTL.Plugin;
+
     public class Pre : Pos
     {
         #region Override plugin

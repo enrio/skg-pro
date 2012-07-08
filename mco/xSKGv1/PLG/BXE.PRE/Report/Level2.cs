@@ -14,7 +14,7 @@ namespace BXE.PRE.Report
         {
             get
             {
-                var menu = new Menuz() { Caption = "Báo cáo", Level = base.Menu.Level + 1, Order = 10, Picture = @"Icon\Report.png" };
+                var menu = new Menuz() { Caption = "Báo cáo", Level = base.Menu.Level + 1, Order = 6, Picture = @"Icon\Report.png" };
                 return menu;
             }
         }

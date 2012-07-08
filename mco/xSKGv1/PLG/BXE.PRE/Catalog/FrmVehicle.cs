@@ -25,7 +25,7 @@ namespace BXE.PRE.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Xe cộ", Level = 3, Order = 1, Picture = @"Icon\Vehicle.png" };
+                var menu = new Menuz() { Caption = "Xe cộ", Level = 3, Order = 5, Picture = @"Icon\Vehicle.png" };
                 return menu;
             }
         }

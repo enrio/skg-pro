@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace SKG.PRE
 {
-    using UTL.Extension;
     using UTL.Plugin;
     using System.Reflection;
 
@@ -32,7 +31,7 @@ namespace SKG.PRE
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this MenuStrip m, string s)
         {
-            var menu = GetMenu(s);
+            var menu = Services.GetMenu(s);
 
             // Menu's level 1 (root)
             var m1 = new ToolStripMenuItem() { Text = menu[0].Caption, Image = Image.FromFile(s + menu[0].Picture) };
@@ -73,29 +72,6 @@ namespace SKG.PRE
                 f.ShowDialog();
             }
             catch { return; }
-        }
-
-        /// <summary>
-        /// Get all menus of a plugin
-        /// </summary>
-        /// <param name="s"></param>
-        /// <returns></returns>
-        public static List<Menuz> GetMenu(string s)
-        {
-            var name = typeof(Menuz).Name;
-            return String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
-        }
-
-        /// <summary>
-        /// Get all menus of plugins
-        /// </summary>
-        /// <param name="l"></param>
-        /// <returns></returns>
-        public static List<Menuz> GetMenu(List<string> l)
-        {
-            var menu = new List<Menuz>();
-            foreach (var i in l) menu.AddRange(GetMenu(i));
-            return menu;
         }
     }
 }

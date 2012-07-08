@@ -200,6 +200,29 @@ namespace SKG.UTL.Plugin
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Get all menus of a plugin
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns></returns>
+        public static List<Menuz> GetMenu(string s)
+        {
+            var name = typeof(Menuz).Name;
+            return String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
+        }
+
+        /// <summary>
+        /// Get all menus of plugins
+        /// </summary>
+        /// <param name="l"></param>
+        /// <returns></returns>
+        public static List<Menuz> GetMenu(List<string> l)
+        {
+            var menu = new List<Menuz>();
+            foreach (var i in l) menu.AddRange(GetMenu(i));
+            return menu;
+        }
         #endregion
     }
 }

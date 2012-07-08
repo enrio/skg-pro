@@ -16,7 +16,7 @@ namespace SKG.PRE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            BLL.BaseBLL.CreateData();
+            BLL.SBaseBLL.CreateData();
             Application.Run(new FrmDemo());
         }
     }

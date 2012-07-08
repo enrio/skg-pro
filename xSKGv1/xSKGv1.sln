@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.WPF", "SKG.WPF\SKG.WPF.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.UTL", "SKG.UTL\SKG.UTL.csproj", "{9F54D90C-6E79-43D4-9444-B43F4014402C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pol", "Pol", "{BFA8BC1C-6460-4F30-A8D3-B96376BB62EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pol", "Pol\Pol.csproj", "{8422A250-2AA6-4AD0-88CA-605EB72F20D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,9 +63,22 @@ Global
 		{9F54D90C-6E79-43D4-9444-B43F4014402C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9F54D90C-6E79-43D4-9444-B43F4014402C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9F54D90C-6E79-43D4-9444-B43F4014402C}.Release|x86.ActiveCfg = Release|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8422A250-2AA6-4AD0-88CA-605EB72F20D1} = {BFA8BC1C-6460-4F30-A8D3-B96376BB62EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .

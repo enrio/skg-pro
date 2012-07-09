@@ -17,24 +17,10 @@ namespace SKG.DAL
         /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
-        /// <returns>Số dòng</returns>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Pol_UserRoles.Count();
-        }
-
-        /// <summary>
-        /// Tìm theo mã (cột Code), hoặc cột khác
-        /// </summary>
-        /// <param name="code">Mã cần tìm</param>
-        /// <returns>Đối tượng tìm</returns>
-        public object Select(string code)
-        {
-            try
-            {
-                return _db.Pol_UserRoles.SingleOrDefault(s => s.Code == code);
-            }
-            catch { return null; }
         }
 
         /// <summary>
@@ -48,9 +34,19 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
+        public object Select(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng cần lọc</param>
+        /// <param name="obj">Đối tượng Pol_UserRole cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -104,7 +100,7 @@ namespace SKG.DAL
         /// <summary>
         /// Thêm dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần thêm</param>
+        /// <param name="obj">Đối tượng Pol_UserRole</param>
         /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
@@ -123,7 +119,7 @@ namespace SKG.DAL
         /// <summary>
         /// Sửa dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần sửa</param>
+        /// <param name="obj">Đối tượng Pol_UserRole</param>
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {

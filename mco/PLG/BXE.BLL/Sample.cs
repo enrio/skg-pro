@@ -250,7 +250,6 @@ namespace BXE.BLL
             Tra_Kind.Delete();
             Tra_Group.Delete();
             base.DeleteAll();
-            Pol_User.Delete();
         }
 
         /// <summary>

@@ -95,21 +95,21 @@
             // bbiAdd
             // 
             this.bbiAdd.Caption = "Thê&m";
-            //this.bbiAdd.Glyph = global::PRE.Properties.Resources.add;
+            this.bbiAdd.Glyph = global::SKG.PRE.Properties.Resources.add;
             this.bbiAdd.Id = 0;
             this.bbiAdd.Name = "bbiAdd";
             // 
             // bbiEdit
             // 
             this.bbiEdit.Caption = "&Sửa";
-            //this.bbiEdit.Glyph = global::PRE.Properties.Resources.edit;
+            this.bbiEdit.Glyph = global::SKG.PRE.Properties.Resources.edit;
             this.bbiEdit.Id = 1;
             this.bbiEdit.Name = "bbiEdit";
             // 
             // bbiDelete
             // 
             this.bbiDelete.Caption = "&Xoá";
-            //this.bbiDelete.Glyph = global::PRE.Properties.Resources.delete;
+            this.bbiDelete.Glyph = global::SKG.PRE.Properties.Resources.delete;
             this.bbiDelete.Id = 2;
             this.bbiDelete.Name = "bbiDelete";
             // 
@@ -117,7 +117,7 @@
             // 
             this.bbiSave.Caption = "&Lưu";
             this.bbiSave.Enabled = false;
-            //this.bbiSave.Glyph = global::PRE.Properties.Resources.save;
+            this.bbiSave.Glyph = global::SKG.PRE.Properties.Resources.save;
             this.bbiSave.Id = 3;
             this.bbiSave.Name = "bbiSave";
             // 
@@ -125,28 +125,28 @@
             // 
             this.bbiCancel.Caption = "&Huỷ";
             this.bbiCancel.Enabled = false;
-            //this.bbiCancel.Glyph = global::PRE.Properties.Resources.cancel;
+            this.bbiCancel.Glyph = global::SKG.PRE.Properties.Resources.cancel;
             this.bbiCancel.Id = 4;
             this.bbiCancel.Name = "bbiCancel";
             // 
             // bbiRefresh
             // 
             this.bbiRefresh.Caption = "&Cập nhật";
-            //this.bbiRefresh.Glyph = global::PRE.Properties.Resources.refresh;
+            this.bbiRefresh.Glyph = global::SKG.PRE.Properties.Resources.refresh;
             this.bbiRefresh.Id = 5;
             this.bbiRefresh.Name = "bbiRefresh";
             // 
             // bbiFind
             // 
             this.bbiFind.Caption = "&Tìm";
-            //this.bbiFind.Glyph = global::PRE.Properties.Resources.find;
+            this.bbiFind.Glyph = global::SKG.PRE.Properties.Resources.find;
             this.bbiFind.Id = 6;
             this.bbiFind.Name = "bbiFind";
             // 
             // bbiPrint
             // 
             this.bbiPrint.Caption = "&In";
-            //this.bbiPrint.Glyph = global::PRE.Properties.Resources.printer;
+            this.bbiPrint.Glyph = global::SKG.PRE.Properties.Resources.printer;
             this.bbiPrint.Id = 7;
             this.bbiPrint.Name = "bbiPrint";
             this.bbiPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -154,7 +154,7 @@
             // bbiCollapse
             // 
             this.bbiCollapse.Caption = "Thu &gọn";
-            //this.bbiCollapse.Glyph = global::PRE.Properties.Resources.collapse;
+            this.bbiCollapse.Glyph = global::SKG.PRE.Properties.Resources.collapse;
             this.bbiCollapse.Id = 9;
             this.bbiCollapse.Name = "bbiCollapse";
             this.bbiCollapse.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -162,7 +162,7 @@
             // bbiExpand
             // 
             this.bbiExpand.Caption = "Mở &rộng";
-            //this.bbiExpand.Glyph = global::PRE.Properties.Resources.expand;
+            this.bbiExpand.Glyph = global::SKG.PRE.Properties.Resources.expand;
             this.bbiExpand.Id = 10;
             this.bbiExpand.Name = "bbiExpand";
             this.bbiExpand.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
@@ -170,7 +170,7 @@
             // bbiClose
             // 
             this.bbiClose.Caption = "Đó&ng";
-            //this.bbiClose.Glyph = global::PRE.Properties.Resources.close;
+            this.bbiClose.Glyph = global::SKG.PRE.Properties.Resources.close;
             this.bbiClose.Id = 8;
             this.bbiClose.Name = "bbiClose";
             // 

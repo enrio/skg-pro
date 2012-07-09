@@ -76,6 +76,7 @@ namespace SKG.PRE
             {
                 var f = (Form)e.Item.Tag;
                 f.Show();
+                f.Activate();
             }
             catch { return; }
         }

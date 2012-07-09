@@ -80,6 +80,24 @@
     <Compile Include="Catalog\FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalog\FrmPol_Right.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.Designer.cs">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.Designer.cs">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extend.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>

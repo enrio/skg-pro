@@ -55,7 +55,7 @@ namespace SKG.Extend
                     m2.DropDownItems.Add(m3);
 
                     Assembly y = null;
-                    try { y = Assembly.LoadFile(s + "BXE.PRE.exe"); }
+                    try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
                     m3.Tag = y.CreateInstance(menu[j].Type);

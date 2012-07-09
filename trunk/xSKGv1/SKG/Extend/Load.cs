@@ -15,13 +15,19 @@ namespace SKG.Extend
     public static class Load
     {
         /// <summary>
+        /// Form MDI parent
+        /// </summary>
+        public static Form Parent { get; set; }
+
+        /// <summary>
         /// Load menu for MenuStrip
         /// </summary>
         /// <param name="m">MenuStrip</param>
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this MenuStrip m, List<string> l, Form f = null)
         {
-            foreach (var i in l) m.LoadMenu(i, f);
+            Parent = f;
+            foreach (var i in l) m.LoadMenu(i);
         }
 
         /// <summary>
@@ -29,7 +35,7 @@ namespace SKG.Extend
         /// </summary>
         /// <param name="m">MenuStrip</param>
         /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this MenuStrip m, string s, Form f = null)
+        public static void LoadMenu(this MenuStrip m, string s)
         {
             var menu = Services.GetMenu(s);
             ToolStripMenuItem m1 = null;
@@ -58,10 +64,7 @@ namespace SKG.Extend
                     try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    var frm = (Form)y.CreateInstance(menu[j].Type);
-                    if (f != null && f.IsMdiContainer) frm.MdiParent = f;
-                    m3.Tag = frm;
-
+                    m3.Tag = y.CreateInstance(menu[j].Type);
                     m3.Image = Image.FromFile(s + menu[j].Picture);
                     m3.Click += MenuItem_Click;
                 }
@@ -74,7 +77,9 @@ namespace SKG.Extend
             {
                 var t = (ToolStripMenuItem)sender;
                 var f = (Form)t.Tag;
+                if (Parent != null) f.MdiParent = Parent;
                 f.Show();
+                f.Activate();
             }
             catch { return; }
         }

@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
 namespace SKG.PRE.Catalog
 {
-    using SKG;
     using BLL;
     using DAL.Entities;
     using DevExpress.XtraBars;
@@ -255,19 +252,19 @@ namespace SKG.PRE.Catalog
             var name = frmRight.GetType().Name;
             var z = BasePRE._sss.GetZAction(name);
 
-            if (z == null || z.Access == false) ;
-            //BasePRE.ShowMessage("Không có quyền", name, MessageBoxButtons.OK, showMessage);
-            else
-            {
-                bbiAdd.Enabled = z.Add;
-                bbiEdit.Enabled = z.Edit;
+            if (z == null || z.Access == false)
+                if (showMessage) XtraMessageBox.Show("Không có quyền", name, MessageBoxButtons.OK);
+                else
+                {
+                    bbiAdd.Enabled = z.Add;
+                    bbiEdit.Enabled = z.Edit;
 
-                bbiSave.Enabled = false;
-                bbiCancel.Enabled = false;
+                    bbiSave.Enabled = false;
+                    bbiCancel.Enabled = false;
 
-                bbiDelete.Enabled = z.Delete;
-                bbiPrint.Enabled = z.Print;
-            }
+                    bbiDelete.Enabled = z.Delete;
+                    bbiPrint.Enabled = z.Print;
+                }
 
             return z;
         }

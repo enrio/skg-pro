@@ -221,5 +221,19 @@ namespace SKG.PRE
                     x.BestFit();
             }
         }
+
+        /// <summary>
+        /// Show form with user's rights
+        /// </summary>
+        /// <param name="f">Form</param>
+        public static void ShowRight(this Form f)
+        {
+            var a = f.GetType();
+            var b = (FrmBase)GetMdiChilden(f.MdiParent, a.FullName);
+
+            if (b == null || b.IsDisposed)
+                f.ShowRight();
+            else b.ShowRight();
+        }
     }
 }

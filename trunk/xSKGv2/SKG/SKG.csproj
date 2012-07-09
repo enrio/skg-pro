@@ -42,12 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Base.cs" />
+    <Compile Include="Database\SQLServer.cs" />
     <Compile Include="Enums.cs" />
-    <Compile Include="Extend\Ctrl.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Number.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />
+    <Compile Include="Hasher\Base64\Decoder.cs" />
+    <Compile Include="Hasher\Base64\Encoder.cs" />
+    <Compile Include="Hasher\Coder.cs" />
+    <Compile Include="Hasher\License.cs" />
+    <Compile Include="Hasher\Registri.cs" />
+    <Compile Include="Hasher\Windows.cs" />
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\IPlugin.cs" />
     <Compile Include="Plugin\Menuz.cs" />
@@ -55,10 +62,7 @@
     <Compile Include="Plugin\Services.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-    <Folder Include="Hasher\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

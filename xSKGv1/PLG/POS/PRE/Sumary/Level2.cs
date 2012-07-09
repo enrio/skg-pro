@@ -14,7 +14,7 @@ namespace POS.PRE.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thống kê", Level = base.Menu.Level + 1, Order = 8, Picture = @"Icon\Sumary.png" };
+                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 8, Picture = @"Icon\Sumary.png" };
                 return menu;
             }
         }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace POS.PRE.Report
 {
     using SKG.Plugin;
+    using SKG.PRE.Catalog;
 
     public partial class FrmPrint : FrmBase
     {

@@ -12,11 +12,10 @@ namespace SKG.PRE
     using DevExpress.XtraBars.Ribbon;
 
     /// <summary>
-    /// Extension methods
+    /// Extension methods for load menu
     /// </summary>
     public static class Extend
     {
-        #region DevExpress
         /// <summary>
         /// Load menu for RibbonControl
         /// </summary>
@@ -77,70 +76,5 @@ namespace SKG.PRE
             }
             catch { return; }
         }
-        #endregion
-
-        #region Normal
-        /// <summary>
-        /// Load menu for MenuStrip
-        /// </summary>
-        /// <param name="m">MenuStrip</param>
-        /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this MenuStrip m, List<string> l)
-        {
-            foreach (var i in l) m.LoadMenu(i);
-        }
-
-        /// <summary>
-        /// Load menu for MenuStrip
-        /// </summary>
-        /// <param name="m">MenuStrip</param>
-        /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this MenuStrip m, string s)
-        {
-            var menu = Services.GetMenu(s);
-            ToolStripMenuItem m1 = null;
-            ToolStripMenuItem m2 = null;
-
-            for (int j = 0; j < menu.Count; j++)
-            {
-                if (menu[j].Level == 1) // menu level 1 (root)
-                {
-                    m1 = new ToolStripMenuItem(menu[j].Caption);
-                    m1.Image = Image.FromFile(s + menu[j].Picture);
-                    m.Items.Add(m1);
-                }
-                else if (menu[j].Level == 2) // menu level 2
-                {
-                    m2 = new ToolStripMenuItem(menu[j].Caption);
-                    m2.Image = Image.FromFile(s + menu[j].Picture);
-                    m1.DropDownItems.Add(m2);
-                }
-                else if (m2 != null) // menu level 3
-                {
-                    var m3 = new ToolStripMenuItem(menu[j].Caption);
-                    m2.DropDownItems.Add(m3);
-
-                    Assembly y = null;
-                    try { y = Assembly.LoadFile(s + "BXE.PRE.exe"); }
-                    catch { y = Assembly.LoadFile(s + "POS.dll"); }
-
-                    m3.Tag = y.CreateInstance(menu[j].Type);
-                    m3.Image = Image.FromFile(s + menu[j].Picture);
-                    m3.Click += MenuItem_Click;
-                }
-            }
-        }
-
-        private static void MenuItem_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var t = (ToolStripMenuItem)sender;
-                var f = (Form)t.Tag;
-                f.ShowDialog();
-            }
-            catch { return; }
-        }
-        #endregion
     }
 }

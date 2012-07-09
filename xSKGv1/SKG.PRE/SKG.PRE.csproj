@@ -111,6 +111,36 @@
     <Compile Include="Main\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.Designer.cs">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.Designer.cs">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.Designer.cs">
+      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orther\FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orther\FrmPrint.Designer.cs">
+      <DependentUpon>FrmPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Orther\FrmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Orther\FrmSelect.Designer.cs">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -48,9 +48,6 @@ namespace SKG.PRE.Orther
             bbiLogin.Caption = Properties.Settings.Default.Logout;
             bsiUser.Caption = BasePRE._sss.User.Name;
 
-            var a = Global.Service.GetPlugins();
-            ribbon.LoadMenu(a, this);
-
             // Hiện form mặc định
             var d = BasePRE._sss.Default;
             foreach (var r in d)
@@ -125,6 +122,10 @@ namespace SKG.PRE.Orther
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            ribbon.Pages.Remove(rbpHelp);
+            var a = Global.Service.GetPlugins();
+            ribbon.LoadMenu(a, this);
+            ribbon.Pages.Add(rbpHelp);
 #if !DEBUG
             // Check license
             var key = (new Registri()).Read("License");

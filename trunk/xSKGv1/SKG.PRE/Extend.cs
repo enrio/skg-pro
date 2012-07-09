@@ -17,13 +17,19 @@ namespace SKG.PRE
     public static class Extend
     {
         /// <summary>
+        /// Form MDI parent
+        /// </summary>
+        public static Form Parent { get; set; }
+
+        /// <summary>
         /// Load menu for RibbonControl
         /// </summary>
         /// <param name="m">RibbonControl</param>
         /// <param name="s">Path's Menu.xml</param>
         public static void LoadMenu(this RibbonControl m, List<string> l, Form f = null)
         {
-            foreach (var i in l) m.LoadMenu(i, f);
+            Parent = f;
+            foreach (var i in l) m.LoadMenu(i);
         }
 
         /// <summary>
@@ -31,7 +37,7 @@ namespace SKG.PRE
         /// </summary>
         /// <param name="m">RibbonControl</param>
         /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this RibbonControl m, string s, Form f = null)
+        public static void LoadMenu(this RibbonControl m, string s)
         {
             var menu = Services.GetMenu(s);
             RibbonPage m1 = null;
@@ -60,10 +66,7 @@ namespace SKG.PRE
                     try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    var frm = (Form)y.CreateInstance(menu[j].Type);
-                    if (f != null && f.IsMdiContainer) frm.MdiParent = f;
-                    m3.Tag = frm;
-
+                    m3.Tag = y.CreateInstance(menu[j].Type);
                     m3.LargeGlyph = Image.FromFile(s + menu[j].Picture);
                     m3.ItemClick += ButtonItem_ItemClick;
                 }
@@ -75,6 +78,7 @@ namespace SKG.PRE
             try
             {
                 var f = (Form)e.Item.Tag;
+                if (Parent != null) f.MdiParent = Parent;
                 f.Show();
                 f.Activate();
             }

@@ -16,6 +16,7 @@ namespace SKG.BXE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //Application.Run(new WFA.FrmMain());
             Application.Run(new DXW.FrmMain());
         }
     }

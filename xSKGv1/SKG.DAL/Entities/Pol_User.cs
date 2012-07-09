@@ -7,7 +7,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Chính sách - Thông tin người dùng của hệ thống
     /// </summary>
-    public class Pol_User : Base
+    public class Pol_User : ZBase
     {
         /// <summary>
         /// Tên tài khoản đăng nhập

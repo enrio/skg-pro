@@ -49,7 +49,7 @@ namespace SKG.PRE.Orther
             bsiUser.Caption = BasePRE._sss.User.Name;
 
             // Hiện form mặc định
-            List<DAL.Entities.Action> d = BasePRE._sss.Default;
+            List<DAL.Entities.ZAction> d = BasePRE._sss.Default;
             foreach (var r in d)
             {
                 if (r.Code == null) break;

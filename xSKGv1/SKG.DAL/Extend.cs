@@ -78,14 +78,14 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Action> ToZActions(this Pol_User u)
+        public static List<ZAction> ToZActions(this Pol_User u)
         {
             try
             {
                 var a = u.ToUserRights()
-                    .ToList<Action>();
+                    .ToList<ZAction>();
                 var b = u.ToRoleRights()
-                    .ToList<Action>();
+                    .ToList<ZAction>();
                 return a.Union(b).ToList();
             }
             catch { return null; }
@@ -96,7 +96,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Action> ToDefaults(this Pol_User u)
+        public static List<ZAction> ToDefaults(this Pol_User u)
         {
             try
             {
@@ -113,7 +113,7 @@ namespace SKG.DAL
         /// <param name="u">User</param>
         /// <param name="c">Code's right</param>
         /// <returns></returns>
-        public static Action ToZAction(this Pol_User u, string c)
+        public static ZAction ToZAction(this Pol_User u, string c)
         {
             try
             {

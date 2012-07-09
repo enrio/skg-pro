@@ -151,7 +151,7 @@ namespace SKG.PRE
                 bll.Insert(o);
             }
 
-            Action z = frm.CheckRight();
+            ZAction z = frm.CheckRight();
             if (z == null || z.Access == false) frm.Dispose();
             else frm.Show();
         }

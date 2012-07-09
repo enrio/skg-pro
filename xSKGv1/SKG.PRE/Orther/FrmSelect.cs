@@ -13,7 +13,7 @@ namespace SKG.PRE.Orther
         /// <summary>
         /// Dữ liệu được chọn
         /// </summary>
-        public List<Base> ListInfo { private set; get; }
+        public List<ZBase> ListInfo { private set; get; }
 
         /// <summary>
         /// Dữ liệu cần để chọn
@@ -40,14 +40,14 @@ namespace SKG.PRE.Orther
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            ListInfo = new List<Base>();
+            ListInfo = new List<ZBase>();
 
             foreach (TreeListNode n in trlMain.Nodes)
                 if (n.Checked)
                 {
                     var id = (Guid)n.GetValue("Id");
                     var name = n.GetValue("Name") + "";
-                    var o = new Base() { Id = id, Descript = name };
+                    var o = new ZBase() { Id = id, Descript = name };
                     ListInfo.Add(o);
                 }
 

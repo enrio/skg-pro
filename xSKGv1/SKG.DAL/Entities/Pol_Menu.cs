@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    public class Pol_Menu : Base
+    public class Pol_Menu : ZBase
     {
         /// <summary>
         /// Menu of level

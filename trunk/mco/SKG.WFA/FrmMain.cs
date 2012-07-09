@@ -9,11 +9,19 @@ using System.Windows.Forms;
 
 namespace SKG.WFA
 {
+    using SKG.Extend;
+
     public partial class FrmMain : Form
     {
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            var a = Global.Service.GetPlugins();
+            menuStrip1.LoadMenu(a);
         }
     }
 }

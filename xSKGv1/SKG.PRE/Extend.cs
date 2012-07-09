@@ -60,7 +60,10 @@ namespace SKG.PRE
                     try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    m3.Tag = y.CreateInstance(menu[j].Type);
+                    var frm = (Form)y.CreateInstance(menu[j].Type);
+                    if (f != null && f.IsMdiContainer) frm.MdiParent = f;
+                    m3.Tag = frm;
+
                     m3.LargeGlyph = Image.FromFile(s + menu[j].Picture);
                     m3.ItemClick += ButtonItem_ItemClick;
                 }
@@ -72,7 +75,7 @@ namespace SKG.PRE
             try
             {
                 var f = (Form)e.Item.Tag;
-                f.ShowDialog();
+                f.Show();
             }
             catch { return; }
         }

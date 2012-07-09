@@ -45,7 +45,7 @@ namespace SKG.PRE
         private void FrmMain_Load(object sender, EventArgs e)
         {
             var a = Global.Service.GetPlugins();
-            ribbonControl.LoadMenu(a);
+            ribbonControl.LoadMenu(a, this);
         }
     }
 }

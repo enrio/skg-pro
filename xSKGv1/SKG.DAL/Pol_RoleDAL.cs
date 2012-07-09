@@ -17,24 +17,10 @@ namespace SKG.DAL
         /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
-        /// <returns>Số dòng</returns>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Pol_Roles.Count();
-        }
-
-        /// <summary>
-        /// Tìm theo mã (cột Code), hoặc cột khác
-        /// </summary>
-        /// <param name="code">Mã cần tìm</param>
-        /// <returns>Đối tượng tìm</returns>
-        public object Select(string code)
-        {
-            try
-            {
-                return _db.Pol_Roles.SingleOrDefault(s => s.Code == code);
-            }
-            catch { return null; }
         }
 
         /// <summary>
@@ -48,9 +34,23 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
+        public object Select(string code)
+        {
+            try
+            {
+                return _db.Pol_Roles.SingleOrDefault(s => s.Code == code);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng cần lọc</param>
+        /// <param name="obj">Đối tượng Pol_Role cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -59,16 +59,12 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Pol_Roles
-                          orderby s.Order
                           select new
                           {
                               s.Id,
-                              s.Name,
-
                               s.Code,
-                              s.Descript,
-                              s.Order,
-                              s.Show
+                              s.Name,
+                              s.Descript
                           };
 
                 if (obj != null) res = res.Where(s => s.Code == obj + "");
@@ -82,13 +78,16 @@ namespace SKG.DAL
         /// <summary>
         /// Thêm dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần thêm</param>
+        /// <param name="obj">Đối tượng Pol_Role</param>
         /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
             try
             {
                 var o = (Pol_Role)obj;
+
+                if (Select(o.Code) != null) return null; // mã này có rồi
+
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Roles.Add(o);
 
@@ -101,7 +100,7 @@ namespace SKG.DAL
         /// <summary>
         /// Sửa dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần sửa</param>
+        /// <param name="obj">Đối tượng Pol_Role</param>
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {

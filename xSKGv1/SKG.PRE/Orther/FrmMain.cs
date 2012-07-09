@@ -46,18 +46,20 @@ namespace SKG.PRE.Orther
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
             bbiLogin.Caption = Properties.Settings.Default.Logout;
-
             bsiUser.Caption = BasePRE._sss.User.Name;
 
+            var a = Global.Service.GetPlugins();
+            ribbon.LoadMenu(a, this);
+
             // Hiện form mặc định
-            List<DAL.Entities.ZAction> d = BasePRE._sss.Default;
+            var d = BasePRE._sss.Default;
             foreach (var r in d)
             {
                 if (r.Code == null) break;
 
-                var t = Type.GetType("PRE.Catalog." + r.Code);
-                if (t == null) t = Type.GetType("PRE.Main." + r.Code);
-                if (t == null) t = Type.GetType("PRE.Manage." + r.Code);
+                var t = Type.GetType("SKG.PRE.Catalog." + r.Code);
+                if (t == null) t = Type.GetType("SKG.PRE.Main." + r.Code);
+                if (t == null) t = Type.GetType("SKG.PRE.Manage." + r.Code);
                 if (t == null) t = Type.GetType(r.Code);
 
                 if (t == null) return;

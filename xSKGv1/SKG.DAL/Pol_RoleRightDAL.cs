@@ -17,24 +17,10 @@ namespace SKG.DAL
         /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
-        /// <returns>Số dòng</returns>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Pol_RoleRights.Count();
-        }
-
-        /// <summary>
-        /// Tìm theo mã (cột Code), hoặc cột khác
-        /// </summary>
-        /// <param name="code">Mã cần tìm</param>
-        /// <returns>Đối tượng tìm</returns>
-        public object Select(string code)
-        {
-            try
-            {
-                return _db.Pol_RoleRights.SingleOrDefault(s => s.Code == code);
-            }
-            catch { return null; }
         }
 
         /// <summary>
@@ -48,9 +34,19 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
+        public object Select(string code)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng cần lọc</param>
+        /// <param name="obj">Đối tượng Pol_RoleRight cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -69,10 +65,9 @@ namespace SKG.DAL
                             s.Add,
                             s.Edit,
                             s.Delete,
-                            s.Query,
+                            s.Default,
                             s.Print,
                             s.Access,
-                            s.Default,
                             s.Full,
                             s.None,
 
@@ -93,10 +88,9 @@ namespace SKG.DAL
                             Add = false,
                             Edit = false,
                             Delete = false,
-                            Query = false,
+                            Default = false,
                             Print = false,
                             Access = false,
-                            Default = false,
                             Full = false,
                             None = false,
 
@@ -122,14 +116,21 @@ namespace SKG.DAL
         /// <summary>
         /// Thêm dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần thêm</param>
+        /// <param name="obj">Đối tượng Pol_RoleRight</param>
         /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
             try
             {
                 var o = (Pol_RoleRight)obj;
+
                 o.Id = Guid.NewGuid();
+                var r = _db.Pol_Rights.
+                    Where(s => s.Id == o.Pol_RightId)
+                    .FirstOrDefault();
+                o.Code = r.Code;
+                o.Descript = r.Descript;
+
                 var oki = _db.Pol_RoleRights.Add(o);
 
                 _db.SaveChanges();
@@ -141,7 +142,7 @@ namespace SKG.DAL
         /// <summary>
         /// Sửa dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần sửa</param>
+        /// <param name="obj">Đối tượng Pol_RoleRight</param>
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
@@ -153,15 +154,14 @@ namespace SKG.DAL
                 res.Add = o.Add;
                 res.Edit = o.Edit;
                 res.Delete = o.Delete;
-                res.Query = o.Query;
+                res.Default = o.Default;
                 res.Print = o.Print;
                 res.Access = o.Access;
-                res.Default = o.Default;
                 res.Full = o.Full;
                 res.None = o.None;
 
-                res.Code = o.Code;
-                res.Descript = o.Descript;
+                //res.Code = o.Code;
+                //res.Descript = o.Descript;
                 res.Order = o.Order;
                 res.Show = o.Show;
 

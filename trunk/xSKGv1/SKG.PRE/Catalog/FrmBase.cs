@@ -44,7 +44,7 @@ namespace SKG.PRE.Catalog
         /// Kiểm tra quyền người dùng đăng nhập
         /// </summary>
         /// <returns>Quyền truy cập</returns>
-        public Action CheckRight()
+        public ZAction CheckRight()
         {
             return CheckRight(this);
         }
@@ -247,24 +247,26 @@ namespace SKG.PRE.Catalog
         /// <param name="frmRight">Form cần kiểm tra</param>
         /// <param name="showMessage">Hiện thông báo hay không?</param>
         /// <returns>Quyền truy cập</returns>
-        protected virtual Action CheckRight(Form frmRight, bool showMessage = false)
+        protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().Name;
             var z = BasePRE._sss.GetZAction(name);
 
             if (z == null || z.Access == false)
+            {
                 if (showMessage) XtraMessageBox.Show("Không có quyền", name, MessageBoxButtons.OK);
-                else
-                {
-                    bbiAdd.Enabled = z.Add;
-                    bbiEdit.Enabled = z.Edit;
+            }
+            else
+            {
+                bbiAdd.Enabled = z.Add;
+                bbiEdit.Enabled = z.Edit;
 
-                    bbiSave.Enabled = false;
-                    bbiCancel.Enabled = false;
+                bbiSave.Enabled = false;
+                bbiCancel.Enabled = false;
 
-                    bbiDelete.Enabled = z.Delete;
-                    bbiPrint.Enabled = z.Print;
-                }
+                bbiDelete.Enabled = z.Delete;
+                bbiPrint.Enabled = z.Print;
+            }
 
             return z;
         }

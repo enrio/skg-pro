@@ -9,7 +9,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Danh sách người dùng thuộc nhóm người dùng của hệ thống
     /// </summary>
-    public class Pol_UserRole : Base
+    public class Pol_UserRole : ZBase
     {
         #region Khoá ngoại
         /// <summary>

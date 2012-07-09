@@ -40,7 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pol_ActionBLL.cs" />
+    <Compile Include="Pol_MenuBLL.cs" />
+    <Compile Include="Pol_RightBLL.cs" />
+    <Compile Include="Pol_RoleBLL.cs" />
+    <Compile Include="Pol_RoleRightBLL.cs" />
+    <Compile Include="Pol_UserBLL.cs" />
+    <Compile Include="Pol_UserRightBLL.cs" />
+    <Compile Include="Pol_UserRoleBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SBaseBLL.cs" />
+    <Compile Include="ZSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SKG\SKG.csproj">

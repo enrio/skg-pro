@@ -6,6 +6,7 @@ namespace SKG.DAL
 {
     using Entities;
     using SKG.Extend;
+    using SKG.Hasher;
     using System.Data;
 
     /// <summary>
@@ -17,24 +18,10 @@ namespace SKG.DAL
         /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
-        /// <returns>Số dòng</returns>
+        /// <returns></returns>
         public int Count()
         {
             return _db.Pol_Users.Count();
-        }
-
-        /// <summary>
-        /// Tìm theo mã (cột Code), hoặc cột khác
-        /// </summary>
-        /// <param name="code">Mã cần tìm</param>
-        /// <returns>Đối tượng tìm</returns>
-        public object Select(string code)
-        {
-            try
-            {
-                return _db.Pol_Users.SingleOrDefault(s => s.Acc == code);
-            }
-            catch { return null; }
         }
 
         /// <summary>
@@ -48,9 +35,23 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Tìm theo mã (cột Code)
+        /// </summary>
+        /// <param name="code">Mã cần tìm</param>
+        /// <returns>Đối tượng tìm</returns>
+        public object Select(string code)
+        {
+            try
+            {
+                return _db.Pol_Users.SingleOrDefault(s => s.Acc == code);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Lấy dữ liệu, obj = null: lấy tất cả
         /// </summary>
-        /// <param name="obj">Đối tượng cần lọc</param>
+        /// <param name="obj">Đối tượng Pol_User cần lọc</param>
         /// <param name="skip">Số dòng bỏ qua</param>
         /// <param name="take">Số dòng cần lấy</param>
         /// <returns>Dữ liệu</returns>
@@ -59,7 +60,6 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Pol_Users
-                          orderby s.Order
                           select new
                           {
                               s.Id,
@@ -68,15 +68,10 @@ namespace SKG.DAL
                               s.Name,
                               s.Birth,
                               s.Address,
-                              s.Phone,
-
-                              s.Code,
-                              s.Descript,
-                              s.Order,
-                              s.Show
+                              s.Phone
                           };
 
-                if (obj != null) res = res.Where(s => s.Code == obj + "");
+                if (obj != null) res = res.Where(s => s.Acc == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();
@@ -87,14 +82,18 @@ namespace SKG.DAL
         /// <summary>
         /// Thêm dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần thêm</param>
+        /// <param name="obj">Đối tượng Pol_User</param>
         /// <returns>Khác null: thêm thành công</returns>
         public object Insert(object obj)
         {
             try
             {
                 var o = (Pol_User)obj;
+
+                if (Select(o.Acc) != null) return null; // tài khoản này có rồi
+
                 o.Id = Guid.NewGuid();
+                o.Pass = Coder.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);
 
                 _db.SaveChanges();
@@ -106,7 +105,7 @@ namespace SKG.DAL
         /// <summary>
         /// Sửa dữ liệu
         /// </summary>
-        /// <param name="obj">Đối tượng cần sửa</param>
+        /// <param name="obj">Đối tượng Pol_User</param>
         /// <returns>Khác null: sửa thành công</returns>
         public object Update(object obj)
         {
@@ -115,7 +114,7 @@ namespace SKG.DAL
                 var o = (Pol_User)obj;
                 var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
 
-                res.Pass = o.Pass;
+                res.Pass = Coder.Encode(o.Pass);
                 res.Name = o.Name;
                 res.Birth = o.Birth;
                 res.Address = o.Address;
@@ -156,5 +155,104 @@ namespace SKG.DAL
             catch { return null; }
         }
         #endregion
+
+        /// <summary>
+        /// Lấy tất cả các quyền (chức năng) của người dùng
+        /// </summary>
+        /// <param name="userId">Id người dùng đăng nhập</param>
+        /// <returns>Danh sách các quyền (chức năng)</returns>
+        public List<ZAction> GetRights(Guid userId)
+        {
+            try
+            {
+                var a = from s in _db.Pol_UserRights
+
+                        join u in _db.Pol_Users on s.Pol_UserId equals u.Id
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+
+                        where s.Pol_UserId == userId
+                        select new
+                        {
+                            RightCode = r.Code,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Default,
+                            s.Print,
+                            s.Access,
+                            s.Full,
+                            s.None
+                        };
+
+                var b = from s in _db.Pol_RoleRights
+
+                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+                        join ur in _db.Pol_UserRoles on s.Pol_RoleId equals ur.Pol_RoleId
+                        join u in _db.Pol_Users on ur.Pol_UserId equals u.Id
+
+                        where ur.Pol_User.Id == userId
+                        select new
+                        {
+                            RightCode = r.Code,
+                            RightName = r.Name,
+                            RightDescript = r.Descript,
+
+                            s.Add,
+                            s.Edit,
+                            s.Delete,
+                            s.Default,
+                            s.Print,
+                            s.Access,
+                            s.Full,
+                            s.None
+                        };
+
+                var tmp = a.Union(b);
+
+                var lst = new List<ZAction>();
+
+                foreach (var res in tmp)
+                {
+                    var z = new ZAction()
+                    {
+                        Code = res.RightCode,
+                        Add = res.Add,
+                        Edit = res.Edit,
+                        Delete = res.Delete,
+                        Default = res.Default,
+                        Print = res.Print,
+                        Access = res.Access,
+                        Full = res.Full,
+                        None = res.None
+                    };
+
+                    lst.Add(z);
+                }
+
+                return lst;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Get all user's roles
+        /// </summary>
+        /// <param name="userId">User's Id</param>
+        /// <returns></returns>
+        public List<Pol_Role> GetRoles(Guid userId)
+        {
+            try
+            {
+                var a = from s in _db.Pol_UserRoles
+                        join r in _db.Pol_Roles on s.Pol_RoleId equals r.Id
+                        where s.Pol_UserId == userId
+                        select r;
+                return a.ToList();
+            }
+            catch { return null; }
+        }
     }
 }

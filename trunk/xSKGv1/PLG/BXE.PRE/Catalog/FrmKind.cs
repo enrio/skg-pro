@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace BXE.PRE.Catalog
 {
     using SKG.Plugin;
+    using SKG.PRE.Catalog;
 
     public partial class FrmKind : FrmBase
     {

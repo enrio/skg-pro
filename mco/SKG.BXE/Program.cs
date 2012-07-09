@@ -16,8 +16,8 @@ namespace SKG.BXE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new WFA.FrmMain());
-            Application.Run(new DXW.FrmMain());
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new DXW.FrmMain() : (Form)new WFA.FrmMain();
+            Application.Run(frm);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace SKG.BLL
     /// <summary>
     /// Phiên đăng nhập hiện tại của người dùng
     /// </summary>
-    public sealed class ZSession
+    public sealed class Session
     {
         /// <summary>
         /// Người dùng đăng nhập hiện tại

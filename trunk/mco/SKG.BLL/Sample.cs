@@ -10,7 +10,7 @@ namespace SKG.BLL
     /// <summary>
     /// Lớp nghiệp vụ cơ sở của Bussiness Logic Layer (BLL), các luồng xử lí dữ liệu sử dụng tại đây
     /// </summary>
-    public sealed class SBaseBLL
+    public sealed class Sample
     {
         #region Các thuộc tính truy cập cơ sở dữ liệu
         /// <summary>
@@ -62,7 +62,7 @@ namespace SKG.BLL
         /// <param name="isDelete"></param>
         public static void CreateData(bool isDelete = false)
         {
-            var bll = new SBaseBLL();
+            var bll = new Sample();
             if (isDelete) bll.DeleteAll();
             if (bll.Pol_User.Count() > 0) return;
             bll.CreateAll();
@@ -74,7 +74,7 @@ namespace SKG.BLL
         /// <returns>Exists or not exists</returns>
         public static bool CheckDb()
         {
-            var bll = new SBaseBLL();
+            var bll = new Sample();
             if (bll.Pol_User.Count() > 0) return true;
             return false;
         }
@@ -83,7 +83,7 @@ namespace SKG.BLL
         /// <summary>
         /// Khởi tạo các thuộc tính truy cập cơ sở dữ liệu
         /// </summary>
-        public SBaseBLL()
+        public Sample()
         {
             Pol_Action = new Pol_ActionBLL();
             Pol_Right = new Pol_RightBLL();

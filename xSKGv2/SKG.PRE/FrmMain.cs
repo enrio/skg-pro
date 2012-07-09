@@ -40,5 +40,11 @@ namespace SKG.PRE
             gridControl.DataSource = gridDataList;
         }
 
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            var a = Global.Service.GetPlugins();
+            ribbonControl.LoadMenu(a);
+        }
+
     }
 }

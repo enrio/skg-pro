@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.PRE", "SKG.PRE\SKG.PRE.csproj", "{97B62ED4-5347-4F27-AA60-9BFE5B50ABD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG", "SKG\SKG.csproj", "{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97B62ED4-5347-4F27-AA60-9BFE5B50ABD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97B62ED4-5347-4F27-AA60-9BFE5B50ABD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97B62ED4-5347-4F27-AA60-9BFE5B50ABD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97B62ED4-5347-4F27-AA60-9BFE5B50ABD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

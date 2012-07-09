@@ -73,6 +73,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SKG.BLL\SKG.BLL.csproj">
+      <Project>{4BEFA61D-5D5B-4CAC-8118-824E60D16100}</Project>
+      <Name>SKG.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SKG.GUI\SKG.GUI.csproj">
       <Project>{B4229C61-68AA-4167-95A2-B5EF838B62C6}</Project>
       <Name>SKG.GUI</Name>

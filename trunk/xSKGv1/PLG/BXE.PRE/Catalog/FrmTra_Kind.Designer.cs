@@ -1,6 +1,6 @@
 ﻿namespace BXE.PRE.Catalog
 {
-    partial class FrmKind
+    partial class FrmTra_Kind
     {
         /// <summary>
         /// Required designer variable.

@@ -78,9 +78,12 @@ namespace SKG.PRE
             try
             {
                 var f = (Form)e.Item.Tag;
+
+                if (f == null || f.IsDisposed)
+                    f = Activator.CreateInstance(f.GetType()) as Catalog.FrmBase;
+
                 if (Parent != null) f.MdiParent = Parent;
-                f.Show();
-                f.Activate();
+                f.ShowRight();
             }
             catch { return; }
         }

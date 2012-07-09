@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BXE.PRE.Sumary
+namespace BXE.PRE.Catalog
 {
     using SKG.Plugin;
     using SKG.PRE.Catalog;
 
-    public partial class FrmSales : FrmBase
+    public partial class FrmTra_Group : FrmBase
     {
-        public FrmSales()
+        public FrmTra_Group()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace BXE.PRE.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 9, Picture = @"Icon\Sales.png" };
+                var menu = new Menuz() { Caption = "Nhóm xe", Level = 3, Order = 3, Picture = @"Icon\Group.png" };
                 return menu;
             }
         }

@@ -12,9 +12,9 @@ namespace BXE.PRE.Catalog
     using SKG.Plugin;
     using SKG.PRE.Catalog;
 
-    public partial class FrmKind : FrmBase
+    public partial class FrmTra_Vehicle : FrmBase
     {
-        public FrmKind()
+        public FrmTra_Vehicle()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace BXE.PRE.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Loại xe", Level = 3, Order = 4, Picture = @"Icon\Kind.png" };
+                var menu = new Menuz() { Caption = "Xe cộ", Level = 3, Order = 5, Picture = @"Icon\Vehicle.png" };
                 return menu;
             }
         }

@@ -1,6 +1,6 @@
-﻿namespace BXE.PRE.Catalog
+﻿namespace BXE.PRE.Sumary
 {
-    partial class FrmVehicle
+    partial class FrmTra_Sales
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "FrmVehicle";
+            this.Text = "FrmSales";
         }
 
         #endregion

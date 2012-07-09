@@ -11,7 +11,7 @@ namespace SKG.DAL
     /// <summary>
     /// Chính sách - Xử lí bảng Pol_Action
     /// </summary>
-    public abstract class Pol_ActionDAL : SBaseDAL, IBase
+    public abstract class Pol_ActionDAL : BaseDAL, IBase
     {
         #region Implement
         /// <summary>

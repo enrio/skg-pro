@@ -18,11 +18,11 @@ namespace SKG.BLL
         /// <param name="acc">Tên tài khoản</param>
         /// <param name="pass">Mật khẩu</param>
         /// <returns>Phiên đăng nhập</returns>
-        public ZSession CheckLogin(string acc, string pass)
+        public Session CheckLogin(string acc, string pass)
         {
             try
             {
-                var sss = new ZSession() { User = (Pol_User)Select(acc), Login = GetDate() };
+                var sss = new Session() { User = (Pol_User)Select(acc), Login = GetDate() };
                 sss.Current = sss.Login.Value;
                 pass = Coder.Encode(pass);
                 if (sss.User.Pass != pass) return null;

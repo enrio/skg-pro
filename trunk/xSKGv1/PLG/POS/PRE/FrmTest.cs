@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace POS.PRE.Catalog
+namespace POS.PRE
 {
     using SKG.Plugin;
     using SKG.PRE.Catalog;
 
-    public partial class FrmProduct : FrmBase
+    public partial class FrmTest : FrmBase
     {
-        public FrmProduct()
+        public FrmTest()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace POS.PRE.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Sản phẩm", Level = 3, Order = 5, Picture = @"Icon\Product.png" };
+                var menu = new Menuz() { Caption = "Kiểm tra", Level = 3, Order = 11, Picture = @"Icon\Test.png" };
                 return menu;
             }
         }

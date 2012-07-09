@@ -1,6 +1,6 @@
 ﻿namespace POS.PRE
 {
-    partial class FrmBase
+    partial class FrmTest
     {
         /// <summary>
         /// Required designer variable.

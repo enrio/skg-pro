@@ -22,9 +22,9 @@ namespace SKG.DXW
         /// </summary>
         /// <param name="m">RibbonControl</param>
         /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this RibbonControl m, List<string> l)
+        public static void LoadMenu(this RibbonControl m, List<string> l, Form f = null)
         {
-            foreach (var i in l) m.LoadMenu(i);
+            foreach (var i in l) m.LoadMenu(i, f);
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DXW
         /// </summary>
         /// <param name="m">RibbonControl</param>
         /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this RibbonControl m, string s)
+        public static void LoadMenu(this RibbonControl m, string s, Form f = null)
         {
             var menu = Services.GetMenu(s);
             RibbonPage m1 = null;

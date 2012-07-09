@@ -397,7 +397,6 @@ namespace SKG.BLL
             Pol_Right.Delete();
             Pol_Action.Delete();
             Pol_Menu.Delete();
-
             Pol_User.Delete();
         }
 

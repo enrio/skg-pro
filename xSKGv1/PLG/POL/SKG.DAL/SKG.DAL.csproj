@@ -31,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,13 +43,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Action.cs" />
+    <Compile Include="Entities\Base.cs" />
+    <Compile Include="Entities\Context.cs" />
+    <Compile Include="Entities\Pol_Action.cs" />
+    <Compile Include="Entities\Pol_Menu.cs" />
+    <Compile Include="Entities\Pol_Right.cs" />
+    <Compile Include="Entities\Pol_Role.cs" />
+    <Compile Include="Entities\Pol_RoleRight.cs" />
+    <Compile Include="Entities\Pol_User.cs" />
+    <Compile Include="Entities\Pol_UserRight.cs" />
+    <Compile Include="Entities\Pol_UserRole.cs" />
+    <Compile Include="Extend.cs" />
+    <Compile Include="IBase.cs" />
+    <Compile Include="Pol_ActionDAL.cs" />
+    <Compile Include="Pol_MenuDAL.cs" />
+    <Compile Include="Pol_RightDAL.cs" />
+    <Compile Include="Pol_RoleDAL.cs" />
+    <Compile Include="Pol_RoleRightDAL.cs" />
+    <Compile Include="Pol_UserDAL.cs" />
+    <Compile Include="Pol_UserRightDAL.cs" />
+    <Compile Include="Pol_UserRoleDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SBaseDAL.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\SKG\SKG.csproj">
       <Project>{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}</Project>
       <Name>SKG</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Test.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

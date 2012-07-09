@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SKG.BXE
+namespace SKG.GUI
 {
     static class Program
     {
@@ -15,9 +15,7 @@ namespace SKG.BXE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.FrmMain() : (Form)new GUI.FrmMain();
-            Application.Run(frm);
+            Application.Run(new FrmMain());
         }
     }
 }

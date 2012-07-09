@@ -1,4 +1,4 @@
-﻿namespace SKG.UTL
+﻿namespace SKG
 {
     #region Text format
     public enum Format

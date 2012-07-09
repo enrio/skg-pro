@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using DevExpress.LookAndFeel;
 
-namespace SKG.BXE
+namespace SKG.PRE
 {
     static class Program
     {
@@ -16,8 +16,11 @@ namespace SKG.BXE
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.FrmMain() : (Form)new GUI.FrmMain();
-            Application.Run(frm);
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+            Application.Run(new FrmMain());
         }
     }
 }

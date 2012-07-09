@@ -64,6 +64,7 @@
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -72,12 +73,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePRE.cs" />
+    <Compile Include="Catalog\FrmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extend.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -158,6 +172,14 @@
     <Content Include="Images\Trash_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SKG.BLL\SKG.BLL.csproj">
+      <Project>{4BEFA61D-5D5B-4CAC-8118-824E60D16100}</Project>
+      <Name>SKG.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SKG.DAL\SKG.DAL.csproj">
+      <Project>{4DFC069A-A00D-4D24-94BC-BDA69C44E7EF}</Project>
+      <Name>SKG.DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SKG\SKG.csproj">
       <Project>{00783F3D-E04D-4E1E-97E7-7BE20ACACB14}</Project>
       <Name>SKG</Name>

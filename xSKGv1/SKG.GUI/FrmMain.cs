@@ -21,7 +21,7 @@ namespace SKG.GUI
         private void FrmMain_Load(object sender, EventArgs e)
         {
             var a = Global.Service.GetPlugins();
-            menuStrip1.LoadMenu(a);
+            menuStrip1.LoadMenu(a, this);
         }
     }
 }

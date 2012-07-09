@@ -123,9 +123,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SKG\SKG.csproj">
       <Project>{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}</Project>
       <Name>SKG</Name>

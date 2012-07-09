@@ -8,9 +8,9 @@ namespace SKG.BLL
     using DAL.Entities;
 
     /// <summary>
-    /// Lớp nghiệp vụ cơ sở của Bussiness Logic Layer (BLL), các luồng xử lí dữ liệu sử dụng tại đây
+    /// Dữ liệu mẫu, các luồng xử lí dữ liệu sử dụng tại đây.
     /// </summary>
-    public sealed class Sample
+    public class Sample
     {
         #region Các thuộc tính truy cập cơ sở dữ liệu
         /// <summary>
@@ -388,7 +388,7 @@ namespace SKG.BLL
         /// <summary>
         /// Xoá tất cả
         /// </summary>
-        void DeleteAll()
+        protected virtual void DeleteAll()
         {
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
@@ -396,14 +396,15 @@ namespace SKG.BLL
             Pol_Role.Delete();
             Pol_Right.Delete();
             Pol_Action.Delete();
-            Pol_User.Delete();
             Pol_Menu.Delete();
+
+            Pol_User.Delete();
         }
 
         /// <summary>
         /// Tạo mới tất cả
         /// </summary>
-        void CreateAll()
+        protected virtual void CreateAll()
         {
             CreatePol_Action();
             CreatePol_Right();

@@ -52,6 +52,7 @@ namespace SKG.PRE.Catalog
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
+            Text = Menu.Caption;
             SetNullPrompt();
             PerformRefresh();
         }

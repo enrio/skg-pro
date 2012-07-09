@@ -9,6 +9,7 @@ namespace SKG.PRE.Orther
     using Main;
     using Catalog;
     using SKG.Extend;
+    using SKG.Hasher;
     using DevExpress.XtraEditors;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Helpers;
@@ -133,7 +134,7 @@ namespace SKG.PRE.Orther
             }
             else bbiRegistry.Enabled = false;
 
-            if (!BaseBLL.CheckDb())
+            if (!Sample.CheckDb())
             {
                 BasePRE.ShowRight<FrmSetting>(this);
                 return;

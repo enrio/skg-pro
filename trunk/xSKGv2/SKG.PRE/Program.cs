@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.LookAndFeel;
 
-namespace WindowsApplication1 {
-    static class Program {
+namespace SKG.PRE
+{
+    static class Program
+    {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main() {
+        static void Main()
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
             DevExpress.Skins.SkinManager.EnableFormSkins();
-DevExpress.UserSkins.OfficeSkins.Register();
-DevExpress.UserSkins.BonusSkins.Register();
-UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+            DevExpress.UserSkins.OfficeSkins.Register();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            Application.Run(new Form1());
+            Application.Run(new FrmMain());
         }
     }
 }

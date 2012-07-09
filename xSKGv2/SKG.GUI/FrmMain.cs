@@ -9,11 +9,19 @@ using System.Windows.Forms;
 
 namespace SKG.GUI
 {
-    public partial class Form1 : Form
+    using SKG.Extend;
+
+    public partial class FrmMain : Form
     {
-        public Form1()
+        public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            var a = Global.Service.GetPlugins();
+            menuStrip1.LoadMenu(a);
         }
     }
 }

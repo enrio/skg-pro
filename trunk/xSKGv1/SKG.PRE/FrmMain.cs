@@ -22,7 +22,7 @@ namespace SKG.PRE
             InitializeComponent();
             InitSkinGallery();
             InitGrid();
-
+            splitContainerControl.Visible = false;
         }
 
         void InitSkinGallery()

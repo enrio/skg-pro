@@ -1,0 +1,91 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <Menuz>
+    <Level>1</Level>
+    <Caption>Vận tải</Caption>
+    <Type>BXE.PRE.Level1</Type>
+    <Picture>Icon\Transport.png</Picture>
+    <Order>1</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>2</Level>
+    <Caption>Danh mục</Caption>
+    <Type>BXE.PRE.Catalog.Level2</Type>
+    <Picture>Icon\Catalog.png</Picture>
+    <Order>2</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>Nhóm xe</Caption>
+    <Type>BXE.PRE.Catalog.FrmGroup</Type>
+    <Picture>Icon\Group.png</Picture>
+    <Order>3</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>Loại xe</Caption>
+    <Type>BXE.PRE.Catalog.FrmKind</Type>
+    <Picture>Icon\Kind.png</Picture>
+    <Order>4</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>Xe cộ</Caption>
+    <Type>BXE.PRE.Catalog.FrmVehicle</Type>
+    <Picture>Icon\Vehicle.png</Picture>
+    <Order>5</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>2</Level>
+    <Caption>Báo cáo</Caption>
+    <Type>BXE.PRE.Report.Level2</Type>
+    <Picture>Icon\Report.png</Picture>
+    <Order>6</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>In ấn</Caption>
+    <Type>BXE.PRE.Report.FrmPrint</Type>
+    <Picture>Icon\Print.png</Picture>
+    <Order>7</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>2</Level>
+    <Caption>Thống kê</Caption>
+    <Type>BXE.PRE.Sumary.Level2</Type>
+    <Picture>Icon\Sumary.png</Picture>
+    <Order>8</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>Doanh thu</Caption>
+    <Type>BXE.PRE.Sumary.FrmSales</Type>
+    <Picture>Icon\Sales.png</Picture>
+    <Order>9</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>2</Level>
+    <Caption>Kiểm tra</Caption>
+    <Type>BXE.PRE.Level2</Type>
+    <Picture>Icon\Test.png</Picture>
+    <Order>10</Order>
+    <Show>true</Show>
+  </Menuz>
+  <Menuz>
+    <Level>3</Level>
+    <Caption>Cơ sở</Caption>
+    <Type>BXE.PRE.FrmBase</Type>
+    <Picture>Icon\Base.png</Picture>
+    <Order>11</Order>
+    <Show>true</Show>
+  </Menuz>
+</DocumentElement>

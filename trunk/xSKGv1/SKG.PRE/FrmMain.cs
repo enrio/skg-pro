@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 
-namespace SKG.PRE.Orther
+namespace SKG.PRE
 {
     using BLL;
     using Main;
+    using Orther;
     using Catalog;
     using SKG.Extend;
     using SKG.Hasher;

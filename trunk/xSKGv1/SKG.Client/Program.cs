@@ -25,8 +25,8 @@ namespace SKG.Client
 #if DEBUG
             BLL.Sample.CreateData(false);
 #endif
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.FrmDemo() : (Form)new GUI.FrmMain();
-            //var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.Orther.FrmMain() : (Form)new GUI.FrmMain();
+            //var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.FrmDemo() : (Form)new GUI.FrmMain();
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.FrmMain() : (Form)new GUI.FrmMain();
             Application.Run(frm);
         }
     }

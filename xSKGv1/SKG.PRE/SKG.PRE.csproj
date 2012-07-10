@@ -135,10 +135,10 @@
     <Compile Include="Orther\FrmLicense.Designer.cs">
       <DependentUpon>FrmLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orther\FrmMain.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Orther\FrmMain.Designer.cs">
+    <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Orther\FrmPrint.cs">

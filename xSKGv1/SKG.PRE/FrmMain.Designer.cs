@@ -1,4 +1,4 @@
-﻿namespace SKG.PRE.Orther
+﻿namespace SKG.PRE
 {
     partial class FrmMain
     {

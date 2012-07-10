@@ -34,6 +34,18 @@
     <Reference Include="SKG">
       <HintPath>..\..\LIB\SKG.dll</HintPath>
     </Reference>
+    <Reference Include="SKG.BLL">
+      <HintPath>..\..\LIB\SKG.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="SKG.DAL">
+      <HintPath>..\..\LIB\SKG.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="SKG.GUI">
+      <HintPath>..\..\LIB\SKG.GUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SKG.PRE">
+      <HintPath>..\..\LIB\SKG.PRE.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -124,9 +136,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icon\Product.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Menuz.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

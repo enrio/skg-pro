@@ -16,7 +16,11 @@ namespace BXE.Client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.PRE.FrmMain() : (Form)new SKG.GUI.FrmMain();
+#if DEBUG
+            SKG.BLL.Sample.CreateData(false);
+#endif
+
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.PRE.Orther.FrmMain() : (Form)new SKG.GUI.FrmMain();
             Application.Run(frm);
         }
     }

@@ -75,10 +75,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasePRE.cs" />
-    <Compile Include="Catalog\FrmBase.cs">
+    <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalog\FrmBase.Designer.cs">
+    <Compile Include="FrmBase.Designer.cs">
       <DependentUpon>FrmBase.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalog\FrmPol_Right.cs">
@@ -141,9 +141,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orther\FrmPrint.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Orther\FrmPrint.cs" />
     <Compile Include="Orther\FrmPrint.Designer.cs">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </Compile>

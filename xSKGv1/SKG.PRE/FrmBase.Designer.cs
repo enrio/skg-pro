@@ -1,4 +1,4 @@
-﻿namespace SKG.PRE.Catalog
+﻿namespace SKG.PRE
 {
     partial class FrmBase
     {
@@ -221,7 +221,6 @@
             this.Activated += new System.EventHandler(this.FrmBase_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);
-
         }
         #endregion
 

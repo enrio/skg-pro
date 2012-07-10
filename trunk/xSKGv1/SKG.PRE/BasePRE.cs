@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.PRE
 {
     using BLL;
-    using DAL.Entities;
-    using Catalog;
     using Main;
-    using System.Windows.Forms;
+    using Catalog;
+    using DAL.Entities;
     using DevExpress.XtraBars;
+    using System.Windows.Forms;
+    using DevExpress.XtraTreeList;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
-    using DevExpress.XtraTreeList;
     using DevExpress.XtraTreeList.Columns;
 
     /// <summary>
@@ -220,20 +219,6 @@ namespace SKG.PRE
                 if (x.VisibleIndex != t.Columns.Count - 1)
                     x.BestFit();
             }
-        }
-
-        /// <summary>
-        /// Show form with user's rights
-        /// </summary>
-        /// <param name="f">Form</param>
-        public static void ShowRight(this Form f)
-        {
-            var a = f.GetType();
-            var b = (FrmBase)GetMdiChilden(f.MdiParent, a.FullName);
-
-            if (b == null || b.IsDisposed)
-                f.ShowRight();
-            else b.ShowRight();
         }
     }
 }

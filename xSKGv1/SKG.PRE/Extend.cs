@@ -5,6 +5,7 @@ using System.Linq;
 namespace SKG.PRE
 {
     using Plugin;
+    using Catalog;
     using System.Drawing;
     using System.Reflection;
     using System.Windows.Forms;
@@ -77,13 +78,10 @@ namespace SKG.PRE
         {
             try
             {
-                var f = (Form)e.Item.Tag;
-
+                var f = (FrmBase)e.Item.Tag;
                 if (f == null || f.IsDisposed)
-                    f = Activator.CreateInstance(f.GetType()) as Catalog.FrmBase;
-
-                if (Parent != null) f.MdiParent = Parent;
-                f.ShowRight();
+                    f = Activator.CreateInstance(f.GetType()) as FrmBase;
+                f.ShowRight(Parent);
             }
             catch { return; }
         }

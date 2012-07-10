@@ -21,7 +21,6 @@
         }
 
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -448,15 +447,13 @@
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
-            this.Text = "QUẢN LÍ XE RA VÀO BẾN";
+            this.Text = "...:: SKG ::...";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).EndInit();
             this.ResumeLayout(false);
-
         }
-
         #endregion
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;

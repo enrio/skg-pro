@@ -218,6 +218,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmBase";
             this.Load += new System.EventHandler(this.FrmBase_Load);
+            this.Activated += new System.EventHandler(this.FrmBase_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);
 

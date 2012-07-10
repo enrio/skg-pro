@@ -35,10 +35,6 @@ namespace SKG.PRE.Catalog
         public FrmBase()
         {
             InitializeComponent();
-
-#if !DEBUG
-            CheckRight(this, true);
-#endif
         }
 
         /// <summary>
@@ -48,6 +44,13 @@ namespace SKG.PRE.Catalog
         public ZAction CheckRight()
         {
             return CheckRight(this);
+        }
+
+        private void FrmBase_Activated(object sender, EventArgs e)
+        {
+#if !DEBUG
+            CheckRight(this, true);
+#endif
         }
 
         private void FrmBase_Load(object sender, EventArgs e)

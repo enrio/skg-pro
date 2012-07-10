@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace SKG.Client
+{
+    static class Program
+    {
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+#if DEBUG
+            BLL.Sample.CreateData(false);
+#endif
+
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new PRE.Orther.FrmMain() : (Form)new GUI.FrmMain();
+            Application.Run(frm);
+        }
+    }
+}

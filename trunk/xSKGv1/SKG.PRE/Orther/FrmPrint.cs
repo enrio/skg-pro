@@ -8,7 +8,10 @@ using System.Windows.Forms;
 
 namespace SKG.PRE.Orther
 {
-    public partial class FrmPrint : SKG.PRE.Catalog.FrmBase
+    using SKG.PRE;
+    using SKG.Plugin;
+
+    public partial class FrmPrint : FrmBase
     {
         public FrmPrint()
         {

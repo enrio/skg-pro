@@ -65,9 +65,7 @@
     <Compile Include="Catalog\FrmTra_Kind.Designer.cs">
       <DependentUpon>FrmTra_Kind.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmTra_Vehicle.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Catalog\FrmTra_Vehicle.cs" />
     <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>

@@ -9,8 +9,8 @@ using System.Windows.Forms;
 
 namespace POS.PRE.Sumary
 {
+    using SKG.PRE;
     using SKG.Plugin;
-    using SKG.PRE.Catalog;
 
     public partial class FrmSales : FrmBase
     {

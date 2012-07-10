@@ -9,8 +9,8 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.Sumary
 {
+    using SKG.PRE;
     using SKG.Plugin;
-    using SKG.PRE.Catalog;
 
     public partial class FrmTra_Sales : FrmBase
     {

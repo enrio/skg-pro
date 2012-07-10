@@ -9,8 +9,8 @@ using System.Windows.Forms;
 
 namespace BXE.PRE
 {
+    using SKG.PRE;
     using SKG.Plugin;
-    using SKG.PRE.Catalog;
 
     public partial class FrmTest : FrmBase
     {

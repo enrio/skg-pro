@@ -15,9 +15,9 @@ using DevExpress.XtraBars.Helpers;
 
 namespace SKG.PRE
 {
-    public partial class FrmMain : RibbonForm
+    public partial class FrmDemo : RibbonForm
     {
-        public FrmMain()
+        public FrmDemo()
         {
             InitializeComponent();
             InitSkinGallery();

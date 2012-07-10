@@ -98,7 +98,6 @@
     <Compile Include="Catalog\FrmPol_User.Designer.cs">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Extend.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

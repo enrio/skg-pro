@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF
 {
-    partial class FrmBaseInput
+    partial class FrmInRight
     {
         /// <summary>
         /// Required designer variable.

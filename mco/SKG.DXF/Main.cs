@@ -9,9 +9,9 @@ using DevExpress.XtraBars;
 
 namespace SKG.DXF
 {
-    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FrmMain()
+        public Main()
         {
             InitializeComponent();
         }

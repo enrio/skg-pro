@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 
@@ -16,7 +12,6 @@ namespace SKG.DXF
     using SKG.Extend;
     using SKG.Hasher;
     using DevExpress.XtraEditors;
-    using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Helpers;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
@@ -119,8 +114,8 @@ namespace SKG.DXF
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            ribbon.Pages.Remove(rbpHelp);
             var a = Global.Service.GetPlugins();
+            ribbon.Pages.Remove(rbpHelp);
             ribbon.LoadMenu(a, this);
             ribbon.Pages.Add(rbpHelp);
 #if !DEBUG

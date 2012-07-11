@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
@@ -14,7 +12,7 @@ namespace SKG.DXF
     using DAL.Entities;
     using DevExpress.XtraBars;
 
-    public partial class FrmInRight : DevExpress.XtraEditors.XtraForm
+    public partial class FrmInRight : XtraForm, IPlugin
     {
         public FrmInRight()
         {

@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Catalog
+﻿namespace SKG.DXF
 {
-    partial class FrmPol_Right
+    partial class FrmBaseInput
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Text = "FrmBaseInput";
         }
 
         #endregion

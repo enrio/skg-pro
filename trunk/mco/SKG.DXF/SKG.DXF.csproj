@@ -64,7 +64,6 @@
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -73,30 +72,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePRE.cs" />
-    <Compile Include="Catalog\FrmPol_Right.cs">
+    <Compile Include="FrmBaseInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
-      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    <Compile Include="FrmBaseInput.Designer.cs">
+      <DependentUpon>FrmBaseInput.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInRight.cs">
+    <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInRight.Designer.cs">
-      <DependentUpon>FrmInRight.cs</DependentUpon>
+    <Compile Include="FrmDemo.Designer.cs">
+      <DependentUpon>FrmDemo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Demo.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Demo.Designer.cs">
-      <DependentUpon>Demo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNoRight.cs">
       <SubType>Form</SubType>
@@ -110,16 +102,11 @@
     <Compile Include="FrmNormal.Designer.cs">
       <DependentUpon>FrmNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Primary\FrmPol_RoleRight.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Primary\FrmPol_RoleRight.Designer.cs">
-      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
-    </Compile>
     <Compile Include="Person.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Demo.resx">
-      <DependentUpon>Demo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmDemo.resx">
+      <DependentUpon>FrmDemo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -192,53 +179,12 @@
     <Content Include="Images\Ribbon_Underline_16x16.png" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\Trash_16x16.png" />
-    <None Include="Resources\users.png" />
-    <None Include="Resources\user.png" />
-    <None Include="Resources\setting.png" />
-    <None Include="Resources\save.png" />
-    <None Include="Resources\room.png" />
-    <None Include="Resources\report.png" />
-    <None Include="Resources\registry.png" />
-    <None Include="Resources\refresh.png" />
-    <None Include="Resources\printer.png" />
-    <None Include="Resources\palette.png" />
-    <None Include="Resources\out.png" />
-    <None Include="Resources\ok.png" />
-    <None Include="Resources\main.png" />
-    <None Include="Resources\logout.png" />
-    <None Include="Resources\logon.png" />
-    <None Include="Resources\loginx.png" />
-    <None Include="Resources\login.png" />
-    <None Include="Resources\lgout.png" />
-    <None Include="Resources\lease.png" />
-    <None Include="Resources\kind.png" />
-    <None Include="Resources\infor.png" />
-    <None Include="Resources\guest.png" />
-    <None Include="Resources\group.png" />
-    <None Include="Resources\find.png" />
-    <None Include="Resources\fee.png" />
-    <None Include="Resources\expand.png" />
-    <None Include="Resources\exit.png" />
-    <None Include="Resources\edit.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\db.png" />
-    <None Include="Resources\cost.png" />
-    <None Include="Resources\collapse.png" />
-    <None Include="Resources\closex.png" />
-    <None Include="Resources\close.png" />
-    <None Include="Resources\car.png" />
-    <None Include="Resources\cancel.png" />
-    <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Catalog\" />
     <Folder Include="Grant\" />
+    <Folder Include="Main\" />
     <Folder Include="Sytem\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SKG\SKG.csproj">
-      <Project>{EFEF375A-5A65-4846-931A-32D370F30B5E}</Project>
-      <Name>SKG</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

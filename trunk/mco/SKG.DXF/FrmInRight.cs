@@ -9,9 +9,9 @@ using DevExpress.XtraEditors;
 
 namespace SKG.DXF
 {
-    public partial class FrmBaseInput : DevExpress.XtraEditors.XtraForm
+    public partial class FrmInRight : DevExpress.XtraEditors.XtraForm
     {
-        public FrmBaseInput()
+        public FrmInRight()
         {
             InitializeComponent();
         }

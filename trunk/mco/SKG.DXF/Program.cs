@@ -20,7 +20,7 @@ namespace SKG.DXF
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            Application.Run(new FrmDemo());
+            Application.Run(new Demo());
         }
     }
 }

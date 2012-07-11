@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.DXF
 {
     using BLL;
-    //using Main;
     using Plugin;
-    using Catalog;
     using DAL.Entities;
     using System.Drawing;
     using System.Reflection;
@@ -211,7 +208,7 @@ namespace SKG.DXF
         static void ShowRight(this FrmInRight frm)
         {
             var code = frm.GetType().Name;
-            if (code == typeof(FrmInRight).Name) return;
+            if (code == typeof(FrmNoRight).Name) return;
 
             var bll = new Pol_RightBLL();
             var o = bll.Select(code);

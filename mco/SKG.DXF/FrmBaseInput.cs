@@ -5,13 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using DevExpress.XtraBars;
+using DevExpress.XtraEditors;
 
 namespace SKG.DXF
 {
-    public partial class Main : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class FrmBaseInput : DevExpress.XtraEditors.XtraForm
     {
-        public Main()
+        public FrmBaseInput()
         {
             InitializeComponent();
         }

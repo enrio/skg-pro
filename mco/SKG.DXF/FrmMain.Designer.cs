@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF
 {
-    partial class Main
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.

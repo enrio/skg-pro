@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.XtraBars;
 
-namespace SKG.DXF.Catalog
+namespace SKG.DXF
 {
-    public partial class FrmPol_Right : SKG.DXF.FrmInRight
+    public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public FrmPol_Right()
+        public FrmMain()
         {
             InitializeComponent();
         }

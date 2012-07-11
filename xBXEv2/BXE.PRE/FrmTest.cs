@@ -9,10 +9,9 @@ using System.Windows.Forms;
 
 namespace BXE.PRE
 {
-    using SKG.PRE;
     using SKG.Plugin;
 
-    public partial class FrmTest : FrmBase
+    public partial class FrmTest : SKG.DXF.FrmInRight
     {
         public FrmTest()
         {

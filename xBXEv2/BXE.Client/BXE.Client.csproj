@@ -42,19 +42,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\LIB\SKG.dll</HintPath>
     </Reference>
-    <Reference Include="SKG.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LIB\SKG.BLL.dll</HintPath>
+    <Reference Include="SKG.DXF">
+      <HintPath>..\LIB\SKG.DXF.dll</HintPath>
     </Reference>
-    <Reference Include="SKG.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\LIB\SKG.DAL.dll</HintPath>
-    </Reference>
-    <Reference Include="SKG.GUI">
-      <HintPath>..\LIB\SKG.GUI.dll</HintPath>
-    </Reference>
-    <Reference Include="SKG.PRE">
-      <HintPath>..\LIB\SKG.PRE.dll</HintPath>
+    <Reference Include="SKG.MSF">
+      <HintPath>..\LIB\SKG.MSF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

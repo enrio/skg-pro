@@ -25,8 +25,8 @@ namespace BXE.Client
 #if DEBUG
             SKG.BLL.Sample.CreateData(false);
 #endif
-            //var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.PRE.FrmDemo() : (Form)new SKG.GUI.FrmMain();
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.PRE.FrmMain() : (Form)new SKG.GUI.FrmMain();
+
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmDemo();
             Application.Run(frm);
         }
     }

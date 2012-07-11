@@ -44,11 +44,11 @@
     <Reference Include="SKG">
       <HintPath>..\LIB\SKG.dll</HintPath>
     </Reference>
-    <Reference Include="SKG.GUI">
-      <HintPath>..\LIB\SKG.GUI.dll</HintPath>
+    <Reference Include="SKG.DXF">
+      <HintPath>..\LIB\SKG.DXF.dll</HintPath>
     </Reference>
-    <Reference Include="SKG.PRE">
-      <HintPath>..\LIB\SKG.PRE.dll</HintPath>
+    <Reference Include="SKG.MSF">
+      <HintPath>..\LIB\SKG.MSF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -97,7 +97,9 @@
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\Level2.cs" />
-    <Compile Include="Sumary\FrmTra_Sales.cs" />
+    <Compile Include="Sumary\FrmTra_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sumary\FrmTra_Sales.Designer.cs">
       <DependentUpon>FrmTra_Sales.cs</DependentUpon>
     </Compile>

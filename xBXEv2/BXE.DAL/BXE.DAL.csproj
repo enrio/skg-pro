@@ -35,9 +35,6 @@
     <Reference Include="SKG">
       <HintPath>..\LIB\SKG.dll</HintPath>
     </Reference>
-    <Reference Include="SKG.DAL">
-      <HintPath>..\LIB\SKG.DAL.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

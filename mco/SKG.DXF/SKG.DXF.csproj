@@ -103,7 +103,6 @@
       <DependentUpon>FrmNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

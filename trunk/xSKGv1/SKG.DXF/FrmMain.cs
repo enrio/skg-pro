@@ -46,9 +46,8 @@ namespace SKG.DXF
             {
                 if (r.Code == null) break;
 
-                var t = Type.GetType("SKG.PRE.Catalog." + r.Code);
-                if (t == null) t = Type.GetType("SKG.PRE.Main." + r.Code);
-                if (t == null) t = Type.GetType("SKG.PRE.Manage." + r.Code);
+                var t = Type.GetType("SKG.DXF.Catalog." + r.Code);
+                if (t == null) t = Type.GetType("SKG.DXF.Main." + r.Code);
                 if (t == null) t = Type.GetType(r.Code);
 
                 if (t == null) return;

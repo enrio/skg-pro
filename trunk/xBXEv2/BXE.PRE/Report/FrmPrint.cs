@@ -9,10 +9,9 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.Report
 {
-    using SKG.PRE;
     using SKG.Plugin;
 
-    public partial class FrmPrint : FrmBase
+    public partial class FrmPrint : SKG.DXF.FrmInRight
     {
         public FrmPrint()
         {

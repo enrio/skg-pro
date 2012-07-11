@@ -9,10 +9,9 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.Catalog
 {
-    using SKG.PRE;
     using SKG.Plugin;
 
-    public partial class FrmTra_Group : FrmBase
+    public partial class FrmTra_Group : SKG.DXF.FrmInRight
     {
         public FrmTra_Group()
         {

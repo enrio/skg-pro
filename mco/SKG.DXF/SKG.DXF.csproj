@@ -72,11 +72,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBaseInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBaseInput.Designer.cs">
+      <DependentUpon>FrmBaseInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDemo.Designer.cs">
       <DependentUpon>FrmDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNoRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNoRight.Designer.cs">
+      <DependentUpon>FrmNoRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNormal.Designer.cs">
+      <DependentUpon>FrmNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
@@ -155,6 +179,12 @@
     <Content Include="Images\Ribbon_Underline_16x16.png" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\Trash_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Catalog\" />
+    <Folder Include="Grant\" />
+    <Folder Include="Main\" />
+    <Folder Include="Sytem\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

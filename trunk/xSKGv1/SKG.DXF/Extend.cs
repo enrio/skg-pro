@@ -33,6 +33,11 @@ namespace SKG.DXF
         /// Form MDI parent
         /// </summary>
         public static Form Parent { get; set; }
+
+        /// <summary>
+        /// Static service for plugin
+        /// </summary>
+        public static Services Service = new Services();
         #endregion
 
         #region Form

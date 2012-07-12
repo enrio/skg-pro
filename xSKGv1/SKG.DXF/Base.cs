@@ -5,6 +5,7 @@ using System.Linq;
 namespace SKG.DXF
 {
     using BLL;
+    using Sytem;
     using DAL.Entities;
     using DevExpress.XtraBars;
     using System.Windows.Forms;
@@ -28,7 +29,7 @@ namespace SKG.DXF
         /// </summary>
         /// <param name="parent">Parent</param>
         /// <param name="visible">Show or hide</param>
-        public static void VisibleParentForm(Form parent, bool visible = true)
+        public static void VisibleParentForm(this Form parent, bool visible = true)
         {
             try
             {
@@ -49,7 +50,7 @@ namespace SKG.DXF
         /// </summary>
         /// <param name="parent">Parent</param>
         /// <param name="visible">Show or hide</param>
-        public static void VisibleMenuParentForm(Form parent, bool visible = true)
+        public static void VisibleMenuParentForm(this Form parent, bool visible = true)
         {
             try
             {
@@ -64,7 +65,7 @@ namespace SKG.DXF
         /// Delete all RibbonPage - ItemLinks (menu) of parent form
         /// </summary>
         /// <param name="parent">Parent</param>
-        public static void ClearMenuParentForm(Form parent)
+        public static void ClearMenuParentForm(this Form parent)
         {
             try
             {
@@ -81,7 +82,7 @@ namespace SKG.DXF
         /// Close all children form
         /// </summary>
         /// <param name="parent">Parent</param>
-        public static void CloseAllChildrenForm(Form parent)
+        public static void CloseAllChildrenForm(this Form parent)
         {
             try
             {
@@ -93,130 +94,151 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Đóng tất cả form con
+        /// Close all children form exclude login form
         /// </summary>
-        /// <param name="parent">Form cha</param>
-        /// <param name="active">Form không đóng</param>
-        public static void CloseAllChildrenForm(Form parent, Form active)
+        /// <param name="parent">Parent</param>
+        /// <param name="active">Login</param>
+        public static void CloseAllChildrenForm(this Form parent, Form active)
         {
-            if (parent != null)
+            try
             {
-                var tmp = typeof(FrmInRight).FullName;
-
+                if (parent == null) return;
+                var name = typeof(FrmLogin).FullName;
                 foreach (Form child in parent.MdiChildren)
-                    if (child != active && child.GetType().FullName != tmp)
+                    if (child != active && child.GetType().FullName != name)
                         child.Close();
             }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
-        /// Lấy form con
+        /// Get children form
         /// </summary>
-        /// <param name="parent">Form cha</param>
-        /// <param name="childName">Tên đầy đủ của form con</param>
-        /// <returns>Form con</returns>
-        public static Form GetMdiChilden(Form parent, string childName)
+        /// <param name="parent">Parent</param>
+        /// <param name="childName">Full name</param>
+        /// <returns></returns>
+        public static Form GetMdiChilden(this Form parent, string childName)
         {
-            Form tmp = null;
-
-            if (parent.MdiChildren != null)
+            try
+            {
+                Form tmp = null;
+                if (parent.MdiChildren == null) return tmp;
                 foreach (Form frm in parent.MdiChildren)
                     if (frm.GetType().FullName == childName)
                     {
                         tmp = frm;
                         break;
                     }
-
-            return tmp;
-        }
-
-        /// <summary>
-        /// Hiện form với quyền của người dùng
-        /// </summary>
-        /// <param name="frm">FrmBase</param>
-        static void ShowRight(this FrmInRight frm)
-        {
-            var code = frm.GetType().Name;
-            if (code == typeof(FrmNoRight).Name) return;
-
-            var bll = new Pol_RightBLL();
-            var o = bll.Select(code);
-
-            if (o == null)
-            {
-                o = new Pol_Right() { Code = code, Name = frm.Text, Descript = "" };
-                bll.Insert(o);
+                return tmp;
             }
-
-            ZAction z = frm.CheckRight();
-            if (z == null || z.Access == false) frm.Dispose();
-            else frm.Show();
+            catch { throw new Exception(); }
         }
 
         /// <summary>
-        /// Hiện form với quyền của người dùng, tạo form từ class
+        /// Show form with user's right
         /// </summary>
-        /// <typeparam name="T">Class của form cần tạo</typeparam>
-        /// <param name="parent">Form cha</param>
+        /// <param name="form">Form right</param>
+        static void ShowRight(this FrmInRight form)
+        {
+            try
+            {
+                var code = form.GetType().Name;
+                if (code == typeof(FrmNoRight).Name) return;
+
+                var bll = new Pol_RightBLL();
+                var o = bll.Select(code);
+
+                if (o == null)
+                {
+                    o = new Pol_Right() { Code = code, Name = form.Text, Descript = "" };
+                    bll.Insert(o);
+                }
+
+                ZAction z = form.CheckRight();
+                if (z == null || z.Access == false) form.Dispose();
+                else form.Show();
+            }
+            catch { throw new Exception(); }
+        }
+
+        /// <summary>
+        /// Show form with user's right, create by its class
+        /// </summary>
+        /// <typeparam name="T">Class of form need to create</typeparam>
+        /// <param name="parent">Parent</param>
         public static void ShowRight<T>(Form parent) where T : Form, new()
         {
-            var x = typeof(T);
-            var frm = (T)GetMdiChilden(parent, x.FullName);
-
-            if (frm == null || frm.IsDisposed)
+            try
             {
-                frm = new T() { MdiParent = parent };
-                if (x.BaseType == typeof(FrmInRight))
-                    (frm as FrmInRight).ShowRight();
-                else frm.Show();
+                var x = typeof(T);
+                var frm = (T)GetMdiChilden(parent, x.FullName);
+                if (frm == null || frm.IsDisposed)
+                {
+                    frm = new T() { MdiParent = parent };
+                    if (x.BaseType == typeof(FrmInRight))
+                        (frm as FrmInRight).ShowRight();
+                    else frm.Show();
+                }
+                else frm.Activate();
             }
-            else frm.Activate();
+            catch { throw new Exception(); }
         }
 
         /// <summary>
         /// Show form with user's rights
         /// </summary>
-        /// <param name="f">Form childen</param>
+        /// <param name="form">Form childen</param>
         /// <param name="parent">Form parent</param>
-        public static void ShowRight(this FrmInRight f, Form parent)
+        public static void ShowRight(this FrmInRight form, Form parent)
         {
-            var a = f.GetType();
-            var b = (FrmInRight)GetMdiChilden(parent, a.FullName);
-
-            if (b == null || b.IsDisposed)
+            try
             {
-                f.MdiParent = parent;
-                f.ShowRight();
+                var a = form.GetType();
+                var b = (FrmInRight)GetMdiChilden(parent, a.FullName);
+                if (b == null || b.IsDisposed)
+                {
+                    form.MdiParent = parent;
+                    form.ShowRight();
+                }
+                else b.Activate();
             }
-            else b.Activate();
+            catch { throw new Exception(); }
         }
 
         /// <summary>
         /// Set false some properties's DockPanel
         /// </summary>
-        /// <param name="d">DockPanel</param>
-        /// <param name="caption">Caption's DockPanel</param>
-        public static void SetDockPanel(this DockPanel d, string caption)
+        /// <param name="dock">Dock panel</param>
+        /// <param name="text">Caption</param>
+        public static void SetDockPanel(this DockPanel dock, string text)
         {
-            d.Options.AllowFloating = false;
-            d.Options.FloatOnDblClick = false;
-            d.Options.ShowAutoHideButton = false;
-            d.Options.ShowCloseButton = false;
-            d.Options.ShowMaximizeButton = false;
-            d.Text = caption;
+            try
+            {
+                dock.Options.AllowFloating = false;
+                dock.Options.FloatOnDblClick = false;
+                dock.Options.ShowAutoHideButton = false;
+                dock.Options.ShowCloseButton = false;
+                dock.Options.ShowMaximizeButton = false;
+                dock.Text = text;
+            }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
         /// Best fit columns
         /// </summary>
-        /// <param name="t">TreeList</param>
-        public static void AutoFit(this TreeList t)
+        /// <param name="tree">Tree list</param>
+        public static void AutoFit(this TreeList tree)
         {
-            foreach (TreeListColumn x in t.Columns)
+            try
             {
-                if (x.VisibleIndex != t.Columns.Count - 1)
-                    x.BestFit();
+                foreach (TreeListColumn x in tree.Columns)
+                {
+                    if (x.VisibleIndex != tree.Columns.Count - 1)
+                        x.BestFit();
+                }
             }
+            catch { throw new Exception(); }
         }
     }
 }

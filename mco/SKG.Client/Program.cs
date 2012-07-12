@@ -24,9 +24,9 @@ namespace SKG.Client
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
 #if DEBUG
-            //BLL.Sample.CreateData(false);
+            BLL.Sample.CreateData(false);
 #endif
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new DXF.FrmDemo() : (Form)new MSF.FrmDemo();
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new DXF.FrmMain() : (Form)new MSF.FrmDemo();
             Application.Run(frm);
         }
     }

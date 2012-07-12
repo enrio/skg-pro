@@ -7,6 +7,7 @@ namespace SKG.Plugin
     using Extend;
     using System.IO;
     using System.Reflection;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Services for plugin
@@ -81,9 +82,7 @@ namespace SKG.Plugin
             try
             {
                 var lst = new List<string>();
-                var path = AppDomain.CurrentDomain.BaseDirectory + "Plugins";
-                if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-                string[] files = Directory.GetFiles(path, "*.dll", SearchOption.AllDirectories);
+                string[] files = Directory.GetFiles(Application.StartupPath, "*.dll", SearchOption.AllDirectories);
 
                 foreach (var i in files)
                 {

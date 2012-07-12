@@ -19,7 +19,7 @@ namespace SKG.DXF
     using DevExpress.XtraTreeList.Columns;
 
     /// <summary>
-    /// Some methods for presentation layer
+    /// Extension of methods for presentation layer
     /// </summary>
     public static class Extend
     {
@@ -199,8 +199,8 @@ namespace SKG.DXF
         /// <summary>
         /// Show form with user's rights
         /// </summary>
-        /// <param name="form">Form childen</param>
-        /// <param name="parent">Form parent</param>
+        /// <param name="form">Childen</param>
+        /// <param name="parent">Parent</param>
         public static void ShowRight(this FrmInRight form, Form parent)
         {
             try
@@ -256,62 +256,70 @@ namespace SKG.DXF
 
         #region Menu
         /// <summary>
-        /// Load menu for RibbonControl
+        /// Load all menu for RibbonControl
         /// </summary>
-        /// <param name="m">Ribbon control</param>
-        /// <param name="l"></param>
-        /// <param name="f"></param>
-        public static void LoadMenu(this RibbonControl m, List<string> l, Form f = null)
+        /// <param name="ribbon">Ribbon control</param>
+        /// <param name="l">List all of plugin file name</param>
+        /// <param name="parent">Parent</param>
+        public static void LoadMenu(this RibbonControl ribbon, List<string> l, Form parent = null)
         {
-            Parent = f;
-            foreach (var i in l) m.LoadMenu(i);
+            try
+            {
+                Parent = parent;
+                foreach (var i in l) ribbon.LoadMenu(i);
+            }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
         /// Load menu for RibbonControl
         /// </summary>
-        /// <param name="m">RibbonControl</param>
-        /// <param name="s">Path's Menu.xml</param>
+        /// <param name="m">Ribbon control</param>
+        /// <param name="s">Plugin file name</param>
         public static void LoadMenu(this RibbonControl m, string s)
         {
-            var menu = Services.GetMenu(s);
-            if (menu == null) return;
-            var path = Path.GetDirectoryName(s) + @"\";
-
-            RibbonPage m1 = null;
-            RibbonPageGroup m2 = null;
-
-            for (int j = 0; j < menu.Count; j++)
+            try
             {
-                if (menu[j].Level == 1) // menu level 1 (root)
+                var menu = Services.GetMenu(s);
+                if (menu == null) return;
+                var path = Path.GetDirectoryName(s) + @"\";
+
+                RibbonPage m1 = null;
+                RibbonPageGroup m2 = null;
+
+                for (int j = 0; j < menu.Count; j++)
                 {
-                    m1 = new RibbonPage(menu[j].Caption);
-                    m1.Image = Image.FromFile(path + menu[j].Picture);
-                    m.Pages.Add(m1);
-                }
-                else if (menu[j].Level == 2) // menu level 2
-                {
-                    m2 = new RibbonPageGroup(menu[j].Caption);
-                    m2.Glyph = Image.FromFile(path + menu[j].Picture);
-                    m1.Groups.Add(m2);
-                }
-                else if (m2 != null) // menu level 3
-                {
-                    var m3 = new BarButtonItem() { Caption = menu[j].Caption };
-                    m2.ItemLinks.Add(m3);
-                    Assembly y = Assembly.LoadFile(s);
-                    m3.Tag = y.CreateInstance(menu[j].Type);
-                    m3.LargeGlyph = Image.FromFile(path + menu[j].Picture);
-                    m3.ItemClick += ButtonItem_ItemClick;
+                    if (menu[j].Level == 1) // menu level 1 (root)
+                    {
+                        m1 = new RibbonPage(menu[j].Caption);
+                        m1.Image = Image.FromFile(path + menu[j].Picture);
+                        m.Pages.Add(m1);
+                    }
+                    else if (menu[j].Level == 2) // menu level 2
+                    {
+                        m2 = new RibbonPageGroup(menu[j].Caption);
+                        m2.Glyph = Image.FromFile(path + menu[j].Picture);
+                        m1.Groups.Add(m2);
+                    }
+                    else if (m2 != null) // menu level 3
+                    {
+                        var m3 = new BarButtonItem() { Caption = menu[j].Caption };
+                        m2.ItemLinks.Add(m3);
+                        Assembly y = Assembly.LoadFile(s);
+                        m3.Tag = y.CreateInstance(menu[j].Type);
+                        m3.LargeGlyph = Image.FromFile(path + menu[j].Picture);
+                        m3.ItemClick += ButtonItem_ItemClick;
+                    }
                 }
             }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
         /// Click on menu
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Event</param>
         private static void ButtonItem_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
@@ -321,7 +329,7 @@ namespace SKG.DXF
                     f = Activator.CreateInstance(f.GetType()) as FrmInRight;
                 f.ShowRight(Parent);
             }
-            catch { return; }
+            catch { throw new Exception(); }
         }
         #endregion
     }

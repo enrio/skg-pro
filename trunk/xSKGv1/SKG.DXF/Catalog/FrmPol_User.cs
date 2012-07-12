@@ -120,7 +120,7 @@ namespace SKG.DXF.Catalog
             txtName.Text = null;
             txtAcc.Text = null;
             txtPass.Text = null;
-            dteBirth.DateTime = BasePRE._sss.Current.ToBirth(18);
+            dteBirth.DateTime = Base._sss.Current.ToBirth(18);
             txtAddress.Text = null;
             txtPhone.Text = null;
 
@@ -235,7 +235,7 @@ namespace SKG.DXF.Catalog
 
         protected override bool ValidInput()
         {
-            var a = dteBirth.DateTime.ToAge(BasePRE._sss.Current) < 18 ? false : true;
+            var a = dteBirth.DateTime.ToAge(Base._sss.Current) < 18 ? false : true;
             if (!a)
             {
                 lblInfo.Text = STR_AGE;

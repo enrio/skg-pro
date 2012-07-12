@@ -62,7 +62,7 @@ namespace SKG.DXF.Sytem
 
             if (sss != null)
             {
-                BasePRE._sss = sss;
+                Base._sss = sss;
 
                 //var x = BaseBLL._pol_UserBLL.GetRights(sss.User.Id);
                 //var y = BaseBLL._pol_UserBLL.GetRights(sss.User.Id, this.GetType().Name);

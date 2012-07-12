@@ -74,7 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BasePRE.cs" />
+    <Compile Include="Base.cs" />
     <Compile Include="Catalog\FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +94,7 @@
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalog\Level2.cs" />
+    <Compile Include="Extend.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>

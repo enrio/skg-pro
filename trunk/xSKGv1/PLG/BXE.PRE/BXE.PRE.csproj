@@ -119,7 +119,6 @@
     <ProjectReference Include="..\..\SKG.DXF\SKG.DXF.csproj">
       <Project>{23C31566-BAD6-4437-819B-8625E5229F79}</Project>
       <Name>SKG.DXF</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\SKG\SKG.csproj">
       <Project>{26D6AC46-1976-4B04-9FD3-2FFFF09486B4}</Project>

@@ -20,6 +20,8 @@ namespace SKG.DXF
         {
             InitializeComponent();
             SkinHelper.InitSkinGallery(rgbMain, true);
+
+            Extend.Session = new Session();
             BeforeLogon();
 
             // Thông tin server, đồng hồ
@@ -34,14 +36,14 @@ namespace SKG.DXF
         /// </summary>
         private void AfterLogon()
         {
-            Base.VisibleMenuParentForm(this);
+            Extend.VisibleMenuParentForm(this);
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
             bbiLogin.Caption = Properties.Settings.Default.Logout;
-            bsiUser.Caption = Base._sss.User.Name;
+            bsiUser.Caption = Extend.Session.User.Name;
 
             // Hiện form mặc định
-            var d = Base._sss.Default;
+            var d = Extend.Session.Default;
             foreach (var r in d)
             {
                 if (r.Code == null) break;
@@ -81,7 +83,7 @@ namespace SKG.DXF
         /// </summary>
         private void BeforeLogon()
         {
-            Base.VisibleMenuParentForm(this, false);
+            Extend.VisibleMenuParentForm(this, false);
 
             bbiLogin.LargeGlyph = Properties.Resources.login;
             bbiLogin.Caption = Properties.Settings.Default.Login;
@@ -97,10 +99,10 @@ namespace SKG.DXF
         {
             try
             {
-                Base.CloseAllChildrenForm(this);
+                Extend.CloseAllChildrenForm(this);
 
                 var x = typeof(FrmLogin);
-                var frm = (FrmLogin)Base.GetMdiChilden(this, x.FullName);
+                var frm = (FrmLogin)Extend.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this };
 
                 frm.BeforeLogon += BeforeLogon;
@@ -141,17 +143,17 @@ namespace SKG.DXF
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_Right>(this);
+            Extend.ShowRight<FrmPol_Right>(this);
         }
 
         private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_Role>(this);
+            Extend.ShowRight<FrmPol_Role>(this);
         }
 
         private void bbiPol_User_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_User>(this);
+            Extend.ShowRight<FrmPol_User>(this);
         }
         #endregion
 
@@ -163,12 +165,12 @@ namespace SKG.DXF
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmSetting>(this);
+            Extend.ShowRight<FrmSetting>(this);
         }
 
         private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.CloseAllChildrenForm(this);
+            Extend.CloseAllChildrenForm(this);
         }
 
         private void bbiExit_ItemClick(object sender, ItemClickEventArgs e)
@@ -179,25 +181,25 @@ namespace SKG.DXF
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_UserRight>(this);
+            Extend.ShowRight<FrmPol_UserRight>(this);
         }
 
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_RoleRight>(this);
+            Extend.ShowRight<FrmPol_RoleRight>(this);
         }
 
         private void bbiPol_UserRole_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmPol_UserRole>(this);
+            Extend.ShowRight<FrmPol_UserRole>(this);
         }
 
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            if (Base._sss.Current != null)
+            if (Extend.Session.Current != null)
             {
-                bsiTimer.Caption = Base._sss.Current.ToStringVN();
-                Base._sss.Current = Base._sss.Current.AddSeconds(1);
+                bsiTimer.Caption = Extend.Session.Current.ToStringVN();
+                Extend.Session.Current = Extend.Session.Current.AddSeconds(1);
             }
         }
         #endregion
@@ -209,7 +211,7 @@ namespace SKG.DXF
 
         private void bbiRegistry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Base.ShowRight<FrmLicense>(this);
+            Extend.ShowRight<FrmLicense>(this);
         }
     }
 }

@@ -272,7 +272,7 @@ namespace SKG.DXF
         protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().Name;
-            var z = Base._sss.GetZAction(name);
+            var z = Extend.Session.GetZAction(name);
 
             if (z == null || z.Access == false)
             {

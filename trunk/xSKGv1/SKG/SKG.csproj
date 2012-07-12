@@ -95,7 +95,6 @@
     <Compile Include="Extend\Number.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />
-    <Compile Include="Global.cs" />
     <Compile Include="Hasher\Base64\Decoder.cs" />
     <Compile Include="Hasher\Base64\Encoder.cs" />
     <Compile Include="Hasher\Coder.cs" />

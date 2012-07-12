@@ -538,9 +538,9 @@
             // rgbiSkins
             // 
             this.rgbiSkins.Gallery.AllowHoverImages = true;
-            this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseFont = true;
-            this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseTextOptions = true;
-            this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            //this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseFont = true;
+            //this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseTextOptions = true;
+            //this.rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.rgbiSkins.Gallery.ColumnCount = 4;
             this.rgbiSkins.Gallery.FixedHoverImageSize = false;
             this.rgbiSkins.Gallery.ImageSize = new System.Drawing.Size(32, 17);

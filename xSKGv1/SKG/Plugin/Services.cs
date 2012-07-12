@@ -69,7 +69,7 @@ namespace SKG.Plugin
         }
 
         /// <summary>
-        /// Write Menu.xml file and return list path of plugin
+        /// Write menu XML file and return list path of plugin
         /// </summary>
         /// <returns></returns>
         public List<string> GetPlugins()
@@ -83,12 +83,12 @@ namespace SKG.Plugin
             foreach (DirectoryInfo i in dir.GetDirectories())
             {
                 var a = FindPlugin(i.FullName);
+                lst.Add(a);
                 var b = GetPlugin(a);
                 var r = from s in b
                         orderby s.Menu.Order
                         select s.Menu;
                 var c = r.ToDataTable(false, typeof(Menuz).Name);
-                lst.Add(i.FullName + @"\");
                 var file = String.Format("{0}.xml", a);
                 if (!File.Exists(file)) c.WriteXml(file);
             }
@@ -130,7 +130,8 @@ namespace SKG.Plugin
         public static List<Menuz> GetMenu(string s)
         {
             var name = typeof(Menuz).Name;
-            return String.Format(@"{0}\{1}.xml", s, name).ToMenu(name);
+            var file = String.Format("{0}.xml", s);
+            return file.ToMenu(name);
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ namespace SKG.DXF
 {
     using BLL;
     using Plugin;
+    using System.IO;
     using DAL.Entities;
     using System.Drawing;
     using System.Reflection;
@@ -43,6 +44,9 @@ namespace SKG.DXF
         public static void LoadMenu(this RibbonControl m, string s)
         {
             var menu = Services.GetMenu(s);
+            if (menu == null) return;
+            s = Path.GetDirectoryName(s) + @"\";
+
             RibbonPage m1 = null;
             RibbonPageGroup m2 = null;
 

@@ -140,7 +140,7 @@
             // 
             // bbiCloseAll
             // 
-            this.bbiCloseAll.Caption = "Đóng hết cửa sổ";
+            this.bbiCloseAll.Caption = "Đóng hết";
             this.bbiCloseAll.Id = 3;
             this.bbiCloseAll.LargeGlyph = global::SKG.DXF.Properties.Resources.close;
             this.bbiCloseAll.Name = "bbiCloseAll";

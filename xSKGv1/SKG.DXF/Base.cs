@@ -5,11 +5,7 @@ using System.Linq;
 namespace SKG.DXF
 {
     using BLL;
-    using Plugin;
-    using System.IO;
     using DAL.Entities;
-    using System.Drawing;
-    using System.Reflection;
     using DevExpress.XtraBars;
     using System.Windows.Forms;
     using DevExpress.XtraTreeList;
@@ -17,96 +13,26 @@ namespace SKG.DXF
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Columns;
 
-    public static class BasePRE
+    /// <summary>
+    /// Some methods for presentation layer
+    /// </summary>
+    public static class Base
     {
-        #region Extension for for load menu
         /// <summary>
-        /// Form MDI parent
-        /// </summary>
-        public static Form Parent { get; set; }
-
-        /// <summary>
-        /// Load menu for RibbonControl
-        /// </summary>
-        /// <param name="m">RibbonControl</param>
-        /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this RibbonControl m, List<string> l, Form f = null)
-        {
-            Parent = f;
-            foreach (var i in l) m.LoadMenu(i);
-        }
-
-        /// <summary>
-        /// Load menu for RibbonControl
-        /// </summary>
-        /// <param name="m">RibbonControl</param>
-        /// <param name="s">Path's Menu.xml</param>
-        public static void LoadMenu(this RibbonControl m, string s)
-        {
-            var menu = Services.GetMenu(s);
-            if (menu == null) return;
-            s = Path.GetDirectoryName(s) + @"\";
-
-            RibbonPage m1 = null;
-            RibbonPageGroup m2 = null;
-
-            for (int j = 0; j < menu.Count; j++)
-            {
-                if (menu[j].Level == 1) // menu level 1 (root)
-                {
-                    m1 = new RibbonPage(menu[j].Caption);
-                    m1.Image = Image.FromFile(s + menu[j].Picture);
-                    m.Pages.Add(m1);
-                }
-                else if (menu[j].Level == 2) // menu level 2
-                {
-                    m2 = new RibbonPageGroup(menu[j].Caption);
-                    m2.Glyph = Image.FromFile(s + menu[j].Picture);
-                    m1.Groups.Add(m2);
-                }
-                else if (m2 != null) // menu level 3
-                {
-                    var m3 = new BarButtonItem() { Caption = menu[j].Caption };
-                    m2.ItemLinks.Add(m3);
-
-                    Assembly y = null;
-                    try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
-                    catch { y = Assembly.LoadFile(s + "POS.dll"); }
-
-                    m3.Tag = y.CreateInstance(menu[j].Type);
-                    m3.LargeGlyph = Image.FromFile(s + menu[j].Picture);
-                    m3.ItemClick += ButtonItem_ItemClick;
-                }
-            }
-        }
-
-        private static void ButtonItem_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            try
-            {
-                var f = (FrmInRight)e.Item.Tag;
-                if (f == null || f.IsDisposed)
-                    f = Activator.CreateInstance(f.GetType()) as FrmInRight;
-                f.ShowRight(Parent);
-            }
-            catch { return; }
-        }
-        #endregion
-
-        /// <summary>
-        /// Phiên đăng nhập của người dùng hiện tại
+        /// Session of current an user logon
         /// </summary>
         public static Session _sss = new Session();
 
         /// <summary>
-        /// Ẩn/hiện RibbonControl, DockPanel, BarManager của form cha
+        /// Show or hide RibbonControl, DockPanel, BarManager of parent form
         /// </summary>
-        /// <param name="parent">Form cha</param>
-        /// <param name="visible">true: hiện; false: ẩn</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="visible">Show or hide</param>
         public static void VisibleParentForm(Form parent, bool visible = true)
         {
-            if (parent != null)
+            try
             {
+                if (parent == null) return;
                 foreach (Control i in parent.Controls)
                 {
                     var a = i.GetType();
@@ -115,56 +41,55 @@ namespace SKG.DXF
                     if (a == typeof(BarManager)) i.Visible = visible;
                 }
             }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
-        /// Ẩn/hiện RibbonPage (menu) của RibbonForm, trừ RibbonPage đầu và cuối
+        /// Show or hide RibbonPage of RibbonForm, exclude RibbonPage first and end
         /// </summary>
-        /// <param name="parent">Form cha</param>
-        /// <param name="visible">true: hiện; false: ẩn</param>
+        /// <param name="parent">Parent</param>
+        /// <param name="visible">Show or hide</param>
         public static void VisibleMenuParentForm(Form parent, bool visible = true)
         {
-            if (parent != null)
+            try
             {
+                if (parent == null) return;
                 var i = ((RibbonForm)parent).Ribbon.Pages.Count - 1;
-                while (i-- > 1)
-                    ((RibbonForm)parent).Ribbon.Pages[i].Visible = visible;
+                while (i-- > 1) ((RibbonForm)parent).Ribbon.Pages[i].Visible = visible;
             }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
-        /// Xoá tất cả RibbonPage - ItemLinks (menu) của form cha
+        /// Delete all RibbonPage - ItemLinks (menu) of parent form
         /// </summary>
-        /// <param name="parent">Form cha</param>
+        /// <param name="parent">Parent</param>
         public static void ClearMenuParentForm(Form parent)
         {
             try
             {
-                if (parent != null)
-                {
-                    while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
-                        ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
-
-                    while (((ApplicationMenu)((RibbonForm)parent)
-                        .Ribbon.ApplicationButtonDropDownControl)
-                        .ItemLinks.Count > 1)
-                        ((ApplicationMenu)((RibbonForm)parent)
-                            .Ribbon.ApplicationButtonDropDownControl)
-                            .ItemLinks[1].Dispose();
-                }
+                if (parent == null) return;
+                while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
+                    ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
+                while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
+                    ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
             }
-            catch { return; }
+            catch { throw new Exception(); }
         }
 
         /// <summary>
-        /// Đóng tất cả form con
+        /// Close all children form
         /// </summary>
-        /// <param name="parent">Form cha</param>
+        /// <param name="parent">Parent</param>
         public static void CloseAllChildrenForm(Form parent)
         {
-            if (parent != null)
+            try
+            {
+                if (parent == null) return;
                 foreach (Form childrenForm in parent.MdiChildren)
                     childrenForm.Close();
+            }
+            catch { throw new Exception(); }
         }
 
         /// <summary>

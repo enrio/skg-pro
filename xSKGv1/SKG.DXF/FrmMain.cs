@@ -34,14 +34,14 @@ namespace SKG.DXF
         /// </summary>
         private void AfterLogon()
         {
-            BasePRE.VisibleMenuParentForm(this);
+            Base.VisibleMenuParentForm(this);
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
             bbiLogin.Caption = Properties.Settings.Default.Logout;
-            bsiUser.Caption = BasePRE._sss.User.Name;
+            bsiUser.Caption = Base._sss.User.Name;
 
             // Hiện form mặc định
-            var d = BasePRE._sss.Default;
+            var d = Base._sss.Default;
             foreach (var r in d)
             {
                 if (r.Code == null) break;
@@ -81,7 +81,7 @@ namespace SKG.DXF
         /// </summary>
         private void BeforeLogon()
         {
-            BasePRE.VisibleMenuParentForm(this, false);
+            Base.VisibleMenuParentForm(this, false);
 
             bbiLogin.LargeGlyph = Properties.Resources.login;
             bbiLogin.Caption = Properties.Settings.Default.Login;
@@ -97,10 +97,10 @@ namespace SKG.DXF
         {
             try
             {
-                BasePRE.CloseAllChildrenForm(this);
+                Base.CloseAllChildrenForm(this);
 
                 var x = typeof(FrmLogin);
-                var frm = (FrmLogin)BasePRE.GetMdiChilden(this, x.FullName);
+                var frm = (FrmLogin)Base.GetMdiChilden(this, x.FullName);
                 if (frm == null) frm = new FrmLogin() { MdiParent = this };
 
                 frm.BeforeLogon += BeforeLogon;
@@ -141,17 +141,17 @@ namespace SKG.DXF
         #region Catalog
         private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_Right>(this);
+            Base.ShowRight<FrmPol_Right>(this);
         }
 
         private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_Role>(this);
+            Base.ShowRight<FrmPol_Role>(this);
         }
 
         private void bbiPol_User_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_User>(this);
+            Base.ShowRight<FrmPol_User>(this);
         }
         #endregion
 
@@ -163,12 +163,12 @@ namespace SKG.DXF
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmSetting>(this);
+            Base.ShowRight<FrmSetting>(this);
         }
 
         private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.CloseAllChildrenForm(this);
+            Base.CloseAllChildrenForm(this);
         }
 
         private void bbiExit_ItemClick(object sender, ItemClickEventArgs e)
@@ -179,25 +179,25 @@ namespace SKG.DXF
 
         private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_UserRight>(this);
+            Base.ShowRight<FrmPol_UserRight>(this);
         }
 
         private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_RoleRight>(this);
+            Base.ShowRight<FrmPol_RoleRight>(this);
         }
 
         private void bbiPol_UserRole_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmPol_UserRole>(this);
+            Base.ShowRight<FrmPol_UserRole>(this);
         }
 
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            if (BasePRE._sss.Current != null)
+            if (Base._sss.Current != null)
             {
-                bsiTimer.Caption = BasePRE._sss.Current.ToStringVN();
-                BasePRE._sss.Current = BasePRE._sss.Current.AddSeconds(1);
+                bsiTimer.Caption = Base._sss.Current.ToStringVN();
+                Base._sss.Current = Base._sss.Current.AddSeconds(1);
             }
         }
         #endregion
@@ -209,7 +209,7 @@ namespace SKG.DXF
 
         private void bbiRegistry_ItemClick(object sender, ItemClickEventArgs e)
         {
-            BasePRE.ShowRight<FrmLicense>(this);
+            Base.ShowRight<FrmLicense>(this);
         }
     }
 }

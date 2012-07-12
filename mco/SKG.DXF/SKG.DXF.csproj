@@ -64,7 +64,9 @@
     <Reference Include="DevExpress.XtraGrid.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraLayout.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraNavBar.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v11.2, Version=11.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -72,14 +74,101 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePRE.cs" />
+    <Compile Include="Catalog\FrmPol_Right.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_Role.Designer.cs">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalog\FrmPol_User.Designer.cs">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Level2.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmDemo.Designer.cs">
       <DependentUpon>FrmDemo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmInRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInRight.Designer.cs">
+      <DependentUpon>FrmInRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNoRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNoRight.Designer.cs">
+      <DependentUpon>FrmNoRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNormal.Designer.cs">
+      <DependentUpon>FrmNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Level1.cs" />
+    <Compile Include="Main\FrmPol_RoleRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_RoleRight.Designer.cs">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRight.Designer.cs">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\FrmPol_UserRole.Designer.cs">
+      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sytem\FrmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sytem\FrmLicense.Designer.cs">
+      <DependentUpon>FrmLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sytem\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sytem\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sytem\FrmSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sytem\FrmSelect.Designer.cs">
+      <DependentUpon>FrmSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sytem\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sytem\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmDemo.resx">
       <DependentUpon>FrmDemo.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +183,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -197,6 +287,12 @@
     <None Include="Resources\car.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Grant\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

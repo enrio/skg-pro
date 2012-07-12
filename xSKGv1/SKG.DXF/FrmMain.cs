@@ -115,7 +115,7 @@ namespace SKG.DXF
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var a = Global.Service.GetPlugins();
+            var a = Extend.Service.GetPlugins();
             ribbon.Pages.Remove(rbpHelp);
             ribbon.LoadMenu(a, this);
             ribbon.Pages.Add(rbpHelp);

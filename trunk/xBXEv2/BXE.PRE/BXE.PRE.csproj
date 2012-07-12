@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="SKG.DXF">
       <HintPath>..\LIB\SKG.DXF.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="SKG.MSF">
       <HintPath>..\LIB\SKG.MSF.dll</HintPath>

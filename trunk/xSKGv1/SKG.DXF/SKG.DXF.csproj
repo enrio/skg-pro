@@ -170,6 +170,7 @@
     <Compile Include="Sytem\FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sytem\Level2.cs" />
     <EmbeddedResource Include="FrmDemo.resx">
       <DependentUpon>FrmDemo.cs</DependentUpon>
     </EmbeddedResource>

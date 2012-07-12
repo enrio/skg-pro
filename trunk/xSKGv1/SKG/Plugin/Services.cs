@@ -36,11 +36,11 @@ namespace SKG.Plugin
 
         #region Methods
         /// <summary>
-        /// Return list plugin
+        /// Return all plugin
         /// </summary>
         /// <param name="fileName">Path file name</param>
         /// <returns></returns>
-        public List<Plugin> GetPlugin(string fileName)
+        public List<Plugin> GetPlugins(string fileName)
         {
             try
             {
@@ -80,46 +80,26 @@ namespace SKG.Plugin
         {
             try
             {
+                var lst = new List<string>();
                 var path = AppDomain.CurrentDomain.BaseDirectory + "Plugins";
                 if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+                string[] files = Directory.GetFiles(path, "*.dll", SearchOption.AllDirectories);
 
-                var lst = new List<string>();
-                var dir = new DirectoryInfo(path);
-
-                foreach (DirectoryInfo i in dir.GetDirectories())
+                foreach (var i in files)
                 {
-                    var a = FindPlugin(i.FullName);
-                    lst.Add(a);
-                    var b = GetPlugin(a);
+                    var b = GetPlugins(i);
                     var r = from s in b
                             orderby s.Menu.Order
                             select s.Menu;
-                    var c = r.ToDataTable(false, typeof(Menuz).Name);
-                    var file = String.Format("{0}.xml", a);
-                    if (!File.Exists(file)) c.WriteXml(file);
+                    if (r.Count() > 0)
+                    {
+                        lst.Add(i);
+                        var c = r.ToDataTable(false, typeof(Menuz).Name);
+                        var file = String.Format("{0}.xml", i);
+                        if (!File.Exists(file)) c.WriteXml(file);
+                    }
                 }
                 return lst;
-            }
-            catch { throw new Exception(); }
-        }
-
-        /// <summary>
-        /// Find plugin
-        /// </summary>
-        /// <param name="path">Path of plugin</param>
-        /// <returns></returns>
-        public static string FindPlugin(string path)
-        {
-            try
-            {
-                foreach (string fileOn in Directory.GetFiles(path))
-                {
-                    FileInfo file = new FileInfo(fileOn);
-                    if (file.Name.Contains("SKG.dll")) continue;
-                    if (file.Extension.Equals(".dll")) return fileOn;
-                    if (file.Extension.Equals(".exe")) return fileOn;
-                }
-                return null;
             }
             catch { throw new Exception(); }
         }

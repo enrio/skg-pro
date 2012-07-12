@@ -45,7 +45,7 @@ namespace SKG.DXF.Main
         {
             get
             {
-                var menu = new Menuz() { Caption = "Phân quyền cho người", Level = 3, Order = 8, Picture = @"Resources\user.png" };
+                var menu = new Menuz() { Caption = "Phân quyền cho người", Level = 3, Order = 43, Picture = @"Resources\user.png" };
                 return menu;
             }
         }

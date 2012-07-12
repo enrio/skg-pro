@@ -13,7 +13,7 @@ namespace SKG.DXF.Sytem
         {
             get
             {
-                var menu = new Menuz() { Caption = "Hệ thống", Level = 2, Order = 2, Picture = @"Resources\lease.png" };
+                var menu = new Menuz() { Caption = "Hệ thống", Level = 2, Order = 21, Picture = @"Resources\lease.png" };
                 return menu;
             }
         }

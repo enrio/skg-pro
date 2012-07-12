@@ -38,7 +38,7 @@ namespace SKG.DXF.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Nhóm chức năng", Level = 3, Order = 4, Picture = @"Resources\user.png" };
+                var menu = new Menuz() { Caption = "Nhóm chức năng", Level = 3, Order = 33, Picture = @"Resources\user.png" };
                 return menu;
             }
         }

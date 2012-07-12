@@ -329,10 +329,18 @@ namespace SKG.DXF
         {
             try
             {
-                var f = (FrmInRight)e.Item.Tag;
-                if (f == null || f.IsDisposed)
-                    f = Activator.CreateInstance(f.GetType()) as FrmInRight;
-                f.ShowRight(Parent);
+                var f = (Form)e.Item.Tag;
+                if (f.GetType().BaseType == typeof(FrmInRight))
+                {
+                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as FrmInRight;
+                    ((FrmInRight)f).ShowRight(Parent);
+                }
+                else
+                {
+                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
+                    f.MdiParent = Parent;
+                    f.Show();
+                }
             }
             catch { throw new Exception(); }
         }

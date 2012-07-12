@@ -44,7 +44,7 @@ namespace SKG.DXF.Main
         {
             get
             {
-                var menu = new Menuz() { Caption = "Cho người vào nhóm", Level = 3, Order = 11, Picture = @"Images\Mail_16x16.png" };
+                var menu = new Menuz() { Caption = "Cho người vào nhóm", Level = 3, Order = 9, Picture = @"Resources\user.png" };
                 return menu;
             }
         }

@@ -41,7 +41,7 @@ namespace SKG.DXF.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Người dùng", Level = 3, Order = 11, Picture = @"Images\Mail_16x16.png" };
+                var menu = new Menuz() { Caption = "Người dùng", Level = 3, Order = 5, Picture = @"Resources\user.png" };
                 return menu;
             }
         }

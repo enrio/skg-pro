@@ -5,6 +5,7 @@ using System.Windows.Forms;
 namespace SKG.DXF.Sytem
 {
     using BLL;
+    using SKG.Plugin;
     using DevExpress.XtraEditors;
 
     public partial class FrmLogin : SKG.DXF.FrmNoRight
@@ -47,6 +48,19 @@ namespace SKG.DXF.Sytem
             txtUser.Text = "admin";
 #endif
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menu
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Đăng nhập", Level = 3, Order = 7, Picture = @"Resources\login.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {

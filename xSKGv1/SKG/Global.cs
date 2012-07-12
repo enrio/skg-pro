@@ -11,6 +11,9 @@ namespace SKG
     /// </summary>
     public static class Global
     {
+        /// <summary>
+        /// Static service for plugin
+        /// </summary>
         public static Services Service = new Services();
     }
 }

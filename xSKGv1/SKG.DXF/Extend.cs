@@ -23,7 +23,7 @@ namespace SKG.DXF
     /// </summary>
     public static class Extend
     {
-        #region Properties
+        #region Global properties
         /// <summary>
         /// Session of current an user logon
         /// </summary>
@@ -40,7 +40,7 @@ namespace SKG.DXF
         public static Services Service = new Services();
         #endregion
 
-        #region Form
+        #region Form methods
         /// <summary>
         /// Show or hide RibbonControl, DockPanel, BarManager of parent form
         /// </summary>
@@ -259,7 +259,7 @@ namespace SKG.DXF
         }
         #endregion
 
-        #region Menu
+        #region Menu methods
         /// <summary>
         /// Load all menu for RibbonControl
         /// </summary>

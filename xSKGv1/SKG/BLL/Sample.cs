@@ -57,6 +57,11 @@ namespace SKG.BLL
 
         #region Các phương thức tĩnh
         /// <summary>
+        /// Các luồng xử lí dữ liệu sử dụng tại đây.
+        /// </summary>
+        public static Sample BLL = new Sample();
+
+        /// <summary>
         /// Tự động tạo dữ liễu mẫu
         /// </summary>
         /// <param name="isDelete"></param>

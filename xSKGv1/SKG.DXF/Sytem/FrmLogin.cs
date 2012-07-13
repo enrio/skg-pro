@@ -71,20 +71,19 @@ namespace SKG.DXF.Sytem
 
         private void btnLogon_Click(object sender, EventArgs e)
         {
-            var bll = new Pol_UserBLL();
-            var sss = bll.CheckLogin(txtUser.Text, txtPass.Text);
-
-            if (sss != null)
+            try
             {
-                Extend.Session = sss;
-
-                //var x = BaseBLL._pol_UserBLL.GetRights(sss.User.Id);
-                //var y = BaseBLL._pol_UserBLL.GetRights(sss.User.Id, this.GetType().Name);
-
-                NotifyAfterLogon();
-                Close();
+                var bll = new Pol_UserBLL();
+                var sss = bll.CheckLogin(txtUser.Text, txtPass.Text);
+                if (sss != null)
+                {
+                    Global.Session = sss;
+                    NotifyAfterLogon();
+                    Close();
+                }
+                else XtraMessageBox.Show(STR_ERR, STR_LOGIN);
             }
-            else XtraMessageBox.Show(STR_ERR, STR_LOGIN);
+            catch { throw new Exception(); }
         }
 
         private void btnExit_Click(object sender, EventArgs e)

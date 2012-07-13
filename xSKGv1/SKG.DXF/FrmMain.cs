@@ -21,7 +21,7 @@ namespace SKG.DXF
             InitializeComponent();
             SkinHelper.InitSkinGallery(rgbMain, true);
 
-            Extend.Session = new Session();
+            Global.Session = new Session();
             BeforeLogon();
 
             // Thông tin server, đồng hồ
@@ -40,10 +40,10 @@ namespace SKG.DXF
 
             bbiLogin.LargeGlyph = Properties.Resources.logout;
             bbiLogin.Caption = Properties.Settings.Default.Logout;
-            bsiUser.Caption = Extend.Session.User.Name;
+            bsiUser.Caption = Global.Session.User.Name;
 
             // Hiện form mặc định
-            var d = Extend.Session.Default;
+            var d = Global.Session.Default;
             foreach (var r in d)
             {
                 if (r.Code == null) continue;
@@ -119,7 +119,7 @@ namespace SKG.DXF
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var a = Extend.Service.GetPlugins();
+            var a = Global.Service.GetPlugins();
             ribbon.Pages.Remove(rbpHelp);
             ribbon.LoadMenu(a, this);
             ribbon.Pages.Add(rbpHelp);
@@ -200,10 +200,10 @@ namespace SKG.DXF
 
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            if (Extend.Session.Current != null)
+            if (Global.Session.Current != null)
             {
-                bsiTimer.Caption = Extend.Session.Current.ToStringVN();
-                Extend.Session.Current = Extend.Session.Current.AddSeconds(1);
+                bsiTimer.Caption = Global.Session.Current.ToStringVN();
+                Global.Session.Current = Global.Session.Current.AddSeconds(1);
             }
         }
         #endregion

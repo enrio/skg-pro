@@ -46,13 +46,17 @@ namespace SKG.DXF
             var d = Extend.Session.Default;
             foreach (var r in d)
             {
-                if (r.Code == null) break;
-
-                var t = Type.GetType("SKG.DXF.Catalog." + r.Code);
-                if (t == null) t = Type.GetType("SKG.DXF.Main." + r.Code);
+                if (r.Code == null) continue;
+                var a = typeof(SKG.DXF.Grant.Level2).Namespace;
+                var t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
+                if (t == null)
+                {
+                    a = typeof(SKG.DXF.Catalog.Level2).Namespace;
+                    t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
+                }
                 if (t == null) t = Type.GetType(r.Code);
+                if (t == null) continue;
 
-                if (t == null) return;
                 var frm = Activator.CreateInstance(t) as FrmInRight;
                 if (frm != null) frm.ShowRight(this);
             }

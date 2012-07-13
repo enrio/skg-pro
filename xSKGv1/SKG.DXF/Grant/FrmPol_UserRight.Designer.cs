@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Main
+﻿namespace SKG.DXF.Grant
 {
     partial class FrmPol_UserRight
     {

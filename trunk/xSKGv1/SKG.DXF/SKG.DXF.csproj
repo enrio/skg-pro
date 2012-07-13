@@ -124,6 +124,7 @@
     <Compile Include="FrmNormal.Designer.cs">
       <DependentUpon>FrmNormal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Level1.cs" />
     <Compile Include="Grant\FrmPol_RoleRight.cs">
       <SubType>Form</SubType>

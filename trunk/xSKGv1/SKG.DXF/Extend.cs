@@ -23,23 +23,6 @@ namespace SKG.DXF
     /// </summary>
     public static class Extend
     {
-        #region Global properties
-        /// <summary>
-        /// Session of current an user logon
-        /// </summary>
-        public static Session Session { get; set; }
-
-        /// <summary>
-        /// Form MDI parent
-        /// </summary>
-        public static Form Parent { get; set; }
-
-        /// <summary>
-        /// Static service for plugin
-        /// </summary>
-        public static Services Service = new Services();
-        #endregion
-
         #region Form methods
         /// <summary>
         /// Show or hide RibbonControl, DockPanel, BarManager of parent form
@@ -270,7 +253,7 @@ namespace SKG.DXF
         {
             try
             {
-                Parent = parent;
+                Global.Parent = parent;
                 foreach (var i in l) ribbon.LoadMenu(i);
             }
             catch { throw new Exception(); }
@@ -333,12 +316,12 @@ namespace SKG.DXF
                 if (f.GetType().BaseType == typeof(FrmInRight))
                 {
                     if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as FrmInRight;
-                    ((FrmInRight)f).ShowRight(Parent);
+                    ((FrmInRight)f).ShowRight(Global.Parent);
                 }
                 else
                 {
                     if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
-                    f.MdiParent = Parent;
+                    f.MdiParent = Global.Parent;
                     f.Show();
                 }
             }

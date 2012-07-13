@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.DXF.Main
+namespace SKG.DXF.Grant
 {
     using SKG.Plugin;
 

@@ -4,7 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Main
+namespace SKG.DXF.Grant
 {
     using Sytem;
     using SKG.Plugin;
@@ -16,22 +16,22 @@ namespace SKG.DXF.Main
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraTreeList.StyleFormatConditions;
 
-    public partial class FrmPol_RoleRight : SKG.DXF.FrmInRight
+    public partial class FrmPol_UserRight : SKG.DXF.FrmInRight
     {
-        private const string STR_DELETE = "Xoá chức năng (form) trong nhóm";
+        private const string STR_DELETE = "Xoá chức năng (form) của người dùng";
         private const string STR_SELECT = "Chọn chức năng (form)!";
-        private const string STR_CONFIRM = "Có muốn xoá chức năng (form) được\nchọn ra khỏi nhóm không?";
+        private const string STR_CONFIRM = "Có muốn xoá chức năng (form) được\nchọn của người dùng không?";
 
-        public FrmPol_RoleRight()
+        public FrmPol_UserRight()
         {
             InitializeComponent();
+
+            dockPanel1.Visibility = DockVisibility.Hidden;
+            dockPanel2.SetDockPanel("Danh sách");
 
             AllowCollapse = true;
             AllowExpand = true;
             AllowFind = false;
-
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            dockPanel2.SetDockPanel("Danh sách");
 
             trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
             AddTreeListColumns();
@@ -45,7 +45,7 @@ namespace SKG.DXF.Main
         {
             get
             {
-                var menu = new Menuz() { Caption = "Phân quyền cho nhóm", Level = 3, Order = 42, Picture = @"Resources\user.png" };
+                var menu = new Menuz() { Caption = "Phân quyền cho người", Level = 3, Order = 43, Picture = @"Resources\user.png" };
                 return menu;
             }
         }
@@ -120,12 +120,11 @@ namespace SKG.DXF.Main
 
             if (lst.Count > 0)
             {
-                var res = XtraMessageBox.Show(STR_CONFIRM, STR_DELETE,
-                        MessageBoxButtons.OKCancel);
+                var res = XtraMessageBox.Show(STR_CONFIRM, STR_DELETE, MessageBoxButtons.OKCancel);
                 if (res != DialogResult.OK) return;
 
                 foreach (TreeListNode n in lst)
-                    _bll.Pol_RoleRight.Delete((Guid)n.GetValue("ID"));
+                    _bll.Pol_UserRight.Delete((Guid)n.GetValue("ID"));
                 PerformRefresh();
             }
             else XtraMessageBox.Show(STR_SELECT, STR_DELETE);
@@ -181,7 +180,7 @@ namespace SKG.DXF.Main
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_RoleRight()
+                        var o = new Pol_UserRight()
                         {
                             Id = (Guid)r["ID"],
                             Add = (bool)r["Add"],
@@ -193,7 +192,7 @@ namespace SKG.DXF.Main
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
-                        _bll.Pol_RoleRight.Update(o);
+                        _bll.Pol_UserRight.Update(o);
                     }
                     return true;
                 }
@@ -211,10 +210,10 @@ namespace SKG.DXF.Main
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_RoleRight()
+                        var o = new Pol_UserRight()
                         {
                             Pol_RightId = (Guid)r["ID"],
-                            Pol_RoleId = (Guid)r["ParentID"],
+                            Pol_UserId = (Guid)r["ParentID"],
                             Add = (bool)r["Add"],
                             Edit = (bool)r["Edit"],
                             Delete = (bool)r["Delete"],
@@ -224,7 +223,7 @@ namespace SKG.DXF.Main
                             Full = (bool)r["Full"],
                             None = (bool)r["None"]
                         };
-                        _bll.Pol_RoleRight.Insert(o);
+                        _bll.Pol_UserRight.Insert(o);
                     }
                     return true;
                 }
@@ -235,7 +234,7 @@ namespace SKG.DXF.Main
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_RoleRight.Select();
+            _dtb = _bll.Pol_UserRight.Select();
             if (_dtb != null)
             {
                 trlMain.DataSource = _dtb;

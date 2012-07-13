@@ -39,7 +39,7 @@ namespace BXE.BLL
         /// <summary>
         /// Các luồng xử lí dữ liệu sử dụng tại đây.
         /// </summary>
-        public static new Sample BLL = new Sample();
+        public static Sample _bll = new Sample();
         #endregion
 
         /// <summary>

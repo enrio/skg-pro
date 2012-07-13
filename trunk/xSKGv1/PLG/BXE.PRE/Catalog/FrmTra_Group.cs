@@ -67,7 +67,7 @@ namespace BXE.PRE.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (Sample.BLL.Tra_Group.Delete(id) != null) PerformRefresh();
+                    if (Sample._bll.Tra_Group.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -161,7 +161,7 @@ namespace BXE.PRE.Catalog
                     Descript = txtDescript.Text
                 };
 
-                var oki = Sample.BLL.Tra_Group.Update(o);
+                var oki = Sample._bll.Tra_Group.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -181,7 +181,7 @@ namespace BXE.PRE.Catalog
                     Descript = txtDescript.Text
                 };
 
-                var oki = Sample.BLL.Tra_Group.Insert(o);
+                var oki = Sample._bll.Tra_Group.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -191,7 +191,7 @@ namespace BXE.PRE.Catalog
 
         protected override void LoadData()
         {
-            _dtb = Sample.BLL.Tra_Group.Select();
+            _dtb = Sample._bll.Tra_Group.Select();
 
             if (_dtb != null)
             {

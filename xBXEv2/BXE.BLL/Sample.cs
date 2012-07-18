@@ -35,6 +35,13 @@ namespace BXE.BLL
         public Tra_DetailBLL Tra_Detail { set; get; }
         #endregion
 
+        #region Các phương thức tĩnh
+        /// <summary>
+        /// Các luồng xử lí dữ liệu sử dụng tại đây.
+        /// </summary>
+        public static Sample _bll = new Sample();
+        #endregion
+
         /// <summary>
         /// Khởi tạo các thuộc tính truy cập cơ sở dữ liệu
         /// </summary>

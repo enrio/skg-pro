@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 
 namespace BXE.PRE
@@ -17,7 +21,7 @@ namespace BXE.PRE
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override Menuz Menu
+        public override Menuz Menuz
         {
             get
             {

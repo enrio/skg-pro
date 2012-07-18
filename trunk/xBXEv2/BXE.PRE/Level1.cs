@@ -17,7 +17,7 @@ namespace BXE.PRE
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
 
-        public virtual Menuz Menu
+        public virtual Menuz Menuz
         {
             get
             {

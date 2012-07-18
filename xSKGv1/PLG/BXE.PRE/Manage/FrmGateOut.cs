@@ -26,7 +26,6 @@ namespace BXE.PRE.Manage
             dockPanel2.SetDockPanel("Danh sách");
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            lblAccOut.Text = Global.Session.User.Name.ToUpper();
 
             AllowAdd = false;
             AllowEdit = false;
@@ -36,6 +35,19 @@ namespace BXE.PRE.Manage
             AllowFind = false;
             AllowPrint = true;
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cổng ra", Level = 3, Order = 14, Picture = @"Icon\Report.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         #region Events
         private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,6 +185,11 @@ namespace BXE.PRE.Manage
                 }
             }
             catch (Exception ex) { XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text); }
+        }
+
+        private void FrmGateOut_Load(object sender, EventArgs e)
+        {
+            lblAccOut.Text = Global.Session.User.Name.ToUpper();
         }
     }
 }

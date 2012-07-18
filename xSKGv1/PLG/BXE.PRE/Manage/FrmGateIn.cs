@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace BXE.PRE.Manage
 {
@@ -46,11 +47,23 @@ namespace BXE.PRE.Manage
             dockPanel2.SetDockPanel("Danh sách");
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
-            lblUserIn.Text = Global.Session.User.Name.ToUpper();
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 13, Picture = @"Icon\Test.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         #region Override
         protected override void PerformDelete()
@@ -314,6 +327,8 @@ namespace BXE.PRE.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
+            lblUserIn.Text = Global.Session.User.Name.ToUpper();
+
             lkeGroup.Properties.DataSource = Sample._bll.Tra_Group.Select();
             lkeGroup.ItemIndex = 0;
 

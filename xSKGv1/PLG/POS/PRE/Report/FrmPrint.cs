@@ -21,7 +21,7 @@ namespace POS.PRE.Report
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override Menuz Menu
+        public override Menuz Menuz
         {
             get
             {

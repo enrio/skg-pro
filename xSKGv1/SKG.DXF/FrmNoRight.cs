@@ -22,7 +22,7 @@ namespace SKG.DXF
         public virtual Form Form { get { return this; } }
         public virtual IHost Host { get; set; }
 
-        public virtual new Menuz Menu
+        public virtual new Menuz Menuz
         {
             get
             {

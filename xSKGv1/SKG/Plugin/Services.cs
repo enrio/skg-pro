@@ -64,7 +64,7 @@ namespace SKG.Plugin
                     };
                     plugin.Instance.Host = this;
                     plugin.Instance.Initialize();
-                    plugin.Menu = plugin.Instance.Menu;
+                    plugin.Menu = plugin.Instance.Menuz;
                     plugin.Menu.Type = pluginType.FullName;
                     lst.Add(plugin);
                 }

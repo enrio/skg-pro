@@ -21,7 +21,7 @@ namespace BXE.PRE.Sumary
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override Menuz Menu
+        public override Menuz Menuz
         {
             get
             {

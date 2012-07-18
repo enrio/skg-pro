@@ -27,7 +27,7 @@ namespace SKG.DXF
         public virtual Form Form { get { return this; } }
         public virtual IHost Host { get; set; }
 
-        public virtual new Menuz Menu
+        public virtual new Menuz Menuz
         {
             get
             {
@@ -72,7 +72,7 @@ namespace SKG.DXF
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
-            Text = Menu.Caption;
+            Text = Menuz.Caption;
             SetNullPrompt();
             PerformRefresh();
         }

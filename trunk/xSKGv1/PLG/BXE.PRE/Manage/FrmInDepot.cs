@@ -35,6 +35,19 @@ namespace BXE.PRE.Manage
             grvMain.OptionsBehavior.Editable = false;
         }
 
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Trong bến", Level = 3, Order = 15, Picture = @"Icon\Base.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         #region Events
         private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {

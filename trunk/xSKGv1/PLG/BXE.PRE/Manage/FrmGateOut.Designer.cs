@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -112,6 +113,8 @@
             // 
             // dockPanel2
             // 
+            this.dockPanel2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.dockPanel2.Appearance.Options.UseBackColor = true;
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("c50bedad-a910-47e6-8295-0f25eb60e32b");
@@ -574,6 +577,7 @@
             this.Name = "FrmGateOut";
             this.Tag = "";
             this.Text = "Cổng ra";
+            this.Load += new System.EventHandler(this.FrmGateOut_Load);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();

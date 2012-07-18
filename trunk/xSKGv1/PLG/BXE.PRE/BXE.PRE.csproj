@@ -153,6 +153,7 @@
     <EmbeddedResource Include="Manage\FrmSales.resx">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

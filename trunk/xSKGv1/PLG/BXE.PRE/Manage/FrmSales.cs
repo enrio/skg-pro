@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace BXE.PRE.Manage
 {
@@ -38,6 +39,19 @@ namespace BXE.PRE.Manage
             dteFrom.DateTime = d.ToStartOfDay();
             dteTo.DateTime = d.ToEndOfDay();
         }
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 16, Picture = @"Icon\Sales.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         #region Events
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)

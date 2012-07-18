@@ -41,7 +41,7 @@ namespace SKG.DXF.Grant
         #region Override plugin
         public override Form Form { get { return this; } }
 
-        public override Menuz Menu
+        public override Menuz Menuz
         {
             get
             {

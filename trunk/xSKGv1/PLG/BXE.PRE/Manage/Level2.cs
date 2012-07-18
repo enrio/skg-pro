@@ -9,7 +9,7 @@ namespace BXE.PRE.Manage
     public class Level2 : Level1
     {
         #region Override plugin
-        public override Menuz Menu
+        public override Menuz Menuz
         {
             get
             {

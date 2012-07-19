@@ -27,6 +27,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "OwnerKey" = "8:_48E0C8079DA04CB48DD2168E25103B5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -115,6 +127,12 @@
         "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -140,6 +158,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -161,9 +192,27 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
+            "PrerequisitesLocation" = "2:2"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.ReportViewer.10.0"
+                    {
+                    "Name" = "8:Microsoft Visual Studio 2010 Report Viewer"
+                    "ProductCode" = "8:Microsoft.ReportViewer.10.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -212,6 +261,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6504C0D98015762962C13449BE97DED1"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:UTL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_6504C0D98015762962C13449BE97DED1"
+                    {
+                    "Name" = "8:UTL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:UTL.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8FDD60A39EE24548986991177598D14B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9AC1E04357FE03A8969FAA44B95EDA71"
@@ -426,7 +506,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SET"
         "ProductCode" = "8:{AAB72231-8869-4911-B015-61547BEC2611}"
-        "PackageCode" = "8:{67A0FC19-F1F2-4862-9D97-7952E3F675F9}"
+        "PackageCode" = "8:{2F9AF350-564F-44E4-A988-C4FD12B1FB4D}"
         "UpgradeCode" = "8:{7E7AF061-2C35-4AC6-9529-9685FAABF2B8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -975,7 +1055,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_48E0C8079DA04CB48DD2168E25103B5B"
             {
-            "SourcePath" = "8:..\\SKG\\obj\\x86\\Debug\\SKG.exe"
+            "SourcePath" = "8:..\\SKG\\obj\\x86\\Release\\SKG.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8FDD60A39EE24548986991177598D14B"
@@ -1003,7 +1083,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_96BB6FD0D5634A6C91F4233985D3023A"
             {
-            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Debug\\BXE.dll"
+            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Release\\BXE.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E1EBAA5324974EFA8ED78AFB8DD369F6"

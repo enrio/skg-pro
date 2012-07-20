@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BXE.DAL", "PLG\BXE.DAL\BXE.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BXE.BLL", "PLG\BXE.BLL\BXE.BLL.csproj", "{CA23C864-4F29-48B9-B0F6-364B855DF4AC}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SET", "SET\SET.vdproj", "{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,12 @@ Global
 		{CA23C864-4F29-48B9-B0F6-364B855DF4AC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CA23C864-4F29-48B9-B0F6-364B855DF4AC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CA23C864-4F29-48B9-B0F6-364B855DF4AC}.Release|x86.ActiveCfg = Release|Any CPU
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Debug|Any CPU.ActiveCfg = Debug
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Debug|x86.ActiveCfg = Debug
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Release|Any CPU.ActiveCfg = Release
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Release|Mixed Platforms.ActiveCfg = Release
+		{D74DC22F-24DC-4FB1-BCF3-031C68CA5512}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

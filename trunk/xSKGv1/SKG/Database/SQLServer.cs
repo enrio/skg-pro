@@ -15,8 +15,8 @@ namespace SKG.Database
     public class SQLServer : Base
     {
         #region Contansts
-        public const string STR_SEC = @"Data Source={0};Initial Catalog={1};User Id={2};Password={3};";
-        public const string STR_TRU = @"Data Source={0};Initial Catalog={1};Integrated Security=SSPI;";
+        public const string STR_SEC = @"Data Source={0};Initial Catalog={1};Persist Security Info=True;User Id={2};Password={3}";
+        public const string STR_TRU = @"Data Source={0};Initial Catalog={1};Integrated Security=SSPI";
 
         private const string STR_SUCCESS = "Cài đặt thành công!";
         private const string STR_SETUP = "Cài đặt";

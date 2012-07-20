@@ -66,10 +66,10 @@ namespace SKG.DXF
             rpgPermission.Visible = true;
             bbiSetting.Visibility = BarItemVisibility.Always;
 #else
-            var a = BasePRE._sss.GetUserRole("QT");
-            var b = BasePRE._sss.User.Acc.ToUpper();
+            var b = Global.Session.GetUserRole("QT");
+            var c = Global.Session.User.Acc.ToUpper();
 
-            if (a != null || b == "ADMIN")
+            if (b != null || c == "ADMIN")
             {
                 rpgPermission.Visible = true;
                 bbiSetting.Visibility = BarItemVisibility.Always;
@@ -129,14 +129,14 @@ namespace SKG.DXF
             var ok = License.IsLincense(key);
             if (ok == LicState.None)
             {
-                BasePRE.ShowRight<FrmLicense>(this);
+                Extend.ShowRight<FrmLicense>(this);
                 return;
             }
             else bbiRegistry.Enabled = false;
 
             if (!Sample.CheckDb())
             {
-                BasePRE.ShowRight<FrmSetting>(this);
+                Extend.ShowRight<FrmSetting>(this);
                 return;
             }
             else bbiSetting.Visibility = BarItemVisibility.Never;

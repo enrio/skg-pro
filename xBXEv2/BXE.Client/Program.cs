@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BXE.Client
+namespace BXE
 {
     using DevExpress.Skins;
     using DevExpress.LookAndFeel;

@@ -121,7 +121,7 @@ namespace SKG.DXF
             ribbon.Pages.Remove(rbpHelp);
             ribbon.LoadMenu(a, this);
             ribbon.Pages.Add(rbpHelp);
-#if !DEBUG
+
             // Check license
             var key = (new Registri()).Read("License");
             var ok = License.IsLincense(key);
@@ -138,7 +138,7 @@ namespace SKG.DXF
                 return;
             }
             else bbiSetting.Visibility = BarItemVisibility.Never;
-#endif
+
             Login();
         }
 

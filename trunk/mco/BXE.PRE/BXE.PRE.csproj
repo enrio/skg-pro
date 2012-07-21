@@ -63,15 +63,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalog\FrmTra_Group.cs" />
+    <Compile Include="Catalog\FrmTra_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalog\FrmTra_Group.Designer.cs">
       <DependentUpon>FrmTra_Group.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmTra_Kind.cs" />
+    <Compile Include="Catalog\FrmTra_Kind.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalog\FrmTra_Kind.Designer.cs">
       <DependentUpon>FrmTra_Kind.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmTra_Vehicle.cs" />
+    <Compile Include="Catalog\FrmTra_Vehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Catalog\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
@@ -81,31 +87,43 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sumary.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmTest.cs" />
+    <Compile Include="FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FrmTest.Designer.cs">
       <DependentUpon>FrmTest.cs</DependentUpon>
     </Compile>
     <Compile Include="Level1.cs" />
     <Compile Include="Level2.cs" />
-    <Compile Include="Manage\FrmGateIn.cs" />
+    <Compile Include="Manage\FrmGateIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manage\FrmGateIn.Designer.cs">
       <DependentUpon>FrmGateIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage\FrmGateOut.cs" />
+    <Compile Include="Manage\FrmGateOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manage\FrmGateOut.Designer.cs">
       <DependentUpon>FrmGateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage\FrmInDepot.cs" />
+    <Compile Include="Manage\FrmInDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manage\FrmInDepot.Designer.cs">
       <DependentUpon>FrmInDepot.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manage\FrmSales.cs" />
+    <Compile Include="Manage\FrmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Manage\FrmSales.Designer.cs">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report\FrmPrint.cs" />
+    <Compile Include="Report\FrmPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Report\FrmPrint.Designer.cs">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </Compile>
@@ -122,7 +140,9 @@
     <Compile Include="Report\Rpt_Sumary2.Designer.cs">
       <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sumary\FrmTra_Sales.cs" />
+    <Compile Include="Sumary\FrmTra_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sumary\FrmTra_Sales.Designer.cs">
       <DependentUpon>FrmTra_Sales.cs</DependentUpon>
     </Compile>

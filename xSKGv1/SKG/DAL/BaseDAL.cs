@@ -12,7 +12,7 @@ namespace SKG.DAL
     /// <summary>
     /// 
     /// </summary>
-    public abstract class BaseDAL
+    public abstract class BaseDAL : IDisposable
     {
         internal Context _db = new Context();
         internal DataTable _tb = new DataTable("Tmp");
@@ -41,6 +41,15 @@ namespace SKG.DAL
         public DateTime GetDate()
         {
             return _db.Database.SqlQuery<DateTime>("SELECT GETDATE()").First();
+        }
+
+        public void Dispose()
+        {
+            _db.Dispose();
+            _tb.Dispose();
+
+            _db = null;
+            _tb = null;
         }
     }
 }

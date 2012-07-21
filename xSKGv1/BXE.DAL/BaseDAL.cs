@@ -12,7 +12,7 @@ namespace BXE.DAL
 
     public class BaseDAL
     {
-        internal ZContext _db = new ZContext();
+        internal Context _db = new Context();
         internal DataTable _tb = new DataTable("Tmp");
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace BXE.DAL
         /// </summary>
         public BaseDAL()
         {
-            Database.SetInitializer<ZContext>(new DropCreateDatabaseIfModelChanges<ZContext>());
+            Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
         }
 
         /// <summary>

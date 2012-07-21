@@ -6,9 +6,7 @@ using DevExpress.XtraBars;
 namespace SKG.DXF
 {
     using BLL;
-    using Grant;
     using Sytem;
-    using Catalog;
     using SKG.Extend;
     using SKG.Hasher;
     using DevExpress.XtraEditors;
@@ -63,7 +61,7 @@ namespace SKG.DXF
 
             // Tài khoản là admin hoặc thuộc nhóm Quản trị mới có quyền phân quyền
 #if DEBUG
-            rpgPermission.Visible = true;
+            //rpgPermission.Visible = true;
             bbiSetting.Visibility = BarItemVisibility.Always;
 #else
             var b = Global.Session.GetUserRole("QT");
@@ -71,12 +69,12 @@ namespace SKG.DXF
 
             if (b != null || c == "ADMIN")
             {
-                rpgPermission.Visible = true;
+                //rpgPermission.Visible = true;
                 bbiSetting.Visibility = BarItemVisibility.Always;
             }
             else
             {
-                rpgPermission.Visible = false;
+                //rpgPermission.Visible = false;
                 bbiSetting.Visibility = BarItemVisibility.Never;
             }
 #endif
@@ -93,7 +91,7 @@ namespace SKG.DXF
             bbiLogin.Caption = Properties.Settings.Default.Login;
 
             bsiUser.Caption = null;
-            rpgPermission.Visible = false;
+            //rpgPermission.Visible = false;
         }
 
         /// <summary>
@@ -144,32 +142,10 @@ namespace SKG.DXF
             Login();
         }
 
-        #region Catalog
-        private void bbiPol_Right_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_Right>(this);
-        }
-
-        private void bbiPol_Role_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_Role>(this);
-        }
-
-        private void bbiPol_User_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_User>(this);
-        }
-        #endregion
-
         #region System
         private void bbiLogin_ItemClick(object sender, ItemClickEventArgs e)
         {
             Login();
-        }
-
-        private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmSetting>(this);
         }
 
         private void bbiCloseAll_ItemClick(object sender, ItemClickEventArgs e)
@@ -183,21 +159,6 @@ namespace SKG.DXF
             Application.Exit();
         }
 
-        private void bbiPol_UserRight_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_UserRight>(this);
-        }
-
-        private void bbiPol_RoleRight_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_RoleRight>(this);
-        }
-
-        private void bbiPol_UserRole_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Extend.ShowRight<FrmPol_UserRole>(this);
-        }
-
         private void tmrMain_Tick(object sender, EventArgs e)
         {
             if (Global.Session.Current != null)
@@ -206,16 +167,21 @@ namespace SKG.DXF
                 Global.Session.Current = Global.Session.Current.AddSeconds(1);
             }
         }
-        #endregion
 
         private void bbiHelp_ItemClick(object sender, ItemClickEventArgs e)
         {
             Help.ShowHelp(this, @"Guide.chm");
         }
 
+        private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Extend.ShowRight<FrmSetting>(this);
+        }
+
         private void bbiRegistry_ItemClick(object sender, ItemClickEventArgs e)
         {
             Extend.ShowRight<FrmLicense>(this);
         }
+        #endregion
     }
 }

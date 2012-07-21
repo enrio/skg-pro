@@ -26,7 +26,6 @@ namespace SKG.DAL.Entities
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
             base.OnModelCreating(modelBuilder);
         }
     }

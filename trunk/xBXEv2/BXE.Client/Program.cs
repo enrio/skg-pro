@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace BXE.Client
 {
+    using DevExpress.Skins;
     using DevExpress.LookAndFeel;
 
     static class Program
@@ -18,14 +19,13 @@ namespace BXE.Client
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DevExpress.Skins.SkinManager.EnableFormSkins();
+            SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
 #if DEBUG
             SKG.BLL.Sample.CreateData(false);
 #endif
-
             var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmDemo();
             Application.Run(frm);
         }

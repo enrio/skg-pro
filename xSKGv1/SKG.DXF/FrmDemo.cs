@@ -12,25 +12,26 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraBars.Helpers;
 
-
 namespace SKG.DXF
 {
-    public partial class Form1 : RibbonForm
+    public partial class FrmDemo : RibbonForm
     {
-        public Form1()
+        public FrmDemo()
         {
             InitializeComponent();
             InitSkinGallery();
             InitGrid();
 
         }
+
         void InitSkinGallery()
         {
             SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
-        BindingList<Person> gridDataList = new BindingList<Person>();
+
         void InitGrid()
         {
+            var gridDataList = new BindingList<Person>();
             gridDataList.Add(new Person("John", "Smith"));
             gridDataList.Add(new Person("Gabriel", "Smith"));
             gridDataList.Add(new Person("Ashley", "Smith", "some comment"));
@@ -38,6 +39,5 @@ namespace SKG.DXF
             gridDataList.Add(new Person("Gabriella", "Smith", "some comment"));
             gridControl.DataSource = gridDataList;
         }
-
     }
 }

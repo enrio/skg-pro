@@ -31,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,7 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="Entities\Tra_Detail.cs" />
+    <Compile Include="Entities\Tra_Group.cs" />
+    <Compile Include="Entities\Tra_Kind.cs" />
+    <Compile Include="Entities\Tra_Vehicle.cs" />
+    <Compile Include="Entities\ZContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tra_DetailDAL.cs" />
+    <Compile Include="Tra_GroupDAL.cs" />
+    <Compile Include="Tra_KindDAL.cs" />
+    <Compile Include="Tra_VehicleDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SKG\SKG.csproj">

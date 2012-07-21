@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BXE.Client")]
+[assembly: AssemblyTitle("BXE")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SKG")]
-[assembly: AssemblyProduct("BXE.Client")]
+[assembly: AssemblyProduct("BXE")]
 [assembly: AssemblyCopyright("Copyright © SKG 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b746eccd-7460-40ee-869c-246c8e51c735")]
+[assembly: Guid("10672f09-b34e-46b9-8f2c-d69d4893ef36")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{90A09068-D3E5-4590-883B-B9DEE0B46731}</ProjectGuid>
+    <ProjectGuid>{7FB15818-7243-4CB8-AD26-7941F793CA64}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BXE.Client</RootNamespace>
-    <AssemblyName>BXE.Client</AssemblyName>
+    <RootNamespace>BXE</RootNamespace>
+    <AssemblyName>BXE</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>

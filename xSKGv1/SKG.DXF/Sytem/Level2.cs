@@ -6,7 +6,7 @@ namespace SKG.DXF.Sytem
 {
     using SKG.Plugin;
 
-    public class Level2 : Level1
+    public class Level2 : Level
     {
         #region Override plugin
         public override Menuz Menuz

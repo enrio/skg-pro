@@ -14,24 +14,16 @@ namespace SKG.DXF
     using DAL.Entities;
     using DevExpress.XtraBars;
 
-    public partial class FrmInput : DevExpress.XtraEditors.XtraForm, IPlugin
+    public abstract partial class FrmInput : DevExpress.XtraEditors.XtraForm, IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }
-        public string Description { get { return "xSGKv1 Framework"; } }
+        public string Description { get { return "xSGKv1 Framework 2012 - Input Form with Toolbar"; } }
         public string Version { get { return "1.0"; } }
 
-        public virtual Form Form { get { return this; } }
+        public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
-
-        public virtual Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Cơ sở", Level = 3, Order = 0, Picture = @"Icon\Base.png" };
-                return menu;
-            }
-        }
+        public virtual Menuz Menuz { get; set; }
 
         public void Initialize() { }
         #endregion

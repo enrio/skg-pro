@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SKG.DXF.Sytem
+namespace SKG.DXF
 {
     using DevExpress.XtraReports.UI;
 

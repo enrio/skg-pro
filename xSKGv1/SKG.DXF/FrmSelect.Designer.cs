@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Sytem
+﻿namespace SKG.DXF
 {
     partial class FrmSelect
     {

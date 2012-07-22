@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Catalog
+﻿namespace SKG.DXF.Home.Catalog
 {
     partial class FrmPol_User
     {

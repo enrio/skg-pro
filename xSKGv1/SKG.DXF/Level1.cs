@@ -21,7 +21,7 @@ namespace SKG.DXF
         {
             get
             {
-                var menu = new Menuz() { Caption = "Phân quyền", Level = 1, Order = 1, Picture = @"Resources\palette.png" };
+                var menu = new Menuz() { Caption = "Trang chính", Level = 1, Order = 1, Picture = @"Icons\Home.png" };
                 return menu;
             }
         }

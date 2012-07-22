@@ -262,7 +262,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\Home.png" />
+    <Content Include="Icons\Home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Calendar_16x16.png" />
     <Content Include="Images\Drafts_16x16.png" />
     <Content Include="Images\Inbox_16x16.png" />

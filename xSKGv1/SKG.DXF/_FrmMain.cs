@@ -170,7 +170,7 @@ namespace SKG.DXF
 
         private void bbiHelp_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Help.ShowHelp(this, @"Guide.chm");
+            Help.ShowHelp(this, @"Guide.chm");
         }
 
         private void bbiSetting_ItemClick(object sender, ItemClickEventArgs e)

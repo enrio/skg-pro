@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Grant
+﻿namespace SKG.DXF.Home.Grant
 {
-    partial class FrmPol_RoleRight
+    partial class FrmPol_UserRight
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             // 
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel1.ID = new System.Guid("b5046ac8-157e-40da-aff6-f535a17b1f1a");
+            this.dockPanel1.ID = new System.Guid("acd39b0d-db14-42ec-ba90-17a4568d9544");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
@@ -89,7 +89,7 @@
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel2.ID = new System.Guid("fe77d332-5dbd-4fa8-b0a5-6531425a6ac6");
+            this.dockPanel2.ID = new System.Guid("91c97eeb-adca-4ee2-b548-15efbdb95bba");
             this.dockPanel2.Location = new System.Drawing.Point(0, 263);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
@@ -116,7 +116,7 @@
             this.trlMain.Name = "trlMain";
             this.trlMain.OptionsView.ShowCheckBoxes = true;
             this.trlMain.Size = new System.Drawing.Size(943, 276);
-            this.trlMain.TabIndex = 5;
+            this.trlMain.TabIndex = 4;
             this.trlMain.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterCheckNode);
             this.trlMain.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.trlMain_CellValueChanging);
             // 
@@ -138,7 +138,7 @@
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Nhóm / Chức năng (form)";
+            this.treeListColumn3.Caption = "Họ tên / Chức năng (form)";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.Visible = true;
@@ -152,14 +152,14 @@
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 2;
             // 
-            // FrmPol_RoleRight
+            // FrmPol_UserRight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmPol_RoleRight";
-            this.Text = "Phân quyền cho nhóm người";
+            this.Name = "FrmPol_UserRight";
+            this.Text = "Phân quyền cho người dùng";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -176,10 +176,10 @@
         #endregion
 
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraTreeList.TreeList trlMain;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;

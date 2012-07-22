@@ -46,11 +46,11 @@ namespace SKG.DXF
             foreach (var r in d)
             {
                 if (r.Code == null) continue;
-                var a = typeof(SKG.DXF.Grant.Level2).Namespace;
+                var a = typeof(SKG.DXF.Home.Grant.Level2).Namespace;
                 var t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
                 if (t == null)
                 {
-                    a = typeof(SKG.DXF.Catalog.Level2).Namespace;
+                    a = typeof(SKG.DXF.Home.Catalog.Level2).Namespace;
                     t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
                 }
                 if (t == null) t = Type.GetType(r.Code);

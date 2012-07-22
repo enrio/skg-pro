@@ -4,7 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Grant
+namespace SKG.DXF.Home.Grant
 {
     using Sytem;
     using SKG.Plugin;

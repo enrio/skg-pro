@@ -76,25 +76,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Catalog\FrmPol_Right.cs">
+    <Compile Include="Home\Catalog\FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalog\FrmPol_Right.Designer.cs">
+    <Compile Include="Home\Catalog\FrmPol_Right.Designer.cs">
       <DependentUpon>FrmPol_Right.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmPol_Role.cs">
+    <Compile Include="Home\Catalog\FrmPol_Role.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalog\FrmPol_Role.Designer.cs">
+    <Compile Include="Home\Catalog\FrmPol_Role.Designer.cs">
       <DependentUpon>FrmPol_Role.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\FrmPol_User.cs">
+    <Compile Include="Home\Catalog\FrmPol_User.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Catalog\FrmPol_User.Designer.cs">
+    <Compile Include="Home\Catalog\FrmPol_User.Designer.cs">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
-    <Compile Include="Catalog\Level2.cs" />
+    <Compile Include="Home\Catalog\Level2.cs" />
     <Compile Include="Extend.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
@@ -152,25 +152,25 @@
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
-    <Compile Include="Grant\FrmPol_RoleRight.cs">
+    <Compile Include="Home\Grant\FrmPol_RoleRight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grant\FrmPol_RoleRight.Designer.cs">
+    <Compile Include="Home\Grant\FrmPol_RoleRight.Designer.cs">
       <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grant\FrmPol_UserRight.cs">
+    <Compile Include="Home\Grant\FrmPol_UserRight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grant\FrmPol_UserRight.Designer.cs">
+    <Compile Include="Home\Grant\FrmPol_UserRight.Designer.cs">
       <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grant\FrmPol_UserRole.cs">
+    <Compile Include="Home\Grant\FrmPol_UserRole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Grant\FrmPol_UserRole.Designer.cs">
+    <Compile Include="Home\Grant\FrmPol_UserRole.Designer.cs">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
     </Compile>
-    <Compile Include="Grant\Level2.cs" />
+    <Compile Include="Home\Grant\Level2.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,10 +186,10 @@
     <Compile Include="Home\Sytem\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sytem\FrmSelect.cs">
+    <Compile Include="FrmSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sytem\FrmSelect.Designer.cs">
+    <Compile Include="FrmSelect.Designer.cs">
       <DependentUpon>FrmSelect.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Sytem\FrmSetting.cs">
@@ -198,10 +198,10 @@
     <Compile Include="Home\Sytem\FrmSetting.Designer.cs">
       <DependentUpon>FrmSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sytem\FrmShowPrint.cs">
+    <Compile Include="FrmShowPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sytem\FrmShowPrint.Designer.cs">
+    <Compile Include="FrmShowPrint.Designer.cs">
       <DependentUpon>FrmShowPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Sytem\Level2.cs" />
@@ -231,7 +231,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Sytem\FrmShowPrint.resx">
+    <EmbeddedResource Include="FrmShowPrint.resx">
       <DependentUpon>FrmShowPrint.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
@@ -272,7 +272,7 @@
     <Content Include="Icons\Action.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Category.png">
+    <Content Include="Icons\Catalog.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Close.png">

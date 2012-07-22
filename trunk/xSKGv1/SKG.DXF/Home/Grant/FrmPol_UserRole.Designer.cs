@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Grant
+﻿namespace SKG.DXF.Home.Grant
 {
-    partial class FrmPol_UserRight
+    partial class FrmPol_UserRole
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             // 
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel1.ID = new System.Guid("acd39b0d-db14-42ec-ba90-17a4568d9544");
+            this.dockPanel1.ID = new System.Guid("b837e0c6-e6f3-40c6-86d5-f4668d486fd2");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
@@ -89,7 +89,7 @@
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel2.ID = new System.Guid("91c97eeb-adca-4ee2-b548-15efbdb95bba");
+            this.dockPanel2.ID = new System.Guid("501f2f64-e5c4-41ad-bd19-c128490a6f54");
             this.dockPanel2.Location = new System.Drawing.Point(0, 263);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 200);
@@ -116,9 +116,8 @@
             this.trlMain.Name = "trlMain";
             this.trlMain.OptionsView.ShowCheckBoxes = true;
             this.trlMain.Size = new System.Drawing.Size(943, 276);
-            this.trlMain.TabIndex = 4;
+            this.trlMain.TabIndex = 5;
             this.trlMain.AfterCheckNode += new DevExpress.XtraTreeList.NodeEventHandler(this.trlMain_AfterCheckNode);
-            this.trlMain.CellValueChanging += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.trlMain_CellValueChanging);
             // 
             // treeListColumn1
             // 
@@ -133,14 +132,16 @@
             this.treeListColumn2.FieldName = "No_";
             this.treeListColumn2.MinWidth = 32;
             this.treeListColumn2.Name = "treeListColumn2";
+            this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
             this.treeListColumn2.VisibleIndex = 0;
             // 
             // treeListColumn3
             // 
-            this.treeListColumn3.Caption = "Họ tên / Chức năng (form)";
+            this.treeListColumn3.Caption = "Nhóm / Họ tên";
             this.treeListColumn3.FieldName = "Name";
             this.treeListColumn3.Name = "treeListColumn3";
+            this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 1;
             // 
@@ -149,17 +150,18 @@
             this.treeListColumn4.Caption = "Mô tả";
             this.treeListColumn4.FieldName = "Descript";
             this.treeListColumn4.Name = "treeListColumn4";
+            this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 2;
             // 
-            // FrmPol_UserRight
+            // FrmPol_UserRole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmPol_UserRight";
-            this.Text = "Phân quyền cho người dùng";
+            this.Name = "FrmPol_UserRole";
+            this.Text = "Người dùng thuộc nhóm";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -176,10 +178,10 @@
         #endregion
 
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
-        private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
-        private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraTreeList.TreeList trlMain;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn2;

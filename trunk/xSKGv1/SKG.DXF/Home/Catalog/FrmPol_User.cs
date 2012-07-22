@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Catalog
+namespace SKG.DXF.Home.Catalog
 {
     using SKG.Plugin;
     using SKG.Extend;

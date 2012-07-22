@@ -1,6 +1,6 @@
 ﻿namespace SKG.MSF
 {
-    partial class Form1
+    partial class FrmDemo
     {
         /// <summary>
         /// Required designer variable.
@@ -36,4 +36,3 @@
         #endregion
     }
 }
-

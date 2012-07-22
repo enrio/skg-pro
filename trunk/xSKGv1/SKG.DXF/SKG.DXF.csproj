@@ -95,7 +95,6 @@
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Catalog\Level2.cs" />
-    <Compile Include="Help.cs" />
     <Compile Include="Extend.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
@@ -116,7 +115,6 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\Level1.cs" />
-    <Compile Include="Home.cs" />
     <Compile Include="Home\Level1.cs" />
     <Compile Include="_FrmMain.cs">
       <SubType>Form</SubType>

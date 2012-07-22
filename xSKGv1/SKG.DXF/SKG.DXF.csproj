@@ -164,7 +164,7 @@
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Grant\Level2.cs" />
-    <Compile Include="Level1.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sytem\FrmLicense.cs">

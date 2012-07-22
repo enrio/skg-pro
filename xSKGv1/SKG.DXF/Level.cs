@@ -7,7 +7,7 @@ namespace SKG.DXF
     using SKG.Plugin;
     using System.Windows.Forms;
 
-    public class Level1 : IPlugin
+    public class Level : IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }

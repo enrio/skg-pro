@@ -93,7 +93,7 @@ namespace SKG.DXF
                 var t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
                 if (t == null)
                 {
-                    a = typeof(SKG.DXF.Catalog.Home).Namespace;
+                    a = typeof(SKG.DXF.Catalog.Help).Namespace;
                     t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
                 }
                 if (t == null) t = Type.GetType(r.Code);

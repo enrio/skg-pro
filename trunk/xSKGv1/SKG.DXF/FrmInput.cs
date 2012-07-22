@@ -12,9 +12,9 @@ namespace SKG.DXF
     using DAL.Entities;
     using DevExpress.XtraBars;
 
-    public partial class FrmInRight : XtraForm, IPlugin
+    public partial class FrmInput : XtraForm, IPlugin
     {
-        public FrmInRight()
+        public FrmInput()
         {
             InitializeComponent();
         }

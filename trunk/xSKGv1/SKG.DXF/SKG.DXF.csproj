@@ -102,11 +102,11 @@
     <Compile Include="FrmDemo.Designer.cs">
       <DependentUpon>FrmDemo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInRight.cs">
+    <Compile Include="FrmInput.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInRight.Designer.cs">
-      <DependentUpon>FrmInRight.cs</DependentUpon>
+    <Compile Include="FrmInput.Designer.cs">
+      <DependentUpon>FrmInput.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -114,11 +114,11 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmNoRight.cs">
+    <Compile Include="FrmMenuz.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmNoRight.Designer.cs">
-      <DependentUpon>FrmNoRight.cs</DependentUpon>
+    <Compile Include="FrmMenuz.Designer.cs">
+      <DependentUpon>FrmMenuz.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNormal.cs">
       <SubType>Form</SubType>

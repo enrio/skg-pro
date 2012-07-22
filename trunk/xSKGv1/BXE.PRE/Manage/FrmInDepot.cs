@@ -15,7 +15,7 @@ namespace BXE.PRE.Manage
     /// <summary>
     /// Danh sách xe trong bến
     /// </summary>
-    public partial class FrmInDepot : SKG.DXF.FrmInRight
+    public partial class FrmInDepot : SKG.DXF.FrmInput
     {
         public FrmInDepot()
         {

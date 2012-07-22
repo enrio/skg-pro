@@ -9,7 +9,7 @@ namespace SKG.DXF.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_Right : SKG.DXF.FrmInRight
+    public partial class FrmPol_Right : SKG.DXF.FrmInput
     {
         private const string STR_ADD = "Thêm form, menu";
         private const string STR_EDIT = "Sửa form, menu";

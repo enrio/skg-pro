@@ -7,7 +7,7 @@ namespace SKG.DXF.Sytem
     using SKG.Hasher;
     using DevExpress.XtraEditors;
 
-    public partial class FrmLicense : SKG.DXF.FrmNoRight
+    public partial class FrmLicense : SKG.DXF.FrmMenuz
     {
         LicState _license = LicState.None;
 

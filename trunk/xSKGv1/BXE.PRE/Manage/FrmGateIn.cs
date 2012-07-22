@@ -15,7 +15,7 @@ namespace BXE.PRE.Manage
     /// <summary>
     /// Cổng vào
     /// </summary>
-    public partial class FrmGateIn : SKG.DXF.FrmInRight
+    public partial class FrmGateIn : SKG.DXF.FrmInput
     {
         const string STR_MENU = "Cổng &vào";
         private const string STR_DESC = "In gate form";

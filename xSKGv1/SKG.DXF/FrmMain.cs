@@ -66,7 +66,11 @@ namespace SKG.DXF
 
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-
+            if (Global.Session.Current != null)
+            {
+                bsiTimer.Caption = Global.Session.Current.ToStringVN();
+                Global.Session.Current = Global.Session.Current.AddSeconds(1);
+            }
         }
 
         /// <summary>

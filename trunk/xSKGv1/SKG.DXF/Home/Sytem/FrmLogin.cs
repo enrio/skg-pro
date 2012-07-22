@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Sytem
+namespace SKG.DXF.Home.Sytem
 {
     using BLL;
     using SKG.Plugin;
@@ -10,6 +10,19 @@ namespace SKG.DXF.Sytem
 
     public partial class FrmLogin : SKG.DXF.FrmMenuz
     {
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Đăng nhập", Level = 3, Order = 3, Picture = @"Icons\Login.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         private const string STR_ERR = "Lỗi đăng nhập";
         private const string STR_LOGIN = "Đăng nhập";
 
@@ -48,19 +61,6 @@ namespace SKG.DXF.Sytem
             txtUser.Text = "admin";
 #endif
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Đăng nhập", Level = 3, Order = 3, Picture = @"Icons\Login.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {

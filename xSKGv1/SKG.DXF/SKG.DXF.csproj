@@ -262,6 +262,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\Action.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Category.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

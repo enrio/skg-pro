@@ -13,7 +13,7 @@ namespace BXE.PRE.Manage
     using SKG.DXF.Sytem;
     using DevExpress.XtraEditors;
 
-    public partial class FrmSales : SKG.DXF.FrmInRight
+    public partial class FrmSales : SKG.DXF.FrmInput
     {
         public FrmSales()
         {

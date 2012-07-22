@@ -5,7 +5,7 @@ namespace SKG.DXF.Sytem
 {
     using DevExpress.XtraReports.UI;
 
-    public partial class FrmShowPrint : FrmInRight
+    public partial class FrmShowPrint : FrmInput
     {
         public FrmShowPrint()
         {

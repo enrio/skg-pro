@@ -7,9 +7,9 @@ namespace SKG.DXF
 {
     using SKG.Plugin;
 
-    public partial class FrmNoRight : XtraForm, IPlugin
+    public partial class FrmMenuz : XtraForm, IPlugin
     {
-        public FrmNoRight()
+        public FrmMenuz()
         {
             InitializeComponent();
         }

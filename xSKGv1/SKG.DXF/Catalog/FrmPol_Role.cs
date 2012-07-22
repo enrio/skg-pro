@@ -9,7 +9,7 @@ namespace SKG.DXF.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_Role : SKG.DXF.FrmInRight
+    public partial class FrmPol_Role : SKG.DXF.FrmInput
     {
         private const string STR_ADD = "Thêm nhóm người dùng";
         private const string STR_EDIT = "Sửa nhóm người dùng";

@@ -138,12 +138,12 @@ namespace SKG.DXF
         /// Show form with user's right
         /// </summary>
         /// <param name="form">Form right</param>
-        static void ShowRight(this FrmInRight form)
+        static void ShowRight(this FrmInput form)
         {
             try
             {
                 var code = form.GetType().Name;
-                if (code == typeof(FrmNoRight).Name) return;
+                if (code == typeof(FrmMenuz).Name) return;
 
                 var bll = new Pol_RightBLL();
                 var o = bll.Select(code);
@@ -175,8 +175,8 @@ namespace SKG.DXF
                 if (frm == null || frm.IsDisposed)
                 {
                     frm = new T() { MdiParent = parent };
-                    if (x.BaseType == typeof(FrmInRight))
-                        (frm as FrmInRight).ShowRight();
+                    if (x.BaseType == typeof(FrmInput))
+                        (frm as FrmInput).ShowRight();
                     else frm.Show();
                 }
                 else frm.Activate();
@@ -189,12 +189,12 @@ namespace SKG.DXF
         /// </summary>
         /// <param name="form">Childen</param>
         /// <param name="parent">Parent</param>
-        public static void ShowRight(this FrmInRight form, Form parent)
+        public static void ShowRight(this FrmInput form, Form parent)
         {
             try
             {
                 var a = form.GetType();
-                var b = (FrmInRight)GetMdiChilden(parent, a.FullName);
+                var b = (FrmInput)GetMdiChilden(parent, a.FullName);
                 if (b == null || b.IsDisposed)
                 {
                     form.MdiParent = parent;
@@ -313,10 +313,10 @@ namespace SKG.DXF
             try
             {
                 var f = (Form)e.Item.Tag;
-                if (f.GetType().BaseType == typeof(FrmInRight))
+                if (f.GetType().BaseType == typeof(FrmInput))
                 {
-                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as FrmInRight;
-                    ((FrmInRight)f).ShowRight(Global.Parent);
+                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as FrmInput;
+                    ((FrmInput)f).ShowRight(Global.Parent);
                 }
                 else
                 {

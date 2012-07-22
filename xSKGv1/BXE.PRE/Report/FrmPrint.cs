@@ -11,7 +11,7 @@ namespace BXE.PRE.Report
 {
     using SKG.Plugin;
 
-    public partial class FrmPrint : SKG.DXF.FrmInRight
+    public partial class FrmPrint : SKG.DXF.FrmInput
     {
         public FrmPrint()
         {

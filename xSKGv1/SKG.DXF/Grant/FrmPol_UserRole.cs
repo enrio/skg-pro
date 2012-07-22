@@ -15,7 +15,7 @@ namespace SKG.DXF.Grant
     using DevExpress.XtraTreeList.Nodes;
     using DevExpress.XtraTreeList.StyleFormatConditions;
 
-    public partial class FrmPol_UserRole : SKG.DXF.FrmInRight
+    public partial class FrmPol_UserRole : SKG.DXF.FrmInput
     {
         private const string STR_DELETE = "Xoá người dùng trong nhóm";
         private const string STR_SELECT = "Chọn người dùng!";

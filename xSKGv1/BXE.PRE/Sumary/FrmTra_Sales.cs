@@ -11,7 +11,7 @@ namespace BXE.PRE.Sumary
 {
     using SKG.Plugin;
 
-    public partial class FrmTra_Sales : SKG.DXF.FrmInRight
+    public partial class FrmTra_Sales : SKG.DXF.FrmInput
     {
         public FrmTra_Sales()
         {

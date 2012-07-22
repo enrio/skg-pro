@@ -7,7 +7,7 @@ namespace SKG.DXF.Sytem
     using DAL.Entities;
     using DevExpress.XtraTreeList.Nodes;
 
-    public partial class FrmSelect : SKG.DXF.FrmNoRight
+    public partial class FrmSelect : SKG.DXF.FrmMenuz
     {
         /// <summary>
         /// Dữ liệu được chọn

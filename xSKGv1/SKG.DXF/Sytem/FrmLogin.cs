@@ -8,7 +8,7 @@ namespace SKG.DXF.Sytem
     using SKG.Plugin;
     using DevExpress.XtraEditors;
 
-    public partial class FrmLogin : SKG.DXF.FrmNoRight
+    public partial class FrmLogin : SKG.DXF.FrmMenuz
     {
         private const string STR_ERR = "Lỗi đăng nhập";
         private const string STR_LOGIN = "Đăng nhập";

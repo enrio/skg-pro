@@ -13,7 +13,7 @@ namespace BXE.PRE.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Kind : SKG.DXF.FrmInRight
+    public partial class FrmTra_Kind : SKG.DXF.FrmInput
     {
         private const string STR_ADD = "Thêm loại xe";
         private const string STR_EDIT = "Sửa loại xe";

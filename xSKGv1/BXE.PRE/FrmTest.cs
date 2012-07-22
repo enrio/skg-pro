@@ -11,7 +11,7 @@ namespace BXE.PRE
 {
     using SKG.Plugin;
 
-    public partial class FrmTest : SKG.DXF.FrmInRight
+    public partial class FrmTest : SKG.DXF.FrmInput
     {
         public FrmTest()
         {

@@ -16,7 +16,7 @@ namespace BXE.PRE.Manage
     /// <summary>
     /// Cổng ra
     /// </summary>
-    public partial class FrmGateOut : SKG.DXF.FrmInRight
+    public partial class FrmGateOut : SKG.DXF.FrmInput
     {
         public FrmGateOut()
         {

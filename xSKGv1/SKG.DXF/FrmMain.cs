@@ -55,7 +55,7 @@ namespace SKG.DXF
                 if (t == null) t = Type.GetType(r.Code);
                 if (t == null) continue;
 
-                var frm = Activator.CreateInstance(t) as FrmInRight;
+                var frm = Activator.CreateInstance(t) as FrmInput;
                 if (frm != null) frm.ShowRight(this);
             }
 

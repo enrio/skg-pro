@@ -13,7 +13,7 @@ namespace BXE.PRE.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Group : SKG.DXF.FrmInRight
+    public partial class FrmTra_Group : SKG.DXF.FrmInput
     {
         private const string STR_ADD = "Thêm nhóm xe";
         private const string STR_EDIT = "Sửa nhóm xe";

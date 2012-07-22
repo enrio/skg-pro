@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF
 {
-    partial class FrmNoRight
+    partial class FrmMenuz
     {
         /// <summary>
         /// Required designer variable.

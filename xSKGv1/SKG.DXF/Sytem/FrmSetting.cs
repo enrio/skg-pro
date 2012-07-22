@@ -11,7 +11,7 @@ namespace SKG.DXF.Sytem
     using System.Configuration;
     using DevExpress.XtraEditors;
 
-    public partial class FrmSetting : SKG.DXF.FrmNoRight
+    public partial class FrmSetting : SKG.DXF.FrmMenuz
     {
         private const string STR_FIND = "<Tìm kiếm>";
         private const string STR_WIND = "Windows";

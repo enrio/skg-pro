@@ -35,6 +35,9 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmdMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmdMain)).BeginInit();
             this.SuspendLayout();
@@ -44,9 +47,12 @@
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.ExpandCollapseItem.Name = "";
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.ribbon.ExpandCollapseItem});
+            this.ribbon.ExpandCollapseItem,
+            this.bsiServer,
+            this.bsiUser,
+            this.bsiTimer});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 1;
+            this.ribbon.MaxItemId = 4;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -67,6 +73,9 @@
             // 
             // ribbonStatusBar
             // 
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiServer);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiUser);
+            this.ribbonStatusBar.ItemLinks.Add(this.bsiTimer);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 439);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -80,6 +89,30 @@
             // 
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
+            // 
+            // bsiServer
+            // 
+            this.bsiServer.Caption = "Server";
+            this.bsiServer.Glyph = global::SKG.DXF.Properties.Resources.db;
+            this.bsiServer.Id = 1;
+            this.bsiServer.Name = "bsiServer";
+            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiUser
+            // 
+            this.bsiUser.Caption = "User";
+            this.bsiUser.Glyph = global::SKG.DXF.Properties.Resources.user;
+            this.bsiUser.Id = 2;
+            this.bsiUser.Name = "bsiUser";
+            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiTimer
+            // 
+            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiTimer.Caption = "Timer";
+            this.bsiTimer.Id = 3;
+            this.bsiTimer.Name = "bsiTimer";
+            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FrmMain
             // 
@@ -110,5 +143,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmdMain;
         private System.Windows.Forms.Timer tmrMain;
+        private DevExpress.XtraBars.BarStaticItem bsiServer;
+        private DevExpress.XtraBars.BarStaticItem bsiUser;
+        private DevExpress.XtraBars.BarStaticItem bsiTimer;
     }
 }

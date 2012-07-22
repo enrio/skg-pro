@@ -56,7 +56,7 @@ namespace SKG.DXF.Sytem
         {
             get
             {
-                var menu = new Menuz() { Caption = "Đăng nhập", Level = 3, Order = 22, Picture = @"Resources\login.png" };
+                var menu = new Menuz() { Caption = "Đăng nhập", Level = 3, Order = 3, Picture = @"Icons\Login.png" };
                 return menu;
             }
         }

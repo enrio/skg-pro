@@ -6,6 +6,7 @@ using System.Windows.Forms;
 namespace SKG.DXF.Sytem
 {
     using BLL;
+    using SKG.Plugin;
     using SKG.Extend;
     using SKG.Database;
     using System.Configuration;
@@ -23,6 +24,19 @@ namespace SKG.DXF.Sytem
         private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
         private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";
+
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cài đặt", Level = 3, Order = 4, Picture = @"Icons\Setting.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         /// <summary>
         /// Connection string for SQL Server

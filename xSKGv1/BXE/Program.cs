@@ -23,7 +23,7 @@ namespace BXE
             DevExpress.UserSkins.BonusSkins.Register();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmDemo();
+            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF._FrmMain() : (Form)new SKG.MSF.FrmDemo();
             Application.Run(frm);
         }
     }

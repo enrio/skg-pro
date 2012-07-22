@@ -115,6 +115,12 @@
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Level1.cs" />
+    <Compile Include="Home\Sytem\FrmPermission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Sytem\FrmPermission.Designer.cs">
+      <DependentUpon>FrmPermission.cs</DependentUpon>
+    </Compile>
     <Compile Include="_FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

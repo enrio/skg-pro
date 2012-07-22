@@ -115,7 +115,9 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\Level1.cs" />
     <Compile Include="Home.cs" />
+    <Compile Include="Home\Level1.cs" />
     <Compile Include="_FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -444,10 +446,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Help\" />
-    <Folder Include="Home\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

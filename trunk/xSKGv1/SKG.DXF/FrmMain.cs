@@ -15,5 +15,20 @@ namespace SKG.DXF
         {
             InitializeComponent();
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmMain_Activated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tmrMain_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

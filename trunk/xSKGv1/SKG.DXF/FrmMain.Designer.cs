@@ -33,10 +33,10 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tmdMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmdMain)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -72,9 +72,14 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(893, 31);
             // 
-            // xtraTabbedMdiManager1
+            // tmdMain
             // 
-            this.xtraTabbedMdiManager1.MdiParent = this;
+            this.tmdMain.MdiParent = this;
+            // 
+            // tmrMain
+            // 
+            this.tmrMain.Interval = 1000;
+            this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
             // FrmMain
             // 
@@ -89,8 +94,10 @@
             this.StatusBar = this.ribbonStatusBar;
             this.Text = "...:: SKG ::...";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmMain_Activated);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tmdMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -101,7 +108,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private System.Windows.Forms.Timer timer1;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmdMain;
+        private System.Windows.Forms.Timer tmrMain;
     }
 }

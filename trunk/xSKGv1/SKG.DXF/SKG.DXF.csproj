@@ -114,6 +114,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Level1.cs" />
     <Compile Include="_FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

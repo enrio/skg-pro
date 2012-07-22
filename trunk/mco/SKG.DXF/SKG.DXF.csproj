@@ -84,6 +84,9 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\Level1.cs" />
+    <Compile Include="Home\Level1.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmDemo.resx">
@@ -137,8 +140,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Help\" />
-    <Folder Include="Home\" />
+    <Folder Include="Help\Infor\" />
+    <Folder Include="Help\Util\" />
+    <Folder Include="Home\Catalog\" />
+    <Folder Include="Home\Grant\" />
+    <Folder Include="Home\Sytem\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

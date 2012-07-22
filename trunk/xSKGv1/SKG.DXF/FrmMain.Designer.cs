@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
+            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tmdMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
-            this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
-            this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
-            this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmdMain)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,30 @@
             this.ribbonPage1});
             this.ribbon.Size = new System.Drawing.Size(893, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
+            // 
+            // bsiServer
+            // 
+            this.bsiServer.Caption = "Server";
+            this.bsiServer.Glyph = global::SKG.DXF.Properties.Resources.db;
+            this.bsiServer.Id = 1;
+            this.bsiServer.Name = "bsiServer";
+            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiUser
+            // 
+            this.bsiUser.Caption = "User";
+            this.bsiUser.Glyph = global::SKG.DXF.Properties.Resources.user;
+            this.bsiUser.Id = 2;
+            this.bsiUser.Name = "bsiUser";
+            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // bsiTimer
+            // 
+            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsiTimer.Caption = "Timer";
+            this.bsiTimer.Id = 3;
+            this.bsiTimer.Name = "bsiTimer";
+            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // ribbonPage1
             // 
@@ -87,32 +111,9 @@
             // 
             // tmrMain
             // 
+            this.tmrMain.Enabled = true;
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
-            // 
-            // bsiServer
-            // 
-            this.bsiServer.Caption = "Server";
-            this.bsiServer.Glyph = global::SKG.DXF.Properties.Resources.db;
-            this.bsiServer.Id = 1;
-            this.bsiServer.Name = "bsiServer";
-            this.bsiServer.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // bsiUser
-            // 
-            this.bsiUser.Caption = "User";
-            this.bsiUser.Glyph = global::SKG.DXF.Properties.Resources.user;
-            this.bsiUser.Id = 2;
-            this.bsiUser.Name = "bsiUser";
-            this.bsiUser.TextAlignment = System.Drawing.StringAlignment.Near;
-            // 
-            // bsiTimer
-            // 
-            this.bsiTimer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bsiTimer.Caption = "Timer";
-            this.bsiTimer.Id = 3;
-            this.bsiTimer.Name = "bsiTimer";
-            this.bsiTimer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // FrmMain
             // 

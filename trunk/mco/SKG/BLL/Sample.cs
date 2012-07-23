@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace SKG.BLL
 {
+    using SKG.Plugin;
     using DAL.Entities;
 
     /// <summary>
@@ -126,36 +127,15 @@ namespace SKG.BLL
         {
             if (Pol_Right.Count() > 0) return;
 
-            var o = new Pol_Right() { Code = "FrmPol_Right", Name = "Chức năng", Descript = "Danh mục chức năng" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_Role", Name = "Nhóm quyền", Descript = "Danh mục nhóm quyền" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_User", Name = "Người dùng", Descript = "Danh mục người dùng" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_UserRight", Name = "Quyền người sử dụng", Descript = "Form quyền người sử dụng" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_RoleRight", Name = "Nhóm quyền người dùng", Descript = "Form nhóm quyền người dùng" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmPol_UserRole", Name = "Phân quyền cho nhóm người", Descript = "Form phân quyền cho nhóm người" };
-            Pol_Right.Insert(o);
+            var a = new Services();
+            var b = a.GetPlugins();
+            var c = Services.GetMenu(b);
 
-            o = new Pol_Right() { Code = "FrmTra_Group", Name = "Nhóm xe", Descript = "Danh mục nhóm xe" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmTra_Kind", Name = "Loại xe", Descript = "Danh mục loại xe" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmTra_Vehicle", Name = "Danh sách xe", Descript = "Danh sách xe" };
-            Pol_Right.Insert(o);
-
-            o = new Pol_Right() { Code = "FrmGateIn", Name = "Cổng vào", Descript = "Form cổng vào" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmGateOut", Name = "Cổng ra", Descript = "Form cổng ra" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmInDepot", Name = "Xe trong bến", Descript = "Form xe trong bến" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmSales", Name = "Doanh thu", Descript = "Form doanh thu" };
-            Pol_Right.Insert(o);
-            o = new Pol_Right() { Code = "FrmShowPrint", Name = "In thống kê", Descript = "Form in thống kê" };
-            Pol_Right.Insert(o);
+            foreach (var i in c)
+            {
+                var o = new Pol_Right() { Level = i.Level, Name = i.Caption, Code = i.Type, Type = i.Type, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                Pol_Right.Insert(o);
+            }
         }
 
         /// <summary>

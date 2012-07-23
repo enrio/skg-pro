@@ -14,7 +14,7 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thông tin", Level = 2, Order = 6, Picture = @"Icons\Catalog.png" };
+                var menu = new Menuz() { Caption = "Thông tin", Level = 2, Order = 995, Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

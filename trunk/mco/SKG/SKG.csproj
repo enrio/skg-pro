@@ -59,6 +59,7 @@
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
     <Compile Include="DAL\Entities\Pol_Action.cs" />
+    <Compile Include="DAL\Entities\Pol_Language.cs" />
     <Compile Include="DAL\Entities\Pol_Menu.cs" />
     <Compile Include="DAL\Entities\Pol_Right.cs" />
     <Compile Include="DAL\Entities\Pol_Role.cs" />

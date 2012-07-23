@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 22:13
+ * Update: 23/07/2012 22:19
  * Status: OK
  */
 #endregion
@@ -116,7 +116,11 @@ namespace SKG.Plugin
                         lst.Add(i);
                         var c = r.ToDataTable(false, typeof(Menuz).Name);
                         var file = String.Format("{0}.xml", i);
+#if DEBUG
+                        c.WriteXml(file);
+#else
                         if (!File.Exists(file)) c.WriteXml(file);
+#endif
                     }
                 }
                 return lst;

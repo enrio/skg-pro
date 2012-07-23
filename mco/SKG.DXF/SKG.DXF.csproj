@@ -143,6 +143,7 @@
     <Compile Include="Home\Catalog\FrmPol_User.Designer.cs">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Catalog\Level2.cs" />
     <Compile Include="Home\Level1.cs" />
     <Compile Include="Home\Sytem\FrmLogin.cs">
       <SubType>Form</SubType>

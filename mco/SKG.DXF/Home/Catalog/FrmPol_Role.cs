@@ -8,8 +8,23 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Catalog
 {
+    using SKG.Plugin;
+
     public partial class FrmPol_Role : SKG.DXF.FrmInput
     {
+        #region Override plugin
+        public override Form Form { get { return this; } }
+
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Nhóm quyền", Level = 3, Order = 8, Picture = @"Icons\Role.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         public FrmPol_Role()
         {
             InitializeComponent();

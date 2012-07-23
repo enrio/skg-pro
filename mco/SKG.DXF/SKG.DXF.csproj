@@ -300,6 +300,9 @@
     <Content Include="Icons\Exit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Help.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -68,7 +68,6 @@ namespace SKG.DAL
                               s.Descript,
 
                               s.Level,
-                              s.Type,
                               s.Picture,
 
                               s.Show,
@@ -123,7 +122,6 @@ namespace SKG.DAL
                 res.Descript = o.Descript;
 
                 res.Level = o.Level;
-                res.Type = o.Type;
                 res.Picture = o.Picture;
 
                 res.Order = o.Order;

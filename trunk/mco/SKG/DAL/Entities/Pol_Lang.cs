@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:33
- * Update: 23/07/2012 22:33
+ * Update: 23/07/2012 22:50
  * Status: OK
  */
 #endregion
@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Language for system (include all form, menuz and more)
     /// </summary>
-    public class Pol_Language : ZBase
+    public class Pol_Lang : ZBase
     {
         #region Foreign key
         /// <summary>
@@ -53,7 +53,7 @@ namespace SKG.DAL.Entities
         [StringLength(256)]
         public string Default { get; set; }
 
-        public Pol_Language()
+        public Pol_Lang()
         {
             Default = "Vietnamese";
         }

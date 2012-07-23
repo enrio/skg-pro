@@ -118,6 +118,12 @@
     <Compile Include="Global.cs" />
     <Compile Include="Help\Level1.cs" />
     <Compile Include="Home\Level1.cs" />
+    <Compile Include="Home\Sytem\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Sytem\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Level.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -182,7 +188,6 @@
     <Folder Include="Help\Util\" />
     <Folder Include="Home\Catalog\" />
     <Folder Include="Home\Grant\" />
-    <Folder Include="Home\Sytem\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />

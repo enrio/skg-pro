@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 22:05
+ * Update: 23/07/2012 22:13
  * Status: OK
  */
 #endregion
@@ -74,11 +74,14 @@ namespace SKG.Plugin
                         Path = fileName,
                         Instance = (IPlugin)Activator.CreateInstance(type)
                     };
+
                     plugin.Instance.Host = this;
                     plugin.Instance.Initialize();
+
                     plugin.Menu = plugin.Instance.Menuz;
                     plugin.Menu.Type = pluginType.FullName;
-                    lst.Add(plugin);
+
+                    if (plugin.Menu.Level > 0) lst.Add(plugin);
                 }
                 return lst;
             }

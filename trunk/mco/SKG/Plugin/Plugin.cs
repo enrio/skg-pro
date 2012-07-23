@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:48 PM
- * Update: 23/07/2012 21:48 PM
+ * Create: 23/07/2012 21:48
+ * Update: 23/07/2012 21:48
  * Status: OK
  */
 #endregion

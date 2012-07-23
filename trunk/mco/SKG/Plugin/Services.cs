@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:48 PM
- * Update: 23/07/2012 21:48 PM
+ * Create: 23/07/2012 21:48
+ * Update: 23/07/2012 22:05
  * Status: OK
  */
 #endregion
@@ -82,7 +82,13 @@ namespace SKG.Plugin
                 }
                 return lst;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
 
         /// <summary>
@@ -112,7 +118,13 @@ namespace SKG.Plugin
                 }
                 return lst;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
 
         /// <summary>
@@ -128,7 +140,13 @@ namespace SKG.Plugin
                 var file = String.Format("{0}.xml", s);
                 return file.ToMenu(name);
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
 
         /// <summary>
@@ -144,7 +162,13 @@ namespace SKG.Plugin
                 foreach (var i in l) menu.AddRange(GetMenu(i));
                 return menu;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
         #endregion
     }

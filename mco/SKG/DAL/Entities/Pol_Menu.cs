@@ -16,23 +16,6 @@ namespace SKG.DAL.Entities
         /// </summary>
         public string Caption { set; get; }
 
-        #region Language
-        /// <summary>
-        /// First language
-        /// </summary>
-        public string LangF { set; get; }
-
-        /// <summary>
-        /// Second language
-        /// </summary>
-        public string LangS { set; get; }
-
-        /// <summary>
-        /// Third language
-        /// </summary>
-        public string LangT { set; get; }
-        #endregion
-
         /// <summary>
         /// Namespace or type name
         /// </summary>
@@ -42,5 +25,22 @@ namespace SKG.DAL.Entities
         /// Picture for icon
         /// </summary>
         public string Picture { set; get; }
+
+        #region Foreign key on another entity
+        /// <summary>
+        /// List of role has permission
+        /// </summary>
+        public virtual ICollection<Pol_RoleRight> Pol_RoleRights { get; set; }
+
+        /// <summary>
+        /// User's list has permission
+        /// </summary>
+        public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
+
+        /// <summary>
+        /// Language of menuz
+        /// </summary>
+        public virtual Pol_Language Pol_Languages { get; set; }
+        #endregion
     }
 }

@@ -9,7 +9,7 @@ namespace SKG.DAL
     using System.Data;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_Right
+    /// Policy - Pol_Right processing
     /// </summary>
     public abstract class Pol_RightDAL : BaseDAL, IBase
     {
@@ -63,8 +63,16 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
+
                               s.Name,
-                              s.Descript
+                              s.Descript,
+
+                              s.Level,
+                              s.Type,
+                              s.Picture,
+
+                              s.Show,
+                              s.Order
                           };
 
                 if (obj != null) res = res.Where(s => s.Code == obj + "");
@@ -109,10 +117,15 @@ namespace SKG.DAL
                 var o = (Pol_Right)obj;
                 var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Name = o.Name;
-
                 res.Code = o.Code;
+
+                res.Name = o.Name;
                 res.Descript = o.Descript;
+
+                res.Level = o.Level;
+                res.Type = o.Type;
+                res.Picture = o.Picture;
+
                 res.Order = o.Order;
                 res.Show = o.Show;
 

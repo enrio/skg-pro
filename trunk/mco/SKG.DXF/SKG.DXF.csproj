@@ -144,6 +144,24 @@
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Catalog\Level2.cs" />
+    <Compile Include="Home\Grant\FrmPol_RoleRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Grant\FrmPol_RoleRight.Designer.cs">
+      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Grant\FrmPol_UserRight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Grant\FrmPol_UserRight.Designer.cs">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home\Grant\FrmPol_UserRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Grant\FrmPol_UserRole.Designer.cs">
+      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Level1.cs" />
     <Compile Include="Home\Sytem\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -229,7 +247,6 @@
   <ItemGroup>
     <Folder Include="Help\Infor\" />
     <Folder Include="Help\Util\" />
-    <Folder Include="Home\Grant\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />

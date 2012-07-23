@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 21:48
+ * Update: 23/07/2012 23:35
  * Status: OK
  */
 #endregion
@@ -295,7 +295,7 @@ namespace SKG.DXF
         /// <returns></returns>
         protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
-            var name = frmRight.GetType().Name;
+            var name = frmRight.GetType().FullName;
             var z = Global.Session.GetZAction(name);
 
             if (z == null || z.Access == false)

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
@@ -17,7 +15,7 @@ namespace SKG.DXF
     /// <summary>
     /// For menuz with input form
     /// </summary>
-    public partial class FrmInput : DevExpress.XtraEditors.XtraForm, IPlugin
+    public partial class FrmInput : XtraForm, IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }

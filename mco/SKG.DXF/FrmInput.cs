@@ -317,10 +317,10 @@ namespace SKG.DXF
         protected virtual void TimerTick(object sender, EventArgs e) { }
         #endregion
 
-        #region Cho phép ẩn/hiện các nút lệnh, thanh công cụ
+        #region Allow show/hide toolbar, command button
         private bool _allowBar;
         /// <summary>
-        /// Ẩn/hiện thanh công cụ
+        /// Allow show or hide toolbar
         /// </summary>
         public bool AllowBar
         {
@@ -334,7 +334,7 @@ namespace SKG.DXF
 
         private bool _allowAdd;
         /// <summary>
-        /// Hiển thị nút Thêm hay không
+        /// Allow show or hide add button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowAdd
@@ -350,7 +350,7 @@ namespace SKG.DXF
 
         private bool _allowEdit;
         /// <summary>
-        /// Hiển thị nút Sửa hay không
+        /// Allow show or hide edit button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowEdit
@@ -366,7 +366,7 @@ namespace SKG.DXF
 
         private bool _allowDelete;
         /// <summary>
-        /// Hiển thị nút Xoá hay không
+        /// Allow show or hide delete button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowDelete
@@ -382,7 +382,7 @@ namespace SKG.DXF
 
         private bool _allowSave;
         /// <summary>
-        /// Hiển thị nút Lưu hay không
+        /// Allow show or hide save button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowSave
@@ -398,7 +398,7 @@ namespace SKG.DXF
 
         private bool _allowCancel;
         /// <summary>
-        /// Hiển thị nút Huỷ hay không
+        /// Allow show or hide cancel button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowCancel
@@ -414,7 +414,7 @@ namespace SKG.DXF
 
         private bool _allowRefresh;
         /// <summary>
-        /// Hiển thị nút Cập nhật hay không
+        /// Allow show or hide refresh button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowRefresh
@@ -430,7 +430,7 @@ namespace SKG.DXF
 
         private bool _allowFind;
         /// <summary>
-        /// Hiển thị nút Tìm hay không
+        /// Allow show or hide find button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowFind
@@ -446,7 +446,7 @@ namespace SKG.DXF
 
         private bool _allowPrint;
         /// <summary>
-        /// Hiển thị nút In ấn hay không
+        /// Allow show or hide print button
         /// </summary>
         [DefaultValue(false)]
         public bool AllowPrint
@@ -461,10 +461,10 @@ namespace SKG.DXF
         }
         #endregion
 
-        #region Dành cho form phân quyền
+        #region For permission
         private bool _allowCollapse;
         /// <summary>
-        /// Thu gọn tất cả cây
+        /// Collapse all tree
         /// </summary>
         public bool AllowCollapse
         {
@@ -479,7 +479,7 @@ namespace SKG.DXF
 
         private bool _allowExpand;
         /// <summary>
-        /// Mở rộng tất cả cây
+        /// Expand all tree
         /// </summary>
         public bool AllowExpand
         {

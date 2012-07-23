@@ -65,9 +65,6 @@ namespace SKG.DAL
                               s.Id,
                               s.Level,
                               s.Caption,
-                              s.LangF,
-                              s.LangS,
-                              s.LangT,
                               s.Type,
                               s.Picture,
 
@@ -118,9 +115,6 @@ namespace SKG.DAL
 
                 res.Level = o.Level;
                 res.Caption = o.Caption;
-                res.LangF = o.LangF;
-                res.LangS = o.LangS;
-                res.LangT = o.LangT;
                 res.Type = o.Type;
                 res.Picture = o.Picture;
 

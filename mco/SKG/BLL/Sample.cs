@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace SKG.BLL
 {
-    using SKG.Plugin;
     using DAL.Entities;
 
     /// <summary>
@@ -48,11 +47,6 @@ namespace SKG.BLL
         /// Truy cập cơ sở dữ liệu bảng Pol_RoleRight: nhóm quyền - phân quyền trên từng form theo nhóm quyền.
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
-
-        /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_Menu: danh sách menu.
-        /// </summary>
-        public Pol_MenuBLL Pol_Menu { set; get; }
         #endregion
 
         #region Các phương thức tĩnh
@@ -97,7 +91,6 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
-            Pol_Menu = new Pol_MenuBLL();
         }
 
         #region Tạo dữ liệu mẫu
@@ -370,24 +363,6 @@ namespace SKG.BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
         }
-
-        /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_Menu
-        /// </summary>
-        void CreatePol_Menu()
-        {
-            if (Pol_Menu.Count() > 0) return;
-
-            var a = new Services();
-            var b = a.GetPlugins();
-            var c = Services.GetMenu(b);
-
-            foreach (var i in c)
-            {
-                var o = new Pol_Menu() { Level = i.Level, Caption = i.Caption, Type = i.Type, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                Pol_Menu.Insert(o);
-            }
-        }
         #endregion
 
         /// <summary>
@@ -401,8 +376,6 @@ namespace SKG.BLL
             Pol_Role.Delete();
             Pol_Right.Delete();
             Pol_Action.Delete();
-            Pol_Menu.Delete();
-            Pol_User.Delete();
         }
 
         /// <summary>
@@ -417,7 +390,6 @@ namespace SKG.BLL
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
-            CreatePol_Menu();
         }
     }
 }

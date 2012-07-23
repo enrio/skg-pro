@@ -118,6 +118,12 @@
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Help\Infor\FrmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\Infor\FrmLicense.Designer.cs">
+      <DependentUpon>FrmLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Help\Infor\Level2.cs" />
     <Compile Include="Help\Level1.cs" />
     <Compile Include="Help\Util\Level2.cs" />
@@ -314,6 +320,8 @@
     <Content Include="Images\Ribbon_Underline_16x16.png" />
     <Content Include="Images\Tasks_16x16.png" />
     <Content Include="Images\Trash_16x16.png" />
+    <None Include="Resources\db.png" />
+    <None Include="Resources\user.png" />
     <None Include="Resources\ok.png" />
     <None Include="Resources\logon.png" />
     <None Include="Resources\closex.png" />

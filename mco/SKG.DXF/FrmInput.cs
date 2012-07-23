@@ -24,7 +24,7 @@ namespace SKG.DXF
 
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
-        public virtual Menuz Menuz { get; set; }
+        public virtual Menuz Menuz { get { return new Menuz(); } }
 
         public void Initialize() { }
         #endregion

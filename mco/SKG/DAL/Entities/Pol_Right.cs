@@ -32,11 +32,6 @@ namespace SKG.DAL.Entities
         public string Name { set; get; }
 
         /// <summary>
-        /// Namespace or type name
-        /// </summary>
-        public string Type { set; get; }
-
-        /// <summary>
         /// Picture for icon
         /// </summary>
         public string Picture { set; get; }

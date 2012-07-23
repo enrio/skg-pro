@@ -7,12 +7,12 @@ Select * From Pol_UserRight
 Select * From Pol_UserRole
 Select * From Pol_RoleRight
 
-Select * From Pol_Menu
-Order By Substring([Type], 1, 3), [Order]
+Select * From Pol_Right
+Order By Substring(Code, 1, 3), [Order]
 
-Select * From Pol_Menu 
+Select * From Pol_Right 
 Where [Level] = 3
-Order By Substring([Type], 1, 3), [Order]
+Order By Substring(Code, 1, 3), [Order]
 
 Select U.*, Rr.* From Pol_RoleRight Rr
 	Join Pol_Right R On R.Id = Rr.Pol_RightId

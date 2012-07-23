@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extend.cs" />
     <Compile Include="FrmDemo.cs">
       <SubType>Form</SubType>
     </Compile>

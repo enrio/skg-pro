@@ -65,9 +65,7 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void FrmBase_Activated(object sender, EventArgs e)
         {
-#if !DEBUG
             CheckRight(this, true);
-#endif
         }
 
         /// <summary>

@@ -64,7 +64,7 @@ namespace SKG.DAL
                               s.Id,
                               s.Code,
 
-                              s.Name,
+                              s.Caption,
                               s.Descript,
 
                               s.Level,
@@ -118,7 +118,7 @@ namespace SKG.DAL
 
                 res.Code = o.Code;
 
-                res.Name = o.Name;
+                res.Caption = o.Caption;
                 res.Descript = o.Descript;
 
                 res.Level = o.Level;

@@ -161,7 +161,7 @@ namespace SKG.DXF
 
                 if (o == null)
                 {
-                    o = new Pol_Right() { Code = code, Name = form.Text, Descript = "" };
+                    o = new Pol_Right() { Code = code, Caption = form.Text, Descript = "" };
                     bll.Insert(o);
                 }
 
@@ -305,7 +305,7 @@ namespace SKG.DXF
                         var m3 = new BarButtonItem() { Caption = menu[j].Caption };
                         m2.ItemLinks.Add(m3);
                         Assembly y = Assembly.LoadFile(s);
-                        m3.Tag = y.CreateInstance(menu[j].Type);
+                        m3.Tag = y.CreateInstance(menu[j].Code);
                         m3.LargeGlyph = Image.FromFile(path + menu[j].Picture);
                         m3.ItemClick += ButtonItem_ItemClick;
                     }

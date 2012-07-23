@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 23/07/2012 22:50
+ * Update: 23/07/2012 23:27
  * Status: OK
  */
 #endregion
@@ -29,7 +29,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Default language
         /// </summary>
-        public string Name { set; get; }
+        public string Caption { set; get; }
 
         /// <summary>
         /// Picture for icon

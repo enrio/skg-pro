@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 21:48
+ * Update: 23/07/2012 23:26
  * Status: OK
  */
 #endregion
@@ -34,7 +34,7 @@ namespace SKG.Plugin
         /// <summary>
         /// Namespace or type name
         /// </summary>
-        public string Type { set; get; }
+        public string Code { set; get; }
 
         /// <summary>
         /// Picture for icon

@@ -133,7 +133,7 @@ namespace SKG.BLL
 
             foreach (var i in c)
             {
-                var o = new Pol_Right() { Level = i.Level, Name = i.Caption, Code = i.Type, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                var o = new Pol_Right() { Level = i.Level, Caption = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
                 Pol_Right.Insert(o);
             }
         }

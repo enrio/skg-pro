@@ -4,20 +4,14 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:48 PM
- * Update: 23/07/2012 21:48 PM
+ * Create: 23/07/2012 21:48
+ * Update: 23/07/2012 22:07
  * Status: OK
  */
 #endregion
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraBars;
 
 namespace SKG.DXF
 {
@@ -27,7 +21,6 @@ namespace SKG.DXF
     using SKG.Extend;
     using SKG.Hasher;
     using DevExpress.XtraEditors;
-    using DevExpress.XtraBars.Helpers;
 
     public partial class FrmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
@@ -122,12 +115,12 @@ namespace SKG.DXF
             if (b != null || c == "ADMIN")
             {
                 //rpgPermission.Visible = true;
-                bbiSetting.Visibility = BarItemVisibility.Always;
+                //bbiSetting.Visibility = BarItemVisibility.Always;
             }
             else
             {
                 //rpgPermission.Visible = false;
-                bbiSetting.Visibility = BarItemVisibility.Never;
+                //bbiSetting.Visibility = BarItemVisibility.Never;
             }
 #endif
         }

@@ -162,6 +162,7 @@
     <Compile Include="Home\Grant\FrmPol_UserRole.Designer.cs">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Grant\Level2.cs" />
     <Compile Include="Home\Level1.cs" />
     <Compile Include="Home\Sytem\FrmLogin.cs">
       <SubType>Form</SubType>

@@ -40,7 +40,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Language of menuz
         /// </summary>
-        public virtual Pol_Lang Pol_Languages { get; set; }
+        public virtual Pol_Lang Pol_Langs { get; set; }
         #endregion
     }
 }

@@ -118,7 +118,9 @@
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Help\Infor\Level2.cs" />
     <Compile Include="Help\Level1.cs" />
+    <Compile Include="Help\Util\Level2.cs" />
     <Compile Include="Home\Catalog\FrmPol_Action.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,10 +247,7 @@
       <Name>SKG</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Help\Infor\" />
-    <Folder Include="Help\Util\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\add.png" />
   </ItemGroup>

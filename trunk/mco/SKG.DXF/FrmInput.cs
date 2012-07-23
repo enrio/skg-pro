@@ -14,11 +14,14 @@ namespace SKG.DXF
     using DAL.Entities;
     using DevExpress.XtraBars;
 
-    public abstract partial class FrmInput : DevExpress.XtraEditors.XtraForm, IPlugin
+    /// <summary>
+    /// For menuz with input form
+    /// </summary>
+    public partial class FrmInput : DevExpress.XtraEditors.XtraForm, IPlugin
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }
-        public string Description { get { return "xSGKv1 Framework 2012 - Input Form with Toolbar"; } }
+        public string Description { get { return "xSGKv1 Framework 2012 - For menuz with input form"; } }
         public string Version { get { return "1.0"; } }
 
         public virtual Form Form { get { return null; } }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SKG.DXF.Home.Catalog
+namespace SKG.DXF.Help.Infor
 {
     using SKG.Plugin;
 
@@ -14,7 +14,7 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Danh mục", Level = 2, Order = 8, Picture = @"Icons\Catalog.png" };
+                var menu = new Menuz() { Caption = "Thông tin", Level = 2, Order = 6, Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

@@ -19,7 +19,7 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Chức năng", Level = 3, Order = 9, Picture = @"Icons\Right.png" };
+                var menu = new Menuz() { Caption = "Chức năng", Level = 3, Order = 11, Picture = @"Icons\Right.png" };
                 return menu;
             }
         }

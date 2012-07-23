@@ -37,29 +37,34 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Truy xuất dữ liệu cơ bản
+        /// Base access data
         /// </summary>
         protected Sample _bll = new Sample();
 
         /// <summary>
-        /// Bảng rỗng mặc định
+        /// Default table empty
         /// </summary>
         protected DataTable _dtb = new DataTable("Tmp");
 
         /// <summary>
-        /// Trạng thái form
+        /// Form state
         /// </summary>
         protected State _state;
 
         /// <summary>
-        /// Kiểm tra quyền người dùng đăng nhập
+        /// Check user's right
         /// </summary>
-        /// <returns>Quyền truy cập</returns>
+        /// <returns></returns>
         public ZAction CheckRight()
         {
             return CheckRight(this);
         }
 
+        /// <summary>
+        /// Call check user's right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmBase_Activated(object sender, EventArgs e)
         {
 #if !DEBUG
@@ -67,6 +72,11 @@ namespace SKG.DXF
 #endif
         }
 
+        /// <summary>
+        /// Set default form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmBase_Load(object sender, EventArgs e)
         {
             Text = Menuz.Caption;
@@ -74,6 +84,11 @@ namespace SKG.DXF
             PerformRefresh();
         }
 
+        /// <summary>
+        /// Action item click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bmgMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             switch (e.Item.Name)
@@ -89,18 +104,22 @@ namespace SKG.DXF
                     break;
 
                 case "bbiDelete":
+                    _state = State.Delete;
                     PerformDelete();
                     break;
 
                 case "bbiSave":
+                    _state = State.Save;
                     PerformSave();
                     break;
 
                 case "bbiCancel":
+                    _state = State.Cancel;
                     PerformCancel();
                     break;
 
                 case "bbiRefresh":
+                    _state = State.View;
                     PerformRefresh();
                     break;
 
@@ -129,7 +148,7 @@ namespace SKG.DXF
         /// <summary>
         /// Change status command button on form
         /// </summary>
-        /// <param name="isEnable">Enable if true else disable</param>
+        /// <param name="isEnable">Enable</param>
         protected void ChangeStatus(bool isEnable = true)
         {
             bbiAdd.Enabled = isEnable;
@@ -234,19 +253,19 @@ namespace SKG.DXF
         /// <summary>
         /// Set read only control on form
         /// </summary>
-        /// <param name="isReadOnly">Read only is trule else normal</param>
+        /// <param name="isReadOnly">Read only</param>
         protected virtual void ReadOnlyControl(bool isReadOnly = true) { }
 
         /// <summary>
         /// Update object
         /// </summary>
-        /// <returns>True if successful else false</returns>
+        /// <returns></returns>
         protected virtual bool UpdateObject() { return true; }
 
         /// <summary>
-        /// Delete object
+        /// Insert object
         /// </summary>
-        /// <returns>True if successful else false</returns>
+        /// <returns></returns>
         protected virtual bool InsertObject() { return true; }
 
         /// <summary>
@@ -257,15 +276,15 @@ namespace SKG.DXF
         /// <summary>
         /// Valid data before insert or update to database
         /// </summary>
-        /// <returns>True if valid else false</returns>
+        /// <returns></returns>
         protected virtual bool ValidInput() { return true; }
 
         /// <summary>
-        /// Kiểm tra quyền người dùng đăng nhập
+        /// Check user's right after logon
         /// </summary>
-        /// <param name="frmRight">Form cần kiểm tra</param>
-        /// <param name="showMessage">Hiện thông báo hay không?</param>
-        /// <returns>Quyền truy cập</returns>
+        /// <param name="frmRight">Form need to check</param>
+        /// <param name="showMessage">Show message</param>
+        /// <returns></returns>
         protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().Name;
@@ -291,7 +310,7 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Đồng hồ đếm thời gian
+        /// System timer
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

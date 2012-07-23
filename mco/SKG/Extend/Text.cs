@@ -274,7 +274,7 @@ namespace SKG.Extend
                     {
                         Level = Convert.ToInt32(s.Level),
                         Caption = s.Caption,
-                        Type = s.Type,
+                        Code = s.Type,
                         Picture = s.Picture,
                         Show = Convert.ToBoolean(s.Show),
                         Order = Convert.ToInt32(s.Order)

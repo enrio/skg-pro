@@ -64,7 +64,7 @@ namespace SKG.Extend
                     try { y = Assembly.LoadFile(s + "BXE.PRE.dll"); }
                     catch { y = Assembly.LoadFile(s + "POS.dll"); }
 
-                    m3.Tag = y.CreateInstance(menu[j].Type);
+                    m3.Tag = y.CreateInstance(menu[j].Code);
                     m3.Image = Image.FromFile(s + menu[j].Picture);
                     m3.Click += MenuItem_Click;
                 }

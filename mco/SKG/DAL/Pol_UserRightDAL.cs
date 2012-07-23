@@ -71,7 +71,7 @@ namespace SKG.DAL
                             s.Full,
                             s.None,
 
-                            Name = s.Pol_Right.Name,
+                            Name = s.Pol_Right.Caption,
                             Descript = s.Pol_Right.Descript,
                         };
 

@@ -79,7 +79,7 @@ namespace SKG.Plugin
                     plugin.Instance.Initialize();
 
                     plugin.Menu = plugin.Instance.Menuz;
-                    plugin.Menu.Type = pluginType.FullName;
+                    plugin.Menu.Code = pluginType.FullName;
 
                     if (plugin.Menu.Level > 0) lst.Add(plugin);
                 }

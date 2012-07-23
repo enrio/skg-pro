@@ -260,7 +260,7 @@ namespace SKG.Extend
                           {
                               Level = s.Element("Level").Value,
                               Caption = s.Element("Caption").Value,
-                              Type = s.Element("Type").Value,
+                              Code = s.Element("Code").Value,
                               Picture = s.Element("Picture").Value,
                               Order = s.Element("Order").Value,
                               Show = s.Element("Show").Value
@@ -274,7 +274,7 @@ namespace SKG.Extend
                     {
                         Level = Convert.ToInt32(s.Level),
                         Caption = s.Caption,
-                        Code = s.Type,
+                        Code = s.Code,
                         Picture = s.Picture,
                         Show = Convert.ToBoolean(s.Show),
                         Order = Convert.ToInt32(s.Order)

@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 23/07/2012 23:27
+ * Update: 24/07/2012 21:33
  * Status: OK
  */
 #endregion
@@ -17,7 +17,7 @@ using System.Linq;
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// Policy - Menuz, form all of system
+    /// Policy - All menuz, form of system
     /// </summary>
     public class Pol_Right : ZBase
     {

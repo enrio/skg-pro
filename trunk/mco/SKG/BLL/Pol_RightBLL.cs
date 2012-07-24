@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 22:02
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,16 +19,16 @@ namespace SKG.BLL
     using DAL.Entities;
 
     /// <summary>
-    /// Truy cập cơ sở dữ liệu bảng Pol_Right: danh mục form.
+    /// Policy - Pol_Right accessing
     /// </summary>
     public sealed class Pol_RightBLL : DAL.Pol_RightDAL
     {
         /// <summary>
-        /// Thêm thông tin form
+        /// Add menuz, form
         /// </summary>
-        /// <param name="code">Mã form (tên class của form)</param>
-        /// <param name="name">Tên form</param>
-        /// <param name="descript">Mô tả</param>
+        /// <param name="code">Type of form</param>
+        /// <param name="name">Caption</param>
+        /// <param name="descript">Description</param>
         /// <returns></returns>
         public object Insert(string code, string name, string descript)
         {

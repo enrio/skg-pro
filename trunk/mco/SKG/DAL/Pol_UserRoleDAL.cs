@@ -27,7 +27,7 @@ namespace SKG.DAL
     {
         #region Implement
         /// <summary>
-        /// Đếm số dòng trong bảng
+        /// Count number of records
         /// </summary>
         /// <returns></returns>
         public int Count()
@@ -36,32 +36,32 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Tìm theo khoá ngoại
+        /// Return data by foreign key
         /// </summary>
-        /// <param name="fKey">Khoá ngoại</param>
-        /// <returns>Dữ liệu</returns>
+        /// <param name="fKey">Foreign key on this table</param>
+        /// <returns></returns>
         public DataTable Select(Guid fKey)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Tìm theo mã (cột Code)
+        /// Select object of entity by secondary primary key (when need to)
         /// </summary>
-        /// <param name="code">Mã cần tìm</param>
-        /// <returns>Đối tượng tìm</returns>
+        /// <param name="code">Primary key (when need to)</param>
+        /// <returns></returns>
         public object Select(string code)
         {
             throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Lấy dữ liệu, obj = null: lấy tất cả
+        /// Return data
         /// </summary>
-        /// <param name="obj">Đối tượng Pol_UserRole cần lọc</param>
-        /// <param name="skip">Số dòng bỏ qua</param>
-        /// <param name="take">Số dòng cần lấy</param>
-        /// <returns>Dữ liệu</returns>
+        /// <param name="obj">Object of entity</param>
+        /// <param name="skip">Skip number of records</param>
+        /// <param name="take">Take number of records</param>
+        /// <returns></returns>
         public DataTable Select(object obj = null, int skip = 0, int take = 0)
         {
             try
@@ -71,49 +71,39 @@ namespace SKG.DAL
                         {
                             ID = s.Id,
                             ParentID = s.Pol_Role.Id,
-
                             UserId = s.Pol_UserId,
                             Format = false,
-
                             Name = s.Pol_User.Name,
                             Descript = s.Pol_User.Acc,
                         };
-
                 Guid? id = new Guid();
-
                 var b = from s in _db.Pol_Roles
                         select new
                         {
                             ID = s.Id,
                             ParentID = s.Id,
-
                             UserId = id,
                             Format = true,
-
                             s.Name,
                             s.Descript
                         };
-
                 var res = a.Union(b);
-
                 if (obj != null)
                 {
                     var o = (Pol_UserRole)obj;
                     res = res.Where(s => s.ID == o.Id);
                 }
-
                 if (take > 0) res = res.Skip(skip).Take(take);
-
                 return res.OrderBy(s => s.Name).ToDataTable();
             }
             catch { return _tb; }
         }
 
         /// <summary>
-        /// Thêm dữ liệu
+        /// Insert data
         /// </summary>
-        /// <param name="obj">Đối tượng Pol_UserRole</param>
-        /// <returns>Khác null: thêm thành công</returns>
+        /// <param name="obj">Object of entity</param>
+        /// <returns></returns>
         public object Insert(object obj)
         {
             try
@@ -121,7 +111,6 @@ namespace SKG.DAL
                 var o = (Pol_UserRole)obj;
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_UserRoles.Add(o);
-
                 _db.SaveChanges();
                 return oki;
             }
@@ -129,10 +118,10 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sửa dữ liệu
+        /// Update data
         /// </summary>
-        /// <param name="obj">Đối tượng Pol_UserRole</param>
-        /// <returns>Khác null: sửa thành công</returns>
+        /// <param name="obj">Object of entity</param>
+        /// <returns></returns>
         public object Update(object obj)
         {
             try
@@ -142,22 +131,20 @@ namespace SKG.DAL
 
                 res.Pol_UserId = o.Pol_UserId;
                 res.Pol_RoleId = o.Pol_RoleId;
-
                 res.Code = o.Code;
                 res.Descript = o.Descript;
                 res.Order = o.Order;
                 res.Show = o.Show;
-
                 return _db.SaveChanges();
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Xoá dữ liệu, không nhập khoá sẽ xoá tất cả
+        /// Delete data
         /// </summary>
-        /// <param name="id">Khoá chính</param>
-        /// <returns>Khác null: xoá thành công</returns>
+        /// <param name="id">Primary key</param>
+        /// <returns></returns>
         public object Delete(Guid id = new Guid())
         {
             try
@@ -172,7 +159,6 @@ namespace SKG.DAL
                     var tmp = _db.Pol_UserRoles.ToList();
                     tmp.ForEach(s => _db.Pol_UserRoles.Remove(s));
                 }
-
                 return _db.SaveChanges();
             }
             catch { return null; }

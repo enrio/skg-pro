@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 22:20
+ * Update: 24/07/2012 22:48
+ * Status: None
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,21 +20,20 @@ namespace SKG.DAL
     using System.Data;
 
     /// <summary>
-    /// Lớp thử nghiệm - kiểm tra một số chức năng, công nghệ, ...
+    /// For test
     /// </summary>
     public static class Test
     {
         public static DataTable TestPivot()
         {
-            // sample data
+            // Sample data
             var data = new[] { new { Foo = 1, Bar = "Don Smith" }, 
                                  new { Foo = 1, Bar = "Mike Jones" }, 
                                  new { Foo = 1, Bar = "James Ray" }, 
                                  new { Foo = 2, Bar = "Tom Rizzo" }, 
                                  new { Foo = 2, Bar = "Alex Homes" }, 
-                                 new { Foo = 3, Bar = "Andy Bates" }, };
-
-            // group into columns, and select the rows per column
+                                 new { Foo = 3, Bar = "Andy Bates" } };
+            // Group into columns, and select the rows per column
             var grps = from d in data
                        group d by d.Foo
                            into grp
@@ -31,7 +42,6 @@ namespace SKG.DAL
                                Foo = grp.Key,
                                Bars = grp.Select(d2 => d2.Bar).ToArray()
                            };
-
             return grps.ToDataTable();
         }
 
@@ -54,13 +64,11 @@ namespace SKG.DAL
             week_days.Add(new Sales { Sequence = 6, Sequence2 = 8, Day = "Fri", Amount = 08 });
             week_days.Add(new Sales { Sequence = 7, Sequence2 = 8, Day = "Sat", Amount = 0 });
             week_days.Add(new Sales { Sequence = 8, Sequence2 = 0, Day = "Fri", Amount = 18 });
-
             src = week_days.ToDataTable();
 
-            // before transpose
+            // Before transpose
             foreach (var day in week_days)
                 Console.WriteLine("{0}  {1}  {2}", day.Sequence, day.Day, day.Amount);
-
             var tr = from row in week_days
                      group row by "SALES" into g
                      where g.FirstOrDefault() != null
@@ -75,7 +83,6 @@ namespace SKG.DAL
                          Fri = g.Where(sales => sales.Day == "Fri").Sum(sales => sales.Amount),
                          Sat = g.Where(sales => sales.Day == "Sat").Sum(sales => sales.Amount)
                      };
-
             return tr.ToDataTable();
         }
     }

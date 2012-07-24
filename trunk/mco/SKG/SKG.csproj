@@ -77,8 +77,8 @@
     <Compile Include="DAL\Pol_UserRightDAL.cs" />
     <Compile Include="DAL\Pol_UserRoleDAL.cs" />
     <Compile Include="DAL\Test.cs" />
-    <Compile Include="Database\Base.cs" />
-    <Compile Include="Database\SQLServer.cs" />
+    <Compile Include="Data\Base.cs" />
+    <Compile Include="Data\SqlServer.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Load.cs" />

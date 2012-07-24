@@ -9,9 +9,9 @@ using System.Windows.Forms;
 namespace SKG.DXF.Home.Sytem
 {
     using BLL;
+    using SKG.Data;
     using SKG.Plugin;
     using SKG.Extend;
-    using SKG.Database;
     using System.Configuration;
     using DevExpress.XtraEditors;
 
@@ -67,8 +67,8 @@ namespace SKG.DXF.Home.Sytem
                 var str = "";
 
                 if (data == "" || data == STR_FIND) data = "xSKGv1";
-                if (cbbAuthen.Text == STR_WIND) str = String.Format(SQLServer.STR_TRU, sver, data);
-                else str = String.Format(SQLServer.STR_SEC, sver, data, user, pass);
+                if (cbbAuthen.Text == STR_WIND) str = String.Format(SqlServer.STR_TRU, sver, data);
+                else str = String.Format(SqlServer.STR_SEC, sver, data, user, pass);
 
                 _a.ConnectionString = str;
                 return _a;
@@ -92,7 +92,7 @@ namespace SKG.DXF.Home.Sytem
                 }
                 else
                 {
-                    var b = a.Replace("xBXEv1", "master");
+                    var b = a.Replace("xSKGv1", "master");
                     if (!b.CheckSqlConnect())
                     {
                         XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
@@ -194,7 +194,7 @@ namespace SKG.DXF.Home.Sytem
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
                     var a = ConnectionStringSetting.ConnectionString.Replace("xSKGv1", "master");
-                    using (var db = new SQLServer(a))
+                    using (var db = new SqlServer(a))
                     {
                         var tbl = db.GetDatabases();
                         cbbDb.Properties.Items.Remove(STR_FIND);

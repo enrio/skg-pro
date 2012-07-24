@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.Database
+namespace SKG.Data
 {
     using System.Data;
     using System.Data.Sql;

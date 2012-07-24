@@ -21,7 +21,7 @@ namespace SKG.DAL
     using System.Data;
 
     /// <summary>
-    /// Policy - Pol_Action table processing
+    /// Policy - Pol_Action processing
     /// </summary>
     public abstract class Pol_ActionDAL : BaseDAL, IBase
     {

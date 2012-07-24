@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:33
- * Update: 23/07/2012 22:50
+ * Update: 24/07/2012 21:26
  * Status: OK
  */
 #endregion
@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Language for system (include all form, menuz and more)
+    /// Policy - Language for system (include all form, menuz and more)
     /// </summary>
     public class Pol_Lang : ZBase
     {

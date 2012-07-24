@@ -70,6 +70,7 @@
     <Compile Include="DAL\Extend.cs" />
     <Compile Include="DAL\IBase.cs" />
     <Compile Include="DAL\Pol_ActionDAL.cs" />
+    <Compile Include="DAL\Pol_LangDAL.cs" />
     <Compile Include="DAL\Pol_RightDAL.cs" />
     <Compile Include="DAL\Pol_RoleDAL.cs" />
     <Compile Include="DAL\Pol_RoleRightDAL.cs" />

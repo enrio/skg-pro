@@ -31,7 +31,6 @@ namespace SKG.DXF
             //SkinHelper.InitSkinGallery(rgbMain, true);
 
             Global.Session = new Session();
-            BeforeLogon();
 
             // Thông tin server, đồng hồ
             var cnn = (new Pol_ActionBLL()).Connection();
@@ -44,6 +43,7 @@ namespace SKG.DXF
         {
             var a = Global.Service.GetPlugins();
             ribbon.LoadMenu(a, this);
+            BeforeLogon();
 
             // Check license
             var key = (new Registri()).Read("License");

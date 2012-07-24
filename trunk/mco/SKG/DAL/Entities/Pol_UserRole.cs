@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - List of user belong group
     /// </summary>
-    public class Pol_UserRole : ZBase
+    public class Pol_UserRole : Zinfors
     {
         #region Foreign key
         /// <summary>

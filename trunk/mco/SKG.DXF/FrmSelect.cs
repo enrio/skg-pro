@@ -17,7 +17,7 @@ namespace SKG.DXF
         /// <summary>
         /// Dữ liệu được chọn
         /// </summary>
-        public List<ZBase> ListInfo { private set; get; }
+        public List<Zinfors> ListInfo { private set; get; }
 
         /// <summary>
         /// Dữ liệu cần để chọn
@@ -44,14 +44,14 @@ namespace SKG.DXF
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            ListInfo = new List<ZBase>();
+            ListInfo = new List<Zinfors>();
 
             foreach (TreeListNode n in trlMain.Nodes)
                 if (n.Checked)
                 {
                     var id = (Guid)n.GetValue("Id");
                     var name = n.GetValue("Name") + "";
-                    var o = new ZBase() { Id = id, Descript = name };
+                    var o = new Zinfors() { Id = id, Descript = name };
                     ListInfo.Add(o);
                 }
 

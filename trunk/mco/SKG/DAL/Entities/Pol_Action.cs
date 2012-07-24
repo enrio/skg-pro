@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - List all of actions: Add, Edit, Delete, Print, ... on menuz or form
     /// </summary>
-    public class Pol_Action : ZBase
+    public class Pol_Action : Zinfors
     {
         /// <summary>
         /// Name of action

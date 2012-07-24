@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - List role of user group
     /// </summary>
-    public class Pol_Role : ZBase
+    public class Pol_Role : Zinfors
     {
         /// <summary>
         /// Name of group user

@@ -65,8 +65,8 @@
     <Compile Include="DAL\Entities\Pol_User.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
-    <Compile Include="DAL\Entities\ZAction.cs" />
-    <Compile Include="DAL\Entities\ZBase.cs" />
+    <Compile Include="DAL\Entities\Zaction.cs" />
+    <Compile Include="DAL\Entities\Zinfors.cs" />
     <Compile Include="DAL\Extend.cs" />
     <Compile Include="DAL\IBase.cs" />
     <Compile Include="DAL\Pol_ActionDAL.cs" />

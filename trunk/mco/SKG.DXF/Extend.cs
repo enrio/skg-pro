@@ -165,7 +165,7 @@ namespace SKG.DXF
                     bll.Insert(o);
                 }
 
-                ZAction z = form.CheckRight();
+                Zaction z = form.CheckRight();
                 if (z == null || z.Access == false) form.Dispose();
                 else form.Show();
             }

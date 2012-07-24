@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - User's list has permission
     /// </summary>
-    public class Pol_UserRight : ZAction
+    public class Pol_UserRight : Zaction
     {
         #region Foreign key
         /// <summary>

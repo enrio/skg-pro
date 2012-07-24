@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// All of actions: Add, Edit, Delete, Print, ... on menuz or form
     /// </summary>
-    public class ZAction : ZBase
+    public class Zaction : Zinfors
     {
         /// <summary>
         /// Allow add

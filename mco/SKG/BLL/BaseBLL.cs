@@ -76,7 +76,7 @@ namespace SKG.BLL
         /// <summary>
         /// All of flow processing
         /// </summary>
-        public static Sample BLL = new Sample();
+        public static BaseBLL _bll = new BaseBLL();
 
         /// <summary>
         /// Check database exists
@@ -84,9 +84,7 @@ namespace SKG.BLL
         /// <returns></returns>
         public static bool CheckDb()
         {
-            var bll = new Sample();
-            if (bll.Pol_User.Count() > 0) return true;
-            return false;
+            return _bll.Pol_User.Count() > 0;
         }
 
         /// <summary>

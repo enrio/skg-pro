@@ -99,9 +99,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Pol_User)obj;
-
                 if (Select(o.Acc) != null) return null; // account already exists
-
                 o.Id = Guid.NewGuid();
                 o.Pass = Coder.Encode(o.Pass);
                 var oki = _db.Pol_Users.Add(o);

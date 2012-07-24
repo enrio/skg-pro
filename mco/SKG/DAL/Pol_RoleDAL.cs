@@ -98,6 +98,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Pol_Role)obj;
+                if (Select(o.Code) != null) return null; // account already exists
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Roles.Add(o);
 

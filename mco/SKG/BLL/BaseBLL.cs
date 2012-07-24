@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 22:02
+ * Update: 24/07/2012 23:42
  * Status: OK
  */
 #endregion
@@ -85,18 +85,6 @@ namespace SKG.BLL
         public static bool CheckDb()
         {
             return _bll.Pol_User.Count() > 0;
-        }
-
-        /// <summary>
-        /// Auto create data for sample
-        /// </summary>
-        /// <param name="isDelete">Delete</param>
-        public static void CreateData(bool isDelete = false)
-        {
-            var bll = new Sample();
-            if (isDelete) bll.DeleteAll();
-            if (bll.Pol_User.Count() > 0) return;
-            bll.CreateAll();
         }
         #endregion
     }

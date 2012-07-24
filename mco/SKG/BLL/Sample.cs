@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 22:02
+ * Update: 24/07/2012 23:42
  * Status: OK
  */
 #endregion
@@ -23,6 +23,20 @@ namespace SKG.BLL
     /// </summary>
     public class Sample : BaseBLL
     {
+        #region Static methods
+        /// <summary>
+        /// Auto create data for sample
+        /// </summary>
+        /// <param name="isDelete">Delete</param>
+        public static void CreateData(bool isDelete = false)
+        {
+            var bll = new Sample();
+            if (isDelete) bll.DeleteAll();
+            if (bll.Pol_User.Count() > 0) return;
+            bll.CreateAll();
+        }
+        #endregion
+
         #region Create data sample
         /// <summary>
         /// Pol_Action table
@@ -210,7 +224,7 @@ namespace SKG.BLL
         /// <summary>
         /// Delete old all
         /// </summary>
-        public virtual void DeleteAll()
+        protected virtual void DeleteAll()
         {
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
@@ -223,7 +237,7 @@ namespace SKG.BLL
         /// <summary>
         /// Create new all
         /// </summary>
-        public virtual void CreateAll()
+        protected virtual void CreateAll()
         {
             CreatePol_Action();
             CreatePol_Right();

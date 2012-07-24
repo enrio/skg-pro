@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 22:20
+ * Update: 24/07/2012 22:48
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +21,7 @@ namespace SKG.DAL
     using System.Data;
 
     /// <summary>
-    /// Chính sách - Xử lí bảng Pol_UserRole
+    /// Policy - Pol_UserRole processing
     /// </summary>
     public abstract class Pol_UserRoleDAL : BaseDAL, IBase
     {

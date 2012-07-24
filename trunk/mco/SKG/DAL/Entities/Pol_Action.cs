@@ -1,16 +1,28 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:26
+ * Update: 24/07/2012 21:27
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// Chính sách - Danh sách tên các hành động: Thêm, Sửa, Xoá, In ấn, Truy cập, Tất cả, Không có, Mặc định
+    /// Policy - List all of actions: Add, Edit, Delete, Print, ...
     /// </summary>
     public class Pol_Action : ZBase
     {
         /// <summary>
-        /// Tên hành động
+        /// Name of action
         /// </summary>
         public string Name { set; get; }
     }

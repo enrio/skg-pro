@@ -26,7 +26,6 @@ namespace SKG.DAL
     public abstract class Pol_ActionDAL : BaseDAL, IBase
     {
         #region Implement
-
         /// <summary>
         /// Count number of records
         /// </summary>

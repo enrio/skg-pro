@@ -1,65 +1,75 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 22:02
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.BLL
 {
-    using SKG.Plugin;
     using DAL.Entities;
 
     /// <summary>
-    /// Dữ liệu mẫu, các luồng xử lí dữ liệu sử dụng tại đây.
+    /// Data sample, all of flow processing
     /// </summary>
     public class Sample
     {
-        #region Các thuộc tính truy cập cơ sở dữ liệu
+        #region Properties access database
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_Action: danh sách các chức năng trên form - thêm, xoá, sửa, truy vấn, 
-        /// in ấn, truy cập, hiện khi đăng nhập, ...
+        /// 
         /// </summary>
         public Pol_ActionBLL Pol_Action { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_Right: danh mục form.
+        /// 
         /// </summary>
         public Pol_RightBLL Pol_Right { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_Role: danh mục nhóm quyền. 
+        /// 
         /// </summary>
         public Pol_RoleBLL Pol_Role { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_User: danh sách người dùng.
+        /// 
         /// </summary>
         public Pol_UserBLL Pol_User { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_UserRight: quyền người dùng - phân quyền trên từng form theo người dùng.
+        /// 
         /// </summary>
         public Pol_UserRightBLL Pol_UserRight { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_UserRole - người dùng thuộc nhóm quyền.
+        /// 
         /// </summary>
         public Pol_UserRoleBLL Pol_UserRole { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Pol_RoleRight: nhóm quyền - phân quyền trên từng form theo nhóm quyền.
+        /// 
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
         #endregion
 
-        #region Các phương thức tĩnh
+        #region Static methods
         /// <summary>
-        /// Các luồng xử lí dữ liệu sử dụng tại đây.
+        /// All of flow processing
         /// </summary>
         public static Sample BLL = new Sample();
 
         /// <summary>
-        /// Tự động tạo dữ liễu mẫu
+        /// Auto create data for sample
         /// </summary>
-        /// <param name="isDelete"></param>
+        /// <param name="isDelete">Delete</param>
         public static void CreateData(bool isDelete = false)
         {
             var bll = new Sample();
@@ -71,7 +81,7 @@ namespace SKG.BLL
         /// <summary>
         /// Check database exists
         /// </summary>
-        /// <returns>Exists or not exists</returns>
+        /// <returns></returns>
         public static bool CheckDb()
         {
             var bll = new Sample();
@@ -81,7 +91,7 @@ namespace SKG.BLL
         #endregion
 
         /// <summary>
-        /// Khởi tạo các thuộc tính truy cập cơ sở dữ liệu
+        /// Constructor access database
         /// </summary>
         public Sample()
         {
@@ -94,9 +104,9 @@ namespace SKG.BLL
             Pol_RoleRight = new Pol_RoleRightBLL();
         }
 
-        #region Tạo dữ liệu mẫu
+        #region Create data sample
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_Action
+        /// Pol_Action table
         /// </summary>
         void CreatePol_Action()
         {
@@ -121,7 +131,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_Right
+        /// Pol_Right table
         /// </summary>
         void CreatePol_Right()
         {
@@ -139,7 +149,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_Role
+        /// Pol_Role table
         /// </summary>
         void CreatePol_Role()
         {
@@ -160,7 +170,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_User
+        /// Pol_User table
         /// </summary>
         void CreatePol_User()
         {
@@ -187,7 +197,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_UserRight
+        /// Pol_UserRight table
         /// </summary>
         void CreatePol_UserRight()
         {
@@ -211,7 +221,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_UserRole
+        /// Pol_UserRole table
         /// </summary>
         void CreatePol_UserRole()
         {
@@ -250,7 +260,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo dữ liệu mẫu bảng Pol_RoleRight
+        /// Pol_RoleRight table
         /// </summary>
         void CreatePol_RoleRight()
         {
@@ -279,7 +289,7 @@ namespace SKG.BLL
         #endregion
 
         /// <summary>
-        /// Xoá tất cả
+        /// Delete old all
         /// </summary>
         protected virtual void DeleteAll()
         {
@@ -292,7 +302,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Tạo mới tất cả
+        /// Create new all
         /// </summary>
         protected virtual void CreateAll()
         {

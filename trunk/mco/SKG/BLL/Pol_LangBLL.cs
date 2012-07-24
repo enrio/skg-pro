@@ -5,9 +5,9 @@ using System.Linq;
 namespace SKG.BLL
 {
     /// <summary>
-    /// Policy - Pol_Action processing
+    /// Policy - Pol_Lang processing
     /// </summary>
-    public sealed class Pol_ActionBLL : DAL.Pol_ActionDAL
+    public sealed class Pol_LangBLL : DAL.Pol_LangDAL
     {
     }
 }

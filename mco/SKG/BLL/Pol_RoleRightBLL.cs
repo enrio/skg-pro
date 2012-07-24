@@ -1,11 +1,23 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 22:02
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.BLL
 {
     /// <summary>
-    /// Truy cập cơ sở dữ liệu bảng Pol_RoleRight: nhóm quyền - phân quyền trên từng form theo nhóm quyền.
+    /// Policy - Pol_RoleRight accessing
     /// </summary>
     public sealed class Pol_RoleRightBLL : DAL.Pol_RoleRightDAL
     {

@@ -19,7 +19,7 @@ namespace SKG.Plugin
     /// <summary>
     /// Available plugin
     /// </summary>
-    public class Plugin
+    public class Plugins
     {
         /// <summary>
         /// Menu information

@@ -279,7 +279,7 @@ namespace SKG.DXF
         {
             try
             {
-                var menu = Plugin.Services.GetMenu(s);
+                var menu = Services.GetMenu(s);
                 if (menu == null) return;
                 var path = Path.GetDirectoryName(s) + @"\";
 

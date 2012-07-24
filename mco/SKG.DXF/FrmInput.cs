@@ -65,7 +65,7 @@ namespace SKG.DXF
         /// Check user's right
         /// </summary>
         /// <returns></returns>
-        public ZAction CheckRight()
+        public Zaction CheckRight()
         {
             return CheckRight(this);
         }
@@ -293,7 +293,7 @@ namespace SKG.DXF
         /// <param name="frmRight">Form need to check</param>
         /// <param name="showMessage">Show message</param>
         /// <returns></returns>
-        protected virtual ZAction CheckRight(Form frmRight, bool showMessage = false)
+        protected virtual Zaction CheckRight(Form frmRight, bool showMessage = false)
         {
             var name = frmRight.GetType().FullName;
             var z = Global.Session.GetZAction(name);

@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - User's information
     /// </summary>
-    public class Pol_User : ZBase
+    public class Pol_User : Zinfors
     {
         /// <summary>
         /// Account login

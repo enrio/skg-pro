@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - All menuz, form of system
     /// </summary>
-    public class Pol_Right : ZBase
+    public class Pol_Right : Zinfors
     {
         /// <summary>
         /// Menu of level

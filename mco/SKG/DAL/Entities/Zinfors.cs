@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Information base
     /// </summary>
-    public class ZBase
+    public class Zinfors
     {
         /// <summary>
         /// Primary key
@@ -53,6 +53,6 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Default is show
         /// </summary>
-        public ZBase() { Show = true; }
+        public Zinfors() { Show = true; }
     }
 }

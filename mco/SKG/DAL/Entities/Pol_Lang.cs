@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - Language for system (include all form, menuz and more)
     /// </summary>
-    public class Pol_Lang : ZBase
+    public class Pol_Lang : Zinfors
     {
         #region Foreign key
         /// <summary>

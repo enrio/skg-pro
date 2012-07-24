@@ -161,7 +161,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="userId">Id người dùng đăng nhập</param>
         /// <returns>Danh sách các quyền (chức năng)</returns>
-        public List<ZAction> GetRights(Guid userId)
+        public List<Zaction> GetRights(Guid userId)
         {
             try
             {
@@ -212,11 +212,11 @@ namespace SKG.DAL
 
                 var tmp = a.Union(b);
 
-                var lst = new List<ZAction>();
+                var lst = new List<Zaction>();
 
                 foreach (var res in tmp)
                 {
-                    var z = new ZAction()
+                    var z = new Zaction()
                     {
                         Code = res.RightCode,
                         Add = res.Add,

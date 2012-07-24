@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - List of user right on menuz or form
     /// </summary>
-    public class Pol_RoleRight : ZAction
+    public class Pol_RoleRight : Zaction
     {
         #region Foreign key
         /// <summary>

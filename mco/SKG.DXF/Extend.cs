@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 21:48
+ * Update: 25/07/2012 00:16
  * Status: OK
  */
 #endregion
@@ -24,6 +24,7 @@ namespace SKG.DXF
     using System.Reflection;
     using DevExpress.XtraBars;
     using System.Windows.Forms;
+    using DevExpress.XtraEditors;
     using DevExpress.XtraTreeList;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
@@ -53,7 +54,13 @@ namespace SKG.DXF
                     if (a == typeof(BarManager)) i.Visible = visible;
                 }
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -69,7 +76,13 @@ namespace SKG.DXF
                 var i = ((RibbonForm)parent).Ribbon.Pages.Count - 1;
                 while (i-- > 1) ((RibbonForm)parent).Ribbon.Pages[i].Visible = visible;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -86,7 +99,13 @@ namespace SKG.DXF
                 while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
                     ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -101,7 +120,13 @@ namespace SKG.DXF
                 foreach (Form childrenForm in parent.MdiChildren)
                     childrenForm.Close();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -119,7 +144,13 @@ namespace SKG.DXF
                     if (child != active && child.GetType().FullName != name)
                         child.Close();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -142,7 +173,13 @@ namespace SKG.DXF
                     }
                 return tmp;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
 
         /// <summary>
@@ -153,7 +190,7 @@ namespace SKG.DXF
         {
             try
             {
-                var code = form.GetType().Name;
+                var code = form.GetType().FullName;
                 if (code == typeof(FrmMenuz).Name) return;
 
                 var bll = new Pol_RightBLL();
@@ -169,7 +206,13 @@ namespace SKG.DXF
                 if (z == null || z.Access == false) form.Dispose();
                 else form.Show();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -192,7 +235,13 @@ namespace SKG.DXF
                 }
                 else frm.Activate();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -213,7 +262,13 @@ namespace SKG.DXF
                 }
                 else b.Activate();
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -232,7 +287,13 @@ namespace SKG.DXF
                 dock.Options.ShowMaximizeButton = false;
                 dock.Text = text;
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -249,7 +310,13 @@ namespace SKG.DXF
                         x.BestFit();
                 }
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
         #endregion
 
@@ -267,7 +334,13 @@ namespace SKG.DXF
                 Global.Parent = parent;
                 foreach (var i in l) ribbon.LoadMenu(i);
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -311,7 +384,13 @@ namespace SKG.DXF
                     }
                 }
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
 
         /// <summary>
@@ -336,7 +415,13 @@ namespace SKG.DXF
                     f.Show();
                 }
             }
-            catch { throw new Exception(); }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
         }
         #endregion
     }

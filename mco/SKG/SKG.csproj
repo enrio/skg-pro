@@ -55,7 +55,7 @@
     <Compile Include="BLL\Pol_UserRightBLL.cs" />
     <Compile Include="BLL\Pol_UserRoleBLL.cs" />
     <Compile Include="BLL\Sample.cs" />
-    <Compile Include="BLL\Session.cs" />
+    <Compile Include="Session.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
     <Compile Include="DAL\Entities\Pol_Action.cs" />
@@ -96,8 +96,8 @@
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\IPlugin.cs" />
     <Compile Include="Plugin\Menuz.cs" />
-    <Compile Include="Plugin\Plugin.cs" />
-    <Compile Include="Plugin\Services.cs" />
+    <Compile Include="Plugin\Plugins.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

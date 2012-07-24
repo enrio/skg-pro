@@ -14,9 +14,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.Plugin
+namespace SKG
 {
     using Extend;
+    using Plugin;
     using System.IO;
     using System.Reflection;
     using System.Windows.Forms;
@@ -53,11 +54,11 @@ namespace SKG.Plugin
         /// </summary>
         /// <param name="fileName">Path file name</param>
         /// <returns></returns>
-        public List<Plugin> GetPlugins(string fileName)
+        public List<Plugins> GetPlugins(string fileName)
         {
             try
             {
-                var lst = new List<Plugin>();
+                var lst = new List<Plugins>();
                 var pluginAssembly = Assembly.LoadFrom(fileName);
 
                 foreach (Type pluginType in pluginAssembly.GetTypes())
@@ -69,7 +70,7 @@ namespace SKG.Plugin
                     #endregion
 
                     var type = pluginAssembly.GetType(pluginType.FullName);
-                    var plugin = new Plugin
+                    var plugin = new Plugins
                     {
                         Path = fileName,
                         Instance = (IPlugin)Activator.CreateInstance(type)

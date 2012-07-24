@@ -1,52 +1,64 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 21:44
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// Chính sách - Thông tin người dùng của hệ thống
+    /// Policy - User's information
     /// </summary>
     public class Pol_User : ZBase
     {
         /// <summary>
-        /// Tên tài khoản đăng nhập
+        /// Account login
         /// </summary>
         public string Acc { set; get; }
 
         /// <summary>
-        /// Mật khẩu đăng nhập
+        /// Password login
         /// </summary>
         public string Pass { set; get; }
 
         /// <summary>
-        /// Họ tên của người dùng
+        /// User's full name
         /// </summary>
         public string Name { set; get; }
 
         /// <summary>
-        /// Ngày tháng năm sinh của người dùng
+        /// User's birthday
         /// </summary>
         public DateTime Birth { set; get; }
 
         /// <summary>
-        /// Địa chỉ liên lạc của người dùng
+        /// User's address
         /// </summary>
         public string Address { set; get; }
 
         /// <summary>
-        /// Điện thoại liên lạc của người dùng
+        /// User's phone
         /// </summary>
         public string Phone { set; get; }
 
-        #region Khoá ngoại ở các thực thể khác
+        #region Foreign key on another entity
         /// <summary>
-        /// Danh sách người dùng có quyền trên form, menu (chức năng) của hệ thống
+        /// User's list has permission
         /// </summary>
         public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
 
         /// <summary>
-        /// Danh sách người dùng thuộc nhóm người dùng của hệ thống
+        /// List of user belong group
         /// </summary>
         public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
         #endregion

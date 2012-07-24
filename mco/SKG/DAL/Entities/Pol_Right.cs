@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 24/07/2012 21:33
+ * Update: 24/07/2012 21:43
  * Status: OK
  */
 #endregion
@@ -38,7 +38,7 @@ namespace SKG.DAL.Entities
 
         #region Foreign key on another entity
         /// <summary>
-        /// List of role has permission
+        /// List of user right on menuz or form
         /// </summary>
         public virtual ICollection<Pol_RoleRight> Pol_RoleRights { get; set; }
 

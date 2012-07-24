@@ -1,52 +1,64 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 21:49
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// Các chức năng thao tác cơ bản đối với dữ liệu
+    /// All of actions: Add, Edit, Delete, Print, ... on menuz or form
     /// </summary>
     public class ZAction : ZBase
     {
         /// <summary>
-        /// Cho phép thêm
+        /// Allow add
         /// </summary>
         public bool Add { set; get; }
 
         /// <summary>
-        /// Cho phép sửa
+        /// Allow edit
         /// </summary>
         public bool Edit { set; get; }
 
         /// <summary>
-        /// Cho phép xoá
+        /// Allow delete
         /// </summary>
         public bool Delete { set; get; }
 
         /// <summary>
-        /// Cho phép truy vấn
+        /// Allow query
         /// </summary>
         public bool Query { set; get; }
 
         /// <summary>
-        /// Cho phép in ấn
+        /// Allow print
         /// </summary>
         public bool Print { set; get; }
 
         /// <summary>
-        /// Cho phép truy cập chức năng (form) này
+        /// Allow access menuz or form
         /// </summary>
         public bool Access { set; get; }
 
         /// <summary>
-        /// Mặc định hiện sau khi đăng nhập
+        /// Default show after logon
         /// </summary>
         public bool Default { set; get; }
 
         private bool _full;
         /// <summary>
-        /// Toàn quyền
+        /// Allow all
         /// </summary>
         public bool Full
         {
@@ -70,7 +82,7 @@ namespace SKG.DAL.Entities
 
         private bool _none;
         /// <summary>
-        /// Không quyền
+        /// Deny all
         /// </summary>
         public bool None
         {

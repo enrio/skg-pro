@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BaseBLL.cs" />
     <Compile Include="BLL\Pol_ActionBLL.cs" />
     <Compile Include="BLL\Pol_LangBLL.cs" />
     <Compile Include="BLL\Pol_RightBLL.cs" />

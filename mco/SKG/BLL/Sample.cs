@@ -21,89 +21,8 @@ namespace SKG.BLL
     /// <summary>
     /// Data sample, all of flow processing
     /// </summary>
-    public class Sample
+    public class Sample : BaseBLL
     {
-        #region Properties access database
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_ActionBLL Pol_Action { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_RightBLL Pol_Right { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_RoleBLL Pol_Role { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_UserBLL Pol_User { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_UserRightBLL Pol_UserRight { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_UserRoleBLL Pol_UserRole { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_RoleRightBLL Pol_RoleRight { set; get; }
-        #endregion
-
-        #region Static methods
-        /// <summary>
-        /// All of flow processing
-        /// </summary>
-        public static Sample BLL = new Sample();
-
-        /// <summary>
-        /// Auto create data for sample
-        /// </summary>
-        /// <param name="isDelete">Delete</param>
-        public static void CreateData(bool isDelete = false)
-        {
-            var bll = new Sample();
-            if (isDelete) bll.DeleteAll();
-            if (bll.Pol_User.Count() > 0) return;
-            bll.CreateAll();
-        }
-
-        /// <summary>
-        /// Check database exists
-        /// </summary>
-        /// <returns></returns>
-        public static bool CheckDb()
-        {
-            var bll = new Sample();
-            if (bll.Pol_User.Count() > 0) return true;
-            return false;
-        }
-        #endregion
-
-        /// <summary>
-        /// Constructor access database
-        /// </summary>
-        public Sample()
-        {
-            Pol_Action = new Pol_ActionBLL();
-            Pol_Right = new Pol_RightBLL();
-            Pol_Role = new Pol_RoleBLL();
-            Pol_User = new Pol_UserBLL();
-            Pol_UserRight = new Pol_UserRightBLL();
-            Pol_UserRole = new Pol_UserRoleBLL();
-            Pol_RoleRight = new Pol_RoleRightBLL();
-        }
-
         #region Create data sample
         /// <summary>
         /// Pol_Action table
@@ -291,7 +210,7 @@ namespace SKG.BLL
         /// <summary>
         /// Delete old all
         /// </summary>
-        protected virtual void DeleteAll()
+        public virtual void DeleteAll()
         {
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
@@ -304,7 +223,7 @@ namespace SKG.BLL
         /// <summary>
         /// Create new all
         /// </summary>
-        protected virtual void CreateAll()
+        public virtual void CreateAll()
         {
             CreatePol_Action();
             CreatePol_Right();

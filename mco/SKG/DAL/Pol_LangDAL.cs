@@ -20,6 +20,9 @@ namespace SKG.DAL
     using SKG.Extend;
     using System.Data;
 
+    /// <summary>
+    /// Policy - Pol_Lang processing
+    /// </summary>
     public abstract class Pol_LangDAL : BaseDAL, IBase
     {
         #region Implement

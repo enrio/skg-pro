@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.Database
+namespace SKG.Data
 {
     using System.IO;
     using System.Data.SqlClient;
@@ -12,7 +12,7 @@ namespace SKG.Database
     /// <summary>
     /// SQL Server processing
     /// </summary>
-    public class SQLServer : Base
+    public class SqlServer : Base
     {
         #region Contansts
         public const string STR_SEC = @"Data Source={0};Initial Catalog={1};Persist Security Info=True;User Id={2};Password={3}";
@@ -27,8 +27,8 @@ namespace SKG.Database
         #endregion
 
         #region Constructors
-        public SQLServer() { }
-        public SQLServer(string connectString) : base(connectString) { }
+        public SqlServer() { }
+        public SqlServer(string connectString) : base(connectString) { }
         #endregion
 
         #region Methods

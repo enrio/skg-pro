@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 21:33
+ * Update: 24/07/2012 22:02
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,24 +22,31 @@ namespace SKG.DAL
     using System.Data.Entity;
 
     /// <summary>
-    /// 
+    /// Data access layer
     /// </summary>
     public abstract class BaseDAL : IDisposable
     {
+        /// <summary>
+        /// Access to database
+        /// </summary>
         internal Context _db = new Context();
+
+        /// <summary>
+        /// Empty table
+        /// </summary>
         internal DataTable _tb = new DataTable("Tmp");
 
         /// <summary>
-        /// Đối tượng kết nối cơ sở dữ liệu
+        /// Object connection
         /// </summary>
-        /// <returns>DbConnection</returns>
+        /// <returns></returns>
         public DbConnection Connection()
         {
             return _db.Database.Connection;
         }
 
         /// <summary>
-        /// Xoá cơ sở dữ liệu, nếu mô hình thay đổi
+        /// Create database if not exists
         /// </summary>
         public BaseDAL()
         {
@@ -35,14 +54,17 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Lấy giờ hệ thống (SQL Server)
+        /// Get system time (on SQL Server)
         /// </summary>
-        /// <returns>Thời gian hiện tại</returns>
+        /// <returns></returns>
         public DateTime GetDate()
         {
             return _db.Database.SqlQuery<DateTime>("SELECT GETDATE()").First();
         }
 
+        /// <summary>
+        /// Dispose empty table and access to database
+        /// </summary>
         public void Dispose()
         {
             _db.Dispose();

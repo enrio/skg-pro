@@ -28,9 +28,7 @@ namespace SKG.DXF
         {
             InitializeComponent();
 
-            //SkinHelper.InitSkinGallery(rgbMain, true);
-
-            Global.Session = new Session();
+            //SkinHelper.InitSkinGallery(rgbMain, true);            
 
             // Thông tin server, đồng hồ
             var cnn = (new Pol_ActionBLL()).Connection();

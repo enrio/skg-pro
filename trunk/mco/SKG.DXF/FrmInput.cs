@@ -304,16 +304,16 @@ namespace SKG.DXF
             }
             else
             {
-                bbiAdd.Enabled = z.Add;
-                bbiEdit.Enabled = z.Edit;
+                AllowAdd = z.Add;
+                AllowEdit = z.Edit;
 
-                bbiSave.Enabled = false;
-                bbiCancel.Enabled = false;
+                AllowBar = true;
+                AllowSave = false;
+                AllowCancel = false;
 
-                bbiDelete.Enabled = z.Delete;
-                bbiPrint.Enabled = z.Print;
+                AllowDelete = z.Delete;
+                AllowPrint = z.Print;
             }
-
             return z;
         }
 

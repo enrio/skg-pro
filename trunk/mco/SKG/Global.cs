@@ -1,12 +1,21 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 23/07/2012 22:19
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace SKG.DXF
+namespace SKG
 {
-    using BLL;
-    using Plugin;
     using System.Windows.Forms;
 
     public class Global

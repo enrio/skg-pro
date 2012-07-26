@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 22:33
- * Update: 24/07/2012 21:26
+ * Create: 24/07/2012 21:26
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -24,7 +24,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Default language (Vietnamese)
         /// </summary>
-        public string Caption { get; set; }
+        public string Caption { set; get; }
 
         /// <summary>
         /// First language (ZnG ioz)

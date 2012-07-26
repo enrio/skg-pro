@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 24/07/2012 21:32
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -25,9 +25,9 @@ namespace SKG.DAL.Entities
     public class Context : DbContext
     {
         /// <summary>
-        /// Policy - List all of actions: Add, Edit, Delete, Print, ... on menuz or form
+        /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
-        public DbSet<Pol_Action> Pol_Actions { get; set; }
+        public DbSet<Pol_Lang> Pol_Langs { get; set; }
 
         /// <summary>
         /// Policy - List role of user group
@@ -58,11 +58,6 @@ namespace SKG.DAL.Entities
         /// Policy - List of user belong group
         /// </summary>
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
-
-        /// <summary>
-        /// Policy - Language for system (include all form, menuz and more)
-        /// </summary>
-        public DbSet<Pol_Lang> Pol_Langs { get; set; }
 
         /// <summary>
         /// Policy - Chat on system

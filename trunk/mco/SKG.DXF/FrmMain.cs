@@ -31,7 +31,7 @@ namespace SKG.DXF
             //SkinHelper.InitSkinGallery(rgbMain, true);            
 
             // Thông tin server, đồng hồ
-            var cnn = (new Pol_ActionBLL()).Connection();
+            var cnn = (new Pol_LangBLL()).Connection();
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", cnn.DataSource, cnn.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;

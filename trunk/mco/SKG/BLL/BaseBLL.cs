@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 23:42
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -23,44 +23,39 @@ namespace SKG.BLL
     {
         #region Properties access database
         /// <summary>
-        /// 
+        /// Policy - Pol_Lang accessing
         /// </summary>
-        public Pol_ActionBLL Pol_Action { set; get; }
+        public Pol_LangBLL Pol_Lang { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_Right accessing
         /// </summary>
         public Pol_RightBLL Pol_Right { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_Role accessing
         /// </summary>
         public Pol_RoleBLL Pol_Role { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_User accessing
         /// </summary>
         public Pol_UserBLL Pol_User { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_UserRight accessing
         /// </summary>
         public Pol_UserRightBLL Pol_UserRight { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_UserRole accessing
         /// </summary>
         public Pol_UserRoleBLL Pol_UserRole { set; get; }
 
         /// <summary>
-        /// 
+        /// Policy - Pol_RoleRight accessing
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public Pol_LangBLL Pol_Lang { set; get; }
         #endregion
 
         /// <summary>
@@ -68,14 +63,13 @@ namespace SKG.BLL
         /// </summary>
         public BaseBLL()
         {
-            Pol_Action = new Pol_ActionBLL();
+            Pol_Lang = new Pol_LangBLL();
             Pol_Right = new Pol_RightBLL();
             Pol_Role = new Pol_RoleBLL();
             Pol_User = new Pol_UserBLL();
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
-            Pol_Lang = new Pol_LangBLL();
         }
 
         #region Static methods

@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 22:02
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -27,12 +27,12 @@ namespace SKG.BLL
         /// Add menuz, form
         /// </summary>
         /// <param name="code">Type of form</param>
-        /// <param name="name">Caption</param>
+        /// <param name="caption">Caption</param>
         /// <param name="descript">Description</param>
         /// <returns></returns>
-        public object Insert(string code, string name, string descript)
+        public object Insert(string code, string caption, string descript)
         {
-            var o = new Pol_Right() { Code = code, Caption = name, Descript = descript };
+            var o = new Pol_Right() { Code = code, Caption = caption, Descript = descript };
             return Insert(o);
         }
     }

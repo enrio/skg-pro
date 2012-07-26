@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 22:20
- * Update: 24/07/2012 22:24
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -76,10 +76,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
-                              Default = s.Caption,
-                              s.Lang1,
-                              s.Lang2,
-                              s.Lang3,
+                              Name = s.Caption,
                               s.Descript,
                               s.Order,
                               s.Show
@@ -124,9 +121,6 @@ namespace SKG.DAL
                 var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Caption = o.Caption;
-                res.Lang1 = o.Lang1;
-                res.Lang2 = o.Lang2;
-                res.Lang3 = o.Lang3;
                 res.Code = o.Code;
                 res.Descript = o.Descript;
                 res.Order = o.Order;

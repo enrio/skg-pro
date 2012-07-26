@@ -22,7 +22,7 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Ngôn ngữ", Level = 3, Order = 13, Picture = @"Icons\Lang.png" };
+                var menu = new Menuz() { Caption = "Hành động", Level = 3, Order = 12, Picture = @"Icons\Action.png" };
                 return menu;
             }
         }
@@ -35,6 +35,9 @@ namespace SKG.DXF.Home.Catalog
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
+            AllowAdd = false;
+            AllowDelete = false;
+
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
@@ -42,6 +45,7 @@ namespace SKG.DXF.Home.Catalog
         #region Override
         protected override void SetNullPrompt()
         {
+            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
@@ -98,6 +102,9 @@ namespace SKG.DXF.Home.Catalog
                         PerformRefresh();
                     }
                     break;
+
+                default:
+                    break;
             }
 
             base.PerformSave();
@@ -106,6 +113,7 @@ namespace SKG.DXF.Home.Catalog
         protected override void ResetInput()
         {
             txtName.Text = null;
+            txtCode.Text = null;
             txtDescript.Text = null;
 
             base.ResetInput();
@@ -114,6 +122,7 @@ namespace SKG.DXF.Home.Catalog
         protected override void ClearDataBindings()
         {
             txtName.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -122,6 +131,7 @@ namespace SKG.DXF.Home.Catalog
         protected override void DataBindingControl()
         {
             txtName.DataBindings.Add("EditValue", _dtb, ".Caption");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
@@ -129,10 +139,13 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
+
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -148,6 +161,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Lang()
                 {
                     Id = id,
+                    Code = txtCode.Text,
                     Caption = txtName.Text,
                     Descript = txtDescript.Text
                 };
@@ -168,6 +182,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Lang()
                 {
+                    Code = txtCode.Text,
                     Caption = txtName.Text,
                     Descript = txtDescript.Text
                 };
@@ -198,17 +213,20 @@ namespace SKG.DXF.Home.Catalog
             var a = txtName.Text.Length == 0 ? false : true;
             if (!a) txtName.Focus();
 
-            return a;
+            var b = txtCode.Text.Length == 0 ? false : true;
+            if (!b) txtCode.Focus();
+
+            return b && a;
         }
         #endregion
 
-        private const string STR_ADD = "Thêm ngôn ngữ";
-        private const string STR_EDIT = "Sửa ngôn ngữ";
-        private const string STR_DELETE = "Xoá ngôn ngữ";
+        private const string STR_ADD = "Thêm hành động";
+        private const string STR_EDIT = "Sửa hành động";
+        private const string STR_DELETE = "Xoá hành động";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Nhóm này có rồi";
+        private const string STR_DUPLICATE = "Mã này có rồi";
     }
 }

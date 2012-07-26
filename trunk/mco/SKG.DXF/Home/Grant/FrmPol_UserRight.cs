@@ -284,7 +284,7 @@ namespace SKG.DXF.Home.Grant
         {
             try
             {
-                var tbl = _bll.Pol_Action.Select();
+                var tbl = _bll.Pol_Lang.Select();
                 foreach (DataRow drAction in tbl.Rows)
                 {
                     var tlc = new TreeListColumn();

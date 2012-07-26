@@ -6,6 +6,7 @@ Select * From Pol_User
 Select * From Pol_UserRight
 Select * From Pol_UserRole
 Select * From Pol_RoleRight
+Select * From Pol_Lang
 
 Select * From Pol_Right
 Order By Substring(Code, 1, 3), [Order]

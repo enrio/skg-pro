@@ -47,8 +47,8 @@ namespace SKG.BLL
             #region For Pol_Right
             var a = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
             var o = new Pol_Lang() { Default = "Hành động", Lang1 = "Hbd fhz", Lang2 = "Action", Order = 0 };
-            a.Pol_LangId = a.Id;
-            Pol_Lang.Insert(o);
+            o = (Pol_Lang)Pol_Lang.Insert(o);
+            a.Pol_LangId = o.Id;
             Pol_Right.Update(a);
             #endregion
         }

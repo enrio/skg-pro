@@ -24,7 +24,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Default language (Vietnamese)
         /// </summary>
-        public string Default { get; set; }
+        public string Caption { get; set; }
 
         /// <summary>
         /// First language (ZnG ioz)

@@ -76,7 +76,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
-                              s.Default,
+                              Default = s.Caption,
                               s.Lang1,
                               s.Lang2,
                               s.Lang3,
@@ -123,7 +123,7 @@ namespace SKG.DAL
                 var o = (Pol_Lang)obj;
                 var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Default = o.Default;
+                res.Caption = o.Caption;
                 res.Lang1 = o.Lang1;
                 res.Lang2 = o.Lang2;
                 res.Lang3 = o.Lang3;

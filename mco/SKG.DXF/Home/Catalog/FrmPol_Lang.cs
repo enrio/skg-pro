@@ -121,7 +121,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void DataBindingControl()
         {
-            txtName.DataBindings.Add("EditValue", _dtb, ".Default");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Caption");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
@@ -148,7 +148,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Lang()
                 {
                     Id = id,
-                    Default = txtName.Text,
+                    Caption = txtName.Text,
                     Descript = txtDescript.Text
                 };
 
@@ -168,7 +168,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Lang()
                 {
-                    Default = txtName.Text,
+                    Caption = txtName.Text,
                     Descript = txtDescript.Text
                 };
 

@@ -122,7 +122,7 @@ namespace SKG.DAL
                 var o = (Pol_Right)obj;
                 var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Pol_LangId = o.Pol_LangId;
+                res.Pol_UserLangId = o.Pol_UserLangId;
                 res.Caption = o.Caption;
                 res.Level = o.Level;
                 res.Picture = o.Picture;

@@ -16,11 +16,22 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Policy - All menuz, form of system
     /// </summary>
     public class Pol_Right : Zinfors
     {
+        #region Foreign key
+        /// <summary>
+        /// Refercence to Pol_Lang
+        /// </summary>
+        [Column(Order = 0), ForeignKey("Pol_Lang")]
+        public Guid? Pol_LangId { set; get; }
+        public virtual Pol_Lang Pol_Lang { get; set; }
+        #endregion
+
         /// <summary>
         /// Menu of level
         /// </summary>
@@ -46,11 +57,6 @@ namespace SKG.DAL.Entities
         /// User's list has permission
         /// </summary>
         public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
-
-        /// <summary>
-        /// Language of menuz
-        /// </summary>
-        public virtual Pol_Lang Pol_Langs { get; set; }
         #endregion
     }
 }

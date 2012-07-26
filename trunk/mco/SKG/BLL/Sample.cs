@@ -45,21 +45,21 @@ namespace SKG.BLL
         {
             if (Pol_Lang.Count() > 0) return;
 
-            var o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
+            var o = new Pol_Lang() { Type = "BUTTON", Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Edit", Caption = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Edit", Caption = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Delete", Caption = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Delete", Caption = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Default", Caption = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Default", Caption = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Print", Caption = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Print", Caption = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Access", Caption = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Access", Caption = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "Full", Caption = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Full", Caption = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "ITEM_BAR", Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
             Pol_Lang.Insert(o);
         }
 

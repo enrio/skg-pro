@@ -25,11 +25,11 @@ namespace SKG.DAL.Entities
     {
         #region Foreign key
         /// <summary>
-        /// Refercence to Pol_UserLang
+        /// Refercence to Pol_Lang
         /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_UserLang")]
-        public Guid? Pol_UserLangId { set; get; }
-        public virtual Pol_UserLang Pol_UserLang { get; set; }
+        [Column(Order = 0), ForeignKey("Pol_Lang")]
+        public Guid? Pol_LangId { set; get; }
+        public virtual Pol_Lang Pol_Lang { get; set; }
         #endregion
 
         /// <summary>

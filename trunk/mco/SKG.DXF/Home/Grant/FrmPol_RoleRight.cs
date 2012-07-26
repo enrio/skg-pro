@@ -285,11 +285,11 @@ namespace SKG.DXF.Home.Grant
         {
             try
             {
-                var tbl = _bll.Pol_Lang.Select();
+                var tbl = _bll.Pol_Lang.Select((object)"BUTTON");
                 foreach (DataRow drAction in tbl.Rows)
                 {
                     var tlc = new TreeListColumn();
-                    tlc.Caption = "" + drAction["Name"];
+                    tlc.Caption = "" + drAction["Caption"];
                     tlc.FieldName = "" + drAction["Code"];
 
                     tlc.VisibleIndex = trlMain.Columns.Count + 1;

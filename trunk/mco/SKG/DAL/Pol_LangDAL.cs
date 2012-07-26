@@ -98,7 +98,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Pol_Lang)obj;
-                if (Select(o.Code) != null) return null; // account already exists
+                if (Select(o.Code) != null) return null; // already exists
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Langs.Add(o);
 

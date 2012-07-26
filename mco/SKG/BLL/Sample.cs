@@ -41,7 +41,7 @@ namespace SKG.BLL
         /// <summary>
         /// Pol_Lang table
         /// </summary>
-        void CreatePol_Action()
+        void CreatePol_Lang()
         {
             if (Pol_Lang.Count() > 0) return;
 
@@ -61,14 +61,6 @@ namespace SKG.BLL
             Pol_Lang.Insert(o);
             o = new Pol_Lang() { Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
             Pol_Lang.Insert(o);
-
-            #region For Pol_Right
-            var a = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
-            o = new Pol_Lang() { Caption = "Hành động", Lang1 = "Hbd fhz", Lang2 = "Action", Order = 0 };
-            o = (Pol_Lang)Pol_Lang.Insert(o);
-            a.Pol_LangId = o.Id;
-            Pol_Right.Update(a);
-            #endregion
         }
 
         /// <summary>
@@ -84,8 +76,10 @@ namespace SKG.BLL
 
             foreach (var i in c)
             {
-                var o = new Pol_Right() { Level = i.Level, Caption = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                Pol_Right.Insert(o);
+                var l = new Pol_Lang() { Caption = i.Caption, Code = i.Code, Order = i.Order, Show = i.Show };
+                l = (Pol_Lang)Pol_Lang.Insert(l);
+                var r = new Pol_Right() { Id = l.Id, Level = i.Level, Caption = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                Pol_Right.Insert(r);
             }
         }
 
@@ -208,11 +202,8 @@ namespace SKG.BLL
             if (Pol_RoleRight.Count() > 0) return;
 
             var a = (Pol_Role)Pol_Role.Select("QT");
-            var b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
+            var b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Right");
             var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
-            Pol_RoleRight.Insert(o);
-            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Right");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Role");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
@@ -253,7 +244,7 @@ namespace SKG.BLL
         /// </summary>
         protected virtual void CreateAll()
         {
-            CreatePol_Action();
+            CreatePol_Lang();
             CreatePol_Right();
             CreatePol_Role();
             CreatePol_User();

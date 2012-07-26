@@ -39,6 +39,21 @@ namespace SKG.BLL
 
         #region Create data sample
         /// <summary>
+        /// Pol_Lang table
+        /// </summary>
+        void CreatePol_Lang()
+        {
+            if (Pol_Lang.Count() > 0) return;
+            #region For Pol_Right
+            var a = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
+            var o = new Pol_Lang() { Vietnamese = "Hành động", Zng = "Hbd fhz", English = "Action", Order = 0 };
+            a.Pol_LangId = a.Id;
+            Pol_Lang.Insert(o);
+            Pol_Right.Update(a);
+            #endregion
+        }
+
+        /// <summary>
         /// Pol_Action table
         /// </summary>
         void CreatePol_Action()
@@ -232,6 +247,7 @@ namespace SKG.BLL
         /// </summary>
         protected virtual void DeleteAll()
         {
+            Pol_Lang.Delete();
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
             Pol_UserRight.Delete();
@@ -252,6 +268,7 @@ namespace SKG.BLL
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
+            CreatePol_Lang();
         }
     }
 }

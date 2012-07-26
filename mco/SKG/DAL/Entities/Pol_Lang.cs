@@ -16,8 +16,6 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Policy - Language for system (include all form, menuz and more)
     /// </summary>

@@ -183,7 +183,10 @@
             this.gridColumn5,
             this.gridColumn6});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupCount = 1;
             this.grvMain.Name = "grvMain";
+            this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn5, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn1
             // 
@@ -233,7 +236,7 @@
             this.gridColumn6.FieldName = "Descript";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.VisibleIndex = 3;
             this.gridColumn6.Width = 330;
             // 
             // FrmPol_Lang

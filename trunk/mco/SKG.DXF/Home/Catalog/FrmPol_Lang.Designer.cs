@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
@@ -47,6 +46,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -123,9 +123,9 @@
             // 
             this.lblCode.Location = new System.Drawing.Point(9, 12);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(76, 13);
+            this.lblCode.Size = new System.Drawing.Size(72, 13);
             this.lblCode.TabIndex = 34;
-            this.lblCode.Text = "Mã hành động:";
+            this.lblCode.Text = "Mã nhận dạng:";
             // 
             // txtName
             // 
@@ -138,9 +138,9 @@
             // 
             this.lblName.Location = new System.Drawing.Point(8, 38);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(80, 13);
+            this.lblName.Size = new System.Drawing.Size(60, 13);
             this.lblName.TabIndex = 33;
-            this.lblName.Text = "Tên hành động:";
+            this.lblName.Text = "Tên hiển thị:";
             // 
             // dockPanel2
             // 
@@ -180,7 +180,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.gridColumn5});
+            this.gridColumn5,
+            this.gridColumn6});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             // 
@@ -197,6 +198,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 185;
             // 
             // gridColumn3
             // 
@@ -205,30 +207,42 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 185;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Tên form, menu";
-            this.gridColumn4.FieldName = "Name";
+            this.gridColumn4.Caption = "Tên hiển thị";
+            this.gridColumn4.FieldName = "Caption";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 185;
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Mô tả";
-            this.gridColumn5.FieldName = "Descript";
+            this.gridColumn5.Caption = "Loại";
+            this.gridColumn5.FieldName = "Type";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 40;
             // 
-            // FrmPol_Right
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Mô tả";
+            this.gridColumn6.FieldName = "Descript";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 330;
+            // 
+            // FrmPol_Lang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmPol_Right";
+            this.Name = "FrmPol_Lang";
             this.Text = "Danh mục quyền";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -268,5 +282,6 @@
         private DevExpress.XtraEditors.LabelControl lblCode;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
     }
 }

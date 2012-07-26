@@ -56,6 +56,11 @@ namespace SKG.BLL
         /// 
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Pol_LangBLL Pol_Lang { set; get; }
         #endregion
 
         /// <summary>
@@ -70,6 +75,7 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
+            Pol_Lang = new Pol_LangBLL();
         }
 
         #region Static methods

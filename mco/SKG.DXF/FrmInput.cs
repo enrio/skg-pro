@@ -49,7 +49,7 @@ namespace SKG.DXF
         /// <summary>
         /// Base access data
         /// </summary>
-        protected Sample _bll = new Sample();
+        protected BaseBLL _bll = new BaseBLL();
 
         /// <summary>
         /// Default table empty

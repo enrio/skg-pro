@@ -132,6 +132,12 @@
     <Compile Include="Home\Catalog\FrmPol_Action.Designer.cs">
       <DependentUpon>FrmPol_Action.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Catalog\FrmPol_Lang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Catalog\FrmPol_Lang.Designer.cs">
+      <DependentUpon>FrmPol_Lang.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Catalog\FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Lang.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Exit.png">

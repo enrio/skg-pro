@@ -205,9 +205,6 @@
     <EmbeddedResource Include="FrmWait.resx">
       <DependentUpon>FrmWait.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Lang.resx">
-      <DependentUpon>FrmPol_Lang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

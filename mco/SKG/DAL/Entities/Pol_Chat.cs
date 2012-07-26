@@ -13,30 +13,41 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace SKG.DAL.Entities
 {
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Policy - User's language choice
+    /// Policy - Chat on system
     /// </summary>
-    public class Pol_UserLang : Zinfors
+    public class Pol_Chat : Zinfors
     {
         #region Foreign key
         /// <summary>
         /// Refercence to Pol_User
         /// </summary>
         [Column(Order = 0), ForeignKey("Pol_User")]
-        public Guid? Pol_UserId { set; get; }
-        public virtual Pol_User Pol_User { get; set; }
+        public Guid? SenderId { set; get; }
+        public virtual Pol_User Sender { get; set; }
 
         /// <summary>
-        /// Refercence to Pol_Lang
+        /// Refercence to Pol_User
         /// </summary>
-        [Column(Order = 1), ForeignKey("Pol_Lang")]
-        public Guid? Pol_LangId { set; get; }
-        public virtual Pol_Lang Pol_Lang { get; set; }
+        [Column(Order = 1), ForeignKey("Pol_User")]
+        public Guid? ReceiverId { set; get; }
+        public virtual Pol_User Receiver { get; set; }
         #endregion
+
+        /// <summary>
+        /// Content message
+        /// </summary>
+        public string Message { set; get; }
+
+        /// <summary>
+        /// Date sent
+        /// </summary>
+        public DateTime Date { set; get; }
     }
 }

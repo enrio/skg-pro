@@ -23,15 +23,6 @@ namespace SKG.DAL.Entities
     /// </summary>
     public class Pol_Lang : Zinfors
     {
-        #region Foreign key
-        /// <summary>
-        /// Refercence to Pol_User
-        /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_User")]
-        public Guid? Pol_UserId { set; get; }
-        public virtual Pol_User Pol_User { get; set; }
-        #endregion
-
         /// <summary>
         /// Default language (Vietnamese
         /// </summary>

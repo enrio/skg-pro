@@ -19,7 +19,7 @@ namespace SKG
             var key = new UTL.HSH.FawCdt();
             var res = key.Read("Key");
 
-            textBoxDescription.Text = "Quản lí xe ra vào  bến, áp dụng tại bến xe An Sương - TP. Hồ Chí Minh"
+            textBoxDescription.Text = "Quản lí xe ra vào  bến, áp dụng tại bến xe Ngã Tư Ga - TP. Hồ Chí Minh"
                 + Environment.NewLine + Environment.NewLine + "Tác giả: Nguyễn Văn Toàn"
                 + Environment.NewLine + "Điện thoại: 01645 515 010" + Environment.NewLine + "Email:nvt87x@gmail.com"
                 + Environment.NewLine + Environment.NewLine + "Mã sản phẩm: " + UTL.HSH.BamDul.GetProuctId()

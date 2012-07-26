@@ -27,7 +27,7 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Caption = "Người dùng thuộc nhóm", Level = 3, Order = 15, Picture = @"Icons\UserRole.png" };
+                var menu = new Menuz() { Caption = "Người dùng thuộc nhóm", Level = 3, Order = 16, Picture = @"Icons\UserRole.png" };
                 return menu;
             }
         }

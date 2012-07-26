@@ -25,7 +25,7 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Caption = "Phân quyền", Level = 2, Order = 13, Picture = @"Icons\Permission.png" };
+                var menu = new Menuz() { Caption = "Phân quyền", Level = 2, Order = 14, Picture = @"Icons\Permission.png" };
                 return menu;
             }
         }

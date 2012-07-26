@@ -162,5 +162,36 @@ namespace SKG.DAL
             catch { return null; }
         }
         #endregion
+
+        /// <summary>
+        /// Select by type
+        /// </summary>
+        /// <param name="type">Type</param>
+        /// <returns></returns>
+        public DataTable Select(object type)
+        {
+            try
+            {
+                var a = type + "";
+                var res = from s in _db.Pol_Langs
+                          where s.Type == a
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              s.Code,
+                              s.Caption,
+                              s.Type,
+                              s.Lang1,
+                              s.Lang2,
+                              s.Lang3,
+                              s.Descript,
+                              s.Order,
+                              s.Show
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

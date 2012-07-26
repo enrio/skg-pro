@@ -38,5 +38,10 @@ namespace SKG.DAL.Entities
         public Guid? Pol_LangId { set; get; }
         public virtual Pol_Lang Pol_Lang { get; set; }
         #endregion
+
+        /// <summary>
+        /// Selected language
+        /// </summary>
+        public string Default { get; set; }
     }
 }

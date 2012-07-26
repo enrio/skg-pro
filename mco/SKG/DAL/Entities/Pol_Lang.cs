@@ -22,7 +22,7 @@ namespace SKG.DAL.Entities
     public class Pol_Lang : Zinfors
     {
         /// <summary>
-        /// Default language (Vietnamese
+        /// Default language (Vietnamese)
         /// </summary>
         public string Default { get; set; }
 

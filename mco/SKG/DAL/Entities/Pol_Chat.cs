@@ -13,7 +13,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SKG.DAL.Entities
 {
@@ -28,14 +27,14 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Refercence to Pol_User
         /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_User")]
+        [Column(Order = 0), ForeignKey("Sender")]
         public Guid? SenderId { set; get; }
         public virtual Pol_User Sender { get; set; }
 
         /// <summary>
         /// Refercence to Pol_User
         /// </summary>
-        [Column(Order = 1), ForeignKey("Pol_User")]
+        [Column(Order = 1), ForeignKey("Receiver")]
         public Guid? ReceiverId { set; get; }
         public virtual Pol_User Receiver { get; set; }
         #endregion

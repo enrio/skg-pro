@@ -33,29 +33,23 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
-        /// ZnG ioz
+        /// Default language (Vietnamese
         /// </summary>
-        public string Zng { get; set; }
-
-        /// <summary>
-        /// Vietnamese
-        /// </summary>
-        public string Vietnamese { get; set; }
-
-        /// <summary>
-        /// English
-        /// </summary>
-        public string English { get; set; }
-
-        /// <summary>
-        /// Default language
-        /// </summary>
-        [StringLength(256)]
         public string Default { get; set; }
 
-        public Pol_Lang()
-        {
-            Default = "Vietnamese";
-        }
+        /// <summary>
+        /// First language (ZnG ioz)
+        /// </summary>
+        public string Lang1 { get; set; }
+
+        /// <summary>
+        /// Second language (English)
+        /// </summary>
+        public string Lang2 { get; set; }
+
+        /// <summary>
+        /// Third language (and more)
+        /// </summary>
+        public string Lang3 { get; set; }
     }
 }

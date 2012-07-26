@@ -200,13 +200,19 @@ namespace SKG.BLL
             if (Pol_RoleRight.Count() > 0) return;
 
             var a = (Pol_Role)Pol_Role.Select("QT");
-            var b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Right");
+            var b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
             var o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Right");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Role");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_User");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Lang");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Grant.FrmPol_UserRight");

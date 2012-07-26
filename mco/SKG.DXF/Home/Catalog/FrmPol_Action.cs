@@ -62,7 +62,7 @@ namespace SKG.DXF.Home.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Right.Delete(id) != null) PerformRefresh();
+                    if (_bll.Pol_Action.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -158,15 +158,15 @@ namespace SKG.DXF.Home.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Right()
+                var o = new Pol_Action()
                 {
                     Id = id,
                     Code = txtCode.Text,
-                    Caption = txtName.Text,
+                    Name = txtName.Text,
                     Descript = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Right.Update(o);
+                var oki = _bll.Pol_Action.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -180,14 +180,14 @@ namespace SKG.DXF.Home.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Pol_Right()
+                var o = new Pol_Action()
                 {
                     Code = txtCode.Text,
-                    Caption = txtName.Text,
+                    Name = txtName.Text,
                     Descript = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Right.Insert(o);
+                var oki = _bll.Pol_Action.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -197,7 +197,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Right.Select();
+            _dtb = _bll.Pol_Action.Select();
 
             if (_dtb != null)
             {
@@ -220,9 +220,9 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm form, menu";
-        private const string STR_EDIT = "Sửa form, menu";
-        private const string STR_DELETE = "Xoá form, menu";
+        private const string STR_ADD = "Thêm hành động";
+        private const string STR_EDIT = "Sửa hành động";
+        private const string STR_DELETE = "Xoá hành động";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá mã '{0}' không?";

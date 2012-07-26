@@ -125,7 +125,7 @@
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(76, 13);
             this.lblCode.TabIndex = 34;
-            this.lblCode.Text = "Mã form, menu:";
+            this.lblCode.Text = "Mã hành động:";
             // 
             // txtName
             // 
@@ -140,7 +140,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(80, 13);
             this.lblName.TabIndex = 33;
-            this.lblName.Text = "Tên form, menu:";
+            this.lblName.Text = "Tên hành động:";
             // 
             // dockPanel2
             // 

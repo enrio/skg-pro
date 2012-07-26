@@ -202,9 +202,9 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm nhóm người dùng";
-        private const string STR_EDIT = "Sửa nhóm người dùng";
-        private const string STR_DELETE = "Xoá nhóm người dùng";
+        private const string STR_ADD = "Thêm ngôn ngữ";
+        private const string STR_EDIT = "Sửa ngôn ngữ";
+        private const string STR_DELETE = "Xoá ngôn ngữ";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";

@@ -148,7 +148,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Lang()
                 {
                     Id = id,
-                    Vietnamese = txtName.Text,
+                    Default = txtName.Text,
                     Descript = txtDescript.Text
                 };
 
@@ -168,7 +168,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Lang()
                 {
-                    Vietnamese = txtName.Text,
+                    Default = txtName.Text,
                     Descript = txtDescript.Text
                 };
 

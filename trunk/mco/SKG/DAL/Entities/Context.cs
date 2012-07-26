@@ -40,22 +40,22 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_Right> Pol_Rights { get; set; }
 
         /// <summary>
-        /// 
+        /// Policy - User's information
         /// </summary>
         public DbSet<Pol_User> Pol_Users { get; set; }
 
         /// <summary>
-        /// 
+        /// Policy - List of user right on menuz or form
         /// </summary>
         public DbSet<Pol_RoleRight> Pol_RoleRights { get; set; }
 
         /// <summary>
-        /// 
+        /// Policy - User's list has permission
         /// </summary>
         public DbSet<Pol_UserRight> Pol_UserRights { get; set; }
 
         /// <summary>
-        /// 
+        /// Policy - List of user belong group
         /// </summary>
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
 
@@ -63,6 +63,16 @@ namespace SKG.DAL.Entities
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
         public DbSet<Pol_Lang> Pol_Langs { get; set; }
+
+        /// <summary>
+        /// Policy - Chat on system
+        /// </summary>
+        public DbSet<Pol_Chat> Pol_Chats { get; set; }
+
+        /// <summary>
+        /// Policy - User's language choice
+        /// </summary>
+        public DbSet<Pol_UserLang> Pol_UserLangs { get; set; }
 
         /// <summary>
         /// Using string connection from App.Config file

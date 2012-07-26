@@ -43,5 +43,12 @@ namespace SKG.DAL.Entities
         /// Selected language
         /// </summary>
         public string Default { get; set; }
+
+        #region Foreign key on another entity
+        /// <summary>
+        /// All menuz, form of system
+        /// </summary>
+        public virtual ICollection<Pol_Right> Pol_Rights { get; set; }
+        #endregion
     }
 }

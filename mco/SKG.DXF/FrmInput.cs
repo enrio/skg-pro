@@ -112,17 +112,14 @@ namespace SKG.DXF
                     break;
 
                 case "bbiDelete":
-                    _state = State.Delete;
                     PerformDelete();
                     break;
 
                 case "bbiSave":
-                    _state = State.Save;
                     PerformSave();
                     break;
 
                 case "bbiCancel":
-                    _state = State.Cancel;
                     PerformCancel();
                     break;
 
@@ -304,15 +301,15 @@ namespace SKG.DXF
             }
             else
             {
-                AllowAdd = z.Add;
-                AllowEdit = z.Edit;
+                bbiAdd.Enabled = z.Add;
+                bbiEdit.Enabled = z.Edit;
+                bbiDelete.Enabled = z.Delete;
+                bbiPrint.Enabled = z.Print;
+
+                bbiSave.Enabled = false;
+                bbiCancel.Enabled = false;
 
                 AllowBar = true;
-                AllowSave = false;
-                AllowCancel = false;
-
-                AllowDelete = z.Delete;
-                AllowPrint = z.Print;
             }
             return z;
         }

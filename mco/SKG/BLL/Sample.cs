@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 23:42
+ * Update: 26/07/2012 14:22
  * Status: OK
  */
 #endregion
@@ -41,41 +41,34 @@ namespace SKG.BLL
         /// <summary>
         /// Pol_Lang table
         /// </summary>
-        void CreatePol_Lang()
+        void CreatePol_Action()
         {
             if (Pol_Lang.Count() > 0) return;
+
+            var o = new Pol_Lang() { Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Edit", Caption = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Delete", Caption = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Default", Caption = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Print", Caption = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Access", Caption = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "Full", Caption = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
+            Pol_Lang.Insert(o);
+
             #region For Pol_Right
             var a = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Action");
-            var o = new Pol_Lang() { Caption = "Hành động", Lang1 = "Hbd fhz", Lang2 = "Action", Order = 0 };
+            o = new Pol_Lang() { Caption = "Hành động", Lang1 = "Hbd fhz", Lang2 = "Action", Order = 0 };
             o = (Pol_Lang)Pol_Lang.Insert(o);
             a.Pol_LangId = o.Id;
             Pol_Right.Update(a);
             #endregion
-        }
-
-        /// <summary>
-        /// Pol_Action table
-        /// </summary>
-        void CreatePol_Action()
-        {
-            if (Pol_Action.Count() > 0) return;
-
-            var o = new Pol_Action() { Code = "Add", Name = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Edit", Name = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Delete", Name = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Default", Name = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Print", Name = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Access", Name = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "Full", Name = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
-            Pol_Action.Insert(o);
-            o = new Pol_Action() { Code = "None", Name = "Không có", Descript = "Không có quyền", Order = 7 };
-            Pol_Action.Insert(o);
         }
 
         /// <summary>
@@ -247,13 +240,12 @@ namespace SKG.BLL
         /// </summary>
         protected virtual void DeleteAll()
         {
-            Pol_Lang.Delete();
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
             Pol_UserRight.Delete();
             Pol_Role.Delete();
             Pol_Right.Delete();
-            Pol_Action.Delete();
+            Pol_Lang.Delete();
         }
 
         /// <summary>
@@ -268,7 +260,6 @@ namespace SKG.BLL
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
-            CreatePol_Lang();
         }
     }
 }

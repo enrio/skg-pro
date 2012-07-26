@@ -16,6 +16,8 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
+    using System.ComponentModel.DataAnnotations;
+
     /// <summary>
     /// Policy - Language for system (include all form, menuz and more)
     /// </summary>
@@ -25,6 +27,12 @@ namespace SKG.DAL.Entities
         /// Default language (Vietnamese)
         /// </summary>
         public string Caption { set; get; }
+
+        /// <summary>
+        /// Type of data
+        /// </summary>
+        [StringLength(128)]
+        public string Type { set; get; }
 
         /// <summary>
         /// First language (ZnG ioz)

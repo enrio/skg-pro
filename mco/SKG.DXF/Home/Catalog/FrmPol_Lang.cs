@@ -35,9 +35,6 @@ namespace SKG.DXF.Home.Catalog
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
-            AllowAdd = false;
-            AllowDelete = false;
-
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
@@ -220,9 +217,9 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm hành động";
-        private const string STR_EDIT = "Sửa hành động";
-        private const string STR_DELETE = "Xoá hành động";
+        private const string STR_ADD = "Thêm ngôn ngữ";
+        private const string STR_EDIT = "Sửa ngôn ngữ";
+        private const string STR_DELETE = "Xoá ngôn ngữ";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá mã '{0}' không?";

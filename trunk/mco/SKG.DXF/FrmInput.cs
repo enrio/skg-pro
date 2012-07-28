@@ -71,25 +71,25 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Call check user's right
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FrmBase_Activated(object sender, EventArgs e)
-        {
-            CheckRight(this, true);
-        }
-
-        /// <summary>
         /// Set default form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FrmBase_Load(object sender, EventArgs e)
+        private void FrmInput_Load(object sender, EventArgs e)
         {
             Text = Menuz.Caption;
             SetNullPrompt();
             PerformRefresh();
+        }
+
+        /// <summary>
+        /// Call check user's right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmInput_Activated(object sender, EventArgs e)
+        {
+            CheckRight(this, true);
         }
 
         /// <summary>

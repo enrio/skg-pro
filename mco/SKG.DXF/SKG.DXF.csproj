@@ -338,6 +338,9 @@
     <Content Include="Icons\UserRole.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\xSKGv1.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Calendar_16x16.png" />
     <Content Include="Images\Drafts_16x16.png" />
     <Content Include="Images\Inbox_16x16.png" />

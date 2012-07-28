@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace SKG.MSF
 {
-    public partial class FrmMain : Form
+    public partial class FrmDemo : Form
     {
         private int childFormNumber = 0;
 
-        public FrmMain()
+        public FrmDemo()
         {
             InitializeComponent();
         }

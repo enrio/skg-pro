@@ -36,7 +36,7 @@ namespace SKG.Client
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
             Global.Session = new Session();
-            var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmDemo();
+            var frm = !Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmMain();
             Application.Run(frm);
         }
     }

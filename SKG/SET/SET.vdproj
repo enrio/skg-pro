@@ -27,13 +27,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "MsmKey" = "8:_63DE82AE3713AFB42A0A4376DED267AA"
         "OwnerKey" = "8:_48E0C8079DA04CB48DD2168E25103B5B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "MsmKey" = "8:_63DE82AE3713AFB42A0A4376DED267AA"
         "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -47,6 +47,12 @@
         {
         "MsmKey" = "8:_9AC1E04357FE03A8969FAA44B95EDA71"
         "OwnerKey" = "8:_96BB6FD0D5634A6C91F4233985D3023A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9C792F65749A41818C5D3FE18B09DCBE"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -77,6 +83,18 @@
         {
         "MsmKey" = "8:_BBAF8590E7B7D736C94512043254011A"
         "OwnerKey" = "8:_DF461F9787243E562B188C0A0A5D0401"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CBD410ABAEE648BF89A7C5C25B7966EF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D26DA52136E64AE38C0EC86FAFDC8155"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -130,7 +148,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6504C0D98015762962C13449BE97DED1"
+        "OwnerKey" = "8:_63DE82AE3713AFB42A0A4376DED267AA"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -263,14 +281,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6504C0D98015762962C13449BE97DED1"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_63DE82AE3713AFB42A0A4376DED267AA"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:UTL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6504C0D98015762962C13449BE97DED1"
+                    "_63DE82AE3713AFB42A0A4376DED267AA"
                     {
                     "Name" = "8:UTL.dll"
                     "Attributes" = "3:512"
@@ -323,6 +341,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9C792F65749A41818C5D3FE18B09DCBE"
+            {
+            "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\Banke2.rdlc"
+            "TargetName" = "8:Banke2.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9D025759AFC8421E91EC7D4E12258CDC"
@@ -407,6 +445,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CBD410ABAEE648BF89A7C5C25B7966EF"
+            {
+            "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\Banke1.rdlc"
+            "TargetName" = "8:Banke1.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D26DA52136E64AE38C0EC86FAFDC8155"
+            {
+            "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\RptDbbYii.rdlc"
+            "TargetName" = "8:RptDbbYii.rdlc"
+            "Tag" = "8:"
+            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DF461F9787243E562B188C0A0A5D0401"
             {
             "AssemblyRegister" = "3:1"
@@ -474,6 +552,17 @@
                     "Property" = "8:_FEC4A752792F4A78AB2D6A1C7D006144"
                         "Folders"
                         {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_366B8152BA0D4B0B95FDB61458F29CBF"
+                            {
+                            "Name" = "8:YhwCcn"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_87F224F65A5A4E7DBAB38CFD2B76DFC6"
+                                "Folders"
+                                {
+                                }
+                            }
                         }
                     }
                 }
@@ -512,14 +601,14 @@
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
         "Manufacturer" = "8:SKG"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:SET"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:SKG"
+        "ARPCONTACT" = "8:Zng Tfy"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -1055,7 +1144,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_48E0C8079DA04CB48DD2168E25103B5B"
             {
-            "SourcePath" = "8:..\\SKG\\obj\\x86\\Release\\SKG.exe"
+            "SourcePath" = "8:..\\SKG\\obj\\x86\\Debug\\SKG.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8FDD60A39EE24548986991177598D14B"
@@ -1083,7 +1172,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_96BB6FD0D5634A6C91F4233985D3023A"
             {
-            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Release\\BXE.dll"
+            "SourcePath" = "8:..\\PLG\\BXE\\obj\\Debug\\BXE.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E1EBAA5324974EFA8ED78AFB8DD369F6"

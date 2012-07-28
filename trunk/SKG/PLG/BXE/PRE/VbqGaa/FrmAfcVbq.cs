@@ -976,16 +976,6 @@ namespace BXE.PRE.VbqGaa
             btnSave.Enabled = !isEnable;
             btnCancel.Enabled = !isEnable;
         }
-        #endregion
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            ChangeStatus(false);
-            ReadOnlyControl(false);
-
-            ClearDataBindings();
-            ResetInput();
-        }
 
         /// <summary>
         /// Set null value prompt
@@ -1018,10 +1008,29 @@ namespace BXE.PRE.VbqGaa
         /// </summary>
         private void PerformRefresh() { }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ChangeStatus(false);
+            ReadOnlyControl(false);
+
+            ClearDataBindings();
+            ResetInput();
+        }
+
         private void btnEdit_Click(object sender, EventArgs e)
         {
             ChangeStatus(false);
             ReadOnlyControl(false);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -1030,5 +1039,6 @@ namespace BXE.PRE.VbqGaa
             ReadOnlyControl();
             PerformRefresh();
         }
+        #endregion
     }
 }

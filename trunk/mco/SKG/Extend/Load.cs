@@ -29,7 +29,11 @@ namespace SKG.Extend
         public static void LoadMenu(this MenuStrip m, List<string> l, Form f = null)
         {
             Parent = f;
-            foreach (var i in l) m.LoadMenu(i);
+            foreach (var i in l)
+            {
+                if (i.Contains("SKG.DXF")) continue;
+                m.LoadMenu(i);
+            }
         }
 
         /// <summary>

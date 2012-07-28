@@ -27,7 +27,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bmgMain = new DevExpress.XtraBars.BarManager();
+            this.components = new System.ComponentModel.Container();
+            this.bmgMain = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bbiAdd = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiEdit = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -44,7 +45,7 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.tmrMain = new System.Windows.Forms.Timer();
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -207,7 +208,7 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.TimerTick);
             // 
-            // FrmBase
+            // FrmInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -216,11 +217,12 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "FrmBase";
-            this.Load += new System.EventHandler(this.FrmBase_Load);
-            this.Activated += new System.EventHandler(this.FrmBase_Activated);
+            this.Name = "FrmInput";
+            this.Activated += new System.EventHandler(this.FrmInput_Activated);
+            this.Load += new System.EventHandler(this.FrmInput_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);
+
         }
         #endregion
 

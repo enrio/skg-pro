@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.MSF
@@ -60,21 +58,11 @@ namespace SKG.MSF
         }
 
         /// <summary>
-        /// Call check user's right
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void FrmBase_Activated(object sender, EventArgs e)
-        {
-            CheckRight(this, true);
-        }
-
-        /// <summary>
         /// Set default form
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void FrmBase_Load(object sender, EventArgs e)
+        private void FrmInput_Load(object sender, EventArgs e)
         {
             Text = Menuz.Caption;
             SetNullPrompt();
@@ -82,62 +70,72 @@ namespace SKG.MSF
         }
 
         /// <summary>
+        /// Call check user's right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmInput_Activated(object sender, EventArgs e)
+        {
+            CheckRight(this, true);
+        }
+
+        /// <summary>
         /// Action item click
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //private void bmgMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        //{
-        //    switch (e.Item.Name)
-        //    {
-        //        case "bbiAdd":
-        //            _state = State.Add;
-        //            PerformAdd();
-        //            break;
+        private void tstMain_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            switch (e.ClickedItem.Name)
+            {
+                case "btnAdd":
+                    _state = State.Add;
+                    PerformAdd();
+                    break;
 
-        //        case "bbiEdit":
-        //            _state = State.Edit;
-        //            PerformEdit();
-        //            break;
+                case "btnEdit":
+                    _state = State.Edit;
+                    PerformEdit();
+                    break;
 
-        //        case "bbiDelete":
-        //            PerformDelete();
-        //            break;
+                case "btnDelete":
+                    PerformDelete();
+                    break;
 
-        //        case "bbiSave":
-        //            PerformSave();
-        //            break;
+                case "btnSave":
+                    PerformSave();
+                    break;
 
-        //        case "bbiCancel":
-        //            PerformCancel();
-        //            break;
+                case "btnCancel":
+                    PerformCancel();
+                    break;
 
-        //        case "bbiRefresh":
-        //            _state = State.View;
-        //            PerformRefresh();
-        //            break;
+                case "btnRefresh":
+                    _state = State.View;
+                    PerformRefresh();
+                    break;
 
-        //        case "bbiFind":
-        //            PerformFind();
-        //            break;
+                case "btnFind":
+                    PerformFind();
+                    break;
 
-        //        case "bbiCollapse":
-        //            PerformCollapse();
-        //            break;
+                case "btnCollapse":
+                    PerformCollapse();
+                    break;
 
-        //        case "bbiExpand":
-        //            PerformExpand();
-        //            break;
+                case "btnExpand":
+                    PerformExpand();
+                    break;
 
-        //        case "bbiPrint":
-        //            PerformPrint();
-        //            break;
+                case "btnPrint":
+                    PerformPrint();
+                    break;
 
-        //        default:
-        //            Close();
-        //            break;
-        //    }
-        //}
+                default:
+                    Close();
+                    break;
+            }
+        }
 
         /// <summary>
         /// Change status command button on form
@@ -145,16 +143,16 @@ namespace SKG.MSF
         /// <param name="isEnable">Enable</param>
         protected void ChangeStatus(bool isEnable = true)
         {
-            //bbiAdd.Enabled = isEnable;
-            //bbiEdit.Enabled = isEnable;
-            //bbiDelete.Enabled = isEnable;
+            btnAdd.Enabled = isEnable;
+            btnEdit.Enabled = isEnable;
+            btnDelete.Enabled = isEnable;
 
-            //bbiSave.Enabled = !isEnable;
-            //bbiCancel.Enabled = !isEnable;
+            btnSave.Enabled = !isEnable;
+            btnCancel.Enabled = !isEnable;
 
-            //bbiRefresh.Enabled = isEnable;
-            //bbiFind.Enabled = isEnable;
-            //bbiPrint.Enabled = isEnable;
+            btnRefresh.Enabled = isEnable;
+            btnFind.Enabled = isEnable;
+            btnPrint.Enabled = isEnable;
         }
 
         #region Virtual
@@ -290,13 +288,13 @@ namespace SKG.MSF
             }
             else
             {
-                //bbiAdd.Enabled = z.Add;
-                //bbiEdit.Enabled = z.Edit;
-                //bbiDelete.Enabled = z.Delete;
-                //bbiPrint.Enabled = z.Print;
+                btnAdd.Enabled = z.Add;
+                btnEdit.Enabled = z.Edit;
+                btnDelete.Enabled = z.Delete;
+                btnPrint.Enabled = z.Print;
 
-                //bbiSave.Enabled = false;
-                //bbiCancel.Enabled = false;
+                btnSave.Enabled = false;
+                btnCancel.Enabled = false;
 
                 AllowBar = true;
             }
@@ -321,7 +319,7 @@ namespace SKG.MSF
             get { return _allowBar; }
             set
             {
-                //bar1.Visible = value;
+                tstMain.Visible = value;
                 _allowBar = value;
             }
         }
@@ -337,8 +335,8 @@ namespace SKG.MSF
             set
             {
                 _allowAdd = value;
-                //if (!_allowAdd) bbiAdd.Visibility = BarItemVisibility.Never;
-                //else bbiAdd.Visibility = BarItemVisibility.Always;
+                if (value) btnAdd.Visible = value;
+                else btnAdd.Visible = !value;
             }
         }
 
@@ -353,8 +351,8 @@ namespace SKG.MSF
             set
             {
                 _allowEdit = value;
-                //if (!_allowEdit) bbiEdit.Visibility = BarItemVisibility.Never;
-                //else bbiEdit.Visibility = BarItemVisibility.Always;
+                if (value) btnEdit.Visible = value;
+                else btnEdit.Visible = !value;
             }
         }
 
@@ -369,8 +367,8 @@ namespace SKG.MSF
             set
             {
                 _allowDelete = value;
-                //if (!_allowDelete) bbiDelete.Visibility = BarItemVisibility.Never;
-                //else bbiDelete.Visibility = BarItemVisibility.Always;
+                if (value) btnDelete.Visible = value;
+                else btnDelete.Visible = !value;
             }
         }
 
@@ -385,8 +383,8 @@ namespace SKG.MSF
             set
             {
                 _allowSave = value;
-                //if (!_allowSave) bbiSave.Visibility = BarItemVisibility.Never;
-                //else bbiSave.Visibility = BarItemVisibility.Always;
+                if (value) btnSave.Visible = value;
+                else btnSave.Visible = !value;
             }
         }
 
@@ -401,8 +399,8 @@ namespace SKG.MSF
             set
             {
                 _allowCancel = value;
-                //if (!_allowCancel) bbiCancel.Visibility = BarItemVisibility.Never;
-                //else bbiCancel.Visibility = BarItemVisibility.Always;
+                if (value) btnCancel.Visible = value;
+                else btnCancel.Visible = !value;
             }
         }
 
@@ -417,8 +415,8 @@ namespace SKG.MSF
             set
             {
                 _allowRefresh = value;
-                //if (!_allowRefresh) bbiRefresh.Visibility = BarItemVisibility.Never;
-                //else bbiRefresh.Visibility = BarItemVisibility.Always;
+                if (value) btnRefresh.Visible = value;
+                else btnRefresh.Visible = !value;
             }
         }
 
@@ -433,8 +431,8 @@ namespace SKG.MSF
             set
             {
                 _allowFind = value;
-                //if (!_allowFind) bbiFind.Visibility = BarItemVisibility.Never;
-                //else bbiFind.Visibility = BarItemVisibility.Always;
+                if (value) btnFind.Visible = value;
+                else btnFind.Visible = !value;
             }
         }
 
@@ -449,8 +447,8 @@ namespace SKG.MSF
             set
             {
                 _allowPrint = value;
-                //if (!_allowPrint) bbiPrint.Visibility = BarItemVisibility.Never;
-                //else bbiPrint.Visibility = BarItemVisibility.Always;
+                if (value) btnPrint.Visible = value;
+                else btnPrint.Visible = !value;
             }
         }
         #endregion
@@ -465,8 +463,8 @@ namespace SKG.MSF
             get { return _allowCollapse; }
             set
             {
-                //if (value) bbiCollapse.Visibility = BarItemVisibility.Always;
-                //else bbiCollapse.Visibility = BarItemVisibility.Never;
+                if (value) btnCollapse.Visible = value;
+                else btnCollapse.Visible = !value;
                 _allowCollapse = value;
             }
         }
@@ -480,11 +478,13 @@ namespace SKG.MSF
             get { return _allowExpand; }
             set
             {
-                //if (value) bbiExpand.Visibility = BarItemVisibility.Always;
-                //else bbiExpand.Visibility = BarItemVisibility.Never;
+                if (value) btnExpand.Visible = value;
+                else btnExpand.Visible = !value;
                 _allowExpand = value;
             }
         }
         #endregion
+
+
     }
 }

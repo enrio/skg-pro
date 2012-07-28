@@ -348,7 +348,7 @@
             "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\Banke2.rdlc"
             "TargetName" = "8:Banke2.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Folder" = "8:_6175550DBA654182AAFE8947D02E8315"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -450,7 +450,7 @@
             "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\Banke1.rdlc"
             "TargetName" = "8:Banke1.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Folder" = "8:_6175550DBA654182AAFE8947D02E8315"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -470,7 +470,7 @@
             "SourcePath" = "8:..\\PLG\\BXE\\PRE\\YhwCcn\\RptDbbYii.rdlc"
             "TargetName" = "8:RptDbbYii.rdlc"
             "Tag" = "8:"
-            "Folder" = "8:_366B8152BA0D4B0B95FDB61458F29CBF"
+            "Folder" = "8:_6175550DBA654182AAFE8947D02E8315"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -552,15 +552,26 @@
                     "Property" = "8:_FEC4A752792F4A78AB2D6A1C7D006144"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_366B8152BA0D4B0B95FDB61458F29CBF"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_19EC9071CC19445CBE16AD0942AD3E9C"
                             {
-                            "Name" = "8:YhwCcn"
+                            "Name" = "8:BXE"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_87F224F65A5A4E7DBAB38CFD2B76DFC6"
+                            "Property" = "8:_FCFD3EE026BD4043B7E0EC700A8EFF31"
                                 "Folders"
                                 {
+                                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6175550DBA654182AAFE8947D02E8315"
+                                    {
+                                    "Name" = "8:YhwCcn"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "Property" = "8:_87F224F65A5A4E7DBAB38CFD2B76DFC6"
+                                        "Folders"
+                                        {
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -595,7 +606,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xBXEv1"
         "ProductCode" = "8:{AAB72231-8869-4911-B015-61547BEC2611}"
-        "PackageCode" = "8:{2F9AF350-564F-44E4-A988-C4FD12B1FB4D}"
+        "PackageCode" = "8:{B717C5A3-E1C4-4F99-9E31-6CF32989DB17}"
         "UpgradeCode" = "8:{7E7AF061-2C35-4AC6-9529-9685FAABF2B8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

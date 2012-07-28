@@ -573,7 +573,7 @@ namespace BXE.PRE.VbqGaa
             if (e.RowIndex < 0) return;
 
             _row = e.RowIndex;
-             _num = dgvAep.Rows[_row].Cells["colNumber"].Value.ToString();
+            _num = dgvAep.Rows[_row].Cells["colNumber"].Value.ToString();
 
             if (CheckExistsNumber(_num))
             {
@@ -963,6 +963,72 @@ namespace BXE.PRE.VbqGaa
         #endregion
 
         #region More
+        /// <summary>
+        /// Change status command button on form
+        /// </summary>
+        /// <param name="isEnable">Enable</param>
+        protected void ChangeStatus(bool isEnable = true)
+        {
+            btnAdd.Enabled = isEnable;
+            btnEdit.Enabled = isEnable;
+            btnDelete.Enabled = isEnable;
+
+            btnSave.Enabled = !isEnable;
+            btnCancel.Enabled = !isEnable;
+        }
         #endregion
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ChangeStatus(false);
+            ReadOnlyControl(false);
+
+            ClearDataBindings();
+            ResetInput();
+        }
+
+        /// <summary>
+        /// Set null value prompt
+        /// </summary>
+        private void SetNullPrompt() { }
+
+        /// <summary>
+        /// Reset all input control
+        /// </summary>
+        private void ResetInput() { }
+
+        /// <summary>
+        /// Clear data binding
+        /// </summary>
+        private void ClearDataBindings() { }
+
+        /// <summary>
+        /// Add data binding
+        /// </summary>
+        private void DataBindingControl() { }
+
+        /// <summary>
+        /// Set read only control on form
+        /// </summary>
+        /// <param name="isReadOnly">Read only</param>
+        private void ReadOnlyControl(bool isReadOnly = true) { }
+
+        /// <summary>
+        /// Load data or perform when click refresh button
+        /// </summary>
+        private void PerformRefresh() { }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            ChangeStatus(false);
+            ReadOnlyControl(false);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            ChangeStatus();
+            ReadOnlyControl();
+            PerformRefresh();
+        }
     }
 }

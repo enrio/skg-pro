@@ -223,7 +223,7 @@ namespace SKG.BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Catalog.FrmPol_Lang");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Grant.FrmPol_UserRight");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
@@ -232,7 +232,7 @@ namespace SKG.BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Grant.FrmPol_UserRole");
-            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
         }
         #endregion

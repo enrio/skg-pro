@@ -3,7 +3,7 @@
 "VSVersion" = "3:800"
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
-"ProjectName" = "8:SET"
+"ProjectName" = "8:xBXEv1"
 "LanguageId" = "3:1033"
 "CodePage" = "3:1252"
 "UILanguageId" = "3:1033"
@@ -593,7 +593,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:SET"
+        "ProductName" = "8:xBXEv1"
         "ProductCode" = "8:{AAB72231-8869-4911-B015-61547BEC2611}"
         "PackageCode" = "8:{2F9AF350-564F-44E4-A988-C4FD12B1FB4D}"
         "UpgradeCode" = "8:{7E7AF061-2C35-4AC6-9529-9685FAABF2B8}"

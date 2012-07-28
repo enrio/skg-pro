@@ -21,8 +21,14 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - User's language choice
     /// </summary>
-    public class Pol_UserLang : Zinfors
+    public class Pol_UserLang
     {
+        /// <summary>
+        /// Primary key
+        /// </summary>
+        [Key, Column(Order = 0)]
+        public Guid Id { set; get; }
+
         #region Foreign key
         /// <summary>
         /// Refercence to Pol_User
@@ -38,10 +44,5 @@ namespace SKG.DAL.Entities
         public Guid? Pol_LangId { set; get; }
         public virtual Pol_Lang Pol_Lang { get; set; }
         #endregion
-
-        /// <summary>
-        /// Selected language
-        /// </summary>
-        public string Caption { get; set; }
     }
 }

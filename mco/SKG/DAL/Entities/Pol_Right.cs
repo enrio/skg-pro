@@ -27,8 +27,8 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Refercence to Pol_Lang
         /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_Lang")]
-        public Guid? Pol_LangId { set; get; }
+        [Key, Column(Order = 0), ForeignKey("Pol_Lang")]
+        public new Guid Id { set; get; }
         public virtual Pol_Lang Pol_Lang { get; set; }
         #endregion
 

@@ -45,7 +45,17 @@ namespace SKG.BLL
         {
             if (Pol_Lang.Count() > 0) return;
 
-            var o = new Pol_Lang() { Type = "BUTTON", Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
+            #region List of language
+            var o = new Pol_Lang() { Type = "LANG", Code = "Lang1", Caption = "ZngIoz", Descript = "Tiếng ZnG", Order = 0 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Type = "LANG", Code = "Lang2", Caption = "Vietnamese", Descript = "Tiếng Việt", Order = 1 };
+            Pol_Lang.Insert(o);
+            o = new Pol_Lang() { Type = "LANG", Code = "Lang3", Caption = "English", Descript = "Tiếng Anh", Order = 2 };
+            Pol_Lang.Insert(o);
+            #endregion
+
+            #region List of button
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
             Pol_Lang.Insert(o);
             o = new Pol_Lang() { Type = "BUTTON", Code = "Edit", Caption = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
             Pol_Lang.Insert(o);
@@ -61,6 +71,7 @@ namespace SKG.BLL
             Pol_Lang.Insert(o);
             o = new Pol_Lang() { Type = "BUTTON", Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
             Pol_Lang.Insert(o);
+            #endregion
         }
 
         /// <summary>

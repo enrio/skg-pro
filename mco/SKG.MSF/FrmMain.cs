@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SKG.MSF
 {
-    public partial class FrmDemo : Form
+    public partial class FrmMain : Form
     {
-        public FrmDemo()
+        public FrmMain()
         {
             InitializeComponent();
         }

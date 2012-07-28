@@ -1,6 +1,6 @@
 ﻿namespace SKG.MSF
 {
-    partial class FrmDemo
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.

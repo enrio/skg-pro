@@ -105,6 +105,12 @@
     <Compile Include="Home\Sytem\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Sytem\FrmSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Sytem\FrmSetting.Designer.cs">
+      <DependentUpon>FrmSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -44,6 +44,7 @@ namespace SKG.DXF.Home.Catalog
         {
             txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtType.Properties.NullValuePrompt = String.Format("Nhập {0}", lblType.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
         }
@@ -112,6 +113,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.Text = null;
             txtCode.Text = null;
             txtDescript.Text = null;
+            txtType.Text = null;
 
             base.ResetInput();
         }
@@ -121,6 +123,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.DataBindings.Clear();
             txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
+            txtType.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -130,6 +133,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.DataBindings.Add("EditValue", _dtb, ".Caption");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtType.DataBindings.Add("EditValue", _dtb, ".Type");
 
             base.DataBindingControl();
         }
@@ -139,6 +143,7 @@ namespace SKG.DXF.Home.Catalog
             txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
+            txtType.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -160,7 +165,8 @@ namespace SKG.DXF.Home.Catalog
                     Id = id,
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text
+                    Descript = txtDescript.Text,
+                    Type = txtType.Text
                 };
 
                 var oki = _bll.Pol_Lang.Update(o);
@@ -181,7 +187,8 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text
+                    Descript = txtDescript.Text,
+                    Type = txtType.Text
                 };
 
                 var oki = _bll.Pol_Lang.Insert(o);
@@ -213,7 +220,10 @@ namespace SKG.DXF.Home.Catalog
             var b = txtCode.Text.Length == 0 ? false : true;
             if (!b) txtCode.Focus();
 
-            return b && a;
+            var c = txtType.Text.Length == 0 ? false : true;
+            if (!c) txtType.Focus();
+
+            return b && a && c;
         }
         #endregion
 

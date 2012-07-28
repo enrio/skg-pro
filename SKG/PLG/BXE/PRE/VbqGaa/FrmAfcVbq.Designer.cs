@@ -88,6 +88,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmdSumary = new System.Windows.Forms.Button();
+            this.cmdAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAep)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -150,7 +151,7 @@
             // cmdClose
             // 
             this.cmdClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdClose.Location = new System.Drawing.Point(548, 176);
+            this.cmdClose.Location = new System.Drawing.Point(454, 176);
             this.cmdClose.Name = "cmdClose";
             this.cmdClose.Size = new System.Drawing.Size(88, 32);
             this.cmdClose.TabIndex = 10;
@@ -161,7 +162,7 @@
             // cmdIn
             // 
             this.cmdIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdIn.Location = new System.Drawing.Point(12, 176);
+            this.cmdIn.Location = new System.Drawing.Point(106, 176);
             this.cmdIn.Name = "cmdIn";
             this.cmdIn.Size = new System.Drawing.Size(88, 32);
             this.cmdIn.TabIndex = 3;
@@ -329,7 +330,7 @@
             // 
             this.cmdEdit.Enabled = false;
             this.cmdEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdEdit.Location = new System.Drawing.Point(106, 176);
+            this.cmdEdit.Location = new System.Drawing.Point(12, 214);
             this.cmdEdit.Name = "cmdEdit";
             this.cmdEdit.Size = new System.Drawing.Size(88, 32);
             this.cmdEdit.TabIndex = 4;
@@ -340,7 +341,7 @@
             // cmdInList
             // 
             this.cmdInList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Location = new System.Drawing.Point(426, 176);
+            this.cmdInList.Location = new System.Drawing.Point(332, 176);
             this.cmdInList.Name = "cmdInList";
             this.cmdInList.Size = new System.Drawing.Size(116, 32);
             this.cmdInList.TabIndex = 6;
@@ -352,7 +353,7 @@
             // 
             this.cmdDelete.Enabled = false;
             this.cmdDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdDelete.Location = new System.Drawing.Point(200, 176);
+            this.cmdDelete.Location = new System.Drawing.Point(106, 214);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(88, 32);
             this.cmdDelete.TabIndex = 5;
@@ -364,9 +365,9 @@
             // 
             this.lblInf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.lblInf.Location = new System.Drawing.Point(642, 176);
+            this.lblInf.Location = new System.Drawing.Point(548, 176);
             this.lblInf.Name = "lblInf";
-            this.lblInf.Size = new System.Drawing.Size(364, 32);
+            this.lblInf.Size = new System.Drawing.Size(458, 32);
             this.lblInf.TabIndex = 10;
             this.lblInf.Text = "?";
             this.lblInf.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -687,7 +688,7 @@
             this.dtpDateIn.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtpDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDateIn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpDateIn.Location = new System.Drawing.Point(214, 302);
+            this.dtpDateIn.Location = new System.Drawing.Point(775, 217);
             this.dtpDateIn.Name = "dtpDateIn";
             this.dtpDateIn.Size = new System.Drawing.Size(231, 26);
             this.dtpDateIn.TabIndex = 25;
@@ -696,7 +697,7 @@
             // cmdHand
             // 
             this.cmdHand.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdHand.Location = new System.Drawing.Point(294, 176);
+            this.cmdHand.Location = new System.Drawing.Point(200, 176);
             this.cmdHand.Name = "cmdHand";
             this.cmdHand.Size = new System.Drawing.Size(126, 32);
             this.cmdHand.TabIndex = 8;
@@ -719,9 +720,9 @@
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 211);
+            this.label6.Location = new System.Drawing.Point(300, 211);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(994, 38);
+            this.label6.Size = new System.Drawing.Size(469, 38);
             this.label6.TabIndex = 26;
             this.label6.Text = "DANH SÁCH XE CHO VÀO BẾN";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -729,7 +730,7 @@
             // cmdSumary
             // 
             this.cmdSumary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary.Location = new System.Drawing.Point(553, 392);
+            this.cmdSumary.Location = new System.Drawing.Point(200, 214);
             this.cmdSumary.Name = "cmdSumary";
             this.cmdSumary.Size = new System.Drawing.Size(94, 32);
             this.cmdSumary.TabIndex = 9;
@@ -738,12 +739,23 @@
             this.cmdSumary.Visible = false;
             this.cmdSumary.Click += new System.EventHandler(this.cmdSumary_Click);
             // 
+            // cmdAdd
+            // 
+            this.cmdAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdAdd.Location = new System.Drawing.Point(12, 176);
+            this.cmdAdd.Name = "cmdAdd";
+            this.cmdAdd.Size = new System.Drawing.Size(88, 32);
+            this.cmdAdd.TabIndex = 27;
+            this.cmdAdd.Text = "&Thêm";
+            this.cmdAdd.UseVisualStyleBackColor = true;
+            // 
             // FrmAfcVbq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1018, 744);
             this.ControlBox = false;
+            this.Controls.Add(this.cmdAdd);
             this.Controls.Add(this.cmdSumary);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
@@ -842,5 +854,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colLength;
         private System.Windows.Forms.DataGridViewTextBoxColumn colWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn colChair;
+        private System.Windows.Forms.Button cmdAdd;
     }
 }

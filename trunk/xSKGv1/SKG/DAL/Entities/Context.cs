@@ -15,8 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
-{
-    using BXE.DAL.Entities;
+{    
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 

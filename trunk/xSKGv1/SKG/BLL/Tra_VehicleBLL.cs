@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BXE.BLL
+namespace SKG.BLL
 {
     using DAL.Entities;
 

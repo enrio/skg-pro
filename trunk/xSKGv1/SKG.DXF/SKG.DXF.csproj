@@ -184,6 +184,69 @@
     </Compile>
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Station\Catalog\FrmTra_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Group.Designer.cs">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Kind.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Kind.Designer.cs">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Vehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Vehicle.Designer.cs">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Catalog\Level2.cs" />
+    <Compile Include="Station\DataSet\Sumary.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Level1.cs" />
+    <Compile Include="Station\Manage\FrmGateIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmGateIn.Designer.cs">
+      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Manage\FrmGateOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmGateOut.Designer.cs">
+      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Manage\FrmInDepot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmInDepot.Designer.cs">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Manage\Level2.cs" />
+    <Compile Include="Station\Report\Rpt_Sumary1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Sumary1.Designer.cs">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Sumary2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Sumary2.Designer.cs">
+      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_Sales.Designer.cs">
+      <DependentUpon>FrmTra_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Sumary\Level2.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -201,6 +264,21 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Manage\FrmGateIn.resx">
+      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmGateOut.resx">
+      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmInDepot.resx">
+      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
+      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_Sumary2.resx">
+      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -210,6 +288,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Station\DataSet\Sumary.xsc">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
+    <None Include="Station\DataSet\Sumary.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Sumary.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Station\DataSet\Sumary.xss">
+      <DependentUpon>Sumary.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SKG\SKG.csproj">
@@ -221,6 +310,9 @@
     <Content Include="Icons\Action.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Base.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Catalog.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -230,16 +322,25 @@
     <Content Include="Icons\Exit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Group.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Help.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Kind.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Lang.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Login.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Manage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Permission.png">
@@ -260,6 +361,12 @@
     <Content Include="Icons\Setting.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Station.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Sumary.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\System.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -270,6 +377,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\UserRole.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\Vehicle.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\user.png" />

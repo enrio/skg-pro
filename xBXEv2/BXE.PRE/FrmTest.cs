@@ -16,7 +16,7 @@ namespace BXE.PRE
         {
             get
             {
-                var menu = new Menuz() { Caption = "Kiểm tra", Level = 3, Order = 41, Picture = @"Icon\Test.png" };
+                var menu = new Menuz() { Caption = "Kiểm tra", Level = 3, Order = 41, Picture = @"Icons\Test.png" };
                 return menu;
             }
         }

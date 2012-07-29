@@ -13,7 +13,7 @@ namespace BXE.PRE.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Danh mục", Level = 2, Order = 21, Picture = @"Icon\Catalog.png" };
+                var menu = new Menuz() { Caption = "Danh mục", Level = 2, Order = 21, Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

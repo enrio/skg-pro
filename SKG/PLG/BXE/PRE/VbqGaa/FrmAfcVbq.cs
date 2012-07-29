@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 namespace BXE.PRE.VbqGaa
 {
+    using UTL;
+
     public partial class FrmAfcVbq : Form, UTL.PLG.ItfPlg
     {
         #region Contansts
@@ -980,33 +982,81 @@ namespace BXE.PRE.VbqGaa
         /// <summary>
         /// Set null value prompt
         /// </summary>
-        private void SetNullPrompt() { }
+        private void SetNullPrompt()
+        {
+            //txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
+            //txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+        }
 
         /// <summary>
         /// Reset all input control
         /// </summary>
-        private void ResetInput() { }
+        private void ResetInput() {
+            //txtName.Text = null;
+            //txtCode.Text = null;
+            //txtDescript.Text = null;
+        }
 
         /// <summary>
         /// Clear data binding
         /// </summary>
-        private void ClearDataBindings() { }
+        private void ClearDataBindings() {
+            //txtName.DataBindings.Clear();
+            //txtCode.DataBindings.Clear();
+            //txtDescript.DataBindings.Clear();
+        }
 
         /// <summary>
         /// Add data binding
         /// </summary>
-        private void DataBindingControl() { }
+        private void DataBindingControl() {
+            //txtName.DataBindings.Add("EditValue", _dtb, ".Caption");
+            //txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
+            //txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+        }
 
         /// <summary>
         /// Set read only control on form
         /// </summary>
         /// <param name="isReadOnly">Read only</param>
-        private void ReadOnlyControl(bool isReadOnly = true) { }
+        private void ReadOnlyControl(bool isReadOnly = true) {
+            //txtCode.Properties.ReadOnly = isReadOnly;
+            //txtName.Properties.ReadOnly = isReadOnly;
+            //txtDescript.Properties.ReadOnly = isReadOnly;
+
+            //grcMain.Enabled = isReadOnly;
+
+            //if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+        }
 
         /// <summary>
         /// Load data or perform when click refresh button
         /// </summary>
         private void PerformRefresh() { }
+
+        /// <summary>
+        /// Update object
+        /// </summary>
+        /// <returns></returns>
+        private bool UpdateObject() { return true; }
+
+        /// <summary>
+        /// Insert object
+        /// </summary>
+        /// <returns></returns>
+        protected virtual bool InsertObject() { return true; }
+
+        /// <summary>
+        /// Load data
+        /// </summary>
+        private void LoadData() { }
+
+        /// <summary>
+        /// Valid data before insert or update to database
+        /// </summary>
+        /// <returns></returns>
+        private bool ValidInput() { return true; }
+        #endregion
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -1030,7 +1080,26 @@ namespace BXE.PRE.VbqGaa
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            switch (_state)
+            {
+                case State.Add:
+                    if (InsertObject())
+                    {
+                        ResetInput(); LoadData();
+                    }
+                    break;
 
+                case State.Edit:
+                    if (UpdateObject())
+                    {
+                        ChangeStatus(); ReadOnlyControl();
+                        PerformRefresh();
+                    }
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -1039,6 +1108,19 @@ namespace BXE.PRE.VbqGaa
             ReadOnlyControl();
             PerformRefresh();
         }
-        #endregion
+
+        /// <summary>
+        /// Form state
+        /// </summary>
+        protected State _state;
+
+        private const string STR_ADD = "Thêm form, menu";
+        private const string STR_EDIT = "Sửa form, menu";
+        private const string STR_DELETE = "Xoá form, menu";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Mã này có rồi";
     }
 }

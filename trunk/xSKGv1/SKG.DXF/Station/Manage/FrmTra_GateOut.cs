@@ -43,7 +43,7 @@ namespace SKG.DXF.Station.Manage
             AllowSave = false;
             AllowCancel = false;
             AllowFind = false;
-            AllowPrint = true;
+            AllowPrint = false;
         }
 
         #region Events
@@ -187,6 +187,60 @@ namespace SKG.DXF.Station.Manage
         private void FrmGateOut_Load(object sender, EventArgs e)
         {
             lblAccOut.Text = Global.Session.User.Name.ToUpper();
+        }
+
+        private void cmdRedo_Click(object sender, EventArgs e)
+        {
+            using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false })
+            {
+                x.ShowDialog();
+                x.EditNumber = null;
+                x.EditMode = true;
+                LoadData();
+            }
+        }
+
+        private void cmdInList_Click(object sender, EventArgs e)
+        {
+            Extend.ShowRight<FrmTra_InDepot>(Global.Parent);
+        }
+
+        private void cmdSumary1_Click(object sender, EventArgs e)
+        {
+            var rpt = new Report.Rpt_Sumary1();
+            var d = Global.Session.Current;
+            var fr = d.ToStartOfDay();
+            var to = d.ToEndOfDay();
+            decimal _sum;
+
+            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.Z, Global.Session.User.Id);
+            rpt.xrcWatch.Text = d.ToWatch2() + "";
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(rpt);
+            frm.Show(MdiParent);
+
+            base.PerformPrint();
+        }
+
+        private void cmdSumary2_Click(object sender, EventArgs e)
+        {
+            var rpt = new Report.Rpt_Sumary2();
+            var d = Global.Session.Current;
+            var fr = d.ToStartOfDay();
+            var to = d.ToEndOfDay();
+            decimal _sum;
+
+            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.Z, Global.Session.User.Id);
+            //rpt.xrcWatch.Text = d.ToWatch2() + "";
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(rpt);
+            frm.Show(MdiParent);
+
+            base.PerformPrint();
         }
     }
 }

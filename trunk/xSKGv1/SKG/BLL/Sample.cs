@@ -257,6 +257,22 @@ namespace SKG.BLL
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Sumary.FrmTra_Sales");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
+
+            a = (Pol_Role)Pol_Role.Select("CV");
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_GateIn");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_InDepot");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+
+            a = (Pol_Role)Pol_Role.Select("CR");
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_GateOut");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true, Default = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_InDepot");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
         }
 
         /// <summary>

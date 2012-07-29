@@ -22,7 +22,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 26, Picture = @"Icons\Base.png" };
+                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 24, Picture = @"Icons\GateIn.png" };
                 return menu;
             }
         }

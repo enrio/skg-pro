@@ -20,7 +20,7 @@ namespace SKG.DXF.Station.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Nhóm xe", Level = 3, Order = 22, Picture = @"Icons\Group.png" };
+                var menu = new Menuz() { Caption = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
                 return menu;
             }
         }

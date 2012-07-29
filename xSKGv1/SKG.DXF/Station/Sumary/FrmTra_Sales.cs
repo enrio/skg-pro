@@ -18,7 +18,7 @@ namespace SKG.DXF.Station.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 33, Picture = @"Icons\Base.png" };
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 28, Picture = @"Icons\Sales.png" };
                 return menu;
             }
         }

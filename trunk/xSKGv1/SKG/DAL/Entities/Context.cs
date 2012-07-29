@@ -16,6 +16,7 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
+    using BXE.DAL.Entities;
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -83,5 +84,25 @@ namespace SKG.DAL.Entities
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<Tra_Group> Tra_Groups { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<Tra_Kind> Tra_Kinds { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<Tra_Vehicle> Tra_Vehicles { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<Tra_Detail> Tra_Details { get; set; }
     }
 }

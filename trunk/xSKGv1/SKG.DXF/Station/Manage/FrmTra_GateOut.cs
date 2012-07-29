@@ -216,6 +216,7 @@ namespace SKG.DXF.Station.Manage
             rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, Global.Session.User.Id);
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
@@ -234,6 +235,7 @@ namespace SKG.DXF.Station.Manage
             rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.B, Global.Session.User.Id);
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);

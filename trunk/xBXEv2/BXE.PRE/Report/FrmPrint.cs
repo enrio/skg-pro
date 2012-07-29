@@ -13,22 +13,20 @@ namespace BXE.PRE.Report
 
     public partial class FrmPrint : SKG.DXF.FrmInput
     {
-        public FrmPrint()
-        {
-            InitializeComponent();
-        }
-
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Caption = "In ấn", Level = 3, Order = 7, Picture = @"Icon\Print.png" };
+                var menu = new Menuz() { Caption = "In ấn", Level = 3, Order = 31, Picture = @"Icon\Base.png" };
                 return menu;
             }
         }
         #endregion
+
+        public FrmPrint()
+        {
+            InitializeComponent();
+        }
     }
 }

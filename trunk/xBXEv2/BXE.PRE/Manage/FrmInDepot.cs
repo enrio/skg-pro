@@ -17,6 +17,17 @@ namespace BXE.PRE.Manage
     /// </summary>
     public partial class FrmInDepot : SKG.DXF.FrmInput
     {
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Trong bến", Level = 3, Order = 28, Picture = @"Icon\Base.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         public FrmInDepot()
         {
             InitializeComponent();
@@ -34,19 +45,6 @@ namespace BXE.PRE.Manage
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Trong bến", Level = 3, Order = 15, Picture = @"Icon\Base.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Events
         private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)

@@ -15,14 +15,16 @@ namespace BXE.PRE.Catalog
 
     public partial class FrmTra_Kind : SKG.DXF.FrmInput
     {
-        private const string STR_ADD = "Thêm loại xe";
-        private const string STR_EDIT = "Sửa loại xe";
-        private const string STR_DELETE = "Xoá loại xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Loại này có rồi";
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Loại xe", Level = 3, Order = 23, Picture = @"Icon\Kind.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         public FrmTra_Kind()
         {
@@ -34,19 +36,6 @@ namespace BXE.PRE.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Loại xe", Level = 3, Order = 4, Picture = @"Icon\Kind.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Override
         protected override void SetNullPrompt()
@@ -234,5 +223,14 @@ namespace BXE.PRE.Catalog
             lokGroup.Properties.DataSource = Sample._bll.Tra_Group.Select();
             lokGroup.ItemIndex = 0;
         }
+
+        private const string STR_ADD = "Thêm loại xe";
+        private const string STR_EDIT = "Sửa loại xe";
+        private const string STR_DELETE = "Xoá loại xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Loại này có rồi";
     }
 }

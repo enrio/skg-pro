@@ -13,22 +13,20 @@ namespace BXE.PRE.Sumary
 
     public partial class FrmTra_Sales : SKG.DXF.FrmInput
     {
-        public FrmTra_Sales()
-        {
-            InitializeComponent();
-        }
-
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 9, Picture = @"Icon\Sales.png" };
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 33, Picture = @"Icon\Base.png" };
                 return menu;
             }
         }
         #endregion
+
+        public FrmTra_Sales()
+        {
+            InitializeComponent();
+        }
     }
 }

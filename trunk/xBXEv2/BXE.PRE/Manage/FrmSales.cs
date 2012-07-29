@@ -14,6 +14,17 @@ namespace BXE.PRE.Manage
 
     public partial class FrmSales : SKG.DXF.FrmInput
     {
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 29, Picture = @"Icon\Sales.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         public FrmSales()
         {
             InitializeComponent();
@@ -38,19 +49,6 @@ namespace BXE.PRE.Manage
             dteFrom.DateTime = d.ToStartOfDay();
             dteTo.DateTime = d.ToEndOfDay();
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 16, Picture = @"Icon\Sales.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Events
         private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)

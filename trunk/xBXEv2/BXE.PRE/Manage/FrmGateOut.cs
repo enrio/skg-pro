@@ -17,6 +17,17 @@ namespace BXE.PRE.Manage
     /// </summary>
     public partial class FrmGateOut : SKG.DXF.FrmInput
     {
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cổng ra", Level = 3, Order = 27, Picture = @"Icon\Base.png" };
+                return menu;
+            }
+        }
+        #endregion
+
         public FrmGateOut()
         {
             InitializeComponent();
@@ -34,19 +45,6 @@ namespace BXE.PRE.Manage
             AllowFind = false;
             AllowPrint = true;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Cổng ra", Level = 3, Order = 14, Picture = @"Icon\Report.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Events
         private void cbbNumber_SelectedIndexChanged(object sender, EventArgs e)

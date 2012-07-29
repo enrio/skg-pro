@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmrMain = new System.Windows.Forms.Timer();
-            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
             this.SuspendLayout();
@@ -127,7 +128,7 @@
         private System.Windows.Forms.Timer tmrMain;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmmMain;
         private DevExpress.XtraBars.BarStaticItem bsiServer;
-        private DevExpress.XtraBars.BarStaticItem bsiUser;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
+        public DevExpress.XtraBars.BarStaticItem bsiUser;
     }
 }

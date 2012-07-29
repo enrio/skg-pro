@@ -411,8 +411,12 @@ namespace SKG.DXF
                 else
                 {
                     if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
-                    f.MdiParent = Global.Parent;
-                    f.Show();
+                    if (f.Name != typeof(FrmLogin).Name)
+                    {
+                        f.MdiParent = Global.Parent;
+                        f.Show();
+                    }
+                    else Login();
                 }
             }
             catch (Exception ex)
@@ -422,6 +426,97 @@ namespace SKG.DXF
 #endif
                 return;
             }
+        }
+        #endregion
+
+        #region Login
+        /// <summary>
+        /// After logon, show menuz, exchange login and logout button
+        /// </summary>
+        public static void AfterLogon()
+        {
+            var frmMain = (FrmMain)Global.Parent;
+            VisibleMenuParentForm(frmMain);
+
+            //bbiLogin.LargeGlyph = Properties.Resources.logout;
+            //bbiLogin.Caption = Properties.Settings.Default.Logout;
+            frmMain.bsiUser.Caption = Global.Session.User.Name;
+
+            // Show default form
+            var d = Global.Session.Default;
+            foreach (var r in d)
+            {
+                if (r.Code == null) continue;
+                var a = typeof(SKG.DXF.Home.Grant.Level2).Namespace;
+                var t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
+                if (t == null)
+                {
+                    a = typeof(SKG.DXF.Home.Catalog.Level2).Namespace;
+                    t = Type.GetType(String.Format("{0}.{1}", a, r.Code));
+                }
+                if (t == null) t = Type.GetType(r.Code);
+                if (t == null) continue;
+
+                var frm = Activator.CreateInstance(t) as FrmInput;
+                if (frm != null) frm.ShowRight(frmMain);
+            }
+
+            // Account is ADMIN or belong group Administrator to have permission
+#if DEBUG
+            //rpgPermission.Visible = true;
+            //bbiSetting.Visibility = BarItemVisibility.Always;
+#else
+            var b = Global.Session.GetUserRole("QT");
+            var c = Global.Session.User.Acc.ToUpper();
+
+            if (b != null || c == "ADMIN")
+            {
+                //rpgPermission.Visible = true;
+                //bbiSetting.Visibility = BarItemVisibility.Always;
+            }
+            else
+            {
+                //rpgPermission.Visible = false;
+                //bbiSetting.Visibility = BarItemVisibility.Never;
+            }
+#endif
+        }
+
+        /// <summary>
+        /// Before logon, hide menuz, exchange login and logout button
+        /// </summary>
+        public static void BeforeLogon()
+        {
+            var frmMain = (FrmMain)Global.Parent;
+            VisibleMenuParentForm(frmMain, false);
+
+            //bbiLogin.LargeGlyph = Properties.Resources.login;
+            //bbiLogin.Caption = Properties.Settings.Default.Login;
+
+            frmMain.bsiUser.Caption = null;
+            //rpgPermission.Visible = false;
+        }
+
+        /// <summary>
+        /// Perform login
+        /// </summary>
+        public static void Login()
+        {
+            var frmMain = (FrmMain)Global.Parent;
+            try
+            {
+                CloseAllChildrenForm(frmMain);
+
+                var x = typeof(FrmLogin);
+                var frm = (FrmLogin)GetMdiChilden(frmMain, x.FullName);
+                if (frm == null) frm = new FrmLogin() { MdiParent = frmMain };
+
+                frm.BeforeLogon += BeforeLogon;
+                frm.AfterLogon += AfterLogon;
+
+                frm.Show();
+            }
+            catch (Exception ex) { XtraMessageBox.Show(ex.Message, frmMain.Text); }
         }
         #endregion
     }

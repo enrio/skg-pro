@@ -15,14 +15,16 @@ namespace BXE.PRE.Catalog
 
     public partial class FrmTra_Vehicle : SKG.DXF.FrmInput
     {
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
-        private const string STR_DELETE = "Xoá xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Xe cộ", Level = 3, Order = 24, Picture = @"Icon\Vehicle.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         public FrmTra_Vehicle()
         {
@@ -34,19 +36,6 @@ namespace BXE.PRE.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Xe cộ", Level = 3, Order = 5, Picture = @"Icon\Vehicle.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Override
         protected override void SetNullPrompt()
@@ -248,5 +237,14 @@ namespace BXE.PRE.Catalog
             lokKind.Properties.DataSource = Sample._bll.Tra_Kind.Select();
             lokKind.ItemIndex = 0;
         }
+
+        private const string STR_ADD = "Thêm xe";
+        private const string STR_EDIT = "Sửa xe";
+        private const string STR_DELETE = "Xoá xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Xe này có rồi";
     }
 }

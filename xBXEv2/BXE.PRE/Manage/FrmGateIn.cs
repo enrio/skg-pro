@@ -17,27 +17,16 @@ namespace BXE.PRE.Manage
     /// </summary>
     public partial class FrmGateIn : SKG.DXF.FrmInput
     {
-        const string STR_MENU = "Cổng &vào";
-        private const string STR_DESC = "In gate form";
-        private const string STR_DMY = "dd/MM/yyyy HH:mm:ss";
-
-        private const string STR_IN_GATE = "Xe này đang ở trong bến!";
-        private const string STR_IN_MAG = "Xe này đã có trong danh sách quản lí!";
-
-        private const string STR_INP_ERR = "Lỗi, nhập dữ liệu sai{0}{1}";
-        private const string STR_INP_HAD = "&Nhập bằng tay";
-        private const string STR_ADD_SUC = "";// "Đã cho xe vào!";
-        private const string STR_EDI_SUC = "Sửa thành công!";
-
-        private const string STR_DEL_SUC = "Xoá thành công!";
-        private const string STR_DEL_ERR = "Lỗi xoá dữ liệu!";
-
-        private const string STR_NO_SAVE = "Không thêm được!";
-        private const string STR_NOT_EDIT = "Không sửa được!";
-        private const string STR_NOT_DEL = "Không xoá được!";
-        private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
-        private const string STR_NOT_INP = "Chưa nhập biển số!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 26, Picture = @"Icon\Base.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         public FrmGateIn()
         {
@@ -51,19 +40,6 @@ namespace BXE.PRE.Manage
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 13, Picture = @"Icon\Test.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Override
         protected override void PerformDelete()
@@ -362,5 +338,27 @@ namespace BXE.PRE.Manage
                 //cmdDelete.Enabled = false;
             }
         }
+
+        const string STR_MENU = "Cổng &vào";
+        private const string STR_DESC = "In gate form";
+        private const string STR_DMY = "dd/MM/yyyy HH:mm:ss";
+
+        private const string STR_IN_GATE = "Xe này đang ở trong bến!";
+        private const string STR_IN_MAG = "Xe này đã có trong danh sách quản lí!";
+
+        private const string STR_INP_ERR = "Lỗi, nhập dữ liệu sai{0}{1}";
+        private const string STR_INP_HAD = "&Nhập bằng tay";
+        private const string STR_ADD_SUC = "";// "Đã cho xe vào!";
+        private const string STR_EDI_SUC = "Sửa thành công!";
+
+        private const string STR_DEL_SUC = "Xoá thành công!";
+        private const string STR_DEL_ERR = "Lỗi xoá dữ liệu!";
+
+        private const string STR_NO_SAVE = "Không thêm được!";
+        private const string STR_NOT_EDIT = "Không sửa được!";
+        private const string STR_NOT_DEL = "Không xoá được!";
+        private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
+        private const string STR_NOT_INP = "Chưa nhập biển số!";
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
     }
 }

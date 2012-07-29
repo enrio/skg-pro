@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BXE.PRE.Report
 {
@@ -14,7 +13,7 @@ namespace BXE.PRE.Report
         {
             get
             {
-                var menu = new Menuz() { Caption = "Báo cáo", Level = 2, Order = 6, Picture = @"Icon\Report.png" };
+                var menu = new Menuz() { Caption = "Báo cáo", Level = 2, Order = 30, Picture = @"Icon\Report.png" };
                 return menu;
             }
         }

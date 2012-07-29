@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BXE.PRE.Sumary
 {
@@ -14,7 +13,7 @@ namespace BXE.PRE.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 8, Picture = @"Icon\Sumary.png" };
+                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 32, Picture = @"Icon\Sumary.png" };
                 return menu;
             }
         }

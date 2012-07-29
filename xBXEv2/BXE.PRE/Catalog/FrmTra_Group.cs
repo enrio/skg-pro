@@ -15,14 +15,16 @@ namespace BXE.PRE.Catalog
 
     public partial class FrmTra_Group : SKG.DXF.FrmInput
     {
-        private const string STR_ADD = "Thêm nhóm xe";
-        private const string STR_EDIT = "Sửa nhóm xe";
-        private const string STR_DELETE = "Xoá nhóm xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Nhóm này có rồi";
+        #region Override plugin
+        public override Menuz Menuz
+        {
+            get
+            {
+                var menu = new Menuz() { Caption = "Nhóm xe", Level = 3, Order = 22, Picture = @"Icon\Group.png" };
+                return menu;
+            }
+        }
+        #endregion
 
         public FrmTra_Group()
         {
@@ -34,19 +36,6 @@ namespace BXE.PRE.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
-
-        #region Override plugin
-        public override Form Form { get { return this; } }
-
-        public override Menuz Menuz
-        {
-            get
-            {
-                var menu = new Menuz() { Caption = "Nhóm xe", Level = 3, Order = 3, Picture = @"Icon\Group.png" };
-                return menu;
-            }
-        }
-        #endregion
 
         #region Override
         protected override void SetNullPrompt()
@@ -209,5 +198,14 @@ namespace BXE.PRE.Catalog
             return a;
         }
         #endregion
+
+        private const string STR_ADD = "Thêm nhóm xe";
+        private const string STR_EDIT = "Sửa nhóm xe";
+        private const string STR_DELETE = "Xoá nhóm xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Nhóm này có rồi";
     }
 }

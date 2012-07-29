@@ -360,5 +360,11 @@ namespace SKG.DXF.Station.Manage
         private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
         private const string STR_NOT_INP = "Chưa nhập biển số!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
+
+        #region Properties
+        public string EditNumber { set; get; } // number need to update from form gate out
+        public bool EditMode { set; get; } // edit mode allow edit mode in this form or another form
+        public bool EditHand { set; get; } // edit by hand
+        #endregion
     }
 }

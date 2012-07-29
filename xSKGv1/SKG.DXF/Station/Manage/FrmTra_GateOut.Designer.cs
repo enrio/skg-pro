@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
+            this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdRedo = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
             this.tblAep = new System.Windows.Forms.TableLayoutPanel();
             this.lblAccOut = new System.Windows.Forms.Label();
             this.cbbNumber = new System.Windows.Forms.ComboBox();
@@ -135,9 +138,13 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.lblInfo);
+            this.groupControl1.Controls.Add(this.cmdSumary2);
+            this.groupControl1.Controls.Add(this.cmdSumary1);
+            this.groupControl1.Controls.Add(this.cmdInList);
+            this.groupControl1.Controls.Add(this.cmdRedo);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
+            this.groupControl1.Controls.Add(this.lblInfo);
             this.groupControl1.Controls.Add(this.tblAep);
             this.groupControl1.Location = new System.Drawing.Point(88, 27);
             this.groupControl1.Name = "groupControl1";
@@ -145,34 +152,83 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
-            // lblInfo
+            // cmdSumary2
             // 
-            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(353, 375);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(394, 37);
-            this.lblInfo.TabIndex = 8;
+            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary2.Appearance.Options.UseFont = true;
+            this.cmdSumary2.Location = new System.Drawing.Point(435, 375);
+            this.cmdSumary2.Name = "cmdSumary2";
+            this.cmdSumary2.Size = new System.Drawing.Size(76, 37);
+            this.cmdSumary2.TabIndex = 17;
+            this.cmdSumary2.Text = "I&n nhóm 2";
+            this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
+            // 
+            // cmdSumary1
+            // 
+            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary1.Appearance.Options.UseFont = true;
+            this.cmdSumary1.Location = new System.Drawing.Point(353, 375);
+            this.cmdSumary1.Name = "cmdSumary1";
+            this.cmdSumary1.Size = new System.Drawing.Size(76, 37);
+            this.cmdSumary1.TabIndex = 16;
+            this.cmdSumary1.Text = "&In nhóm 1";
+            this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
+            // 
+            // cmdInList
+            // 
+            this.cmdInList.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdInList.Appearance.Options.UseFont = true;
+            this.cmdInList.Location = new System.Drawing.Point(251, 375);
+            this.cmdInList.Name = "cmdInList";
+            this.cmdInList.Size = new System.Drawing.Size(96, 37);
+            this.cmdInList.TabIndex = 15;
+            this.cmdInList.Text = "&Xe trong bến";
+            this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
+            // 
+            // cmdRedo
+            // 
+            this.cmdRedo.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRedo.Appearance.Options.UseFont = true;
+            this.cmdRedo.Enabled = false;
+            this.cmdRedo.Location = new System.Drawing.Point(169, 375);
+            this.cmdRedo.Name = "cmdRedo";
+            this.cmdRedo.Size = new System.Drawing.Size(76, 37);
+            this.cmdRedo.TabIndex = 14;
+            this.cmdRedo.Text = "&Sửa lại";
+            this.cmdRedo.Click += new System.EventHandler(this.cmdRedo_Click);
             // 
             // cmdOut
             // 
+            this.cmdOut.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOut.Appearance.Options.UseFont = true;
             this.cmdOut.Enabled = false;
-            this.cmdOut.Location = new System.Drawing.Point(106, 375);
+            this.cmdOut.Location = new System.Drawing.Point(87, 375);
             this.cmdOut.Name = "cmdOut";
-            this.cmdOut.Size = new System.Drawing.Size(95, 37);
-            this.cmdOut.TabIndex = 7;
+            this.cmdOut.Size = new System.Drawing.Size(76, 37);
+            this.cmdOut.TabIndex = 13;
             this.cmdOut.Text = "&Cho ra";
             this.cmdOut.Click += new System.EventHandler(this.cmdOut_Click);
             // 
             // cmdInvoice
             // 
+            this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdInvoice.Appearance.Options.UseFont = true;
             this.cmdInvoice.Location = new System.Drawing.Point(5, 375);
             this.cmdInvoice.Name = "cmdInvoice";
-            this.cmdInvoice.Size = new System.Drawing.Size(95, 37);
-            this.cmdInvoice.TabIndex = 6;
+            this.cmdInvoice.Size = new System.Drawing.Size(76, 37);
+            this.cmdInvoice.TabIndex = 12;
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblInfo.Location = new System.Drawing.Point(517, 375);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(230, 37);
+            this.lblInfo.TabIndex = 8;
             // 
             // tblAep
             // 
@@ -569,12 +625,12 @@
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label12.Visible = false;
             // 
-            // FrmGateOut
+            // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
-            this.Name = "FrmGateOut";
+            this.Name = "FrmTra_GateOut";
             this.Tag = "";
             this.Text = "Cổng ra";
             this.Load += new System.EventHandler(this.FrmGateOut_Load);
@@ -600,8 +656,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton cmdOut;
-        private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.TableLayoutPanel tblAep;
         private System.Windows.Forms.Label lblAccOut;
         private System.Windows.Forms.ComboBox cbbNumber;
@@ -631,5 +685,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.LabelControl lblInfo;
+        private DevExpress.XtraEditors.SimpleButton cmdSumary2;
+        private DevExpress.XtraEditors.SimpleButton cmdSumary1;
+        private DevExpress.XtraEditors.SimpleButton cmdInList;
+        private DevExpress.XtraEditors.SimpleButton cmdRedo;
+        private DevExpress.XtraEditors.SimpleButton cmdOut;
+        private DevExpress.XtraEditors.SimpleButton cmdInvoice;
     }
 }

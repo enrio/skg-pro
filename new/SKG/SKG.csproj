@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B7F0E574-E7E4-4354-B620-FE23B07F663E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SKG</RootNamespace>
+    <AssemblyName>SKG</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BaseBLL.cs" />
+    <Compile Include="BLL\Pol_LangBLL.cs" />
+    <Compile Include="BLL\Pol_RightBLL.cs" />
+    <Compile Include="BLL\Pol_RoleBLL.cs" />
+    <Compile Include="BLL\Pol_RoleRightBLL.cs" />
+    <Compile Include="BLL\Pol_UserBLL.cs" />
+    <Compile Include="BLL\Pol_UserRightBLL.cs" />
+    <Compile Include="BLL\Pol_UserRoleBLL.cs" />
+    <Compile Include="BLL\Sample.cs" />
+    <Compile Include="DAL\BaseDAL.cs" />
+    <Compile Include="DAL\Entities\Context.cs" />
+    <Compile Include="DAL\Entities\Pol_Chat.cs" />
+    <Compile Include="DAL\Entities\Pol_Lang.cs" />
+    <Compile Include="DAL\Entities\Pol_Right.cs" />
+    <Compile Include="DAL\Entities\Pol_Role.cs" />
+    <Compile Include="DAL\Entities\Pol_RoleRight.cs" />
+    <Compile Include="DAL\Entities\Pol_User.cs" />
+    <Compile Include="DAL\Entities\Pol_UserLang.cs" />
+    <Compile Include="DAL\Entities\Pol_UserRight.cs" />
+    <Compile Include="DAL\Entities\Pol_UserRole.cs" />
+    <Compile Include="DAL\Entities\Zaction.cs" />
+    <Compile Include="DAL\Entities\Zinfors.cs" />
+    <Compile Include="DAL\Extend.cs" />
+    <Compile Include="DAL\IBase.cs" />
+    <Compile Include="DAL\Pol_LangDAL.cs" />
+    <Compile Include="DAL\Pol_RightDAL.cs" />
+    <Compile Include="DAL\Pol_RoleDAL.cs" />
+    <Compile Include="DAL\Pol_RoleRightDAL.cs" />
+    <Compile Include="DAL\Pol_UserDAL.cs" />
+    <Compile Include="DAL\Pol_UserRightDAL.cs" />
+    <Compile Include="DAL\Pol_UserRoleDAL.cs" />
+    <Compile Include="DAL\Test.cs" />
+    <Compile Include="Data\Base.cs" />
+    <Compile Include="Data\SqlServer.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Extend\Data.cs" />
+    <Compile Include="Extend\Load.cs" />
+    <Compile Include="Extend\Number.cs" />
+    <Compile Include="Extend\Text.cs" />
+    <Compile Include="Extend\Time.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="Hasher\Base64\Decoder.cs" />
+    <Compile Include="Hasher\Base64\Encoder.cs" />
+    <Compile Include="Hasher\Coder.cs" />
+    <Compile Include="Hasher\License.cs" />
+    <Compile Include="Hasher\Registri.cs" />
+    <Compile Include="Hasher\Windows.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="Plugin\IHost.cs" />
+    <Compile Include="Plugin\IPlugin.cs" />
+    <Compile Include="Plugin\Menuz.cs" />
+    <Compile Include="Plugin\Plugins.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.cs" />
+    <Compile Include="Session.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\Test.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

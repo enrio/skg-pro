@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BXE.BLL
+namespace SKG.BLL
 {
     /// <summary>
     /// Truy cập cơ sở dữ liệu bảng Tra_Group: danh mục nhóm xe.

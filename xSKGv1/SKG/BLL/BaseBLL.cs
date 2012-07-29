@@ -16,8 +16,6 @@ using System.Linq;
 
 namespace SKG.BLL
 {
-    using BXE.BLL;
-
     /// <summary>
     /// Data sample, all of flow processing
     /// </summary>

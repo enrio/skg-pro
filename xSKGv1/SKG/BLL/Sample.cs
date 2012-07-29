@@ -17,8 +17,7 @@ using System.Linq;
 namespace SKG.BLL
 {
     using System.Data;
-    using DAL.Entities;
-    using BXE.DAL.Entities;
+    using DAL.Entities;    
 
     /// <summary>
     /// Data sample, all of flow processing

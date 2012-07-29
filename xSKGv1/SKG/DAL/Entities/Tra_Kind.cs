@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BXE.DAL.Entities
+namespace SKG.DAL.Entities
 {
     using SKG.DAL.Entities;
     using System.ComponentModel.DataAnnotations;

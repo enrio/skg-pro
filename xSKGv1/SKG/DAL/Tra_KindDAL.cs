@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BXE.DAL
+namespace SKG.DAL
 {
-    using SKG.DAL;
     using Entities;
     using SKG.Extend;
     using System.Data;

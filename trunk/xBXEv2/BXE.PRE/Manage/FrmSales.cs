@@ -19,7 +19,7 @@ namespace BXE.PRE.Manage
         {
             get
             {
-                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 29, Picture = @"Icon\Sales.png" };
+                var menu = new Menuz() { Caption = "Doanh thu", Level = 3, Order = 29, Picture = @"Icons\Sales.png" };
                 return menu;
             }
         }

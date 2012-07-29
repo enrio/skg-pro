@@ -13,7 +13,7 @@ namespace BXE.PRE.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 32, Picture = @"Icon\Sumary.png" };
+                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 32, Picture = @"Icons\Sumary.png" };
                 return menu;
             }
         }

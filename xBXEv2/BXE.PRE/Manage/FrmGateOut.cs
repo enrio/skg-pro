@@ -92,9 +92,9 @@ namespace BXE.PRE.Manage
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
-            //var frm = new FrmShowPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            //frm.SetReport(rpt);
-            //frm.ShowRight(MdiParent);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(rpt);
+            frm.Show(MdiParent);
 
             base.PerformPrint();
         }

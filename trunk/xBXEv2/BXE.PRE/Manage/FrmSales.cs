@@ -86,9 +86,9 @@ namespace BXE.PRE.Manage
             a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
             a.xrcAccount.Text = Global.Session.User.Name;
 
-            //var frm = new FrmShowPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            //frm.SetReport(a);
-            //frm.ShowRight(MdiParent);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(a);
+            frm.Show(MdiParent);
 
             base.PerformPrint();
         }

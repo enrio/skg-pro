@@ -16,6 +16,8 @@ using System.Linq;
 
 namespace SKG.BLL
 {
+    using BXE.BLL;
+
     /// <summary>
     /// Data sample, all of flow processing
     /// </summary>
@@ -56,6 +58,26 @@ namespace SKG.BLL
         /// Policy - Pol_RoleRight accessing
         /// </summary>
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Group: danh mục nhóm xe.
+        /// </summary>
+        public Tra_GroupBLL Tra_Group { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Kind: danh mục loại xe.
+        /// </summary>
+        public Tra_KindBLL Tra_Kind { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Vehicle: danh sách xe cộ.
+        /// </summary>
+        public Tra_VehicleBLL Tra_Vehicle { set; get; }
+
+        /// <summary>
+        /// Truy cập cơ sở dữ liệu bảng Tra_Detail: chi tiết xe ra vào, bến.
+        /// </summary>
+        public Tra_DetailBLL Tra_Detail { set; get; }
         #endregion
 
         /// <summary>
@@ -70,6 +92,10 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
+            Tra_Group = new Tra_GroupBLL();
+            Tra_Kind = new Tra_KindBLL();
+            Tra_Vehicle = new Tra_VehicleBLL();
+            Tra_Detail = new Tra_DetailBLL();
         }
 
         #region Static methods

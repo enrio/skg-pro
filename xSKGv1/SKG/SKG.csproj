@@ -63,6 +63,10 @@
     <Compile Include="BLL\Pol_UserRightBLL.cs" />
     <Compile Include="BLL\Pol_UserRoleBLL.cs" />
     <Compile Include="BLL\Sample.cs" />
+    <Compile Include="BLL\Tra_DetailBLL.cs" />
+    <Compile Include="BLL\Tra_GroupBLL.cs" />
+    <Compile Include="BLL\Tra_KindBLL.cs" />
+    <Compile Include="BLL\Tra_VehicleBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
     <Compile Include="DAL\Entities\Pol_Chat.cs" />
@@ -74,6 +78,10 @@
     <Compile Include="DAL\Entities\Pol_UserLang.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
+    <Compile Include="DAL\Entities\Tra_Detail.cs" />
+    <Compile Include="DAL\Entities\Tra_Group.cs" />
+    <Compile Include="DAL\Entities\Tra_Kind.cs" />
+    <Compile Include="DAL\Entities\Tra_Vehicle.cs" />
     <Compile Include="DAL\Entities\Zaction.cs" />
     <Compile Include="DAL\Entities\Zinfors.cs" />
     <Compile Include="DAL\Extend.cs" />
@@ -86,6 +94,10 @@
     <Compile Include="DAL\Pol_UserRightDAL.cs" />
     <Compile Include="DAL\Pol_UserRoleDAL.cs" />
     <Compile Include="DAL\Test.cs" />
+    <Compile Include="DAL\Tra_DetailDAL.cs" />
+    <Compile Include="DAL\Tra_GroupDAL.cs" />
+    <Compile Include="DAL\Tra_KindDAL.cs" />
+    <Compile Include="DAL\Tra_VehicleDAL.cs" />
     <Compile Include="Data\Base.cs" />
     <Compile Include="Data\SqlServer.cs" />
     <Compile Include="Enums.cs" />

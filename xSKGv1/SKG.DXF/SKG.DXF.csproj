@@ -209,23 +209,23 @@
       <DependentUpon>Sumary.xsd</DependentUpon>
     </Compile>
     <Compile Include="Station\Level1.cs" />
-    <Compile Include="Station\Manage\FrmGateIn.cs">
+    <Compile Include="Station\Manage\FrmTra_GateIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmGateIn.Designer.cs">
-      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    <Compile Include="Station\Manage\FrmTra_GateIn.Designer.cs">
+      <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Manage\FrmGateOut.cs">
+    <Compile Include="Station\Manage\FrmTra_GateOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmGateOut.Designer.cs">
-      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
+      <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Manage\FrmInDepot.cs">
+    <Compile Include="Station\Manage\FrmTra_InDepot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmInDepot.Designer.cs">
-      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    <Compile Include="Station\Manage\FrmTra_InDepot.Designer.cs">
+      <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
     <Compile Include="Station\Report\Rpt_Sumary1.cs">
@@ -264,14 +264,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Manage\FrmGateIn.resx">
-      <DependentUpon>FrmGateIn.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
+      <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmGateOut.resx">
-      <DependentUpon>FrmGateOut.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
+      <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmInDepot.resx">
-      <DependentUpon>FrmInDepot.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Manage\FrmTra_InDepot.resx">
+      <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
       <DependentUpon>Rpt_Sumary1.cs</DependentUpon>

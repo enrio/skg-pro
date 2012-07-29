@@ -15,7 +15,7 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Danh sách xe trong bến
     /// </summary>
-    public partial class FrmInDepot : SKG.DXF.FrmInput
+    public partial class FrmTra_InDepot : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -28,7 +28,7 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
-        public FrmInDepot()
+        public FrmTra_InDepot()
         {
             InitializeComponent();
 

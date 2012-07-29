@@ -17,7 +17,7 @@ using System.Linq;
 namespace SKG.BLL
 {
     using System.Data;
-    using DAL.Entities;    
+    using DAL.Entities;
 
     /// <summary>
     /// Data sample, all of flow processing
@@ -233,6 +233,28 @@ namespace SKG.BLL
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select("SKG.DXF.Home.Grant.FrmPol_UserRole");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Catalog.FrmTra_Group");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Catalog.FrmTra_Kind");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Catalog.FrmTra_Vehicle");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_GateIn");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_GateOut");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Manage.FrmTra_InDepot");
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select("SKG.DXF.Station.Sumary.FrmTra_Sales");
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
         }

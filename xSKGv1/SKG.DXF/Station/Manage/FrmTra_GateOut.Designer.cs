@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Manage
 {
-    partial class FrmGateOut
+    partial class FrmTra_GateOut
     {
         /// <summary>
         /// Required designer variable.

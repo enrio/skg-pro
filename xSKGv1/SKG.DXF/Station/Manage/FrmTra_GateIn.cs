@@ -15,7 +15,7 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Cổng vào
     /// </summary>
-    public partial class FrmGateIn : SKG.DXF.FrmInput
+    public partial class FrmTra_GateIn : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -28,7 +28,7 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
-        public FrmGateIn()
+        public FrmTra_GateIn()
         {
             InitializeComponent();
 

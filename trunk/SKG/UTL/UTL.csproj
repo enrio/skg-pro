@@ -51,6 +51,7 @@
     <Compile Include="DAL\CsoDAL.cs" />
     <Compile Include="DAL\ItfDAL.cs" />
     <Compile Include="DAL\MorUkxYlm.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="FRM\CsoFRM.cs" />
     <Compile Include="FRM\FrmFawObj.cs">
       <SubType>Form</SubType>

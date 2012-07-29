@@ -15,7 +15,7 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Cổng ra
     /// </summary>
-    public partial class FrmGateOut : SKG.DXF.FrmInput
+    public partial class FrmTra_GateOut : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -28,7 +28,7 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
-        public FrmGateOut()
+        public FrmTra_GateOut()
         {
             InitializeComponent();
 

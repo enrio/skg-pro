@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Manage
 {
-    partial class FrmInDepot
+    partial class FrmTra_InDepot
     {
         /// <summary>
         /// Required designer variable.

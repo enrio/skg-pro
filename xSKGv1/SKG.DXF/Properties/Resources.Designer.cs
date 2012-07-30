@@ -81,13 +81,6 @@ namespace SKG.DXF.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap closex {
-            get {
-                object obj = ResourceManager.GetObject("closex", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap collapse {
             get {
                 object obj = ResourceManager.GetObject("collapse", resourceCulture);
@@ -133,6 +126,13 @@ namespace SKG.DXF.Properties {
         internal static System.Drawing.Bitmap logon {
             get {
                 object obj = ResourceManager.GetObject("logon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap no {
+            get {
+                object obj = ResourceManager.GetObject("no", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

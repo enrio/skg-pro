@@ -56,14 +56,14 @@ namespace SKG.DXF
             var ok = License.IsLincense(key);
             if (ok == LicState.None)
             {
-                Extend.ShowRight<FrmLicense>(this);
+                Extend.ShowRight<FrmPol_License>(this);
                 return;
             }
             //else bbiRegistry.Enabled = false;
 
             if (!Sample.CheckDb())
             {
-                Extend.ShowRight<FrmSetting>(this);
+                Extend.ShowRight<FrmPol_Setting>(this);
                 return;
             }
             //else bbiSetting.Visibility = BarItemVisibility.Never;

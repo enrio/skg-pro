@@ -62,7 +62,6 @@
     <Compile Include="BLL\Pol_UserBLL.cs" />
     <Compile Include="BLL\Pol_UserRightBLL.cs" />
     <Compile Include="BLL\Pol_UserRoleBLL.cs" />
-    <Compile Include="BLL\Sample.cs" />
     <Compile Include="BLL\Tra_DetailBLL.cs" />
     <Compile Include="BLL\Tra_GroupBLL.cs" />
     <Compile Include="BLL\Tra_KindBLL.cs" />
@@ -102,7 +101,6 @@
     <Compile Include="Data\SqlServer.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
-    <Compile Include="Extend\Load.cs" />
     <Compile Include="Extend\Number.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />

@@ -124,7 +124,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::SKG.DXF.Properties.Resources.closex;
+            this.btnCancel.Image = global::SKG.DXF.Properties.Resources.no;
             this.btnCancel.Location = new System.Drawing.Point(407, 12);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 36);

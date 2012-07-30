@@ -62,12 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extend.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmInput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +104,11 @@
     <Compile Include="FrmWait.Designer.cs">
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help\Infor\FrmLicense.cs">
+    <Compile Include="Help\Infor\FrmPol_License.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Help\Infor\FrmLicense.Designer.cs">
-      <DependentUpon>FrmLicense.cs</DependentUpon>
+    <Compile Include="Help\Infor\FrmPol_License.Designer.cs">
+      <DependentUpon>FrmPol_License.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\Infor\Level2.cs" />
     <Compile Include="Help\Level1.cs" />
@@ -164,26 +158,29 @@
     </Compile>
     <Compile Include="Home\Grant\Level2.cs" />
     <Compile Include="Home\Level1.cs" />
-    <Compile Include="Home\Sytem\FrmLogin.cs">
+    <Compile Include="Home\Sytem\FrmPol_Close.cs" />
+    <Compile Include="Home\Sytem\FrmPol_Exit.cs" />
+    <Compile Include="Home\Sytem\FrmPol_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Sytem\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
+    <Compile Include="Home\Sytem\FrmPol_Login.Designer.cs">
+      <DependentUpon>FrmPol_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Sytem\FrmPermission.cs">
+    <Compile Include="Home\Sytem\FrmPol_Permis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Sytem\FrmPermission.Designer.cs">
-      <DependentUpon>FrmPermission.cs</DependentUpon>
+    <Compile Include="Home\Sytem\FrmPol_Permis.Designer.cs">
+      <DependentUpon>FrmPol_Permis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Sytem\FrmSetting.cs">
+    <Compile Include="Home\Sytem\FrmPol_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Sytem\FrmSetting.Designer.cs">
-      <DependentUpon>FrmSetting.cs</DependentUpon>
+    <Compile Include="Home\Sytem\FrmPol_Setting.Designer.cs">
+      <DependentUpon>FrmPol_Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sample.cs" />
     <Compile Include="Station\Catalog\FrmTra_Group.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -307,93 +304,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icons\Action.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Catalog.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Close.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\GateIn.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\GateOut.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Group.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\InDepot.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Kind.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Logout.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Exit.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Help.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Home.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Lang.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Login.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Manage.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Permission.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Registry.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Role.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\RoleRight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Sales.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Setting.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Station.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Sumary.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\System.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\User.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\UserRight.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\UserRole.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Icons\Vehicle.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\user.png" />
     <None Include="Resources\save.png" />
     <None Include="Resources\refresh.png" />
@@ -406,10 +316,12 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\db.png" />
     <None Include="Resources\collapse.png" />
-    <None Include="Resources\closex.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\cancel.png" />
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\no.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

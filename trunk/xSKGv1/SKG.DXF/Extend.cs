@@ -147,7 +147,7 @@ namespace SKG.DXF
             try
             {
                 if (parent == null) return;
-                var name = typeof(FrmLogin).FullName;
+                var name = typeof(FrmPol_Login).FullName;
                 foreach (Form child in parent.MdiChildren)
                     if (child != active && child.GetType().FullName != name)
                         child.Close();
@@ -395,7 +395,7 @@ namespace SKG.DXF
                     else if (m2 != null) // menu level 3
                     {
                         var m3 = new BarButtonItem() { Caption = menu[j].Caption };
-                        if (menu[j].Code != typeof(FrmLogin).FullName)
+                        if (menu[j].Code != typeof(FrmPol_Login).FullName)
                         {
                             var zac = Global.Session.ZActions
                               .SingleOrDefault(p => p.Code == menu[j].Code);
@@ -496,7 +496,7 @@ namespace SKG.DXF
                 else
                 {
                     if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
-                    if (f.Name != typeof(FrmLogin).Name)
+                    if (f.Name != typeof(FrmPol_Login).Name)
                     {
                         f.MdiParent = Global.Parent;
                         f.Show();
@@ -529,7 +529,7 @@ namespace SKG.DXF
 
             var menuz1 = _frmMain.ribbon.FindMenuz(typeof(Home.Level1).FullName);
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
-            var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmLogin).FullName);
+            var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);
 
             menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
             menuz3.Caption = "Đăng xuất";
@@ -577,9 +577,9 @@ namespace SKG.DXF
             {
                 CloseAllChildrenForm(_frmMain);
 
-                var x = typeof(FrmLogin);
-                var frm = (FrmLogin)GetMdiChilden(_frmMain, x.FullName);
-                if (frm == null) frm = new FrmLogin() { MdiParent = _frmMain };
+                var x = typeof(FrmPol_Login);
+                var frm = (FrmPol_Login)GetMdiChilden(_frmMain, x.FullName);
+                if (frm == null) frm = new FrmPol_Login() { MdiParent = _frmMain };
 
                 frm.BeforeLogon += BeforeLogon;
                 frm.AfterLogon += AfterLogon;

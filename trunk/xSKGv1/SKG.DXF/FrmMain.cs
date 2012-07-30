@@ -33,7 +33,7 @@ namespace SKG.DXF
         {
             InitializeComponent();
 
-            //SkinHelper.InitSkinGallery(rgbMain, true);            
+            //SkinHelper.InitSkinGallery(rgbMain, true);
 
             // Information of server, timer
             var cnn = (new Pol_LangBLL()).Connection();
@@ -49,9 +49,7 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            var a = Global.Service.GetPlugins();
-            ribbon.LoadMenu(a, this);
-            Extend.BeforeLogon();
+            Global.Parent = this;
 
             // Check license
             var key = (new Registri()).Read("License");

@@ -35,6 +35,11 @@ namespace SKG.DXF
     /// </summary>
     public static class Extend
     {
+        /// <summary>
+        /// Main form ribbon
+        /// </summary>
+        private static FrmMain _frmMain = (FrmMain)Global.Parent;
+
         #region Form methods
         /// <summary>
         /// Show or hide RibbonControl, DockPanel, BarManager of parent form
@@ -94,10 +99,13 @@ namespace SKG.DXF
             try
             {
                 if (parent == null) return;
-                while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
+                while (((RibbonForm)parent).Ribbon.Pages.Count > 0)
+                    ((RibbonForm)parent).Ribbon.Pages[0].Dispose();
+
+                /*while (((RibbonForm)parent).Ribbon.Pages.Count > 1)
                     ((RibbonForm)parent).Ribbon.Pages[1].Dispose();
                 while (((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks.Count > 1)
-                    ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();
+                    ((ApplicationMenu)((RibbonForm)parent).Ribbon.ApplicationButtonDropDownControl).ItemLinks[1].Dispose();*/
             }
             catch (Exception ex)
             {
@@ -327,11 +335,10 @@ namespace SKG.DXF
         /// <param name="ribbon">Ribbon control</param>
         /// <param name="l">List all of plugin file name</param>
         /// <param name="parent">Parent</param>
-        public static void LoadMenu(this RibbonControl ribbon, List<string> l, Form parent = null)
+        public static void LoadMenu(this RibbonControl ribbon, List<string> l)
         {
             try
             {
-                Global.Parent = parent;
                 foreach (var i in l) ribbon.LoadMenu(i);
             }
             catch (Exception ex)
@@ -364,18 +371,38 @@ namespace SKG.DXF
                     if (menu[j].Level == 1) // menu level 1 (root)
                     {
                         m1 = new RibbonPage(menu[j].Caption);
+                        var zac = Global.Session.ZActions
+                          .SingleOrDefault(p => p.Code == menu[j].Code);
+                        if (zac != null) m1.Visible = zac.Access;
+                        else m1.Visible = false;
+
+                        m1.Tag = menu[j].Code;
                         m1.Image = Image.FromFile(path + menu[j].Picture);
                         m.Pages.Add(m1);
                     }
                     else if (menu[j].Level == 2) // menu level 2
                     {
                         m2 = new RibbonPageGroup(menu[j].Caption);
+                        var zac = Global.Session.ZActions
+                          .SingleOrDefault(p => p.Code == menu[j].Code);
+                        if (zac != null) m2.Visible = zac.Access;
+                        else m2.Visible = false;
+
+                        m2.Tag = menu[j].Code;
                         m2.Glyph = Image.FromFile(path + menu[j].Picture);
                         m1.Groups.Add(m2);
                     }
                     else if (m2 != null) // menu level 3
                     {
                         var m3 = new BarButtonItem() { Caption = menu[j].Caption };
+                        if (menu[j].Code != typeof(FrmLogin).FullName)
+                        {
+                            var zac = Global.Session.ZActions
+                              .SingleOrDefault(p => p.Code == menu[j].Code);
+                            if (zac != null) m3.Enabled = zac.Access;
+                            else m3.Enabled = false;
+                        }
+
                         m2.ItemLinks.Add(m3);
                         Assembly y = Assembly.LoadFile(s);
                         m3.Tag = y.CreateInstance(menu[j].Code);
@@ -391,6 +418,64 @@ namespace SKG.DXF
 #endif
                 return;
             }
+        }
+
+        /// <summary>
+        /// Find menuz level 1 (RibbonPage) on RibbonControl
+        /// </summary>
+        /// <param name="m">RibbonControl</param>
+        /// <param name="tag">Type of menuz</param>
+        /// <returns></returns>
+        public static RibbonPage FindMenuz(this RibbonControl m, string tag)
+        {
+            var res = new RibbonPage();
+            foreach (RibbonPage i in m.Pages)
+                if (i.Tag + "" == tag)
+                {
+                    res = i;
+                    break;
+                }
+            return res;
+        }
+
+        /// <summary>
+        /// Find menuz level 2 (RibbonPageGroup) on RibbonPage
+        /// </summary>
+        /// <param name="m">RibbonPage</param>
+        /// <param name="tag">Type of menuz</param>
+        /// <returns></returns>
+        public static RibbonPageGroup FindMenuz(this RibbonPage m, string tag)
+        {
+            var res = new RibbonPageGroup();
+            foreach (RibbonPageGroup i in m.Groups)
+                if (i.Tag + "" == tag)
+                {
+                    res = i;
+                    break;
+                }
+            return res;
+        }
+
+        /// <summary>
+        /// Find menuz level 3 (BarButtonItem) on RibbonPageGroup
+        /// </summary>
+        /// <param name="m">RibbonPageGroup</param>
+        /// <param name="tag">Type of menuz</param>
+        /// <returns></returns>
+        public static BarButtonItem FindMenuz(this RibbonPageGroup m, string tag)
+        {
+            var res = new BarButtonItem();
+            foreach (var i in m.ItemLinks)
+            {
+                var o = (BarButtonItemLink)i;
+                var f = (Form)o.Item.Tag;
+                if (f.GetType().FullName + "" == tag)
+                {
+                    res = o.Item;
+                    break;
+                }
+            }
+            return res;
         }
 
         /// <summary>
@@ -435,12 +520,19 @@ namespace SKG.DXF
         /// </summary>
         public static void AfterLogon()
         {
-            var frmMain = (FrmMain)Global.Parent;
-            VisibleMenuParentForm(frmMain);
+            // Load menuz
+            var GetPlugins = Global.Service.GetPlugins();
+            _frmMain.ribbon.LoadMenu(GetPlugins);
 
-            //bbiLogin.LargeGlyph = Properties.Resources.logout;
-            //bbiLogin.Caption = Properties.Settings.Default.Logout;
-            frmMain.bsiUser.Caption = Global.Session.User.Name;
+            VisibleMenuParentForm(_frmMain);
+            _frmMain.bsiUser.Caption = Global.Session.User.Name;
+
+            var menuz1 = _frmMain.ribbon.FindMenuz(typeof(Home.Level1).FullName);
+            var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
+            var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmLogin).FullName);
+
+            menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
+            menuz3.Caption = "Đăng xuất";
 
             // Show default form
             var d = Global.Session.Default;
@@ -458,28 +550,8 @@ namespace SKG.DXF
                 if (t == null) continue;
 
                 var frm = Activator.CreateInstance(t) as FrmInput;
-                if (frm != null) frm.ShowRight(frmMain);
+                if (frm != null) frm.ShowRight(_frmMain);
             }
-
-            // Account is ADMIN or belong group Administrator to have permission
-#if DEBUG
-            //rpgPermission.Visible = true;
-            //bbiSetting.Visibility = BarItemVisibility.Always;
-#else
-            var b = Global.Session.GetUserRole("QT");
-            var c = Global.Session.User.Acc.ToUpper();
-
-            if (b != null || c == "ADMIN")
-            {
-                //rpgPermission.Visible = true;
-                //bbiSetting.Visibility = BarItemVisibility.Always;
-            }
-            else
-            {
-                //rpgPermission.Visible = false;
-                //bbiSetting.Visibility = BarItemVisibility.Never;
-            }
-#endif
         }
 
         /// <summary>
@@ -487,13 +559,12 @@ namespace SKG.DXF
         /// </summary>
         public static void BeforeLogon()
         {
-            var frmMain = (FrmMain)Global.Parent;
-            VisibleMenuParentForm(frmMain, false);
+            ClearMenuParentForm(_frmMain);
+            _frmMain.bsiUser.Caption = null;
 
+            //VisibleMenuParentForm(_frmMain, false);
             //bbiLogin.LargeGlyph = Properties.Resources.login;
             //bbiLogin.Caption = Properties.Settings.Default.Login;
-
-            frmMain.bsiUser.Caption = null;
             //rpgPermission.Visible = false;
         }
 
@@ -502,21 +573,20 @@ namespace SKG.DXF
         /// </summary>
         public static void Login()
         {
-            var frmMain = (FrmMain)Global.Parent;
             try
             {
-                CloseAllChildrenForm(frmMain);
+                CloseAllChildrenForm(_frmMain);
 
                 var x = typeof(FrmLogin);
-                var frm = (FrmLogin)GetMdiChilden(frmMain, x.FullName);
-                if (frm == null) frm = new FrmLogin() { MdiParent = frmMain };
+                var frm = (FrmLogin)GetMdiChilden(_frmMain, x.FullName);
+                if (frm == null) frm = new FrmLogin() { MdiParent = _frmMain };
 
                 frm.BeforeLogon += BeforeLogon;
                 frm.AfterLogon += AfterLogon;
 
                 frm.Show();
             }
-            catch (Exception ex) { XtraMessageBox.Show(ex.Message, frmMain.Text); }
+            catch (Exception ex) { XtraMessageBox.Show(ex.Message, _frmMain.Text); }
         }
         #endregion
     }

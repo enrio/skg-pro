@@ -123,12 +123,12 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private System.Windows.Forms.Timer tmrMain;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmmMain;
         private DevExpress.XtraBars.BarStaticItem bsiServer;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
         public DevExpress.XtraBars.BarStaticItem bsiUser;
+        public DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
     }
 }

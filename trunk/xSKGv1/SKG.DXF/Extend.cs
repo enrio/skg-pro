@@ -372,9 +372,8 @@ namespace SKG.DXF
                     {
                         m1 = new RibbonPage(menu[j].Caption);
                         var zac = Global.Session.ZActions
-                          .SingleOrDefault(p => p.Code == menu[j].Code);
-                        if (zac != null) m1.Visible = zac.Access;
-                        else m1.Visible = false;
+                            .FirstOrDefault(p => p.Code == menu[j].Code);
+                        m1.Visible = zac != null ? zac.Access : false;
 
                         m1.Tag = menu[j].Code;
                         m1.Image = Image.FromFile(path + menu[j].Picture);
@@ -384,9 +383,8 @@ namespace SKG.DXF
                     {
                         m2 = new RibbonPageGroup(menu[j].Caption);
                         var zac = Global.Session.ZActions
-                          .SingleOrDefault(p => p.Code == menu[j].Code);
-                        if (zac != null) m2.Visible = zac.Access;
-                        else m2.Visible = false;
+                            .FirstOrDefault(p => p.Code == menu[j].Code);
+                        m2.Visible = zac != null ? zac.Access : false;
 
                         m2.Tag = menu[j].Code;
                         m2.Glyph = Image.FromFile(path + menu[j].Picture);
@@ -398,9 +396,8 @@ namespace SKG.DXF
                         if (menu[j].Code != typeof(FrmPol_Login).FullName)
                         {
                             var zac = Global.Session.ZActions
-                              .SingleOrDefault(p => p.Code == menu[j].Code);
-                            if (zac != null) m3.Enabled = zac.Access;
-                            else m3.Enabled = false;
+                                .FirstOrDefault(p => p.Code == menu[j].Code);
+                            m3.Enabled = zac != null ? zac.Access : false;
                         }
 
                         m2.ItemLinks.Add(m3);
@@ -487,6 +484,19 @@ namespace SKG.DXF
         {
             try
             {
+                var n = e.Item.Tag.GetType().FullName;
+                if (n == typeof(FrmPol_Close).FullName)
+                {
+                    CloseAllChildrenForm(_frmMain);
+                    return;
+                }
+                else if (n == typeof(FrmPol_Exit).FullName)
+                {
+                    Application.Exit();
+                    Application.ExitThread();
+                    return;
+                }
+
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))
                 {
@@ -496,7 +506,7 @@ namespace SKG.DXF
                 else
                 {
                     if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
-                    if (f.Name != typeof(FrmPol_Login).Name)
+                    if (f.GetType().FullName != typeof(FrmPol_Login).FullName)
                     {
                         f.MdiParent = Global.Parent;
                         f.Show();

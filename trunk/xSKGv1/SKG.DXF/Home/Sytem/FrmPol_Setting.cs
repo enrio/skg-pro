@@ -130,6 +130,7 @@ namespace SKG.DXF.Home.Sytem
 
             Sample.CreateData(true);
             XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
+            Extend.Login();
         }
 
         private void cmdOk_Click(object sender, EventArgs e)

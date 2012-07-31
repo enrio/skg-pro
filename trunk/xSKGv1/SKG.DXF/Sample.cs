@@ -304,6 +304,9 @@ namespace SKG.DXF
             b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Home.Sytem.FrmPol_Permis).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Home.Sytem.FrmPol_Setting).FullName);
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
+            Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Station.Catalog.FrmTra_Group).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);

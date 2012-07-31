@@ -99,8 +99,8 @@ namespace SKG.DXF.Help.Infor
         private void Exit()
         {
             Close();
-            Application.Exit();
-            Application.ExitThread();
+            //Application.Exit();
+            //Application.ExitThread();
         }
 
         LicState _license = LicState.None;

@@ -190,7 +190,7 @@ namespace SKG.DXF.Station.Manage
         {
             using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false })
             {
-                x.ShowDialog();
+                x.ShowRight(Global.Parent);
                 x.EditNumber = null;
                 x.EditMode = true;
                 LoadData();

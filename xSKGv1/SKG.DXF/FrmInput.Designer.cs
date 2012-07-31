@@ -218,7 +218,7 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmInput";
-            this.Activated += new System.EventHandler(this.FrmInput_Activated);
+            
             this.Load += new System.EventHandler(this.FrmInput_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);

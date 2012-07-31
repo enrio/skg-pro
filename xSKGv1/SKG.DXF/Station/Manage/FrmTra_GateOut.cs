@@ -188,9 +188,9 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdRedo_Click(object sender, EventArgs e)
         {
-            using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false })
-            {                
-                x.ShowRight(Global.Parent);
+            using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false, StartPosition = FormStartPosition.CenterScreen })
+            {
+                x.ShowDialog();
                 x.EditNumber = null;
                 x.EditMode = true;
                 LoadData();

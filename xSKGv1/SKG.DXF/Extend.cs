@@ -371,8 +371,8 @@ namespace SKG.DXF
                     if (menu[j].Level == 1) // menu level 1 (root)
                     {
                         m1 = new RibbonPage(menu[j].Caption);
-                        var zac = Global.Session.ZActions
-                            .FirstOrDefault(p => p.Code == menu[j].Code);
+
+                        var zac = Global.Session.GetZAction(menu[j].Code);
                         m1.Visible = zac != null ? zac.Access : false;
 
                         m1.Tag = menu[j].Code;
@@ -382,8 +382,8 @@ namespace SKG.DXF
                     else if (menu[j].Level == 2) // menu level 2
                     {
                         m2 = new RibbonPageGroup(menu[j].Caption);
-                        var zac = Global.Session.ZActions
-                            .FirstOrDefault(p => p.Code == menu[j].Code);
+
+                        var zac = Global.Session.GetZAction(menu[j].Code);
                         m2.Visible = zac != null ? zac.Access : false;
 
                         m2.Tag = menu[j].Code;
@@ -393,10 +393,10 @@ namespace SKG.DXF
                     else if (m2 != null) // menu level 3
                     {
                         var m3 = new BarButtonItem() { Caption = menu[j].Caption };
+
                         if (menu[j].Code != typeof(FrmPol_Login).FullName)
                         {
-                            var zac = Global.Session.ZActions
-                                .FirstOrDefault(p => p.Code == menu[j].Code);
+                            var zac = Global.Session.GetZAction(menu[j].Code);
                             m3.Enabled = zac != null ? zac.Access : false;
                         }
 

@@ -190,7 +190,12 @@ namespace SKG.DXF.Station.Manage
         {
             using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false })
             {
+                var zac = Global.Session.GetZAction(typeof(FrmTra_GateIn).FullName);
+                var tmp = zac.Access = true;
+
                 x.ShowRight(Global.Parent);
+                zac.Access = tmp;
+
                 x.EditNumber = null;
                 x.EditMode = true;
                 LoadData();

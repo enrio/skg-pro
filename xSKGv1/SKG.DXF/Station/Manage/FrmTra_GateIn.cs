@@ -89,11 +89,11 @@ namespace SKG.DXF.Station.Manage
 
         protected override void ResetInput()
         {
-            lkeGroup.ItemIndex = 0;
-            lkeKind.ItemIndex = 0;
+            //lkeGroup.ItemIndex = 0;
+            //lkeKind.ItemIndex = 0;
 
             txtNumber.Text = null;
-            txtChair.Text = null;
+            //txtChair.Text = null;
 
             txtDriver.Text = null;
             txtAddress.Text = null;
@@ -106,7 +106,7 @@ namespace SKG.DXF.Station.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
-            txtChair.DataBindings.Clear();
+            //txtChair.DataBindings.Clear();
 
             txtDriver.DataBindings.Clear();
             dteBirth.DataBindings.Clear();
@@ -120,7 +120,7 @@ namespace SKG.DXF.Station.Manage
         protected override void DataBindingControl()
         {
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
+            //txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
@@ -132,11 +132,11 @@ namespace SKG.DXF.Station.Manage
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            lkeGroup.Properties.ReadOnly = isReadOnly;
-            lkeKind.Properties.ReadOnly = isReadOnly;
+            //lkeGroup.Properties.ReadOnly = isReadOnly;
+            //lkeKind.Properties.ReadOnly = isReadOnly;
 
             txtNumber.Properties.ReadOnly = isReadOnly;
-            txtChair.Properties.ReadOnly = isReadOnly;
+            //txtChair.Properties.ReadOnly = isReadOnly;
             txtDriver.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -205,8 +205,8 @@ namespace SKG.DXF.Station.Manage
                         var ve = new Tra_Vehicle
                         {
                             Number = txtNumber.Text,
-                            Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            Chair = txtChair.Text.ToInt32(),
+                            //Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
+                            //Chair = txtChair.Text.ToInt32(),
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,
@@ -282,11 +282,11 @@ namespace SKG.DXF.Station.Manage
                 if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
             }
 
-            if (lkeGroup.GetColumnValue("Code") + "" == "E")
-            {
-                oki = txtChair.Text.Length == 0 ? false : true;
-                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            }
+            //if (lkeGroup.GetColumnValue("Code") + "" == "E")
+            //{
+            //    oki = txtChair.Text.Length == 0 ? false : true;
+            //    if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
+            //}
 
             return oki;
         }
@@ -305,17 +305,17 @@ namespace SKG.DXF.Station.Manage
         {
             lblUserIn.Text = Global.Session.User.Name.ToUpper();
 
-            lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
-            lkeGroup.ItemIndex = 0;
+            //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
+            //lkeGroup.ItemIndex = 0;
 
             ReadOnlyControl();
         }
 
         private void lkeGroup_EditValueChanged(object sender, EventArgs e)
         {
-            var id = (Guid)lkeGroup.GetColumnValue("Id");
-            lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
-            lkeKind.ItemIndex = 0;
+            //var id = (Guid)lkeGroup.GetColumnValue("Id");
+            //lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
+            //lkeKind.ItemIndex = 0;
         }
 
         /// <summary>

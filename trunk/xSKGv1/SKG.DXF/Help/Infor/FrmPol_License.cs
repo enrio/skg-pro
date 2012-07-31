@@ -59,7 +59,8 @@ namespace SKG.DXF.Help.Infor
                     + "{0}Xin hãy khởi động lại chương trình!", Environment.NewLine);
                 XtraMessageBox.Show(tmp, "Đăng kí");
 
-                Exit();
+                Extend.ShowRight<Home.Sytem.FrmPol_Setting>(Global.Parent);
+                Close();
             }
             else if (_license == LicState.Trial)
             {
@@ -69,7 +70,8 @@ namespace SKG.DXF.Help.Infor
                     + "{0}Xin hãy khởi động lại chương trình!", Environment.NewLine);
                 XtraMessageBox.Show(tmp, "Đăng kí");
 
-                Exit();
+                Extend.ShowRight<Home.Sytem.FrmPol_Setting>(Global.Parent);
+                Close();
             }
             else txtExpire.Text = "Không được sử dụng!";
 
@@ -82,7 +84,7 @@ namespace SKG.DXF.Help.Infor
         private void cmdNo_Click(object sender, EventArgs e)
         {
             if (_license == LicState.Unlimited) Close();
-            else Exit();
+            else Close();
         }
 
         private void FrmLicense_Load(object sender, EventArgs e)
@@ -94,13 +96,6 @@ namespace SKG.DXF.Help.Infor
         private void cmdTrial_Click(object sender, EventArgs e)
         {
             txtLicenseKey.Text = License.GetTrialKey();
-        }
-
-        private void Exit()
-        {
-            Close();
-            //Application.Exit();
-            //Application.ExitThread();
         }
 
         LicState _license = LicState.None;

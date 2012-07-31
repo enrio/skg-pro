@@ -128,8 +128,14 @@ namespace SKG.DXF.Home.Sytem
         {
             if (!IsValid) return;
 
+            _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
+            _config.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
+            Properties.Settings.Default.Reload();
             Sample.CreateData(true);
-            XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
+
+            //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
             Extend.Login();
         }
 
@@ -145,10 +151,8 @@ namespace SKG.DXF.Home.Sytem
                 ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
                 Properties.Settings.Default.Reload();
 
-                XtraMessageBox.Show(STR_SAVE, STR_SETUP);
-
-                Application.ExitThread();
-                Application.Exit();
+                //XtraMessageBox.Show(STR_SAVE, STR_SETUP);
+                Extend.Login();
             }
             catch { XtraMessageBox.Show(STR_NOT_FOUND, STR_SETUP); }
         }

@@ -190,7 +190,6 @@
             // 
             this.cmdRedo.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRedo.Appearance.Options.UseFont = true;
-            this.cmdRedo.Enabled = false;
             this.cmdRedo.Location = new System.Drawing.Point(169, 375);
             this.cmdRedo.Name = "cmdRedo";
             this.cmdRedo.Size = new System.Drawing.Size(76, 37);

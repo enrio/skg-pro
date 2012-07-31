@@ -4,9 +4,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;

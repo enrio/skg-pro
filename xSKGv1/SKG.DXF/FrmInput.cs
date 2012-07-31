@@ -79,7 +79,9 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void FrmInput_Load(object sender, EventArgs e)
         {
+#if !DEBUG
             CheckRight(this, true);
+#endif
             Text = Menuz.Caption;
             SetNullPrompt();
             PerformRefresh();

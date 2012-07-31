@@ -44,6 +44,8 @@ namespace SKG.DXF
         public FrmInput()
         {
             InitializeComponent();
+
+            AllowFind = false;
         }
 
         /// <summary>

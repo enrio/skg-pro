@@ -90,7 +90,7 @@
             this.cmdNo.Name = "cmdNo";
             this.cmdNo.Size = new System.Drawing.Size(56, 25);
             this.cmdNo.TabIndex = 13;
-            this.cmdNo.Text = "Đó&ng";
+            this.cmdNo.Text = "&Thoát";
             this.cmdNo.Click += new System.EventHandler(this.cmdNo_Click);
             // 
             // labelControl2

@@ -205,6 +205,12 @@
       <DependentUpon>Sumary.xsd</DependentUpon>
     </Compile>
     <Compile Include="Station\Level1.cs" />
+    <Compile Include="Station\Manage\FrmTra_GateIn_Bak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_GateIn_Bak.Designer.cs">
+      <DependentUpon>FrmTra_GateIn_Bak.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Manage\FrmTra_GateIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Manage\FrmTra_GateIn_Bak.resx">
+      <DependentUpon>FrmTra_GateIn_Bak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
       <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </EmbeddedResource>

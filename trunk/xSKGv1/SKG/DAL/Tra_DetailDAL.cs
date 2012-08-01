@@ -239,7 +239,7 @@ namespace SKG.DAL
                           join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
 
                           where s.Pol_UserOutId == null
-                          orderby v.Number
+                          orderby s.DateIn descending, v.Number
 
                           select new
                           {

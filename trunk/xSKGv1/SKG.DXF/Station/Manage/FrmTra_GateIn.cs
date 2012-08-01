@@ -28,6 +28,8 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
+        Guid _idLoaixe;
+
         public FrmTra_GateIn()
         {
             InitializeComponent();
@@ -93,7 +95,7 @@ namespace SKG.DXF.Station.Manage
             //lkeKind.ItemIndex = 0;
 
             txtNumber.Text = null;
-            //txtChair.Text = null;
+            txtChair.Text = null;
 
             txtDriver.Text = null;
             txtAddress.Text = null;
@@ -106,7 +108,7 @@ namespace SKG.DXF.Station.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
-            //txtChair.DataBindings.Clear();
+            txtChair.DataBindings.Clear();
 
             txtDriver.DataBindings.Clear();
             dteBirth.DataBindings.Clear();
@@ -120,7 +122,7 @@ namespace SKG.DXF.Station.Manage
         protected override void DataBindingControl()
         {
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            //txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
+            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
@@ -136,7 +138,7 @@ namespace SKG.DXF.Station.Manage
             //lkeKind.Properties.ReadOnly = isReadOnly;
 
             txtNumber.Properties.ReadOnly = isReadOnly;
-            //txtChair.Properties.ReadOnly = isReadOnly;
+            txtChair.Properties.ReadOnly = isReadOnly;
             txtDriver.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -205,8 +207,8 @@ namespace SKG.DXF.Station.Manage
                         var ve = new Tra_Vehicle
                         {
                             Number = txtNumber.Text,
-                            //Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            //Chair = txtChair.Text.ToInt32(),
+                            Tra_KindId = _idLoaixe,
+                            Chair = txtChair.Text.ToInt32(),
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,
@@ -282,11 +284,12 @@ namespace SKG.DXF.Station.Manage
                 if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
             }
 
+            if (tabControl1.SelectedTab.Name == tabControl1.TabPages[3].Name)
             //if (lkeGroup.GetColumnValue("Code") + "" == "E")
-            //{
-            //    oki = txtChair.Text.Length == 0 ? false : true;
-            //    if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            //}
+            {
+                oki = txtChair.Text.Length == 0 ? false : true;
+                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
+            }
 
             return oki;
         }
@@ -303,7 +306,7 @@ namespace SKG.DXF.Station.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
-            lblUserIn.Text = Global.Session.User.Name.ToUpper();
+            lblUserIn.Text = Global.Session.User.Name.ToUpper();            
 
             //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
             //lkeGroup.ItemIndex = 0;
@@ -311,6 +314,8 @@ namespace SKG.DXF.Station.Manage
             var g = (Tra_Group)_bll.Tra_Group.Select("A");
             cbbTruckKind.DataSource = _bll.Tra_Kind.Select(g.Id);
             cbbTruckKind.SelectedIndex = 0;
+
+            tabControl1_SelectedIndexChanged(null, null);
 
             ReadOnlyControl();
         }
@@ -368,7 +373,36 @@ namespace SKG.DXF.Station.Manage
         #region Properties
         public string EditNumber { set; get; } // number need to update from form gate out
         public bool EditMode { set; get; } // edit mode allow edit mode in this form or another form
-        public bool EditHand { set; get; } // edit by hand
+        public bool EditHand { set; get; } // edit by hand        
         #endregion
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (tabControl1.SelectedIndex)
+            {
+                case 0:
+                    _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
+                    break;
+                case 1:
+                    var k = (Tra_Kind)_bll.Tra_Kind.Select("J"); // taxi vang lai
+                    _idLoaixe = k.Id;
+                    break;
+                case 2:
+                    k = (Tra_Kind)_bll.Tra_Kind.Select("K"); // xe ba gac
+                    _idLoaixe = k.Id;
+                    break;
+                case 3:
+                    k = (Tra_Kind)_bll.Tra_Kind.Select("L"); // xe khách vãng lai, quá cảnh, trung chuyển
+                    _idLoaixe = k.Id;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
+        }
     }
 }

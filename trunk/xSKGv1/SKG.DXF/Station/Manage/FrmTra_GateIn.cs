@@ -4,9 +4,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
@@ -349,13 +346,6 @@ namespace SKG.DXF.Station.Manage
             tabControl1_SelectedIndexChanged(null, null);
 
             ReadOnlyControl();
-        }
-
-        private void lkeGroup_EditValueChanged(object sender, EventArgs e)
-        {
-            //var id = (Guid)lkeGroup.GetColumnValue("Id");
-            //lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
-            //lkeKind.ItemIndex = 0;
         }
 
         const string STR_MENU = "Cổng &vào";

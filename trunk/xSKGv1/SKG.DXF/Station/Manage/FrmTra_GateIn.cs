@@ -308,6 +308,10 @@ namespace SKG.DXF.Station.Manage
             //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
             //lkeGroup.ItemIndex = 0;
 
+            var g = (Tra_Group)_bll.Tra_Group.Select("A");
+            cbbTruckKind.DataSource = _bll.Tra_Kind.Select(g.Id);
+            cbbTruckKind.SelectedIndex = 0;
+
             ReadOnlyControl();
         }
 

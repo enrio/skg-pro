@@ -98,7 +98,8 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                if (obj != null) res = res.Where(s => s.Number == obj + "");
+                var dk = obj + "";
+                if (obj != null) res = res.Where(s => s.Number == dk);
                 if (take > 0) res = res.Take(take);
 
                 return res.ToDataTable();
@@ -136,7 +137,8 @@ namespace SKG.DAL
             {
                 var o = (Tra_Vehicle)obj;
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
-
+                
+                res.Tra_KindId = o.Tra_KindId;
                 res.Number = o.Number;
                 res.Descript = o.Descript;
                 res.Driver = o.Driver;

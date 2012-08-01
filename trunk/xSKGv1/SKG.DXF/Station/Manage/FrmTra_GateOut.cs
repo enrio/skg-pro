@@ -202,10 +202,12 @@ namespace SKG.DXF.Station.Manage
 
             var x = new Station.Catalog.FrmTra_Vehicle
             {
+                num = cbbNumber.Text,
                 AllowAdd = false,
                 AllowDelete = false,
                 WindowState = FormWindowState.Maximized
             };
+            x.AllowCancel = false;
             x.ShowDialog();
             LoadData();
         }

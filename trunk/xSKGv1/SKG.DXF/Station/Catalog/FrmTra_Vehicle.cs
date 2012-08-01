@@ -214,9 +214,15 @@ namespace SKG.DXF.Station.Catalog
             catch { return false; }
         }
 
+      public  string num = "";
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Vehicle.Select();
+            if (num != "")
+            {
+                _dtb = _bll.Tra_Vehicle.Select((object)num);
+                //PerformEdit();
+            }
+            else _dtb = _bll.Tra_Vehicle.Select();
 
             if (_dtb != null)
             {
@@ -232,7 +238,7 @@ namespace SKG.DXF.Station.Catalog
             var a = txtNumber.Text.Length == 0 ? false : true;
             if (!a) txtNumber.Focus();
 
-            var oki = false;
+            var oki = true;
             if (lokKind.GetColumnValue("Code") + "" == "L")
             {
                 oki = txtChair.Text.Length == 0 ? false : true;

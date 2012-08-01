@@ -142,6 +142,11 @@ namespace SKG.DXF
             Pol_User.Insert(o);
             o = new Pol_User() { Acc = "edmin", Pass = "edmin", Name = "Em Quản Trị", Birth = new DateTime(1989, 1, 5), Address = "Phương Trời, Xa Lạ", Phone = "+841699 999 686" };
             Pol_User.Insert(o);
+
+            o = new Pol_User() { Acc = "duylong", Pass = "123456", Name = "Nguyễn Duy Long", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Descript = "Giám đốc" };
+            Pol_User.Insert(o);
+            o = new Pol_User() { Acc = "tranhieu", Pass = "123456", Name = "Trần Hiếu", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Descript = "Phó giám đốc" };
+            Pol_User.Insert(o);
         }
 
         /// <summary>
@@ -191,6 +196,21 @@ namespace SKG.DXF
             b = (Pol_User)Pol_User.Select("kt");
             o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
             Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("duylong");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("tranhieu");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("cv");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("cr");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("nvl");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
 
             a = (Pol_Role)Pol_Role.Select("CV");
             b = (Pol_User)Pol_User.Select("nvt");
@@ -215,6 +235,12 @@ namespace SKG.DXF
 
             a = (Pol_Role)Pol_Role.Select("TK");
             b = (Pol_User)Pol_User.Select("kt");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("duylong");
+            o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
+            Pol_UserRole.Insert(o);
+            b = (Pol_User)Pol_User.Select("tranhieu");
             o = new Pol_UserRole() { Pol_UserId = b.Id, Pol_RoleId = a.Id };
             Pol_UserRole.Insert(o);
         }

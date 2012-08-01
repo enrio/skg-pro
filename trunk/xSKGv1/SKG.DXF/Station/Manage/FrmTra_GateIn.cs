@@ -46,7 +46,20 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var tmp = grvMain.GetFocusedRowCellValue("Id");
+            if (tmp + "" == "") return;
+            var id = (Guid)tmp;
+
+            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
+                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -246,9 +259,12 @@ namespace SKG.DXF.Station.Manage
                 }
             }
             catch { return false; }
-            finally { GetDataInMinute(); }
+            finally { LoadData(); }
         }
 
+        /// <summary>
+        /// Danh sách xe vào bến trong vòng 01 phút
+        /// </summary>
         protected override void LoadData()
         {
             //_dtb = _bll.Select();
@@ -258,6 +274,21 @@ namespace SKG.DXF.Station.Manage
             //    grcMain.DataSource = _dtb;
             //    gridColumn2.BestFit(); // fit column STT
             //}
+
+            _dtb = _bll.Tra_Detail.GetDataInMinute();
+            if (_dtb == null) return;
+
+            if (_dtb.Rows.Count > 0)
+                grcMain.DataSource = _dtb;
+            else
+            {
+                for (int i = 0; i < grvMain.RowCount; i++)
+                    grvMain.DeleteRow(i);
+
+                //cmdIn.Enabled = true;
+                bbiEdit.Enabled = false;
+                bbiDelete.Enabled = false;
+            }
 
             base.LoadData();
         }
@@ -297,7 +328,7 @@ namespace SKG.DXF.Station.Manage
         static int _sec; // current second
         protected override void TimerTick(object sender, EventArgs e)
         {
-            _sec++; if (_sec >= 10) { GetDataInMinute(); _sec = 0; }
+            _sec++; if (_sec >= 10) { LoadData(); _sec = 0; }
             lblDateIn.Text = Global.Session.Current.ToStringVN();
 
             base.TimerTick(sender, e);
@@ -306,7 +337,7 @@ namespace SKG.DXF.Station.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
-            lblUserIn.Text = Global.Session.User.Name.ToUpper();            
+            lblUserIn.Text = Global.Session.User.Name.ToUpper();
 
             //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
             //lkeGroup.ItemIndex = 0;
@@ -325,27 +356,6 @@ namespace SKG.DXF.Station.Manage
             //var id = (Guid)lkeGroup.GetColumnValue("Id");
             //lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
             //lkeKind.ItemIndex = 0;
-        }
-
-        /// <summary>
-        /// Danh sách xe vào bến trong vòng 01 phút
-        /// </summary>
-        private void GetDataInMinute()
-        {
-            _dtb = _bll.Tra_Detail.GetDataInMinute();
-            if (_dtb == null) return;
-
-            if (_dtb.Rows.Count > 0)
-                grcMain.DataSource = _dtb;
-            else
-            {
-                for (int i = 0; i < grvMain.RowCount; i++)
-                    grvMain.DeleteRow(i);
-
-                //cmdIn.Enabled = true;
-                //cmdEdit.Enabled = false;
-                //cmdDelete.Enabled = false;
-            }
         }
 
         const string STR_MENU = "Cổng &vào";
@@ -404,5 +414,14 @@ namespace SKG.DXF.Station.Manage
         {
             _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
         }
+
+        private const string STR_ADD = "Thêm chi tiết ra/vào";
+        private const string STR_EDIT = "Sửa chi tiết ra/vào";
+        private const string STR_DELETE = "Xoá chi tiết ra/vào";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá số xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Mã này có rồi";
     }
 }

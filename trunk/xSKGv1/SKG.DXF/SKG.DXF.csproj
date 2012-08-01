@@ -250,6 +250,9 @@
       <DependentUpon>FrmTra_Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Sumary\Level2.cs" />
+    <EmbeddedResource Include="FrmInput.resx">
+      <DependentUpon>FrmInput.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

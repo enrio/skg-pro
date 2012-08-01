@@ -159,6 +159,9 @@
     <Content Include="Icons\Connected.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Manual.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Delete.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

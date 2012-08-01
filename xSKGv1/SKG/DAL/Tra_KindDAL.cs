@@ -79,6 +79,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Kinds
+                          orderby s.Tra_Group.Order
                           select new
                           {
                               s.Id,

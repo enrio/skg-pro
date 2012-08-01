@@ -319,6 +319,8 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Nửa ngày";
+            this.gridColumn7.DisplayFormat.FormatString = "#,#";
+            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "Price1";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
@@ -326,6 +328,8 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Một ngày";
+            this.gridColumn8.DisplayFormat.FormatString = "#,#";
+            this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "Price2";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;

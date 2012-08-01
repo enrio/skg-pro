@@ -103,6 +103,7 @@
     <Compile Include="FrmWait.Designer.cs">
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\Infor\Frm_PolManual.cs" />
     <Compile Include="Help\Infor\FrmPol_License.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -266,6 +267,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Catalog\FrmTra_Kind.resx">
+      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateIn_Bak.resx">
       <DependentUpon>FrmTra_GateIn_Bak.cs</DependentUpon>
     </EmbeddedResource>

@@ -32,16 +32,27 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.txtDriver = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.dteBirth = new DevExpress.XtraEditors.DateEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
+            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.dteBirth = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDriver = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbbTruckKind = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txtChair = new DevExpress.XtraEditors.TextEdit();
+            this.label48 = new System.Windows.Forms.Label();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.tmeDateIn = new DevExpress.XtraEditors.TimeEdit();
             this.lblUserIn = new DevExpress.XtraEditors.LabelControl();
@@ -61,38 +72,28 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cbbTruckKind = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label48 = new System.Windows.Forms.Label();
-            this.mskMediumC = new System.Windows.Forms.MaskedTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmeDateIn.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -135,6 +136,51 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 212);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.labelControl6);
+            this.groupControl1.Controls.Add(this.txtDriver);
+            this.groupControl1.Controls.Add(this.labelControl7);
+            this.groupControl1.Controls.Add(this.txtDescript);
+            this.groupControl1.Controls.Add(this.dteBirth);
+            this.groupControl1.Controls.Add(this.labelControl11);
+            this.groupControl1.Controls.Add(this.labelControl10);
+            this.groupControl1.Controls.Add(this.txtAddress);
+            this.groupControl1.Controls.Add(this.txtPhone);
+            this.groupControl1.Controls.Add(this.labelControl8);
+            this.groupControl1.Location = new System.Drawing.Point(3, 118);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(694, 86);
+            this.groupControl1.TabIndex = 17;
+            this.groupControl1.Text = "Thông tin xe";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Location = new System.Drawing.Point(4, 27);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(46, 18);
+            this.labelControl6.TabIndex = 8;
+            this.labelControl6.Text = "Tài xế:";
+            // 
+            // txtDriver
+            // 
+            this.txtDriver.Location = new System.Drawing.Point(56, 24);
+            this.txtDriver.Name = "txtDriver";
+            this.txtDriver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDriver.Properties.Appearance.Options.UseFont = true;
+            this.txtDriver.Size = new System.Drawing.Size(164, 24);
+            this.txtDriver.TabIndex = 9;
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Location = new System.Drawing.Point(226, 27);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(69, 18);
+            this.labelControl7.TabIndex = 10;
+            this.labelControl7.Text = "Ngày sinh:";
+            // 
             // txtDescript
             // 
             this.txtDescript.Location = new System.Drawing.Point(56, 54);
@@ -142,7 +188,21 @@
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
             this.txtDescript.Size = new System.Drawing.Size(349, 24);
-            this.txtDescript.TabIndex = 15;
+            this.txtDescript.TabIndex = 12;
+            // 
+            // dteBirth
+            // 
+            this.dteBirth.EditValue = new System.DateTime(2012, 5, 31, 0, 0, 0, 0);
+            this.dteBirth.Location = new System.Drawing.Point(301, 24);
+            this.dteBirth.Name = "dteBirth";
+            this.dteBirth.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteBirth.Properties.Appearance.Options.UseFont = true;
+            this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteBirth.Size = new System.Drawing.Size(104, 24);
+            this.dteBirth.TabIndex = 10;
             // 
             // labelControl11
             // 
@@ -152,15 +212,6 @@
             this.labelControl11.Size = new System.Drawing.Size(43, 18);
             this.labelControl11.TabIndex = 14;
             this.labelControl11.Text = "Mô tả:";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(486, 24);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Size = new System.Drawing.Size(199, 24);
-            this.txtPhone.TabIndex = 15;
             // 
             // labelControl10
             // 
@@ -180,6 +231,15 @@
             this.txtAddress.Size = new System.Drawing.Size(199, 24);
             this.txtAddress.TabIndex = 13;
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(486, 24);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Properties.Appearance.Options.UseFont = true;
+            this.txtPhone.Size = new System.Drawing.Size(199, 24);
+            this.txtPhone.TabIndex = 11;
+            // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -189,46 +249,124 @@
             this.labelControl8.TabIndex = 12;
             this.labelControl8.Text = "Địa chỉ:";
             // 
-            // dteBirth
+            // label1
             // 
-            this.dteBirth.EditValue = new System.DateTime(2012, 5, 31, 0, 0, 0, 0);
-            this.dteBirth.Location = new System.Drawing.Point(301, 24);
-            this.dteBirth.Name = "dteBirth";
-            this.dteBirth.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteBirth.Properties.Appearance.Options.UseFont = true;
-            this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteBirth.Size = new System.Drawing.Size(104, 24);
-            this.dteBirth.TabIndex = 11;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(13, 84);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Biển số:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // labelControl7
+            // tabControl1
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(226, 27);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(69, 18);
-            this.labelControl7.TabIndex = 10;
-            this.labelControl7.Text = "Ngày sinh:";
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(649, 75);
+            this.tabControl1.TabIndex = 16;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
-            // txtDriver
+            // tabPage3
             // 
-            this.txtDriver.Location = new System.Drawing.Point(56, 24);
-            this.txtDriver.Name = "txtDriver";
-            this.txtDriver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDriver.Properties.Appearance.Options.UseFont = true;
-            this.txtDriver.Size = new System.Drawing.Size(164, 24);
-            this.txtDriver.TabIndex = 9;
+            this.tabPage3.Controls.Add(this.cbbTruckKind);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(641, 42);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "TẢI L.ĐẬU & V.LAI";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // labelControl6
+            // cbbTruckKind
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(4, 27);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(46, 18);
-            this.labelControl6.TabIndex = 8;
-            this.labelControl6.Text = "Tài xế:";
+            this.cbbTruckKind.DisplayMember = "Name";
+            this.cbbTruckKind.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbTruckKind.FormattingEnabled = true;
+            this.cbbTruckKind.Location = new System.Drawing.Point(108, 6);
+            this.cbbTruckKind.Name = "cbbTruckKind";
+            this.cbbTruckKind.Size = new System.Drawing.Size(527, 32);
+            this.cbbTruckKind.TabIndex = 0;
+            this.cbbTruckKind.ValueMember = "Id";
+            this.cbbTruckKind.SelectedIndexChanged += new System.EventHandler(this.cbbTruckKind_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Gray;
+            this.label5.Location = new System.Drawing.Point(6, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Loại xe:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(641, 42);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "TAXI VÃNG LAI";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(641, 42);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "BA BÁNH";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.txtChair);
+            this.tabPage5.Controls.Add(this.label48);
+            this.tabPage5.Location = new System.Drawing.Point(4, 29);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(641, 42);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // txtChair
+            // 
+            this.txtChair.Location = new System.Drawing.Point(108, 4);
+            this.txtChair.Name = "txtChair";
+            this.txtChair.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtChair.Properties.Appearance.Options.UseFont = true;
+            this.txtChair.Properties.Appearance.Options.UseForeColor = true;
+            this.txtChair.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtChair.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtChair.Size = new System.Drawing.Size(64, 32);
+            this.txtChair.TabIndex = 12;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.Gray;
+            this.label48.Location = new System.Drawing.Point(6, 9);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(93, 25);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "Số ghế:";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtNumber
             // 
@@ -266,6 +404,7 @@
             this.lblUserIn.Size = new System.Drawing.Size(132, 19);
             this.lblUserIn.TabIndex = 9;
             this.lblUserIn.Text = "SIÊU VĂN NHÂN";
+            this.lblUserIn.Visible = false;
             // 
             // labelControl5
             // 
@@ -275,6 +414,7 @@
             this.labelControl5.Size = new System.Drawing.Size(109, 19);
             this.labelControl5.TabIndex = 8;
             this.labelControl5.Text = "Người cho vào:";
+            this.labelControl5.Visible = false;
             // 
             // lblDateIn
             // 
@@ -367,8 +507,6 @@
             this.gridColumn4.Caption = "Người cho vào";
             this.gridColumn4.FieldName = "UserInName";
             this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
             // 
             // gridColumn5
             // 
@@ -378,15 +516,13 @@
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 2;
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Điện thoại";
             this.gridColumn6.FieldName = "UserInPhone";
             this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
             // 
             // gridColumn7
             // 
@@ -394,7 +530,7 @@
             this.gridColumn7.FieldName = "KindName";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.VisibleIndex = 3;
             // 
             // gridColumn8
             // 
@@ -402,7 +538,7 @@
             this.gridColumn8.FieldName = "GroupName";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.VisibleIndex = 4;
             // 
             // gridColumn9
             // 
@@ -410,138 +546,7 @@
             this.gridColumn9.FieldName = "Chair";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 7;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(649, 75);
-            this.tabControl1.TabIndex = 16;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.cbbTruckKind);
-            this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(641, 42);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "TẢI L.ĐẬU & V.LAI";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // cbbTruckKind
-            // 
-            this.cbbTruckKind.DisplayMember = "Name";
-            this.cbbTruckKind.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbTruckKind.FormattingEnabled = true;
-            this.cbbTruckKind.Location = new System.Drawing.Point(108, 6);
-            this.cbbTruckKind.Name = "cbbTruckKind";
-            this.cbbTruckKind.Size = new System.Drawing.Size(527, 32);
-            this.cbbTruckKind.TabIndex = 0;
-            this.cbbTruckKind.ValueMember = "Id";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(6, 8);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Loại xe:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(641, 42);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "TAXI VÃNG LAI";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(641, 42);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "BA BÁNH";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.label48);
-            this.tabPage5.Controls.Add(this.mskMediumC);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(641, 42);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "XE KHÁCH V.LAI, T.CHUYỂN";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.ForeColor = System.Drawing.Color.Gray;
-            this.label48.Location = new System.Drawing.Point(6, 9);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(93, 25);
-            this.label48.TabIndex = 11;
-            this.label48.Text = "Số ghế:";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // mskMediumC
-            // 
-            this.mskMediumC.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskMediumC.Location = new System.Drawing.Point(105, 6);
-            this.mskMediumC.Name = "mskMediumC";
-            this.mskMediumC.Size = new System.Drawing.Size(53, 31);
-            this.mskMediumC.TabIndex = 1;
-            this.mskMediumC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(13, 84);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 25);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Biển số:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.labelControl6);
-            this.groupControl1.Controls.Add(this.txtDriver);
-            this.groupControl1.Controls.Add(this.labelControl7);
-            this.groupControl1.Controls.Add(this.txtDescript);
-            this.groupControl1.Controls.Add(this.dteBirth);
-            this.groupControl1.Controls.Add(this.labelControl11);
-            this.groupControl1.Controls.Add(this.labelControl10);
-            this.groupControl1.Controls.Add(this.txtAddress);
-            this.groupControl1.Controls.Add(this.txtPhone);
-            this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Location = new System.Drawing.Point(3, 118);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(694, 86);
-            this.groupControl1.TabIndex = 17;
-            this.groupControl1.Text = "Thông tin xe";
+            this.gridColumn9.VisibleIndex = 5;
             // 
             // FrmTra_GateIn
             // 
@@ -559,26 +564,27 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tmeDateIn.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -627,6 +633,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.MaskedTextBox mskMediumC;
+        private DevExpress.XtraEditors.TextEdit txtChair;
     }
 }

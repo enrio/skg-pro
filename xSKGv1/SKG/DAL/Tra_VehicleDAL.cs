@@ -92,7 +92,7 @@ namespace SKG.DAL
                               s.Birth,
                               s.Address,
                               s.Phone,
-
+                              s.Chair,
                               s.Code,
                               s.Order,
                               s.Show

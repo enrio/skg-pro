@@ -218,7 +218,6 @@
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
             this.Name = "FrmInput";
-            
             this.Load += new System.EventHandler(this.FrmInput_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).EndInit();
             this.ResumeLayout(false);
@@ -229,8 +228,6 @@
         private DevExpress.XtraBars.BarManager bmgMain;
         private DevExpress.XtraBars.Bar bar1;
         private DevExpress.XtraBars.BarLargeButtonItem bbiAdd;
-        private DevExpress.XtraBars.BarLargeButtonItem bbiEdit;
-        private DevExpress.XtraBars.BarLargeButtonItem bbiDelete;
         private DevExpress.XtraBars.BarLargeButtonItem bbiSave;
         private DevExpress.XtraBars.BarLargeButtonItem bbiCancel;
         private DevExpress.XtraBars.BarLargeButtonItem bbiRefresh;
@@ -244,5 +241,7 @@
         private DevExpress.XtraBars.BarLargeButtonItem bbiCollapse;
         private DevExpress.XtraBars.BarLargeButtonItem bbiExpand;
         protected System.Windows.Forms.Timer tmrMain;
+        public DevExpress.XtraBars.BarLargeButtonItem bbiEdit;
+        public DevExpress.XtraBars.BarLargeButtonItem bbiDelete;
     }
 }

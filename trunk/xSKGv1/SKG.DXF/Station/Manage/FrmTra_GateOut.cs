@@ -99,6 +99,7 @@ namespace SKG.DXF.Station.Manage
             int sum;
             _dtb = _bll.Tra_Detail.GetInDepot(out sum);
             cmdInvoice.Enabled = sum > 0 ? true : false;
+            cmdRedo.Enabled = cmdInvoice.Enabled;
 
             cbbNumber.DataSource = _dtb;
             cbbNumber.ValueMember = "Id";
@@ -188,13 +189,25 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdRedo_Click(object sender, EventArgs e)
         {
-            using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false, StartPosition = FormStartPosition.CenterScreen })
+            //using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false, StartPosition = FormStartPosition.CenterScreen })
+            //{
+            //    x.ShowDialog();
+            //    x.EditNumber = null;
+            //    x.EditMode = true;
+            //    LoadData();
+            //}
+
+            if (cbbNumber.Text == "") return;
+            cmdOut.Enabled = false;
+
+            var x = new Station.Catalog.FrmTra_Vehicle
             {
-                x.ShowDialog();
-                x.EditNumber = null;
-                x.EditMode = true;
-                LoadData();
-            }
+                AllowAdd = false,
+                AllowDelete = false,
+                WindowState = FormWindowState.Maximized
+            };
+            x.ShowDialog();
+            LoadData();
         }
 
         private void cmdInList_Click(object sender, EventArgs e)

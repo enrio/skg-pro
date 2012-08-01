@@ -105,6 +105,7 @@ namespace SKG.DXF.Station.Catalog
         {
             lokKind.ItemIndex = 0;
             txtNumber.Text = null;
+            txtNumber.Text = "0";
             txtDescript.Text = null;
             txtDriver.Text = null;
             txtAddress.Text = null;
@@ -118,6 +119,7 @@ namespace SKG.DXF.Station.Catalog
         {
             lokKind.DataBindings.Clear();
             txtNumber.DataBindings.Clear();
+            txtChair.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
             txtDriver.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
@@ -131,6 +133,7 @@ namespace SKG.DXF.Station.Catalog
         {
             lokKind.DataBindings.Add("EditValue", _dtb, ".Tra_KindId");
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
@@ -144,6 +147,7 @@ namespace SKG.DXF.Station.Catalog
         {
             lokKind.Properties.ReadOnly = isReadOnly;
             txtNumber.Properties.ReadOnly = isReadOnly;
+            txtChair.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
             txtDriver.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -228,7 +232,14 @@ namespace SKG.DXF.Station.Catalog
             var a = txtNumber.Text.Length == 0 ? false : true;
             if (!a) txtNumber.Focus();
 
-            return a;
+            var oki = false;
+            if (lokKind.GetColumnValue("Code") + "" == "L")
+            {
+                oki = txtChair.Text.Length == 0 ? false : true;
+                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
+            }
+
+            return a && oki;
         }
         #endregion
 
@@ -246,5 +257,7 @@ namespace SKG.DXF.Station.Catalog
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Xe này có rồi";
+
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
     }
 }

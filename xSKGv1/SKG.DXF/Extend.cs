@@ -496,6 +496,11 @@ namespace SKG.DXF
                     Application.ExitThread();
                     return;
                 }
+                else if (n == typeof(Help.Infor.Frm_PolManual).FullName)
+                {
+                    System.Windows.Forms.Help.ShowHelp(_frmMain, @"Manual.chm");
+                    return;
+                }
 
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))

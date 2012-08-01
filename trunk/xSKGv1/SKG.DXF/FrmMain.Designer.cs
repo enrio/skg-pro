@@ -104,6 +104,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayoutStore = System.Windows.Forms.ImageLayout.Center;
+            this.BackgroundImageStore = global::SKG.DXF.Properties.Resources.Banner;
             this.ClientSize = new System.Drawing.Size(902, 467);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);

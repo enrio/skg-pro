@@ -282,7 +282,7 @@
             this.gridBand1.Columns.Add(this.gridColumn6);
             this.gridBand1.Columns.Add(this.gridColumn7);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 525;
+            this.gridBand1.Width = 482;
             // 
             // gridColumn1
             // 
@@ -296,6 +296,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
+            this.gridColumn2.Width = 20;
             // 
             // gridColumn3
             // 
@@ -303,6 +304,7 @@
             this.gridColumn3.FieldName = "Number";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
+            this.gridColumn3.Width = 77;
             // 
             // gridColumn13
             // 
@@ -310,6 +312,7 @@
             this.gridColumn13.FieldName = "KindName";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
+            this.gridColumn13.Width = 77;
             // 
             // gridColumn4
             // 
@@ -317,6 +320,7 @@
             this.gridColumn4.FieldName = "UserInName";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
+            this.gridColumn4.Width = 77;
             // 
             // gridColumn5
             // 
@@ -326,6 +330,7 @@
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
+            this.gridColumn5.Width = 77;
             // 
             // gridColumn6
             // 
@@ -333,6 +338,7 @@
             this.gridColumn6.FieldName = "UserOutName";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
+            this.gridColumn6.Width = 77;
             // 
             // gridColumn7
             // 
@@ -342,6 +348,7 @@
             this.gridColumn7.FieldName = "DateOut";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
+            this.gridColumn7.Width = 77;
             // 
             // gridBand2
             // 
@@ -349,7 +356,7 @@
             this.gridBand2.Columns.Add(this.gridColumn8);
             this.gridBand2.Columns.Add(this.gridColumn9);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 150;
+            this.gridBand2.Width = 176;
             // 
             // gridColumn8
             // 
@@ -357,6 +364,7 @@
             this.gridColumn8.FieldName = "HalfDay";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
+            this.gridColumn8.Width = 88;
             // 
             // gridColumn9
             // 
@@ -364,6 +372,7 @@
             this.gridColumn9.FieldName = "Days";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
+            this.gridColumn9.Width = 88;
             // 
             // gridBand3
             // 
@@ -371,7 +380,7 @@
             this.gridBand3.Columns.Add(this.gridColumn10);
             this.gridBand3.Columns.Add(this.gridColumn11);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 150;
+            this.gridBand3.Width = 176;
             // 
             // gridColumn10
             // 
@@ -381,6 +390,7 @@
             this.gridColumn10.FieldName = "Price1";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
+            this.gridColumn10.Width = 88;
             // 
             // gridColumn11
             // 
@@ -390,13 +400,14 @@
             this.gridColumn11.FieldName = "Price2";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
+            this.gridColumn11.Width = 88;
             // 
             // gridBand4
             // 
             this.gridBand4.Caption = "Tính tiền";
             this.gridBand4.Columns.Add(this.gridColumn12);
             this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 75;
+            this.gridBand4.Width = 91;
             // 
             // gridColumn12
             // 
@@ -406,14 +417,15 @@
             this.gridColumn12.FieldName = "Money";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
+            this.gridColumn12.Width = 91;
             // 
-            // FrmSales
+            // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmSales";
+            this.Name = "FrmTra_Sales";
             this.Text = "Doanh thu";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);

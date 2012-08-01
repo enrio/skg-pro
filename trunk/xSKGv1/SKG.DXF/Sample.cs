@@ -254,6 +254,9 @@ namespace SKG.DXF
             b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Help.Infor.Level2).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
+            b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Help.Infor.Frm_PolManual).FullName);
+            o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
+            Pol_RoleRight.Insert(o);
             b = (Pol_Right)Pol_Right.Select(typeof(SKG.DXF.Help.Util.Level2).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);

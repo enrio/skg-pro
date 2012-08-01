@@ -132,7 +132,7 @@
             // 
             // bbiRefresh
             // 
-            this.bbiRefresh.Caption = "&Cập nhật";
+            this.bbiRefresh.Caption = "&Làm tươi";
             this.bbiRefresh.Glyph = global::SKG.DXF.Properties.Resources.refresh;
             this.bbiRefresh.Id = 5;
             this.bbiRefresh.Name = "bbiRefresh";

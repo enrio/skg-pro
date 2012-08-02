@@ -84,5 +84,10 @@ namespace SKG.DXF.Station.Manage
             base.PerformFind();
         }
         #endregion
+
+        private void FrmTra_InDepot_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
     }
 }

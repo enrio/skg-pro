@@ -80,6 +80,8 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformSave()
         {
+            txtNumber_KeyDown(null, null);
+
             switch (_state)
             {
                 case State.Add:
@@ -178,7 +180,7 @@ namespace SKG.DXF.Station.Manage
                     //Tra_VehicleId = id,
                     DateIn = Global.Session.Current
                 };
-                
+
                 //var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(txtNumber.Text);
                 //ve.Number = 
 
@@ -420,5 +422,26 @@ namespace SKG.DXF.Station.Manage
         private const string STR_CONFIRM = "Có xoá số xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
+
+        private void txtNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e == null || e.KeyCode == Keys.Enter)
+            {
+                var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+                if (o == null)
+                {
+                    var frm = new Station.Catalog.FrmTra_Vehicle();
+                    frm._num = txtNumber.Text;
+                    frm.WindowState = FormWindowState.Maximized;
+                    frm.AllowCancel = false;
+                    frm.ShowDialog();
+                }
+            }
+        }
     }
 }

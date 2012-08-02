@@ -26,6 +26,7 @@ namespace SKG.DXF.Station.Catalog
         }
         #endregion
 
+        public string _num;
         public FrmTra_Vehicle()
         {
             InitializeComponent();
@@ -97,7 +98,7 @@ namespace SKG.DXF.Station.Catalog
                     }
                     break;
             }
-
+            if (_num + "" != "") Close();
             base.PerformSave();
         }
 
@@ -214,7 +215,7 @@ namespace SKG.DXF.Station.Catalog
             catch { return false; }
         }
 
-      public  string num = "";
+        public string num = "";
         protected override void LoadData()
         {
             if (num != "")
@@ -253,6 +254,12 @@ namespace SKG.DXF.Station.Catalog
         {
             lokKind.Properties.DataSource = _bll.Tra_Kind.Select();
             lokKind.ItemIndex = 0;
+
+            if (_num + "" != "")
+            {
+                PerformAdd();
+                txtNumber.Text = _num;
+            }
         }
 
         private const string STR_ADD = "Thêm xe";

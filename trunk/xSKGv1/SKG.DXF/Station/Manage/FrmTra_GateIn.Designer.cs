@@ -378,6 +378,8 @@
             this.txtNumber.Properties.Appearance.Options.UseForeColor = true;
             this.txtNumber.Size = new System.Drawing.Size(138, 32);
             this.txtNumber.TabIndex = 5;
+            this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
+            this.txtNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumber_KeyPress);
             // 
             // tmeDateIn
             // 

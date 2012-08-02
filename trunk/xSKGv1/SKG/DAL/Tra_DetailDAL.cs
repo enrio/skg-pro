@@ -190,7 +190,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null //&& s.DateIn >= d
+                          where s.DateOut == null && s.DateIn >= d
 
                           orderby s.DateIn descending
                           select new

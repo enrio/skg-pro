@@ -67,8 +67,12 @@ namespace SKG.DXF.Station.Manage
 
             if (_dtb != null)
             {
-                ClearDataBindings();
-                if (_dtb.Rows.Count > 0) DataBindingControl();
+
+                if (_dtb.Rows.Count > 0)
+                {
+                    ClearDataBindings();
+                    DataBindingControl();
+                }
             }
 
             base.PerformRefresh();
@@ -174,6 +178,9 @@ namespace SKG.DXF.Station.Manage
                     //Tra_VehicleId = id,
                     DateIn = Global.Session.Current
                 };
+                
+                //var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(txtNumber.Text);
+                //ve.Number = 
 
                 if (_bll.Tra_Detail.Update(o) != null) return true;
                 else

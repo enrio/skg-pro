@@ -464,7 +464,7 @@ namespace SKG.DAL
                         break;
 
                     case Group.B:
-                        res = res.Where(p => p.GroupCode == "B");
+                        res = res.Where(p => p.GroupCode != "A");
                         break;
 
                     default:

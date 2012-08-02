@@ -140,11 +140,11 @@ namespace SKG.DAL
                 var o = (Tra_Detail)obj;
                 var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Tra_VehicleId = o.Tra_VehicleId;
-                res.Pol_UserInId = o.Pol_UserInId;
-                res.Pol_UserOutId = o.Pol_UserOutId;
+                //res.Tra_VehicleId = o.Tra_VehicleId;
+                //res.Pol_UserInId = o.Pol_UserInId;
+                //res.Pol_UserOutId = o.Pol_UserOutId;
                 res.DateIn = o.DateIn;
-                res.DateOut = o.DateOut;
+                //res.DateOut = o.DateOut;
 
                 res.Code = o.Code;
                 res.Descript = o.Descript;
@@ -190,7 +190,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null && s.DateIn >= d
+                          where s.DateOut == null //&& s.DateIn >= d
 
                           orderby s.DateIn descending
                           select new

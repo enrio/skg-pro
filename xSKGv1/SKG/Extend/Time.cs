@@ -148,7 +148,10 @@ namespace SKG.Extend
         /// <returns></returns>
         public static int ToWatch2(this DateTime d)
         {
-            return d < new DateTime(d.Year, d.Month, d.Day, 12, 0, 0, 0) ? 1 : 2;
+            var a = new DateTime(d.Year, d.Month, d.Day, 6, 0, 0, 0);
+            var b = new DateTime(d.Year, d.Month, d.Day, 15, 30, 0, 0);
+
+            return d < b && d>= a ? 1 : 2;
         }
 
         /// <summary>

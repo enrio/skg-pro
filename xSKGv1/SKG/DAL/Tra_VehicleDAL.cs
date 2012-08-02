@@ -140,6 +140,7 @@ namespace SKG.DAL
                 
                 res.Tra_KindId = o.Tra_KindId;
                 res.Number = o.Number;
+                res.Chair = o.Chair;
                 res.Descript = o.Descript;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;

@@ -428,7 +428,7 @@ namespace SKG.DAL
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
 
                           where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
-                          && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
+                          //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
 

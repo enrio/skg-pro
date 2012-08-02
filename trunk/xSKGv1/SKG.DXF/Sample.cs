@@ -605,7 +605,7 @@ namespace SKG.DXF
             CreateTra_Group();
             CreateTra_Kind();
             CreateTra_Vehicle();
-            CreateTra_Detail();
+            //CreateTra_Detail();
         }
     }
 }

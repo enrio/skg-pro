@@ -245,6 +245,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_InDepot";
             this.Text = "Danh sách xe trong bến";
+            this.Activated += new System.EventHandler(this.FrmTra_InDepot_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

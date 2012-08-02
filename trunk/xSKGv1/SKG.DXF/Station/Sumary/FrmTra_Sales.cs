@@ -108,5 +108,10 @@ namespace SKG.DXF.Station.Sumary
             base.PerformRefresh();
         }
         #endregion
+
+        private void FrmTra_Sales_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
     }
 }

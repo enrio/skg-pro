@@ -29,6 +29,8 @@ namespace SKG.DAL.Entities
         /// </summary>
         public DbSet<Pol_Lang> Pol_Langs { get; set; }
 
+        
+
         /// <summary>
         /// Policy - List role of user group
         /// </summary>
@@ -68,6 +70,8 @@ namespace SKG.DAL.Entities
         /// Policy - User's language choice
         /// </summary>
         public DbSet<Pol_UserLang> Pol_UserLangs { get; set; }
+
+        public DbSet<Pol_Public> Pol_Publics { get; set; }
 
         /// <summary>
         /// Using string connection from App.Config file

@@ -4,8 +4,6 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Policy - Data for public
     /// </summary>

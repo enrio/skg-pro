@@ -71,7 +71,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         public DbSet<Pol_UserLang> Pol_UserLangs { get; set; }
 
-        public DbSet<Pol_Public> Pol_Publics { get; set; }
+        public DbSet<Pol_Common> Pol_Publics { get; set; }
 
         /// <summary>
         /// Using string connection from App.Config file

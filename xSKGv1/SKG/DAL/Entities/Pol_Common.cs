@@ -5,12 +5,12 @@ using System.Linq;
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// Policy - Data for public
+    /// Policy - Common data
     /// </summary>
-    public class Pol_Public : Zinfors
+    public class Pol_Common : Zinfors
     {
         public Guid? ParentId { get; set; }
-        public virtual Pol_Public Parent { get; set; }
-        public virtual ICollection<Pol_Public> Children { get; set; }
+        public virtual Pol_Common Parent { get; set; }
+        public virtual ICollection<Pol_Common> Children { get; set; }
     }
 }

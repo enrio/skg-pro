@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2012 21:33
- * Update: 24/07/2012 21:45
+ * Create: 24/07/2013 21:05
+ * Update: 24/07/2013 21:05
  * Status: OK
  */
 #endregion
@@ -21,14 +21,8 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - User's language choice
     /// </summary>
-    public class Pol_UserLang
+    public class Pol_UserLang : Zinfors
     {
-        /// <summary>
-        /// Primary key
-        /// </summary>
-        [Key, Column(Order = 0)]
-        public Guid Id { set; get; }
-
         #region Foreign key
         /// <summary>
         /// Refercence to Pol_User

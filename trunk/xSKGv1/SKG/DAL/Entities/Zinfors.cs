@@ -23,6 +23,7 @@ namespace SKG.DAL.Entities
     /// </summary>
     public class Zinfors
     {
+        #region Key
         /// <summary>
         /// Primary key auto generated
         /// </summary>
@@ -34,6 +35,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [StringLength(256)]
         public string Code { set; get; }
+        #endregion
 
         #region Base
         /// <summary>
@@ -55,28 +57,6 @@ namespace SKG.DAL.Entities
         /// Show data, set false is deleted
         /// </summary>
         public bool Show { set; get; }
-        #endregion
-
-        #region Log
-        /// <summary>
-        /// Created date
-        /// </summary>
-        public DateTime? CreatedDate { set; get; }
-
-        /// <summary>
-        /// Modifed date
-        /// </summary>
-        public DateTime? ModifedDate { set; get; }
-
-        /// <summary>
-        /// Created by
-        /// </summary>
-        public Guid? CreatedBy { set; get; }
-
-        /// <summary>
-        /// Modified by
-        /// </summary>
-        public Guid? ModifiedBy { set; get; }
         #endregion
 
         /// <summary>

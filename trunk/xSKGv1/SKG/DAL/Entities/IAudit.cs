@@ -19,7 +19,7 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// 
+    /// Audit log
     /// </summary>
     public interface IAudit
     {

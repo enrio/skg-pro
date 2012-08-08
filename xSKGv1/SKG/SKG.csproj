@@ -68,6 +68,7 @@
     <Compile Include="BLL\Tra_VehicleBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
+    <Compile Include="DAL\Entities\IAudit.cs" />
     <Compile Include="DAL\Entities\Pol_Chat.cs" />
     <Compile Include="DAL\Entities\Pol_Lang.cs" />
     <Compile Include="DAL\Entities\Pol_Common.cs" />

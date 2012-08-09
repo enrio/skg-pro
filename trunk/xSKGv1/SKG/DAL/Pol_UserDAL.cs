@@ -177,7 +177,7 @@ namespace SKG.DAL
                         select new
                         {
                             RightCode = r.Code,
-                            RightName = r.Caption,
+                            RightName = r.Text,
                             RightDescript = r.Note,
                             s.Add,
                             s.Edit,
@@ -196,7 +196,7 @@ namespace SKG.DAL
                         select new
                         {
                             RightCode = r.Code,
-                            RightName = r.Caption,
+                            RightName = r.Text,
                             RightDescript = r.Note,
                             s.Add,
                             s.Edit,

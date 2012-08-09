@@ -19,37 +19,24 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Policy - All menuz, form of system
+    /// Policy - All menu, form of system is called right (menuz)
     /// </summary>
     public class Pol_Right : Zinfors
     {
         #region Foreign key
         /// <summary>
-        /// Refercence to Pol_Lang
+        /// Reference to Pol_Dictionary (ID)
         /// </summary>
-        [Key, Column(Order = 0), ForeignKey("Pol_Lang")]
+        [Key, Column(Order = 0), ForeignKey("Dictionary")]
         public new Guid Id { set; get; }
-        public virtual Pol_Dictionary Pol_Lang { get; set; }
-        #endregion
 
         /// <summary>
-        /// Menu of level
+        /// Reference to Pol_Dictionary (object)
         /// </summary>
-        public int Level { set; get; }
+        public virtual Pol_Dictionary Dictionary { get; set; }
 
         /// <summary>
-        /// Default language
-        /// </summary>
-        public string Caption { set; get; }
-
-        /// <summary>
-        /// Picture for icon
-        /// </summary>
-        public string Picture { set; get; }
-
-        #region Foreign key on another entity
-        /// <summary>
-        /// List of user right on menuz or form
+        /// List of user right on menuz
         /// </summary>
         public virtual ICollection<Pol_RoleRight> Pol_RoleRights { get; set; }
 
@@ -58,5 +45,15 @@ namespace SKG.DAL.Entities
         /// </summary>
         public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
         #endregion
+
+        /// <summary>
+        /// Menu of level
+        /// </summary>
+        public int Level { set; get; }
+
+        /// <summary>
+        /// Picture for icon
+        /// </summary>
+        public string Picture { set; get; }
     }
 }

@@ -91,7 +91,7 @@ namespace SKG.DXF
             {
                 var l = new Pol_Dictionary() { Type = "MENUZ", Code = i.Code, Text = i.Caption, Note = "", Order = i.Order, Show = i.Show };
                 l = (Pol_Dictionary)Pol_Lang.Insert(l);
-                var r = new Pol_Right() { Id = l.Id, Level = i.Level, Caption = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                var r = new Pol_Right() { Id = l.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
                 Pol_Right.Insert(r);
             }
         }

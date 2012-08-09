@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2012 22:20
- * Update: 26/07/2012 14:22
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
@@ -21,7 +21,7 @@ namespace SKG.DAL
     using System.Data;
 
     /// <summary>
-    /// Policy - Pol_Lang processing
+    /// Policy - Pol_Dictionary accessing
     /// </summary>
     public abstract class Pol_DictionaryDAL : BaseDAL, IBase
     {

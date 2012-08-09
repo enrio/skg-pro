@@ -19,9 +19,9 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// System - Dictionary for all data
+    /// Policy - Dictionary for all data
     /// </summary>
-    public class Sys_Dictionary : Zinfors
+    public class Pol_Dictionary : Zinfors
     {
         /// <summary>
         /// Type of data

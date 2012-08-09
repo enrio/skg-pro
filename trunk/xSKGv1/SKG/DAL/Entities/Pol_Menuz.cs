@@ -7,9 +7,9 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// System - All menu, form of system is called menuz
+    /// Policy - All menu, form of system is called menuz
     /// </summary>
-    public class Sys_Menuz : Zinfors
+    public class Pol_Menuz : Zinfors
     {
         #region Foreign key
         /// <summary>
@@ -17,7 +17,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 0), Key, ForeignKey("Dictionary")]
         public new Guid Id { set; get; }
-        public virtual Sys_Dictionary Dictionary { get; set; }
+        public virtual Pol_Dictionary Dictionary { get; set; }
 
         /// <summary>
         /// Reference to itself

@@ -79,9 +79,9 @@
     <Compile Include="DAL\Entities\Pol_UserLang.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
-    <Compile Include="DAL\Entities\Sys_Dictionary.cs" />
-    <Compile Include="DAL\Entities\Sys_Menuz.cs" />
-    <Compile Include="DAL\Entities\Sys_Selection.cs" />
+    <Compile Include="DAL\Entities\Pol_Dictionary.cs" />
+    <Compile Include="DAL\Entities\Pol_Menuz.cs" />
+    <Compile Include="DAL\Entities\Pol_Selection.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
     <Compile Include="DAL\Entities\Tra_Group.cs" />
     <Compile Include="DAL\Entities\Tra_Kind.cs" />

@@ -86,13 +86,34 @@ namespace SKG.DXF
             var a = new Services();
             var b = a.GetPlugins();
             var c = Services.GetMenu(b);
+            var l1 = typeof(Home.Level1).Name;
+            var l2 = typeof(Home.Sytem.Level2).Name;
+            var d1 = new Pol_Dictionary();
+            var d2 = new Pol_Dictionary();
 
             foreach (var i in c)
             {
-                var l = new Pol_Dictionary() { Type = Global.STR_MENUZ, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
-                l = (Pol_Dictionary)Pol_Dictionary.Insert(l);
-                var r = new Pol_Right() { Id = l.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                Pol_Right.Insert(r);
+                if (i.Code.Contains(l1)) // level 1
+                {
+                    d1 = new Pol_Dictionary() { Type = Global.STR_MENUZ, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    d1 = (Pol_Dictionary)Pol_Dictionary.Insert(d1);
+                    var r = new Pol_Right() { Id = d1.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                    Pol_Right.Insert(r);
+                }
+                else if (i.Code.Contains(l2)) // level 2
+                {
+                    d2 = new Pol_Dictionary() { Type = Global.STR_MENUZ, ParentId = d1.Id, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    d2 = (Pol_Dictionary)Pol_Dictionary.Insert(d2);
+                    var r = new Pol_Right() { Id = d2.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                    Pol_Right.Insert(r);
+                }
+                else // level 3
+                {
+                    var d3 = new Pol_Dictionary() { Type = Global.STR_MENUZ, ParentId = d2.Id, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    d3 = (Pol_Dictionary)Pol_Dictionary.Insert(d3);
+                    var r = new Pol_Right() { Id = d3.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
+                    Pol_Right.Insert(r);
+                }
             }
         }
 

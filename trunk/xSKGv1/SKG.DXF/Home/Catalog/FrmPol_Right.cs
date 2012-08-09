@@ -163,7 +163,7 @@ namespace SKG.DXF.Home.Catalog
                     Id = id,
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Pol_Right.Update(o);
@@ -184,7 +184,7 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Pol_Right.Insert(o);

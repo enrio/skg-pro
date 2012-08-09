@@ -52,13 +52,13 @@ namespace SKG.DXF
             Global.Parent = this;
 
             // Check license
-            var key = (new Registri()).Read("License");
-            var ok = License.IsLincense(key);
-            if (ok == LicState.None)
-            {
-                Extend.ShowRight<FrmPol_License>(this);
-                return;
-            }
+            //var key = (new Registri()).Read("License");
+            //var ok = License.IsLincense(key);
+            //if (ok == LicState.None)
+            //{
+            //    Extend.ShowRight<FrmPol_License>(this);
+            //    return;
+            //}
             //else bbiRegistry.Enabled = false;
 
             if (!Sample.CheckDb())

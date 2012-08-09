@@ -32,7 +32,7 @@ namespace SKG.BLL
         /// <returns></returns>
         public object Insert(string code, string caption, string descript)
         {
-            var o = new Pol_Right() { Code = code, Caption = caption, Descript = descript };
+            var o = new Pol_Right() { Code = code, Caption = caption, Note = descript };
             return Insert(o);
         }
     }

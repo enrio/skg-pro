@@ -232,7 +232,7 @@ namespace SKG.DXF.Station.Manage
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,
                             Phone = txtPhone.Text,
-                            Descript = txtDescript.Text
+                            Note = txtDescript.Text
                         };
 
                         if (_bll.Tra_Vehicle.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ

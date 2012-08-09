@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2013 21:05
- * Update: 24/07/2013 21:05
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
@@ -46,7 +46,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Descriptive detailing
         /// </summary>
-        public string Descript { set; get; }
+        public string Note { set; get; }
 
         /// <summary>
         /// Sort order

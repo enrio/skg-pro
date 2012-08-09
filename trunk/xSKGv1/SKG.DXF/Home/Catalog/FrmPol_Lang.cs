@@ -165,7 +165,7 @@ namespace SKG.DXF.Home.Catalog
                     Id = id,
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text,
+                    Note = txtDescript.Text,
                     Type = txtType.Text
                 };
 
@@ -187,7 +187,7 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Code = txtCode.Text,
                     Caption = txtName.Text,
-                    Descript = txtDescript.Text,
+                    Note = txtDescript.Text,
                     Type = txtType.Text
                 };
 

@@ -81,7 +81,7 @@ namespace SKG.DXF.Home.Grant
 
                         r["ID"] = x.Id;
                         r["ParentID"] = _idParent;
-                        r["Name"] = x.Descript;
+                        r["Name"] = x.Note;
 
                         _dtb.Rows.Add(r);
                     }

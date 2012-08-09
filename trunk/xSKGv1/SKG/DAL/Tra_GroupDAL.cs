@@ -64,7 +64,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Name,
-                              s.Descript,
+                              Descript = s.Note,
 
                               s.Code,
                               s.Order,
@@ -113,7 +113,7 @@ namespace SKG.DAL
                 res.Name = o.Name;
 
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
 

@@ -82,7 +82,7 @@ namespace SKG.DXF
                 {
                     var id = (Guid)n.GetValue("Id");
                     var name = n.GetValue(Field) + "";
-                    var o = new Zinfors() { Id = id, Descript = name };
+                    var o = new Zinfors() { Id = id, Note = name };
                     ListInfo.Add(o);
                 }
 

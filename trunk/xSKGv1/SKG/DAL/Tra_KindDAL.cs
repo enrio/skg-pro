@@ -39,7 +39,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Name,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Price1,
                               s.Price2,
 
@@ -86,7 +86,7 @@ namespace SKG.DAL
                               s.Tra_GroupId,
                               GroupName = s.Tra_Group.Name,
                               s.Name,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Price1,
                               s.Price2,
 
@@ -139,7 +139,7 @@ namespace SKG.DAL
                 res.Price2 = o.Price2;
 
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
 

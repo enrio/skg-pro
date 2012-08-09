@@ -82,7 +82,7 @@ namespace SKG.DAL
                             s.Full,
                             s.None,
                             Name = s.Pol_Right.Caption,
-                            Descript = s.Pol_Right.Descript,
+                            Descript = s.Pol_Right.Note,
                         };
                 Guid? id = new Guid();
                 var b = from s in _db.Pol_Users
@@ -101,7 +101,7 @@ namespace SKG.DAL
                             Full = false,
                             None = false,
                             s.Name,
-                            s.Descript
+                            Descript = s.Note
                         };
                 var res = a.Union(b);
                 if (obj != null)
@@ -131,7 +131,7 @@ namespace SKG.DAL
                     .Where(s => s.Id == o.Pol_RightId)
                     .FirstOrDefault();
                 o.Code = r.Code;
-                o.Descript = r.Descript;
+                o.Note = r.Note;
                 var oki = _db.Pol_UserRights.Add(o);
                 _db.SaveChanges();
                 return oki;
@@ -160,7 +160,7 @@ namespace SKG.DAL
                 res.Full = o.Full;
                 res.None = o.None;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();

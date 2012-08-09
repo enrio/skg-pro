@@ -162,7 +162,7 @@ namespace SKG.DXF.Station.Catalog
                     Name = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Kind.Update(o);
@@ -185,7 +185,7 @@ namespace SKG.DXF.Station.Catalog
                     Name = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Kind.Insert(o);

@@ -15,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
-{    
+{
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -25,11 +25,19 @@ namespace SKG.DAL.Entities
     public class Context : DbContext
     {
         /// <summary>
+        /// Dictionary for all data
+        /// </summary>
+        public DbSet<Sys_Dictionary> Sys_Dictionarys { get; set; }
+
+        /// <summary>
+        /// Select language for user logon
+        /// </summary>
+        public DbSet<Sys_Selection> Sys_Selections { get; set; }
+
+        /// <summary>
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
         public DbSet<Pol_Lang> Pol_Langs { get; set; }
-
-        
 
         /// <summary>
         /// Policy - List role of user group

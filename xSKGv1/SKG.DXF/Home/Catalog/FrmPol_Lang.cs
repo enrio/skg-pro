@@ -160,7 +160,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Lang()
+                var o = new Pol_Dictionary()
                 {
                     Id = id,
                     Code = txtCode.Text,
@@ -183,7 +183,7 @@ namespace SKG.DXF.Home.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Pol_Lang()
+                var o = new Pol_Dictionary()
                 {
                     Code = txtCode.Text,
                     Text = txtName.Text,

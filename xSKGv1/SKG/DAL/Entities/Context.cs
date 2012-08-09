@@ -27,7 +27,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
-        public DbSet<Pol_Lang> Pol_Langs { get; set; }
+        public DbSet<Pol_Dictionary> Pol_Langs { get; set; }
 
         /// <summary>
         /// Policy - List role of user group
@@ -67,7 +67,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Policy - User's language choice
         /// </summary>
-        public DbSet<Pol_UserLang> Pol_UserLangs { get; set; }
+        public DbSet<Pol_Selection> Pol_UserLangs { get; set; }
 
         /// <summary>
         /// Using string connection from App.Config file

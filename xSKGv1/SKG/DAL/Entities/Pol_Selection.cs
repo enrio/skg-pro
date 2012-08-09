@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - Select language for user logon
     /// </summary>
-    public class Pol_UserLang : Zinfors
+    public class Pol_Selection : Zinfors
     {
         #region Primary and foreign key
         /// <summary>
@@ -36,7 +36,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 2), Key, ForeignKey("Dictionary")]
         public Guid? DictionaryId { set; get; }
-        public virtual Pol_Lang Dictionary { get; set; }
+        public virtual Pol_Dictionary Dictionary { get; set; }
         #endregion
     }
 }

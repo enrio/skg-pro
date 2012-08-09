@@ -21,7 +21,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Policy - Dictionary for all data
     /// </summary>
-    public class Pol_Lang : Zinfors
+    public class Pol_Dictionary : Zinfors
     {
         #region Foreign key
         /// <summary>
@@ -33,12 +33,12 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Reference to itself (object)
         /// </summary>
-        public virtual Pol_Lang Parent { get; set; }
+        public virtual Pol_Dictionary Parent { get; set; }
 
         /// <summary>
         /// List of children
         /// </summary>
-        public virtual ICollection<Pol_Lang> Children { get; set; }
+        public virtual ICollection<Pol_Dictionary> Children { get; set; }
         #endregion
 
         /// <summary>

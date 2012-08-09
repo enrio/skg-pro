@@ -25,17 +25,6 @@ namespace SKG.DAL.Entities
     {
         #region Foreign key
         /// <summary>
-        /// Reference to Pol_Dictionary (ID)
-        /// </summary>
-        [Column(Order = 0), ForeignKey("Dictionary")]
-        public Guid? DictionaryId { set; get; }
-
-        /// <summary>
-        /// Reference to Pol_Dictionary (object)
-        /// </summary>
-        public virtual Pol_Dictionary Dictionary { get; set; }
-
-        /// <summary>
         /// User's list has permission
         /// </summary>
         public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }

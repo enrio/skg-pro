@@ -60,7 +60,7 @@ namespace SKG.DXF.Home.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Lang.Delete(id) != null) PerformRefresh();
+                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -169,7 +169,7 @@ namespace SKG.DXF.Home.Catalog
                     Type = txtType.Text
                 };
 
-                var oki = _bll.Pol_Lang.Update(o);
+                var oki = _bll.Pol_Dictionary.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -191,7 +191,7 @@ namespace SKG.DXF.Home.Catalog
                     Type = txtType.Text
                 };
 
-                var oki = _bll.Pol_Lang.Insert(o);
+                var oki = _bll.Pol_Dictionary.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -201,7 +201,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Lang.Select();
+            _dtb = _bll.Pol_Dictionary.Select();
 
             if (_dtb != null)
             {

@@ -23,6 +23,24 @@ namespace SKG.DAL.Entities
     /// </summary>
     public class Pol_Dictionary : Zinfors
     {
+        #region Foreign key
+        /// <summary>
+        /// Reference to itself (ID)
+        /// </summary>
+        [Column(Order = 0), ForeignKey("Parent")]
+        public Guid? ParentId { get; set; }
+
+        /// <summary>
+        /// Reference to itself (object)
+        /// </summary>
+        public virtual Pol_Dictionary Parent { get; set; }
+
+        /// <summary>
+        /// List of children
+        /// </summary>
+        public virtual ICollection<Pol_Common> Children { get; set; }
+        #endregion
+
         /// <summary>
         /// Type of data
         /// </summary>

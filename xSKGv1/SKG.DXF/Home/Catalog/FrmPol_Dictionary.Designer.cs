@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Home.Catalog
 {
-    partial class FrmPol_Lang
+    partial class FrmPol_Dictionary
     {
         /// <summary>
         /// Required designer variable.

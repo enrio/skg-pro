@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BaseBLL.cs" />
-    <Compile Include="BLL\Pol_LangBLL.cs" />
+    <Compile Include="BLL\Pol_DictionaryBLL.cs" />
     <Compile Include="BLL\Pol_RightBLL.cs" />
     <Compile Include="BLL\Pol_RoleBLL.cs" />
     <Compile Include="BLL\Pol_RoleRightBLL.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="DAL\Entities\Zinfors.cs" />
     <Compile Include="DAL\Extend.cs" />
     <Compile Include="DAL\IBase.cs" />
-    <Compile Include="DAL\Pol_LangDAL.cs" />
+    <Compile Include="DAL\Pol_DictionaryDAL.cs" />
     <Compile Include="DAL\Pol_RightDAL.cs" />
     <Compile Include="DAL\Pol_RoleDAL.cs" />
     <Compile Include="DAL\Pol_RoleRightDAL.cs" />

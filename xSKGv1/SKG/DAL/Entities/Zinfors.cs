@@ -37,16 +37,22 @@ namespace SKG.DAL.Entities
         public string Code { set; get; }
         #endregion
 
-        #region Information
+        #region Default language
         /// <summary>
-        /// Content is shown
+        /// Content is shown of default language
         /// </summary>
         public string Text { set; get; }
 
         /// <summary>
-        /// Descriptive detailing
+        /// Descriptive detailing of default language
         /// </summary>
         public string Note { set; get; }
+
+        /// <summary>
+        /// More information of default language
+        /// </summary>
+        public string More { set; get; }
+        #endregion
 
         /// <summary>
         /// Sort order
@@ -57,7 +63,6 @@ namespace SKG.DAL.Entities
         /// Show data, set false is deleted
         /// </summary>
         public bool Show { set; get; }
-        #endregion
 
         /// <summary>
         /// Default is shown

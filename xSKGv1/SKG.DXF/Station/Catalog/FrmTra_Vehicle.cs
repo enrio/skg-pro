@@ -178,7 +178,7 @@ namespace SKG.DXF.Station.Catalog
                     Birth = dteBirth.DateTime,
                     Address = txtAddress.Text,
                     Phone = txtPhone.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Vehicle.Update(o);
@@ -204,7 +204,7 @@ namespace SKG.DXF.Station.Catalog
                     Birth = dteBirth.DateTime,
                     Address = txtAddress.Text,
                     Phone = txtPhone.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Vehicle.Insert(o);

@@ -39,7 +39,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Number,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -87,7 +87,7 @@ namespace SKG.DAL
                               s.Tra_KindId,
                               KindName = s.Tra_Kind.Name,
                               s.Number,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -141,14 +141,14 @@ namespace SKG.DAL
                 res.Tra_KindId = o.Tra_KindId;
                 res.Number = o.Number;
                 res.Chair = o.Chair;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;
                 res.Address = o.Address;
                 res.Phone = o.Phone;
 
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
 

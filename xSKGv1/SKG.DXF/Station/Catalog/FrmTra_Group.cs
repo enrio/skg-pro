@@ -147,7 +147,7 @@ namespace SKG.DXF.Station.Catalog
                 {
                     Id = id,
                     Name = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Group.Update(o);
@@ -167,7 +167,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Group()
                 {
                     Name = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Tra_Group.Insert(o);

@@ -147,7 +147,7 @@ namespace SKG.DAL
                 //res.DateOut = o.DateOut;
 
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
 
@@ -207,7 +207,7 @@ namespace SKG.DAL
 
                               k.Number,
                               k.Chair,
-                              k.Descript,
+                              Descript = k.Note,
                               k.Driver,
                               k.Birth,
                               k.Address,

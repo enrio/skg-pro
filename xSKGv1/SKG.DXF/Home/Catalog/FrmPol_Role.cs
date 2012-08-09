@@ -149,7 +149,7 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Id = id,
                     Name = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Pol_Role.Update(o);
@@ -169,7 +169,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Role()
                 {
                     Name = txtName.Text,
-                    Descript = txtDescript.Text
+                    Note = txtDescript.Text
                 };
 
                 var oki = _bll.Pol_Role.Insert(o);

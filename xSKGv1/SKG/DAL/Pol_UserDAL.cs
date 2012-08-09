@@ -128,7 +128,7 @@ namespace SKG.DAL
                 res.Address = o.Address;
                 res.Phone = o.Phone;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();
@@ -178,7 +178,7 @@ namespace SKG.DAL
                         {
                             RightCode = r.Code,
                             RightName = r.Caption,
-                            RightDescript = r.Descript,
+                            RightDescript = r.Note,
                             s.Add,
                             s.Edit,
                             s.Delete,
@@ -197,7 +197,7 @@ namespace SKG.DAL
                         {
                             RightCode = r.Code,
                             RightName = r.Caption,
-                            RightDescript = r.Descript,
+                            RightDescript = r.Note,
                             s.Add,
                             s.Edit,
                             s.Delete,

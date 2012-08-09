@@ -81,7 +81,7 @@ namespace SKG.DAL
                               s.Lang1,
                               s.Lang2,
                               s.Lang3,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Order,
                               s.Show
                           };
@@ -130,7 +130,7 @@ namespace SKG.DAL
                 res.Lang2 = o.Lang2;
                 res.Lang3 = o.Lang3;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();
@@ -185,7 +185,7 @@ namespace SKG.DAL
                               s.Lang1,
                               s.Lang2,
                               s.Lang3,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Order,
                               s.Show
                           };

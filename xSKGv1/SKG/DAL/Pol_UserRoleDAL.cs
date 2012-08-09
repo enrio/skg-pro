@@ -85,7 +85,7 @@ namespace SKG.DAL
                             UserId = id,
                             Format = true,
                             s.Name,
-                            s.Descript
+                            Descript = s.Note
                         };
                 var res = a.Union(b);
                 if (obj != null)
@@ -132,7 +132,7 @@ namespace SKG.DAL
                 res.Pol_UserId = o.Pol_UserId;
                 res.Pol_RoleId = o.Pol_RoleId;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();

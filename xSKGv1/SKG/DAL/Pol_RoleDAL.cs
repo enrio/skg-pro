@@ -77,7 +77,7 @@ namespace SKG.DAL
                               s.Id,
                               s.Code,
                               s.Name,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Order,
                               s.Show
                           };
@@ -122,7 +122,7 @@ namespace SKG.DAL
 
                 res.Name = o.Name;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();

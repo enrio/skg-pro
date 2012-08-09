@@ -79,7 +79,7 @@ namespace SKG.DAL
                               s.Caption,
                               s.Level,
                               s.Picture,
-                              s.Descript,
+                              Descript = s.Note,
                               s.Order,
                               s.Show
                           };
@@ -125,7 +125,7 @@ namespace SKG.DAL
                 res.Level = o.Level;
                 res.Picture = o.Picture;
                 res.Code = o.Code;
-                res.Descript = o.Descript;
+                res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();

@@ -48,30 +48,30 @@ namespace SKG.DXF
             if (Pol_Lang.Count() > 0) return;
 
             #region List of language
-            var o = new Pol_Lang() { Type = "LANG", Code = "Lang1", Caption = "ZngIoz", Descript = "Tiếng ZnG", Order = 0 };
+            var o = new Pol_Lang() { Type = "LANG", Code = "Lang1", Caption = "ZngIoz", Note = "Tiếng ZnG", Order = 0 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "LANG", Code = "Lang2", Caption = "Vietnamese", Descript = "Tiếng Việt", Order = 1 };
+            o = new Pol_Lang() { Type = "LANG", Code = "Lang2", Caption = "Vietnamese", Note = "Tiếng Việt", Order = 1 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "LANG", Code = "Lang3", Caption = "English", Descript = "Tiếng Anh", Order = 2 };
+            o = new Pol_Lang() { Type = "LANG", Code = "Lang3", Caption = "English", Note = "Tiếng Anh", Order = 2 };
             Pol_Lang.Insert(o);
             #endregion
 
             #region List of button
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Add", Caption = "Thêm", Descript = "Cho phép thêm dữ liệu", Order = 0 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Add", Caption = "Thêm", Note = "Cho phép thêm dữ liệu", Order = 0 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Edit", Caption = "Sửa", Descript = "Cho phép sửa dữ liệu", Order = 1 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Edit", Caption = "Sửa", Note = "Cho phép sửa dữ liệu", Order = 1 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Delete", Caption = "Xoá", Descript = "Cho phép xoá dữ liệu", Order = 2 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Delete", Caption = "Xoá", Note = "Cho phép xoá dữ liệu", Order = 2 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Default", Caption = "Tự mở", Descript = "Cho phép tự động hiện chức năng (form)", Order = 3 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Default", Caption = "Tự mở", Note = "Cho phép tự động hiện chức năng (form)", Order = 3 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Print", Caption = "In ấn", Descript = "Cho phép in ấn dữ liệu", Order = 4 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Print", Caption = "In ấn", Note = "Cho phép in ấn dữ liệu", Order = 4 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Access", Caption = "Truy cập", Descript = "Cho phép hiện form (chức năng) này", Order = 5 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Access", Caption = "Truy cập", Note = "Cho phép hiện form (chức năng) này", Order = 5 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "Full", Caption = "Tất cả", Descript = "Có tất cả quyền", Order = 6 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "Full", Caption = "Tất cả", Note = "Có tất cả quyền", Order = 6 };
             Pol_Lang.Insert(o);
-            o = new Pol_Lang() { Type = "BUTTON", Code = "None", Caption = "Không có", Descript = "Không có quyền", Order = 7 };
+            o = new Pol_Lang() { Type = "BUTTON", Code = "None", Caption = "Không có", Note = "Không có quyền", Order = 7 };
             Pol_Lang.Insert(o);
             #endregion
         }
@@ -89,7 +89,7 @@ namespace SKG.DXF
 
             foreach (var i in c)
             {
-                var l = new Pol_Lang() { Type = "MENUZ", Code = i.Code, Caption = i.Caption, Descript = "", Order = i.Order, Show = i.Show };
+                var l = new Pol_Lang() { Type = "MENUZ", Code = i.Code, Caption = i.Caption, Note = "", Order = i.Order, Show = i.Show };
                 l = (Pol_Lang)Pol_Lang.Insert(l);
                 var r = new Pol_Right() { Id = l.Id, Level = i.Level, Caption = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
                 Pol_Right.Insert(r);
@@ -103,17 +103,17 @@ namespace SKG.DXF
         {
             if (Pol_Role.Count() > 0) return;
 
-            var o = new Pol_Role() { Code = "CV", Name = "Cổng vào", Descript = "Có vai trò ở cổng vào" };
+            var o = new Pol_Role() { Code = "CV", Name = "Cổng vào", Note = "Có vai trò ở cổng vào" };
             Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "CR", Name = "Cổng ra", Descript = "Có vai trò ở cổng ra" };
+            o = new Pol_Role() { Code = "CR", Name = "Cổng ra", Note = "Có vai trò ở cổng ra" };
             Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "ND", Name = "Người dùng", Descript = "Có vai trò cơ bản nhất" };
+            o = new Pol_Role() { Code = "ND", Name = "Người dùng", Note = "Có vai trò cơ bản nhất" };
             Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "QL", Name = "Quản lí", Descript = "Có vai trò quản lí người dùng, nhóm, loại, xe" };
+            o = new Pol_Role() { Code = "QL", Name = "Quản lí", Note = "Có vai trò quản lí người dùng, nhóm, loại, xe" };
             Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "QT", Name = "Quản trị", Descript = "Có tất cả vai trò" };
+            o = new Pol_Role() { Code = "QT", Name = "Quản trị", Note = "Có tất cả vai trò" };
             Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "TK", Name = "Thống kê", Descript = "Xem và in ấn các báo cáo, thống kê" };
+            o = new Pol_Role() { Code = "TK", Name = "Thống kê", Note = "Xem và in ấn các báo cáo, thống kê" };
             Pol_Role.Insert(o);
         }
 
@@ -143,9 +143,9 @@ namespace SKG.DXF
             o = new Pol_User() { Acc = "edmin", Pass = "edmin", Name = "Em Quản Trị", Birth = new DateTime(1989, 1, 5), Address = "Phương Trời, Xa Lạ", Phone = "+841699 999 686" };
             Pol_User.Insert(o);
 
-            o = new Pol_User() { Acc = "duylong", Pass = "123456", Name = "Nguyễn Duy Long", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Descript = "Giám đốc" };
+            o = new Pol_User() { Acc = "duylong", Pass = "123456", Name = "Nguyễn Duy Long", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Note = "Giám đốc" };
             Pol_User.Insert(o);
-            o = new Pol_User() { Acc = "tranhieu", Pass = "123456", Name = "Trần Hiếu", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Descript = "Phó giám đốc" };
+            o = new Pol_User() { Acc = "tranhieu", Pass = "123456", Name = "Trần Hiếu", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Note = "Phó giám đốc" };
             Pol_User.Insert(o);
         }
 
@@ -387,15 +387,15 @@ namespace SKG.DXF
         {
             if (Tra_Group.Count() > 0) return;
 
-            var o = new Tra_Group() { Code = "A", Name = "Xe tải lưu đậu & vãng lai", Descript = "", Order = 0 };
+            var o = new Tra_Group() { Code = "A", Name = "Xe tải lưu đậu & vãng lai", Note = "", Order = 0 };
             Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "B", Name = "Xe khách lưu đậu ngày", Descript = "Cứ 24 giờ tính 01 ngày", Order = 1 };
+            o = new Tra_Group() { Code = "B", Name = "Xe khách lưu đậu ngày", Note = "Cứ 24 giờ tính 01 ngày", Order = 1 };
             Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "C", Name = "Taxi vãng lai", Descript = "", Order = 2 };
+            o = new Tra_Group() { Code = "C", Name = "Taxi vãng lai", Note = "", Order = 2 };
             Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "D", Name = "Xe ba bánh", Descript = "", Order = 3 };
+            o = new Tra_Group() { Code = "D", Name = "Xe ba bánh", Note = "", Order = 3 };
             Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "E", Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Order = 4 };
+            o = new Tra_Group() { Code = "E", Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Order = 4 };
             Tra_Group.Insert(o);
         }
 
@@ -407,37 +407,37 @@ namespace SKG.DXF
             if (Tra_Kind.Count() > 0) return;
 
             var a = (Tra_Group)Tra_Group.Select("A");
-            var o = new Tra_Kind() { Code = "A", Tra_GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Descript = "", Price1 = 10000, Price2 = 20000, Order = 0 };
+            var o = new Tra_Kind() { Code = "A", Tra_GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Note = "", Price1 = 10000, Price2 = 20000, Order = 0 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "B", Tra_GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Descript = "", Price1 = 15000, Price2 = 25000, Order = 1 };
+            o = new Tra_Kind() { Code = "B", Tra_GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Note = "", Price1 = 15000, Price2 = 25000, Order = 1 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "C", Tra_GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Descript = "", Price1 = 15000, Price2 = 30000, Order = 2 };
+            o = new Tra_Kind() { Code = "C", Tra_GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Note = "", Price1 = 15000, Price2 = 30000, Order = 2 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "D", Tra_GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Descript = "", Price1 = 20000, Price2 = 35000, Order = 3 };
+            o = new Tra_Kind() { Code = "D", Tra_GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Note = "", Price1 = 20000, Price2 = 35000, Order = 3 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "E", Tra_GroupId = a.Id, Name = "Container 20feet", Descript = "", Price1 = 25000, Price2 = 45000, Order = 4 };
+            o = new Tra_Kind() { Code = "E", Tra_GroupId = a.Id, Name = "Container 20feet", Note = "", Price1 = 25000, Price2 = 45000, Order = 4 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "F", Tra_GroupId = a.Id, Name = "Container 40feet", Descript = "", Price1 = 30000, Price2 = 55000, Order = 5 };
+            o = new Tra_Kind() { Code = "F", Tra_GroupId = a.Id, Name = "Container 40feet", Note = "", Price1 = 30000, Price2 = 55000, Order = 5 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("B");
-            o = new Tra_Kind() { Code = "G", Tra_GroupId = a.Id, Name = "Số ghế < 16", Descript = "", Price1 = 20000, Price2 = 20000, Order = 6 };
+            o = new Tra_Kind() { Code = "G", Tra_GroupId = a.Id, Name = "Số ghế < 16", Note = "", Price1 = 20000, Price2 = 20000, Order = 6 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "H", Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Descript = "", Price1 = 25000, Price2 = 25000, Order = 7 };
+            o = new Tra_Kind() { Code = "H", Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Note = "", Price1 = 25000, Price2 = 25000, Order = 7 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "I", Tra_GroupId = a.Id, Name = "Số ghế > 40", Descript = "", Price1 = 30000, Price2 = 30000, Order = 8 };
+            o = new Tra_Kind() { Code = "I", Tra_GroupId = a.Id, Name = "Số ghế > 40", Note = "", Price1 = 30000, Price2 = 30000, Order = 8 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("C");
-            o = new Tra_Kind() { Code = "J", Tra_GroupId = a.Id, Name = "Taxi vãng lai", Descript = "", Price1 = 8000, Price2 = 8000, Order = 9 };
+            o = new Tra_Kind() { Code = "J", Tra_GroupId = a.Id, Name = "Taxi vãng lai", Note = "", Price1 = 8000, Price2 = 8000, Order = 9 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("D");
-            o = new Tra_Kind() { Code = "K", Tra_GroupId = a.Id, Name = "Xe ba bánh", Descript = "", Price1 = 5000, Price2 = 5000, Order = 10 };
+            o = new Tra_Kind() { Code = "K", Tra_GroupId = a.Id, Name = "Xe ba bánh", Note = "", Price1 = 5000, Price2 = 5000, Order = 10 };
             Tra_Kind.Insert(o);
 
             a = (Tra_Group)Tra_Group.Select("E");
-            o = new Tra_Kind() { Code = "L", Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Descript = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2030, Order = 11 };
+            o = new Tra_Kind() { Code = "L", Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2030, Order = 11 };
             Tra_Kind.Insert(o);
         }
 
@@ -449,59 +449,59 @@ namespace SKG.DXF
             if (Tra_Vehicle.Count() > 0) return;
 
             var a = (Tra_Kind)Tra_Kind.Select("A");
-            var o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.09", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn A", Birth = new DateTime(1980, 1, 1), Address = "Sóc Sơ Bay", Phone = "1800 1090" };
+            var o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.09", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn A", Birth = new DateTime(1980, 1, 1), Address = "Sóc Sơ Bay", Phone = "1800 1090" };
             Tra_Vehicle.Insert(o);
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "65F-888.09", Descript = "Xe đen thui", Driver = "Nguyễn Văn Su", Birth = new DateTime(1982, 3, 1), Address = "Tây Sơn, Bình Định", Phone = "1800 6969" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "65F-888.09", Note = "Xe đen thui", Driver = "Nguyễn Văn Su", Birth = new DateTime(1982, 3, 1), Address = "Tây Sơn, Bình Định", Phone = "1800 6969" };
             Tra_Vehicle.Insert(o);
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "75F-888.09", Descript = "Xe đen thui", Driver = "Cao Văn Su", Birth = new DateTime(1988, 3, 1), Address = "Sóc Sơ Bay, Sóc Trăng", Phone = "7718 6969" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "75F-888.09", Note = "Xe đen thui", Driver = "Cao Văn Su", Birth = new DateTime(1988, 3, 1), Address = "Sóc Sơ Bay, Sóc Trăng", Phone = "7718 6969" };
             Tra_Vehicle.Insert(o);
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "95F-888.09", Descript = "Xe đen thui", Driver = "Trần Như Nhộng", Birth = new DateTime(1980, 3, 1), Address = "Phong Gió, Quảng Bình", Phone = "1899 6969" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "95F-888.09", Note = "Xe đen thui", Driver = "Trần Như Nhộng", Birth = new DateTime(1980, 3, 1), Address = "Phong Gió, Quảng Bình", Phone = "1899 6969" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("B");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn B", Birth = new DateTime(1980, 1, 1), Address = "Lấp Dò, Đồng Tháp", Phone = "1800 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn B", Birth = new DateTime(1980, 1, 1), Address = "Lấp Dò, Đồng Tháp", Phone = "1800 1091" };
             Tra_Vehicle.Insert(o);
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 2), Address = "Cao Lãnh, Đồng Tháp", Phone = "1801 1791" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 2), Address = "Cao Lãnh, Đồng Tháp", Phone = "1801 1791" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("C");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66C-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 3), Address = "Tháp Mười, Đồng Tháp", Phone = "1802 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66C-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 3), Address = "Tháp Mười, Đồng Tháp", Phone = "1802 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("D");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66D-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn D", Birth = new DateTime(1980, 1, 4), Address = "Thanh Bình, Đồng Tháp", Phone = "1803 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66D-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn D", Birth = new DateTime(1980, 1, 4), Address = "Thanh Bình, Đồng Tháp", Phone = "1803 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("E");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn E", Birth = new DateTime(1980, 1, 5), Address = "Chợ Lách, Bến Tre", Phone = "1804 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn E", Birth = new DateTime(1980, 1, 5), Address = "Chợ Lách, Bến Tre", Phone = "1804 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("F");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn F", Birth = new DateTime(1980, 1, 6), Address = "Giồng Trôm, Bến Tre", Phone = "1805 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn F", Birth = new DateTime(1980, 1, 6), Address = "Giồng Trôm, Bến Tre", Phone = "1805 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("G");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66G-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn G", Birth = new DateTime(1980, 1, 7), Address = "Trà Cú, Trà Vinh", Phone = "1806 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66G-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn G", Birth = new DateTime(1980, 1, 7), Address = "Trà Cú, Trà Vinh", Phone = "1806 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("H");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66H-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn H", Birth = new DateTime(1980, 1, 8), Address = "Mỹ Tho, Tiền Giang", Phone = "1807 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66H-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn H", Birth = new DateTime(1980, 1, 8), Address = "Mỹ Tho, Tiền Giang", Phone = "1807 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("I");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66I-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn I", Birth = new DateTime(1980, 1, 9), Address = "Đông Chu, Liệt Quốc", Phone = "1808 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66I-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn I", Birth = new DateTime(1980, 1, 9), Address = "Đông Chu, Liệt Quốc", Phone = "1808 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("J");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66J-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn J", Birth = new DateTime(1980, 1, 10), Address = "Vĩnh Châu, Sóc Trăng", Phone = "1809 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66J-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn J", Birth = new DateTime(1980, 1, 10), Address = "Vĩnh Châu, Sóc Trăng", Phone = "1809 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("K");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66K-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn K", Birth = new DateTime(1980, 1, 11), Address = "Cà Xa, Cà Mau", Phone = "1810 1091" };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66K-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn K", Birth = new DateTime(1980, 1, 11), Address = "Cà Xa, Cà Mau", Phone = "1810 1091" };
             Tra_Vehicle.Insert(o);
 
             a = (Tra_Kind)Tra_Kind.Select("L");
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Descript = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091", Chair = 50 };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091", Chair = 50 };
             Tra_Vehicle.Insert(o);
         }
 

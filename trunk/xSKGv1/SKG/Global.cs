@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:48
- * Update: 23/07/2012 22:19
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
@@ -18,8 +18,18 @@ namespace SKG
 {
     using System.Windows.Forms;
 
+    /// <summary>
+    /// Global objects
+    /// </summary>
     public class Global
     {
+        #region Type of dictionary constants
+        public const string STR_MENUZ = "MENUZ";
+        public const string STR_BUTTON = "BUTTON";
+        public const string STR_LANG = "LANG";
+        public const string STR_ROLE = "ROLE";
+        #endregion
+
         #region Global properties
         /// <summary>
         /// Session of current an user logon

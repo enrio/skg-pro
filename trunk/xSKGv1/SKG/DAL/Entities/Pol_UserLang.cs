@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2013 21:05
- * Update: 24/07/2013 21:05
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
@@ -19,24 +19,24 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Policy - User's language choice
+    /// Policy - Select language for user logon
     /// </summary>
     public class Pol_UserLang : Zinfors
     {
-        #region Foreign key
+        #region Primary and foreign key
         /// <summary>
-        /// Refercence to Pol_User
+        /// Reference to Pol_User
         /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_User")]
-        public Guid? Pol_UserId { set; get; }
-        public virtual Pol_User Pol_User { get; set; }
+        [Column(Order = 1), Key, ForeignKey("User")]
+        public Guid? UserId { set; get; }
+        public virtual Pol_User User { get; set; }
 
         /// <summary>
-        /// Refercence to Pol_Lang
+        /// Reference to Sys_Dictionary
         /// </summary>
-        [Column(Order = 1), ForeignKey("Pol_Lang")]
-        public Guid? Pol_LangId { set; get; }
-        public virtual Pol_Lang Pol_Lang { get; set; }
+        [Column(Order = 2), Key, ForeignKey("Dictionary")]
+        public Guid? DictionaryId { set; get; }
+        public virtual Pol_Lang Dictionary { get; set; }
         #endregion
     }
 }

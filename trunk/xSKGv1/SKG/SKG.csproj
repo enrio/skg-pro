@@ -68,10 +68,8 @@
     <Compile Include="BLL\Tra_VehicleBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
-    <Compile Include="DAL\Entities\IAudit.cs" />
     <Compile Include="DAL\Entities\Pol_Chat.cs" />
     <Compile Include="DAL\Entities\Pol_Lang.cs" />
-    <Compile Include="DAL\Entities\Pol_Common.cs" />
     <Compile Include="DAL\Entities\Pol_Right.cs" />
     <Compile Include="DAL\Entities\Pol_Role.cs" />
     <Compile Include="DAL\Entities\Pol_RoleRight.cs" />
@@ -79,9 +77,6 @@
     <Compile Include="DAL\Entities\Pol_UserLang.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
-    <Compile Include="DAL\Entities\Pol_Dictionary.cs" />
-    <Compile Include="DAL\Entities\Pol_Menuz.cs" />
-    <Compile Include="DAL\Entities\Pol_Selection.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
     <Compile Include="DAL\Entities\Tra_Group.cs" />
     <Compile Include="DAL\Entities\Tra_Kind.cs" />

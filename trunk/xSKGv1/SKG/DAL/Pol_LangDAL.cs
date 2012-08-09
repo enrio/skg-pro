@@ -76,11 +76,11 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
-                              s.Caption,
+                              s.Text,
                               s.Type,
-                              s.Lang1,
-                              s.Lang2,
-                              s.Lang3,
+                              s.Text1,
+                              s.Text2,
+                              s.Text3,
                               Descript = s.Note,
                               s.Order,
                               s.Show
@@ -124,11 +124,11 @@ namespace SKG.DAL
                 var o = (Pol_Lang)obj;
                 var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Caption = o.Caption;
+                res.Text = o.Text;
                 res.Type = o.Type;
-                res.Lang1 = o.Lang1;
-                res.Lang2 = o.Lang2;
-                res.Lang3 = o.Lang3;
+                res.Text1 = o.Text1;
+                res.Text2 = o.Text2;
+                res.Text3 = o.Text3;
                 res.Code = o.Code;
                 res.Note = o.Note;
                 res.Order = o.Order;
@@ -180,11 +180,11 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
-                              s.Caption,
+                              s.Text,
                               s.Type,
-                              s.Lang1,
-                              s.Lang2,
-                              s.Lang3,
+                              s.Text1,
+                              s.Text2,
+                              s.Text3,
                               Descript = s.Note,
                               s.Order,
                               s.Show

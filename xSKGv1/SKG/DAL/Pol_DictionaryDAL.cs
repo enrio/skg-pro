@@ -32,7 +32,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public int Count()
         {
-            return _db.Pol_Langs.Count();
+            return _db.Pol_Dictionarys.Count();
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Select object of entity by secondary primary key (when need to)
+        /// Select object of entity by primary key handmade
         /// </summary>
         /// <param name="code">Primary key (when need to)</param>
         /// <returns></returns>
@@ -54,7 +54,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Pol_Langs.SingleOrDefault(s => s.Code == code);
+                return _db.Pol_Dictionarys.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -70,7 +70,7 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Pol_Langs
+                var res = from s in _db.Pol_Dictionarys
                           orderby s.Order
                           select new
                           {
@@ -104,7 +104,7 @@ namespace SKG.DAL
                 var o = (Pol_Dictionary)obj;
                 if (Select(o.Code) != null) return null; // already exists
                 o.Id = Guid.NewGuid();
-                var oki = _db.Pol_Langs.Add(o);
+                var oki = _db.Pol_Dictionarys.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -122,7 +122,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Pol_Dictionary)obj;
-                var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == o.Id);
+                var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Text = o.Text;
                 res.Type = o.Type;
@@ -149,13 +149,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == id);
-                    _db.Pol_Langs.Remove(res);
+                    var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == id);
+                    _db.Pol_Dictionarys.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Pol_Langs.ToList();
-                    tmp.ForEach(s => _db.Pol_Langs.Remove(s));
+                    var tmp = _db.Pol_Dictionarys.ToList();
+                    tmp.ForEach(s => _db.Pol_Dictionarys.Remove(s));
                 }
                 return _db.SaveChanges();
             }
@@ -173,7 +173,7 @@ namespace SKG.DAL
             try
             {
                 var a = type + "";
-                var res = from s in _db.Pol_Langs
+                var res = from s in _db.Pol_Dictionarys
                           where s.Type == a
                           orderby s.Order
                           select new

@@ -50,6 +50,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
+                              s.ParentId,
                               s.Code,
                               s.Type,
                               s.Text,
@@ -102,6 +103,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
+                              s.ParentId,
                               s.Code,
                               s.Type,
                               s.Text,
@@ -156,6 +158,7 @@ namespace SKG.DAL
             {
                 var o = (Pol_Dictionary)obj;
                 var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == o.Id);
+                res.ParentId = o.ParentId;
                 res.Code = o.Code;
                 res.Type = o.Type;
                 res.Text = o.Text;
@@ -218,6 +221,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
+                              s.ParentId,
                               s.Code,
                               s.Type,
                               s.Text,

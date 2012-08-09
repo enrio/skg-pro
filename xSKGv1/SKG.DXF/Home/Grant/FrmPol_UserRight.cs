@@ -284,7 +284,7 @@ namespace SKG.DXF.Home.Grant
         {
             try
             {
-                var tbl = _bll.Pol_Lang.Select((object)"BUTTON");
+                var tbl = _bll.Pol_Dictionary.Select((object)"BUTTON");
                 foreach (DataRow drAction in tbl.Rows)
                 {
                     var tlc = new TreeListColumn();

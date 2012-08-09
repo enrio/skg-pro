@@ -45,34 +45,34 @@ namespace SKG.DXF
         /// </summary>
         void CreatePol_Lang()
         {
-            if (Pol_Lang.Count() > 0) return;
+            if (Pol_Dictionary.Count() > 0) return;
 
             #region List of language
             var o = new Pol_Dictionary() { Type = "LANG", Code = "Lang1", Text = "ZngIoz", Note = "Tiếng ZnG", Order = 0 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "LANG", Code = "Lang2", Text = "Vietnamese", Note = "Tiếng Việt", Order = 1 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "LANG", Code = "Lang3", Text = "English", Note = "Tiếng Anh", Order = 2 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             #endregion
 
             #region List of button
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Add", Text = "Thêm", Note = "Cho phép thêm dữ liệu", Order = 0 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Edit", Text = "Sửa", Note = "Cho phép sửa dữ liệu", Order = 1 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Delete", Text = "Xoá", Note = "Cho phép xoá dữ liệu", Order = 2 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Default", Text = "Tự mở", Note = "Cho phép tự động hiện chức năng (form)", Order = 3 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Print", Text = "In ấn", Note = "Cho phép in ấn dữ liệu", Order = 4 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Access", Text = "Truy cập", Note = "Cho phép hiện form (chức năng) này", Order = 5 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "Full", Text = "Tất cả", Note = "Có tất cả quyền", Order = 6 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = "BUTTON", Code = "None", Text = "Không có", Note = "Không có quyền", Order = 7 };
-            Pol_Lang.Insert(o);
+            Pol_Dictionary.Insert(o);
             #endregion
         }
 
@@ -90,7 +90,7 @@ namespace SKG.DXF
             foreach (var i in c)
             {
                 var l = new Pol_Dictionary() { Type = "MENUZ", Code = i.Code, Text = i.Caption, Note = "", Order = i.Order, Show = i.Show };
-                l = (Pol_Dictionary)Pol_Lang.Insert(l);
+                l = (Pol_Dictionary)Pol_Dictionary.Insert(l);
                 var r = new Pol_Right() { Id = l.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
                 Pol_Right.Insert(r);
             }
@@ -587,7 +587,7 @@ namespace SKG.DXF
             Pol_UserRight.Delete();
             Pol_Role.Delete();
             Pol_Right.Delete();
-            Pol_Lang.Delete();
+            Pol_Dictionary.Delete();
         }
 
         /// <summary>

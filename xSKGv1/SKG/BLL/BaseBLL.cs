@@ -23,9 +23,9 @@ namespace SKG.BLL
     {
         #region Properties access database
         /// <summary>
-        /// Policy - Pol_Lang accessing
+        /// Policy - Pol_Dictionary accessing
         /// </summary>
-        public Pol_DictionaryBLL Pol_Lang { set; get; }
+        public Pol_DictionaryBLL Pol_Dictionary { set; get; }
 
         /// <summary>
         /// Policy - Pol_Right accessing
@@ -83,7 +83,7 @@ namespace SKG.BLL
         /// </summary>
         public BaseBLL()
         {
-            Pol_Lang = new Pol_DictionaryBLL();
+            Pol_Dictionary = new Pol_DictionaryBLL();
             Pol_Right = new Pol_RightBLL();
             Pol_Role = new Pol_RoleBLL();
             Pol_User = new Pol_UserBLL();

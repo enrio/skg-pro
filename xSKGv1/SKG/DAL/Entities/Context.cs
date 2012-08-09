@@ -25,16 +25,6 @@ namespace SKG.DAL.Entities
     public class Context : DbContext
     {
         /// <summary>
-        /// Dictionary for all data
-        /// </summary>
-        public DbSet<Pol_Dictionary> Sys_Dictionarys { get; set; }
-
-        /// <summary>
-        /// Select language for user logon
-        /// </summary>
-        public DbSet<Pol_Selection> Sys_Selections { get; set; }
-
-        /// <summary>
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
         public DbSet<Pol_Lang> Pol_Langs { get; set; }
@@ -78,8 +68,6 @@ namespace SKG.DAL.Entities
         /// Policy - User's language choice
         /// </summary>
         public DbSet<Pol_UserLang> Pol_UserLangs { get; set; }
-
-        public DbSet<Pol_Common> Pol_Publics { get; set; }
 
         /// <summary>
         /// Using string connection from App.Config file

@@ -76,7 +76,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
-                              s.Caption,
+                              s.Text,
                               s.Level,
                               s.Picture,
                               Descript = s.Note,
@@ -121,7 +121,7 @@ namespace SKG.DAL
                 var o = (Pol_Right)obj;
                 var res = _db.Pol_Rights.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Caption = o.Caption;
+                res.Text = o.Text;
                 res.Level = o.Level;
                 res.Picture = o.Picture;
                 res.Code = o.Code;

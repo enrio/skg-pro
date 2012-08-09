@@ -206,7 +206,7 @@ namespace SKG.DXF
 
                 if (o == null)
                 {
-                    o = new Pol_Right() { Code = code, Caption = form.Text, Note = "" };
+                    o = new Pol_Right() { Code = code, Text = form.Text, Note = "" };
                     bll.Insert(o);
                 }
 

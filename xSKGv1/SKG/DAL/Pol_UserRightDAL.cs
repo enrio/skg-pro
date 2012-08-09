@@ -81,7 +81,7 @@ namespace SKG.DAL
                             s.Access,
                             s.Full,
                             s.None,
-                            Name = s.Pol_Right.Caption,
+                            Name = s.Pol_Right.Text,
                             Descript = s.Pol_Right.Note,
                         };
                 Guid? id = new Guid();

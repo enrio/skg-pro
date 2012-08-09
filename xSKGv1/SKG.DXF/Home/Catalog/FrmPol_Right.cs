@@ -162,7 +162,7 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Id = id,
                     Code = txtCode.Text,
-                    Caption = txtName.Text,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
@@ -183,7 +183,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Right()
                 {
                     Code = txtCode.Text,
-                    Caption = txtName.Text,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 

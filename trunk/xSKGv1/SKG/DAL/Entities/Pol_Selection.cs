@@ -25,17 +25,25 @@ namespace SKG.DAL.Entities
     {
         #region Primary and foreign key
         /// <summary>
-        /// Reference to Pol_User
+        /// Reference to Pol_User (ID)
         /// </summary>
         [Column(Order = 1), Key, ForeignKey("User")]
         public Guid? UserId { set; get; }
+
+        /// <summary>
+        /// Reference to Pol_User (object)
+        /// </summary>
         public virtual Pol_User User { get; set; }
 
         /// <summary>
-        /// Reference to Sys_Dictionary
+        /// Reference to Pol_Dictionary (ID)
         /// </summary>
         [Column(Order = 2), Key, ForeignKey("Dictionary")]
         public Guid? DictionaryId { set; get; }
+
+        /// <summary>
+        /// Reference to Pol_Dictionary (object)
+        /// </summary>
         public virtual Pol_Dictionary Dictionary { get; set; }
         #endregion
     }

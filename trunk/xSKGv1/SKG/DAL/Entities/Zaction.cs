@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2012 21:33
- * Update: 24/07/2012 21:49
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
@@ -17,7 +17,7 @@ using System.Linq;
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// All of actions: Add, Edit, Delete, Print, ... on menuz or form
+    /// All of actions: Add, Edit, Delete, Print, ... on menu or form
     /// </summary>
     public class Zaction : Zinfors
     {

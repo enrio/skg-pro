@@ -288,7 +288,7 @@ namespace SKG.DXF.Home.Grant
                 foreach (DataRow drAction in tbl.Rows)
                 {
                     var tlc = new TreeListColumn();
-                    tlc.Caption = "" + drAction["Caption"];
+                    tlc.Caption = "" + drAction["Text"];
                     tlc.FieldName = "" + drAction["Code"];
 
                     tlc.VisibleIndex = trlMain.Columns.Count + 1;

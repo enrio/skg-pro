@@ -27,12 +27,12 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Dictionary for all data
         /// </summary>
-        public DbSet<Sys_Dictionary> Sys_Dictionarys { get; set; }
+        public DbSet<Pol_Dictionary> Sys_Dictionarys { get; set; }
 
         /// <summary>
         /// Select language for user logon
         /// </summary>
-        public DbSet<Sys_Selection> Sys_Selections { get; set; }
+        public DbSet<Pol_Selection> Sys_Selections { get; set; }
 
         /// <summary>
         /// Policy - Language for system (include all form, menuz and more)

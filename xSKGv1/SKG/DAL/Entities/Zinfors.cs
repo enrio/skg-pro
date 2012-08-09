@@ -19,11 +19,11 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Information base
+    /// Base - Information
     /// </summary>
     public class Zinfors
     {
-        #region Key
+        #region Primary key
         /// <summary>
         /// Primary key auto generated
         /// </summary>
@@ -37,7 +37,7 @@ namespace SKG.DAL.Entities
         public string Code { set; get; }
         #endregion
 
-        #region Base
+        #region Information
         /// <summary>
         /// Content is shown
         /// </summary>

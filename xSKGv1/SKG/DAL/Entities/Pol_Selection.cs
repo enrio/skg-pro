@@ -19,24 +19,24 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// System - Select language for user logon
+    /// Policy - Select language for user logon
     /// </summary>
-    public class Sys_Selection
+    public class Pol_Selection : Zinfors
     {
         #region Primary and foreign key
         /// <summary>
         /// Reference to Pol_User
         /// </summary>
-        [Column(Order = 0), Key, ForeignKey("User")]
+        [Column(Order = 1), Key, ForeignKey("User")]
         public Guid? UserId { set; get; }
         public virtual Pol_User User { get; set; }
 
         /// <summary>
         /// Reference to Sys_Dictionary
         /// </summary>
-        [Column(Order = 1), Key, ForeignKey("Dictionary")]
+        [Column(Order = 2), Key, ForeignKey("Dictionary")]
         public Guid? DictionaryId { set; get; }
-        public virtual Sys_Dictionary Dictionary { get; set; }
+        public virtual Pol_Dictionary Dictionary { get; set; }
         #endregion
     }
 }

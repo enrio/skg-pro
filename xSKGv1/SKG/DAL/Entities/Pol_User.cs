@@ -16,8 +16,6 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Policy - User's information
     /// </summary>

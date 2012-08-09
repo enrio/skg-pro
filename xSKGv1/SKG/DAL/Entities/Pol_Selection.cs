@@ -27,7 +27,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Reference to Pol_User (ID)
         /// </summary>
-        [Column(Order = 1), Key, ForeignKey("User")]
+        [Column(Order = 1), ForeignKey("User")]
         public Guid? UserId { set; get; }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Reference to Pol_Dictionary (ID)
         /// </summary>
-        [Column(Order = 2), Key, ForeignKey("Dictionary")]
+        [Column(Order = 2), ForeignKey("Dictionary")]
         public Guid? DictionaryId { set; get; }
 
         /// <summary>

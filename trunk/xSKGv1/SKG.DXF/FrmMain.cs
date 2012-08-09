@@ -68,6 +68,11 @@ namespace SKG.DXF
             }
             //else bbiSetting.Visibility = BarItemVisibility.Never;
 
+            var a = Sample._bll.Pol_Dictionary.SelectButtons();
+            var b = Sample._bll.Pol_Dictionary.SelectLangs();
+            var c = Sample._bll.Pol_Dictionary.SelectMenuzs();
+            var d = Sample._bll.Pol_Dictionary.SelectRoles();
+
             Extend.Login();
         }
 

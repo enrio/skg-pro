@@ -19,7 +19,7 @@ namespace SKG.BLL
     /// <summary>
     /// Policy - Pol_Lang accessing
     /// </summary>
-    public sealed class Pol_LangBLL : DAL.Pol_LangDAL
+    public sealed class Pol_DictionaryBLL : DAL.Pol_DictionaryDAL
     {
     }
 }

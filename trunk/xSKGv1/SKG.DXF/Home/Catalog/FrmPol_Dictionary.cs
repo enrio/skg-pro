@@ -13,7 +13,7 @@ namespace SKG.DXF.Home.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_Lang : SKG.DXF.FrmInput
+    public partial class FrmPol_Dictionary : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -28,7 +28,7 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        public FrmPol_Lang()
+        public FrmPol_Dictionary()
         {
             InitializeComponent();
 

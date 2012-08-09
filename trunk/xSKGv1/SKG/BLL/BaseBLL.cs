@@ -25,7 +25,7 @@ namespace SKG.BLL
         /// <summary>
         /// Policy - Pol_Lang accessing
         /// </summary>
-        public Pol_LangBLL Pol_Lang { set; get; }
+        public Pol_DictionaryBLL Pol_Lang { set; get; }
 
         /// <summary>
         /// Policy - Pol_Right accessing
@@ -83,7 +83,7 @@ namespace SKG.BLL
         /// </summary>
         public BaseBLL()
         {
-            Pol_Lang = new Pol_LangBLL();
+            Pol_Lang = new Pol_DictionaryBLL();
             Pol_Right = new Pol_RightBLL();
             Pol_Role = new Pol_RoleBLL();
             Pol_User = new Pol_UserBLL();

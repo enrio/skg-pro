@@ -23,7 +23,7 @@ namespace SKG.DAL
     /// <summary>
     /// Policy - Pol_Lang processing
     /// </summary>
-    public abstract class Pol_LangDAL : BaseDAL, IBase
+    public abstract class Pol_DictionaryDAL : BaseDAL, IBase
     {
         #region Implement
         /// <summary>

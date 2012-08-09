@@ -65,7 +65,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// List of user's language choice
         /// </summary>
-        public virtual ICollection<Pol_UserLang> Pol_UserLangs { get; set; }
+        public virtual ICollection<Pol_Selection> Pol_UserLangs { get; set; }
         #endregion
     }
 }

@@ -101,7 +101,7 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Lang)obj;
+                var o = (Pol_Dictionary)obj;
                 if (Select(o.Code) != null) return null; // already exists
                 o.Id = Guid.NewGuid();
                 var oki = _db.Pol_Langs.Add(o);
@@ -121,7 +121,7 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Pol_Lang)obj;
+                var o = (Pol_Dictionary)obj;
                 var res = _db.Pol_Langs.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Text = o.Text;

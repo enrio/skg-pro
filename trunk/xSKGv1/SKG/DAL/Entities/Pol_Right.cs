@@ -29,7 +29,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Key, Column(Order = 0), ForeignKey("Pol_Lang")]
         public new Guid Id { set; get; }
-        public virtual Pol_Lang Pol_Lang { get; set; }
+        public virtual Pol_Dictionary Pol_Lang { get; set; }
         #endregion
 
         /// <summary>

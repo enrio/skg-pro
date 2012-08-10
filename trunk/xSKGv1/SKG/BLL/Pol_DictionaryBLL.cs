@@ -24,13 +24,14 @@ namespace SKG.BLL
     /// </summary>
     public sealed class Pol_DictionaryBLL : DAL.Pol_DictionaryDAL
     {
+        #region Select
         /// <summary>
-        /// Select all menuzs
+        /// Select all languages
         /// </summary>
         /// <returns></returns>
-        public DataTable SelectMenuzs()
+        public DataTable SelectLangs()
         {
-            return Select((object)Global.STR_MENUZ);
+            return Select((object)Global.STR_LANG);
         }
 
         /// <summary>
@@ -43,15 +44,6 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Select all languages
-        /// </summary>
-        /// <returns></returns>
-        public DataTable SelectLangs()
-        {
-            return Select((object)Global.STR_LANG);
-        }
-
-        /// <summary>
         /// Select all roles
         /// </summary>
         /// <returns></returns>
@@ -61,7 +53,62 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Add menuz data
+        /// Select all rights
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectRights()
+        {
+            return Select((object)Global.STR_RIGHT);
+        }
+        #endregion
+
+        #region Insert
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertLang(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_LANG;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertButton(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_BUTTON;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertRole(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_ROLE;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertRight(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_RIGHT;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Add menuz (right) data
         /// </summary>
         /// <param name="code">Primary key handmade</param>
         /// <param name="text">Content is shown</param>
@@ -69,8 +116,12 @@ namespace SKG.BLL
         /// <returns></returns>
         public object Insert(string code, string text, string note)
         {
-            var o = new Pol_Dictionary() { Type = Global.STR_MENUZ, Code = code, Text = text, Note = note };
-            return Insert(o);
+            var o = new Pol_Dictionary() { Code = code, Text = text, Note = note };
+            return InsertRight(o);
         }
+        #endregion
+
+        #region Update
+        #endregion
     }
 }

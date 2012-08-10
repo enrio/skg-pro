@@ -170,15 +170,7 @@ namespace SKG.DXF
         {
             if (Pol_UserRight.Count() > 0) return;
 
-            var a = (Pol_User)Pol_User.Select("xyz");
-            //var b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Right).FullName);
-            //var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
-            //Pol_UserRight.Insert(o);
-
-            a = (Pol_User)Pol_User.Select("edmin");
-            //b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Right).FullName);
-            //o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
-            //Pol_UserRight.Insert(o);
+            var a = (Pol_User)Pol_User.Select("edmin");                                  
             var b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Role).FullName);
             var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);

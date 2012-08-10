@@ -48,6 +48,21 @@ namespace SKG
         /// Code of group vehicle
         /// </summary>
         public const string STR_GROUP = "GROUP";
+
+        /// <summary>
+        /// Code of group area
+        /// </summary>
+        public const string STR_AREA = "AREA";
+
+        /// <summary>
+        /// Code of group region
+        /// </summary>
+        public const string STR_REGION = "REGION";
+
+        /// <summary>
+        /// Code of group busline
+        /// </summary>
+        public const string STR_LINE = "LINE";
         #endregion
 
         #region Global properties

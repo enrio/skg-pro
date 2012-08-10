@@ -69,9 +69,4 @@ namespace SKG
     /// License of software
     /// </summary>
     public enum LicState { Unlimited, Trial, None }
-
-    /// <summary>
-    /// Enum of dictionary
-    /// </summary>
-    public enum Ztype { Lang, Button, Role, Right, Group }
 }

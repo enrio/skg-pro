@@ -24,10 +24,29 @@ namespace SKG
     public class Global
     {
         #region Dictionary constants
+        /// <summary>
+        /// Code of group language
+        /// </summary>
         public const string STR_LANG = "LANG";
+
+        /// <summary>
+        /// Code of group button
+        /// </summary>
         public const string STR_BUTTON = "BUTTON";
+
+        /// <summary>
+        /// Code of group role
+        /// </summary>
         public const string STR_ROLE = "ROLE";
+
+        /// <summary>
+        /// Code of group right (menuz)
+        /// </summary>
         public const string STR_RIGHT = "RIGHT";
+
+        /// <summary>
+        /// Code of group vehicle
+        /// </summary>
         public const string STR_GROUP = "GROUP";
         #endregion
 

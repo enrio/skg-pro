@@ -28,6 +28,7 @@ namespace SKG
         public const string STR_BUTTON = "BUTTON";
         public const string STR_ROLE = "ROLE";
         public const string STR_RIGHT = "RIGHT";
+        public const string STR_GROUP = "GROUP";
         #endregion
 
         #region Global properties

@@ -63,11 +63,11 @@ namespace SKG.DXF
             Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Delete", Text = "Xoá", Note = "Cho phép xoá dữ liệu", Order = 2 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Default", Text = "Tự mở", Note = "Cho phép tự động hiện chức năng (form)", Order = 3 };
+            o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Default", Text = "Tự mở", Note = "Cho phép tự động hiện form", Order = 3 };
             Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Print", Text = "In ấn", Note = "Cho phép in ấn dữ liệu", Order = 4 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Access", Text = "Truy cập", Note = "Cho phép hiện form (chức năng) này", Order = 5 };
+            o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Access", Text = "Truy cập", Note = "Cho truy cập menu, form (menuz)", Order = 5 };
             Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = Global.STR_BUTTON, Code = "Full", Text = "Tất cả", Note = "Có tất cả quyền", Order = 6 };
             Pol_Dictionary.Insert(o);
@@ -77,10 +77,13 @@ namespace SKG.DXF
 
             CreateRoles();
             CreateRights();
-            
-            CreateGroup();
-            CreateArea();
+
+            #region List of transport
             CreateRegion();
+            CreateArea();
+            CreateProvince();
+            CreateGroup();
+            #endregion
         }
 
         /// <summary>
@@ -135,6 +138,64 @@ namespace SKG.DXF
             }
         }
 
+        #region List of transport
+        /// <summary>
+        /// Create list region of Vietnam
+        /// </summary>
+        void CreateRegion()
+        {
+            var o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_0", Text = "Miền Bắc", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_1", Text = "Miền Trung", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_2", Text = "Miền Nam", Order = 2 };
+            Pol_Dictionary.Insert(o);
+        }
+
+        /// <summary>
+        /// Create list area of Vietnam
+        /// </summary>
+        void CreateArea()
+        {
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_0");
+            var o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_0", Text = "ĐB. Sông Hồng", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_1", Text = "Đông Bắc Bộ", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_2", Text = "Tây Bắc Bộ", Order = 2 };
+            Pol_Dictionary.Insert(o);
+
+            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_1");
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_3", Text = "Bắc Trung Bộ", Order = 3 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_4", Text = "Nam Trung Bộ", Order = 4 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_5", Text = "Tây Nguyên", Order = 5 };
+            Pol_Dictionary.Insert(o);
+
+            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_2");
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_6", Text = "Đông Nam Bộ", Order = 6 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_7", Text = "ĐB. Sông Cửu Long", Order = 7 };
+            Pol_Dictionary.Insert(o);
+        }
+
+        /// <summary>
+        /// Create list province of Vietnam
+        /// </summary>
+        void CreateProvince()
+        {
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_0");
+            var o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_0", Text = "Hà Nội (cũ)", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_1", Text = "Hà Nam", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_2", Text = "Hà Nội (mở rộng)", Order = 2 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_3", Text = "", Order = 3 };
+            Pol_Dictionary.Insert(o);
+        }
+
         /// <summary>
         /// Create list group of vehicle
         /// </summary>
@@ -151,65 +212,7 @@ namespace SKG.DXF
             o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "E", Text = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Order = 4 };
             Pol_Dictionary.Insert(o);
         }
-
-        /// <summary>
-        /// Create list area of Vietnam
-        /// </summary>
-        void CreateArea()
-        {
-            var o = new Pol_Dictionary() { Type = Global.STR_AREA, Code =Global.STR_AREA+ "_A", Text = "Miền Bắc", Order = 0 };
-            Pol_Dictionary.Insert(o);
-             o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_B", Text = "Miền Trung", Order = 1 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_C", Text = "Miền Nam", Order = 2 };
-            Pol_Dictionary.Insert(o);            
-        }
-
-        /// <summary>
-        /// Create list region of Vietnam
-        /// </summary>
-        void CreateRegion()
-        {
-            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_A");
-            var o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_A", Text = "ĐB. Sông Hồng", Order = 0 };                      
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_B", Text = "Đông Bắc Bộ", Order = 1 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_C", Text = "Tây Bắc Bộ", Order = 2 };
-            Pol_Dictionary.Insert(o);
-
-             d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_B");
-             o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_D", Text = "Bắc Trung Bộ", Order = 3 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_E", Text = "Nam Trung Bộ", Order = 4 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_F", Text = "Tây Nguyên", Order = 5 };
-            Pol_Dictionary.Insert(o);
-
-            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_C");
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_G", Text = "Đông Nam Bộ", Order = 6 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_H", Text = "ĐB. Sông Cửu Long", Order = 7 };
-            Pol_Dictionary.Insert(o);            
-        }
-
-        /// <summary>
-        /// Create list province of Vietnam
-        /// </summary>
-        void CreateProvince()
-        {
-            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_A");
-            var o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_01", Text = "Hà Nội (cũ)", Order = 0 };
-            Pol_Dictionary.Insert(o);
-             o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_02", Text = "Hà Nam", Order = 0 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_03", Text = "Hà Nội (mở rộng)", Order = 0 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_04", Text = "Hựng ", Order = 0 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_05", Text = "Hà Nội (mở rộng)", Order = 0 };
-            Pol_Dictionary.Insert(o);            
-        }
+        #endregion
 
         /// <summary>
         /// Pol_User table
@@ -461,7 +464,7 @@ namespace SKG.DXF
             Pol_RoleRight.Insert(o);
         }
 
-        
+
 
         /// <summary>
         /// Tạo dữ liệu mẫu bảng Tra_Kind
@@ -664,7 +667,6 @@ namespace SKG.DXF
             CreatePol_UserRight();
             CreatePol_UserRole();
             CreatePol_RoleRight();
-            CreateTra_Group();
             CreateTra_Kind();
             CreateTra_Vehicle();
             //CreateTra_Detail();

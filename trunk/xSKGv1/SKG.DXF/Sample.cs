@@ -77,6 +77,10 @@ namespace SKG.DXF
 
             CreateRoles();
             CreateRights();
+            
+            CreateGroup();
+            CreateArea();
+            CreateRegion();
         }
 
         /// <summary>
@@ -132,6 +136,82 @@ namespace SKG.DXF
         }
 
         /// <summary>
+        /// Create list group of vehicle
+        /// </summary>
+        void CreateGroup()
+        {
+            var o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "A", Text = "Xe tải lưu đậu & vãng lai", Note = "", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "B", Text = "Xe khách lưu đậu ngày", Note = "Cứ 24 giờ tính 01 ngày", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "C", Text = "Taxi vãng lai", Note = "", Order = 2 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "D", Text = "Xe ba bánh", Note = "", Order = 3 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_GROUP, Code = "E", Text = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Order = 4 };
+            Pol_Dictionary.Insert(o);
+        }
+
+        /// <summary>
+        /// Create list area of Vietnam
+        /// </summary>
+        void CreateArea()
+        {
+            var o = new Pol_Dictionary() { Type = Global.STR_AREA, Code =Global.STR_AREA+ "_A", Text = "Miền Bắc", Order = 0 };
+            Pol_Dictionary.Insert(o);
+             o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_B", Text = "Miền Trung", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_C", Text = "Miền Nam", Order = 2 };
+            Pol_Dictionary.Insert(o);            
+        }
+
+        /// <summary>
+        /// Create list region of Vietnam
+        /// </summary>
+        void CreateRegion()
+        {
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_A");
+            var o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_A", Text = "ĐB. Sông Hồng", Order = 0 };                      
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_B", Text = "Đông Bắc Bộ", Order = 1 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_C", Text = "Tây Bắc Bộ", Order = 2 };
+            Pol_Dictionary.Insert(o);
+
+             d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_B");
+             o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_D", Text = "Bắc Trung Bộ", Order = 3 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_E", Text = "Nam Trung Bộ", Order = 4 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_F", Text = "Tây Nguyên", Order = 5 };
+            Pol_Dictionary.Insert(o);
+
+            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_C");
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_G", Text = "Đông Nam Bộ", Order = 6 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_H", Text = "ĐB. Sông Cửu Long", Order = 7 };
+            Pol_Dictionary.Insert(o);            
+        }
+
+        /// <summary>
+        /// Create list province of Vietnam
+        /// </summary>
+        void CreateProvince()
+        {
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_A");
+            var o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_01", Text = "Hà Nội (cũ)", Order = 0 };
+            Pol_Dictionary.Insert(o);
+             o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_02", Text = "Hà Nam", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_03", Text = "Hà Nội (mở rộng)", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_04", Text = "Hựng ", Order = 0 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_05", Text = "Hà Nội (mở rộng)", Order = 0 };
+            Pol_Dictionary.Insert(o);            
+        }
+
+        /// <summary>
         /// Pol_User table
         /// </summary>
         void CreatePol_User()
@@ -150,16 +230,11 @@ namespace SKG.DXF
             Pol_User.Insert(o);
             o = new Pol_User() { Acc = "kt", Pass = "@qwerty", Name = "Kế Văn Toán", Birth = new DateTime(1982, 7, 2), Address = "143 Đường 3/2, F. Xuân Khánh, Q. Ninh Kiều, TP. Cần Thơ", Phone = "+841665 696 123" };
             Pol_User.Insert(o);
-            o = new Pol_User() { Acc = "xyz", Pass = "xyz", Name = "Không Văn Biết", Birth = new DateTime(1988, 1, 5), Address = "Sao Hoả, Hệ Mặt Trời", Phone = "+841645 999 666" };
-            Pol_User.Insert(o);
             o = new Pol_User() { Acc = "admin", Pass = "", Name = "Siêu Quản Trị", Birth = new DateTime(1988, 1, 5), Address = "Âm Tàu, Địa Phủ", Phone = "+841699 999 666" };
             Pol_User.Insert(o);
-            o = new Pol_User() { Acc = "edmin", Pass = "edmin", Name = "Em Quản Trị", Birth = new DateTime(1989, 1, 5), Address = "Phương Trời, Xa Lạ", Phone = "+841699 999 686" };
-            Pol_User.Insert(o);
-
             o = new Pol_User() { Acc = "duylong", Pass = "123456", Name = "Nguyễn Duy Long", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Note = "Giám đốc" };
             Pol_User.Insert(o);
-            o = new Pol_User() { Acc = "tranhieu", Pass = "123456", Name = "Trần Hiếu", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Note = "Phó giám đốc" };
+            o = new Pol_User() { Acc = "tranhieu", Pass = "123456", Name = "Trần Hiếu", Birth = new DateTime(1975, 1, 1), Address = "TP. HCM", Phone = "+841699 999 686", Note = "Phó Giám đốc" };
             Pol_User.Insert(o);
         }
 
@@ -170,7 +245,7 @@ namespace SKG.DXF
         {
             if (Pol_UserRight.Count() > 0) return;
 
-            var a = (Pol_User)Pol_User.Select("edmin");                                  
+            var a = (Pol_User)Pol_User.Select("edmin");
             var b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Role).FullName);
             var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_UserRight.Insert(o);
@@ -386,24 +461,7 @@ namespace SKG.DXF
             Pol_RoleRight.Insert(o);
         }
 
-        /// <summary>
-        /// Tạo dữ liệu mẫu bảng Tra_Group
-        /// </summary>
-        void CreateTra_Group()
-        {
-            if (Tra_Group.Count() > 0) return;
-
-            var o = new Tra_Group() { Code = "A", Name = "Xe tải lưu đậu & vãng lai", Note = "", Order = 0 };
-            Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "B", Name = "Xe khách lưu đậu ngày", Note = "Cứ 24 giờ tính 01 ngày", Order = 1 };
-            Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "C", Name = "Taxi vãng lai", Note = "", Order = 2 };
-            Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "D", Name = "Xe ba bánh", Note = "", Order = 3 };
-            Tra_Group.Insert(o);
-            o = new Tra_Group() { Code = "E", Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Order = 4 };
-            Tra_Group.Insert(o);
-        }
+        
 
         /// <summary>
         /// Tạo dữ liệu mẫu bảng Tra_Kind

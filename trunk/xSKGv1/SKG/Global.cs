@@ -60,6 +60,11 @@ namespace SKG
         public const string STR_REGION = "REGION";
 
         /// <summary>
+        /// Code of group province
+        /// </summary>
+        public const string STR_PROVINCE = "PROVINCE";
+
+        /// <summary>
         /// Code of group busline
         /// </summary>
         public const string STR_LINE = "LINE";

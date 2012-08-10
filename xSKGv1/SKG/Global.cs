@@ -23,11 +23,11 @@ namespace SKG
     /// </summary>
     public class Global
     {
-        #region Type of dictionary constants
-        public const string STR_MENUZ = "MENUZ";
-        public const string STR_BUTTON = "BUTTON";
+        #region Dictionary constants
         public const string STR_LANG = "LANG";
+        public const string STR_BUTTON = "BUTTON";
         public const string STR_ROLE = "ROLE";
+        public const string STR_RIGHT = "RIGHT";
         #endregion
 
         #region Global properties

@@ -75,7 +75,34 @@ namespace SKG.DXF
             Pol_Dictionary.Insert(o);
             #endregion
 
-            #region List of menuz
+            CreateRoles();
+            CreateRights();
+        }
+
+        /// <summary>
+        /// Create list of roles
+        /// </summary>
+        void CreateRoles()
+        {
+            var o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "CV", Text = "Cổng vào", Note = "Có vai trò ở cổng vào" };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "CR", Text = "Cổng ra", Note = "Có vai trò ở cổng ra" };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "ND", Text = "Người dùng", Note = "Có vai trò cơ bản nhất" };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "QL", Text = "Quản lí", Note = "Có vai trò quản lí người dùng, nhóm, loại, xe" };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "QT", Text = "Quản trị", Note = "Có tất cả vai trò" };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_ROLE, Code = "TK", Text = "Thống kê", Note = "Xem và in ấn các báo cáo, thống kê" };
+            Pol_Dictionary.Insert(o);
+        }
+
+        /// <summary>
+        /// Create list of rights
+        /// </summary>
+        void CreateRights()
+        {
             var a = new Services();
             var b = a.GetPlugins();
             var c = Services.GetMenu(b);
@@ -102,66 +129,6 @@ namespace SKG.DXF
                     d3 = (Pol_Dictionary)Pol_Dictionary.Insert(d3);
                 }
             }
-            #endregion
-        }
-
-        /// <summary>
-        /// Pol_Right table
-        /// </summary>
-        void CreatePol_Right()
-        {
-            if (Pol_Right.Count() > 0) return;
-
-            var a = new Services();
-            var b = a.GetPlugins();
-            var c = Services.GetMenu(b);
-            var l1 = typeof(Home.Level1).Name;
-            var l2 = typeof(Home.Sytem.Level2).Name;
-            var d1 = new Pol_Dictionary();
-            var d2 = new Pol_Dictionary();
-
-            foreach (var i in c)
-            {
-                if (i.Code.Contains(l1)) // level 1
-                {
-                    d1 = (Pol_Dictionary)Pol_Dictionary.Select(i.Code);
-                    var r = new Pol_Right() { Id = d1.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                    Pol_Right.Insert(r);
-                }
-                else if (i.Code.Contains(l2)) // level 2
-                {
-                    d2 = (Pol_Dictionary)Pol_Dictionary.Select(i.Code);
-                    var r = new Pol_Right() { Id = d2.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                    Pol_Right.Insert(r);
-                }
-                else // level 3
-                {
-                    var d3 = (Pol_Dictionary)Pol_Dictionary.Select(i.Code);
-                    var r = new Pol_Right() { Id = d3.Id, Level = i.Level, Text = i.Caption, Code = i.Code, Picture = i.Picture, Order = i.Order, Show = i.Show };
-                    Pol_Right.Insert(r);
-                }
-            }
-        }
-
-        /// <summary>
-        /// Pol_Role table
-        /// </summary>
-        void CreatePol_Role()
-        {
-            if (Pol_Role.Count() > 0) return;
-
-            var o = new Pol_Role() { Code = "CV", Name = "Cổng vào", Note = "Có vai trò ở cổng vào" };
-            Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "CR", Name = "Cổng ra", Note = "Có vai trò ở cổng ra" };
-            Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "ND", Name = "Người dùng", Note = "Có vai trò cơ bản nhất" };
-            Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "QL", Name = "Quản lí", Note = "Có vai trò quản lí người dùng, nhóm, loại, xe" };
-            Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "QT", Name = "Quản trị", Note = "Có tất cả vai trò" };
-            Pol_Role.Insert(o);
-            o = new Pol_Role() { Code = "TK", Name = "Thống kê", Note = "Xem và in ấn các báo cáo, thống kê" };
-            Pol_Role.Insert(o);
         }
 
         /// <summary>
@@ -643,8 +610,6 @@ namespace SKG.DXF
         protected virtual void CreateAll()
         {
             CreatePol_Dictionary();
-            CreatePol_Right();
-            CreatePol_Role();
             CreatePol_User();
             CreatePol_UserRight();
             CreatePol_UserRole();

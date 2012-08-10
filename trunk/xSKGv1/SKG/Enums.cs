@@ -4,15 +4,17 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:48
- * Update: 23/07/2012 21:48
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
  * Status: OK
  */
 #endregion
 
 namespace SKG
 {
-    #region Text format
+    /// <summary>
+    /// Text format
+    /// </summary>
     public enum Format
     {
         /// <summary>
@@ -40,7 +42,6 @@ namespace SKG
         /// </summary>
         Orginal
     }
-    #endregion
 
     #region Date
     /// <summary>
@@ -59,17 +60,18 @@ namespace SKG
     }
     #endregion
 
-    #region Form
     /// <summary>
     /// State of input form
     /// </summary>
     public enum State { View, Add, Edit, Delete, Save, Cancel, }
-    #endregion
 
-    #region License
     /// <summary>
     /// License of software
     /// </summary>
     public enum LicState { Unlimited, Trial, None }
-    #endregion
+
+    /// <summary>
+    /// Enum of dictionary
+    /// </summary>
+    public enum Ztype { Lang, Button, Role, Right, Group }
 }

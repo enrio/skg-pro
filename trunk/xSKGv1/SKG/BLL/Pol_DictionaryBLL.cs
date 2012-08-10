@@ -64,7 +64,7 @@ namespace SKG.BLL
 
         #region Insert
         /// <summary>
-        /// 
+        /// Insert language
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
@@ -75,7 +75,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// 
+        /// Insert button
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
@@ -86,7 +86,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// 
+        /// Insert role
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
@@ -97,7 +97,7 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// 
+        /// Insert right
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
@@ -106,22 +106,52 @@ namespace SKG.BLL
             o.Type = Global.STR_RIGHT;
             return Insert(o);
         }
-
-        /// <summary>
-        /// Add menuz (right) data
-        /// </summary>
-        /// <param name="code">Primary key handmade</param>
-        /// <param name="text">Content is shown</param>
-        /// <param name="note">Descriptive detailing</param>
-        /// <returns></returns>
-        public object Insert(string code, string text, string note)
-        {
-            var o = new Pol_Dictionary() { Code = code, Text = text, Note = note };
-            return InsertRight(o);
-        }
         #endregion
 
         #region Update
+        /// <summary>
+        /// Update language
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object UpdateLang(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_LANG;
+            return Update(o);
+        }
+
+        /// <summary>
+        /// Update button
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object UpdateButton(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_BUTTON;
+            return Update(o);
+        }
+
+        /// <summary>
+        /// Update role
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object UpdateRole(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_ROLE;
+            return Update(o);
+        }
+
+        /// <summary>
+        /// Update right
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object UpdateRight(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_RIGHT;
+            return Update(o);
+        }
         #endregion
     }
 }

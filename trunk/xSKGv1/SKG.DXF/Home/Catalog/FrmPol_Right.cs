@@ -62,7 +62,7 @@ namespace SKG.DXF.Home.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Right.Delete(id) != null) PerformRefresh();
+                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -158,7 +158,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Right()
+                var o = new Pol_Dictionary()
                 {
                     Id = id,
                     Code = txtCode.Text,
@@ -166,7 +166,7 @@ namespace SKG.DXF.Home.Catalog
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Right.Update(o);
+                var oki = _bll.Pol_Dictionary.UpdateRight(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -180,14 +180,14 @@ namespace SKG.DXF.Home.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Pol_Right()
+                var o = new Pol_Dictionary()
                 {
                     Code = txtCode.Text,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Right.Insert(o);
+                var oki = _bll.Pol_Dictionary.InsertRight(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -197,7 +197,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Right.Select();
+            _dtb = _bll.Pol_Dictionary.SelectRights();
 
             if (_dtb != null)
             {

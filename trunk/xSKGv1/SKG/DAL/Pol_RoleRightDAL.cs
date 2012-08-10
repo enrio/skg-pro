@@ -85,7 +85,7 @@ namespace SKG.DAL
                             Descript = s.Pol_Right.Note,
                         };
                 Guid? id = new Guid();
-                var b = from s in _db.Pol_Roles
+                var b = from s in _db.Pol_Dictionarys
                         select new
                         {
                             ID = s.Id,
@@ -100,7 +100,7 @@ namespace SKG.DAL
                             Access = false,
                             Full = false,
                             None = false,
-                            s.Name,
+                            Name=s.Text,
                             Descript = s.Note
                         };
                 var res = a.Union(b);
@@ -126,7 +126,7 @@ namespace SKG.DAL
             {
                 var o = (Pol_RoleRight)obj;
                 o.Id = Guid.NewGuid();
-                var r = _db.Pol_Rights
+                var r = _db.Pol_Dictionarys
                     .Where(s => s.Id == o.Pol_RightId)
                     .FirstOrDefault();
                 o.Code = r.Code;

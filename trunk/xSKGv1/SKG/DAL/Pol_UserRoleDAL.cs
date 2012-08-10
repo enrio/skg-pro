@@ -77,14 +77,14 @@ namespace SKG.DAL
                             Descript = s.Pol_User.Acc,
                         };
                 Guid? id = new Guid();
-                var b = from s in _db.Pol_Roles
+                var b = from s in _db.Pol_Dictionarys
                         select new
                         {
                             ID = s.Id,
                             ParentID = s.Id,
                             UserId = id,
                             Format = true,
-                            s.Name,
+                            Name=s.Text,
                             Descript = s.Note
                         };
                 var res = a.Union(b);

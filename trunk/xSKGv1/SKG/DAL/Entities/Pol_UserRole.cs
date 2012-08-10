@@ -36,7 +36,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 1), ForeignKey("Pol_Role")]
         public Guid? Pol_RoleId { set; get; }
-        public virtual Pol_Role Pol_Role { get; set; }
+        public virtual Pol_Dictionary Pol_Role { get; set; }
         #endregion
     }
 }

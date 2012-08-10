@@ -29,7 +29,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Role> ToRoles(this Pol_User u)
+        public static List<Pol_Dictionary> ToRoles(this Pol_User u)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static Pol_Role ToRole(this Pol_User u, string c)
+        public static Pol_Dictionary ToRole(this Pol_User u, string c)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static List<Pol_Right> ToRights(this Pol_User u)
+        public static List<Pol_Dictionary> ToRights(this Pol_User u)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="u">User</param>
         /// <returns></returns>
-        public static Pol_Right ToRight(this Pol_User u, string c)
+        public static Pol_Dictionary ToRight(this Pol_User u, string c)
         {
             try
             {
@@ -211,14 +211,9 @@ namespace SKG.DAL
         {
             try
             {
-                var a = from s in u.Pol_UserRoles
-                        select s.Pol_Role.Pol_RoleRights;
-                var b = new List<Pol_RoleRight>();
-
-                foreach (var i in a)
-                    foreach (var j in i)
-                        b.Add(j);
-                return b;
+                var a = from s in u.Pol_RoleRights
+                        select s;                
+                return a.ToList();
             }
             catch { return null; }
         }

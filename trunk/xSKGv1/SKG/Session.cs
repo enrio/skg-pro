@@ -70,7 +70,7 @@ namespace SKG
         /// </summary>
         /// <param name="c">Code's role</param>
         /// <returns></returns>
-        public Pol_Role GetUserRole(string c)
+        public Pol_Dictionary GetUserRole(string c)
         {
             return User.ToRole(c);
         }

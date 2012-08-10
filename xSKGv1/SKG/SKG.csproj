@@ -56,8 +56,6 @@
   <ItemGroup>
     <Compile Include="BLL\BaseBLL.cs" />
     <Compile Include="BLL\Pol_DictionaryBLL.cs" />
-    <Compile Include="BLL\Pol_RightBLL.cs" />
-    <Compile Include="BLL\Pol_RoleBLL.cs" />
     <Compile Include="BLL\Pol_RoleRightBLL.cs" />
     <Compile Include="BLL\Pol_UserBLL.cs" />
     <Compile Include="BLL\Pol_UserRightBLL.cs" />
@@ -70,8 +68,6 @@
     <Compile Include="DAL\Entities\Context.cs" />
     <Compile Include="DAL\Entities\Pol_Chat.cs" />
     <Compile Include="DAL\Entities\Pol_Dictionary.cs" />
-    <Compile Include="DAL\Entities\Pol_Right.cs" />
-    <Compile Include="DAL\Entities\Pol_Role.cs" />
     <Compile Include="DAL\Entities\Pol_RoleRight.cs" />
     <Compile Include="DAL\Entities\Pol_User.cs" />
     <Compile Include="DAL\Entities\Pol_Selection.cs" />
@@ -86,8 +82,6 @@
     <Compile Include="DAL\Extend.cs" />
     <Compile Include="DAL\IBase.cs" />
     <Compile Include="DAL\Pol_DictionaryDAL.cs" />
-    <Compile Include="DAL\Pol_RightDAL.cs" />
-    <Compile Include="DAL\Pol_RoleDAL.cs" />
     <Compile Include="DAL\Pol_RoleRightDAL.cs" />
     <Compile Include="DAL\Pol_UserDAL.cs" />
     <Compile Include="DAL\Pol_UserRightDAL.cs" />

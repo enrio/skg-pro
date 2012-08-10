@@ -58,7 +58,7 @@ namespace SKG.DXF.Home.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Role.Delete(id) != null) PerformRefresh();
+                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -145,14 +145,14 @@ namespace SKG.DXF.Home.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Role()
+                var o = new Pol_Dictionary()
                 {
                     Id = id,
-                    Name = txtName.Text,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Role.Update(o);
+                var oki = _bll.Pol_Dictionary.UpdateRole(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -166,13 +166,13 @@ namespace SKG.DXF.Home.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Pol_Role()
+                var o = new Pol_Dictionary()
                 {
-                    Name = txtName.Text,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Role.Insert(o);
+                var oki = _bll.Pol_Dictionary.InsertRole(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -182,7 +182,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Role.Select();
+            _dtb = _bll.Pol_Dictionary.SelectRoles();
 
             if (_dtb != null)
             {

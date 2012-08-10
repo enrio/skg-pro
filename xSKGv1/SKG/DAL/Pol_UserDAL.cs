@@ -172,7 +172,7 @@ namespace SKG.DAL
             {
                 var a = from s in _db.Pol_UserRights
                         join u in _db.Pol_Users on s.Pol_UserId equals u.Id
-                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+                        join r in _db.Pol_Dictionarys on s.Pol_RightId equals r.Id
                         where s.Pol_UserId == userId
                         select new
                         {
@@ -189,7 +189,7 @@ namespace SKG.DAL
                             s.None
                         };
                 var b = from s in _db.Pol_RoleRights
-                        join r in _db.Pol_Rights on s.Pol_RightId equals r.Id
+                        join r in _db.Pol_Dictionarys on s.Pol_RightId equals r.Id
                         join ur in _db.Pol_UserRoles on s.Pol_RoleId equals ur.Pol_RoleId
                         join u in _db.Pol_Users on ur.Pol_UserId equals u.Id
                         where ur.Pol_User.Id == userId
@@ -235,12 +235,12 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="userId">User's Id</param>
         /// <returns></returns>
-        public List<Pol_Role> GetRoles(Guid userId)
+        public List<Pol_Dictionary> GetRoles(Guid userId)
         {
             try
             {
                 var a = from s in _db.Pol_UserRoles
-                        join r in _db.Pol_Roles on s.Pol_RoleId equals r.Id
+                        join r in _db.Pol_Dictionarys on s.Pol_RoleId equals r.Id
                         where s.Pol_UserId == userId
                         select r;
                 return a.ToList();

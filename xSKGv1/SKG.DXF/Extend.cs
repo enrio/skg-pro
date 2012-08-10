@@ -201,13 +201,13 @@ namespace SKG.DXF
                 var code = form.GetType().FullName;
                 if (code == typeof(FrmMenuz).Name) return;
 
-                var bll = new Pol_RightBLL();
-                var o = bll.Select(code);
+                var bll = new Pol_DictionaryBLL();
+                var o = (Pol_Dictionary)bll.Select(code);
 
                 if (o == null)
                 {
-                    o = new Pol_Right() { Code = code, Text = form.Text, Note = "" };
-                    bll.Insert(o);
+                    o = new Pol_Dictionary() { Code = code, Text = form.Text, Note = "" };
+                    bll.InsertRight(o);
                 }
 
                 Zaction z = form.CheckRight();

@@ -27,17 +27,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
-        public DbSet<Pol_Dictionary> Pol_Dictionarys { get; set; }
-
-        /// <summary>
-        /// Policy - List role of user group
-        /// </summary>
-        public DbSet<Pol_Role> Pol_Roles { get; set; }
-
-        /// <summary>
-        /// Policy - All menuz, form of system
-        /// </summary>
-        public DbSet<Pol_Right> Pol_Rights { get; set; }
+        public DbSet<Pol_Dictionary> Pol_Dictionarys { get; set; }        
 
         /// <summary>
         /// Policy - User's information

@@ -542,6 +542,10 @@ namespace SKG.DXF
             VisibleMenuParentForm(_frmMain);
             _frmMain.bsiUser.Caption = Global.Session.User.Name;
 
+            var ax = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_RoleRights);
+            var bx = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_UserRights);
+            var cx = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_UserRoles);
+
             var menuz1 = _frmMain.ribbon.FindMenuz(typeof(Home.Level1).FullName);
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
             var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);

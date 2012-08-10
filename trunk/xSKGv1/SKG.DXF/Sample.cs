@@ -144,11 +144,11 @@ namespace SKG.DXF
         /// </summary>
         void CreateRegion()
         {
-            var o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_0", Text = "Miền Bắc", Order = 0 };
+            var o = new Pol_Dictionary() { Type = Global.STR_REGION, Code = Global.STR_REGION + "_0", Text = "Miền Bắc", Order = 0 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_1", Text = "Miền Trung", Order = 1 };
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, Code = Global.STR_REGION + "_1", Text = "Miền Trung", Order = 1 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_AREA, Code = Global.STR_AREA + "_2", Text = "Miền Nam", Order = 2 };
+            o = new Pol_Dictionary() { Type = Global.STR_REGION, Code = Global.STR_REGION + "_2", Text = "Miền Nam", Order = 2 };
             Pol_Dictionary.Insert(o);
         }
 
@@ -157,26 +157,26 @@ namespace SKG.DXF
         /// </summary>
         void CreateArea()
         {
-            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_0");
-            var o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_0", Text = "ĐB. Sông Hồng", Order = 0 };
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_0");
+            var o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_0", Text = "ĐB. Sông Hồng", Order = 0 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_1", Text = "Đông Bắc Bộ", Order = 1 };
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_1", Text = "Đông Bắc Bộ", Order = 1 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_2", Text = "Tây Bắc Bộ", Order = 2 };
-            Pol_Dictionary.Insert(o);
-
-            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_1");
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_3", Text = "Bắc Trung Bộ", Order = 3 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_4", Text = "Nam Trung Bộ", Order = 4 };
-            Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_5", Text = "Tây Nguyên", Order = 5 };
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_2", Text = "Tây Bắc Bộ", Order = 2 };
             Pol_Dictionary.Insert(o);
 
-            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_2");
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_6", Text = "Đông Nam Bộ", Order = 6 };
+            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_1");
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_3", Text = "Bắc Trung Bộ", Order = 3 };
             Pol_Dictionary.Insert(o);
-            o = new Pol_Dictionary() { Type = Global.STR_REGION, ParentId = d.Id, Code = Global.STR_REGION + "_7", Text = "ĐB. Sông Cửu Long", Order = 7 };
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_4", Text = "Nam Trung Bộ", Order = 4 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_5", Text = "Tây Nguyên", Order = 5 };
+            Pol_Dictionary.Insert(o);
+
+            d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_2");
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_6", Text = "Đông Nam Bộ", Order = 6 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_AREA, ParentId = d.Id, Code = Global.STR_AREA + "_7", Text = "ĐB. Sông Cửu Long", Order = 7 };
             Pol_Dictionary.Insert(o);
         }
 
@@ -185,7 +185,7 @@ namespace SKG.DXF
         /// </summary>
         void CreateProvince()
         {
-            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_REGION + "_0");
+            var d = (Pol_Dictionary)Pol_Dictionary.Select(Global.STR_AREA + "_0");
             var o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_0", Text = "Hà Nội (cũ)", Order = 0 };
             Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_1", Text = "Hà Nam", Order = 1 };
@@ -193,6 +193,12 @@ namespace SKG.DXF
             o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_2", Text = "Hà Nội (mở rộng)", Order = 2 };
             Pol_Dictionary.Insert(o);
             o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_3", Text = "", Order = 3 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_4", Text = "", Order = 4 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_5", Text = "", Order = 5 };
+            Pol_Dictionary.Insert(o);
+            o = new Pol_Dictionary() { Type = Global.STR_PROVINCE, ParentId = d.Id, Code = Global.STR_PROVINCE + "_6", Text = "", Order = 6 };
             Pol_Dictionary.Insert(o);
         }
 

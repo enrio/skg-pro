@@ -17,6 +17,7 @@ using System.Linq;
 namespace SKG.BLL
 {
     using System.Data;
+    using DAL.Entities;
 
     /// <summary>
     /// Policy - Pol_Dictionary accessing
@@ -57,6 +58,19 @@ namespace SKG.BLL
         public DataTable SelectRoles()
         {
             return Select((object)Global.STR_ROLE);
+        }
+
+        /// <summary>
+        /// Add menuz data
+        /// </summary>
+        /// <param name="code">Primary key handmade</param>
+        /// <param name="text">Content is shown</param>
+        /// <param name="note">Descriptive detailing</param>
+        /// <returns></returns>
+        public object Insert(string code, string text, string note)
+        {
+            var o = new Pol_Dictionary() { Type = Global.STR_MENUZ, Code = code, Text = text, Note = note };
+            return Insert(o);
         }
     }
 }

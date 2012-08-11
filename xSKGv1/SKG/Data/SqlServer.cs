@@ -200,6 +200,10 @@ namespace SKG.Data
                 tbl.Load(rdr);
                 oleCnn.Close();
 
+                var dtr = tbl.Select("Id Is Null");
+                foreach (DataRow r in dtr)
+                    r["Id"] = Guid.NewGuid();
+
                 var copy = new SqlBulkCopy(connectionString) { DestinationTableName = tableName };
                 copy.WriteToServer(tbl);
             }

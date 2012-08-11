@@ -149,7 +149,7 @@
             // 
             this.spcPanel.Panel2.Controls.Add(this.dgvSql);
             this.spcPanel.Size = new System.Drawing.Size(987, 466);
-            this.spcPanel.SplitterDistance = 471;
+            this.spcPanel.SplitterDistance = 470;
             this.spcPanel.TabIndex = 1;
             // 
             // dgvExcel
@@ -159,7 +159,7 @@
             this.dgvExcel.Location = new System.Drawing.Point(0, 0);
             this.dgvExcel.Name = "dgvExcel";
             this.dgvExcel.RowHeadersVisible = false;
-            this.dgvExcel.Size = new System.Drawing.Size(471, 466);
+            this.dgvExcel.Size = new System.Drawing.Size(470, 466);
             this.dgvExcel.TabIndex = 0;
             // 
             // dgvSql
@@ -169,7 +169,7 @@
             this.dgvSql.Location = new System.Drawing.Point(0, 0);
             this.dgvSql.Name = "dgvSql";
             this.dgvSql.RowHeadersVisible = false;
-            this.dgvSql.Size = new System.Drawing.Size(512, 466);
+            this.dgvSql.Size = new System.Drawing.Size(513, 466);
             this.dgvSql.TabIndex = 1;
             // 
             // FrmTransfer

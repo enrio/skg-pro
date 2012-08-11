@@ -137,7 +137,7 @@ namespace SKG.DXF.Home.Sytem
             #region Import data
             var file = Application.StartupPath + @"\Import\Sample.xls";
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
-            //Sample.CreateData(true);
+            Sample.CreateData(true);
             #endregion
 
             //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);

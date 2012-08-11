@@ -141,6 +141,9 @@
     <EmbeddedResource Include="Reader\FrmTransfer.resx">
       <DependentUpon>FrmTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Import\Sample.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

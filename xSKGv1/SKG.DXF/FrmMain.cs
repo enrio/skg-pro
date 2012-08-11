@@ -16,10 +16,13 @@ using System.Collections.Generic;
 namespace SKG.DXF
 {
     using BLL;
+    using SKG.Data;
     using Home.Sytem;
     using Help.Infor;
     using SKG.Extend;
     using SKG.Hasher;
+    using SKG.DAL.Entities;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Form main of system
@@ -33,13 +36,19 @@ namespace SKG.DXF
         {
             InitializeComponent();
 
-            //SkinHelper.InitSkinGallery(rgbMain, true);
-
-            // Information of server, timer
+            //SkinHelper.InitSkinGallery(rgbMain, true);            
             var cnn = (new Pol_DictionaryBLL()).Connection();
+
+            #region Information of server, timer
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", cnn.DataSource, cnn.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
+            #endregion
+
+            #region Import data
+            var file = Application.StartupPath + @"\Import\Sample.xls";
+            SqlServer.ImportFromExcel(file, cnn.ConnectionString, typeof(Pol_Dictionary).Name);
+            #endregion
         }
 
         /// <summary>
@@ -52,13 +61,13 @@ namespace SKG.DXF
             Global.Parent = this;
 
             // Check license
-            //var key = (new Registri()).Read("License");
-            //var ok = License.IsLincense(key);
-            //if (ok == LicState.None)
-            //{
-            //    Extend.ShowRight<FrmPol_License>(this);
-            //    return;
-            //}
+            var key = (new Registri()).Read("License");
+            var ok = License.IsLincense(key);
+            if (ok == LicState.None)
+            {
+                Extend.ShowRight<FrmPol_License>(this);
+                //return;
+            }
             //else bbiRegistry.Enabled = false;
 
             if (!Sample.CheckDb())

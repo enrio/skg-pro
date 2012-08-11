@@ -17,10 +17,10 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Sytem
 {
-    using BLL;
     using SKG.Data;
     using SKG.Plugin;
     using SKG.Extend;
+    using DAL.Entities;
     using System.Configuration;
     using DevExpress.XtraEditors;
 
@@ -133,7 +133,12 @@ namespace SKG.DXF.Home.Sytem
 
             ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
             Properties.Settings.Default.Reload();
-            Sample.CreateData(true);
+
+            #region Import data
+            var file = Application.StartupPath + @"\Import\Sample.xls";
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
+            //Sample.CreateData(true);
+            #endregion
 
             //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
             Extend.Login();

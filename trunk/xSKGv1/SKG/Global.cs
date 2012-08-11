@@ -16,6 +16,8 @@ using System.Linq;
 
 namespace SKG
 {
+    using DAL.Entities;
+    using System.Data.Common;
     using System.Windows.Forms;
 
     /// <summary>
@@ -85,6 +87,18 @@ namespace SKG
         /// Static service for plugin
         /// </summary>
         public static Services Service = new Services();
+
+        /// <summary>
+        /// Get database connection
+        /// </summary>
+        public DbConnection Connection
+        {
+            get
+            {
+                var db = new Context();
+                return db.Database.Connection;
+            }
+        }
         #endregion
     }
 }

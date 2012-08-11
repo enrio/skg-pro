@@ -91,7 +91,7 @@ namespace SKG
         /// <summary>
         /// Get database connection
         /// </summary>
-        public DbConnection Connection
+        public static DbConnection Connection
         {
             get
             {

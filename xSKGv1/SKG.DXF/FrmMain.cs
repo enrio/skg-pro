@@ -15,14 +15,10 @@ using System.Collections.Generic;
 
 namespace SKG.DXF
 {
-    using BLL;
-    using SKG.Data;
     using Home.Sytem;
     using Help.Infor;
     using SKG.Extend;
     using SKG.Hasher;
-    using SKG.DAL.Entities;
-    using System.Windows.Forms;
 
     /// <summary>
     /// Form main of system
@@ -42,11 +38,6 @@ namespace SKG.DXF
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", Global.Connection.DataSource, Global.Connection.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
-            #endregion
-
-            #region Import data
-            var file = Application.StartupPath + @"\Import\Sample.xls";
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
             #endregion
         }
 

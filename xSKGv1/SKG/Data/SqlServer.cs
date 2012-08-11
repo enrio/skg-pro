@@ -163,20 +163,45 @@ namespace SKG.Data
         }
         #endregion
 
-        public void ImportFromExcel(string excel, string sql, string table)
+        /// <summary>
+        /// Import from Sheet in Excel file to Table in SQL Server
+        /// </summary>
+        /// <param name="excelFile">Path Excel file</param>
+        /// <param name="connectionString">Connection string</param>
+        /// <param name="tableName">Table name/Sheet name</param>
+        public static void ImportFromExcel(string excelFile, string connectionString, string tableName)
         {
             try
             {
                 const string STR_2K7 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";";
                 const string STR_2K3 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\";";
 
-                var oleCnn = new OleDbConnection(String.Format(STR_2K3, excel));
-                var cmd = new OleDbCommand("SELECT * FROM " + table, oleCnn);
+                var tmp = excelFile.Split(new char[] { '.' });
+                var str = "";
+
+                if (tmp[1] == "xls")
+                    str = String.Format(STR_2K3, excelFile);
+                else if (tmp[1] == "xlsx")
+                    str = String.Format(STR_2K7, excelFile);
+                else
+                {
+                    MessageBox.Show("Not excel file!");
+                    return;
+                }
+
+                var oleCnn = new OleDbConnection(str);
+                var cmd = new OleDbCommand(String.Format("SELECT * FROM [{0}$]", tableName), oleCnn);
+
                 oleCnn.Open();
                 var rdr = cmd.ExecuteReader();
-                var copy = new SqlBulkCopy(sql) { DestinationTableName = table };
-                copy.WriteToServer(rdr);
+                var tbl = new System.Data.DataTable();
+                tbl.Columns.Add("Id", typeof(Guid));
+                tbl.Columns.Add("ParentId", typeof(Guid));
+                tbl.Load(rdr);
+                oleCnn.Close();
 
+                var copy = new SqlBulkCopy(connectionString) { DestinationTableName = tableName };
+                copy.WriteToServer(tbl);
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }

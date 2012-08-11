@@ -5,9 +5,10 @@ using System.Linq;
 namespace SKG.Data
 {
     using System.IO;
-    using System.Data.SqlClient;
     using System.Data;
+    using System.Data.OleDb;
     using System.Windows.Forms;
+    using System.Data.SqlClient;
 
     /// <summary>
     /// SQL Server processing
@@ -161,5 +162,23 @@ namespace SKG.Data
             }
         }
         #endregion
+
+        public void ImportFromExcel(string excel, string sql, string table)
+        {
+            try
+            {
+                const string STR_2K7 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";";
+                const string STR_2K3 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\";";
+
+                var oleCnn = new OleDbConnection(String.Format(STR_2K3, excel));
+                var cmd = new OleDbCommand("SELECT * FROM " + table, oleCnn);
+                oleCnn.Open();
+                var rdr = cmd.ExecuteReader();
+                var copy = new SqlBulkCopy(sql) { DestinationTableName = table };
+                copy.WriteToServer(rdr);
+
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+        }
     }
 }

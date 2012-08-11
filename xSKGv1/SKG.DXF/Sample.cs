@@ -254,13 +254,13 @@ namespace SKG.DXF
         {
             if (Pol_UserRight.Count() > 0) return;
 
-            var a = (Pol_User)Pol_User.Select("edmin");
-            var b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Role).FullName);
-            var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
-            Pol_UserRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_User).FullName);
-            o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
-            Pol_UserRight.Insert(o);
+            //var a = (Pol_User)Pol_User.Select("edmin");
+            //var b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_Role).FullName);
+            //var o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            //Pol_UserRight.Insert(o);
+            //b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Catalog.FrmPol_User).FullName);
+            //o = new Pol_UserRight() { Pol_UserId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
+            //Pol_UserRight.Insert(o);
         }
 
         /// <summary>
@@ -668,7 +668,7 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void CreateAll()
         {
-            CreatePol_Dictionary();
+            //CreatePol_Dictionary();
             CreatePol_User();
             CreatePol_UserRight();
             CreatePol_UserRole();

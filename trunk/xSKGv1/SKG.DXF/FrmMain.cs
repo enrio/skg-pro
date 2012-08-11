@@ -36,18 +36,17 @@ namespace SKG.DXF
         {
             InitializeComponent();
 
-            //SkinHelper.InitSkinGallery(rgbMain, true);            
-            var cnn = (new Pol_DictionaryBLL()).Connection();
+            //SkinHelper.InitSkinGallery(rgbMain, true);
 
             #region Information of server, timer
-            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", cnn.DataSource, cnn.Database);
+            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", Global.Connection.DataSource, Global.Connection.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
             #endregion
 
             #region Import data
             var file = Application.StartupPath + @"\Import\Sample.xls";
-            SqlServer.ImportFromExcel(file, cnn.ConnectionString, typeof(Pol_Dictionary).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
             #endregion
         }
 

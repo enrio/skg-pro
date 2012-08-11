@@ -37,15 +37,6 @@ namespace SKG.DAL
         internal DataTable _tb = new DataTable("Tmp");
 
         /// <summary>
-        /// Object connection
-        /// </summary>
-        /// <returns></returns>
-        public DbConnection Connection()
-        {
-            return _db.Database.Connection;
-        }
-
-        /// <summary>
         /// Create database if not exists
         /// </summary>
         public BaseDAL()

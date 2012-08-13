@@ -171,8 +171,8 @@
             this.lokGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", 30, "Mô tả")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
             this.lokGroup.Properties.DisplayMember = "Name";
             this.lokGroup.Properties.NullText = "";
             this.lokGroup.Properties.ValueMember = "Id";
@@ -290,14 +290,14 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Loại xe";
-            this.gridColumn4.FieldName = "Name";
+            this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Mô tả";
-            this.gridColumn5.FieldName = "Descript";
+            this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             // 

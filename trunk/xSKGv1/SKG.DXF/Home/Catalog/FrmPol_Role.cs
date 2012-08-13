@@ -121,8 +121,8 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void DataBindingControl()
         {
-            txtName.DataBindings.Add("EditValue", _dtb, ".Name");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }

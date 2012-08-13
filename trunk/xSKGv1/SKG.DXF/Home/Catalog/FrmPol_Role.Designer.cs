@@ -186,7 +186,7 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Tên nhóm";
-            this.gridColumn4.FieldName = "Name";
+            this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
@@ -194,7 +194,7 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Mô tả";
-            this.gridColumn5.FieldName = "Descript";
+            this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;

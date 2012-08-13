@@ -82,7 +82,8 @@ namespace SKG
                     plugin.Menuz = plugin.Instance.Menuz;
                     plugin.Menuz.Code = pluginType.FullName;
 
-                    if (plugin.Menuz.Level > 0) lst.Add(plugin);
+                    //if (plugin.Menuz.Level > 0) lst.Add(plugin);
+                    if (plugin.Menuz.Parent  !=null) lst.Add(plugin);
                 }
                 return lst;
             }

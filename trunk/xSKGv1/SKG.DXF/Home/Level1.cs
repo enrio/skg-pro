@@ -25,7 +25,7 @@ namespace SKG.DXF.Home
         {
             get
             {
-                var menu = new Menuz() {Code = typeof(Level1).FullName,Parent ="", Text = "Trang chính", Level = 1, Order = 1, Picture = @"Icons\Home.png" };
+                var menu = new Menuz() {Code = typeof(Level1).FullName,Parent ="", Text = "Trang chính", Level = 1, Order = 0, Picture = @"Icons\Home.png" };
                 return menu;
             }
         }

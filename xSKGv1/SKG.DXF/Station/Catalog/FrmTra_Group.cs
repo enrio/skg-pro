@@ -56,7 +56,7 @@ namespace SKG.DXF.Station.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Group.Delete(id) != null) PerformRefresh();
+                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 

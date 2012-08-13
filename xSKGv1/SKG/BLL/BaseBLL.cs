@@ -25,7 +25,7 @@ namespace SKG.BLL
         /// <summary>
         /// Policy - Pol_Dictionary accessing
         /// </summary>
-        public Pol_DictionaryBLL Pol_Dictionary { set; get; }        
+        public Pol_DictionaryBLL Pol_Dictionary { set; get; }
 
         /// <summary>
         /// Policy - Pol_User accessing
@@ -48,11 +48,6 @@ namespace SKG.BLL
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Tra_Group: danh mục nhóm xe.
-        /// </summary>
-        public Tra_GroupBLL Tra_Group { set; get; }
-
-        /// <summary>
         /// Truy cập cơ sở dữ liệu bảng Tra_Kind: danh mục loại xe.
         /// </summary>
         public Tra_KindBLL Tra_Kind { set; get; }
@@ -73,12 +68,11 @@ namespace SKG.BLL
         /// </summary>
         public BaseBLL()
         {
-            Pol_Dictionary = new Pol_DictionaryBLL();            
+            Pol_Dictionary = new Pol_DictionaryBLL();
             Pol_User = new Pol_UserBLL();
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
-            Tra_Group = new Tra_GroupBLL();
             Tra_Kind = new Tra_KindBLL();
             Tra_Vehicle = new Tra_VehicleBLL();
             Tra_Detail = new Tra_DetailBLL();

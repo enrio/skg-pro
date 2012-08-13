@@ -470,8 +470,6 @@ namespace SKG.DXF
             Pol_RoleRight.Insert(o);
         }
 
-
-
         /// <summary>
         /// Tạo dữ liệu mẫu bảng Tra_Kind
         /// </summary>
@@ -479,38 +477,34 @@ namespace SKG.DXF
         {
             if (Tra_Kind.Count() > 0) return;
 
-            var a = (Tra_Group)Tra_Group.Select("A");
-            var o = new Tra_Kind() { Code = "A", Tra_GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Note = "", Price1 = 10000, Price2 = 20000, Order = 0 };
+            var a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_0");
+            var o = new Tra_Kind() { Code = "KIND_0", GroupId = a.Id, Name = "Miền Bắc", Note = "", Price1 = 5000, Price2 = 6500, Order = 0 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "B", Tra_GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Note = "", Price1 = 15000, Price2 = 25000, Order = 1 };
+            o = new Tra_Kind() { Code = "KIND_1", GroupId = a.Id, Name = "Miền Trung", Note = "", Price1 = 4300, Price2 = 5590, Order = 1 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "C", Tra_GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Note = "", Price1 = 15000, Price2 = 30000, Order = 2 };
-            Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "D", Tra_GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Note = "", Price1 = 20000, Price2 = 35000, Order = 3 };
-            Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "E", Tra_GroupId = a.Id, Name = "Container 20feet", Note = "", Price1 = 25000, Price2 = 45000, Order = 4 };
-            Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "F", Tra_GroupId = a.Id, Name = "Container 40feet", Note = "", Price1 = 30000, Price2 = 55000, Order = 5 };
+            o = new Tra_Kind() { Code = "KIND_2", GroupId = a.Id, Name = "Miền Nam", Note = "", Price1 = 2900, Price2 = 3770, Order = 2 };
             Tra_Kind.Insert(o);
 
-            a = (Tra_Group)Tra_Group.Select("B");
-            o = new Tra_Kind() { Code = "G", Tra_GroupId = a.Id, Name = "Số ghế < 16", Note = "", Price1 = 20000, Price2 = 20000, Order = 6 };
+            a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_1");
+            o = new Tra_Kind() { Code = "KIND_3", GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2639, Order = 3 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "H", Tra_GroupId = a.Id, Name = "16 ≤ số ghế ≤ 40", Note = "", Price1 = 25000, Price2 = 25000, Order = 7 };
+            o = new Tra_Kind() { Code = "KIND_4", GroupId = a.Id, Name = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Note = "", Price1 = 15000, Price2 = 25000, Order = 4 };
             Tra_Kind.Insert(o);
-            o = new Tra_Kind() { Code = "I", Tra_GroupId = a.Id, Name = "Số ghế > 40", Note = "", Price1 = 30000, Price2 = 30000, Order = 8 };
+            o = new Tra_Kind() { Code = "KIND_5", GroupId = a.Id, Name = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Note = "", Price1 = 15000, Price2 = 30000, Order = 5 };
             Tra_Kind.Insert(o);
-
-            a = (Tra_Group)Tra_Group.Select("C");
-            o = new Tra_Kind() { Code = "J", Tra_GroupId = a.Id, Name = "Taxi vãng lai", Note = "", Price1 = 8000, Price2 = 8000, Order = 9 };
+            o = new Tra_Kind() { Code = "KIND_6", GroupId = a.Id, Name = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Note = "", Price1 = 20000, Price2 = 35000, Order = 6 };
             Tra_Kind.Insert(o);
-
-            a = (Tra_Group)Tra_Group.Select("D");
-            o = new Tra_Kind() { Code = "K", Tra_GroupId = a.Id, Name = "Xe ba bánh", Note = "", Price1 = 5000, Price2 = 5000, Order = 10 };
+            o = new Tra_Kind() { Code = "KIND_7", GroupId = a.Id, Name = "Container 20feet", Note = "", Price1 = 25000, Price2 = 45000, Order = 7 };
+            Tra_Kind.Insert(o);
+            o = new Tra_Kind() { Code = "KIND_8", GroupId = a.Id, Name = "Container 40feet", Note = "", Price1 = 30000, Price2 = 60000, Order = 8 };
             Tra_Kind.Insert(o);
 
-            a = (Tra_Group)Tra_Group.Select("E");
-            o = new Tra_Kind() { Code = "L", Tra_GroupId = a.Id, Name = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2030, Order = 11 };
+            a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_2");
+            o = new Tra_Kind() { Code = "KIND_9", GroupId = a.Id, Name = "Taxi vãng lai", Note = "", Price1 = 8000, Price2 = 8000, Order = 9 };
+            Tra_Kind.Insert(o);
+            o = new Tra_Kind() { Code = "KIND_10", GroupId = a.Id, Name = "Xe ba bánh", Note = "", Price1 = 5000, Price2 = 5000, Order = 10 };
+            Tra_Kind.Insert(o);
+            o = new Tra_Kind() { Code = "KIND_11", GroupId = a.Id, Name = "Tải trọng < 2,5tấn", Note = "", Price1 = 10000, Price2 = 20000, Order = 11 };
             Tra_Kind.Insert(o);
         }
 

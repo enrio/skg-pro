@@ -158,7 +158,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Kind()
                 {
                     Id = id,
-                    Tra_GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Name = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -181,7 +181,7 @@ namespace SKG.DXF.Station.Catalog
 
                 var o = new Tra_Kind()
                 {
-                    Tra_GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Name = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -220,7 +220,7 @@ namespace SKG.DXF.Station.Catalog
 
         private void FrmTra_Kind_Load(object sender, EventArgs e)
         {
-            lokGroup.Properties.DataSource = _bll.Tra_Group.Select();
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select(Global.STR_GROUP);
             lokGroup.ItemIndex = 0;
         }
 

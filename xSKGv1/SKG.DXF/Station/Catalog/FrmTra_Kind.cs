@@ -159,7 +159,7 @@ namespace SKG.DXF.Station.Catalog
                 {
                     Id = id,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Name = txtName.Text,
+                    Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
                     Note = txtDescript.Text
@@ -182,7 +182,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Kind()
                 {
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Name = txtName.Text,
+                    Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
                     Note = txtDescript.Text

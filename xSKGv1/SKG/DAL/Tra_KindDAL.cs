@@ -38,7 +38,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Name,
+                              s.Text,
                               Descript = s.Note,
                               s.Price1,
                               s.Price2,
@@ -85,7 +85,7 @@ namespace SKG.DAL
                               s.Id,
                               Tra_GroupId = s.GroupId,
                               GroupName = s.Group.Text,
-                              s.Name,
+                              s.Text,
                               Descript = s.Note,
                               s.Price1,
                               s.Price2,
@@ -95,7 +95,7 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                if (obj != null) res = res.Where(s => s.Name == obj + "");
+                if (obj != null) res = res.Where(s => s.Code == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
 
                 return res.ToDataTable();
@@ -134,7 +134,7 @@ namespace SKG.DAL
                 var o = (Tra_Kind)obj;
                 var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Name = o.Name;
+                res.Text = o.Text;
                 res.Price1 = o.Price1;
                 res.Price2 = o.Price2;
 

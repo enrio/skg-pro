@@ -22,11 +22,6 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
-        /// Tên loại xe
-        /// </summary>
-        public string Name { set; get; }
-
-        /// <summary>
         /// Đơn giá nửa ngày
         /// </summary>
         public int Price1 { set; get; }

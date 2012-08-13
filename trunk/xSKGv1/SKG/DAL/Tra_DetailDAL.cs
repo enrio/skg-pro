@@ -203,7 +203,7 @@ namespace SKG.DAL
                               GroupId = k.Tra_Kind.GroupId,
                               KindId = k.Tra_KindId,
                               GroupName = k.Tra_Kind.Group.Text,
-                              KindName = k.Tra_Kind.Name,
+                              KindName = k.Tra_Kind.Text,
 
                               k.Number,
                               k.Chair,
@@ -251,7 +251,7 @@ namespace SKG.DAL
                               v.Number,
                               v.Chair,
 
-                              KindName = k.Name,
+                              KindName = k.Text,
                               GroupName = k.Group.Text,
                           };
 
@@ -339,7 +339,7 @@ namespace SKG.DAL
                               s.Hours,
 
                               v.Chair,
-                              k.Name,
+                              k.Text,
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,
                               GroupCode = k.Group.Code,
@@ -453,7 +453,7 @@ namespace SKG.DAL
                               Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
 
-                              KindName = k.Tra_Kind.Name,
+                              KindName = k.Tra_Kind.Text,
                               GroupCode = k.Tra_Kind.Group.Code
                           };
 

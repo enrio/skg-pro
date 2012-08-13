@@ -85,7 +85,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Tra_KindId,
-                              KindName = s.Tra_Kind.Name,
+                              KindName = s.Tra_Kind.Text,
                               s.Number,
                               Descript = s.Note,
                               s.Driver,

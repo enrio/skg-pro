@@ -27,7 +27,7 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Caption = "Gán quyền cho nhóm người", Level = 3, Order = 17, Picture = @"Icons\RoleRight.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_RoleRight).FullName, Parent = typeof(Level2).FullName, Text = "Gán quyền cho nhóm người", Level = 3, Order = 17, Picture = @"Icons\RoleRight.png" };
                 return menu;
             }
         }

@@ -27,9 +27,19 @@ namespace SKG.Plugin
         public int Level { set; get; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public string Parent { set; get; }
+
+        /// <summary>
         /// Default language
         /// </summary>
-        public string Caption { set; get; }
+        public string Text { set; get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Note { set; get; }
 
         /// <summary>
         /// Namespace or type name

@@ -603,19 +603,19 @@ namespace SKG.MSF
             {
                 if (menu[j].Level == 1) // menu level 1 (root)
                 {
-                    m1 = new ToolStripMenuItem(menu[j].Caption);
+                    m1 = new ToolStripMenuItem(menu[j].Text);
                     m1.Image = Image.FromFile(path + menu[j].Picture);
                     m.Items.Add(m1);
                 }
                 else if (menu[j].Level == 2) // menu level 2
                 {
-                    m2 = new ToolStripMenuItem(menu[j].Caption);
+                    m2 = new ToolStripMenuItem(menu[j].Text);
                     m2.Image = Image.FromFile(path + menu[j].Picture);
                     m1.DropDownItems.Add(m2);
                 }
                 else if (m2 != null) // menu level 3
                 {
-                    var m3 = new ToolStripMenuItem(menu[j].Caption);
+                    var m3 = new ToolStripMenuItem(menu[j].Text);
                     m2.DropDownItems.Add(m3);
                     Assembly y = Assembly.LoadFile(s);
                     m3.Tag = y.CreateInstance(menu[j].Code);

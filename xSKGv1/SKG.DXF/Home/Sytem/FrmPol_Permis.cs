@@ -36,7 +36,7 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Caption = "Phân quyền", Level = 0, Order = 5, Picture = @"Icons\Permission.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_Permis).FullName, Parent = typeof(Level2).FullName, Text = "Phân quyền", Level = 0, Order = 5, Picture = @"Icons\Permission.png" };
                 return menu;
             }
         }

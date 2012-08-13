@@ -259,7 +259,8 @@ namespace SKG.Extend
                           select new
                           {
                               Level = s.Element("Level").Value,
-                              Caption = s.Element("Caption").Value,
+                              Text = s.Element("Text").Value,
+                              Parent = s.Element("Parent").Value,
                               Code = s.Element("Code").Value,
                               Picture = s.Element("Picture").Value,
                               Order = s.Element("Order").Value,
@@ -273,8 +274,9 @@ namespace SKG.Extend
                     var p = new Menuz()
                     {
                         Level = Convert.ToInt32(s.Level),
-                        Caption = s.Caption,
+                        Text = s.Text,
                         Code = s.Code,
+                        Parent = s.Parent,
                         Picture = s.Picture,
                         Show = Convert.ToBoolean(s.Show),
                         Order = Convert.ToInt32(s.Order)

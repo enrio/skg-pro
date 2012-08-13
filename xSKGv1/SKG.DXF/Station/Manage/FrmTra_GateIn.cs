@@ -19,7 +19,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Caption = "Cổng vào", Level = 3, Order = 24, Picture = @"Icons\GateIn.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateIn).FullName, Parent = typeof(Level2).FullName, Text = "Cổng vào", Level = 3, Order = 24, Picture = @"Icons\GateIn.png" };
                 return menu;
             }
         }

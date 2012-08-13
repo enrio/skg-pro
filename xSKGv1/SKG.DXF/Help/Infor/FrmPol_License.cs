@@ -29,7 +29,7 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var menu = new Menuz() { Caption = "Đăng kí", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_License).FullName, Parent = typeof(Level2).FullName, Text = "Đăng kí", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
                 return menu;
             }
         }

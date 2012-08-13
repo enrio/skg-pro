@@ -22,7 +22,7 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Nhóm người dùng", Level = 3, Order = 10, Picture = @"Icons\Role.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_Role).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm người dùng", Level = 3, Order = 10, Picture = @"Icons\Role.png" };
                 return menu;
             }
         }

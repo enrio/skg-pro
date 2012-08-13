@@ -79,10 +79,10 @@ namespace SKG
                     plugin.Instance.Host = this;
                     plugin.Instance.Initialize();
 
-                    plugin.Menu = plugin.Instance.Menuz;
-                    plugin.Menu.Code = pluginType.FullName;
+                    plugin.Menuz = plugin.Instance.Menuz;
+                    plugin.Menuz.Code = pluginType.FullName;
 
-                    if (plugin.Menu.Level > 0) lst.Add(plugin);
+                    if (plugin.Menuz.Level > 0) lst.Add(plugin);
                 }
                 return lst;
             }
@@ -110,8 +110,8 @@ namespace SKG
                 {
                     var b = GetPlugins(i);
                     var r = from s in b
-                            orderby s.Menu.Order
-                            select s.Menu;
+                            orderby s.Menuz.Order
+                            select s.Menuz;
                     if (r.Count() > 0)
                     {
                         lst.Add(i);

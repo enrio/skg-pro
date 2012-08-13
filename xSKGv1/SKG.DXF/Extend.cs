@@ -373,7 +373,7 @@ namespace SKG.DXF
                         m1 = new RibbonPage(menu[j].Text);
 
                         var zac = Global.Session.GetZAction(menu[j].Code);
-                        m1.Visible = zac != null ? zac.Access : false;
+                        //m1.Visible = zac != null ? zac.Access : false;
 
                         m1.Tag = menu[j].Code;
                         m1.Image = Image.FromFile(path + menu[j].Picture);
@@ -384,7 +384,7 @@ namespace SKG.DXF
                         m2 = new RibbonPageGroup(menu[j].Text);
 
                         var zac = Global.Session.GetZAction(menu[j].Code);
-                        m2.Visible = zac != null ? zac.Access : false;
+                        //m2.Visible = zac != null ? zac.Access : false;
 
                         m2.Tag = menu[j].Code;
                         m2.Glyph = Image.FromFile(path + menu[j].Picture);

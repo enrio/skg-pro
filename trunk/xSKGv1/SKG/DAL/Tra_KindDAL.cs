@@ -33,7 +33,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Kinds
-                          where s.Tra_GroupId == fKey
+                          where s.GroupId == fKey
                           orderby s.Order
                           select new
                           {
@@ -79,12 +79,12 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Kinds
-                          orderby s.Tra_Group.Order
+                          orderby s.Group.Order
                           select new
                           {
                               s.Id,
-                              s.Tra_GroupId,
-                              GroupName = s.Tra_Group.Name,
+                              Tra_GroupId = s.GroupId,
+                              GroupName = s.Group.Text,
                               s.Name,
                               Descript = s.Note,
                               s.Price1,

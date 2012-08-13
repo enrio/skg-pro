@@ -16,9 +16,9 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Khoá ngoại tham chiếu tới Tra_Group
         /// </summary>
-        [ForeignKey("Tra_Group")]
-        public Guid? Tra_GroupId { set; get; }
-        public virtual Tra_Group Tra_Group { get; set; }
+        [ForeignKey("Group")]
+        public Guid? GroupId { set; get; }
+        public virtual Pol_Dictionary Group { get; set; }
         #endregion
 
         /// <summary>

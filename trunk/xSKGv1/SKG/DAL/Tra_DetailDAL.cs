@@ -200,9 +200,9 @@ namespace SKG.DAL
                               UserInPhone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
-                              GroupId = k.Tra_Kind.Tra_GroupId,
+                              GroupId = k.Tra_Kind.GroupId,
                               KindId = k.Tra_KindId,
-                              GroupName = k.Tra_Kind.Tra_Group.Name,
+                              GroupName = k.Tra_Kind.Group.Text,
                               KindName = k.Tra_Kind.Name,
 
                               k.Number,
@@ -252,7 +252,7 @@ namespace SKG.DAL
                               v.Chair,
 
                               KindName = k.Name,
-                              GroupName = k.Tra_Group.Name,
+                              GroupName = k.Group.Text,
                           };
 
                 total = res.Count();
@@ -340,9 +340,9 @@ namespace SKG.DAL
 
                               v.Chair,
                               k.Name,
-                              k.Tra_GroupId,
-                              GroupName = k.Tra_Group.Name,
-                              GroupCode = k.Tra_Group.Code,
+                              Tra_GroupId = k.GroupId,
+                              GroupName = k.Group.Text,
+                              GroupCode = k.Group.Code,
                               k.Price1,
                               k.Price2,
                               s.Money
@@ -454,7 +454,7 @@ namespace SKG.DAL
                               s.Money,
 
                               KindName = k.Tra_Kind.Name,
-                              GroupCode = k.Tra_Kind.Tra_Group.Code
+                              GroupCode = k.Tra_Kind.Group.Code
                           };
 
                 switch (group)

@@ -24,7 +24,7 @@ namespace SKG.Plugin
         /// <summary>
         /// Menu information
         /// </summary>
-        public Menuz Menu { get; set; }
+        public Menuz Menuz { get; set; }
 
         /// <summary>
         /// Instance of plugin

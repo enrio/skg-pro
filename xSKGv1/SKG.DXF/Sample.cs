@@ -647,8 +647,7 @@ namespace SKG.DXF
         {
             Tra_Detail.Delete();
             Tra_Vehicle.Delete();
-            Tra_Kind.Delete();
-            Tra_Group.Delete();
+            Tra_Kind.Delete();            
             Pol_RoleRight.Delete();
             Pol_UserRole.Delete();
             Pol_UserRight.Delete();

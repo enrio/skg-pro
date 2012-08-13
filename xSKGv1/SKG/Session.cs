@@ -1,78 +1,55 @@
-﻿#region Information
-/*
- * Author: Zng Tfy
- * Email: nvt87x@gmail.com
- * Phone: +84 1645 515 010
- * ---------------------------
- * Create: 23/07/2012 21:48
- * Update: 23/07/2012 22:19
- * Status: None
- */
-#endregion
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG
 {
-    using DAL;
+    using BLL;
     using DAL.Entities;
 
-    /// <summary>
-    /// Phiên đăng nhập hiện tại của người dùng
-    /// </summary>
-    public sealed class Session
+    public sealed class Session : IDisposable
     {
-        /// <summary>
-        /// Người dùng đăng nhập hiện tại
-        /// </summary>
         public Pol_User User { set; get; }
-
-        /// <summary>
-        /// Thời gian lúc đăng nhập
-        /// </summary>
         public DateTime? Login { set; get; }
-
-        /// <summary>
-        /// Thời gian hiện tại
-        /// </summary>
         public DateTime Current { set; get; }
 
-        /// <summary>
-        /// Danh sách các quyền của người dùng
-        /// </summary>
         public List<Zaction> ZActions
         {
-            get { return User.ToZActions(); }
+            get { return _bll.GetRights(User.Id); }
         }
 
-        /// <summary>
-        /// Hiện form mặc định sau khi đăng nhập
-        /// </summary>
         public List<Zaction> Default
         {
-            get { return User.ToDefaults(); }
+            get
+            {
+                var res = ZActions.Where(s => s.Default);
+                return res.ToList();
+            }
         }
 
-        /// <summary>
-        /// Lấy quyền hiện tại của chức năng (form)
-        /// </summary>
-        /// <param name="c">Mã chức năng (tên form)</param>
-        /// <returns>Quyền truy cập</returns>
         public Zaction GetZAction(string c)
         {
-            return User.ToZAction(c);
+            var res = from s in ZActions
+                      where s.Code == c
+                      select s;
+            return res.FirstOrDefault();
         }
 
-        /// <summary>
-        /// Get a user's role
-        /// </summary>
-        /// <param name="c">Code's role</param>
-        /// <returns></returns>
         public Pol_Dictionary GetUserRole(string c)
         {
-            return User.ToRole(c);
+            var tmp = _bll.GetRoles(User.Id);
+            var res = from s in tmp
+                      where s.Code == c
+                      select s;
+            return res.FirstOrDefault();
         }
+
+        public void Dispose()
+        {
+            _bll.Dispose();
+            _bll = null;
+        }
+
+        private Pol_UserBLL _bll = BaseBLL._bll.Pol_User;
     }
 }

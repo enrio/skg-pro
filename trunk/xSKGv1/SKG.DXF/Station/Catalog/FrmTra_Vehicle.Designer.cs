@@ -161,9 +161,9 @@
             this.lokKind.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tên"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descript", 30, "Mô tả")});
-            this.lokKind.Properties.DisplayMember = "Name";
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
+            this.lokKind.Properties.DisplayMember = "Text";
             this.lokKind.Properties.NullText = "";
             this.lokKind.Properties.ValueMember = "Id";
             this.lokKind.Size = new System.Drawing.Size(268, 20);

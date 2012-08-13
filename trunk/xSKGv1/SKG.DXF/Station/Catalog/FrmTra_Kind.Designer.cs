@@ -173,7 +173,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
-            this.lokGroup.Properties.DisplayMember = "Name";
+            this.lokGroup.Properties.DisplayMember = "Text";
             this.lokGroup.Properties.NullText = "";
             this.lokGroup.Properties.ValueMember = "Id";
             this.lokGroup.Size = new System.Drawing.Size(268, 20);

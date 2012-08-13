@@ -321,12 +321,12 @@ namespace SKG.DXF.Station.Manage
                 if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
             }
 
-            if (tabControl1.SelectedTab.Name == tabControl1.TabPages[3].Name)
-            //if (lkeGroup.GetColumnValue("Code") + "" == "E")
-            {
-                oki = txtChair.Text.Length == 0 ? false : true;
-                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            }
+            //if (tabControl1.SelectedTab.Name == tabControl1.TabPages[3].Name)
+            ////if (lkeGroup.GetColumnValue("Code") + "" == "E")
+            //{
+            //    oki = txtChair.Text.Length == 0 ? false : true;
+            //    if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
+            //}
 
             return oki;
         }
@@ -348,9 +348,9 @@ namespace SKG.DXF.Station.Manage
             //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
             //lkeGroup.ItemIndex = 0;
 
-            var g = (Pol_Dictionary)_bll.Pol_Dictionary.Select("A");
-            cbbTruckKind.DataSource = _bll.Tra_Kind.Select(g.Id);
-            cbbTruckKind.SelectedIndex = 0;
+            //var g = (Pol_Dictionary)_bll.Pol_Dictionary.Select("GROUP_1");
+            //cbbTruckKind.DataSource = _bll.Tra_Kind.Select(g.Id);
+            //cbbTruckKind.SelectedIndex = 0;
 
             tabControl1_SelectedIndexChanged(null, null);
 
@@ -387,31 +387,31 @@ namespace SKG.DXF.Station.Manage
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (tabControl1.SelectedIndex)
-            {
-                case 0:
-                    _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
-                    break;
-                case 1:
-                    var k = (Tra_Kind)_bll.Tra_Kind.Select("J"); // taxi vang lai
-                    _idLoaixe = k.Id;
-                    break;
-                case 2:
-                    k = (Tra_Kind)_bll.Tra_Kind.Select("K"); // xe ba gac
-                    _idLoaixe = k.Id;
-                    break;
-                case 3:
-                    k = (Tra_Kind)_bll.Tra_Kind.Select("L"); // xe khách vãng lai, quá cảnh, trung chuyển
-                    _idLoaixe = k.Id;
-                    break;
-                default:
-                    break;
-            }
+            //switch (tabControl1.SelectedIndex)
+            //{
+            //    case 0:
+            //        _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
+            //        break;
+            //    case 1:
+            //        var k = (Tra_Kind)_bll.Tra_Kind.Select("J"); // taxi vang lai
+            //        _idLoaixe = k.Id;
+            //        break;
+            //    case 2:
+            //        k = (Tra_Kind)_bll.Tra_Kind.Select("K"); // xe ba gac
+            //        _idLoaixe = k.Id;
+            //        break;
+            //    case 3:
+            //        k = (Tra_Kind)_bll.Tra_Kind.Select("L"); // xe khách vãng lai, quá cảnh, trung chuyển
+            //        _idLoaixe = k.Id;
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
 
         private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
+            //_idLoaixe = (Guid)cbbTruckKind.SelectedValue;
         }
 
         private const string STR_ADD = "Thêm chi tiết ra/vào";

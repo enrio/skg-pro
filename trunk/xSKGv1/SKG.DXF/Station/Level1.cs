@@ -25,7 +25,7 @@ namespace SKG.DXF.Station
         {
             get
             {
-                var menu = new Menuz() { Caption = "Bến xe", Level = 1, Order = 18, Picture = @"Icons\Station.png" };
+                var menu = new Menuz() { Code = typeof(Level1).FullName ,Text = "Bến xe", Level = 1, Order = 18, Picture = @"Icons\Station.png" };
                 return menu;
             }
         }

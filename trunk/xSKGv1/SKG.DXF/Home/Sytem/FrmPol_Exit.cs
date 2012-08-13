@@ -28,7 +28,7 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thoát", Level = 3, Order = 7, Picture = @"Icons\Exit.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_Exit).FullName, Parent = typeof(Level2).FullName, Text = "Thoát", Level = 3, Order = 7, Picture = @"Icons\Exit.png" };
                 return menu;
             }
         }

@@ -25,7 +25,7 @@ namespace SKG.DXF.Help.Util
         {
             get
             {
-                var menu = new Menuz() { Caption = "Tiện ích", Level = 2, Order = 991, Picture = @"Icons\Catalog.png" };
+                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Tiện ích", Level = 2, Order = 991, Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

@@ -13,7 +13,7 @@ namespace SKG.DXF.Station.Sumary
         {
             get
             {
-                var menu = new Menuz() { Caption = "Thống kê", Level = 2, Order = 27, Picture = @"Icons\Sumary.png" };
+                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Thống kê", Level = 2, Order = 27, Picture = @"Icons\Sumary.png" };
                 return menu;
             }
         }

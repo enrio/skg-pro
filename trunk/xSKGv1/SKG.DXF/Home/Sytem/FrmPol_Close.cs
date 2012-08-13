@@ -28,7 +28,7 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Caption = "Đóng hết", Level = 3, Order = 6, Picture = @"Icons\Close.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_Close).FullName, Parent = typeof(Level2).FullName, Text = "Đóng hết", Level = 3, Order = 6, Picture = @"Icons\Close.png" };
                 return menu;
             }
         }

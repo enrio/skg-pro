@@ -127,17 +127,17 @@ namespace SKG.DXF
             {
                 if (i.Code.Contains(l1)) // level 1
                 {
-                    d1 = new Pol_Dictionary() { Type = Global.STR_RIGHT, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    d1 = new Pol_Dictionary() { Type = Global.STR_RIGHT, Code = i.Code, Text = i.Text, Order = i.Order, Show = i.Show };
                     d1 = (Pol_Dictionary)Pol_Dictionary.Insert(d1);
                 }
                 else if (i.Code.Contains(l2)) // level 2
                 {
-                    d2 = new Pol_Dictionary() { Type = Global.STR_RIGHT, ParentId = d1.Id, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    d2 = new Pol_Dictionary() { Type = Global.STR_RIGHT, ParentId = d1.Id, Code = i.Code, Text = i.Text, Order = i.Order, Show = i.Show };
                     d2 = (Pol_Dictionary)Pol_Dictionary.Insert(d2);
                 }
                 else // level 3
                 {
-                    var d3 = new Pol_Dictionary() { Type = Global.STR_RIGHT, ParentId = d2.Id, Code = i.Code, Text = i.Caption, Order = i.Order, Show = i.Show };
+                    var d3 = new Pol_Dictionary() { Type = Global.STR_RIGHT, ParentId = d2.Id, Code = i.Code, Text = i.Text, Order = i.Order, Show = i.Show };
                     d3 = (Pol_Dictionary)Pol_Dictionary.Insert(d3);
                 }
             }

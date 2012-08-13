@@ -22,7 +22,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Caption = "Xe trong bến", Level = 3, Order = 29, Picture = @"Icons\InDepot.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_InDepot).FullName, Parent = typeof(Level2).FullName, Text = "Xe trong bến", Level = 3, Order = 29, Picture = @"Icons\InDepot.png" };
                 return menu;
             }
         }

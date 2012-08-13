@@ -20,7 +20,7 @@ namespace SKG.DXF.Station.Catalog
         {
             get
             {
-                var menu = new Menuz() { Caption = "Loại xe", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Kind).FullName, Parent = typeof(Level2).FullName, Text = "Loại xe", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }

@@ -143,14 +143,15 @@ namespace SKG.DXF.Station.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Tra_Group()
+                var o = new Pol_Dictionary()
                 {
                     Id = id,
-                    Name = txtName.Text,
+                    Type = Global.STR_GROUP,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Tra_Group.Update(o);
+                var oki = _bll.Pol_Dictionary.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -164,13 +165,14 @@ namespace SKG.DXF.Station.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Tra_Group()
+                var o = new Pol_Dictionary()
                 {
-                    Name = txtName.Text,
+                    Type = Global.STR_GROUP,
+                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Tra_Group.Insert(o);
+                var oki = _bll.Pol_Dictionary.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -180,7 +182,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Group.Select();
+            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
 
             if (_dtb != null)
             {

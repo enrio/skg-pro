@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    using SKG.DAL.Entities;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -26,30 +25,66 @@ namespace SKG.DAL.Entities
         /// </summary>
         public string Number { set; get; }
 
+        #region Tải trọng
         /// <summary>
         /// Số ghế ngồi
         /// </summary>
-        public int Chair { set; get; }
+        public int Seats { set; get; }
 
         /// <summary>
-        /// Họ tên tài xế
+        /// Số giường nằm
+        /// </summary>
+        public int Beds { set; get; }
+        #endregion
+
+        #region Thông tin quản lý
+        /// <summary>
+        /// Hạn đăng kiểm
+        /// </summary>
+        public string LimitedRegistration { set; get; }
+
+        /// <summary>
+        /// Năm sản xuất
+        /// </summary>
+        public string ProductionYear { set; get; }
+
+        /// <summary>
+        /// Hạn bảo hiểm
+        /// </summary>
+        public string TermInsurance { set; get; }
+
+        /// <summary>
+        /// Hạn tuyến cố định
+        /// </summary>
+        public string TermFixedRoutes { set; get; }
+
+        /// <summary>
+        /// Hạn giấy phép lái xe
+        /// </summary>
+        public string TermDriverLicense { set; get; }
+        #endregion
+
+        #region Thông tin khác
+        /// <summary>
+        /// Họ tên của tài xế
         /// </summary>
         public string Driver { set; get; }
 
         /// <summary>
-        /// Ngày tháng năm sinh
+        /// Ngày tháng năm sinh của tài xế
         /// </summary>
         public DateTime Birth { set; get; }
 
         /// <summary>
-        /// Địa chỉ liên lạc
+        /// Địa chỉ liên lạc của tài xế
         /// </summary>
         public string Address { set; get; }
 
         /// <summary>
-        /// Điện thoại liên lạc
+        /// Điện thoại liên lạc của tài xế
         /// </summary>
         public string Phone { set; get; }
+        #endregion
 
         #region Khoá ngoại ở các thực thể khác
         /// <summary>

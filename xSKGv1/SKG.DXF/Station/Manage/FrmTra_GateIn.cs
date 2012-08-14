@@ -227,7 +227,7 @@ namespace SKG.DXF.Station.Manage
                         {
                             Number = txtNumber.Text,
                             Tra_KindId = _idLoaixe,
-                            Chair = txtChair.Text.ToInt32(),
+                            Seats = txtChair.Text.ToInt32(),
                             Driver = txtDriver.Text,
                             Birth = dteBirth.DateTime,
                             Address = txtAddress.Text,

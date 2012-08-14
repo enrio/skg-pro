@@ -92,7 +92,7 @@ namespace SKG.DAL
                               s.Birth,
                               s.Address,
                               s.Phone,
-                              s.Chair,
+                              Chair = s.Seats,
                               s.Code,
                               s.Order,
                               s.Show
@@ -140,7 +140,7 @@ namespace SKG.DAL
                 
                 res.Tra_KindId = o.Tra_KindId;
                 res.Number = o.Number;
-                res.Chair = o.Chair;
+                res.Seats = o.Seats;
                 res.Note = o.Note;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;

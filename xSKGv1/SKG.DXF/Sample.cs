@@ -561,7 +561,7 @@ namespace SKG.DXF
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66K-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn K", Birth = new DateTime(1980, 1, 11), Address = "Cà Xa, Cà Mau", Phone = "1810 1091" };
             Tra_Vehicle.Insert(o);
-            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091", Chair = 50 };
+            o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66L-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn L", Birth = new DateTime(1980, 1, 12), Address = "Ngã Bảy, Hậu Giang", Phone = "1811 1091", Seats = 50 };
             Tra_Vehicle.Insert(o);
         }
 

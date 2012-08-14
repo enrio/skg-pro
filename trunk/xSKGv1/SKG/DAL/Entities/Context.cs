@@ -27,7 +27,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Policy - Language for system (include all form, menuz and more)
         /// </summary>
-        public DbSet<Pol_Dictionary> Pol_Dictionarys { get; set; }        
+        public DbSet<Pol_Dictionary> Pol_Dictionarys { get; set; }
 
         /// <summary>
         /// Policy - User's information
@@ -72,7 +72,12 @@ namespace SKG.DAL.Entities
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
-        }        
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public DbSet<Tra_Joining> Tra_Adherences { get; set; }
 
         /// <summary>
         /// 

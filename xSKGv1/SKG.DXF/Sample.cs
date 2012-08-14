@@ -20,7 +20,7 @@ namespace SKG.DXF
     using SKG.Data;
     using System.Data;
     using DAL.Entities;
-    
+
     using System.Windows.Forms;
 
     /// <summary>
@@ -40,6 +40,7 @@ namespace SKG.DXF
             if (bll.Pol_User.Count() > 0) return;
             var file = Application.StartupPath + @"\Import\Sample.xls";
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Tra_Vehicle).Name);
             bll.CreateAll();
         }
         #endregion

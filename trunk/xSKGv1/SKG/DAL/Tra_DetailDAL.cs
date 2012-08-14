@@ -206,7 +206,7 @@ namespace SKG.DAL
                               KindName = k.Tra_Kind.Text,
 
                               k.Number,
-                              k.Chair,
+                              Chair = k.Seats,
                               Descript = k.Note,
                               k.Driver,
                               k.Birth,
@@ -249,7 +249,7 @@ namespace SKG.DAL
                               s.DateIn,
 
                               v.Number,
-                              v.Chair,
+                              Chair = v.Seats,
 
                               KindName = k.Text,
                               GroupName = k.Group.Text,
@@ -338,7 +338,7 @@ namespace SKG.DAL
                               s.Days,
                               s.Hours,
 
-                              v.Chair,
+                              Chair = v.Seats,
                               k.Text,
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,

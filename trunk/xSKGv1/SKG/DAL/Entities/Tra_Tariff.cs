@@ -30,12 +30,5 @@ namespace SKG.DAL.Entities
         /// Đơn giá một ngày
         /// </summary>
         public int Price2 { set; get; }
-
-        #region Khoá ngoại ở các thực thể khác
-        /// <summary>
-        /// Danh sách xe
-        /// </summary>
-        public virtual ICollection<Tra_Vehicle> Tra_Vehicles { get; set; }
-        #endregion
     }
 }

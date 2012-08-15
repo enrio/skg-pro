@@ -680,6 +680,11 @@ namespace SKG.DXF
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+            tbl = new DataTable(typeof(Tra_Vehicle).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("TransportId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
         }
     }
 }

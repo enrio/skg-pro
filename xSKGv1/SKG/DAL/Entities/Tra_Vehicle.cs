@@ -15,9 +15,9 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Khoá ngoại tham chiếu tới Tra_Kind
         /// </summary>
-        [ForeignKey("Tra_Kind")]
-        public Guid? Tra_KindId { set; get; }
-        public virtual Tra_Tariff Tra_Kind { get; set; }
+        [ForeignKey("Transport")]
+        public Guid? TransportId { set; get; }
+        public virtual Pol_Dictionary Transport { get; set; }
         #endregion
 
         /// <summary>

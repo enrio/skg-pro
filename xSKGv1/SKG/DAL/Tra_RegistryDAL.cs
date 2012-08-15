@@ -79,12 +79,13 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Registries
-                          orderby s.Order
+                          orderby s.Vehicle.Transport.Text
                           select new
                           {
                               s.Id,                              
                               s.VehicleId,
                               s.Vehicle.Number,
+                              Transport=s.Vehicle.Transport.Text,
                               s.TariffId,
                               Tariff=s.Tariff.Text,
                               s.Tariff.Price1,

@@ -652,13 +652,14 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void CreateAll()
         {
+            #region Policy
             var file = Application.StartupPath + @"\Import\Dictionary.xls";
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
 
-            file = Application.StartupPath + @"\Import\Sample.xls";
+            file = Application.StartupPath + @"\Import\Policy.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
@@ -669,13 +670,15 @@ namespace SKG.DXF
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
 
-
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
             tbl.Columns.Add("Pol_RightId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            #endregion
 
+            #region Transport
+            file = Application.StartupPath + @"\Import\Transport.xls";
             tbl = new DataTable(typeof(Tra_Tariff).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
@@ -692,7 +695,8 @@ namespace SKG.DXF
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("ArrivalId", typeof(Guid));
             tbl.Columns.Add("DepartureId", typeof(Guid));
-            //SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            #endregion
         }
     }
 }

@@ -38,9 +38,6 @@ namespace SKG.DXF
             var bll = new Sample();
             if (isDelete) bll.DeleteAll();
             if (bll.Pol_User.Count() > 0) return;
-            var file = Application.StartupPath + @"\Import\Sample.xls";
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_User).Name);
             bll.CreateAll();
         }
         #endregion
@@ -657,12 +654,18 @@ namespace SKG.DXF
         {
             //CreatePol_Dictionary();
             //CreatePol_User();
-            CreatePol_UserRight();
-            CreatePol_UserRole();
-            CreatePol_RoleRight();
-            CreateTra_Kind();
+            //CreatePol_UserRight();
+            //CreatePol_UserRole();
+            //CreatePol_RoleRight();
+            //CreateTra_Kind();
             //CreateTra_Vehicle();
             //CreateTra_Detail();
+            var file = Application.StartupPath + @"\Import\Sample.xls";
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_User).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_UserRole).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_RoleRight).Name);
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Tra_Tariff).Name);
         }
     }
 }

@@ -20,22 +20,26 @@ namespace SKG.DAL.Entities
         public virtual Tra_Vehicle Vehicle { get; set; }
 
         /// <summary>
-        /// Refercence to Pol_Role
+        /// Refercence to Tra_Tariff
         /// </summary>
-        [Column(Order = 1), ForeignKey("Route")]
-        public Guid? RouteId { set; get; }
-        public virtual Pol_Dictionary Route { get; set; }
-        #endregion
+        [Column(Order = 1), ForeignKey("Tariff")]
+        public Guid? TariffId { set; get; }
+        public virtual Tra_Tariff Tariff { get; set; }
 
         /// <summary>
         /// Bến đi
         /// </summary>
-        public string Arrivals { get; set; }
+        [Column(Order = 2), ForeignKey("Arrival")]
+        public Guid? ArrivalId { set; get; }
+        public Pol_Dictionary Arrival { get; set; }
 
         /// <summary>
         /// Bến đến
         /// </summary>
-        public string Departures { get; set; }
+        [Column(Order = 3), ForeignKey("Departure")]
+        public Guid? DepartureId { set; get; }
+        public Pol_Dictionary Departure { get; set; }
+        #endregion
 
         /// <summary>
         /// Ngày giờ xuất bến (âm lịch)

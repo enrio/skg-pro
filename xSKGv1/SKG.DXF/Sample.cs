@@ -521,7 +521,7 @@ namespace SKG.DXF
         {
             if (Tra_Vehicle.Count() > 0) return;
 
-            var a = (Tra_Kind)Tra_Kind.Select("KIND_11");
+            var a = (Tra_Kind)Tra_Kind.Select("KIND_8");
             var o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.09", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn A", Birth = new DateTime(1980, 1, 1), Address = "Sóc Sơ Bay", Phone = "1800 1090" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "65F-888.09", Note = "Xe đen thui", Driver = "Nguyễn Văn Su", Birth = new DateTime(1982, 3, 1), Address = "Tây Sơn, Bình Định", Phone = "1800 6969" };
@@ -531,25 +531,25 @@ namespace SKG.DXF
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "95F-888.09", Note = "Xe đen thui", Driver = "Trần Như Nhộng", Birth = new DateTime(1980, 3, 1), Address = "Phong Gió, Quảng Bình", Phone = "1899 6969" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_Kind)Tra_Kind.Select("KIND_4");
+            a = (Tra_Kind)Tra_Kind.Select("KIND_1");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn B", Birth = new DateTime(1980, 1, 1), Address = "Lấp Dò, Đồng Tháp", Phone = "1800 1091" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 2), Address = "Cao Lãnh, Đồng Tháp", Phone = "1801 1791" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_Kind)Tra_Kind.Select("KIND_5");
+            a = (Tra_Kind)Tra_Kind.Select("KIND_2");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66C-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 3), Address = "Tháp Mười, Đồng Tháp", Phone = "1802 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_Kind)Tra_Kind.Select("KIND_6");
+            a = (Tra_Kind)Tra_Kind.Select("KIND_3");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66D-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn D", Birth = new DateTime(1980, 1, 4), Address = "Thanh Bình, Đồng Tháp", Phone = "1803 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_Kind)Tra_Kind.Select("KIND_7");
+            a = (Tra_Kind)Tra_Kind.Select("KIND_4");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn E", Birth = new DateTime(1980, 1, 5), Address = "Chợ Lách, Bến Tre", Phone = "1804 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_Kind)Tra_Kind.Select("KIND_8");
+            a = (Tra_Kind)Tra_Kind.Select("KIND_5");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn F", Birth = new DateTime(1980, 1, 6), Address = "Giồng Trôm, Bến Tre", Phone = "1805 1091" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66G-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn G", Birth = new DateTime(1980, 1, 7), Address = "Trà Cú, Trà Vinh", Phone = "1806 1091" };

@@ -432,7 +432,7 @@ namespace SKG.DXF
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Catalog.FrmTra_Group).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Catalog.FrmTra_Kind).FullName);
+            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Catalog.FrmTra_Tariff).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Catalog.FrmTra_Vehicle).FullName);

@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Catalog
 {
-    partial class FrmTra_Kind
+    partial class FrmTra_Tariff
     {
         /// <summary>
         /// Required designer variable.

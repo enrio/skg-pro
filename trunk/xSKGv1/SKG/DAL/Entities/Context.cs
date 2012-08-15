@@ -72,12 +72,7 @@ namespace SKG.DAL.Entities
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public DbSet<Tra_Registry> Tra_Adherences { get; set; }
+        }        
 
         /// <summary>
         /// 

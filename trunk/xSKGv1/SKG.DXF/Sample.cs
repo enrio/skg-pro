@@ -652,7 +652,7 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void CreateAll()
         {
-            var file = Application.StartupPath + @"\Import\Sample.xls";
+            var file = Application.StartupPath + @"\Import\Dictionary.xls";
 
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));

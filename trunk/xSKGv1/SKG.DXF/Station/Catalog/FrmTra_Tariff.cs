@@ -56,7 +56,7 @@ namespace SKG.DXF.Station.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Kind.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Tariff.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -165,7 +165,7 @@ namespace SKG.DXF.Station.Catalog
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Tra_Kind.Update(o);
+                var oki = _bll.Tra_Tariff.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -188,7 +188,7 @@ namespace SKG.DXF.Station.Catalog
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Tra_Kind.Insert(o);
+                var oki = _bll.Tra_Tariff.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -198,7 +198,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Kind.Select();
+            _dtb = _bll.Tra_Tariff.Select();
 
             if (_dtb != null)
             {

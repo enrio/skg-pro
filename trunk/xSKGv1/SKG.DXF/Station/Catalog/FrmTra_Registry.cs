@@ -23,7 +23,7 @@ namespace SKG.DXF.Station.Catalog
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Registry).FullName, Parent = typeof(Level2).FullName, Text = "Đăng ký", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Registry).FullName, Parent = typeof(Level2).FullName, Text = "Đăng ký giá", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
                 return menu;
             }
         }
@@ -59,7 +59,7 @@ namespace SKG.DXF.Station.Catalog
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Registry.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -122,8 +122,8 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void DataBindingControl()
         {
-            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            //txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            //txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }
@@ -154,7 +154,7 @@ namespace SKG.DXF.Station.Catalog
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.Update(o);
+                var oki = _bll.Tra_Registry.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -175,7 +175,7 @@ namespace SKG.DXF.Station.Catalog
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.Insert(o);
+                var oki = _bll.Tra_Registry.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -185,7 +185,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            _dtb = _bll.Tra_Registry.Select();
 
             if (_dtb != null)
             {

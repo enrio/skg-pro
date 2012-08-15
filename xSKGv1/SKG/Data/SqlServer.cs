@@ -6,6 +6,7 @@ namespace SKG.Data
 {
     using System.IO;
     using System.Data;
+    using DAL.Entities;
     using System.Data.OleDb;
     using System.Windows.Forms;
     using System.Data.SqlClient;
@@ -194,9 +195,11 @@ namespace SKG.Data
 
                 oleCnn.Open();
                 var rdr = cmd.ExecuteReader();
-                var tbl = new System.Data.DataTable();
+
+                var tbl = new System.Data.DataTable(tableName);
                 tbl.Columns.Add("Id", typeof(Guid));
-                tbl.Columns.Add("ParentId", typeof(Guid));
+                if (tableName == typeof(Pol_Dictionary).Name) tbl.Columns.Add("ParentId", typeof(Guid));
+
                 tbl.Load(rdr);
                 oleCnn.Close();
 

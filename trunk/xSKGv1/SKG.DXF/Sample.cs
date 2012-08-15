@@ -652,20 +652,34 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void CreateAll()
         {
-            //CreatePol_Dictionary();
-            //CreatePol_User();
-            //CreatePol_UserRight();
-            //CreatePol_UserRole();
-            //CreatePol_RoleRight();
-            //CreateTra_Kind();
-            //CreateTra_Vehicle();
-            //CreateTra_Detail();
             var file = Application.StartupPath + @"\Import\Sample.xls";
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_Dictionary).Name);
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_User).Name);
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_UserRole).Name);
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Pol_RoleRight).Name);
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, typeof(Tra_Tariff).Name);
+
+            var tbl = new DataTable(typeof(Pol_Dictionary).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("ParentId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+            tbl = new DataTable(typeof(Pol_User).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+            tbl = new DataTable(typeof(Pol_UserRole).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("Pol_UserId", typeof(Guid));
+            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+
+            tbl = new DataTable(typeof(Pol_RoleRight).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
+            tbl.Columns.Add("Pol_RightId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+            tbl = new DataTable(typeof(Tra_Tariff).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("GroupId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
         }
     }
 }

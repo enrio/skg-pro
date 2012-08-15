@@ -87,12 +87,12 @@ namespace SKG.DAL
                               s.VehicleId,
                               s.Vehicle.Number,
                               Transport=s.Vehicle.Transport.Text,
-                              //s.TariffId,
-                              //Tariff=s.Tariff.Text,
-                              //s.Tariff.Price1,
-                              //s.Tariff.Price2,
+                              s.TariffId,
+                              Tariff = s.Tariff.Text,
+                              s.Tariff.Price1,
+                              s.Tariff.Price2,
 
-                            Tariff=  k.Text,
+                            //Tariff=  k.Text,
 
                               s.ArrivalId,
                               Arrival =s.Arrival.Text,

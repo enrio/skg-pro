@@ -29,12 +29,12 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Số ghế ngồi
         /// </summary>
-        public int Seats { set; get; }
+        public int? Seats { set; get; }
 
         /// <summary>
         /// Số giường nằm
         /// </summary>
-        public int Beds { set; get; }
+        public int? Beds { set; get; }
         #endregion
 
         #region Thông tin quản lý

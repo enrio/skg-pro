@@ -200,10 +200,10 @@ namespace SKG.DAL
                               UserInPhone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
-                              GroupId = k.Tra_Kind.GroupId,
-                              KindId = k.Tra_KindId,
-                              GroupName = k.Tra_Kind.Group.Text,
-                              KindName = k.Tra_Kind.Text,
+                              //GroupId = k.Transport.GroupId,
+                              KindId = k.TransportId,
+                              //GroupName = k.Transport.Group.Text,
+                              KindName = k.Transport.Text,
 
                               k.Number,
                               Chair = k.Seats,
@@ -236,7 +236,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
+                          join k in _db.Tra_Kinds on v.TransportId equals k.Id
 
                           where s.Pol_UserOutId == null
                           orderby s.DateIn descending, v.Number
@@ -320,7 +320,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Kinds on v.Tra_KindId equals k.Id
+                          join k in _db.Tra_Kinds on v.TransportId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Number
@@ -453,23 +453,23 @@ namespace SKG.DAL
                               Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
 
-                              KindName = k.Tra_Kind.Text,
-                              GroupCode = k.Tra_Kind.Group.Code
+                              KindName = k.Transport.Text,
+                              //GroupCode = k.Transport.Group.Code
                           };
 
-                switch (group)
-                {
-                    case Group.A:
-                        res = res.Where(p => p.GroupCode == "A");
-                        break;
+                //switch (group)
+                //{
+                //    case Group.A:
+                //        res = res.Where(p => p.GroupCode == "A");
+                //        break;
 
-                    case Group.B:
-                        res = res.Where(p => p.GroupCode != "A");
-                        break;
+                //    case Group.B:
+                //        res = res.Where(p => p.GroupCode != "A");
+                //        break;
 
-                    default:
-                        break;
-                }
+                //    default:
+                //        break;
+                //}
 
                 if (userId != new Guid()) res = res.Where(p => p.Pol_UserOutId == userId);
 

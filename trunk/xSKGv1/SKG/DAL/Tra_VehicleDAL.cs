@@ -33,7 +33,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Vehicles
-                          where s.Tra_KindId == fKey
+                          where s.TransportId == fKey
                           orderby s.Order
                           select new
                           {
@@ -84,8 +84,8 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Tra_KindId,
-                              KindName = s.Tra_Kind.Text,
+                              Tra_KindId = s.TransportId,
+                              KindName = s.Transport.Text,
                               s.Number,
                               Descript = s.Note,
                               s.Driver,
@@ -138,7 +138,7 @@ namespace SKG.DAL
                 var o = (Tra_Vehicle)obj;
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
                 
-                res.Tra_KindId = o.Tra_KindId;
+                res.TransportId = o.TransportId;
                 res.Number = o.Number;
                 res.Seats = o.Seats;
                 res.Note = o.Note;

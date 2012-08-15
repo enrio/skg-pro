@@ -171,7 +171,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Vehicle()
                 {
                     Id = id,
-                    Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
+                    TransportId = (Guid)lokKind.GetColumnValue("Id"),
                     Number = txtNumber.Text,
                     Seats = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,
@@ -197,7 +197,7 @@ namespace SKG.DXF.Station.Catalog
 
                 var o = new Tra_Vehicle()
                 {
-                    Tra_KindId = (Guid)lokKind.GetColumnValue("Id"),
+                    TransportId = (Guid)lokKind.GetColumnValue("Id"),
                     Number = txtNumber.Text,
                     Seats = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,

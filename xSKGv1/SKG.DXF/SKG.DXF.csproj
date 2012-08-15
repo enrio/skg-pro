@@ -187,11 +187,11 @@
     <Compile Include="Station\Catalog\FrmTra_Group.Designer.cs">
       <DependentUpon>FrmTra_Group.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Kind.cs">
+    <Compile Include="Station\Catalog\FrmTra_Tariff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Kind.Designer.cs">
-      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    <Compile Include="Station\Catalog\FrmTra_Tariff.Designer.cs">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Catalog\FrmTra_Registry.cs">
       <SubType>Form</SubType>
@@ -270,8 +270,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Kind.resx">
-      <DependentUpon>FrmTra_Kind.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Catalog\FrmTra_Tariff.resx">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Catalog\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>

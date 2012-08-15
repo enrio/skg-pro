@@ -8,7 +8,7 @@ Select * From Pol_Selection
 Select * From Pol_Chat
 
 select * from Tra_Tariff
-select * from Tra_Vehicle
+select * from Tra_Vehicle order by [Order]
 
 Select * From Pol_Dictionary
 Order By Substring(Code, 1, 3), [Order]

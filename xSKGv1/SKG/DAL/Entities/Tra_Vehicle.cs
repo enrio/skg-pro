@@ -13,7 +13,7 @@ namespace SKG.DAL.Entities
     {
         #region Khoá ngoại
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Tra_Kind
+        /// Khoá ngoại tham chiếu tới Pol_Dictionary
         /// </summary>
         [ForeignKey("Transport")]
         public Guid? TransportId { set; get; }
@@ -73,7 +73,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Ngày tháng năm sinh của tài xế
         /// </summary>
-        public DateTime Birth { set; get; }
+        public DateTime? Birth { set; get; }
 
         /// <summary>
         /// Địa chỉ liên lạc của tài xế

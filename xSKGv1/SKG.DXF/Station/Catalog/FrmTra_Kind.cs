@@ -155,7 +155,7 @@ namespace SKG.DXF.Station.Catalog
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Tra_Kind()
+                var o = new Tra_UnitPrice()
                 {
                     Id = id,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
@@ -179,7 +179,7 @@ namespace SKG.DXF.Station.Catalog
             {
                 if (!ValidInput()) return false;
 
-                var o = new Tra_Kind()
+                var o = new Tra_UnitPrice()
                 {
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Text = txtName.Text,

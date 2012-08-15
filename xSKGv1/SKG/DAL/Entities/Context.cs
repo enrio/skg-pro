@@ -82,7 +82,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// 
         /// </summary>
-        public DbSet<Tra_Kind> Tra_Kinds { get; set; }
+        public DbSet<Tra_UnitPrice> Tra_Kinds { get; set; }
 
         /// <summary>
         /// 

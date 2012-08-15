@@ -198,7 +198,24 @@ namespace SKG.Data
 
                 var tbl = new System.Data.DataTable(tableName);
                 tbl.Columns.Add("Id", typeof(Guid));
-                if (tableName == typeof(Pol_Dictionary).Name) tbl.Columns.Add("ParentId", typeof(Guid));
+
+                if (tableName == typeof(Pol_Dictionary).Name)
+                    tbl.Columns.Add("ParentId", typeof(Guid));
+
+                if (tableName == typeof(Pol_UserRole).Name)
+                {
+                    tbl.Columns.Add("Pol_UserId", typeof(Guid));
+                    tbl.Columns.Add("Pol_RoleId", typeof(Guid));
+                }
+
+                if (tableName == typeof(Pol_RoleRight).Name)
+                {
+                    tbl.Columns.Add("Pol_RoleId", typeof(Guid));
+                    tbl.Columns.Add("Pol_RightId", typeof(Guid));
+                }
+
+                if (tableName == typeof(Tra_Tariff).Name)
+                    tbl.Columns.Add("GroupId", typeof(Guid));
 
                 tbl.Load(rdr);
                 oleCnn.Close();

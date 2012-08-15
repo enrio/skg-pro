@@ -61,7 +61,8 @@
     <Compile Include="BLL\Pol_UserRightBLL.cs" />
     <Compile Include="BLL\Pol_UserRoleBLL.cs" />
     <Compile Include="BLL\Tra_DetailBLL.cs" />
-    <Compile Include="BLL\Tra_KindBLL.cs" />
+    <Compile Include="BLL\Tra_RegistryBLL.cs" />
+    <Compile Include="BLL\Tra_TariffBLL.cs" />
     <Compile Include="BLL\Tra_VehicleBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
@@ -87,7 +88,8 @@
     <Compile Include="DAL\Pol_UserRoleDAL.cs" />
     <Compile Include="DAL\Test.cs" />
     <Compile Include="DAL\Tra_DetailDAL.cs" />
-    <Compile Include="DAL\Tra_KindDAL.cs" />
+    <Compile Include="DAL\Tra_TariffDAL.cs" />
+    <Compile Include="DAL\Tra_RegistryDAL.cs" />
     <Compile Include="DAL\Tra_VehicleDAL.cs" />
     <Compile Include="Data\Base.cs" />
     <Compile Include="Data\SqlServer.cs" />

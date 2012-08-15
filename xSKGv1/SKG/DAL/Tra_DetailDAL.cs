@@ -236,7 +236,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Kinds on v.TransportId equals k.Id
+                          join k in _db.Tra_Tariffs on v.TransportId equals k.Id
 
                           where s.Pol_UserOutId == null
                           orderby s.DateIn descending, v.Number
@@ -320,7 +320,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Kinds on v.TransportId equals k.Id
+                          join k in _db.Tra_Tariffs on v.TransportId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Number

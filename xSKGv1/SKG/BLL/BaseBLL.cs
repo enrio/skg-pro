@@ -50,7 +50,7 @@ namespace SKG.BLL
         /// <summary>
         /// Truy cập cơ sở dữ liệu bảng Tra_Kind: danh mục loại xe.
         /// </summary>
-        public Tra_KindBLL Tra_Kind { set; get; }
+        public Tra_TariffBLL Tra_Kind { set; get; }
 
         /// <summary>
         /// Truy cập cơ sở dữ liệu bảng Tra_Vehicle: danh sách xe cộ.
@@ -73,7 +73,7 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
-            Tra_Kind = new Tra_KindBLL();
+            Tra_Kind = new Tra_TariffBLL();
             Tra_Vehicle = new Tra_VehicleBLL();
             Tra_Detail = new Tra_DetailBLL();
         }

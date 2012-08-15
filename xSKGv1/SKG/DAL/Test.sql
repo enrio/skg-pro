@@ -7,7 +7,8 @@ Select * From Pol_RoleRight
 Select * From Pol_Selection
 Select * From Pol_Chat
 
-select * from tra_tariff
+select * from Tra_Tariff
+select * from Tra_Vehicle
 
 Select * From Pol_Dictionary
 Order By Substring(Code, 1, 3), [Order]

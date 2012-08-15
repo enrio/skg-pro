@@ -83,11 +83,18 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,                              
-                              s.Text,
-                               s.Note,
+                              s.VehicleId,
+                              s.Vehicle.Number,
+                              s.TariffId,
+                              Tariff=s.Tariff.Text,
                               s.Tariff.Price1,
                               s.Tariff.Price2,
 
+                              s.ArrivalId,
+                              Arrival =s.Arrival.Text,
+                              s.DepartureId,
+                              Departure=s.Departure.Text,
+                              s.TimeLeaves,
                               s.Code,
                               s.Order,
                               s.Show

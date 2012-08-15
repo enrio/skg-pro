@@ -252,7 +252,7 @@ namespace SKG.DXF.Station.Catalog
 
         private void FrmTra_Vehicle_Load(object sender, EventArgs e)
         {
-            lokKind.Properties.DataSource = _bll.Tra_Kind.Select();
+            lokKind.Properties.DataSource = _bll.Tra_Tariff.Select();
             lokKind.ItemIndex = 0;
 
             if (_num + "" != "")

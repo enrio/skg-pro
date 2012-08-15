@@ -692,7 +692,7 @@ namespace SKG.DXF
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("ArrivalId", typeof(Guid));
             tbl.Columns.Add("DepartureId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            //SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
         }
     }
 }

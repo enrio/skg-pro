@@ -653,12 +653,12 @@ namespace SKG.DXF
         protected virtual void CreateAll()
         {
             var file = Application.StartupPath + @"\Import\Dictionary.xls";
-
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
 
+            file = Application.StartupPath + @"\Import\Sample.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);

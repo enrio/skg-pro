@@ -77,7 +77,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// 
         /// </summary>
-        public DbSet<Tra_Joining> Tra_Adherences { get; set; }
+        public DbSet<Tra_Registration> Tra_Adherences { get; set; }
 
         /// <summary>
         /// 

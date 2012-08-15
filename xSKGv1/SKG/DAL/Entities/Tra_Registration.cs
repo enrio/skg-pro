@@ -9,15 +9,15 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Đơn vị vận tải tham gia chạy tuyến
     /// </summary>
-    public class Tra_Joining : Zinfors
+    public class Tra_Registration : Zinfors
     {
         #region Foreign key
         /// <summary>
-        /// Refercence to Pol_User
+        /// Refercence to Tra_Vehicle
         /// </summary>
-        [Column(Order = 0), ForeignKey("Transport")]
-        public Guid? TransportId { set; get; }
-        public virtual Pol_Dictionary Transport { get; set; }
+        [Column(Order = 0), ForeignKey("Vehicle")]
+        public Guid? VehicleId { set; get; }
+        public virtual Tra_Vehicle Vehicle { get; set; }
 
         /// <summary>
         /// Refercence to Pol_Role

@@ -72,7 +72,7 @@
     <Compile Include="DAL\Entities\Pol_Selection.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
-    <Compile Include="DAL\Entities\Tra_Joining.cs" />
+    <Compile Include="DAL\Entities\Tra_Registration.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
     <Compile Include="DAL\Entities\Tra_Kind.cs" />
     <Compile Include="DAL\Entities\Tra_Vehicle.cs" />

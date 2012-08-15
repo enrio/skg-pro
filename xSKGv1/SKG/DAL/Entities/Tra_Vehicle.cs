@@ -17,7 +17,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         [ForeignKey("Tra_Kind")]
         public Guid? Tra_KindId { set; get; }
-        public virtual Tra_UnitPrice Tra_Kind { get; set; }
+        public virtual Tra_Tariff Tra_Kind { get; set; }
         #endregion
 
         /// <summary>

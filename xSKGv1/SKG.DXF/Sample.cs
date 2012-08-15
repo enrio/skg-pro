@@ -484,33 +484,33 @@ namespace SKG.DXF
             if (Tra_Kind.Count() > 0) return;
 
             var a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_0");
-            var o = new Tra_UnitPrice() { Code = "REGION_0", GroupId = a.Id, Text = "Miền Bắc", Note = "", Price1 = 5000, Price2 = 6500, Order = 0 };
+            var o = new Tra_Tariff() { Code = "REGION_0", GroupId = a.Id, Text = "Miền Bắc", Note = "", Price1 = 5000, Price2 = 6500, Order = 0 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "REGION_1", GroupId = a.Id, Text = "Miền Trung", Note = "", Price1 = 4300, Price2 = 5590, Order = 1 };
+            o = new Tra_Tariff() { Code = "REGION_1", GroupId = a.Id, Text = "Miền Trung", Note = "", Price1 = 4300, Price2 = 5590, Order = 1 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "REGION_2", GroupId = a.Id, Text = "Miền Nam", Note = "", Price1 = 2900, Price2 = 3770, Order = 2 };
+            o = new Tra_Tariff() { Code = "REGION_2", GroupId = a.Id, Text = "Miền Nam", Note = "", Price1 = 2900, Price2 = 3770, Order = 2 };
             Tra_Kind.Insert(o);
 
             a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_1");
-            o = new Tra_UnitPrice() { Code = "KIND_0", GroupId = a.Id, Text = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2639, Order = 3 };
+            o = new Tra_Tariff() { Code = "KIND_0", GroupId = a.Id, Text = "Xe khách vãng lai, quá cảnh, trung chuyển", Note = "Trong vòng 60 phút", Price1 = 2030, Price2 = 2639, Order = 3 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_1", GroupId = a.Id, Text = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Note = "", Price1 = 15000, Price2 = 25000, Order = 4 };
+            o = new Tra_Tariff() { Code = "KIND_1", GroupId = a.Id, Text = "2,5tấn ≤ tải trọng < 5tấn hoặc dài < 6m", Note = "", Price1 = 15000, Price2 = 25000, Order = 4 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_2", GroupId = a.Id, Text = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Note = "", Price1 = 15000, Price2 = 30000, Order = 5 };
+            o = new Tra_Tariff() { Code = "KIND_2", GroupId = a.Id, Text = "5tấn ≤ tải trọng < 10tấn hoặc 6m ≤ dài < 8m", Note = "", Price1 = 15000, Price2 = 30000, Order = 5 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_3", GroupId = a.Id, Text = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Note = "", Price1 = 20000, Price2 = 35000, Order = 6 };
+            o = new Tra_Tariff() { Code = "KIND_3", GroupId = a.Id, Text = "10tấn ≤ tải trọng < 15tấn hoặc dài ≥ 8m", Note = "", Price1 = 20000, Price2 = 35000, Order = 6 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_4", GroupId = a.Id, Text = "Container 20feet", Note = "", Price1 = 25000, Price2 = 45000, Order = 7 };
+            o = new Tra_Tariff() { Code = "KIND_4", GroupId = a.Id, Text = "Container 20feet", Note = "", Price1 = 25000, Price2 = 45000, Order = 7 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_5", GroupId = a.Id, Text = "Container 40feet", Note = "", Price1 = 30000, Price2 = 60000, Order = 8 };
+            o = new Tra_Tariff() { Code = "KIND_5", GroupId = a.Id, Text = "Container 40feet", Note = "", Price1 = 30000, Price2 = 60000, Order = 8 };
             Tra_Kind.Insert(o);
 
             a = (Pol_Dictionary)Pol_Dictionary.Select("GROUP_2");
-            o = new Tra_UnitPrice() { Code = "KIND_6", GroupId = a.Id, Text = "Taxi vãng lai", Note = "", Price1 = 8000, Price2 = 8000, Order = 9 };
+            o = new Tra_Tariff() { Code = "KIND_6", GroupId = a.Id, Text = "Taxi vãng lai", Note = "", Price1 = 8000, Price2 = 8000, Order = 9 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_7", GroupId = a.Id, Text = "Xe ba bánh", Note = "", Price1 = 5000, Price2 = 5000, Order = 10 };
+            o = new Tra_Tariff() { Code = "KIND_7", GroupId = a.Id, Text = "Xe ba bánh", Note = "", Price1 = 5000, Price2 = 5000, Order = 10 };
             Tra_Kind.Insert(o);
-            o = new Tra_UnitPrice() { Code = "KIND_8", GroupId = a.Id, Text = "Tải trọng < 2,5tấn", Note = "", Price1 = 10000, Price2 = 20000, Order = 11 };
+            o = new Tra_Tariff() { Code = "KIND_8", GroupId = a.Id, Text = "Tải trọng < 2,5tấn", Note = "", Price1 = 10000, Price2 = 20000, Order = 11 };
             Tra_Kind.Insert(o);
         }
 
@@ -521,7 +521,7 @@ namespace SKG.DXF
         {
             if (Tra_Vehicle.Count() > 0) return;
 
-            var a = (Tra_UnitPrice)Tra_Kind.Select("KIND_8");
+            var a = (Tra_Tariff)Tra_Kind.Select("KIND_8");
             var o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.09", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn A", Birth = new DateTime(1980, 1, 1), Address = "Sóc Sơ Bay", Phone = "1800 1090" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "65F-888.09", Note = "Xe đen thui", Driver = "Nguyễn Văn Su", Birth = new DateTime(1982, 3, 1), Address = "Tây Sơn, Bình Định", Phone = "1800 6969" };
@@ -531,25 +531,25 @@ namespace SKG.DXF
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "95F-888.09", Note = "Xe đen thui", Driver = "Trần Như Nhộng", Birth = new DateTime(1980, 3, 1), Address = "Phong Gió, Quảng Bình", Phone = "1899 6969" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_UnitPrice)Tra_Kind.Select("KIND_1");
+            a = (Tra_Tariff)Tra_Kind.Select("KIND_1");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn B", Birth = new DateTime(1980, 1, 1), Address = "Lấp Dò, Đồng Tháp", Phone = "1800 1091" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 2), Address = "Cao Lãnh, Đồng Tháp", Phone = "1801 1791" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_UnitPrice)Tra_Kind.Select("KIND_2");
+            a = (Tra_Tariff)Tra_Kind.Select("KIND_2");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66C-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn C", Birth = new DateTime(1980, 1, 3), Address = "Tháp Mười, Đồng Tháp", Phone = "1802 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_UnitPrice)Tra_Kind.Select("KIND_3");
+            a = (Tra_Tariff)Tra_Kind.Select("KIND_3");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66D-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn D", Birth = new DateTime(1980, 1, 4), Address = "Thanh Bình, Đồng Tháp", Phone = "1803 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_UnitPrice)Tra_Kind.Select("KIND_4");
+            a = (Tra_Tariff)Tra_Kind.Select("KIND_4");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66E-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn E", Birth = new DateTime(1980, 1, 5), Address = "Chợ Lách, Bến Tre", Phone = "1804 1091" };
             Tra_Vehicle.Insert(o);
 
-            a = (Tra_UnitPrice)Tra_Kind.Select("KIND_5");
+            a = (Tra_Tariff)Tra_Kind.Select("KIND_5");
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66F-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn F", Birth = new DateTime(1980, 1, 6), Address = "Giồng Trôm, Bến Tre", Phone = "1805 1091" };
             Tra_Vehicle.Insert(o);
             o = new Tra_Vehicle() { Tra_KindId = a.Id, Number = "66G-123.19", Note = "Xe mui trắng, cũ xì", Driver = "Nguyễn Văn G", Birth = new DateTime(1980, 1, 7), Address = "Trà Cú, Trà Vinh", Phone = "1806 1091" };
@@ -581,9 +581,9 @@ namespace SKG.DXF
             var ui = (Pol_User)Pol_User.Select("nvt");
             var uo = (Pol_User)Pol_User.Select("ntt");
 
-            var kj = (Tra_UnitPrice)Tra_Kind.Select("J");
-            var kk = (Tra_UnitPrice)Tra_Kind.Select("K");
-            var kl = (Tra_UnitPrice)Tra_Kind.Select("L");
+            var kj = (Tra_Tariff)Tra_Kind.Select("J");
+            var kk = (Tra_Tariff)Tra_Kind.Select("K");
+            var kl = (Tra_Tariff)Tra_Kind.Select("L");
 
             foreach (DataRow r in tbl.Rows)
             {

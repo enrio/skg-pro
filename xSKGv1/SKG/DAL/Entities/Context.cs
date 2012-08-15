@@ -77,12 +77,12 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// 
         /// </summary>
-        public DbSet<Tra_Registration> Tra_Adherences { get; set; }
+        public DbSet<Tra_Registry> Tra_Adherences { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DbSet<Tra_UnitPrice> Tra_Kinds { get; set; }
+        public DbSet<Tra_Tariff> Tra_Kinds { get; set; }
 
         /// <summary>
         /// 

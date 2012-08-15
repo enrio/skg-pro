@@ -72,9 +72,9 @@
     <Compile Include="DAL\Entities\Pol_Selection.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
-    <Compile Include="DAL\Entities\Tra_Registration.cs" />
+    <Compile Include="DAL\Entities\Tra_Registry.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
-    <Compile Include="DAL\Entities\Tra_UnitPrice.cs" />
+    <Compile Include="DAL\Entities\Tra_Tariff.cs" />
     <Compile Include="DAL\Entities\Tra_Vehicle.cs" />
     <Compile Include="DAL\Entities\Zaction.cs" />
     <Compile Include="DAL\Entities\Zinfors.cs" />

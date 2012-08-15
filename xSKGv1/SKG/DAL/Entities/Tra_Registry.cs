@@ -9,7 +9,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Đơn vị vận tải tham gia chạy tuyến
     /// </summary>
-    public class Tra_Registration : Zinfors
+    public class Tra_Registry : Zinfors
     {
         #region Foreign key
         /// <summary>

@@ -112,7 +112,7 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Tra_UnitPrice)obj;
+                var o = (Tra_Tariff)obj;
                 o.Id = Guid.NewGuid();
                 var oki = _db.Tra_Kinds.Add(o);
 
@@ -131,7 +131,7 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Tra_UnitPrice)obj;
+                var o = (Tra_Tariff)obj;
                 var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Text = o.Text;

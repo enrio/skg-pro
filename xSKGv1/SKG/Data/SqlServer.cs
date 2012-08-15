@@ -170,7 +170,7 @@ namespace SKG.Data
         /// <param name="excelFile">Path Excel file</param>
         /// <param name="connectionString">Connection string</param>
         /// <param name="tableName">Table name/Sheet name</param>
-        public static void ImportFromExcel(string excelFile, string connectionString, string tableName)
+        public static void ImportFromExcel(string excelFile, string connectionString, DataTable tbl)
         {
             try
             {
@@ -191,31 +191,10 @@ namespace SKG.Data
                 }
 
                 var oleCnn = new OleDbConnection(str);
-                var cmd = new OleDbCommand(String.Format("SELECT * FROM [{0}$]", tableName), oleCnn);
+                var cmd = new OleDbCommand(String.Format("SELECT * FROM [{0}$]", tbl.TableName), oleCnn);
 
                 oleCnn.Open();
                 var rdr = cmd.ExecuteReader();
-
-                var tbl = new System.Data.DataTable(tableName);
-                tbl.Columns.Add("Id", typeof(Guid));
-
-                if (tableName == typeof(Pol_Dictionary).Name)
-                    tbl.Columns.Add("ParentId", typeof(Guid));
-
-                if (tableName == typeof(Pol_UserRole).Name)
-                {
-                    tbl.Columns.Add("Pol_UserId", typeof(Guid));
-                    tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-                }
-
-                if (tableName == typeof(Pol_RoleRight).Name)
-                {
-                    tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-                    tbl.Columns.Add("Pol_RightId", typeof(Guid));
-                }
-
-                if (tableName == typeof(Tra_Tariff).Name)
-                    tbl.Columns.Add("GroupId", typeof(Guid));
 
                 tbl.Load(rdr);
                 oleCnn.Close();
@@ -224,7 +203,7 @@ namespace SKG.Data
                 foreach (DataRow r in dtr)
                     r["Id"] = Guid.NewGuid();
 
-                var copy = new SqlBulkCopy(connectionString) { DestinationTableName = tableName };
+                var copy = new SqlBulkCopy(connectionString) { DestinationTableName = tbl.TableName };
                 copy.WriteToServer(tbl);
             }
             catch (Exception e) { MessageBox.Show(e.Message); }

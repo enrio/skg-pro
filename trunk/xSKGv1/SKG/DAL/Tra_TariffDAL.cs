@@ -11,7 +11,7 @@ namespace SKG.DAL
     /// <summary>
     /// Vận tải - Xử lí bảng Tra_Kind
     /// </summary>
-    public abstract class Tra_KindDAL : BaseDAL, IBase
+    public abstract class Tra_TariffDAL : BaseDAL, IBase
     {
         #region Implement
         /// <summary>
@@ -20,7 +20,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public int Count()
         {
-            return _db.Tra_Kinds.Count();
+            return _db.Tra_Tariffs.Count();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Tra_Kinds
+                var res = from s in _db.Tra_Tariffs
                           where s.GroupId == fKey
                           orderby s.Order
                           select new
@@ -62,7 +62,7 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Tra_Kinds.SingleOrDefault(s => s.Code == code);
+                return _db.Tra_Tariffs.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -78,7 +78,7 @@ namespace SKG.DAL
         {
             try
             {
-                var res = from s in _db.Tra_Kinds
+                var res = from s in _db.Tra_Tariffs
                           orderby s.Group.Order
                           select new
                           {
@@ -114,7 +114,7 @@ namespace SKG.DAL
             {
                 var o = (Tra_Tariff)obj;
                 o.Id = Guid.NewGuid();
-                var oki = _db.Tra_Kinds.Add(o);
+                var oki = _db.Tra_Tariffs.Add(o);
 
                 _db.SaveChanges();
                 return oki;
@@ -132,7 +132,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Tariff)obj;
-                var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == o.Id);
+                var res = _db.Tra_Tariffs.SingleOrDefault(s => s.Id == o.Id);
 
                 res.Text = o.Text;
                 res.Price1 = o.Price1;
@@ -159,13 +159,13 @@ namespace SKG.DAL
             {
                 if (id != new Guid())
                 {
-                    var res = _db.Tra_Kinds.SingleOrDefault(s => s.Id == id);
-                    _db.Tra_Kinds.Remove(res);
+                    var res = _db.Tra_Tariffs.SingleOrDefault(s => s.Id == id);
+                    _db.Tra_Tariffs.Remove(res);
                 }
                 else
                 {
-                    var tmp = _db.Tra_Kinds.ToList();
-                    tmp.ForEach(s => _db.Tra_Kinds.Remove(s));
+                    var tmp = _db.Tra_Tariffs.ToList();
+                    tmp.ForEach(s => _db.Tra_Tariffs.Remove(s));
                 }
 
                 return _db.SaveChanges();

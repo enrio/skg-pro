@@ -2,42 +2,70 @@ Create View V_STATION
 As
 select * from Pol_Dictionary
 where [type] = 'STATION'
-
+go
 Create View V_PROVINCE
 As
 select * from Pol_Dictionary
 where [type] = 'PROVINCE'
-
+go
 Create View V_AREA
 As
 select * from Pol_Dictionary
 where [type] = 'AREA'
-
+go
 Create View V_REGION
 As
 select * from Pol_Dictionary
 where [type] = 'REGION'
-
+go
 Create View A
 as
 select b.* from V_REGION a join Tra_Tariff b on a.Code = b.Code
 
 
-(select b.* from V_STATION a join V_PROVINCE b on a.ParentId = b.Id) as B
-
-
-
-
-Create View D
-as
-
+go
+--drop  Procedure Find_Tariff
 Create Procedure Find_Tariff
-@code nvarchar
+@id uniqueidentifier,
+@idyy uniqueidentifier
 as
-select b.* from 
+declare  @idxx uniqueidentifier
+select @idxx = b.Id from 
 	(select v.* from 
 		(select v.* from 
-			(select b.* from V_STATION a join V_PROVINCE b on a.ParentId = b.Id where a.Code = 'STATION_0') as B 
+			(select b.* from V_STATION a join V_PROVINCE b on a.ParentId = b.Id where a.Id = @id) as B 
 join V_AREA v on B.ParentId = v.Id) as C join V_REGION v on C.ParentId = v.Id) as D join Tra_Tariff b on D.Code = b.Code
 
-exec Find_Tariff 'STATION_0'
+update Tra_Registry set TariffId = @idxx where Id = @idyy
+
+--exec Find_Tariff '1BFA1858-67C9-4AC0-92B3-62AE24A1200A', 'A4BFFB86-6C28-4205-85AB-00834A3FCB19'
+go
+--drop Trigger AutoSetTariff
+Create Trigger AutoSetTariff
+On Tra_Registry
+After Insert, Update
+As
+declare  @a uniqueidentifier
+declare  @b uniqueidentifier
+--select @a = Id, @b = DepartureId from Inserted
+--exec Find_Tariff @b, @a
+
+
+DECLARE vendor_cursor CURSOR FOR 
+select Id, DepartureId from Inserted
+
+OPEN vendor_cursor
+
+FETCH NEXT FROM vendor_cursor 
+INTO @a, @b
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+	exec Find_Tariff @b, @a
+    FETCH NEXT FROM vendor_cursor 
+	INTO @a, @b
+END 
+CLOSE vendor_cursor;
+DEALLOCATE vendor_cursor;
+
+--update Tra_Registry set [Text] =''

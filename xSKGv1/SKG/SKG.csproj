@@ -139,6 +139,9 @@
     <EmbeddedResource Include="Reader\FrmTransfer.resx">
       <DependentUpon>FrmTransfer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Import\Dictionary.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Import\Sample.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

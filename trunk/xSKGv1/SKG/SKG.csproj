@@ -74,7 +74,7 @@
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
     <Compile Include="DAL\Entities\Tra_Registration.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
-    <Compile Include="DAL\Entities\Tra_Kind.cs" />
+    <Compile Include="DAL\Entities\Tra_UnitPrice.cs" />
     <Compile Include="DAL\Entities\Tra_Vehicle.cs" />
     <Compile Include="DAL\Entities\Zaction.cs" />
     <Compile Include="DAL\Entities\Zinfors.cs" />

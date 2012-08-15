@@ -10,7 +10,7 @@ namespace SKG.DAL.Entities
     /// <summary>
     /// Vận tải - Loại xe
     /// </summary>
-    public class Tra_Kind : Zinfors
+    public class Tra_UnitPrice : Zinfors
     {
         #region Khoá ngoại
         /// <summary>

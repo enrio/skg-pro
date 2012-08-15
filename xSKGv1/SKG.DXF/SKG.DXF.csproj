@@ -193,6 +193,12 @@
     <Compile Include="Station\Catalog\FrmTra_Kind.Designer.cs">
       <DependentUpon>FrmTra_Kind.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Registry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Catalog\FrmTra_Registry.Designer.cs">
+      <DependentUpon>FrmTra_Registry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Catalog\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>

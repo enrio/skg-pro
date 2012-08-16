@@ -32,6 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.lblBelong = new DevExpress.XtraEditors.LabelControl();
+            this.lokBelong = new DevExpress.XtraEditors.LookUpEdit();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.txtText = new DevExpress.XtraEditors.TextEdit();
@@ -44,12 +46,11 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblBelong = new DevExpress.XtraEditors.LabelControl();
-            this.lokBelong = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokList.Properties)).BeginInit();
@@ -57,7 +58,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -97,6 +97,35 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 34);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // lblBelong
+            // 
+            this.lblBelong.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBelong.Location = new System.Drawing.Point(693, 6);
+            this.lblBelong.Name = "lblBelong";
+            this.lblBelong.Size = new System.Drawing.Size(50, 19);
+            this.lblBelong.TabIndex = 7;
+            this.lblBelong.Text = "Thuộc:";
+            // 
+            // lokBelong
+            // 
+            this.lokBelong.EditValue = 0;
+            this.lokBelong.Location = new System.Drawing.Point(749, 3);
+            this.lokBelong.Name = "lokBelong";
+            this.lokBelong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBelong.Properties.Appearance.Options.UseFont = true;
+            this.lokBelong.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBelong.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lokBelong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokBelong.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
+            this.lokBelong.Properties.DisplayMember = "Text";
+            this.lokBelong.Properties.ValueMember = "Id";
+            this.lokBelong.Size = new System.Drawing.Size(191, 26);
+            this.lokBelong.TabIndex = 8;
             // 
             // txtNote
             // 
@@ -221,34 +250,6 @@
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 454;
             // 
-            // lblBelong
-            // 
-            this.lblBelong.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBelong.Location = new System.Drawing.Point(693, 6);
-            this.lblBelong.Name = "lblBelong";
-            this.lblBelong.Size = new System.Drawing.Size(50, 19);
-            this.lblBelong.TabIndex = 7;
-            this.lblBelong.Text = "Thuộc:";
-            // 
-            // lokBelong
-            // 
-            this.lokBelong.Location = new System.Drawing.Point(749, 3);
-            this.lokBelong.Name = "lokBelong";
-            this.lokBelong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lokBelong.Properties.Appearance.Options.UseFont = true;
-            this.lokBelong.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lokBelong.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lokBelong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lokBelong.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
-            this.lokBelong.Properties.DisplayMember = "Text";
-            this.lokBelong.Properties.ValueMember = "Id";
-            this.lokBelong.Size = new System.Drawing.Size(191, 26);
-            this.lokBelong.TabIndex = 8;
-            // 
             // FrmPol_Dictionary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +264,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokList.Properties)).EndInit();
@@ -270,7 +272,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

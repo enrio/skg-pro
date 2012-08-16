@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Catalog
@@ -259,7 +255,7 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_DELETE = "Xoá ngôn ngữ";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
     }

@@ -46,6 +46,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -224,7 +225,8 @@
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.gridColumn4});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             // 
@@ -254,6 +256,14 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 454;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Thuộc";
+            this.gridColumn4.FieldName = "Belong";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 3;
             // 
             // FrmPol_Dictionary
             // 
@@ -301,5 +311,6 @@
         private DevExpress.XtraEditors.LabelControl lblText;
         private DevExpress.XtraEditors.LabelControl lblBelong;
         private DevExpress.XtraEditors.LookUpEdit lokBelong;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
     }
 }

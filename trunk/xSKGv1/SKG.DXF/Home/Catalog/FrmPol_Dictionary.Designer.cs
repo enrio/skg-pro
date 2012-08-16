@@ -123,6 +123,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
             this.lokBelong.Properties.DisplayMember = "Text";
+            this.lokBelong.Properties.ShowHeader = false;
             this.lokBelong.Properties.ValueMember = "Id";
             this.lokBelong.Size = new System.Drawing.Size(191, 26);
             this.lokBelong.TabIndex = 8;
@@ -179,6 +180,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
             this.lokList.Properties.DisplayMember = "Text";
+            this.lokList.Properties.ShowHeader = false;
             this.lokList.Properties.ValueMember = "Code";
             this.lokList.Size = new System.Drawing.Size(186, 26);
             this.lokList.TabIndex = 0;

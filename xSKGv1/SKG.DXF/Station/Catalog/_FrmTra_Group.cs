@@ -13,20 +13,20 @@ namespace SKG.DXF.Station.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Group : SKG.DXF.FrmInput
+    public partial class _FrmTra_Group : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Group).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
+                var menu = new Menuz() { Code = typeof(_FrmTra_Group).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_Group()
+        public _FrmTra_Group()
         {
             InitializeComponent();
 

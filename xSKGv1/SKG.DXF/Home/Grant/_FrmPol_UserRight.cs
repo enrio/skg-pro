@@ -18,7 +18,7 @@ namespace SKG.DXF.Home.Grant
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraTreeList.StyleFormatConditions;
 
-    public partial class FrmPol_UserRight : SKG.DXF.FrmInput
+    public partial class _FrmPol_UserRight : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -27,13 +27,13 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_UserRight).FullName, Parent = typeof(Level2).FullName, Text = "Gán quyền người dùng", Level = 3, Order = 15, Picture = @"Icons\UserRight.png" };
+                var menu = new Menuz() { Code = typeof(_FrmPol_UserRight).FullName, Parent = typeof(Level2).FullName, Text = "Gán quyền người dùng", Level = 3, Order = 15, Picture = @"Icons\UserRight.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_UserRight()
+        public _FrmPol_UserRight()
         {
             InitializeComponent();
 

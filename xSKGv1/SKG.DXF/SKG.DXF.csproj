@@ -265,6 +265,9 @@
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionari.resx">
+      <DependentUpon>FrmPol_Dictionari.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

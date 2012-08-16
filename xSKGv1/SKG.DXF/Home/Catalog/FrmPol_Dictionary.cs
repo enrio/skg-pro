@@ -33,8 +33,12 @@ namespace SKG.DXF.Home.Catalog
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
+        }
 
+        private void FrmPol_Dictionary_Load(object sender, EventArgs e)
+        {
             lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
+            lokList.ItemIndex = 0;
         }
 
         private void lokList_EditValueChanged(object sender, EventArgs e)

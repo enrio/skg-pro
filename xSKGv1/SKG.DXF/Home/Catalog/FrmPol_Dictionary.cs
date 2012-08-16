@@ -46,16 +46,12 @@ namespace SKG.DXF.Home.Catalog
             var tbl = _bll.Pol_Dictionary.Select(lokList.EditValue);
             grcMain.DataSource = tbl;
 
-            var tmp = tbl.Rows[0]["ParentId"];
-            if (tmp + "" == "") return;
+            if (tbl.Rows.Count <= 0) return;
+            var tmp = tbl.Rows[0]["ParentId"] + "";
+            var o = (Pol_Dictionary)_bll.Pol_Dictionary.Select(tmp);
 
-            tbl = _bll.Pol_Dictionary.Select(tmp, 0, 0);
-
-            if (tbl.Rows.Count > 0)
-                tbl = _bll.Pol_Dictionary.Select(tbl.Rows[0]["Type"]);
-            else tbl = new DataTable(tbl.TableName);
-
-            lokBelong.Properties.DataSource = tbl;
+            if (o == null) lokBelong.Properties.DataSource = null;
+            else lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select((object)o.Type);
         }
     }
 }

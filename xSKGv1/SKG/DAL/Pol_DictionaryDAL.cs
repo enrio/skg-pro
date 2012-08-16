@@ -82,6 +82,9 @@ namespace SKG.DAL
         {
             try
             {
+                var gui = new Guid();
+                var ok = Guid.TryParse(code, out gui);
+                if (ok) return _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == gui);
                 return _db.Pol_Dictionarys.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }

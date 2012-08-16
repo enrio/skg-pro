@@ -225,6 +225,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.ParentId,
+                              Belong = s.Parent.Text,
                               s.Code,
                               s.Type,
                               s.Text,

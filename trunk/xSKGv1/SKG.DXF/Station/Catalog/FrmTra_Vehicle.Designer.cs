@@ -302,6 +302,10 @@
             // 
             // grvMain
             // 
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.Options.UseFont = true;
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -391,7 +395,7 @@
             // 
             // gridColumn10
             // 
-            this.gridColumn10.Caption = "Loại xe";
+            this.gridColumn10.Caption = "Đơn vị vận tải";
             this.gridColumn10.FieldName = "KindName";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;

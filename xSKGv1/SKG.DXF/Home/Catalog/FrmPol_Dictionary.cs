@@ -38,7 +38,9 @@ namespace SKG.DXF.Home.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
-            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
+            var tbl = _bll.Pol_Dictionary.SelectRoot();
+            lokList.Properties.DataSource = tbl;
+            lokBelong.Properties.DataSource = new DataTable(tbl.TableName);
         }
 
         private void lokList_EditValueChanged(object sender, EventArgs e)
@@ -50,7 +52,7 @@ namespace SKG.DXF.Home.Catalog
             var tmp = tbl.Rows[0]["ParentId"] + "";
             var o = (Pol_Dictionary)_bll.Pol_Dictionary.Select(tmp);
 
-            if (o == null) lokBelong.Properties.DataSource = null;
+            if (o == null) lokBelong.Properties.DataSource = new DataTable(tbl.TableName);
             else lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select((object)o.Type);
         }
     }

@@ -180,9 +180,12 @@ namespace SKG.DXF.Home.Catalog
                     //Code = txtCode.Text,
                     Text = txtText.Text,
                     Note = txtNote.Text,
-                    Type = lokList.EditValue + "",
-                    ParentId = new Guid(lokBelong.EditValue + "")
+                    Type = lokList.EditValue + ""
                 };
+
+                var gui = new Guid();
+                var ok = Guid.TryParse(lokBelong.EditValue + "", out gui);
+                if (ok) o.ParentId = gui;
 
                 var oki = _bll.Pol_Dictionary.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
@@ -203,9 +206,12 @@ namespace SKG.DXF.Home.Catalog
                     //Code = txtCode.Text,
                     Text = txtText.Text,
                     Note = txtNote.Text,
-                    Type = lokList.EditValue + "",
-                    ParentId = new Guid(lokBelong.EditValue + "")
+                    Type = lokList.EditValue + ""
                 };
+
+                var gui = new Guid();
+                var ok = Guid.TryParse(lokBelong.EditValue + "", out gui);
+                if (ok) o.ParentId = gui;
 
                 var oki = _bll.Pol_Dictionary.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);

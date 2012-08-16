@@ -52,14 +52,14 @@ namespace SKG
         public const string STR_GROUP = "GROUP";
 
         /// <summary>
-        /// Code of group area
-        /// </summary>
-        public const string STR_AREA = "AREA";
-
-        /// <summary>
         /// Code of group region
         /// </summary>
         public const string STR_REGION = "REGION";
+
+        /// <summary>
+        /// Code of group area
+        /// </summary>
+        public const string STR_AREA = "AREA";
 
         /// <summary>
         /// Code of group province
@@ -67,9 +67,14 @@ namespace SKG
         public const string STR_PROVINCE = "PROVINCE";
 
         /// <summary>
-        /// Code of group busline
+        /// Code of group busline (station)
         /// </summary>
-        public const string STR_LINE = "LINE";
+        public const string STR_STATION = "STATION";
+
+        /// <summary>
+        /// Code of group busline (station)
+        /// </summary>
+        public const string STR_TRANSPORT = "TRANSPORT";
         #endregion
 
         #region Global properties

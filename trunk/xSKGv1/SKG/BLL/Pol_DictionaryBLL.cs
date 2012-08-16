@@ -60,6 +60,51 @@ namespace SKG.BLL
         {
             return Select((object)Global.STR_RIGHT);
         }
+
+        /// <summary>
+        /// Select all region
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectRegion()
+        {
+            return Select((object)Global.STR_REGION);
+        }
+
+        /// <summary>
+        /// Select all area
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectArea()
+        {
+            return Select((object)Global.STR_AREA);
+        }
+
+        /// <summary>
+        /// Select all province
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectProvince()
+        {
+            return Select((object)Global.STR_PROVINCE);
+        }
+
+        /// <summary>
+        /// Select all station
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectStation()
+        {
+            return Select((object)Global.STR_STATION);
+        }
+
+        /// <summary>
+        /// Select all transport
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectTransport()
+        {
+            return Select((object)Global.STR_TRANSPORT);
+        }
         #endregion
 
         #region Insert
@@ -104,6 +149,61 @@ namespace SKG.BLL
         public object InsertRight(Pol_Dictionary o)
         {
             o.Type = Global.STR_RIGHT;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Insert region
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertRegion(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_REGION;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Insert area
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertArea(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_AREA;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Insert province
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertProvince(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_PROVINCE;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Insert station
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertStation(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_STATION;
+            return Insert(o);
+        }
+
+        /// <summary>
+        /// Insert transport
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertTransport(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_TRANSPORT;
             return Insert(o);
         }
         #endregion

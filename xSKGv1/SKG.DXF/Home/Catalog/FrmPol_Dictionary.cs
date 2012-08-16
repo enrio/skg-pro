@@ -154,6 +154,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            lokList.Properties.ReadOnly = !isReadOnly;
             txtText.Properties.ReadOnly = isReadOnly;
             txtNote.Properties.ReadOnly = isReadOnly;
             lokBelong.Properties.ReadOnly = isReadOnly;

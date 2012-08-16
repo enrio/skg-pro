@@ -262,6 +262,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmPol_Dictionary";
+            this.Load += new System.EventHandler(this.FrmPol_Dictionary_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

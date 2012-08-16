@@ -38,7 +38,7 @@ namespace SKG.DXF.Home.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
-            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectArea();
+            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
         }
     }
 }

@@ -27,6 +27,11 @@ namespace SKG
     {
         #region Dictionary constants
         /// <summary>
+        /// Code of group kind of data
+        /// </summary>
+        public const string STR_ROOT = "ROOT";
+
+        /// <summary>
         /// Code of group language
         /// </summary>
         public const string STR_LANG = "LANG";

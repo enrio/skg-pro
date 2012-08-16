@@ -26,6 +26,15 @@ namespace SKG.BLL
     {
         #region Select
         /// <summary>
+        /// Select all kind of data
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectRoot()
+        {
+            return Select((object)Global.STR_ROOT);
+        }
+
+        /// <summary>
         /// Select all languages
         /// </summary>
         /// <returns></returns>
@@ -108,6 +117,17 @@ namespace SKG.BLL
         #endregion
 
         #region Insert
+        /// <summary>
+        /// Insert kind of data
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object InsertRoot(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_ROOT;
+            return Insert(o);
+        }
+
         /// <summary>
         /// Insert language
         /// </summary>
@@ -209,6 +229,17 @@ namespace SKG.BLL
         #endregion
 
         #region Update
+        /// <summary>
+        /// Update kind of data
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        public object UpdateRoot(Pol_Dictionary o)
+        {
+            o.Type = Global.STR_ROOT;
+            return Update(o);
+        }
+
         /// <summary>
         /// Update language
         /// </summary>

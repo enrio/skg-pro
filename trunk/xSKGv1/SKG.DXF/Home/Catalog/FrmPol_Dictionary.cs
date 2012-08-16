@@ -44,6 +44,7 @@ namespace SKG.DXF.Home.Catalog
         private void lokList_EditValueChanged(object sender, EventArgs e)
         {
             grcMain.DataSource = _bll.Pol_Dictionary.Select(lokList.EditValue);
+            lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select(lokList.EditValue);
         }
     }
 }

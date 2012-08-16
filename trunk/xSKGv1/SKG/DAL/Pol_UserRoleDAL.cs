@@ -78,13 +78,14 @@ namespace SKG.DAL
                         };
                 Guid? id = new Guid();
                 var b = from s in _db.Pol_Dictionarys
+                        where s.Type == Global.STR_ROLE
                         select new
                         {
                             ID = s.Id,
                             ParentID = s.Id,
                             UserId = id,
                             Format = true,
-                            Name=s.Text,
+                            Name = s.Text,
                             Descript = s.Note
                         };
                 var res = a.Union(b);

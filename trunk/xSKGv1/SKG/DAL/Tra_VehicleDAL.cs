@@ -40,6 +40,10 @@ namespace SKG.DAL
                               s.Id,
                               s.Number,
                               Descript = s.Note,
+                              s.Normal,
+                              s.High,
+                              s.City,
+                              s.Local,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -88,6 +92,10 @@ namespace SKG.DAL
                               KindName = s.Transport.Text,
                               s.Number,
                               Descript = s.Note,
+                              s.Normal,
+                              s.High,
+                              s.City,
+                              s.Local,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -137,11 +145,15 @@ namespace SKG.DAL
             {
                 var o = (Tra_Vehicle)obj;
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
-                
+
                 res.TransportId = o.TransportId;
                 res.Number = o.Number;
                 res.Seats = o.Seats;
                 res.Note = o.Note;
+                res.Normal = o.Normal;
+                res.High = o.High;
+                res.City = o.City;
+                res.Local = o.Local;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;
                 res.Address = o.Address;

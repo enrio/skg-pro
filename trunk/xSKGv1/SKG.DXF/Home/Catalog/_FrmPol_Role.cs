@@ -13,7 +13,7 @@ namespace SKG.DXF.Home.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_Right : SKG.DXF.FrmInput
+    public partial class _FrmPol_Role : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -22,21 +22,18 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_Right).FullName, Parent = typeof(Level2).FullName, Text = "Chức năng", Level = 0, Order = 11, Picture = @"Icons\Right.png" };
+                var menu = new Menuz() { Code = typeof(_FrmPol_Role).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm người dùng", Level = 3, Order = 10, Picture = @"Icons\Role.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_Right()
+        public _FrmPol_Role()
         {
             InitializeComponent();
 
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
-
-            AllowAdd = false;
-            AllowDelete = false;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
@@ -45,7 +42,6 @@ namespace SKG.DXF.Home.Catalog
         #region Override
         protected override void SetNullPrompt()
         {
-            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
@@ -102,9 +98,6 @@ namespace SKG.DXF.Home.Catalog
                         PerformRefresh();
                     }
                     break;
-
-                default:
-                    break;
             }
 
             base.PerformSave();
@@ -113,7 +106,6 @@ namespace SKG.DXF.Home.Catalog
         protected override void ResetInput()
         {
             txtName.Text = null;
-            txtCode.Text = null;
             txtDescript.Text = null;
 
             base.ResetInput();
@@ -122,7 +114,6 @@ namespace SKG.DXF.Home.Catalog
         protected override void ClearDataBindings()
         {
             txtName.DataBindings.Clear();
-            txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -130,22 +121,18 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void DataBindingControl()
         {
-            txtName.DataBindings.Add("EditValue", _dtb, ".Caption");
-            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
-
-            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }
@@ -161,12 +148,11 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Dictionary()
                 {
                     Id = id,
-                    Code = txtCode.Text,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.UpdateRight(o);
+                var oki = _bll.Pol_Dictionary.UpdateRole(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -182,12 +168,11 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Dictionary()
                 {
-                    Code = txtCode.Text,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.InsertRight(o);
+                var oki = _bll.Pol_Dictionary.InsertRole(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -197,7 +182,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Dictionary.SelectRights();
+            _dtb = _bll.Pol_Dictionary.SelectRoles();
 
             if (_dtb != null)
             {
@@ -213,20 +198,17 @@ namespace SKG.DXF.Home.Catalog
             var a = txtName.Text.Length == 0 ? false : true;
             if (!a) txtName.Focus();
 
-            var b = txtCode.Text.Length == 0 ? false : true;
-            if (!b) txtCode.Focus();
-
-            return b && a;
+            return a;
         }
         #endregion
 
-        private const string STR_ADD = "Thêm form, menu";
-        private const string STR_EDIT = "Sửa form, menu";
-        private const string STR_DELETE = "Xoá form, menu";
+        private const string STR_ADD = "Thêm nhóm người dùng";
+        private const string STR_EDIT = "Sửa nhóm người dùng";
+        private const string STR_DELETE = "Xoá nhóm người dùng";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Mã này có rồi";
+        private const string STR_DUPLICATE = "Nhóm này có rồi";
     }
 }

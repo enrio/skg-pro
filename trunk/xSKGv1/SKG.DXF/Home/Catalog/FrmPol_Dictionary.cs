@@ -43,8 +43,19 @@ namespace SKG.DXF.Home.Catalog
 
         private void lokList_EditValueChanged(object sender, EventArgs e)
         {
-            grcMain.DataSource = _bll.Pol_Dictionary.Select(lokList.EditValue);
-            lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select(lokList.EditValue);
+            var tbl = _bll.Pol_Dictionary.Select(lokList.EditValue);
+            grcMain.DataSource = tbl;
+
+            var tmp = tbl.Rows[0]["ParentId"];
+            if (tmp + "" == "") return;
+
+            tbl = _bll.Pol_Dictionary.Select(tmp, 0, 0);
+
+            if (tbl.Rows.Count > 0)
+                tbl = _bll.Pol_Dictionary.Select(tbl.Rows[0]["Type"]);
+            else tbl = new DataTable(tbl.TableName);
+
+            lokBelong.Properties.DataSource = tbl;
         }
     }
 }

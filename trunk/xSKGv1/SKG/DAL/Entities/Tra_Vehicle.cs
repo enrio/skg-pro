@@ -64,6 +64,28 @@ namespace SKG.DAL.Entities
         public string TermDriverLicense { set; get; }
         #endregion
 
+        #region Thông tin xe
+        /// <summary>
+        /// Xe thường
+        /// </summary>
+        public bool Normal { set; get; }
+
+        /// <summary>
+        /// Xe chất lượng cao
+        /// </summary>
+        public bool High { set; get; }
+
+        /// <summary>
+        /// Xe thành phố
+        /// </summary>
+        public bool City { set; get; }
+
+        /// <summary>
+        /// Xe địa phương
+        /// </summary>
+        public bool Local { set; get; }
+
+        #endregion
         #region Thông tin khác
         /// <summary>
         /// Họ tên của tài xế

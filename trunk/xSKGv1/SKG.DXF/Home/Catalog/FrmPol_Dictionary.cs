@@ -38,23 +38,11 @@ namespace SKG.DXF.Home.Catalog
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
-            var tbl = _bll.Pol_Dictionary.SelectRoot();
-            lokList.Properties.DataSource = tbl;
-            lokBelong.Properties.DataSource = new DataTable(tbl.TableName);
+            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
         }
 
         private void lokList_EditValueChanged(object sender, EventArgs e)
         {
-            //var tbl = _bll.Pol_Dictionary.Select(lokList.EditValue);
-            //grcMain.DataSource = tbl;
-
-            //if (tbl.Rows.Count <= 0) return;
-            //var tmp = tbl.Rows[0]["ParentId"] + "";
-            //var o = (Pol_Dictionary)_bll.Pol_Dictionary.Select(tmp);
-
-            //if (o == null) lokBelong.Properties.DataSource = new DataTable(tbl.TableName);
-            //else lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select((object)o.Type);
-
             PerformRefresh();
         }
 
@@ -96,6 +84,17 @@ namespace SKG.DXF.Home.Catalog
             }
 
             ReadOnlyControl();
+
+            if (lokBelong.Properties.DataSource == null)
+            {
+                lblBelong.Visible = false;
+                lokBelong.Visible = false;
+            }
+            else
+            {
+                lblBelong.Visible = true;
+                lokBelong.Visible = true;
+            }
 
             base.PerformRefresh();
         }
@@ -230,7 +229,7 @@ namespace SKG.DXF.Home.Catalog
             var tmp = _dtb.Rows[0]["ParentId"] + "";
             var o = (Pol_Dictionary)_bll.Pol_Dictionary.Select(tmp);
 
-            if (o == null) lokBelong.Properties.DataSource = new DataTable(_dtb.TableName);
+            if (o == null) lokBelong.Properties.DataSource = null;
             else lokBelong.Properties.DataSource = _bll.Pol_Dictionary.Select((object)o.Type);
 
             if (_dtb != null)
@@ -244,13 +243,13 @@ namespace SKG.DXF.Home.Catalog
 
         protected override bool ValidInput()
         {
-            var a = txtText.Text.Length == 0 ? false : true;
-            if (!a) txtText.Focus();
+            //var a = txtCode.Text.Length == 0 ? false : true;
+            //if (!a) txtCode.Focus();
 
-            //var b = txtCode.Text.Length == 0 ? false : true;
-            //if (!b) txtCode.Focus();
+            var b = txtText.Text.Length == 0 ? false : true;
+            if (!b) txtText.Focus();
 
-            return a;
+            return b;
         }
         #endregion
 

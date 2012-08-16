@@ -125,17 +125,17 @@
     <Compile Include="Home\Catalog\_FrmPol_Dictionary.Designer.cs">
       <DependentUpon>_FrmPol_Dictionary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Catalog\FrmPol_Right.cs">
+    <Compile Include="Home\Catalog\_FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Catalog\FrmPol_Right.Designer.cs">
-      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    <Compile Include="Home\Catalog\_FrmPol_Right.Designer.cs">
+      <DependentUpon>_FrmPol_Right.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Catalog\FrmPol_Role.cs">
+    <Compile Include="Home\Catalog\_FrmPol_Role.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Catalog\FrmPol_Role.Designer.cs">
-      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    <Compile Include="Home\Catalog\_FrmPol_Role.Designer.cs">
+      <DependentUpon>_FrmPol_Role.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Catalog\FrmPol_User.cs">
       <SubType>Form</SubType>

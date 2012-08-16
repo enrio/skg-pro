@@ -32,6 +32,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
+            this.lblNote = new DevExpress.XtraEditors.LabelControl();
+            this.txtText = new DevExpress.XtraEditors.TextEdit();
+            this.lblText = new DevExpress.XtraEditors.LabelControl();
             this.lokList = new DevExpress.XtraEditors.LookUpEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -40,21 +44,20 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.lblText = new DevExpress.XtraEditors.LabelControl();
-            this.txtText = new DevExpress.XtraEditors.TextEdit();
-            this.txtNote = new DevExpress.XtraEditors.TextEdit();
-            this.lblNote = new DevExpress.XtraEditors.LabelControl();
+            this.lblBelong = new DevExpress.XtraEditors.LabelControl();
+            this.lokBelong = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokList.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -83,6 +86,8 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.lblBelong);
+            this.dockPanel1_Container.Controls.Add(this.lokBelong);
             this.dockPanel1_Container.Controls.Add(this.txtNote);
             this.dockPanel1_Container.Controls.Add(this.lblNote);
             this.dockPanel1_Container.Controls.Add(this.txtText);
@@ -92,6 +97,42 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 34);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(492, 3);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(195, 26);
+            this.txtNote.TabIndex = 7;
+            // 
+            // lblNote
+            // 
+            this.lblNote.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.Location = new System.Drawing.Point(426, 6);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(60, 19);
+            this.lblNote.TabIndex = 6;
+            this.lblNote.Text = "Ghi chú:";
+            // 
+            // txtText
+            // 
+            this.txtText.Location = new System.Drawing.Point(234, 3);
+            this.txtText.Name = "txtText";
+            this.txtText.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtText.Properties.Appearance.Options.UseFont = true;
+            this.txtText.Size = new System.Drawing.Size(179, 26);
+            this.txtText.TabIndex = 2;
+            // 
+            // lblText
+            // 
+            this.lblText.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblText.Location = new System.Drawing.Point(195, 6);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(33, 19);
+            this.lblText.TabIndex = 1;
+            this.lblText.Text = "Tên:";
             // 
             // lokList
             // 
@@ -180,41 +221,33 @@
             this.gridColumn3.VisibleIndex = 2;
             this.gridColumn3.Width = 454;
             // 
-            // lblText
+            // lblBelong
             // 
-            this.lblText.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblText.Location = new System.Drawing.Point(195, 6);
-            this.lblText.Name = "lblText";
-            this.lblText.Size = new System.Drawing.Size(33, 19);
-            this.lblText.TabIndex = 1;
-            this.lblText.Text = "Tên:";
+            this.lblBelong.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBelong.Location = new System.Drawing.Point(693, 6);
+            this.lblBelong.Name = "lblBelong";
+            this.lblBelong.Size = new System.Drawing.Size(50, 19);
+            this.lblBelong.TabIndex = 7;
+            this.lblBelong.Text = "Thuộc:";
             // 
-            // txtText
+            // lokBelong
             // 
-            this.txtText.Location = new System.Drawing.Point(234, 3);
-            this.txtText.Name = "txtText";
-            this.txtText.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtText.Properties.Appearance.Options.UseFont = true;
-            this.txtText.Size = new System.Drawing.Size(179, 26);
-            this.txtText.TabIndex = 2;
-            // 
-            // txtNote
-            // 
-            this.txtNote.Location = new System.Drawing.Point(492, 3);
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote.Properties.Appearance.Options.UseFont = true;
-            this.txtNote.Size = new System.Drawing.Size(179, 26);
-            this.txtNote.TabIndex = 7;
-            // 
-            // lblNote
-            // 
-            this.lblNote.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNote.Location = new System.Drawing.Point(426, 6);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(60, 19);
-            this.lblNote.TabIndex = 6;
-            this.lblNote.Text = "Ghi chú:";
+            this.lokBelong.Location = new System.Drawing.Point(749, 3);
+            this.lokBelong.Name = "lokBelong";
+            this.lokBelong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBelong.Properties.Appearance.Options.UseFont = true;
+            this.lokBelong.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBelong.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lokBelong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokBelong.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
+            this.lokBelong.Properties.DisplayMember = "Text";
+            this.lokBelong.Properties.ValueMember = "Id";
+            this.lokBelong.Size = new System.Drawing.Size(191, 26);
+            this.lokBelong.TabIndex = 8;
             // 
             // FrmPol_Dictionary
             // 
@@ -230,13 +263,14 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokList.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtText.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBelong.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,5 +292,7 @@
         private DevExpress.XtraEditors.LabelControl lblNote;
         private DevExpress.XtraEditors.TextEdit txtText;
         private DevExpress.XtraEditors.LabelControl lblText;
+        private DevExpress.XtraEditors.LabelControl lblBelong;
+        private DevExpress.XtraEditors.LookUpEdit lokBelong;
     }
 }

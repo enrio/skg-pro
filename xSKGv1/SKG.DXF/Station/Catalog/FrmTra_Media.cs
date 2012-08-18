@@ -123,6 +123,15 @@ namespace SKG.DXF.Station.Catalog
             txtSeats.DataBindings.Clear();
             txtBeds.DataBindings.Clear();
 
+            txtProductionYear.DataBindings.Clear();
+            dteLimitedRegistration.DataBindings.Clear();
+            dteTermInsurance.DataBindings.Clear();
+            dteTermFixedRoutes.DataBindings.Clear();
+            dteTermDriverLicense.DataBindings.Clear();
+
+            cheHigh.DataBindings.Clear();
+            cheCity.DataBindings.Clear();
+            txtServerQuality.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -134,6 +143,16 @@ namespace SKG.DXF.Station.Catalog
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
 
+            txtProductionYear.DataBindings.Add("EditValue", _dtb, ".ProductionYear");
+            dteLimitedRegistration.DataBindings.Add("EditValue", _dtb, ".LimitedRegistration");
+            dteTermInsurance.DataBindings.Add("EditValue", _dtb, ".TermInsurance");
+            dteTermFixedRoutes.DataBindings.Add("EditValue", _dtb, ".TermFixedRoutes");
+            dteTermDriverLicense.DataBindings.Add("EditValue", _dtb, ".TermDriverLicense");
+
+            cheHigh.DataBindings.Add("EditValue", _dtb, ".High");
+            cheCity.DataBindings.Add("EditValue", _dtb, ".City");
+            txtServerQuality.DataBindings.Add("EditValue", _dtb, ".ServerQuality");
+
             base.DataBindingControl();
         }
 
@@ -143,6 +162,16 @@ namespace SKG.DXF.Station.Catalog
             txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;
+
+            txtProductionYear.Properties.ReadOnly = isReadOnly;
+            dteLimitedRegistration.Properties.ReadOnly = isReadOnly;
+            dteTermInsurance.Properties.ReadOnly = isReadOnly;
+            dteTermFixedRoutes.Properties.ReadOnly = isReadOnly;
+            dteTermDriverLicense.Properties.ReadOnly = isReadOnly;
+
+            cheHigh.Properties.ReadOnly = isReadOnly;
+            cheCity.Properties.ReadOnly = isReadOnly;
+            txtServerQuality.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -164,7 +193,17 @@ namespace SKG.DXF.Station.Catalog
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = true
+                    Fixed = true,
+
+                    ProductionYear = Convert.ToInt32(txtProductionYear.Text),
+                    LimitedRegistration = dteLimitedRegistration.DateTime,
+                    TermInsurance = dteTermInsurance.DateTime,
+                    TermFixedRoutes = dteTermFixedRoutes.DateTime,
+                    TermDriverLicense = dteTermDriverLicense.DateTime,
+
+                    High = cheHigh.Checked,
+                    City = cheCity.Checked,
+                    ServerQuality = txtServerQuality.Text
                 };
 
                 var oki = _bll.Tra_Vehicle.Update(o);
@@ -187,7 +226,17 @@ namespace SKG.DXF.Station.Catalog
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = true
+                    Fixed = true,
+
+                    ProductionYear = Convert.ToInt32(txtProductionYear.Text),
+                    LimitedRegistration = dteLimitedRegistration.DateTime,
+                    TermInsurance = dteTermInsurance.DateTime,
+                    TermFixedRoutes = dteTermFixedRoutes.DateTime,
+                    TermDriverLicense = dteTermDriverLicense.DateTime,
+
+                    High = cheHigh.Checked,
+                    City = cheCity.Checked,
+                    ServerQuality = txtServerQuality.Text
                 };
 
                 var oki = _bll.Tra_Vehicle.Insert(o);

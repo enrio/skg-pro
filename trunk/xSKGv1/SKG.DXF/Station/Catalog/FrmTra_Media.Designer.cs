@@ -208,7 +208,7 @@
             // 
             // dteTermDriverLicense
             // 
-            this.dteTermDriverLicense.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermDriverLicense.EditValue = "";
             this.dteTermDriverLicense.Location = new System.Drawing.Point(302, 55);
             this.dteTermDriverLicense.Name = "dteTermDriverLicense";
             this.dteTermDriverLicense.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -225,7 +225,7 @@
             // 
             // dteTermFixedRoutes
             // 
-            this.dteTermFixedRoutes.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermFixedRoutes.EditValue = "";
             this.dteTermFixedRoutes.Location = new System.Drawing.Point(302, 23);
             this.dteTermFixedRoutes.Name = "dteTermFixedRoutes";
             this.dteTermFixedRoutes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,7 +260,7 @@
             // 
             // dteTermInsurance
             // 
-            this.dteTermInsurance.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermInsurance.EditValue = "";
             this.dteTermInsurance.Location = new System.Drawing.Point(100, 55);
             this.dteTermInsurance.Name = "dteTermInsurance";
             this.dteTermInsurance.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -277,7 +277,7 @@
             // 
             // dteLimitedRegistration
             // 
-            this.dteLimitedRegistration.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteLimitedRegistration.EditValue = "";
             this.dteLimitedRegistration.Location = new System.Drawing.Point(100, 23);
             this.dteLimitedRegistration.Name = "dteLimitedRegistration";
             this.dteLimitedRegistration.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -465,6 +465,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_Media";
+            this.Load += new System.EventHandler(this.FrmTra_Media_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

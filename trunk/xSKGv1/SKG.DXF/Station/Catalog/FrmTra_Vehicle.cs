@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Catalog
@@ -20,13 +23,14 @@ namespace SKG.DXF.Station.Catalog
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Vehicle).FullName, Parent = typeof(Level2).FullName, Text = "Xe cộ", Level = 3, Order = 22, Picture = @"Icons\Vehicle.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Vehicle).FullName, Parent = typeof(Level2).FullName, Text = "Phương tiện TCĐ", Level = 3, Order = 22, Picture = @"Icons\Vehicle.png" };
                 return menu;
             }
         }
         #endregion
 
         public string _num;
+
         public FrmTra_Vehicle()
         {
             InitializeComponent();
@@ -41,7 +45,7 @@ namespace SKG.DXF.Station.Catalog
         #region Override
         protected override void SetNullPrompt()
         {
-            txtNumber.Properties.NullValuePrompt = String.Format("Nhập {0}", lblNumber.Text.ToBetween(null, ":", Format.Lower));
+            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
         }
@@ -53,7 +57,7 @@ namespace SKG.DXF.Station.Catalog
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
+                var cfm = String.Format(STR_CONFIRM, txtCode.Text);
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
@@ -104,56 +108,40 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void ResetInput()
         {
-            lokKind.ItemIndex = 0;
-            txtNumber.Text = null;
-            txtNumber.Text = "0";
-            txtDescript.Text = null;
-            txtDriver.Text = null;
-            txtAddress.Text = null;
-            txtPhone.Text = null;
-            dteBirth.EditValue = null;
+            lueTransport.ItemIndex = 0;
+            txtCode.Text = null;
+            txtSeats.Text = "0";
+            txtBeds.Text = "0";
 
             base.ResetInput();
         }
 
         protected override void ClearDataBindings()
         {
-            lokKind.DataBindings.Clear();
-            txtNumber.DataBindings.Clear();
-            txtChair.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
-            txtDriver.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
-            txtPhone.DataBindings.Clear();
-            dteBirth.DataBindings.Clear();
+            lueTransport.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
+            txtSeats.DataBindings.Clear();
+            txtBeds.DataBindings.Clear();            
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            lokKind.DataBindings.Add("EditValue", _dtb, ".TransportId");
-            txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            txtChair.DataBindings.Add("EditValue", _dtb, ".Seats");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
-            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
-            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
-            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
-            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
+            lueTransport.DataBindings.Add("EditValue", _dtb, ".TransportId");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
+            txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
+            txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");            
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            lokKind.Properties.ReadOnly = isReadOnly;
-            txtNumber.Properties.ReadOnly = isReadOnly;
-            txtChair.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
-            txtDriver.Properties.ReadOnly = isReadOnly;
-            txtAddress.Properties.ReadOnly = isReadOnly;
-            txtPhone.Properties.ReadOnly = isReadOnly;
-            dteBirth.Properties.ReadOnly = isReadOnly;
+            lueTransport.Properties.ReadOnly = isReadOnly;
+            txtCode.Properties.ReadOnly = isReadOnly;
+            txtSeats.Properties.ReadOnly = isReadOnly;
+            txtBeds.Properties.ReadOnly = isReadOnly;           
 
             grcMain.Enabled = isReadOnly;
 
@@ -171,14 +159,11 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Vehicle()
                 {
                     Id = id,
-                    TransportId = (Guid)lokKind.GetColumnValue("Id"),
-                    Code = txtNumber.Text,
-                    Seats = txtChair.Text.ToInt32(),
-                    Driver = txtDriver.Text,
-                    Birth = dteBirth.DateTime,
-                    Address = txtAddress.Text,
-                    Phone = txtPhone.Text,
-                    Note = txtDescript.Text
+                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    Code = txtCode.Text,
+                    Seats = txtSeats.Text.ToInt32(),
+                    Beds = txtBeds.Text.ToInt32(),
+                    Fixed = false                    
                 };
 
                 var oki = _bll.Tra_Vehicle.Update(o);
@@ -197,14 +182,11 @@ namespace SKG.DXF.Station.Catalog
 
                 var o = new Tra_Vehicle()
                 {
-                    TransportId = (Guid)lokKind.GetColumnValue("Id"),
-                    Code = txtNumber.Text,
-                    Seats = txtChair.Text.ToInt32(),
-                    Driver = txtDriver.Text,
-                    Birth = dteBirth.DateTime,
-                    Address = txtAddress.Text,
-                    Phone = txtPhone.Text,
-                    Note = txtDescript.Text
+                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    Code = txtCode.Text,
+                    Seats = txtSeats.Text.ToInt32(),
+                    Beds = txtBeds.Text.ToInt32(),
+                    Fixed = false                    
                 };
 
                 var oki = _bll.Tra_Vehicle.Insert(o);
@@ -236,29 +218,25 @@ namespace SKG.DXF.Station.Catalog
 
         protected override bool ValidInput()
         {
-            var a = txtNumber.Text.Length == 0 ? false : true;
-            if (!a) txtNumber.Focus();
+            var a = txtCode.Text.Length == 0 ? false : true;
+            if (!a) txtCode.Focus();
 
-            var oki = true;
-            if (lokKind.GetColumnValue("Code") + "" == "L")
-            {
-                oki = txtChair.Text.Length == 0 ? false : true;
-                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            }
+            var oki = txtSeats.Text.Length == 0 ? false : true;
+            if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
 
             return a && oki;
         }
         #endregion
 
-        private void FrmTra_Vehicle_Load(object sender, EventArgs e)
+        private void FrmTra_Media_Load(object sender, EventArgs e)
         {
-            lokKind.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
-            lokKind.ItemIndex = 0;
+            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
+            lueTransport.ItemIndex = 0;
 
             if (_num + "" != "")
             {
                 PerformAdd();
-                txtNumber.Text = _num;
+                txtCode.Text = _num;
             }
         }
 

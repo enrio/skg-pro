@@ -59,6 +59,8 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.grcMain = new DevExpress.XtraGrid.GridControl();
+            this.grvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -83,6 +85,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
+            this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -424,10 +429,34 @@
             // 
             // dockPanel2_Container
             // 
+            this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 323);
             this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // grcMain
+            // 
+            this.grcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grcMain.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grcMain.Location = new System.Drawing.Point(0, 0);
+            this.grcMain.MainView = this.grvMain;
+            this.grcMain.Name = "grcMain";
+            this.grcMain.Size = new System.Drawing.Size(943, 323);
+            this.grcMain.TabIndex = 0;
+            this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvMain});
+            // 
+            // grvMain
+            // 
+            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupRow.Options.UseFont = true;
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.Options.UseFont = true;
+            this.grvMain.GridControl = this.grcMain;
+            this.grvMain.Name = "grvMain";
             // 
             // FrmTra_Media
             // 
@@ -466,6 +495,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
+            this.dockPanel2_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -502,5 +534,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.TextEdit textEdit4;
         private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraGrid.GridControl grcMain;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvMain;
     }
 }

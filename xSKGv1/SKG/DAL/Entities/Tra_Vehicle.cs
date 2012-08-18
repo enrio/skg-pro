@@ -85,7 +85,12 @@ namespace SKG.DAL.Entities
         /// </summary>
         public bool Local { set; get; }
 
+        /// <summary>
+        /// Tuyến cố định
+        /// </summary>
+        public bool Fixed { set; get; }
         #endregion
+
         #region Thông tin khác
         /// <summary>
         /// Họ tên của tài xế

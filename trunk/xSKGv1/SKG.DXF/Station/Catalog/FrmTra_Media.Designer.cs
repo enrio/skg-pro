@@ -32,8 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.checkEdit2 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
+            this.cheCity = new DevExpress.XtraEditors.CheckEdit();
+            this.cheHigh = new DevExpress.XtraEditors.CheckEdit();
             this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
@@ -48,15 +48,15 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSeats = new DevExpress.XtraEditors.TextEdit();
+            this.txtBeds = new DevExpress.XtraEditors.TextEdit();
+            this.lblBeds = new DevExpress.XtraEditors.LabelControl();
+            this.lblSeats = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
+            this.lblCode = new DevExpress.XtraEditors.LabelControl();
+            this.lueTransport = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblTransport = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -65,8 +65,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -79,11 +79,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -116,8 +116,8 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.checkEdit2);
-            this.dockPanel1_Container.Controls.Add(this.checkEdit1);
+            this.dockPanel1_Container.Controls.Add(this.cheCity);
+            this.dockPanel1_Container.Controls.Add(this.cheHigh);
             this.dockPanel1_Container.Controls.Add(this.textEdit5);
             this.dockPanel1_Container.Controls.Add(this.labelControl10);
             this.dockPanel1_Container.Controls.Add(this.textEdit4);
@@ -130,25 +130,25 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 126);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // checkEdit2
+            // cheCity
             // 
-            this.checkEdit2.Location = new System.Drawing.Point(199, 97);
-            this.checkEdit2.Name = "checkEdit2";
-            this.checkEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEdit2.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit2.Properties.Caption = "Xe thành phố";
-            this.checkEdit2.Size = new System.Drawing.Size(124, 24);
-            this.checkEdit2.TabIndex = 4;
+            this.cheCity.Location = new System.Drawing.Point(199, 97);
+            this.cheCity.Name = "cheCity";
+            this.cheCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheCity.Properties.Appearance.Options.UseFont = true;
+            this.cheCity.Properties.Caption = "Xe thành phố";
+            this.cheCity.Size = new System.Drawing.Size(124, 24);
+            this.cheCity.TabIndex = 4;
             // 
-            // checkEdit1
+            // cheHigh
             // 
-            this.checkEdit1.Location = new System.Drawing.Point(1, 97);
-            this.checkEdit1.Name = "checkEdit1";
-            this.checkEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEdit1.Properties.Appearance.Options.UseFont = true;
-            this.checkEdit1.Properties.Caption = "Xe chất lượng cao";
-            this.checkEdit1.Size = new System.Drawing.Size(159, 24);
-            this.checkEdit1.TabIndex = 3;
+            this.cheHigh.Location = new System.Drawing.Point(1, 97);
+            this.cheHigh.Name = "cheHigh";
+            this.cheHigh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheHigh.Properties.Appearance.Options.UseFont = true;
+            this.cheHigh.Properties.Caption = "Xe chất lượng cao";
+            this.cheHigh.Size = new System.Drawing.Size(159, 24);
+            this.cheHigh.TabIndex = 3;
             // 
             // textEdit5
             // 
@@ -312,10 +312,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textEdit3);
-            this.groupBox2.Controls.Add(this.textEdit2);
-            this.groupBox2.Controls.Add(this.labelControl3);
-            this.groupBox2.Controls.Add(this.labelControl4);
+            this.groupBox2.Controls.Add(this.txtSeats);
+            this.groupBox2.Controls.Add(this.txtBeds);
+            this.groupBox2.Controls.Add(this.lblBeds);
+            this.groupBox2.Controls.Add(this.lblSeats);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(335, 3);
             this.groupBox2.Name = "groupBox2";
@@ -324,52 +324,52 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tải trọng";
             // 
-            // textEdit3
+            // txtSeats
             // 
-            this.textEdit3.Location = new System.Drawing.Point(70, 23);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit3.Properties.Appearance.Options.UseFont = true;
-            this.textEdit3.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.textEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEdit3.Size = new System.Drawing.Size(55, 26);
-            this.textEdit3.TabIndex = 1;
+            this.txtSeats.Location = new System.Drawing.Point(70, 23);
+            this.txtSeats.Name = "txtSeats";
+            this.txtSeats.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeats.Properties.Appearance.Options.UseFont = true;
+            this.txtSeats.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtSeats.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtSeats.Size = new System.Drawing.Size(55, 26);
+            this.txtSeats.TabIndex = 1;
             // 
-            // textEdit2
+            // txtBeds
             // 
-            this.textEdit2.Location = new System.Drawing.Point(70, 55);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.textEdit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEdit2.Size = new System.Drawing.Size(55, 26);
-            this.textEdit2.TabIndex = 3;
+            this.txtBeds.Location = new System.Drawing.Point(70, 55);
+            this.txtBeds.Name = "txtBeds";
+            this.txtBeds.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBeds.Properties.Appearance.Options.UseFont = true;
+            this.txtBeds.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtBeds.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtBeds.Size = new System.Drawing.Size(55, 26);
+            this.txtBeds.TabIndex = 3;
             // 
-            // labelControl3
+            // lblBeds
             // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(6, 58);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(58, 19);
-            this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "Giường:";
+            this.lblBeds.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeds.Location = new System.Drawing.Point(6, 58);
+            this.lblBeds.Name = "lblBeds";
+            this.lblBeds.Size = new System.Drawing.Size(58, 19);
+            this.lblBeds.TabIndex = 2;
+            this.lblBeds.Text = "Giường:";
             // 
-            // labelControl4
+            // lblSeats
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(6, 26);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(34, 19);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Ghế:";
+            this.lblSeats.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeats.Location = new System.Drawing.Point(6, 26);
+            this.lblSeats.Name = "lblSeats";
+            this.lblSeats.Size = new System.Drawing.Size(34, 19);
+            this.lblSeats.TabIndex = 0;
+            this.lblSeats.Text = "Ghế:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textEdit1);
-            this.groupBox1.Controls.Add(this.labelControl2);
-            this.groupBox1.Controls.Add(this.lookUpEdit1);
-            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Controls.Add(this.txtCode);
+            this.groupBox1.Controls.Add(this.lblCode);
+            this.groupBox1.Controls.Add(this.lueTransport);
+            this.groupBox1.Controls.Add(this.lblTransport);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
@@ -378,43 +378,43 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin xe";
             // 
-            // textEdit1
+            // txtCode
             // 
-            this.textEdit1.Location = new System.Drawing.Point(93, 55);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.Size = new System.Drawing.Size(227, 26);
-            this.textEdit1.TabIndex = 3;
+            this.txtCode.Location = new System.Drawing.Point(93, 55);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Properties.Appearance.Options.UseFont = true;
+            this.txtCode.Size = new System.Drawing.Size(227, 26);
+            this.txtCode.TabIndex = 3;
             // 
-            // labelControl2
+            // lblCode
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(6, 58);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(57, 19);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Biển số:";
+            this.lblCode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCode.Location = new System.Drawing.Point(6, 58);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(57, 19);
+            this.lblCode.TabIndex = 2;
+            this.lblCode.Text = "Biển số:";
             // 
-            // lookUpEdit1
+            // lueTransport
             // 
-            this.lookUpEdit1.Location = new System.Drawing.Point(93, 23);
-            this.lookUpEdit1.Name = "lookUpEdit1";
-            this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
-            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lueTransport.Location = new System.Drawing.Point(93, 23);
+            this.lueTransport.Name = "lueTransport";
+            this.lueTransport.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueTransport.Properties.Appearance.Options.UseFont = true;
+            this.lueTransport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit1.Size = new System.Drawing.Size(227, 26);
-            this.lookUpEdit1.TabIndex = 1;
+            this.lueTransport.Size = new System.Drawing.Size(227, 26);
+            this.lueTransport.TabIndex = 1;
             // 
-            // labelControl1
+            // lblTransport
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(6, 26);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(81, 19);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "ĐV.Vận tải:";
+            this.lblTransport.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransport.Location = new System.Drawing.Point(6, 26);
+            this.lblTransport.Name = "lblTransport";
+            this.lblTransport.Size = new System.Drawing.Size(81, 19);
+            this.lblTransport.TabIndex = 0;
+            this.lblTransport.Text = "ĐV.Vận tải:";
             // 
             // dockPanel2
             // 
@@ -472,8 +472,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -488,12 +488,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -520,16 +520,16 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.CheckEdit checkEdit2;
-        private DevExpress.XtraEditors.CheckEdit checkEdit1;
+        private DevExpress.XtraEditors.TextEdit txtSeats;
+        private DevExpress.XtraEditors.TextEdit txtBeds;
+        private DevExpress.XtraEditors.LabelControl lblBeds;
+        private DevExpress.XtraEditors.LabelControl lblSeats;
+        private DevExpress.XtraEditors.TextEdit txtCode;
+        private DevExpress.XtraEditors.LabelControl lblCode;
+        private DevExpress.XtraEditors.LookUpEdit lueTransport;
+        private DevExpress.XtraEditors.LabelControl lblTransport;
+        private DevExpress.XtraEditors.CheckEdit cheCity;
+        private DevExpress.XtraEditors.CheckEdit cheHigh;
         private DevExpress.XtraEditors.TextEdit textEdit5;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.TextEdit textEdit4;

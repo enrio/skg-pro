@@ -132,10 +132,10 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void DataBindingControl()
         {
-            lokKind.DataBindings.Add("EditValue", _dtb, ".Tra_KindId");
+            lokKind.DataBindings.Add("EditValue", _dtb, ".TransportId");
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtChair.DataBindings.Add("EditValue", _dtb, ".Seats");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
@@ -252,7 +252,7 @@ namespace SKG.DXF.Station.Catalog
 
         private void FrmTra_Vehicle_Load(object sender, EventArgs e)
         {
-            lokKind.Properties.DataSource = _bll.Tra_Tariff.Select();
+            lokKind.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
             lokKind.ItemIndex = 0;
 
             if (_num + "" != "")

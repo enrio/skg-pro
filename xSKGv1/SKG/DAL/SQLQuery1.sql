@@ -1,29 +1,27 @@
 Create View V_STATION
 As
-select * from Pol_Dictionary
-where [type] = 'STATION'
-go
+Select * From Pol_Dictionary
+Where [Type] = 'STATION'
+Go
+
 Create View V_PROVINCE
 As
-select * from Pol_Dictionary
-where [type] = 'PROVINCE'
-go
+Select * From Pol_Dictionary
+Where [Type] = 'PROVINCE'
+Go
+
 Create View V_AREA
 As
-select * from Pol_Dictionary
-where [type] = 'AREA'
-go
+Select * From Pol_Dictionary
+Where [Type] = 'AREA'
+Go
+
 Create View V_REGION
 As
-select * from Pol_Dictionary
-where [type] = 'REGION'
-go
-Create View A
-as
-select b.* from V_REGION a join Tra_Tariff b on a.Code = b.Code
+Select * From Pol_Dictionary
+Where [Type] = 'REGION'
+Go
 
-
-go
 --drop  Procedure Find_Tariff
 Create Procedure Find_Tariff
 @id uniqueidentifier,

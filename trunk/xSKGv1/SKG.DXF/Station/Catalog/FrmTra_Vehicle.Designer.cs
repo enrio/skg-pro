@@ -67,6 +67,7 @@
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -321,7 +322,8 @@
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
-            this.gridColumn15});
+            this.gridColumn15,
+            this.gridColumn16});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             // 
@@ -396,7 +398,7 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Đơn vị vận tải";
-            this.gridColumn10.FieldName = "KindName";
+            this.gridColumn10.FieldName = "Transport";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 7;
@@ -404,42 +406,50 @@
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Số ghế";
-            this.gridColumn11.FieldName = "Chair";
+            this.gridColumn11.FieldName = "Seats";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 8;
             // 
             // gridColumn12
             // 
-            this.gridColumn12.Caption = "Xe thường";
-            this.gridColumn12.FieldName = "Normal";
+            this.gridColumn12.Caption = "Số giường";
+            this.gridColumn12.FieldName = "Beds";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 9;
             // 
             // gridColumn13
             // 
-            this.gridColumn13.Caption = "Chất lượng cao";
-            this.gridColumn13.FieldName = "High";
+            this.gridColumn13.Caption = "Thường";
+            this.gridColumn13.FieldName = "Normal";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 10;
             // 
             // gridColumn14
             // 
-            this.gridColumn14.Caption = "Xe thành phố";
-            this.gridColumn14.FieldName = "City";
+            this.gridColumn14.Caption = "Chất lượng cao";
+            this.gridColumn14.FieldName = "High";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 11;
             // 
             // gridColumn15
             // 
-            this.gridColumn15.Caption = "Xe địa phương";
-            this.gridColumn15.FieldName = "Local";
+            this.gridColumn15.Caption = "Thành phố";
+            this.gridColumn15.FieldName = "City";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 12;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Địa phương";
+            this.gridColumn16.FieldName = "Local";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 13;
             // 
             // FrmTra_Vehicle
             // 
@@ -514,5 +524,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
     }
 }

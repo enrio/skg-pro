@@ -39,11 +39,14 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Number,
-                              Descript = s.Note,
+                              s.Note,
+                              s.Seats,
+                              s.Beds,
                               s.Normal,
                               s.High,
                               s.City,
                               s.Local,
+                              s.Fixed,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -88,19 +91,23 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              Tra_KindId = s.TransportId,
-                              KindName = s.Transport.Text,
+                              s.TransportId,
+                              Transport = s.Transport.Text,
+
                               s.Number,
-                              Descript = s.Note,
+                              s.Note,
+                              s.Seats,
+                              s.Beds,
                               s.Normal,
                               s.High,
                               s.City,
                               s.Local,
+                              s.Fixed,
                               s.Driver,
                               s.Birth,
                               s.Address,
                               s.Phone,
-                              Chair = s.Seats,
+
                               s.Code,
                               s.Order,
                               s.Show
@@ -149,11 +156,13 @@ namespace SKG.DAL
                 res.TransportId = o.TransportId;
                 res.Number = o.Number;
                 res.Seats = o.Seats;
+                res.Beds = o.Beds;
                 res.Note = o.Note;
                 res.Normal = o.Normal;
                 res.High = o.High;
                 res.City = o.City;
                 res.Local = o.Local;
+                res.Fixed = o.Fixed;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;
                 res.Address = o.Address;

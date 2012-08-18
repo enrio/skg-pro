@@ -285,6 +285,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Catalog\FrmTra_Media.resx">
+      <DependentUpon>FrmTra_Media.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Catalog\FrmTra_Registry.resx">
       <DependentUpon>FrmTra_Registry.cs</DependentUpon>
     </EmbeddedResource>

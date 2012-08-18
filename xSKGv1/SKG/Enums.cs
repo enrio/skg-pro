@@ -69,4 +69,9 @@ namespace SKG
     /// License of software
     /// </summary>
     public enum LicState { Unlimited, Trial, None }
+
+    /// <summary>
+    /// Kind of selection in conditions
+    /// </summary>
+    public enum KeySelected { Primary, Foreign, Filter };
 }

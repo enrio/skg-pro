@@ -225,7 +225,7 @@ namespace SKG.DXF.Station.Manage
                     {
                         var ve = new Tra_Vehicle
                         {
-                            Number = txtNumber.Text,
+                            Code = txtNumber.Text,
                             TransportId = _idLoaixe,
                             Seats = txtChair.Text.ToInt32(),
                             Driver = txtDriver.Text,

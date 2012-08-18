@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 09/08/2013 20:32
+ * Update: 09/08/2013 20:32
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -38,21 +50,31 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Number,
-                              s.Note,
+                              s.Code,
+                              s.TransportId,
+                              Transport = s.Transport.Text,
+
                               s.Seats,
                               s.Beds,
-                              s.Normal,
+
                               s.High,
                               s.City,
-                              s.Local,
+
+                              s.ProductionYear,
+                              s.LimitedRegistration,
+                              s.TermInsurance,
+                              s.TermFixedRoutes,
+                              s.TermDriverLicense,
+
                               s.Fixed,
+                              s.ServerQuality,
                               s.Driver,
                               s.Birth,
                               s.Address,
                               s.Phone,
 
-                              s.Code,
+                              s.Text,
+                              s.Note,
                               s.Order,
                               s.Show
                           };
@@ -71,7 +93,10 @@ namespace SKG.DAL
         {
             try
             {
-                return _db.Tra_Vehicles.SingleOrDefault(s => s.Number == code);
+                var gui = new Guid();
+                var ok = Guid.TryParse(code, out gui);
+                if (ok) return _db.Tra_Vehicles.SingleOrDefault(s => s.Id == gui);
+                return _db.Tra_Vehicles.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -91,30 +116,37 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
+                              s.Code,
                               s.TransportId,
                               Transport = s.Transport.Text,
 
-                              s.Number,
-                              s.Note,
                               s.Seats,
                               s.Beds,
-                              s.Normal,
+
                               s.High,
                               s.City,
-                              s.Local,
+
+                              s.ProductionYear,
+                              s.LimitedRegistration,
+                              s.TermInsurance,
+                              s.TermFixedRoutes,
+                              s.TermDriverLicense,
+
                               s.Fixed,
+                              s.ServerQuality,
                               s.Driver,
                               s.Birth,
                               s.Address,
                               s.Phone,
 
-                              s.Code,
+                              s.Text,
+                              s.Note,
                               s.Order,
                               s.Show
                           };
 
                 var dk = obj + "";
-                if (obj != null) res = res.Where(s => s.Number == dk);
+                if (obj != null) res = res.Where(s => s.Code == dk);
                 if (take > 0) res = res.Take(take);
 
                 return res.ToDataTable();
@@ -153,22 +185,30 @@ namespace SKG.DAL
                 var o = (Tra_Vehicle)obj;
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
 
+                res.Code = o.Code;
                 res.TransportId = o.TransportId;
-                res.Number = o.Number;
+
+
                 res.Seats = o.Seats;
                 res.Beds = o.Beds;
-                res.Note = o.Note;
-                res.Normal = o.Normal;
+
                 res.High = o.High;
                 res.City = o.City;
-                res.Local = o.Local;
+
+                res.ProductionYear = o.ProductionYear;
+                res.LimitedRegistration = o.LimitedRegistration;
+                res.TermInsurance = o.TermInsurance;
+                res.TermFixedRoutes = o.TermFixedRoutes;
+                res.TermDriverLicense = o.TermDriverLicense;
+
                 res.Fixed = o.Fixed;
+                res.ServerQuality = o.ServerQuality;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;
                 res.Address = o.Address;
                 res.Phone = o.Phone;
 
-                res.Code = o.Code;
+                res.Text = o.Text;
                 res.Note = o.Note;
                 res.Order = o.Order;
                 res.Show = o.Show;

@@ -85,7 +85,7 @@ namespace SKG.DAL
                           {
                               s.Id,                              
                               s.VehicleId,
-                              s.Vehicle.Number,
+                             Number= s.Vehicle.Code,
                               Transport=s.Vehicle.Transport.Text,
                               s.TariffId,
                               Tariff = s.Tariff.Text,

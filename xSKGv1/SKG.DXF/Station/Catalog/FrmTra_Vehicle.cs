@@ -172,7 +172,7 @@ namespace SKG.DXF.Station.Catalog
                 {
                     Id = id,
                     TransportId = (Guid)lokKind.GetColumnValue("Id"),
-                    Number = txtNumber.Text,
+                    Code = txtNumber.Text,
                     Seats = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,
                     Birth = dteBirth.DateTime,
@@ -198,7 +198,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Vehicle()
                 {
                     TransportId = (Guid)lokKind.GetColumnValue("Id"),
-                    Number = txtNumber.Text,
+                    Code = txtNumber.Text,
                     Seats = txtChair.Text.ToInt32(),
                     Driver = txtDriver.Text,
                     Birth = dteBirth.DateTime,

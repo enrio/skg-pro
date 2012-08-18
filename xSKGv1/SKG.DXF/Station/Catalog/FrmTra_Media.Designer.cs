@@ -34,19 +34,19 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.cheCity = new DevExpress.XtraEditors.CheckEdit();
             this.cheHigh = new DevExpress.XtraEditors.CheckEdit();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.txtServerQuality = new DevExpress.XtraEditors.TextEdit();
+            this.lblServerQuality = new DevExpress.XtraEditors.LabelControl();
+            this.txtProductionYear = new DevExpress.XtraEditors.TextEdit();
+            this.lblProductionYear = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dateEdit3 = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit4 = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit2 = new DevExpress.XtraEditors.DateEdit();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.dteTermDriverLicense = new DevExpress.XtraEditors.DateEdit();
+            this.dteTermFixedRoutes = new DevExpress.XtraEditors.DateEdit();
+            this.lblTermDriverLicense = new DevExpress.XtraEditors.LabelControl();
+            this.lblTermFixedRoutes = new DevExpress.XtraEditors.LabelControl();
+            this.dteTermInsurance = new DevExpress.XtraEditors.DateEdit();
+            this.dteLimitedRegistration = new DevExpress.XtraEditors.DateEdit();
+            this.lblTermInsurance = new DevExpress.XtraEditors.LabelControl();
+            this.lblLimitedRegistration = new DevExpress.XtraEditors.LabelControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSeats = new DevExpress.XtraEditors.TextEdit();
             this.txtBeds = new DevExpress.XtraEditors.TextEdit();
@@ -67,17 +67,17 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerQuality.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermFixedRoutes.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermFixedRoutes.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermInsurance.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermInsurance.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteLimitedRegistration.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteLimitedRegistration.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
@@ -118,10 +118,10 @@
             // 
             this.dockPanel1_Container.Controls.Add(this.cheCity);
             this.dockPanel1_Container.Controls.Add(this.cheHigh);
-            this.dockPanel1_Container.Controls.Add(this.textEdit5);
-            this.dockPanel1_Container.Controls.Add(this.labelControl10);
-            this.dockPanel1_Container.Controls.Add(this.textEdit4);
-            this.dockPanel1_Container.Controls.Add(this.labelControl9);
+            this.dockPanel1_Container.Controls.Add(this.txtServerQuality);
+            this.dockPanel1_Container.Controls.Add(this.lblServerQuality);
+            this.dockPanel1_Container.Controls.Add(this.txtProductionYear);
+            this.dockPanel1_Container.Controls.Add(this.lblProductionYear);
             this.dockPanel1_Container.Controls.Add(this.groupBox3);
             this.dockPanel1_Container.Controls.Add(this.groupBox2);
             this.dockPanel1_Container.Controls.Add(this.groupBox1);
@@ -150,54 +150,54 @@
             this.cheHigh.Size = new System.Drawing.Size(159, 24);
             this.cheHigh.TabIndex = 3;
             // 
-            // textEdit5
+            // txtServerQuality
             // 
-            this.textEdit5.Location = new System.Drawing.Point(624, 95);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit5.Properties.Appearance.Options.UseFont = true;
-            this.textEdit5.Size = new System.Drawing.Size(265, 26);
-            this.textEdit5.TabIndex = 8;
+            this.txtServerQuality.Location = new System.Drawing.Point(624, 95);
+            this.txtServerQuality.Name = "txtServerQuality";
+            this.txtServerQuality.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerQuality.Properties.Appearance.Options.UseFont = true;
+            this.txtServerQuality.Size = new System.Drawing.Size(265, 26);
+            this.txtServerQuality.TabIndex = 8;
             // 
-            // labelControl10
+            // lblServerQuality
             // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl10.Location = new System.Drawing.Point(473, 98);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(145, 19);
-            this.labelControl10.TabIndex = 7;
-            this.labelControl10.Text = "Chất lượng phục vụ:";
+            this.lblServerQuality.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblServerQuality.Location = new System.Drawing.Point(473, 98);
+            this.lblServerQuality.Name = "lblServerQuality";
+            this.lblServerQuality.Size = new System.Drawing.Size(145, 19);
+            this.lblServerQuality.TabIndex = 7;
+            this.lblServerQuality.Text = "Chất lượng phục vụ:";
             // 
-            // textEdit4
+            // txtProductionYear
             // 
-            this.textEdit4.Location = new System.Drawing.Point(405, 95);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEdit4.Properties.Appearance.Options.UseFont = true;
-            this.textEdit4.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.textEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.textEdit4.Size = new System.Drawing.Size(62, 26);
-            this.textEdit4.TabIndex = 6;
+            this.txtProductionYear.Location = new System.Drawing.Point(405, 95);
+            this.txtProductionYear.Name = "txtProductionYear";
+            this.txtProductionYear.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductionYear.Properties.Appearance.Options.UseFont = true;
+            this.txtProductionYear.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtProductionYear.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtProductionYear.Size = new System.Drawing.Size(62, 26);
+            this.txtProductionYear.TabIndex = 6;
             // 
-            // labelControl9
+            // lblProductionYear
             // 
-            this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl9.Location = new System.Drawing.Point(341, 100);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(62, 19);
-            this.labelControl9.TabIndex = 5;
-            this.labelControl9.Text = "Năm SX:";
+            this.lblProductionYear.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductionYear.Location = new System.Drawing.Point(341, 100);
+            this.lblProductionYear.Name = "lblProductionYear";
+            this.lblProductionYear.Size = new System.Drawing.Size(62, 19);
+            this.lblProductionYear.TabIndex = 5;
+            this.lblProductionYear.Text = "Năm SX:";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dateEdit3);
-            this.groupBox3.Controls.Add(this.dateEdit4);
-            this.groupBox3.Controls.Add(this.labelControl7);
-            this.groupBox3.Controls.Add(this.labelControl8);
-            this.groupBox3.Controls.Add(this.dateEdit2);
-            this.groupBox3.Controls.Add(this.dateEdit1);
-            this.groupBox3.Controls.Add(this.labelControl5);
-            this.groupBox3.Controls.Add(this.labelControl6);
+            this.groupBox3.Controls.Add(this.dteTermDriverLicense);
+            this.groupBox3.Controls.Add(this.dteTermFixedRoutes);
+            this.groupBox3.Controls.Add(this.lblTermDriverLicense);
+            this.groupBox3.Controls.Add(this.lblTermFixedRoutes);
+            this.groupBox3.Controls.Add(this.dteTermInsurance);
+            this.groupBox3.Controls.Add(this.dteLimitedRegistration);
+            this.groupBox3.Controls.Add(this.lblTermInsurance);
+            this.groupBox3.Controls.Add(this.lblLimitedRegistration);
             this.groupBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(473, 3);
             this.groupBox3.Name = "groupBox3";
@@ -206,109 +206,109 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Thông tin quản lý";
             // 
-            // dateEdit3
+            // dteTermDriverLicense
             // 
-            this.dateEdit3.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
-            this.dateEdit3.Location = new System.Drawing.Point(302, 55);
-            this.dateEdit3.Name = "dateEdit3";
-            this.dateEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit3.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermDriverLicense.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermDriverLicense.Location = new System.Drawing.Point(302, 55);
+            this.dteTermDriverLicense.Name = "dteTermDriverLicense";
+            this.dteTermDriverLicense.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteTermDriverLicense.Properties.Appearance.Options.UseFont = true;
+            this.dteTermDriverLicense.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit3.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dateEdit3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit3.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEdit3.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermDriverLicense.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteTermDriverLicense.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTermDriverLicense.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteTermDriverLicense.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit3.Size = new System.Drawing.Size(108, 26);
-            this.dateEdit3.TabIndex = 7;
+            this.dteTermDriverLicense.Size = new System.Drawing.Size(108, 26);
+            this.dteTermDriverLicense.TabIndex = 7;
             // 
-            // dateEdit4
+            // dteTermFixedRoutes
             // 
-            this.dateEdit4.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
-            this.dateEdit4.Location = new System.Drawing.Point(302, 23);
-            this.dateEdit4.Name = "dateEdit4";
-            this.dateEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit4.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermFixedRoutes.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermFixedRoutes.Location = new System.Drawing.Point(302, 23);
+            this.dteTermFixedRoutes.Name = "dteTermFixedRoutes";
+            this.dteTermFixedRoutes.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteTermFixedRoutes.Properties.Appearance.Options.UseFont = true;
+            this.dteTermFixedRoutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit4.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dateEdit4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit4.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEdit4.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermFixedRoutes.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteTermFixedRoutes.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTermFixedRoutes.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteTermFixedRoutes.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit4.Size = new System.Drawing.Size(108, 26);
-            this.dateEdit4.TabIndex = 3;
+            this.dteTermFixedRoutes.Size = new System.Drawing.Size(108, 26);
+            this.dteTermFixedRoutes.TabIndex = 3;
             // 
-            // labelControl7
+            // lblTermDriverLicense
             // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(220, 58);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(76, 19);
-            this.labelControl7.TabIndex = 6;
-            this.labelControl7.Text = "Hạn GPLX:";
+            this.lblTermDriverLicense.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTermDriverLicense.Location = new System.Drawing.Point(220, 58);
+            this.lblTermDriverLicense.Name = "lblTermDriverLicense";
+            this.lblTermDriverLicense.Size = new System.Drawing.Size(76, 19);
+            this.lblTermDriverLicense.TabIndex = 6;
+            this.lblTermDriverLicense.Text = "Hạn GPLX:";
             // 
-            // labelControl8
+            // lblTermFixedRoutes
             // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(220, 26);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(70, 19);
-            this.labelControl8.TabIndex = 2;
-            this.labelControl8.Text = "Hạn TCĐ:";
+            this.lblTermFixedRoutes.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTermFixedRoutes.Location = new System.Drawing.Point(220, 26);
+            this.lblTermFixedRoutes.Name = "lblTermFixedRoutes";
+            this.lblTermFixedRoutes.Size = new System.Drawing.Size(70, 19);
+            this.lblTermFixedRoutes.TabIndex = 2;
+            this.lblTermFixedRoutes.Text = "Hạn TCĐ:";
             // 
-            // dateEdit2
+            // dteTermInsurance
             // 
-            this.dateEdit2.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
-            this.dateEdit2.Location = new System.Drawing.Point(100, 55);
-            this.dateEdit2.Name = "dateEdit2";
-            this.dateEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit2.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermInsurance.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteTermInsurance.Location = new System.Drawing.Point(100, 55);
+            this.dteTermInsurance.Name = "dteTermInsurance";
+            this.dteTermInsurance.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteTermInsurance.Properties.Appearance.Options.UseFont = true;
+            this.dteTermInsurance.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit2.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dateEdit2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit2.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEdit2.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteTermInsurance.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteTermInsurance.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTermInsurance.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteTermInsurance.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit2.Size = new System.Drawing.Size(108, 26);
-            this.dateEdit2.TabIndex = 5;
+            this.dteTermInsurance.Size = new System.Drawing.Size(108, 26);
+            this.dteTermInsurance.TabIndex = 5;
             // 
-            // dateEdit1
+            // dteLimitedRegistration
             // 
-            this.dateEdit1.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
-            this.dateEdit1.Location = new System.Drawing.Point(100, 23);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteLimitedRegistration.EditValue = new System.DateTime(2012, 8, 18, 0, 0, 0, 0);
+            this.dteLimitedRegistration.Location = new System.Drawing.Point(100, 23);
+            this.dteLimitedRegistration.Name = "dteLimitedRegistration";
+            this.dteLimitedRegistration.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteLimitedRegistration.Properties.Appearance.Options.UseFont = true;
+            this.dteLimitedRegistration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteLimitedRegistration.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteLimitedRegistration.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteLimitedRegistration.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteLimitedRegistration.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit1.Size = new System.Drawing.Size(108, 26);
-            this.dateEdit1.TabIndex = 1;
+            this.dteLimitedRegistration.Size = new System.Drawing.Size(108, 26);
+            this.dteLimitedRegistration.TabIndex = 1;
             // 
-            // labelControl5
+            // lblTermInsurance
             // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(6, 58);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(88, 19);
-            this.labelControl5.TabIndex = 4;
-            this.labelControl5.Text = "Hạn B.hiểm:";
+            this.lblTermInsurance.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTermInsurance.Location = new System.Drawing.Point(6, 58);
+            this.lblTermInsurance.Name = "lblTermInsurance";
+            this.lblTermInsurance.Size = new System.Drawing.Size(88, 19);
+            this.lblTermInsurance.TabIndex = 4;
+            this.lblTermInsurance.Text = "Hạn B.hiểm:";
             // 
-            // labelControl6
+            // lblLimitedRegistration
             // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(6, 26);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(89, 19);
-            this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "Hạn Đ.kiểm:";
+            this.lblLimitedRegistration.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLimitedRegistration.Location = new System.Drawing.Point(6, 26);
+            this.lblLimitedRegistration.Name = "lblLimitedRegistration";
+            this.lblLimitedRegistration.Size = new System.Drawing.Size(89, 19);
+            this.lblLimitedRegistration.TabIndex = 0;
+            this.lblLimitedRegistration.Text = "Hạn Đ.kiểm:";
             // 
             // groupBox2
             // 
@@ -474,18 +474,18 @@
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServerQuality.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermFixedRoutes.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermFixedRoutes.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermInsurance.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteTermInsurance.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteLimitedRegistration.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteLimitedRegistration.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).EndInit();
@@ -511,14 +511,14 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private DevExpress.XtraEditors.DateEdit dateEdit3;
-        private DevExpress.XtraEditors.DateEdit dateEdit4;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.DateEdit dateEdit2;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.DateEdit dteTermDriverLicense;
+        private DevExpress.XtraEditors.DateEdit dteTermFixedRoutes;
+        private DevExpress.XtraEditors.LabelControl lblTermDriverLicense;
+        private DevExpress.XtraEditors.LabelControl lblTermFixedRoutes;
+        private DevExpress.XtraEditors.DateEdit dteTermInsurance;
+        private DevExpress.XtraEditors.DateEdit dteLimitedRegistration;
+        private DevExpress.XtraEditors.LabelControl lblTermInsurance;
+        private DevExpress.XtraEditors.LabelControl lblLimitedRegistration;
         private System.Windows.Forms.GroupBox groupBox2;
         private DevExpress.XtraEditors.TextEdit txtSeats;
         private DevExpress.XtraEditors.TextEdit txtBeds;
@@ -530,10 +530,10 @@
         private DevExpress.XtraEditors.LabelControl lblTransport;
         private DevExpress.XtraEditors.CheckEdit cheCity;
         private DevExpress.XtraEditors.CheckEdit cheHigh;
-        private DevExpress.XtraEditors.TextEdit textEdit5;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit txtServerQuality;
+        private DevExpress.XtraEditors.LabelControl lblServerQuality;
+        private DevExpress.XtraEditors.TextEdit txtProductionYear;
+        private DevExpress.XtraEditors.LabelControl lblProductionYear;
         private DevExpress.XtraGrid.GridControl grcMain;
         private DevExpress.XtraGrid.Views.Grid.GridView grvMain;
     }

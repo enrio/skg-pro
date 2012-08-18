@@ -13,17 +13,16 @@ namespace SKG.DAL.Entities
     {
         #region Khoá ngoại
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Pol_Dictionary
+        /// Khoá ngoại tham chiếu tới Pol_Dictionary (đơn vị vận tải)
         /// </summary>
         [ForeignKey("Transport")]
         public Guid? TransportId { set; get; }
-        public virtual Pol_Dictionary Transport { get; set; }
-        #endregion
 
         /// <summary>
-        /// Biển số xe
+        /// Thuộc đơn vị vận tải
         /// </summary>
-        public string Number { set; get; }
+        public virtual Pol_Dictionary Transport { get; set; }
+        #endregion
 
         #region Tải trọng
         /// <summary>
@@ -39,37 +38,32 @@ namespace SKG.DAL.Entities
 
         #region Thông tin quản lý
         /// <summary>
-        /// Hạn đăng kiểm
-        /// </summary>
-        public string LimitedRegistration { set; get; }
-
-        /// <summary>
         /// Năm sản xuất
         /// </summary>
-        public string ProductionYear { set; get; }
+        public int? ProductionYear { set; get; }
+
+        /// <summary>
+        /// Hạn đăng kiểm
+        /// </summary>
+        public DateTime? LimitedRegistration { set; get; }
 
         /// <summary>
         /// Hạn bảo hiểm
         /// </summary>
-        public string TermInsurance { set; get; }
+        public DateTime? TermInsurance { set; get; }
 
         /// <summary>
         /// Hạn tuyến cố định
         /// </summary>
-        public string TermFixedRoutes { set; get; }
+        public DateTime? TermFixedRoutes { set; get; }
 
         /// <summary>
         /// Hạn giấy phép lái xe
         /// </summary>
-        public string TermDriverLicense { set; get; }
+        public DateTime? TermDriverLicense { set; get; }
         #endregion
 
         #region Thông tin xe
-        /// <summary>
-        /// Xe thường
-        /// </summary>
-        public bool Normal { set; get; }
-
         /// <summary>
         /// Xe chất lượng cao
         /// </summary>
@@ -81,17 +75,17 @@ namespace SKG.DAL.Entities
         public bool City { set; get; }
 
         /// <summary>
-        /// Xe địa phương
-        /// </summary>
-        public bool Local { set; get; }
-
-        /// <summary>
         /// Tuyến cố định
         /// </summary>
         public bool Fixed { set; get; }
         #endregion
 
         #region Thông tin khác
+        /// <summary>
+        /// Chất lượng phục vụ
+        /// </summary>
+        public string ServerQuality { set; get; }
+
         /// <summary>
         /// Họ tên của tài xế
         /// </summary>

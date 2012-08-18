@@ -205,7 +205,7 @@ namespace SKG.DAL
                               //GroupName = k.Transport.Group.Text,
                               KindName = k.Transport.Text,
 
-                              k.Number,
+                              k.Code,
                               Chair = k.Seats,
                               Descript = k.Note,
                               k.Driver,
@@ -239,7 +239,7 @@ namespace SKG.DAL
                           join k in _db.Tra_Tariffs on v.TransportId equals k.Id
 
                           where s.Pol_UserOutId == null
-                          orderby s.DateIn descending, v.Number
+                          orderby s.DateIn descending, v.Code
 
                           select new
                           {
@@ -248,7 +248,7 @@ namespace SKG.DAL
                               Phone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
-                              v.Number,
+                              v.Code,
                               Chair = v.Seats,
 
                               KindName = k.Text,
@@ -256,7 +256,7 @@ namespace SKG.DAL
                           };
 
                 total = res.Count();
-                if (number != null) res = res.Where(p => p.Number == number);
+                if (number != null) res = res.Where(p => p.Code == number);
 
                 return res.ToDataTable();
             }
@@ -279,7 +279,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
                           where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
                           && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
-                          orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Number
+                          orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Code
                           select new
                           {
                               UserInName = s.Pol_UserIn.Name,
@@ -323,7 +323,7 @@ namespace SKG.DAL
                           join k in _db.Tra_Tariffs on v.TransportId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
-                          orderby v.Number
+                          orderby v.Code
 
                           select new
                           {
@@ -331,7 +331,7 @@ namespace SKG.DAL
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
                               UserOutName = s.Pol_UserOut.Name,
-                              v.Number,
+                              v.Code,
 
                               s.DateIn,
                               s.DateOut,
@@ -430,7 +430,7 @@ namespace SKG.DAL
                           where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
                               //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           && s.DateOut >= fr && s.DateOut <= to
-                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Number
+                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
 
                           select new
                           {
@@ -440,7 +440,7 @@ namespace SKG.DAL
                               s.Pol_UserOutId,
                               UserOutName = s.Pol_UserOut.Name,
 
-                              s.Tra_Vehicle.Number,
+                              s.Tra_Vehicle.Code,
                               s.DateIn,
                               s.DateOut,
 

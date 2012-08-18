@@ -243,5 +243,51 @@ namespace SKG.DAL
             catch { return null; }
         }
         #endregion
+
+        /// <summary>
+        /// Tuyến cố định hoặc không cố định
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Select(bool isFixed)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          where s.Fixed == isFixed
+                          select new
+                          {
+                              s.Id,
+                              s.Code,
+                              s.TransportId,
+                              Transport = s.Transport.Text,
+
+                              s.Seats,
+                              s.Beds,
+
+                              s.High,
+                              s.City,
+
+                              s.ProductionYear,
+                              s.LimitedRegistration,
+                              s.TermInsurance,
+                              s.TermFixedRoutes,
+                              s.TermDriverLicense,
+
+                              s.Fixed,
+                              s.ServerQuality,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Text,
+                              s.Note,
+                              s.Order,
+                              s.Show
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

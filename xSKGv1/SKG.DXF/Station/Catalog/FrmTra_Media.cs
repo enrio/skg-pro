@@ -211,7 +211,7 @@ namespace SKG.DXF.Station.Catalog
             if (_dtb != null)
             {
                 grcMain.DataSource = _dtb;
-                //gridColumn2.BestFit(); // fit column STT
+                gridColumn2.BestFit(); // fit column STT
             }
 
             base.LoadData();

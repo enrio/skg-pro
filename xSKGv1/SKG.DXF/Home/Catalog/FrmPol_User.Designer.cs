@@ -94,8 +94,8 @@
             this.dockPanel1.ID = new System.Guid("d306450a-b885-42ef-85c8-d967b5746b3f");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 94);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 94);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 104);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 104);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
@@ -115,112 +115,130 @@
             this.dockPanel1_Container.Controls.Add(this.lblName);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 67);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 77);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // lblInfo
             // 
-            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(685, 17);
+            this.lblInfo.Location = new System.Drawing.Point(742, 17);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(250, 39);
+            this.lblInfo.Size = new System.Drawing.Size(193, 55);
             this.lblInfo.TabIndex = 27;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(554, 14);
+            this.txtPhone.Location = new System.Drawing.Point(625, 14);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(111, 20);
+            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Properties.Appearance.Options.UseFont = true;
+            this.txtPhone.Size = new System.Drawing.Size(111, 26);
             this.txtPhone.TabIndex = 4;
             // 
             // dteBirth
             // 
             this.dteBirth.EditValue = null;
-            this.dteBirth.Location = new System.Drawing.Point(397, 14);
+            this.dteBirth.Location = new System.Drawing.Point(442, 14);
             this.dteBirth.Name = "dteBirth";
+            this.dteBirth.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteBirth.Properties.Appearance.Options.UseFont = true;
             this.dteBirth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteBirth.Size = new System.Drawing.Size(95, 20);
+            this.dteBirth.Size = new System.Drawing.Size(95, 26);
             this.dteBirth.TabIndex = 3;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(498, 17);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(543, 17);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(53, 13);
+            this.labelControl2.Size = new System.Drawing.Size(76, 20);
             this.labelControl2.TabIndex = 26;
             this.labelControl2.Text = "Điện thoại:";
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(341, 17);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(363, 17);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(51, 13);
+            this.labelControl1.Size = new System.Drawing.Size(73, 20);
             this.labelControl1.TabIndex = 23;
             this.labelControl1.Text = "Ngày sinh:";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(397, 40);
+            this.txtAddress.Location = new System.Drawing.Point(442, 46);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(268, 20);
+            this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Properties.Appearance.Options.UseFont = true;
+            this.txtAddress.Size = new System.Drawing.Size(294, 26);
             this.txtAddress.TabIndex = 5;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(341, 43);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(384, 49);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(36, 13);
+            this.labelControl3.Size = new System.Drawing.Size(52, 20);
             this.labelControl3.TabIndex = 25;
             this.labelControl3.Text = "Địa chỉ:";
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(224, 40);
+            this.txtPass.Location = new System.Drawing.Point(254, 46);
             this.txtPass.Name = "txtPass";
+            this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPass.Properties.Appearance.Options.UseFont = true;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(111, 20);
+            this.txtPass.Size = new System.Drawing.Size(104, 26);
             this.txtPass.TabIndex = 2;
             // 
             // lblPass
             // 
-            this.lblPass.Location = new System.Drawing.Point(168, 43);
+            this.lblPass.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPass.Location = new System.Drawing.Point(178, 49);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(48, 13);
+            this.lblPass.Size = new System.Drawing.Size(70, 20);
             this.lblPass.TabIndex = 22;
             this.lblPass.Text = "Mật khẩu:";
             // 
             // txtAcc
             // 
-            this.txtAcc.Location = new System.Drawing.Point(67, 40);
+            this.txtAcc.Location = new System.Drawing.Point(90, 46);
             this.txtAcc.Name = "txtAcc";
-            this.txtAcc.Size = new System.Drawing.Size(95, 20);
+            this.txtAcc.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAcc.Properties.Appearance.Options.UseFont = true;
+            this.txtAcc.Size = new System.Drawing.Size(82, 26);
             this.txtAcc.TabIndex = 1;
             // 
             // lblAcc
             // 
-            this.lblAcc.Location = new System.Drawing.Point(11, 43);
+            this.lblAcc.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAcc.Location = new System.Drawing.Point(8, 49);
             this.lblAcc.Name = "lblAcc";
-            this.lblAcc.Size = new System.Drawing.Size(50, 13);
+            this.lblAcc.Size = new System.Drawing.Size(73, 20);
             this.lblAcc.TabIndex = 21;
             this.lblAcc.Text = "Tài khoản:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(67, 14);
+            this.txtName.Location = new System.Drawing.Point(90, 14);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 20);
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.Size = new System.Drawing.Size(268, 26);
             this.txtName.TabIndex = 0;
             // 
             // lblName
             // 
+            this.lblName.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(11, 17);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(36, 13);
+            this.lblName.Size = new System.Drawing.Size(52, 20);
             this.lblName.TabIndex = 20;
             this.lblName.Text = "Họ tên:";
             // 
@@ -229,10 +247,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("d1826eac-a686-4e64-aefb-34f98cb3cd45");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 157);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 167);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 409);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 399);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -240,7 +258,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 382);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 372);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -249,13 +267,19 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 382);
+            this.grcMain.Size = new System.Drawing.Size(943, 372);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
             // 
             // grvMain
             // 
+            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupRow.Options.UseFont = true;
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.Options.UseFont = true;
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Discrete
+namespace SKG.DXF.Station.Fixed
 {
     using SKG;
     using BLL;
@@ -23,7 +23,7 @@ namespace SKG.DXF.Station.Discrete
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Media).FullName, Parent = typeof(Level2).FullName, Text = "Xe vãng lai", Level = 3, Order = 23, Picture = @"Icons\Vehicle.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Media).FullName, Parent = typeof(Level2).FullName, Text = "Xe cố định", Level = 3, Order = 23, Picture = @"Icons\Vehicle.png" };
                 return menu;
             }
         }

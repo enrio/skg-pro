@@ -435,7 +435,7 @@ namespace SKG.DXF.Station.Manage
                 var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
                 if (o == null)
                 {
-                    var frm = new Station.Fixed.FrmTra_Vehicle();
+                    var frm = new Station.Discrete.FrmTra_Vehicle();
                     frm._num = txtNumber.Text;
                     frm.WindowState = FormWindowState.Maximized;
                     frm.AllowCancel = false;

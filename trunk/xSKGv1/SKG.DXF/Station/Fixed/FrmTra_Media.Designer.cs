@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Station.Discrete
+﻿namespace SKG.DXF.Station.Fixed
 {
     partial class FrmTra_Media
     {

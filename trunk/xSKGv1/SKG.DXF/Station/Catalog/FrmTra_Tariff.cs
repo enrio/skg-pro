@@ -74,6 +74,7 @@ namespace SKG.DXF.Station.Catalog
             }
 
             ReadOnlyControl();
+            grvMain.ExpandAllGroups();
 
             base.PerformRefresh();
         }

@@ -188,16 +188,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample.cs" />
     <Compile Include="Station\Discrete\Level2.cs" />
-    <Compile Include="Station\Fixed\FrmTra_Vehicle.cs">
+    <Compile Include="Station\Discrete\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Vehicle.Designer.cs">
+    <Compile Include="Station\Discrete\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Media.cs">
+    <Compile Include="Station\Fixed\FrmTra_Media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Media.Designer.cs">
+    <Compile Include="Station\Fixed\FrmTra_Media.Designer.cs">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Catalog\_FrmTra_Group.cs">
@@ -296,10 +296,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Vehicle.resx">
+    <EmbeddedResource Include="Station\Discrete\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Discrete\FrmTra_Media.resx">
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Media.resx">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Catalog\FrmTra_Registry.resx">

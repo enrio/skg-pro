@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtChair = new DevExpress.XtraEditors.TextEdit();
+            this.label48 = new System.Windows.Forms.Label();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtDriver = new DevExpress.XtraEditors.TextEdit();
@@ -63,12 +64,11 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.label48 = new System.Windows.Forms.Label();
-            this.txtChair = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDriver.Properties)).BeginInit();
@@ -83,7 +83,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -106,8 +105,8 @@
             this.dockPanel1.ID = new System.Guid("82de06b3-fe08-438b-ab24-426659491166");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 239);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 239);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 214);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 214);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
@@ -124,8 +123,33 @@
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 212);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 187);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtChair
+            // 
+            this.txtChair.Location = new System.Drawing.Point(184, 47);
+            this.txtChair.Name = "txtChair";
+            this.txtChair.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.txtChair.Properties.Appearance.Options.UseFont = true;
+            this.txtChair.Properties.Appearance.Options.UseForeColor = true;
+            this.txtChair.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtChair.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtChair.Size = new System.Drawing.Size(64, 32);
+            this.txtChair.TabIndex = 12;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.ForeColor = System.Drawing.Color.Gray;
+            this.label48.Location = new System.Drawing.Point(82, 52);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(93, 25);
+            this.label48.TabIndex = 11;
+            this.label48.Text = "Số ghế:";
+            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupControl1
             // 
@@ -139,7 +163,7 @@
             this.groupControl1.Controls.Add(this.txtAddress);
             this.groupControl1.Controls.Add(this.txtPhone);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Location = new System.Drawing.Point(3, 118);
+            this.groupControl1.Location = new System.Drawing.Point(3, 85);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(694, 86);
             this.groupControl1.TabIndex = 17;
@@ -245,7 +269,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(13, 84);
+            this.label1.Location = new System.Drawing.Point(8, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 25);
             this.label1.TabIndex = 6;
@@ -254,7 +278,7 @@
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(115, 80);
+            this.txtNumber.Location = new System.Drawing.Point(110, 9);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
@@ -268,7 +292,7 @@
             // tmeDateIn
             // 
             this.tmeDateIn.EditValue = new System.DateTime(2012, 5, 30, 0, 0, 0, 0);
-            this.tmeDateIn.Location = new System.Drawing.Point(387, 83);
+            this.tmeDateIn.Location = new System.Drawing.Point(375, 10);
             this.tmeDateIn.Name = "tmeDateIn";
             this.tmeDateIn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tmeDateIn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -285,7 +309,7 @@
             // lblUserIn
             // 
             this.lblUserIn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIn.Location = new System.Drawing.Point(773, 12);
+            this.lblUserIn.Location = new System.Drawing.Point(714, 13);
             this.lblUserIn.Name = "lblUserIn";
             this.lblUserIn.Size = new System.Drawing.Size(132, 19);
             this.lblUserIn.TabIndex = 9;
@@ -295,7 +319,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(658, 12);
+            this.labelControl5.Location = new System.Drawing.Point(599, 13);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(109, 19);
             this.labelControl5.TabIndex = 8;
@@ -306,7 +330,7 @@
             // 
             this.lblDateIn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateIn.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.lblDateIn.Location = new System.Drawing.Point(387, 86);
+            this.lblDateIn.Location = new System.Drawing.Point(375, 13);
             this.lblDateIn.Name = "lblDateIn";
             this.lblDateIn.Size = new System.Drawing.Size(175, 19);
             this.lblDateIn.TabIndex = 8;
@@ -315,7 +339,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(272, 86);
+            this.labelControl3.Location = new System.Drawing.Point(260, 13);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(103, 19);
             this.labelControl3.TabIndex = 7;
@@ -326,10 +350,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("804bc57b-767c-4b3f-9512-7be4421dcd18");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 302);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 277);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 264);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 289);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -337,7 +361,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 237);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 262);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -346,13 +370,131 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 237);
+            this.grcMain.Size = new System.Drawing.Size(943, 262);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
             // 
             // grvMain
             // 
+            this.grvMain.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.grvMain.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(190)))), ((int)(((byte)(243)))));
+            this.grvMain.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.grvMain.Appearance.Empty.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.Empty.Options.UseBackColor = true;
+            this.grvMain.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(242)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.EvenRow.Options.UseFont = true;
+            this.grvMain.Appearance.EvenRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.grvMain.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.grvMain.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.grvMain.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.grvMain.Appearance.FixedLine.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.grvMain.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(106)))), ((int)(((byte)(197)))));
+            this.grvMain.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.grvMain.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupButton.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(109)))), ((int)(((byte)(185)))));
+            this.grvMain.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(216)))), ((int)(((byte)(247)))));
+            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupRow.Options.UseFont = true;
+            this.grvMain.Appearance.GroupRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(171)))), ((int)(((byte)(228)))));
+            this.grvMain.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(236)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+            this.grvMain.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(106)))), ((int)(((byte)(153)))), ((int)(((byte)(228)))));
+            this.grvMain.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(224)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.grvMain.Appearance.HorzLine.Options.UseBackColor = true;
+            this.grvMain.Appearance.OddRow.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.OddRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.OddRow.Options.UseFont = true;
+            this.grvMain.Appearance.OddRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(252)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(129)))), ((int)(((byte)(185)))));
+            this.grvMain.Appearance.Preview.Options.UseBackColor = true;
+            this.grvMain.Appearance.Preview.Options.UseForeColor = true;
+            this.grvMain.Appearance.Row.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.Row.Options.UseBackColor = true;
+            this.grvMain.Appearance.Row.Options.UseFont = true;
+            this.grvMain.Appearance.Row.Options.UseForeColor = true;
+            this.grvMain.Appearance.RowSeparator.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.grvMain.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(126)))), ((int)(((byte)(217)))));
+            this.grvMain.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(127)))), ((int)(((byte)(196)))));
+            this.grvMain.Appearance.VertLine.Options.UseBackColor = true;
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -365,6 +507,8 @@
             this.gridColumn9});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
+            this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
+            this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             // 
             // gridColumn1
             // 
@@ -440,31 +584,6 @@
             this.gridColumn9.VisibleIndex = 5;
             this.gridColumn9.Width = 185;
             // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.ForeColor = System.Drawing.Color.Gray;
-            this.label48.Location = new System.Drawing.Point(690, 65);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(93, 25);
-            this.label48.TabIndex = 11;
-            this.label48.Text = "Số ghế:";
-            this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtChair
-            // 
-            this.txtChair.Location = new System.Drawing.Point(792, 60);
-            this.txtChair.Name = "txtChair";
-            this.txtChair.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtChair.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.txtChair.Properties.Appearance.Options.UseFont = true;
-            this.txtChair.Properties.Appearance.Options.UseForeColor = true;
-            this.txtChair.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtChair.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtChair.Size = new System.Drawing.Size(64, 32);
-            this.txtChair.TabIndex = 12;
-            // 
             // FrmTra_GateIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -481,6 +600,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
@@ -496,7 +616,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtChair.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

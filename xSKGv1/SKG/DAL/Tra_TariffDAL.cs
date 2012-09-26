@@ -79,7 +79,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          orderby s.Group.Order
+                          orderby s.Group.Text, s.Group.Order
                           select new
                           {
                               s.Id,

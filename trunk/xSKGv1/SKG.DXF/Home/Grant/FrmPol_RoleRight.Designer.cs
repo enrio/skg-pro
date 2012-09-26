@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.ricSelect = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -106,6 +105,81 @@
             // 
             // trlMain
             // 
+            this.trlMain.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
+            this.trlMain.Appearance.Empty.Options.UseBackColor = true;
+            this.trlMain.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trlMain.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.EvenRow.Options.UseBackColor = true;
+            this.trlMain.Appearance.EvenRow.Options.UseBorderColor = true;
+            this.trlMain.Appearance.EvenRow.Options.UseFont = true;
+            this.trlMain.Appearance.EvenRow.Options.UseForeColor = true;
+            this.trlMain.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.trlMain.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.trlMain.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.trlMain.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
+            this.trlMain.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
+            this.trlMain.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.trlMain.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.trlMain.Appearance.FocusedRow.Options.UseBorderColor = true;
+            this.trlMain.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.trlMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.trlMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.trlMain.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.trlMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.GroupButton.Options.UseBackColor = true;
+            this.trlMain.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.trlMain.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.trlMain.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.trlMain.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.trlMain.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.trlMain.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.trlMain.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.trlMain.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.trlMain.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.trlMain.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.trlMain.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.trlMain.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(225)))));
+            this.trlMain.Appearance.HideSelectionRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.trlMain.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.trlMain.Appearance.HideSelectionRow.Options.UseBorderColor = true;
+            this.trlMain.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.trlMain.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.HorzLine.Options.UseBackColor = true;
+            this.trlMain.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.trlMain.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.OddRow.Options.UseBackColor = true;
+            this.trlMain.Appearance.OddRow.Options.UseBorderColor = true;
+            this.trlMain.Appearance.OddRow.Options.UseFont = true;
+            this.trlMain.Appearance.OddRow.Options.UseForeColor = true;
+            this.trlMain.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
+            this.trlMain.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.trlMain.Appearance.Preview.Options.UseFont = true;
+            this.trlMain.Appearance.Preview.Options.UseForeColor = true;
+            this.trlMain.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.trlMain.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.trlMain.Appearance.Row.Options.UseBackColor = true;
+            this.trlMain.Appearance.Row.Options.UseForeColor = true;
+            this.trlMain.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.trlMain.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.trlMain.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.trlMain.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.trlMain.Appearance.TreeLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(133)))), ((int)(((byte)(195)))));
+            this.trlMain.Appearance.TreeLine.Options.UseBackColor = true;
+            this.trlMain.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.trlMain.Appearance.VertLine.Options.UseBackColor = true;
             this.trlMain.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.treeListColumn1,
             this.treeListColumn2,
@@ -114,6 +188,9 @@
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
+            this.trlMain.OptionsPrint.UsePrintStyles = true;
+            this.trlMain.OptionsView.EnableAppearanceEvenRow = true;
+            this.trlMain.OptionsView.EnableAppearanceOddRow = true;
             this.trlMain.OptionsView.ShowCheckBoxes = true;
             this.trlMain.Size = new System.Drawing.Size(943, 276);
             this.trlMain.TabIndex = 5;

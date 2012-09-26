@@ -19,7 +19,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_GateOut).FullName, Parent = typeof(Level2).FullName, Text = "Cổng ra", Level = 3, Order = 25, Picture = @"Icons\GateOut.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateOut).FullName, Parent = typeof(Level2).FullName, Text = "Cổng ra", Level = 3, Order = 28, Picture = @"Icons\GateOut.png" };
                 return menu;
             }
         }
@@ -200,7 +200,7 @@ namespace SKG.DXF.Station.Manage
             if (cbbNumber.Text == "") return;
             cmdOut.Enabled = false;
 
-            var x = new Station.Catalog.FrmTra_Vehicle
+            var x = new Station.Fixed.FrmTra_Vehicle
             {
                 num = cbbNumber.Text,
                 AllowAdd = false,

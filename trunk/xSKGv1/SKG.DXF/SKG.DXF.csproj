@@ -187,16 +187,17 @@
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample.cs" />
-    <Compile Include="Station\Catalog\FrmTra_Vehicle.cs">
+    <Compile Include="Station\Discrete\Level2.cs" />
+    <Compile Include="Station\Fixed\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Vehicle.Designer.cs">
+    <Compile Include="Station\Fixed\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Media.cs">
+    <Compile Include="Station\Discrete\FrmTra_Media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Media.Designer.cs">
+    <Compile Include="Station\Discrete\FrmTra_Media.Designer.cs">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Catalog\_FrmTra_Group.cs">
@@ -223,6 +224,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sumary.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Station\Fixed\Level2.cs" />
     <Compile Include="Station\Level1.cs" />
     <Compile Include="Station\Manage\FrmTra_GateIn.cs">
       <SubType>Form</SubType>
@@ -294,10 +296,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Vehicle.resx">
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Media.resx">
+    <EmbeddedResource Include="Station\Discrete\FrmTra_Media.resx">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Catalog\FrmTra_Registry.resx">
@@ -405,6 +407,7 @@
   <ItemGroup>
     <None Include="Resources\Banner.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

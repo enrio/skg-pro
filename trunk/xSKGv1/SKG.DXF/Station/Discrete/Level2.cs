@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.DXF.Station.Manage
+namespace SKG.DXF.Station.Discrete
 {
     using SKG.Plugin;
 
@@ -13,7 +13,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Quản lý", Level = 2, Order = 26, Picture = @"Icons\Manage.png" };
+                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Vãng lai", Level = 2, Order = 22, Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

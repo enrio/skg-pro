@@ -128,7 +128,7 @@ namespace SKG.DXF.Station.Discrete
 
         protected override void DataBindingControl()
         {
-            lueTransport.DataBindings.Add("EditValue", _dtb, ".TransportId");
+            lueTransport.DataBindings.Add("EditValue", _dtb, ".TariffId");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");            
@@ -230,7 +230,7 @@ namespace SKG.DXF.Station.Discrete
 
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
-            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
+            lueTransport.Properties.DataSource = _bll.Tra_Tariff.Select();
             lueTransport.ItemIndex = 0;
 
             if (_num + "" != "")

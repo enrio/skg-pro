@@ -212,10 +212,10 @@
     <Compile Include="Station\Catalog\FrmTra_Tariff.Designer.cs">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Registry.cs">
+    <Compile Include="Station\Fixed\FrmTra_Registry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Registry.Designer.cs">
+    <Compile Include="Station\Fixed\FrmTra_Registry.Designer.cs">
       <DependentUpon>FrmTra_Registry.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Catalog\Level2.cs" />
@@ -302,7 +302,7 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_Media.resx">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Registry.resx">
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Registry.resx">
       <DependentUpon>FrmTra_Registry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Catalog\FrmTra_Tariff.resx">

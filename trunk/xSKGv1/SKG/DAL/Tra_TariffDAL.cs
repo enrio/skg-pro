@@ -173,5 +173,36 @@ namespace SKG.DAL
             catch { return null; }
         }
         #endregion
+
+        /// <summary>
+        /// Bảng giá cho xe vãng lai
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectForDiscrete()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Tariffs
+                          where s.Group.Code != "GROUP_0"
+                          orderby s.Group.Text, s.Group.Order
+                          select new
+                          {
+                              s.Id,
+                              Tra_GroupId = s.GroupId,
+                              GroupName = s.Group.Text,
+                              s.Text,
+                              Descript = s.Note,
+                              s.Price1,
+                              s.Price2,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

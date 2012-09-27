@@ -15,13 +15,24 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Khoá ngoại tham chiếu tới Pol_Dictionary (đơn vị vận tải)
         /// </summary>
-        [ForeignKey("Transport")]
+        [Column(Order = 1), ForeignKey("Transport")]
         public Guid? TransportId { set; get; }
 
         /// <summary>
         /// Thuộc đơn vị vận tải
         /// </summary>
         public virtual Pol_Dictionary Transport { get; set; }
+
+        /// <summary>
+        /// Khoá ngoại tham chiếu tới Tra_Tariff (bảng giá)
+        /// </summary>
+        [Column(Order = 1), ForeignKey("Tariff")]
+        public Guid? TariffId { set; get; }
+
+        /// <summary>
+        /// Có đơn giá
+        /// </summary>
+        public virtual Tra_Tariff Tariff { get; set; }
         #endregion
 
         #region Tải trọng

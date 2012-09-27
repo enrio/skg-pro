@@ -205,7 +205,7 @@ namespace SKG.DXF.Station.Discrete
                 _dtb = _bll.Tra_Vehicle.Select((object)num);
                 //PerformEdit();
             }
-            else _dtb = _bll.Tra_Vehicle.Select();
+            else _dtb = _bll.Tra_Vehicle.Select(false);
 
             if (_dtb != null)
             {
@@ -230,7 +230,7 @@ namespace SKG.DXF.Station.Discrete
 
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
-            lueTransport.Properties.DataSource = _bll.Tra_Tariff.Select();
+            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForDiscrete();
             lueTransport.ItemIndex = 0;
 
             if (_num + "" != "")

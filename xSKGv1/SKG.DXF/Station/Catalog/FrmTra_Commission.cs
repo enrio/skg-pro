@@ -104,7 +104,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void ResetInput()
         {
-            //lokGroup.ItemIndex = 0;
+            lokGroup.ItemIndex = 0;
             txtName.Text = null;
             calPrice1.Text = null;
             calPrice2.Text = null;
@@ -115,7 +115,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void ClearDataBindings()
         {
-            //lokGroup.DataBindings.Clear();
+            lokGroup.DataBindings.Clear();
             txtName.DataBindings.Clear();
             calPrice1.DataBindings.Clear();
             calPrice2.DataBindings.Clear();
@@ -126,7 +126,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void DataBindingControl()
         {
-            //lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
+            lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
@@ -137,7 +137,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            //lokGroup.Properties.ReadOnly = isReadOnly;
+            lokGroup.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             calPrice1.Properties.ReadOnly = isReadOnly;
             calPrice2.Properties.ReadOnly = isReadOnly;
@@ -159,7 +159,7 @@ namespace SKG.DXF.Station.Catalog
                 var o = new Tra_Tariff()
                 {
                     Id = id,
-                    //GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -182,7 +182,7 @@ namespace SKG.DXF.Station.Catalog
 
                 var o = new Tra_Tariff()
                 {
-                    //GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -221,8 +221,8 @@ namespace SKG.DXF.Station.Catalog
 
         private void FrmTra_Kind_Load(object sender, EventArgs e)
         {
-            //lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
-            //lokGroup.ItemIndex = 0;
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            lokGroup.ItemIndex = 0;
         }
 
         private const string STR_ADD = "Thêm loại xe";

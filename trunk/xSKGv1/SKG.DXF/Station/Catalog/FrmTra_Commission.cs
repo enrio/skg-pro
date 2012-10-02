@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Tariff.Select();
+            _dtb = _bll.Tra_Tariff.SelectCommission();
 
             if (_dtb != null)
             {

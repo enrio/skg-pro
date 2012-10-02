@@ -22,6 +22,11 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
+        /// Hoa hồng vé
+        /// </summary>
+        public bool Commission { set; get; }
+
+        /// <summary>
         /// Đơn giá nửa ngày
         /// </summary>
         public int Price1 { set; get; }

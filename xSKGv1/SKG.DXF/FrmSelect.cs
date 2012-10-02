@@ -78,6 +78,7 @@ namespace SKG.DXF
             ListInfo = new List<Zinfors>();
 
             foreach (TreeListNode n in trlMain.Nodes)
+            {
                 if (n.Checked)
                 {
                     var id = (Guid)n.GetValue("Id");
@@ -85,6 +86,27 @@ namespace SKG.DXF
                     var o = new Zinfors() { Id = id, Note = name };
                     ListInfo.Add(o);
                 }
+
+                foreach (TreeListNode n1 in n.Nodes)
+                {
+                    if (n1.Checked)
+                    {
+                        var id = (Guid)n1.GetValue("Id");
+                        var name = n1.GetValue(Field) + "";
+                        var o = new Zinfors() { Id = id, Note = name };
+                        ListInfo.Add(o);
+                    }
+
+                    foreach (TreeListNode n2 in n1.Nodes)
+                        if (n2.Checked)
+                        {
+                            var id = (Guid)n2.GetValue("Id");
+                            var name = n2.GetValue(Field) + "";
+                            var o = new Zinfors() { Id = id, Note = name };
+                            ListInfo.Add(o);
+                        }
+                }
+            }
 
             Close();
         }
@@ -96,7 +118,15 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void chkAll_CheckedChanged(object sender, EventArgs e)
         {
-            foreach (TreeListNode n in trlMain.Nodes) n.Checked = chkAll.Checked;
+            foreach (TreeListNode n in trlMain.Nodes)
+            {
+                n.Checked = chkAll.Checked;
+                foreach (TreeListNode n1 in n.Nodes)
+                {
+                    n1.Checked = chkAll.Checked;
+                    foreach (TreeListNode n2 in n1.Nodes) n2.Checked = chkAll.Checked;
+                }
+            }
         }
 
         /// <summary>

@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
             this.calPrice1 = new DevExpress.XtraEditors.CalcEdit();
+            this.lblRole = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.lokGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -49,6 +50,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -59,6 +61,7 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -95,7 +98,9 @@
             // 
             this.dockPanel1_Container.Controls.Add(this.calPrice2);
             this.dockPanel1_Container.Controls.Add(this.calPrice1);
+            this.dockPanel1_Container.Controls.Add(this.lblRole);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Controls.Add(this.lokGroup);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.txtDescript);
             this.dockPanel1_Container.Controls.Add(this.txtName);
@@ -108,7 +113,7 @@
             // 
             // calPrice2
             // 
-            this.calPrice2.Location = new System.Drawing.Point(427, 35);
+            this.calPrice2.Location = new System.Drawing.Point(457, 35);
             this.calPrice2.Name = "calPrice2";
             this.calPrice2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calPrice2.Properties.Appearance.Options.UseFont = true;
@@ -123,7 +128,7 @@
             // 
             // calPrice1
             // 
-            this.calPrice1.Location = new System.Drawing.Point(171, 35);
+            this.calPrice1.Location = new System.Drawing.Point(120, 35);
             this.calPrice1.Name = "calPrice1";
             this.calPrice1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calPrice1.Properties.Appearance.Options.UseFont = true;
@@ -136,14 +141,42 @@
             this.calPrice1.Size = new System.Drawing.Size(78, 26);
             this.calPrice1.TabIndex = 2;
             // 
+            // lblRole
+            // 
+            this.lblRole.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.Location = new System.Drawing.Point(8, 6);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(43, 19);
+            this.lblRole.TabIndex = 0;
+            this.lblRole.Text = "Vùng:";
+            // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(291, 38);
+            this.labelControl2.Location = new System.Drawing.Point(321, 38);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(130, 19);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Hoa hồng giường:";
+            // 
+            // lokGroup
+            // 
+            this.lokGroup.Location = new System.Drawing.Point(120, 3);
+            this.lokGroup.Name = "lokGroup";
+            this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokGroup.Properties.Appearance.Options.UseFont = true;
+            this.lokGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
+            this.lokGroup.Properties.DisplayMember = "Text";
+            this.lokGroup.Properties.NullText = "";
+            this.lokGroup.Properties.ValueMember = "Id";
+            this.lokGroup.Size = new System.Drawing.Size(242, 26);
+            this.lokGroup.TabIndex = 0;
             // 
             // labelControl1
             // 
@@ -165,11 +198,11 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(171, 3);
+            this.txtName.Location = new System.Drawing.Point(457, 3);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(727, 26);
+            this.txtName.Size = new System.Drawing.Size(441, 26);
             this.txtName.TabIndex = 1;
             // 
             // labelControl3
@@ -184,11 +217,11 @@
             // lblName
             // 
             this.lblName.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(8, 6);
+            this.lblName.Location = new System.Drawing.Point(413, 6);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(155, 19);
+            this.lblName.Size = new System.Drawing.Size(38, 19);
             this.lblName.TabIndex = 1;
-            this.lblName.Text = "Địa phương, khu vực:";
+            this.lblName.Text = "Tỉnh:";
             // 
             // dockPanel2
             // 
@@ -366,12 +399,16 @@
             this.gridColumn3,
             this.gridColumn4,
             this.gridColumn5,
+            this.gridColumn6,
             this.gridColumn7,
             this.gridColumn8});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupCount = 1;
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn1
             // 
@@ -394,7 +431,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Địa phương";
+            this.gridColumn4.Caption = "Tỉnh";
             this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -405,6 +442,13 @@
             this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Vùng";
+            this.gridColumn6.FieldName = "GroupName";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
             // 
             // gridColumn7
             // 
@@ -432,8 +476,9 @@
             this.gridBand1.Columns.Add(this.gridColumn3);
             this.gridBand1.Columns.Add(this.gridColumn4);
             this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Columns.Add(this.gridColumn6);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 225;
+            this.gridBand1.Width = 300;
             // 
             // gridBand2
             // 
@@ -450,7 +495,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_Commission";
-            this.Text = "Hoa hồng vé";
+            this.Text = "Danh mục loại xe";
             this.Load += new System.EventHandler(this.FrmTra_Kind_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -461,6 +506,7 @@
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -479,6 +525,8 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
+        private DevExpress.XtraEditors.LabelControl lblRole;
+        private DevExpress.XtraEditors.LookUpEdit lokGroup;
         private DevExpress.XtraEditors.TextEdit txtDescript;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -489,6 +537,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn7;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
         private DevExpress.XtraEditors.CalcEdit calPrice2;

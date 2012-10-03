@@ -18,7 +18,7 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Catalog).FullName, Parent = typeof(Level2).FullName, Text = "Từ điển", Level = 0, Order = 12, Picture = @"Icons\Lang.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Catalog).FullName, Parent = typeof(Level2).FullName, Text = "Danh mục", Level = 0, Order = 12, Picture = @"Icons\Lang.png" };
                 return menu;
             }
         }

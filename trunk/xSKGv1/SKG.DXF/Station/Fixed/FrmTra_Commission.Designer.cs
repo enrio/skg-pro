@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Station.Catalog
+﻿namespace SKG.DXF.Station.Fixed
 {
-    partial class FrmTra_Tariff
+    partial class FrmTra_Commission
     {
         /// <summary>
         /// Required designer variable.
@@ -128,7 +128,7 @@
             // 
             // calPrice1
             // 
-            this.calPrice1.Location = new System.Drawing.Point(171, 35);
+            this.calPrice1.Location = new System.Drawing.Point(120, 35);
             this.calPrice1.Name = "calPrice1";
             this.calPrice1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calPrice1.Properties.Appearance.Options.UseFont = true;
@@ -146,22 +146,22 @@
             this.lblRole.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRole.Location = new System.Drawing.Point(8, 6);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(70, 19);
+            this.lblRole.Size = new System.Drawing.Size(43, 19);
             this.lblRole.TabIndex = 0;
-            this.lblRole.Text = "Nhóm xe:";
+            this.lblRole.Text = "Vùng:";
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(270, 38);
+            this.labelControl2.Location = new System.Drawing.Point(321, 38);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(182, 19);
+            this.labelControl2.Size = new System.Drawing.Size(130, 19);
             this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Đ.giá một ngày (giường):";
+            this.labelControl2.Text = "Hoa hồng giường:";
             // 
             // lokGroup
             // 
-            this.lokGroup.Location = new System.Drawing.Point(94, 3);
+            this.lokGroup.Location = new System.Drawing.Point(120, 3);
             this.lokGroup.Name = "lokGroup";
             this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lokGroup.Properties.Appearance.Options.UseFont = true;
@@ -175,7 +175,7 @@
             this.lokGroup.Properties.DisplayMember = "Text";
             this.lokGroup.Properties.NullText = "";
             this.lokGroup.Properties.ValueMember = "Id";
-            this.lokGroup.Size = new System.Drawing.Size(268, 26);
+            this.lokGroup.Size = new System.Drawing.Size(242, 26);
             this.lokGroup.TabIndex = 0;
             // 
             // labelControl1
@@ -183,9 +183,9 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Location = new System.Drawing.Point(8, 38);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(157, 19);
+            this.labelControl1.Size = new System.Drawing.Size(106, 19);
             this.labelControl1.TabIndex = 2;
-            this.labelControl1.Text = "Đ.giá nửa ngày (ghế):";
+            this.labelControl1.Text = "Hoa hồng ghế:";
             // 
             // txtDescript
             // 
@@ -217,11 +217,11 @@
             // lblName
             // 
             this.lblName.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(368, 6);
+            this.lblName.Location = new System.Drawing.Point(413, 6);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(84, 19);
+            this.lblName.Size = new System.Drawing.Size(38, 19);
             this.lblName.TabIndex = 1;
-            this.lblName.Text = "Tên loại xe:";
+            this.lblName.Text = "Tỉnh:";
             // 
             // dockPanel2
             // 
@@ -443,7 +443,7 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Loại xe";
+            this.gridColumn4.Caption = "Tỉnh";
             this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -457,14 +457,14 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Nhóm xe";
+            this.gridColumn6.Caption = "Vùng";
             this.gridColumn6.FieldName = "GroupName";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             // 
             // gridBand2
             // 
-            this.gridBand2.Caption = "Đơn giá";
+            this.gridBand2.Caption = "Hoa hồng";
             this.gridBand2.Columns.Add(this.gridColumn7);
             this.gridBand2.Columns.Add(this.gridColumn8);
             this.gridBand2.Name = "gridBand2";
@@ -472,7 +472,7 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Nửa ngày (ghế)";
+            this.gridColumn7.Caption = "Ghế";
             this.gridColumn7.DisplayFormat.FormatString = "#,#";
             this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn7.FieldName = "Price1";
@@ -481,21 +481,21 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Một ngày (giường)";
+            this.gridColumn8.Caption = "Giường";
             this.gridColumn8.DisplayFormat.FormatString = "#,#";
             this.gridColumn8.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn8.FieldName = "Price2";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             // 
-            // FrmTra_Tariff
+            // FrmTra_Commission
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_Tariff";
-            this.Text = "Danh mục loại xe";
+            this.Name = "FrmTra_Commission";
+            this.Text = "Hoa hồng vé";
             this.Load += new System.EventHandler(this.FrmTra_Kind_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -540,11 +540,11 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn7;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraEditors.CalcEdit calPrice2;
         private DevExpress.XtraEditors.CalcEdit calPrice1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
     }
 }

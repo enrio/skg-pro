@@ -20,7 +20,7 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Hoa hồng", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }

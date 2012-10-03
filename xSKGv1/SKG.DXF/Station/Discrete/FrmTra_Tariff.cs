@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Catalog
+namespace SKG.DXF.Station.Discrete
 {
     using SKG;
     using BLL;
@@ -13,7 +13,7 @@ namespace SKG.DXF.Station.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Commission : SKG.DXF.FrmInput
+    public partial class FrmTra_Tariff : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -26,7 +26,7 @@ namespace SKG.DXF.Station.Catalog
         }
         #endregion
 
-        public FrmTra_Commission()
+        public FrmTra_Tariff()
         {
             InitializeComponent();
 
@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Tariff.SelectCommission();
+            _dtb = _bll.Tra_Tariff.Select();
 
             if (_dtb != null)
             {
@@ -225,9 +225,9 @@ namespace SKG.DXF.Station.Catalog
             lokGroup.ItemIndex = 0;
         }
 
-        private const string STR_ADD = "Thêm hoa hồng vé";
-        private const string STR_EDIT = "Sửa hoa hồng vé";
-        private const string STR_DELETE = "Xoá hoa hồng vé";
+        private const string STR_ADD = "Thêm loại xe";
+        private const string STR_EDIT = "Sửa loại xe";
+        private const string STR_DELETE = "Xoá loại xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá loại '{0}' không?";

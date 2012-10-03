@@ -131,11 +131,11 @@
     <Compile Include="Home\Catalog\_FrmPol_Right.Designer.cs">
       <DependentUpon>_FrmPol_Right.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Role.cs">
+    <Compile Include="Home\Catalog\FrmPol_Role.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Role.Designer.cs">
-      <DependentUpon>_FrmPol_Role.cs</DependentUpon>
+    <Compile Include="Home\Catalog\FrmPol_Role.Designer.cs">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Catalog\FrmPol_User.cs">
       <SubType>Form</SubType>
@@ -187,10 +187,16 @@
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample.cs" />
-    <Compile Include="Station\Catalog\FrmTra_Commission.cs">
+    <Compile Include="Station\Fixed\FrmTra_Catalog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Commission.Designer.cs">
+    <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
+      <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Commission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Commission.Designer.cs">
       <DependentUpon>FrmTra_Commission.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Discrete\Level2.cs" />
@@ -206,16 +212,16 @@
     <Compile Include="Station\Fixed\FrmTra_Media.Designer.cs">
       <DependentUpon>FrmTra_Media.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\_FrmTra_Group.cs">
+    <Compile Include="Station\Discrete\FrmTra_Group.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\_FrmTra_Group.Designer.cs">
-      <DependentUpon>_FrmTra_Group.cs</DependentUpon>
+    <Compile Include="Station\Discrete\FrmTra_Group.Designer.cs">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Tariff.cs">
+    <Compile Include="Station\Discrete\FrmTra_Tariff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Catalog\FrmTra_Tariff.Designer.cs">
+    <Compile Include="Station\Discrete\FrmTra_Tariff.Designer.cs">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Fixed\FrmTra_Registry.cs">
@@ -224,11 +230,16 @@
     <Compile Include="Station\Fixed\FrmTra_Registry.Designer.cs">
       <DependentUpon>FrmTra_Registry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Catalog\Level2.cs" />
     <Compile Include="Station\DataSet\Sumary.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Sumary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Tariff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Tariff.Designer.cs">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Fixed\Level2.cs" />
     <Compile Include="Station\Level1.cs" />
@@ -302,21 +313,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Commission.resx">
-      <DependentUpon>FrmTra_Commission.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Discrete\FrmTra_Vehicle.resx">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Media.resx">
-      <DependentUpon>FrmTra_Media.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Registry.resx">
-      <DependentUpon>FrmTra_Registry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Catalog\FrmTra_Tariff.resx">
-      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
       <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </EmbeddedResource>

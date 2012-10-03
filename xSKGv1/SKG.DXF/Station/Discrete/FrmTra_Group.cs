@@ -1,34 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Home.Catalog
+namespace SKG.DXF.Station.Discrete
 {
-    using SKG.Plugin;
+    using SKG;
+    using BLL;
+    using SKG.DXF;
     using SKG.Extend;
+    using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class _FrmPol_Role : SKG.DXF.FrmInput
+    public partial class FrmTra_Group : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(_FrmPol_Role).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm người dùng", Level = 3, Order = 10, Picture = @"Icons\Role.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Group).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
                 return menu;
             }
         }
         #endregion
 
-        public _FrmPol_Role()
+        public FrmTra_Group()
         {
             InitializeComponent();
 
@@ -148,11 +146,12 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Dictionary()
                 {
                     Id = id,
+                    Type = Global.STR_GROUP,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.UpdateRole(o);
+                var oki = _bll.Pol_Dictionary.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -168,11 +167,12 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Dictionary()
                 {
+                    Type = Global.STR_GROUP,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.InsertRole(o);
+                var oki = _bll.Pol_Dictionary.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -182,7 +182,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Dictionary.SelectRoles();
+            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
 
             if (_dtb != null)
             {
@@ -197,14 +197,13 @@ namespace SKG.DXF.Home.Catalog
         {
             var a = txtName.Text.Length == 0 ? false : true;
             if (!a) txtName.Focus();
-
             return a;
         }
         #endregion
 
-        private const string STR_ADD = "Thêm nhóm người dùng";
-        private const string STR_EDIT = "Sửa nhóm người dùng";
-        private const string STR_DELETE = "Xoá nhóm người dùng";
+        private const string STR_ADD = "Thêm nhóm xe";
+        private const string STR_EDIT = "Sửa nhóm xe";
+        private const string STR_DELETE = "Xoá nhóm xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";

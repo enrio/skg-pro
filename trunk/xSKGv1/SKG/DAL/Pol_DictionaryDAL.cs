@@ -247,5 +247,45 @@ namespace SKG.DAL
             }
             catch { return _tb; }
         }
+
+        /// <summary>
+        /// Danh mục cho xe tuyến cố định
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public DataTable SelectForFixed()
+        {
+            try
+            {
+
+                var res = from s in _db.Pol_Dictionarys
+                          where s.Type == "ROOT" && s.Show == true && s.Code != "ROLE" && s.Code != "GROUP"
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              s.ParentId,
+                              Belong = s.Parent.Text,
+                              s.Code,
+                              s.Type,
+                              s.Text,
+                              s.Note,
+                              s.More,
+                              s.Text1,
+                              s.Note1,
+                              s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
+                              s.Order,
+                              s.Show
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

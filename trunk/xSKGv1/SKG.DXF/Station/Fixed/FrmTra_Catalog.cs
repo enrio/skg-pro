@@ -37,7 +37,7 @@ namespace SKG.DXF.Station.Fixed
 
         private void FrmPol_Dictionary_Load(object sender, EventArgs e)
         {
-            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
+            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectForFixed();
             lokList.ItemIndex = 0;
         }
 

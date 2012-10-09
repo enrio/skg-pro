@@ -188,7 +188,7 @@ namespace SKG.DAL
 
                 res.Code = o.Code;
                 res.TransportId = o.TransportId;
-
+                res.TariffId = o.TariffId;
 
                 res.Seats = o.Seats;
                 res.Beds = o.Beds;

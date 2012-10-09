@@ -121,7 +121,7 @@ namespace SKG.DXF.Station.Discrete
             lueTransport.DataBindings.Clear();
             txtCode.DataBindings.Clear();
             txtSeats.DataBindings.Clear();
-            txtBeds.DataBindings.Clear();            
+            txtBeds.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -131,7 +131,7 @@ namespace SKG.DXF.Station.Discrete
             lueTransport.DataBindings.Add("EditValue", _dtb, ".TariffId");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
-            txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");            
+            txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
 
             base.DataBindingControl();
         }
@@ -141,7 +141,7 @@ namespace SKG.DXF.Station.Discrete
             lueTransport.Properties.ReadOnly = isReadOnly;
             txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
-            txtBeds.Properties.ReadOnly = isReadOnly;           
+            txtBeds.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -159,11 +159,13 @@ namespace SKG.DXF.Station.Discrete
                 var o = new Tra_Vehicle()
                 {
                     Id = id,
-                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueTransport.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = false                    
+                    Fixed = false,
+                    City = false,
+                    High = false
                 };
 
                 var oki = _bll.Tra_Vehicle.Update(o);
@@ -182,11 +184,13 @@ namespace SKG.DXF.Station.Discrete
 
                 var o = new Tra_Vehicle()
                 {
-                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueTransport.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = false                    
+                    Fixed = false,
+                    City = false,
+                    High = false
                 };
 
                 var oki = _bll.Tra_Vehicle.Insert(o);

@@ -165,12 +165,14 @@
             this.lokGroup.Name = "lokGroup";
             this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lokGroup.Properties.Appearance.Options.UseFont = true;
+            this.lokGroup.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokGroup.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lokGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lokGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 10, "STT"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", 100, "Tên"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
             this.lokGroup.Properties.DisplayMember = "Text";
             this.lokGroup.Properties.NullText = "";

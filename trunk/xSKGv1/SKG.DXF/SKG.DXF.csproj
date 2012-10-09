@@ -293,6 +293,9 @@
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_User.resx">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </EmbeddedResource>

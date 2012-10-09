@@ -94,31 +94,37 @@
             // 
             // txtDescript
             // 
-            this.txtDescript.Location = new System.Drawing.Point(68, 41);
+            this.txtDescript.Location = new System.Drawing.Point(96, 35);
             this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Size = new System.Drawing.Size(268, 20);
+            this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescript.Properties.Appearance.Options.UseFont = true;
+            this.txtDescript.Size = new System.Drawing.Size(268, 26);
             this.txtDescript.TabIndex = 40;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(11, 44);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(11, 38);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(31, 13);
+            this.labelControl3.Size = new System.Drawing.Size(45, 19);
             this.labelControl3.TabIndex = 43;
             this.labelControl3.Text = "Mô tả:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(68, 15);
+            this.txtName.Location = new System.Drawing.Point(96, 3);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 20);
+            this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Properties.Appearance.Options.UseFont = true;
+            this.txtName.Size = new System.Drawing.Size(268, 26);
             this.txtName.TabIndex = 39;
             // 
             // lblName
             // 
-            this.lblName.Location = new System.Drawing.Point(11, 18);
+            this.lblName.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(11, 6);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 13);
+            this.lblName.Size = new System.Drawing.Size(79, 19);
             this.lblName.TabIndex = 41;
             this.lblName.Text = "Tên nhóm:";
             // 
@@ -154,6 +160,130 @@
             // 
             // grvMain
             // 
+            this.grvMain.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.grvMain.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.grvMain.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
+            this.grvMain.Appearance.Empty.Options.UseBackColor = true;
+            this.grvMain.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.EvenRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.EvenRow.Options.UseFont = true;
+            this.grvMain.Appearance.EvenRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.grvMain.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvMain.Appearance.FilterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(133)))), ((int)(((byte)(195)))));
+            this.grvMain.Appearance.FixedLine.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.grvMain.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
+            this.grvMain.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
+            this.grvMain.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.FocusedRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.GroupButton.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupPanel.Options.UseFont = true;
+            this.grvMain.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.GroupRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.GroupRow.Options.UseFont = true;
+            this.grvMain.Appearance.GroupRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvMain.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvMain.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(225)))));
+            this.grvMain.Appearance.HideSelectionRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvMain.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.HideSelectionRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.HorzLine.Options.UseBackColor = true;
+            this.grvMain.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.OddRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.OddRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.OddRow.Options.UseFont = true;
+            this.grvMain.Appearance.OddRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
+            this.grvMain.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvMain.Appearance.Preview.Options.UseFont = true;
+            this.grvMain.Appearance.Preview.Options.UseForeColor = true;
+            this.grvMain.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.Row.Options.UseBackColor = true;
+            this.grvMain.Appearance.Row.Options.UseFont = true;
+            this.grvMain.Appearance.Row.Options.UseForeColor = true;
+            this.grvMain.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
+            this.grvMain.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.grvMain.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvMain.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grvMain.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
+            this.grvMain.Appearance.TopNewRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.TopNewRow.Options.UseBackColor = true;
+            this.grvMain.Appearance.TopNewRow.Options.UseFont = true;
+            this.grvMain.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvMain.Appearance.VertLine.Options.UseBackColor = true;
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -162,6 +292,8 @@
             this.gridColumn5});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
+            this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
+            this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             // 
             // gridColumn1
             // 
@@ -189,7 +321,7 @@
             this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 1;
             // 
             // gridColumn5
             // 
@@ -197,7 +329,7 @@
             this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 2;
             // 
             // FrmPol_Role
             // 

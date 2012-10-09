@@ -219,7 +219,7 @@ namespace SKG.DAL
             {
                 var a = type + "";
                 var res = from s in _db.Pol_Dictionarys
-                          where s.Type == a
+                          where s.Type == a && s.Show == true
                           orderby s.Order
                           select new
                           {

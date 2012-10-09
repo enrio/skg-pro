@@ -260,6 +260,8 @@ namespace SKG.DAL
                               s.Id,
                               s.Code,
                               s.TransportId,
+                              s.TariffId,
+                              Kind = s.Tariff.Text,
                               Transport = s.Transport.Text,
 
                               s.Seats,

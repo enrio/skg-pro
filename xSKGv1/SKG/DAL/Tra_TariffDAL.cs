@@ -185,7 +185,7 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Tariffs
                           where s.Group.Code == "GROUP_1" || s.Group.Code == "GROUP_2"
-                          orderby s.Group.Text, s.Group.Order
+                          orderby s.Order
                           select new
                           {
                               s.Id,
@@ -216,7 +216,7 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Tariffs
                           where s.Group.Code == "GROUP_0"
-                          orderby s.Group.Text, s.Group.Order
+                          orderby s.Order
                           select new
                           {
                               s.Id,

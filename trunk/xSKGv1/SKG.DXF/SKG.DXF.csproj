@@ -316,6 +316,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Discrete\FrmTra_Group.resx">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
       <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </EmbeddedResource>

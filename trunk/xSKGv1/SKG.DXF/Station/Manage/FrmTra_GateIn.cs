@@ -137,7 +137,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void DataBindingControl()
         {
-            txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
             //txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
             //txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             //dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");

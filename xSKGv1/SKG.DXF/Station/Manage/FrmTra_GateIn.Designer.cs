@@ -365,7 +365,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Biển số xe";
-            this.gridColumn3.FieldName = "Number";
+            this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;

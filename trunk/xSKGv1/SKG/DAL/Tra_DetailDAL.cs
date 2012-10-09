@@ -277,7 +277,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TransportId equals k.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.Pol_UserOutId == null
                           orderby s.DateIn descending, v.Code
@@ -361,7 +361,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TransportId equals k.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Code
@@ -380,6 +380,7 @@ namespace SKG.DAL
                               s.Hours,
 
                               v.Seats,
+                              v.Beds,
                               k.Text,
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,
@@ -402,7 +403,8 @@ namespace SKG.DAL
                 price1 = ok.Price1;
                 price2 = ok.Price2;
 
-                int chair = ok.Seats.Value;
+                int seats = ok.Seats == null ? 0 : ok.Seats.Value;
+                int beds = ok.Beds == null ? 0 : ok.Beds.Value;
                 money = 0;
 
                 switch (ok.GroupCode)
@@ -424,7 +426,7 @@ namespace SKG.DAL
                         break;
 
                     case "E":
-                        money = (dayL + dayF) * price2 * chair;
+                        money = (dayL + dayF) * price2 * seats + beds * price1;
                         break;
 
                     default:

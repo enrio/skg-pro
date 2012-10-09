@@ -316,6 +316,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Discrete\FrmTra_Tariff.resx">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>

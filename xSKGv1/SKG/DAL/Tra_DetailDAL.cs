@@ -202,8 +202,8 @@ namespace SKG.DAL
 
                               //GroupId = k.Transport.GroupId,
                               KindId = k.TransportId,
-                              //GroupName = k.Transport.Group.Text,
-                              KindName = k.Transport.Text,
+                              GroupName = k.Tariff.Group.Text,
+                              KindName = k.Tariff.Text,
 
                               k.Code,
                               Chair = k.Seats,
@@ -215,6 +215,47 @@ namespace SKG.DAL
                           };
 
                 return res.ToDataTable();
+
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Danh sách 20 xe vào bến sau cùng
+        /// </summary>
+        /// <returns></returns>
+        public DataTable Get20Latest()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+
+                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
+                          where s.DateOut == null
+
+                          orderby s.DateIn descending
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              //GroupId = k.Transport.GroupId,
+                              KindId = k.TransportId,
+                              GroupName = k.Tariff.Group.Text,
+                              KindName = k.Tariff.Text,
+
+                              k.Code,
+                              Chair = k.Seats,
+                              Descript = k.Note,
+                              k.Driver,
+                              k.Birth,
+                              k.Address,
+                              k.Phone
+                          };
+
+                return res.Take(20).ToDataTable();
 
             }
             catch { return null; }

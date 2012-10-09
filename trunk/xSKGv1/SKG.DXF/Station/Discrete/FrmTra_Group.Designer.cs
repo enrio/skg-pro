@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
@@ -226,7 +225,7 @@
             this.grvMain.Appearance.GroupFooter.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
-            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvMain.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.GroupPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.GroupPanel.Options.UseFont = true;

@@ -152,7 +152,7 @@ namespace SKG.DXF.Station.Manage
 
                     lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
                     lblGroup.Text = tb.Rows[0]["GroupName"] + "";
-                    lblKind.Text = tb.Rows[0]["Name"].ToString();
+                    //lblKind.Text = tb.Rows[0]["Name"].ToString();
                     lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
                     lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
 

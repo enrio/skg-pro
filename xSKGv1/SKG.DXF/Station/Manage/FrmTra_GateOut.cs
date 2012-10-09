@@ -103,7 +103,7 @@ namespace SKG.DXF.Station.Manage
 
             cbbNumber.DataSource = _dtb;
             cbbNumber.ValueMember = "Id";
-            cbbNumber.DisplayMember = "Number";
+            cbbNumber.DisplayMember = "Code";
 
             base.LoadData();
         }
@@ -127,6 +127,7 @@ namespace SKG.DXF.Station.Manage
             try
             {
                 var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
+                if (v == null) return;
                 var o = new Tra_Detail() { Pol_UserOutId = Global.Session.User.Id, Tra_VehicleId = v.Id, DateOut = Global.Session.Current };
 
                 decimal money = 0;
@@ -143,18 +144,19 @@ namespace SKG.DXF.Station.Manage
                     DateTime timeOut = isOut ? Convert.ToDateTime(tb.Rows[0]["DateOut"]) : o.DateOut.Value;
 
                     string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
-                    int chair = (tb.Rows[0]["Chair"] + "").ToInt32();
+                    int seats = (tb.Rows[0]["Seats"] + "").ToInt32();
+                    int beds = (tb.Rows[0]["Seats"] + "").ToInt32();
 
                     lblDateIn.Text = timeIn.ToStringVN();
                     lblDateOut.Text = timeOut.ToStringVN();
 
-                    lblNumber.Text = (tb.Rows[0]["Number"] + "").ToUpper();
+                    lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
                     lblGroup.Text = tb.Rows[0]["GroupName"] + "";
                     lblKind.Text = tb.Rows[0]["Name"].ToString();
                     lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
                     lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
 
-                    lblChair.Text = chair + "";
+                    lblChair.Text = seats + "";
 
                     string dayL = (hour > 0 && hour < 12) ? ".5" : "";
                     int dayF = (hour >= 12) ? day + 1 : day;

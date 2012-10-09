@@ -184,7 +184,38 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Group.Code != "GROUP_0"
+                          where s.Group.Code == "GROUP_1" || s.Group.Code == "GROUP_2"
+                          orderby s.Group.Text, s.Group.Order
+                          select new
+                          {
+                              s.Id,
+                              Tra_GroupId = s.GroupId,
+                              GroupName = s.Group.Text,
+                              s.Text,
+                              Descript = s.Note,
+                              s.Price1,
+                              s.Price2,
+
+                              s.Code,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
+        /// Bảng giá cho xe cố định
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectForFixed()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Tariffs
+                          where s.Group.Code == "GROUP_0"
                           orderby s.Group.Text, s.Group.Order
                           select new
                           {

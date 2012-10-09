@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Tariff.Select();
+            _dtb = _bll.Tra_Tariff.SelectForFixed();
 
             if (_dtb != null)
             {

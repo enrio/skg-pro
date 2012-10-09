@@ -111,12 +111,12 @@ namespace SKG.DXF.Station.Manage
             //lkeKind.ItemIndex = 0;
 
             txtNumber.Text = null;
-            txtChair.Text = null;
+            //txtChair.Text = null;
 
-            txtDriver.Text = null;
-            txtAddress.Text = null;
-            txtPhone.Text = null;
-            txtDescript.Text = null;
+            //txtDriver.Text = null;
+            //txtAddress.Text = null;
+            //txtPhone.Text = null;
+            //txtDescript.Text = null;
 
             base.ResetInput();
         }
@@ -124,13 +124,13 @@ namespace SKG.DXF.Station.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
-            txtChair.DataBindings.Clear();
+            //txtChair.DataBindings.Clear();
 
-            txtDriver.DataBindings.Clear();
-            dteBirth.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
-            txtPhone.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
+            //txtDriver.DataBindings.Clear();
+            //dteBirth.DataBindings.Clear();
+            //txtAddress.DataBindings.Clear();
+            //txtPhone.DataBindings.Clear();
+            //txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -138,12 +138,12 @@ namespace SKG.DXF.Station.Manage
         protected override void DataBindingControl()
         {
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
-            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
-            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
-            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
-            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            //txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
+            //txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            //dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
+            //txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
+            //txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+            //txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
@@ -154,12 +154,12 @@ namespace SKG.DXF.Station.Manage
             //lkeKind.Properties.ReadOnly = isReadOnly;
 
             txtNumber.Properties.ReadOnly = isReadOnly;
-            txtChair.Properties.ReadOnly = isReadOnly;
-            txtDriver.Properties.ReadOnly = isReadOnly;
-            dteBirth.Properties.ReadOnly = isReadOnly;
-            txtAddress.Properties.ReadOnly = isReadOnly;
-            txtPhone.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
+            //txtChair.Properties.ReadOnly = isReadOnly;
+            //txtDriver.Properties.ReadOnly = isReadOnly;
+            //dteBirth.Properties.ReadOnly = isReadOnly;
+            //txtAddress.Properties.ReadOnly = isReadOnly;
+            //txtPhone.Properties.ReadOnly = isReadOnly;
+            //txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -227,12 +227,12 @@ namespace SKG.DXF.Station.Manage
                         {
                             Code = txtNumber.Text,
                             TransportId = _idLoaixe,
-                            Seats = txtChair.Text.ToInt32(),
-                            Driver = txtDriver.Text,
-                            Birth = dteBirth.DateTime,
-                            Address = txtAddress.Text,
-                            Phone = txtPhone.Text,
-                            Note = txtDescript.Text
+                            //Seats = txtChair.Text.ToInt32(),
+                            //Driver = txtDriver.Text,
+                            //Birth = dteBirth.DateTime,
+                            //Address = txtAddress.Text,
+                            //Phone = txtPhone.Text,
+                            //Note = txtDescript.Text
                         };
 
                         if (_bll.Tra_Vehicle.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ

@@ -269,7 +269,7 @@ namespace SKG.DXF.Station.Manage
         }
 
         /// <summary>
-        /// Danh sách xe vào bến trong vòng 01 phút
+        /// Danh sách 20 xe vào bến cuối cùng
         /// </summary>
         protected override void LoadData()
         {
@@ -281,7 +281,7 @@ namespace SKG.DXF.Station.Manage
             //    gridColumn2.BestFit(); // fit column STT
             //}
 
-            _dtb = _bll.Tra_Detail.GetDataInMinute();
+            _dtb = _bll.Tra_Detail.Get20Latest();
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

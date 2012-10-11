@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
@@ -329,7 +328,7 @@
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Loại giá";
+            this.gridColumn5.Caption = "Tuyến";
             this.gridColumn5.FieldName = "Tariff";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -340,8 +339,6 @@
             this.gridColumn6.Caption = "Bến đi";
             this.gridColumn6.FieldName = "Arrival";
             this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 3;
             // 
             // gridColumn7
             // 
@@ -349,7 +346,7 @@
             this.gridColumn7.FieldName = "Departure";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 4;
+            this.gridColumn7.VisibleIndex = 3;
             // 
             // gridColumn8
             // 
@@ -357,7 +354,7 @@
             this.gridColumn8.FieldName = "TimeLeaves";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 5;
+            this.gridColumn8.VisibleIndex = 4;
             // 
             // gridColumn9
             // 
@@ -365,23 +362,19 @@
             this.gridColumn9.FieldName = "Transport";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 6;
+            this.gridColumn9.VisibleIndex = 5;
             // 
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Đơn giá ghế";
             this.gridColumn10.FieldName = "Price1";
             this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 7;
             // 
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Đơn giá giường";
             this.gridColumn11.FieldName = "Price2";
             this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 8;
             // 
             // FrmTra_Registry
             // 

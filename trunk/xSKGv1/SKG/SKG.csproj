@@ -161,7 +161,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\SQLQuery1.sql" />
     <Content Include="DAL\Test.sql" />
     <None Include="Resources\xls.png" />
     <None Include="Resources\sql.png" />

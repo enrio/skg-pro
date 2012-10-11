@@ -158,12 +158,12 @@ namespace SKG.DXF.Station.Fixed
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Dictionary()
+                var o = new Tra_Registry()
                 {
                     Id = id,
-                    Type = Global.STR_GROUP,
-                    Text = cboNumber.Text,
-
+                    TariffId =(Guid) lokTariff.EditValue,
+                    CommissionId =(Guid) lokBenden.EditValue,
+                    //TimeLeaves = dteXuatben.DateTime
                 };
 
                 var oki = _bll.Tra_Registry.Update(o);

@@ -145,14 +145,14 @@ namespace SKG.DXF.Station.Manage
 
                     string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
                     int seats = (tb.Rows[0]["Seats"] + "").ToInt32();
-                    int beds = (tb.Rows[0]["Seats"] + "").ToInt32();
+                    int beds = (tb.Rows[0]["Beds"] + "").ToInt32();
 
                     lblDateIn.Text = timeIn.ToStringVN();
                     lblDateOut.Text = timeOut.ToStringVN();
 
                     lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
                     lblGroup.Text = tb.Rows[0]["GroupName"] + "";
-                    //lblKind.Text = tb.Rows[0]["Name"].ToString();
+                    lblKind.Text = tb.Rows[0]["KindName"].ToString();
                     lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
                     lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
 

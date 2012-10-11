@@ -15,6 +15,7 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraBars.Docking;
 
     public partial class FrmTra_Registry : SKG.DXF.FrmInput
     {
@@ -33,7 +34,8 @@ namespace SKG.DXF.Station.Fixed
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("Nhập liệu");
+            //dockPanel1.SetDockPanel("Nhập liệu");
+            dockPanel1.Visibility = DockVisibility.Hidden;
             dockPanel2.SetDockPanel("Danh sách");
 
             grvMain.OptionsView.ShowAutoFilterRow = true;

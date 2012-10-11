@@ -322,6 +322,9 @@
     <EmbeddedResource Include="Station\Discrete\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Registry.resx">
+      <DependentUpon>FrmTra_Registry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>

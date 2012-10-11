@@ -208,6 +208,7 @@
             this.cboNumber.Properties.Appearance.Options.UseFont = true;
             this.cboNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboNumber.Properties.ReadOnly = true;
             this.cboNumber.Size = new System.Drawing.Size(146, 26);
             this.cboNumber.TabIndex = 1;
             // 

@@ -400,6 +400,49 @@ namespace SKG.DAL
                               s.Money
                           };
 
+                if (res.Count() == 0)
+                {
+                    res = from s in _db.Tra_Details
+
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
+
+                          where s.Tra_VehicleId == obj.Tra_VehicleId
+                          orderby v.Code
+
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+                              UserOutName = s.Pol_UserOut.Name,
+                              v.Code,
+
+                              s.DateIn,
+                              s.DateOut,
+                              s.Days,
+                              s.Hours,
+
+                              v.Seats,
+                              v.Beds,
+
+                              Tra_GroupId = k.GroupId,
+                              GroupName = k.Group.Text,
+                              KindName = k.Text,
+
+                              GroupCode = k.Code,
+                              k.Price1,
+                              k.Price2,
+
+                              TariffPrice1 = 0,
+                              TariffPrice2 = 0,
+                              CommissionPrice1 = 0,
+                              CommissionPrice2 = 0,
+
+                              s.Money
+                          };
+                }
+
                 var ok = res.Single(h => h.DateOut == null);
 
                 var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Tra_VehicleId && k.DateOut == null);

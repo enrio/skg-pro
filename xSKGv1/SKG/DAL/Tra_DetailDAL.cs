@@ -382,10 +382,12 @@ namespace SKG.DAL
 
                               v.Seats,
                               v.Beds,
-                              k.Text,
+                              
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,
-                              GroupCode = k.Group.Code,
+                              KindName = k.Text,
+
+                              GroupCode = k.Code,
                               k.Price1,
                               k.Price2,
                               s.Money
@@ -408,30 +410,29 @@ namespace SKG.DAL
                 int beds = ok.Beds == null ? 0 : ok.Beds.Value;
                 money = 0;
 
-                switch (ok.GroupCode)
+                if (ok.GroupCode.Substring(0, 4) == "KIND")
                 {
-                    case "A":
-                        if (dayF == 0) money = price1;
-                        else money = dayF * price2 + dayL * price1;
-                        break;
+                    // Xe vãng lai
+                    switch (ok.GroupCode)
+                    {
+                        case "KIND_6"://Taxi vãng lai
+                        case "KIND_7"://Xe ba bánh
+                            money = (dayL + dayF) * price2;
+                            break;
 
-                    case "B":
-                        price1 = price2 / 2;
-                        if (dayF == 0) money = price1;
-                        else money = dayF * price2 + dayL * price1;
-                        break;
+                        case "KIND_0": //Xe khách vãng lai, quá cảnh, trung chuyển
+                            money = (dayL + dayF) * price2 * beds + seats * price1;
+                            break;
 
-                    case "C":
-                    case "D":
-                        money = (dayL + dayF) * price2;
-                        break;
-
-                    case "E":
-                        money = (dayL + dayF) * price2 * seats + beds * price1;
-                        break;
-
-                    default:
-                        break;
+                        default:
+                            if (dayF == 0) money = price1;
+                            else money = dayF * price2 + dayL * price1;
+                            break;
+                    }
+                }
+                else
+                {
+                    // Xe tuyến cố định
                 }
 
                 if (isOut)

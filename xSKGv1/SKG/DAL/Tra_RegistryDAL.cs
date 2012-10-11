@@ -88,9 +88,9 @@ namespace SKG.DAL
                               Number = s.Vehicle.Code,
                               Transport = s.Vehicle.Transport.Text,
                               s.TariffId,
-                              //Tariff = s.Tariff.Text,
+                              Tariff = s.Tariff.Text,
                               s.CommissionId,
-                              //Commission = s.Commission.Text,
+                              Commission = s.Commission.Text,
                               s.Tariff.Price1,
                               s.Tariff.Price2,
 

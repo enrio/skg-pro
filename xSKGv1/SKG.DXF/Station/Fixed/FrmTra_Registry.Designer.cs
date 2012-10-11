@@ -136,9 +136,9 @@
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl1.Location = new System.Drawing.Point(298, 44);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(63, 19);
+            this.labelControl1.Size = new System.Drawing.Size(38, 19);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Bến đến:";
+            this.labelControl1.Text = "Tỉnh:";
             // 
             // lblRole
             // 
@@ -428,7 +428,7 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Bến đến";
-            this.gridColumn7.FieldName = "Departure";
+            this.gridColumn7.FieldName = "Commission";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;

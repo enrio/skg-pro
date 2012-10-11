@@ -83,21 +83,23 @@ namespace SKG.DAL
                           orderby s.Vehicle.Transport.Text
                           select new
                           {
-                              s.Id,                              
+                              s.Id,
                               s.VehicleId,
-                             Number= s.Vehicle.Code,
-                              Transport=s.Vehicle.Transport.Text,
+                              Number = s.Vehicle.Code,
+                              Transport = s.Vehicle.Transport.Text,
                               s.TariffId,
                               Tariff = s.Tariff.Text,
+                              s.CommissionId,
+                              Commission = s.Commission.Text,
                               s.Tariff.Price1,
                               s.Tariff.Price2,
 
-                            //Tariff=  k.Text,
+                              //Tariff=  k.Text,
 
                               s.ArrivalId,
-                              Arrival =s.Arrival.Text,
+                              Arrival = s.Arrival.Text,
                               s.DepartureId,
-                              Departure=s.Departure.Text,
+                              Departure = s.Departure.Text,
                               s.TimeLeaves,
                               s.Code,
                               s.Order,
@@ -143,7 +145,7 @@ namespace SKG.DAL
                 var o = (Tra_Tariff)obj;
                 var res = _db.Tra_Registries.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Text = o.Text;               
+                res.Text = o.Text;
 
                 res.Code = o.Code;
                 res.Note = o.Note;

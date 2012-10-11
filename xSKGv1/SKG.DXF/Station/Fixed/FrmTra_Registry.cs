@@ -132,7 +132,7 @@ namespace SKG.DXF.Station.Fixed
         {
             cboNumber.DataBindings.Add("EditValue", _dtb, ".Number");
             lokTariff.DataBindings.Add("EditValue", _dtb, ".TariffId");
-            lokBenden.DataBindings.Add("EditValue", _dtb, ".DepartureId");
+            lokBenden.DataBindings.Add("EditValue", _dtb, ".CommissionId");
             dteXuatben.DataBindings.Add("EditValue", _dtb, ".TimeLeaves");
 
             base.DataBindingControl();
@@ -230,7 +230,7 @@ namespace SKG.DXF.Station.Fixed
             lokTariff.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
             lokTariff.ItemIndex = 0;
 
-            lokBenden.Properties.DataSource = _bll.Pol_Dictionary.SelectStation();
+            lokBenden.Properties.DataSource = _bll.Tra_Tariff.SelectCommission();
             lokBenden.ItemIndex = 0;
         }
     }

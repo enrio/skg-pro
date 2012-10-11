@@ -24,19 +24,32 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 1), ForeignKey("Tariff")]
         public Guid? TariffId { set; get; }
+        /// <summary>
+        /// Giá vé
+        /// </summary>
         public virtual Tra_Tariff Tariff { get; set; }
+
+        /// <summary>
+        /// Refercence to Tra_Tariff
+        /// </summary>
+        [Column(Order = 2), ForeignKey("Commission")]
+        public Guid? CommissionId { set; get; }
+        /// <summary>
+        /// Hoa hồng
+        /// </summary>
+        public virtual Tra_Tariff Commission { get; set; }
 
         /// <summary>
         /// Bến đi
         /// </summary>
-        [Column(Order = 2), ForeignKey("Arrival")]
+        [Column(Order = 3), ForeignKey("Arrival")]
         public Guid? ArrivalId { set; get; }
         public Pol_Dictionary Arrival { get; set; }
 
         /// <summary>
         /// Bến đến
         /// </summary>
-        [Column(Order = 3), ForeignKey("Departure")]
+        [Column(Order = 4), ForeignKey("Departure")]
         public Guid? DepartureId { set; get; }
         public Pol_Dictionary Departure { get; set; }
         #endregion

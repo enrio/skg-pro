@@ -381,7 +381,7 @@ namespace SKG.DXF
             Pol_RoleRight.Insert(o);
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Level1).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
-            Pol_RoleRight.Insert(o);            
+            Pol_RoleRight.Insert(o);
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Manage.Level2).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
@@ -691,6 +691,7 @@ namespace SKG.DXF
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
+            tbl.Columns.Add("CommissionId", typeof(Guid));
             tbl.Columns.Add("ArrivalId", typeof(Guid));
             tbl.Columns.Add("DepartureId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);

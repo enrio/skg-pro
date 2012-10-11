@@ -554,21 +554,22 @@ namespace SKG.DAL
                               
                               GroupName = k.Group.Text,
                               KindName = k.Text,
+                              GroupCode = k.Group.Code
                           };
 
-                //switch (group)
-                //{
-                //    case Group.A:
-                //        res = res.Where(p => p.GroupCode == "A");
-                //        break;
+                switch (group)
+                {
+                    case Group.A:
+                        res = res.Where(p => p.GroupCode == "GROUP_1");
+                        break;
 
-                //    case Group.B:
-                //        res = res.Where(p => p.GroupCode != "A");
-                //        break;
+                    case Group.B:
+                        res = res.Where(p => p.GroupCode == "GROUP_2");
+                        break;
 
-                //    default:
-                //        break;
-                //}
+                    default:
+                        break;
+                }
 
                 if (userId != new Guid()) res = res.Where(p => p.Pol_UserOutId == userId);
 

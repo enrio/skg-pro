@@ -439,6 +439,7 @@ namespace SKG.DXF.Station.Manage
                     frm._num = txtNumber.Text;
                     frm.WindowState = FormWindowState.Maximized;
                     frm.AllowCancel = false;
+                    frm._state = State.Add;
                     frm.ShowDialog();
                 }
             }

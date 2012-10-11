@@ -221,7 +221,7 @@ namespace SKG.DXF.Station.Fixed
 
         private void FrmTra_Kind_Load(object sender, EventArgs e)
         {
-            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_AREA);
             lokGroup.ItemIndex = 0;
         }
 

@@ -247,7 +247,8 @@ namespace SKG.DAL
                               KindName = k.Tariff.Text,
 
                               k.Code,
-                              Chair = k.Seats,
+                              k.Seats,
+                              k.Beds,
                               Descript = k.Note,
                               k.Driver,
                               k.Birth,

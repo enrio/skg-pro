@@ -34,7 +34,7 @@ namespace SKG.DXF.Station.Manage
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
-            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            //tmrMain.Enabled = true; // bật đồng hồ đếm giờ
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
@@ -334,10 +334,10 @@ namespace SKG.DXF.Station.Manage
         static int _sec; // current second
         protected override void TimerTick(object sender, EventArgs e)
         {
-            _sec++; if (_sec >= 10) { LoadData(); _sec = 0; }
-            lblDateIn.Text = Global.Session.Current.ToStringVN();
+            //_sec++; if (_sec >= 10) { LoadData(); _sec = 0; }
+            //lblDateIn.Text = Global.Session.Current.ToStringVN();
 
-            base.TimerTick(sender, e);
+            //base.TimerTick(sender, e);
         }
         #endregion
 

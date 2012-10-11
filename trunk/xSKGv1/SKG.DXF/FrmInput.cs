@@ -61,7 +61,7 @@ namespace SKG.DXF
         /// <summary>
         /// Form state
         /// </summary>
-        protected State _state;
+        public State _state;
 
         /// <summary>
         /// Check user's right

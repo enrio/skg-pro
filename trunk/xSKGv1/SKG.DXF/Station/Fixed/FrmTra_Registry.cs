@@ -112,6 +112,8 @@ namespace SKG.DXF.Station.Fixed
         {
             cboNumber.Text = null;
             lokTariff.ItemIndex = 0;
+            lokBenden.ItemIndex = 0;
+            dteXuatben.Text = null;
 
             base.ResetInput();
         }
@@ -120,6 +122,8 @@ namespace SKG.DXF.Station.Fixed
         {
             cboNumber.DataBindings.Clear();
             lokTariff.DataBindings.Clear();
+            lokBenden.DataBindings.Clear();
+            dteXuatben.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -128,14 +132,18 @@ namespace SKG.DXF.Station.Fixed
         {
             cboNumber.DataBindings.Add("EditValue", _dtb, ".Number");
             lokTariff.DataBindings.Add("EditValue", _dtb, ".TariffId");
+            lokBenden.DataBindings.Add("EditValue", _dtb, ".DepartureId");
+            dteXuatben.DataBindings.Add("EditValue", _dtb, ".TimeLeaves");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            cboNumber.Properties.ReadOnly = isReadOnly;
+            //cboNumber.Properties.ReadOnly = isReadOnly;
             lokTariff.Properties.ReadOnly = isReadOnly;
+            lokBenden.Properties.ReadOnly = isReadOnly;
+            dteXuatben.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 

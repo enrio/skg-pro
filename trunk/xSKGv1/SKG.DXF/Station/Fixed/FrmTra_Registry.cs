@@ -34,8 +34,7 @@ namespace SKG.DXF.Station.Fixed
         {
             InitializeComponent();
 
-            //dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel1.Visibility = DockVisibility.Hidden;
+            dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
@@ -45,7 +44,7 @@ namespace SKG.DXF.Station.Fixed
         #region Override
         protected override void SetNullPrompt()
         {
-            txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            cboNumber.Properties.NullValuePrompt = String.Format("Nhập {0}", lblNumber.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
         }
@@ -57,7 +56,7 @@ namespace SKG.DXF.Station.Fixed
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtName.Text);
+                var cfm = String.Format(STR_CONFIRM, cboNumber.Text);
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
@@ -108,32 +107,32 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            txtName.Text = null;
-            txtDescript.Text = null;
+            cboNumber.Text = null;
+            lokTariff.ItemIndex = 0;
 
             base.ResetInput();
         }
 
         protected override void ClearDataBindings()
         {
-            txtName.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
+            cboNumber.DataBindings.Clear();
+            lokTariff.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            //txtName.DataBindings.Add("EditValue", _dtb, ".Text");
-            //txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            cboNumber.DataBindings.Add("EditValue", _dtb, ".Number");
+            lokTariff.DataBindings.Add("EditValue", _dtb, ".TariffId");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtName.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
+            cboNumber.Properties.ReadOnly = isReadOnly;
+            lokTariff.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -152,8 +151,8 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Id = id,
                     Type = Global.STR_GROUP,
-                    Text = txtName.Text,
-                    Note = txtDescript.Text
+                    Text = cboNumber.Text,
+
                 };
 
                 var oki = _bll.Tra_Registry.Update(o);
@@ -173,8 +172,8 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Pol_Dictionary()
                 {
                     Type = Global.STR_GROUP,
-                    Text = txtName.Text,
-                    Note = txtDescript.Text
+                    Text = cboNumber.Text,
+
                 };
 
                 var oki = _bll.Tra_Registry.Insert(o);
@@ -200,8 +199,8 @@ namespace SKG.DXF.Station.Fixed
 
         protected override bool ValidInput()
         {
-            var a = txtName.Text.Length == 0 ? false : true;
-            if (!a) txtName.Focus();
+            var a = cboNumber.Text.Length == 0 ? false : true;
+            if (!a) cboNumber.Focus();
             return a;
         }
         #endregion
@@ -214,5 +213,14 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Nhóm này có rồi";
+
+        private void FrmTra_Registry_Load(object sender, EventArgs e)
+        {
+            lokTariff.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
+            lokTariff.ItemIndex = 0;
+
+            lokBenden.Properties.DataSource = _bll.Pol_Dictionary.SelectStation();
+            lokBenden.ItemIndex = 0;
+        }
     }
 }

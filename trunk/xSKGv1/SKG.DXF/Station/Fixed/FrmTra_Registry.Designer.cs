@@ -31,10 +31,14 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.txtName = new DevExpress.XtraEditors.TextEdit();
-            this.lblName = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.dteXuatben = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblRole = new DevExpress.XtraEditors.LabelControl();
+            this.lokBenden = new DevExpress.XtraEditors.LookUpEdit();
+            this.lokTariff = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblNumber = new DevExpress.XtraEditors.LabelControl();
+            this.cboNumber = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -54,8 +58,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteXuatben.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteXuatben.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBenden.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokTariff.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboNumber.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -82,60 +89,137 @@
             this.dockPanel1.ID = new System.Guid("f82f19cf-a408-437b-8c69-00c09650fb7f");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 98);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 98);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 102);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 102);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.txtDescript);
-            this.dockPanel1_Container.Controls.Add(this.labelControl3);
-            this.dockPanel1_Container.Controls.Add(this.txtName);
-            this.dockPanel1_Container.Controls.Add(this.lblName);
+            this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Controls.Add(this.dteXuatben);
+            this.dockPanel1_Container.Controls.Add(this.labelControl1);
+            this.dockPanel1_Container.Controls.Add(this.lblRole);
+            this.dockPanel1_Container.Controls.Add(this.lokBenden);
+            this.dockPanel1_Container.Controls.Add(this.lokTariff);
+            this.dockPanel1_Container.Controls.Add(this.lblNumber);
+            this.dockPanel1_Container.Controls.Add(this.cboNumber);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 71);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 75);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // txtDescript
+            // labelControl2
             // 
-            this.txtDescript.Location = new System.Drawing.Point(68, 39);
-            this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Size = new System.Drawing.Size(268, 20);
-            this.txtDescript.TabIndex = 46;
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(8, 44);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(95, 19);
+            this.labelControl2.TabIndex = 4;
+            this.labelControl2.Text = "T.gian x.bến:";
             // 
-            // labelControl3
+            // dteXuatben
             // 
-            this.labelControl3.Location = new System.Drawing.Point(11, 42);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(31, 13);
-            this.labelControl3.TabIndex = 49;
-            this.labelControl3.Text = "Mô tả:";
+            this.dteXuatben.EditValue = null;
+            this.dteXuatben.Location = new System.Drawing.Point(119, 41);
+            this.dteXuatben.Name = "dteXuatben";
+            this.dteXuatben.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteXuatben.Properties.Appearance.Options.UseFont = true;
+            this.dteXuatben.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteXuatben.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteXuatben.Size = new System.Drawing.Size(146, 26);
+            this.dteXuatben.TabIndex = 5;
             // 
-            // txtName
+            // labelControl1
             // 
-            this.txtName.Location = new System.Drawing.Point(68, 13);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(268, 20);
-            this.txtName.TabIndex = 45;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(298, 44);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(63, 19);
+            this.labelControl1.TabIndex = 6;
+            this.labelControl1.Text = "Bến đến:";
             // 
-            // lblName
+            // lblRole
             // 
-            this.lblName.Location = new System.Drawing.Point(11, 16);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 13);
-            this.lblName.TabIndex = 47;
-            this.lblName.Text = "Tên nhóm:";
+            this.lblRole.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRole.Location = new System.Drawing.Point(298, 12);
+            this.lblRole.Name = "lblRole";
+            this.lblRole.Size = new System.Drawing.Size(50, 19);
+            this.lblRole.TabIndex = 2;
+            this.lblRole.Text = "Tuyến:";
+            // 
+            // lokBenden
+            // 
+            this.lokBenden.Location = new System.Drawing.Point(368, 41);
+            this.lokBenden.Name = "lokBenden";
+            this.lokBenden.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBenden.Properties.Appearance.Options.UseFont = true;
+            this.lokBenden.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokBenden.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lokBenden.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokBenden.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 30, "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", 100, "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", "Mô tả", 30, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default)});
+            this.lokBenden.Properties.DisplayMember = "Text";
+            this.lokBenden.Properties.NullText = "";
+            this.lokBenden.Properties.ValueMember = "Id";
+            this.lokBenden.Size = new System.Drawing.Size(267, 26);
+            this.lokBenden.TabIndex = 7;
+            // 
+            // lokTariff
+            // 
+            this.lokTariff.Location = new System.Drawing.Point(368, 9);
+            this.lokTariff.Name = "lokTariff";
+            this.lokTariff.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokTariff.Properties.Appearance.Options.UseFont = true;
+            this.lokTariff.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokTariff.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lokTariff.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokTariff.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", 30, "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", 100, "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", "Mô tả", 30, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default)});
+            this.lokTariff.Properties.DisplayMember = "Text";
+            this.lokTariff.Properties.NullText = "";
+            this.lokTariff.Properties.ValueMember = "Id";
+            this.lokTariff.Size = new System.Drawing.Size(267, 26);
+            this.lokTariff.TabIndex = 3;
+            // 
+            // lblNumber
+            // 
+            this.lblNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(11, 12);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(57, 19);
+            this.lblNumber.TabIndex = 0;
+            this.lblNumber.Text = "Biển số:";
+            // 
+            // cboNumber
+            // 
+            this.cboNumber.Location = new System.Drawing.Point(119, 9);
+            this.cboNumber.Name = "cboNumber";
+            this.cboNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNumber.Properties.Appearance.Options.UseFont = true;
+            this.cboNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cboNumber.Size = new System.Drawing.Size(146, 26);
+            this.cboNumber.TabIndex = 1;
             // 
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("a872bda8-3c64-459e-8e23-1413f11881f5");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 161);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 165);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 405);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 401);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -143,7 +227,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 378);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 374);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -152,7 +236,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 378);
+            this.grcMain.Size = new System.Drawing.Size(943, 374);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -384,6 +468,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_Registry";
             this.Text = "Danh mục nhóm xe";
+            this.Load += new System.EventHandler(this.FrmTra_Registry_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -391,8 +476,11 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteXuatben.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteXuatben.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokBenden.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lokTariff.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cboNumber.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -415,15 +503,19 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraEditors.TextEdit txtDescript;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.TextEdit txtName;
-        private DevExpress.XtraEditors.LabelControl lblName;
+        private DevExpress.XtraEditors.LabelControl lblNumber;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.DateEdit dteXuatben;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl lblRole;
+        private DevExpress.XtraEditors.LookUpEdit lokBenden;
+        private DevExpress.XtraEditors.LookUpEdit lokTariff;
+        private DevExpress.XtraEditors.ComboBoxEdit cboNumber;
     }
 }

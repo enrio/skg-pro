@@ -291,7 +291,8 @@ namespace SKG.DAL
                               s.DateIn,
 
                               v.Code,
-                              Chair = v.Seats,
+                              v.Seats,
+                              v.Beds,
 
                               KindName = k.Text,
                               GroupName = k.Group.Text,

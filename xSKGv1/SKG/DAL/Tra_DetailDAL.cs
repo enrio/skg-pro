@@ -523,7 +523,8 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
 
                           where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
                               //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
@@ -538,7 +539,7 @@ namespace SKG.DAL
                               s.Pol_UserOutId,
                               UserOutName = s.Pol_UserOut.Name,
 
-                              s.Tra_Vehicle.Code,
+                              Number=s.Tra_Vehicle.Code,
                               s.DateIn,
                               s.DateOut,
 
@@ -550,9 +551,9 @@ namespace SKG.DAL
                               s.Price2,
                               Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
-
-                              KindName = k.Transport.Text,
-                              //GroupCode = k.Transport.Group.Code
+                              
+                              GroupName = k.Group.Text,
+                              KindName = k.Text,
                           };
 
                 //switch (group)

@@ -427,7 +427,7 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Bến đến";
+            this.gridColumn7.Caption = "Tỉnh";
             this.gridColumn7.FieldName = "Commission";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;

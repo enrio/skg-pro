@@ -79,7 +79,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Registries
-                          join k in _db.Pol_Dictionarys on s.DepartureId equals k.Id
+                          //join k in _db.Pol_Dictionarys on s.DepartureId equals k.Id
                           orderby s.Vehicle.Transport.Text
                           select new
                           {
@@ -88,18 +88,18 @@ namespace SKG.DAL
                               Number = s.Vehicle.Code,
                               Transport = s.Vehicle.Transport.Text,
                               s.TariffId,
-                              Tariff = s.Tariff.Text,
+                              //Tariff = s.Tariff.Text,
                               s.CommissionId,
-                              Commission = s.Commission.Text,
+                              //Commission = s.Commission.Text,
                               s.Tariff.Price1,
                               s.Tariff.Price2,
 
                               //Tariff=  k.Text,
 
                               s.ArrivalId,
-                              Arrival = s.Arrival.Text,
+                              //Arrival = s.Arrival.Text,
                               s.DepartureId,
-                              Departure = s.Departure.Text,
+                              //Departure = s.Departure.Text,
                               s.TimeLeaves,
                               s.Code,
                               s.Order,
@@ -142,8 +142,12 @@ namespace SKG.DAL
         {
             try
             {
-                var o = (Tra_Tariff)obj;
+                var o = (Tra_Registry)obj;
                 var res = _db.Tra_Registries.SingleOrDefault(s => s.Id == o.Id);
+
+                res.TariffId = o.TariffId;
+                res.CommissionId = o.CommissionId;
+                res.TimeLeaves = o.TimeLeaves;
 
                 res.Text = o.Text;
 

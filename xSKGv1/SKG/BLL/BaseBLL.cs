@@ -96,7 +96,8 @@ namespace SKG.BLL
         /// <returns></returns>
         public static bool CheckDb()
         {
-            return _bll.Pol_User.Count() > 0;
+            var svr = new SKG.Data.SqlServer();
+            return svr.CheckDbExists("xSKGv1");
         }
         #endregion
     }

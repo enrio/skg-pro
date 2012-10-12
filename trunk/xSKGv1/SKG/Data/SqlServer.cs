@@ -40,10 +40,14 @@ namespace SKG.Data
         /// <returns></returns>
         public List<string> GetDatabases()
         {
-            var tbl = ExecuteQuery("select name from sys.sysdatabases where sid <> 0x01");
-            var lst = new List<string>();
-            foreach (DataRow r in tbl.Rows) lst.Add(r["name"] + "");
-            return lst;
+            try
+            {
+                var tbl = ExecuteQuery("select name from sys.sysdatabases where sid <> 0x01");
+                var lst = new List<string>();
+                foreach (DataRow r in tbl.Rows) lst.Add(r["name"] + "");
+                return lst;
+            }
+            catch { return null; }
         }
 
         /// <summary>
@@ -54,7 +58,7 @@ namespace SKG.Data
         public bool CheckDbExists(string dbName)
         {
             var res = GetDatabases();
-            return res.Contains(dbName);
+            return res == null ? false : res.Contains(dbName);
         }
 
         /// <summary>

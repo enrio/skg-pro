@@ -93,12 +93,12 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// High quality
         /// </summary>
-        public bool High { set; get; }
+        public bool? High { set; get; }
 
         /// <summary>
         /// Vehicle of city
         /// </summary>
-        public bool City { set; get; }
+        public bool? City { set; get; }
 
         /// <summary>
         /// Fixed route

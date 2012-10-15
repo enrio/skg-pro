@@ -132,7 +132,7 @@ namespace SKG.DXF.Station.Fixed
         {
             cboNumber.DataBindings.Add("EditValue", _dtb, ".Number");
             lokTariff.DataBindings.Add("EditValue", _dtb, ".TariffId");
-            lokBenden.DataBindings.Add("EditValue", _dtb, ".CommissionId");
+            lokBenden.DataBindings.Add("EditValue", _dtb, ".RouteId");
             dteXuatben.DataBindings.Add("EditValue", _dtb, ".TimeLeaves");
 
             base.DataBindingControl();

@@ -89,9 +89,9 @@ namespace SKG.DAL
                               Transport = s.Vehicle.Transport.Text,
                               s.TariffId,
                               Tariff = s.Tariff.Text,
-                              
-                              s.Tariff.Price1,
-                              s.Tariff.Price2,                              
+
+                              //s.Tariff.Price1,
+                              //s.Tariff.Price2,
                               s.TimeLeaves,
                               s.Code,
                               s.Order,
@@ -138,7 +138,7 @@ namespace SKG.DAL
                 var res = _db.Tra_Registries.SingleOrDefault(s => s.Id == o.Id);
 
                 res.TariffId = o.TariffId;
-                
+
                 res.TimeLeaves = o.TimeLeaves;
 
                 res.Text = o.Text;

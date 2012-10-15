@@ -457,8 +457,8 @@ namespace SKG.DAL
                 price1 = ok.Price1;
                 price2 = ok.Price2;
 
-                int seats = ok.Seats == null ? 0 : ok.Seats.Value;
-                int beds = ok.Beds == null ? 0 : ok.Beds.Value;
+                int seats = ok.Seats ?? 0;
+                int beds = ok.Beds ?? 0;
                 money = 0;
 
                 if (ok.GroupCode.Substring(0, 4) == "KIND")

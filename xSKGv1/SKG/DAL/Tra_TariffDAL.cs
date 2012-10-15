@@ -38,10 +38,16 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Text,
-                              Descript = s.Note,
+
+                              Region = "",
+                              Area = s.Group.Text,
+                              Route = s.Text,
+                              s.Note,
+
                               s.Price1,
                               s.Price2,
+                              s.Rose1,
+                              s.Rose2,
 
                               s.Code,
                               s.Order,
@@ -85,11 +91,16 @@ namespace SKG.DAL
                           {
                               s.Id,
                               Tra_GroupId = s.GroupId,
-                              GroupName = s.Group.Text,
-                              s.Text,
-                              Descript = s.Note,
+
+                              Region = "",
+                              Area = s.Group.Text,
+                              Route = s.Text,
+                              s.Note,
+
                               s.Price1,
                               s.Price2,
+                              s.Rose1,
+                              s.Rose2,
 
                               s.Code,
                               s.Order,
@@ -138,6 +149,8 @@ namespace SKG.DAL
                 res.Text = o.Text;
                 res.Price1 = o.Price1;
                 res.Price2 = o.Price2;
+                res.Rose1 = o.Rose1;
+                res.Rose2 = o.Rose2;
 
                 res.Code = o.Code;
                 res.Note = o.Note;

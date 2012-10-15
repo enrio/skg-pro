@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Discrete
+namespace SKG.DXF.Station.Normal
 {
     using SKG;
     using BLL;
@@ -13,20 +13,20 @@ namespace SKG.DXF.Station.Discrete
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Group : SKG.DXF.FrmInput
+    public partial class FrmTra_Tariff : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Group).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá loại", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_Group()
+        public FrmTra_Tariff()
         {
             InitializeComponent();
 
@@ -56,7 +56,7 @@ namespace SKG.DXF.Station.Discrete
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Tariff.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 
@@ -74,6 +74,7 @@ namespace SKG.DXF.Station.Discrete
             }
 
             ReadOnlyControl();
+            grvMain.ExpandAllGroups();
 
             base.PerformRefresh();
         }
@@ -103,7 +104,10 @@ namespace SKG.DXF.Station.Discrete
 
         protected override void ResetInput()
         {
+            lokGroup.ItemIndex = 0;
             txtName.Text = null;
+            calPrice1.Text = null;
+            calPrice2.Text = null;
             txtDescript.Text = null;
 
             base.ResetInput();
@@ -111,7 +115,10 @@ namespace SKG.DXF.Station.Discrete
 
         protected override void ClearDataBindings()
         {
+            lokGroup.DataBindings.Clear();
             txtName.DataBindings.Clear();
+            calPrice1.DataBindings.Clear();
+            calPrice2.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -119,15 +126,21 @@ namespace SKG.DXF.Station.Discrete
 
         protected override void DataBindingControl()
         {
+            lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
+            calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            lokGroup.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
+            calPrice1.Properties.ReadOnly = isReadOnly;
+            calPrice2.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
@@ -143,15 +156,17 @@ namespace SKG.DXF.Station.Discrete
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
 
-                var o = new Pol_Dictionary()
+                var o = new Tra_Tariff()
                 {
                     Id = id,
-                    Type = Global.STR_GROUP,
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Text = txtName.Text,
+                    Price1 = (int)calPrice1.Value,
+                    Price2 = (int)calPrice2.Value,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.Update(o);
+                var oki = _bll.Tra_Tariff.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -165,14 +180,16 @@ namespace SKG.DXF.Station.Discrete
             {
                 if (!ValidInput()) return false;
 
-                var o = new Pol_Dictionary()
+                var o = new Tra_Tariff()
                 {
-                    Type = Global.STR_GROUP,
+                    GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Text = txtName.Text,
+                    Price1 = (int)calPrice1.Value,
+                    Price2 = (int)calPrice2.Value,
                     Note = txtDescript.Text
                 };
 
-                var oki = _bll.Pol_Dictionary.Insert(o);
+                var oki = _bll.Tra_Tariff.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
 
                 return oki != null ? true : false;
@@ -182,7 +199,7 @@ namespace SKG.DXF.Station.Discrete
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            _dtb = _bll.Tra_Tariff.SelectForDiscrete();
 
             if (_dtb != null)
             {
@@ -197,17 +214,24 @@ namespace SKG.DXF.Station.Discrete
         {
             var a = txtName.Text.Length == 0 ? false : true;
             if (!a) txtName.Focus();
+
             return a;
         }
         #endregion
 
-        private const string STR_ADD = "Thêm nhóm xe";
-        private const string STR_EDIT = "Sửa nhóm xe";
-        private const string STR_DELETE = "Xoá nhóm xe";
+        private void FrmTra_Kind_Load(object sender, EventArgs e)
+        {
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            lokGroup.ItemIndex = 0;
+        }
+
+        private const string STR_ADD = "Thêm loại xe";
+        private const string STR_EDIT = "Sửa loại xe";
+        private const string STR_DELETE = "Xoá loại xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
+        private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Nhóm này có rồi";
+        private const string STR_DUPLICATE = "Loại này có rồi";
     }
 }

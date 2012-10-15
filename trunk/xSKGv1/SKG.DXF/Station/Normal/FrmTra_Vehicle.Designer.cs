@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Station.Discrete
+﻿namespace SKG.DXF.Station.Normal
 {
     partial class FrmTra_Vehicle
     {

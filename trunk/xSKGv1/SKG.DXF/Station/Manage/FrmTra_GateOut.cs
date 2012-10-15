@@ -202,7 +202,7 @@ namespace SKG.DXF.Station.Manage
             if (cbbNumber.Text == "") return;
             cmdOut.Enabled = false;
 
-            var x = new Station.Discrete.FrmTra_Vehicle
+            var x = new Station.Normal.FrmTra_Vehicle
             {
                 num = cbbNumber.Text,
                 AllowAdd = false,

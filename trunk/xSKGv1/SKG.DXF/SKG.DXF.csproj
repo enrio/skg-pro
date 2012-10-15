@@ -199,29 +199,29 @@
     <Compile Include="Station\Fixed\FrmTra_Commission.Designer.cs">
       <DependentUpon>FrmTra_Commission.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Discrete\Level2.cs" />
-    <Compile Include="Station\Discrete\FrmTra_Vehicle.cs">
+    <Compile Include="Station\Normal\Level2.cs" />
+    <Compile Include="Station\Normal\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Vehicle.Designer.cs">
+    <Compile Include="Station\Normal\FrmTra_Vehicle.Designer.cs">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Media.cs">
+    <Compile Include="Station\Fixed\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Media.Designer.cs">
-      <DependentUpon>FrmTra_Media.cs</DependentUpon>
+    <Compile Include="Station\Fixed\FrmTra_Vehicle.Designer.cs">
+      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Group.cs">
+    <Compile Include="Station\Normal\FrmTra_Group.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Group.Designer.cs">
+    <Compile Include="Station\Normal\FrmTra_Group.Designer.cs">
       <DependentUpon>FrmTra_Group.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Tariff.cs">
+    <Compile Include="Station\Normal\FrmTra_Tariff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Discrete\FrmTra_Tariff.Designer.cs">
+    <Compile Include="Station\Normal\FrmTra_Tariff.Designer.cs">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Fixed\FrmTra_Registry.cs">
@@ -316,27 +316,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Discrete\FrmTra_Tariff.resx">
-      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Discrete\FrmTra_Vehicle.resx">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Registry.resx">
-      <DependentUpon>FrmTra_Registry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
-      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
-      <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
-      <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_InDepot.resx">
-      <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
       <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
     </EmbeddedResource>

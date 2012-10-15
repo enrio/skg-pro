@@ -5,9 +5,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Fixed
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
@@ -103,7 +100,7 @@ namespace SKG.DXF.Station.Fixed
         }
 
         protected override void ResetInput()
-        {            
+        {
             txtName.Text = null;
             calPrice1.Text = null;
             calPrice2.Text = null;
@@ -113,32 +110,43 @@ namespace SKG.DXF.Station.Fixed
         }
 
         protected override void ClearDataBindings()
-        {            
+        {
             txtName.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
+
             calPrice1.DataBindings.Clear();
             calPrice2.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
+
+            calRose1.DataBindings.Clear();
+            calRose2.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
-        {            
-            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+        {
+            txtName.DataBindings.Add("EditValue", _dtb, ".Route");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+
+            calRose1.DataBindings.Add("EditValue", _dtb, ".Rose1");
+            calRose2.DataBindings.Add("EditValue", _dtb, ".Rose2");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            
             txtName.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
+
             calPrice1.Properties.ReadOnly = isReadOnly;
             calPrice2.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
+
+            calRose1.Properties.ReadOnly = isReadOnly;
+            calRose2.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -156,10 +164,12 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Tariff()
                 {
                     Id = id,
-                    
+
                     Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
+                    Rose1 = (int)calRose1.Value,
+                    Rose2 = (int)calRose2.Value,
                     Note = txtDescript.Text
                 };
 
@@ -178,10 +188,12 @@ namespace SKG.DXF.Station.Fixed
                 if (!ValidInput()) return false;
 
                 var o = new Tra_Tariff()
-                {                    
+                {
                     Text = txtName.Text,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
+                    Rose1 = (int)calRose1.Value,
+                    Rose2 = (int)calRose2.Value,
                     Note = txtDescript.Text
                 };
 
@@ -214,11 +226,6 @@ namespace SKG.DXF.Station.Fixed
             return a;
         }
         #endregion
-
-        private void FrmTra_Kind_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private const string STR_ADD = "Thêm loại xe";
         private const string STR_EDIT = "Sửa loại xe";

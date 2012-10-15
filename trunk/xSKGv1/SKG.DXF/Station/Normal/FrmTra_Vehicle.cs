@@ -234,7 +234,7 @@ namespace SKG.DXF.Station.Normal
 
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
-            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForDiscrete();
+            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
             lueTransport.ItemIndex = 0;
 
             if (_num + "" != "")

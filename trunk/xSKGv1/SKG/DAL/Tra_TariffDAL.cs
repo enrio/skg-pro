@@ -79,7 +79,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          
+
                           orderby s.Group.Text, s.Group.Order
                           select new
                           {
@@ -179,22 +179,27 @@ namespace SKG.DAL
         /// Bảng giá cho xe vãng lai
         /// </summary>
         /// <returns></returns>
-        public DataTable SelectForDiscrete()
+        public DataTable SelectForNormal()
         {
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Group.Code == "GROUP_1" || s.Group.Code == "GROUP_2"
-                          orderby s.Order
+                          where s.Code.Contains("KIND")
+                          orderby s.Group.Text, s.Text
                           select new
                           {
                               s.Id,
                               Tra_GroupId = s.GroupId,
-                              GroupName = s.Group.Text,
-                              s.Text,
+
+                              Region = "",
+                              Area = s.Group.Text,
+                              Route = s.Text,
                               Descript = s.Note,
+
                               s.Price1,
                               s.Price2,
+                              s.Rose1,
+                              s.Rose2,
 
                               s.Code,
                               s.Order,
@@ -207,7 +212,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Bảng giá cho xe cố định
+        /// Bảng giá, hoa hồng cho xe cố định
         /// </summary>
         /// <returns></returns>
         public DataTable SelectForFixed()
@@ -215,48 +220,22 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Group.Code == "GROUP_0"
-                          orderby s.Order
+                          where s.Code.Contains("PROVINCE")
+                          orderby s.Group.Text, s.Text
                           select new
                           {
                               s.Id,
                               Tra_GroupId = s.GroupId,
-                              GroupName = s.Group.Text,
-                              s.Text,
+
+                              Region = "",
+                              Area = s.Group.Text,
+                              Route = s.Text,
                               Descript = s.Note,
+
                               s.Price1,
                               s.Price2,
-
-                              s.Code,
-                              s.Order,
-                              s.Show
-                          };
-
-                return res.ToDataTable();
-            }
-            catch { return _tb; }
-        }
-
-        /// <summary>
-        /// Hoa hồng vé
-        /// </summary>
-        /// <returns></returns>
-        public DataTable SelectCommission()
-        {
-            try
-            {
-                var res = from s in _db.Tra_Tariffs
-                          
-                          orderby s.Group.Text, s.Group.Order
-                          select new
-                          {
-                              s.Id,
-                              Tra_GroupId = s.GroupId,
-                              GroupName = s.Group.Text,
-                              s.Text,
-                              Descript = s.Note,
-                              s.Price1,
-                              s.Price2,
+                              s.Rose1,
+                              s.Rose2,
 
                               s.Code,
                               s.Order,

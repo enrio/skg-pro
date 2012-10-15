@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
@@ -25,7 +24,7 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
-        Guid _idLoaixe;
+        Guid _idLoaixe = Guid.Empty;
 
         public FrmTra_GateIn()
         {
@@ -321,38 +320,13 @@ namespace SKG.DXF.Station.Manage
                 if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
             }
 
-            //if (tabControl1.SelectedTab.Name == tabControl1.TabPages[3].Name)
-            ////if (lkeGroup.GetColumnValue("Code") + "" == "E")
-            //{
-            //    oki = txtChair.Text.Length == 0 ? false : true;
-            //    if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            //}
-
             return oki;
-        }
-
-        static int _sec; // current second
-        protected override void TimerTick(object sender, EventArgs e)
-        {
-            //_sec++; if (_sec >= 10) { LoadData(); _sec = 0; }
-            //lblDateIn.Text = Global.Session.Current.ToStringVN();
-
-            //base.TimerTick(sender, e);
         }
         #endregion
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
             lblUserIn.Text = Global.Session.User.Name.ToUpper();
-
-            //lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
-            //lkeGroup.ItemIndex = 0;
-
-            //var g = (Pol_Dictionary)_bll.Pol_Dictionary.Select("GROUP_1");
-            //cbbTruckKind.DataSource = _bll.Tra_Kind.Select(g.Id);
-            //cbbTruckKind.SelectedIndex = 0;
-
-            tabControl1_SelectedIndexChanged(null, null);
 
             ReadOnlyControl();
         }
@@ -385,35 +359,6 @@ namespace SKG.DXF.Station.Manage
         public bool EditHand { set; get; } // edit by hand        
         #endregion
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //switch (tabControl1.SelectedIndex)
-            //{
-            //    case 0:
-            //        _idLoaixe = (Guid)cbbTruckKind.SelectedValue;
-            //        break;
-            //    case 1:
-            //        var k = (Tra_Kind)_bll.Tra_Kind.Select("J"); // taxi vang lai
-            //        _idLoaixe = k.Id;
-            //        break;
-            //    case 2:
-            //        k = (Tra_Kind)_bll.Tra_Kind.Select("K"); // xe ba gac
-            //        _idLoaixe = k.Id;
-            //        break;
-            //    case 3:
-            //        k = (Tra_Kind)_bll.Tra_Kind.Select("L"); // xe khách vãng lai, quá cảnh, trung chuyển
-            //        _idLoaixe = k.Id;
-            //        break;
-            //    default:
-            //        break;
-            //}
-        }
-
-        private void cbbTruckKind_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //_idLoaixe = (Guid)cbbTruckKind.SelectedValue;
-        }
-
         private const string STR_ADD = "Thêm chi tiết ra/vào";
         private const string STR_EDIT = "Sửa chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
@@ -423,11 +368,6 @@ namespace SKG.DXF.Station.Manage
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
 
-        private void txtNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
         private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e == null || e.KeyCode == Keys.Enter)
@@ -435,11 +375,13 @@ namespace SKG.DXF.Station.Manage
                 var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
                 if (o == null)
                 {
-                    var frm = new Station.Normal.FrmTra_Vehicle();
-                    frm._num = txtNumber.Text;
-                    frm.WindowState = FormWindowState.Maximized;
-                    frm.AllowCancel = false;
-                    frm._state = State.Add;
+                    var frm = new Station.Normal.FrmTra_Vehicle
+                    {
+                        _num = txtNumber.Text,
+                        WindowState = FormWindowState.Maximized,
+                        AllowCancel = false,
+                        _state = State.Add
+                    };
                     frm.ShowDialog();
                 }
             }

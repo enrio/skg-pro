@@ -126,7 +126,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void DataBindingControl()
         {
             txtName.DataBindings.Add("EditValue", _dtb, ".Route");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");

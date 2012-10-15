@@ -130,7 +130,7 @@ namespace SKG.DXF.Station.Normal
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }

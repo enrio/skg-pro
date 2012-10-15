@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 22:50
+ * Update: 15/10/2012 21:21
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,55 +19,49 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Đơn vị vận tải tham gia chạy tuyến
+    /// Transport - Registry to join route
     /// </summary>
     public class Tra_Registry : Zinfors
     {
         #region Foreign key
         /// <summary>
-        /// Refercence to Tra_Vehicle
+        /// Of vehicle (refercence to Tra_Vehicle)
         /// </summary>
         [Column(Order = 0), ForeignKey("Vehicle")]
         public Guid? VehicleId { set; get; }
+        /// <summary>
+        /// Of vehicle
+        /// </summary>
         public virtual Tra_Vehicle Vehicle { get; set; }
 
         /// <summary>
-        /// Refercence to Tra_Tariff
+        /// Tariff and commission (refercence to Tra_Tariff)
         /// </summary>
         [Column(Order = 1), ForeignKey("Tariff")]
         public Guid? TariffId { set; get; }
         /// <summary>
-        /// Giá vé
+        /// Tariff and commission
         /// </summary>
         public virtual Tra_Tariff Tariff { get; set; }
 
         /// <summary>
-        /// Refercence to Tra_Tariff
+        /// Route registry (refercence to Tra_Tariff)
         /// </summary>
-        [Column(Order = 2), ForeignKey("Commission")]
-        public Guid? CommissionId { set; get; }
+        [Column(Order = 4), ForeignKey("Route")]
+        public Guid? RouteId { set; get; }
         /// <summary>
-        /// Hoa hồng
+        /// Route registry
         /// </summary>
-        public virtual Tra_Tariff Commission { get; set; }
+        public Pol_Dictionary Route { get; set; }
 
         /// <summary>
-        /// Bến đi
+        /// List of vehicles
         /// </summary>
-        [Column(Order = 3), ForeignKey("Arrival")]
-        public Guid? ArrivalId { set; get; }
-        public Pol_Dictionary Arrival { get; set; }
-
-        /// <summary>
-        /// Bến đến
-        /// </summary>
-        [Column(Order = 4), ForeignKey("Departure")]
-        public Guid? DepartureId { set; get; }
-        public Pol_Dictionary Departure { get; set; }
+        public virtual ICollection<Tra_Vehicle> Tra_Vehicles { get; set; }
         #endregion
 
         /// <summary>
-        /// Ngày giờ xuất bến (âm lịch)
+        /// Date and time leave (vietnam)
         /// </summary>
         public string TimeLeaves { get; set; }
     }

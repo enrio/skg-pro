@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 22:50
+ * Update: 15/10/2012 21:21
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,118 +23,114 @@ namespace SKG.DAL.Entities
     /// </summary>
     public class Tra_Vehicle : Zinfors
     {
-        #region Khoá ngoại
+        #region Foreign key
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Pol_Dictionary (đơn vị vận tải)
+        /// Belong to transport (reference to Pol_Dictionary)
         /// </summary>
         [Column(Order = 1), ForeignKey("Transport")]
         public Guid? TransportId { set; get; }
-
         /// <summary>
-        /// Thuộc đơn vị vận tải
+        /// Belong to transport unit
         /// </summary>
         public virtual Pol_Dictionary Transport { get; set; }
 
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Tra_Tariff (bảng giá)
+        /// Belong to tariff and commission (reference to Tra_Tariff)
         /// </summary>
         [Column(Order = 1), ForeignKey("Tariff")]
         public Guid? TariffId { set; get; }
-
         /// <summary>
-        /// Có đơn giá
+        /// Have tariff and commission
         /// </summary>
         public virtual Tra_Tariff Tariff { get; set; }
+
+        /// <summary>
+        /// List of details in/out
+        /// </summary>
+        public virtual ICollection<Tra_Detail> Tra_Details { get; set; }
         #endregion
 
-        #region Tải trọng
+        #region Weight
         /// <summary>
-        /// Số ghế ngồi
+        /// Number of seats
         /// </summary>
         public int? Seats { set; get; }
 
         /// <summary>
-        /// Số giường nằm
+        /// Number of beds
         /// </summary>
         public int? Beds { set; get; }
         #endregion
 
-        #region Thông tin quản lý
+        #region Information management
         /// <summary>
-        /// Năm sản xuất
+        /// Production year
         /// </summary>
         public int? ProductionYear { set; get; }
 
         /// <summary>
-        /// Hạn đăng kiểm
+        /// Limited registration
         /// </summary>
         public DateTime? LimitedRegistration { set; get; }
 
         /// <summary>
-        /// Hạn bảo hiểm
+        /// Term insurance
         /// </summary>
         public DateTime? TermInsurance { set; get; }
 
         /// <summary>
-        /// Hạn tuyến cố định
+        /// Term fixed routes
         /// </summary>
         public DateTime? TermFixedRoutes { set; get; }
 
         /// <summary>
-        /// Hạn giấy phép lái xe
+        /// Term driver license
         /// </summary>
         public DateTime? TermDriverLicense { set; get; }
         #endregion
 
-        #region Thông tin xe
+        #region Information of vehicle
         /// <summary>
-        /// Xe chất lượng cao
+        /// High quality
         /// </summary>
         public bool High { set; get; }
 
         /// <summary>
-        /// Xe thành phố
+        /// Vehicle of city
         /// </summary>
         public bool City { set; get; }
 
         /// <summary>
-        /// Tuyến cố định
+        /// Fixed route
         /// </summary>
         public bool Fixed { set; get; }
         #endregion
 
-        #region Thông tin khác
+        #region Difference information
         /// <summary>
-        /// Chất lượng phục vụ
+        /// Server quality
         /// </summary>
         public string ServerQuality { set; get; }
 
         /// <summary>
-        /// Họ tên của tài xế
+        /// Driver's fullname
         /// </summary>
         public string Driver { set; get; }
 
         /// <summary>
-        /// Ngày tháng năm sinh của tài xế
+        /// Driver's birthday
         /// </summary>
         public DateTime? Birth { set; get; }
 
         /// <summary>
-        /// Địa chỉ liên lạc của tài xế
+        /// Driver's address
         /// </summary>
         public string Address { set; get; }
 
         /// <summary>
-        /// Điện thoại liên lạc của tài xế
+        /// Driver's telephone number
         /// </summary>
         public string Phone { set; get; }
-        #endregion
-
-        #region Khoá ngoại ở các thực thể khác
-        /// <summary>
-        /// Chi tiết xe ra, vào bến
-        /// </summary>
-        public virtual ICollection<Tra_Detail> Tra_Details { get; set; }
         #endregion
     }
 }

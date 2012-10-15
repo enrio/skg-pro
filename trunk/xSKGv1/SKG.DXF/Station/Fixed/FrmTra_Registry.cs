@@ -162,7 +162,7 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Id = id,
                     TariffId =(Guid) lokTariff.EditValue,
-                    CommissionId =(Guid) lokBenden.EditValue,
+                    
                     //TimeLeaves = dteXuatben.DateTime
                 };
 

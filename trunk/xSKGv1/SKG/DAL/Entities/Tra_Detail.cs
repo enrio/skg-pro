@@ -1,75 +1,109 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 22:50
+ * Update: 15/10/2012 21:21
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SKG.DAL.Entities
 {
-    using SKG.DAL.Entities;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Vận tải - Chi tiết xe ra vào bến
+    /// Transport - Details of in/out
     /// </summary>
     public class Tra_Detail : Zinfors
     {
-        #region Khoá ngoại
+        #region Foreign key
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Tra_Vehicle
+        /// Of vehicle (refercence to Tra_Vehicle)
         /// </summary>
         [Column(Order = 0), ForeignKey("Tra_Vehicle")]
         public Guid? Tra_VehicleId { set; get; }
+        /// <summary>
+        /// Of vehicle
+        /// </summary>
         public virtual Tra_Vehicle Tra_Vehicle { get; set; }
 
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Pol_User
+        /// Of User ingate (refercence to Pol_User)
         /// </summary>
         [Column(Order = 1), ForeignKey("Pol_UserIn")]
         public Guid? Pol_UserInId { set; get; }
+        /// <summary>
+        /// Of User ingate
+        /// </summary>
         public virtual Pol_User Pol_UserIn { get; set; }
 
         /// <summary>
-        /// Khoá ngoại tham chiếu tới Pol_User
+        /// Of User outgate (refercence to Pol_User)
         /// </summary>
         [Column(Order = 2), ForeignKey("Pol_UserOut")]
         public Guid? Pol_UserOutId { set; get; }
+        /// <summary>
+        /// Of User outgate
+        /// </summary>
         public virtual Pol_User Pol_UserOut { get; set; }
         #endregion
 
+        #region In station
         /// <summary>
-        /// Thời gian cho xe vào bến
+        /// Date time into
         /// </summary>
         public DateTime DateIn { set; get; }
 
         /// <summary>
-        /// Thời gian cho xe ra bến
+        /// Date time out
         /// </summary>
         public DateTime? DateOut { set; get; }
 
         /// <summary>
-        /// Số ngày lưu đậu
+        /// Number of days in station
         /// </summary>
         public int Days { set; get; }
 
         /// <summary>
-        /// Số giờ lưu đậu
+        /// Number of hours in station
         /// </summary>
         public int Hours { set; get; }
+        #endregion
 
+        #region Price
         /// <summary>
-        /// Đơn giá nửa ngày
+        /// Price of a seat or a half day
         /// </summary>
         public int Price1 { set; get; }
 
         /// <summary>
-        /// Đơn giá một ngày
+        /// Price of a bed or a full day
         /// </summary>
         public int Price2 { set; get; }
+        #endregion
+
+        #region Commission
+        /// <summary>
+        /// Commission of a seat
+        /// </summary>
+        public int Rose1 { set; get; }
 
         /// <summary>
-        /// Thành tiền
+        /// Commission of a bed
+        /// </summary>
+        public int Rose2 { set; get; }
+        #endregion
+
+        /// <summary>
+        /// Total money
         /// </summary>
         public decimal Money { set; get; }
-
-        public Tra_Detail() { Days = 0; Hours = 0; }
     }
 }

@@ -29,11 +29,15 @@ namespace SKG.DAL.Entities
         /// </summary>
         [ForeignKey("Group")]
         public Guid? GroupId { set; get; }
-
         /// <summary>
-        /// Belong to group AREA
+        /// Belong to area group
         /// </summary>
         public virtual Pol_Dictionary Group { get; set; }
+
+        /// <summary>
+        /// List of vehicles
+        /// </summary>
+        public virtual ICollection<Tra_Vehicle> Tra_Vehicles { get; set; }
         #endregion
 
         #region Price

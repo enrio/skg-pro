@@ -20,7 +20,6 @@ namespace SKG.DXF
     using SKG.Data;
     using System.Data;
     using DAL.Entities;
-
     using System.Windows.Forms;
 
     /// <summary>

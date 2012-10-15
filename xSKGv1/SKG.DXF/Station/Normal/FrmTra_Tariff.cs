@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Normal
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Tariff.SelectForDiscrete();
+            _dtb = _bll.Tra_Tariff.SelectForNormal();
 
             if (_dtb != null)
             {

@@ -161,8 +161,8 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Registry()
                 {
                     Id = id,
-                    TariffId =(Guid) lokTariff.EditValue,
-                    
+                    TariffId = (Guid)lokTariff.EditValue,
+
                     //TimeLeaves = dteXuatben.DateTime
                 };
 
@@ -229,9 +229,6 @@ namespace SKG.DXF.Station.Fixed
         {
             lokTariff.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
             lokTariff.ItemIndex = 0;
-
-            lokBenden.Properties.DataSource = _bll.Tra_Tariff.SelectCommission();
-            lokBenden.ItemIndex = 0;
         }
     }
 }

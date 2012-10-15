@@ -32,9 +32,15 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.calRose2 = new DevExpress.XtraEditors.CalcEdit();
+            this.calRose1 = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
             this.calPrice1 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -44,30 +50,28 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.calRose2 = new DevExpress.XtraEditors.CalcEdit();
-            this.calRose1 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
@@ -76,10 +80,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -119,6 +119,91 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 71);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelControl4);
+            this.groupBox2.Controls.Add(this.calRose2);
+            this.groupBox2.Controls.Add(this.calRose1);
+            this.groupBox2.Controls.Add(this.labelControl5);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(641, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(279, 59);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Hoa hồng vé";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(131, 30);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(58, 19);
+            this.labelControl4.TabIndex = 12;
+            this.labelControl4.Text = "Giường:";
+            // 
+            // calRose2
+            // 
+            this.calRose2.Location = new System.Drawing.Point(195, 27);
+            this.calRose2.Name = "calRose2";
+            this.calRose2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calRose2.Properties.Appearance.Options.UseFont = true;
+            this.calRose2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calRose2.Properties.DisplayFormat.FormatString = "#,#";
+            this.calRose2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose2.Properties.EditFormat.FormatString = "#,#";
+            this.calRose2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose2.Size = new System.Drawing.Size(78, 26);
+            this.calRose2.TabIndex = 13;
+            // 
+            // calRose1
+            // 
+            this.calRose1.Location = new System.Drawing.Point(46, 27);
+            this.calRose1.Name = "calRose1";
+            this.calRose1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calRose1.Properties.Appearance.Options.UseFont = true;
+            this.calRose1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calRose1.Properties.DisplayFormat.FormatString = "#,#";
+            this.calRose1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose1.Properties.EditFormat.FormatString = "#,#";
+            this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose1.Size = new System.Drawing.Size(78, 26);
+            this.calRose1.TabIndex = 11;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Location = new System.Drawing.Point(6, 30);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(34, 19);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "Ghế:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.calPrice2);
+            this.groupBox1.Controls.Add(this.calPrice1);
+            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(356, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(279, 59);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Đơn giá vé";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(131, 30);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(58, 19);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Giường:";
+            // 
             // calPrice2
             // 
             this.calPrice2.Location = new System.Drawing.Point(195, 27);
@@ -148,15 +233,6 @@
             this.calPrice1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calPrice1.Size = new System.Drawing.Size(78, 26);
             this.calPrice1.TabIndex = 6;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(131, 30);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(58, 19);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Giường:";
             // 
             // labelControl1
             // 
@@ -387,9 +463,25 @@
             this.gridColumn11,
             this.gridColumn12});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupCount = 1;
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn12, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn4);
+            this.gridBand1.Columns.Add(this.gridColumn12);
+            this.gridBand1.Columns.Add(this.gridColumn11);
+            this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 323;
             // 
             // gridColumn1
             // 
@@ -419,6 +511,21 @@
             this.gridColumn4.Visible = true;
             this.gridColumn4.Width = 80;
             // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Vùng";
+            this.gridColumn12.FieldName = "Area";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.Width = 80;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Miền";
+            this.gridColumn11.FieldName = "Region";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Width = 80;
+            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Mô tả";
@@ -426,6 +533,14 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.Width = 83;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Đơn giá";
+            this.gridBand2.Columns.Add(this.gridColumn7);
+            this.gridBand2.Columns.Add(this.gridColumn8);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.Width = 150;
             // 
             // gridColumn7
             // 
@@ -445,6 +560,14 @@
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             // 
+            // gridBand3
+            // 
+            this.gridBand3.Caption = "Hoa hồng";
+            this.gridBand3.Columns.Add(this.gridColumn9);
+            this.gridBand3.Columns.Add(this.gridColumn10);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.Width = 150;
+            // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Ghế";
@@ -463,127 +586,6 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             // 
-            // gridColumn11
-            // 
-            this.gridColumn11.Caption = "Miền";
-            this.gridColumn11.FieldName = "Region";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.Width = 80;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "Vùng";
-            this.gridColumn12.FieldName = "Area";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.Width = 80;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.gridColumn12);
-            this.gridBand1.Columns.Add(this.gridColumn11);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 403;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Đơn giá";
-            this.gridBand2.Columns.Add(this.gridColumn7);
-            this.gridBand2.Columns.Add(this.gridColumn8);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 150;
-            // 
-            // gridBand3
-            // 
-            this.gridBand3.Caption = "Hoa hồng";
-            this.gridBand3.Columns.Add(this.gridColumn9);
-            this.gridBand3.Columns.Add(this.gridColumn10);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 150;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.labelControl2);
-            this.groupBox1.Controls.Add(this.calPrice2);
-            this.groupBox1.Controls.Add(this.calPrice1);
-            this.groupBox1.Controls.Add(this.labelControl1);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(356, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 59);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đơn giá vé";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.labelControl4);
-            this.groupBox2.Controls.Add(this.calRose2);
-            this.groupBox2.Controls.Add(this.calRose1);
-            this.groupBox2.Controls.Add(this.labelControl5);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(641, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 59);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Hoa hồng vé";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(131, 30);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(58, 19);
-            this.labelControl4.TabIndex = 12;
-            this.labelControl4.Text = "Giường:";
-            // 
-            // calRose2
-            // 
-            this.calRose2.Location = new System.Drawing.Point(195, 27);
-            this.calRose2.Name = "calRose2";
-            this.calRose2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calRose2.Properties.Appearance.Options.UseFont = true;
-            this.calRose2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calRose2.Properties.DisplayFormat.FormatString = "#,#";
-            this.calRose2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose2.Properties.EditFormat.FormatString = "#,#";
-            this.calRose2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose2.Size = new System.Drawing.Size(78, 26);
-            this.calRose2.TabIndex = 13;
-            // 
-            // calRose1
-            // 
-            this.calRose1.Location = new System.Drawing.Point(46, 27);
-            this.calRose1.Name = "calRose1";
-            this.calRose1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calRose1.Properties.Appearance.Options.UseFont = true;
-            this.calRose1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calRose1.Properties.DisplayFormat.FormatString = "#,#";
-            this.calRose1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose1.Properties.EditFormat.FormatString = "#,#";
-            this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose1.Size = new System.Drawing.Size(78, 26);
-            this.calRose1.TabIndex = 11;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(6, 30);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(34, 19);
-            this.labelControl5.TabIndex = 10;
-            this.labelControl5.Text = "Ghế:";
-            // 
             // FrmTra_Tariff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +593,6 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_Tariff";
-            this.Load += new System.EventHandler(this.FrmTra_Kind_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -599,6 +600,12 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
@@ -607,12 +614,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

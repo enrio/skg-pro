@@ -193,7 +193,7 @@ namespace SKG.DAL
 
                               Group = s.Group.Text,
                               s.Text,
-                              Descript = s.Note,
+                              s.Note,
 
                               s.Price1,
                               s.Price2,
@@ -229,7 +229,7 @@ namespace SKG.DAL
                               Region = "",
                               Area = s.Group.Text,
                               Route = s.Text,
-                              Descript = s.Note,
+                              s.Note,
 
                               s.Price1,
                               s.Price2,

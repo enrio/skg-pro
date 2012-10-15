@@ -132,9 +132,10 @@ namespace SKG.DXF.Station.Manage
 
                 decimal money = 0;
                 int price1 = 0, price2 = 0;
+                int rose1 = 0, rose2 = 0;
                 int day = 0, hour = 0;
 
-                var tb = _bll.Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, isOut);
+                var tb = _bll.Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, ref  rose1, ref  rose2, isOut);
 
                 if (tb == null) return;
 

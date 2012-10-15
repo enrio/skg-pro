@@ -394,9 +394,7 @@ namespace SKG.DAL
                               k.Price2,
 
                               TariffPrice1 = l.Tariff.Price1,
-                              TariffPrice2 = l.Tariff.Price2,
-                              CommissionPrice1 = l.Commission.Price1,
-                              CommissionPrice2 = l.Commission.Price2,
+                              TariffPrice2 = l.Tariff.Price2,                              
 
                               s.Money
                           };
@@ -437,8 +435,7 @@ namespace SKG.DAL
 
                               TariffPrice1 = 0,
                               TariffPrice2 = 0,
-                              CommissionPrice1 = 0,
-                              CommissionPrice2 = 0,
+                              
 
                               s.Money
                           };
@@ -485,7 +482,7 @@ namespace SKG.DAL
                 {
                     // Xe tuyến cố định
                     money = ok.TariffPrice1 * (seats - 1) + ok.TariffPrice2 * beds;
-                    money += ok.CommissionPrice1 * (seats - 1) + ok.CommissionPrice2 * beds;
+                    
                 }
 
                 if (isOut)

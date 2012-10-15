@@ -16,9 +16,7 @@ using System.Collections.Generic;
 namespace SKG.DXF
 {
     using Home.Sytem;
-    using Help.Infor;
     using SKG.Extend;
-    using SKG.Hasher;
 
     /// <summary>
     /// Form main of system
@@ -35,7 +33,8 @@ namespace SKG.DXF
             //SkinHelper.InitSkinGallery(rgbMain, true);
 
             #region Information of server, timer
-            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]", Global.Connection.DataSource, Global.Connection.Database);
+            bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",
+                Global.Connection.DataSource, Global.Connection.Database);
             bsiUser.Caption = null;
             bsiTimer.Caption = null;
             #endregion
@@ -50,27 +49,11 @@ namespace SKG.DXF
         {
             Global.Parent = this;
 
-            //// Check license
-            //var key = (new Registri()).Read("License");
-            //var ok = License.IsLincense(key);
-            //if (ok == LicState.None)
-            //{
-            //    Extend.ShowRight<FrmPol_License>(this);
-            //    //return;
-            //}
-            ////else bbiRegistry.Enabled = false;
-
             if (!Sample.CheckDb())
             {
                 Extend.ShowRight<FrmPol_Setting>(this);
                 return;
             }
-            //else bbiSetting.Visibility = BarItemVisibility.Never;
-
-            var a = Sample._bll.Pol_Dictionary.SelectButtons();
-            var b = Sample._bll.Pol_Dictionary.SelectLangs();
-            var c = Sample._bll.Pol_Dictionary.SelectRights();
-            var d = Sample._bll.Pol_Dictionary.SelectRoles();
 
             Extend.Login();
         }
@@ -82,11 +65,9 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            if (Global.Session.Current != null)
-            {
-                bsiTimer.Caption = Global.Session.Current.ToStringVN();
-                Global.Session.Current = Global.Session.Current.AddSeconds(1);
-            }
+            if (Global.Session.Current == null) return;
+            bsiTimer.Caption = Global.Session.Current.ToStringVN();
+            Global.Session.Current = Global.Session.Current.AddSeconds(1);
         }
     }
 }

@@ -96,8 +96,8 @@ namespace SKG.BLL
         /// <returns></returns>
         public static bool CheckDb()
         {
-            var svr = new SKG.Data.SqlServer();
-            return svr.CheckDbExists("xSKGv1");
+            var svr = new SKG.Data.SqlServer(Global.Connection.ConnectionString);
+            return svr.CheckDbExists(Global.Connection.Database);
         }
         #endregion
     }

@@ -17,7 +17,7 @@ using System.Linq;
 namespace SKG.DAL.Entities
 {
     /// <summary>
-    /// All of actions: add, edit, delete, arint, access ... on menu or form
+    /// All of actions: add, edit, delete, print, access ... on menu or form
     /// </summary>
     public class Zaction : Zinfors
     {

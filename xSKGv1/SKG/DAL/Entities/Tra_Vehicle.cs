@@ -103,7 +103,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Fixed route
         /// </summary>
-        public bool? Fixed { set; get; }
+        public bool Fixed { set; get; }
         #endregion
 
         #region Difference information

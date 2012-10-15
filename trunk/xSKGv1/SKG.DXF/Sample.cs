@@ -690,9 +690,7 @@ namespace SKG.DXF
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
-            tbl.Columns.Add("CommissionId", typeof(Guid));
-            tbl.Columns.Add("ArrivalId", typeof(Guid));
-            tbl.Columns.Add("DepartureId", typeof(Guid));
+            tbl.Columns.Add("RouteId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
             #endregion
         }

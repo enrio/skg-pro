@@ -165,7 +165,7 @@
     <Content Include="Icons\Media.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Icons\Discrete.png">
+    <Content Include="Icons\Normal.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\Fixed.png">

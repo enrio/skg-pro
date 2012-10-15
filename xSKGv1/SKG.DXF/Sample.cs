@@ -425,13 +425,13 @@ namespace SKG.DXF
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Home.Sytem.FrmPol_Setting).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Discrete.FrmTra_Group).FullName);
+            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Normal.FrmTra_Group).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Discrete.FrmTra_Tariff).FullName);
+            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Normal.FrmTra_Tariff).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Discrete.FrmTra_Vehicle).FullName);
+            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Normal.FrmTra_Vehicle).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Add = true, Edit = true, Delete = true, Access = true };
             Pol_RoleRight.Insert(o);
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Manage.FrmTra_GateIn).FullName);

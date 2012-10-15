@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 22:50
+ * Update: 15/10/2012 21:21
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,19 +19,19 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Vận tải - Bảng giá theo loại xe của xe vãng lai; miền, hoa hồng của xe cố định
+    /// Transport - Tariff and commission of ticket
     /// </summary>
     public class Tra_Tariff : Zinfors
     {
-        #region Khoá ngoại
+        #region Foreign key
         /// <summary>
-        /// Thuộc nhóm (khoá ngoại tham chiếu tới Pol_Dictionary)
+        /// Belong to group (reference to Pol_Dictionary)
         /// </summary>
         [ForeignKey("Group")]
         public Guid? GroupId { set; get; }
 
         /// <summary>
-        /// Thuộc nhóm (miền)
+        /// Belong to group AREA
         /// </summary>
         public virtual Pol_Dictionary Group { get; set; }
         #endregion

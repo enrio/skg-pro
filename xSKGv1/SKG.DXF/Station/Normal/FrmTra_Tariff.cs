@@ -5,9 +5,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Normal
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
@@ -20,7 +17,7 @@ namespace SKG.DXF.Station.Normal
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá loại", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá xe vãng lai", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }
@@ -105,10 +102,12 @@ namespace SKG.DXF.Station.Normal
         protected override void ResetInput()
         {
             lokGroup.ItemIndex = 0;
+
             txtName.Text = null;
+            txtDescript.Text = null;
+
             calPrice1.Text = null;
             calPrice2.Text = null;
-            txtDescript.Text = null;
 
             base.ResetInput();
         }
@@ -116,10 +115,12 @@ namespace SKG.DXF.Station.Normal
         protected override void ClearDataBindings()
         {
             lokGroup.DataBindings.Clear();
+
             txtName.DataBindings.Clear();
+            txtDescript.DataBindings.Clear();
+
             calPrice1.DataBindings.Clear();
             calPrice2.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -127,10 +128,12 @@ namespace SKG.DXF.Station.Normal
         protected override void DataBindingControl()
         {
             lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
+
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }
@@ -138,10 +141,12 @@ namespace SKG.DXF.Station.Normal
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             lokGroup.Properties.ReadOnly = isReadOnly;
+
             txtName.Properties.ReadOnly = isReadOnly;
+            txtDescript.Properties.ReadOnly = isReadOnly;
+
             calPrice1.Properties.ReadOnly = isReadOnly;
             calPrice2.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -160,10 +165,13 @@ namespace SKG.DXF.Station.Normal
                 {
                     Id = id,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    Code = "KIND",
+
                     Text = txtName.Text,
+                    Note = txtDescript.Text,
+
                     Price1 = (int)calPrice1.Value,
-                    Price2 = (int)calPrice2.Value,
-                    Note = txtDescript.Text
+                    Price2 = (int)calPrice2.Value
                 };
 
                 var oki = _bll.Tra_Tariff.Update(o);
@@ -183,10 +191,13 @@ namespace SKG.DXF.Station.Normal
                 var o = new Tra_Tariff()
                 {
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
+                    Code = "KIND",
+
                     Text = txtName.Text,
+                    Note = txtDescript.Text,
+
                     Price1 = (int)calPrice1.Value,
-                    Price2 = (int)calPrice2.Value,
-                    Note = txtDescript.Text
+                    Price2 = (int)calPrice2.Value
                 };
 
                 var oki = _bll.Tra_Tariff.Insert(o);

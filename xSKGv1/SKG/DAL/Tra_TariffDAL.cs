@@ -197,7 +197,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Code.Contains("KIND")
+                          where s.Code.Contains("KIND") && s.Show == true
                           orderby s.Group.Text, s.Text
                           select new
                           {
@@ -232,7 +232,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Code.Contains("PROVINCE")
+                          where s.Code.Contains("PROVINCE") && s.Show == true
                           orderby s.Group.Text, s.Text
                           select new
                           {

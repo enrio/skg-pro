@@ -313,6 +313,9 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Normal\FrmTra_Tariff.resx">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
       <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
     </EmbeddedResource>

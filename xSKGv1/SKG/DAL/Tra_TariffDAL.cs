@@ -191,9 +191,8 @@ namespace SKG.DAL
                               s.Id,
                               Tra_GroupId = s.GroupId,
 
-                              Region = "",
-                              Area = s.Group.Text,
-                              Route = s.Text,
+                              Group = s.Group.Text,
+                              s.Text,
                               Descript = s.Note,
 
                               s.Price1,

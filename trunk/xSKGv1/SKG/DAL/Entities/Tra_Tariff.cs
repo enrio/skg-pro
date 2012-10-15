@@ -24,19 +24,28 @@ namespace SKG.DAL.Entities
         public virtual Pol_Dictionary Group { get; set; }
         #endregion
 
+        #region Price
         /// <summary>
-        /// Hoa hồng vé của xe cố định
-        /// </summary>
-        public bool Commission { set; get; }
-
-        /// <summary>
-        /// Đơn giá nửa ngày (ghế), hoa hồng ghế
+        /// Price of a seat or a half day
         /// </summary>
         public int Price1 { set; get; }
 
         /// <summary>
-        /// Đơn giá một ngày (giường), hoa hồng giường
+        /// Price of a bed or a full day
         /// </summary>
         public int Price2 { set; get; }
+        #endregion
+
+        #region Commission
+        /// <summary>
+        /// Commission of a seat
+        /// </summary>
+        public int Rose1 { set; get; }
+
+        /// <summary>
+        /// Commission of a bed
+        /// </summary>
+        public int Rose2 { set; get; }
+        #endregion
     }
 }

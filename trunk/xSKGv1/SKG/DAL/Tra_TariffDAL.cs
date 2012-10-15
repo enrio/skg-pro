@@ -79,7 +79,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Commission == false
+                          
                           orderby s.Group.Text, s.Group.Order
                           select new
                           {
@@ -246,7 +246,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Commission == true
+                          
                           orderby s.Group.Text, s.Group.Order
                           select new
                           {

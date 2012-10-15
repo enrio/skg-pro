@@ -64,5 +64,10 @@ namespace SKG.DAL.Entities
         /// Date and time leave (vietnam)
         /// </summary>
         public string TimeLeaves { get; set; }
+
+        /// <summary>
+        /// Date registry
+        /// </summary>
+        public DateTime RegDate { get; set; }
     }
 }

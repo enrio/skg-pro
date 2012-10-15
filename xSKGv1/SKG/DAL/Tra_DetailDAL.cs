@@ -331,8 +331,13 @@ namespace SKG.DAL
                               s.DateOut,
 
                               Number = s.Code,
+
                               s.Price1,
                               s.Price2,
+
+                              s.Rose1,
+                              s.Rose2,
+
                               s.Money
                           };
 
@@ -356,7 +361,8 @@ namespace SKG.DAL
         /// <param name="price2">Đơn giá một ngày</param>
         /// <param name="isOut">Cho xe ra</param>
         /// <returns></returns>
-        public DataTable InvoiceOut(Tra_Detail obj, ref int day, ref int hour, ref decimal money, ref int price1, ref int price2, bool isOut = false)
+        public DataTable InvoiceOut(Tra_Detail obj, ref int day, ref int hour, ref decimal money,
+            ref int price1, ref int price2, ref int rose1, ref int rose2, bool isOut = false)
         {
             try
             {
@@ -376,6 +382,7 @@ namespace SKG.DAL
                               UserInPhone = s.Pol_UserIn.Phone,
                               UserOutName = s.Pol_UserOut.Name,
                               v.Code,
+                              v.Fixed,
 
                               s.DateIn,
                               s.DateOut,
@@ -385,16 +392,14 @@ namespace SKG.DAL
                               v.Seats,
                               v.Beds,
 
-                              Tra_GroupId = k.GroupId,
-                              GroupName = k.Group.Text,
-                              KindName = k.Text,
+                              Tra_GroupId = l.Tariff.GroupId,
+                              GroupName = l.Tariff.Group.Text,
+                              KindName = l.Tariff.Text,
 
-                              GroupCode = k.Code,
-                              k.Price1,
-                              k.Price2,
-
-                              TariffPrice1 = l.Tariff.Price1,
-                              TariffPrice2 = l.Tariff.Price2,                              
+                              l.Tariff.Price1,
+                              l.Tariff.Price2,
+                              l.Tariff.Rose1,
+                              l.Tariff.Rose2,
 
                               s.Money
                           };
@@ -404,7 +409,7 @@ namespace SKG.DAL
                     res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Code
@@ -416,6 +421,7 @@ namespace SKG.DAL
                               UserInPhone = s.Pol_UserIn.Phone,
                               UserOutName = s.Pol_UserOut.Name,
                               v.Code,
+                              v.Fixed,
 
                               s.DateIn,
                               s.DateOut,
@@ -429,13 +435,10 @@ namespace SKG.DAL
                               GroupName = k.Group.Text,
                               KindName = k.Text,
 
-                              GroupCode = k.Code,
                               k.Price1,
                               k.Price2,
-
-                              TariffPrice1 = 0,
-                              TariffPrice2 = 0,
-                              
+                              k.Rose1,
+                              k.Rose2,
 
                               s.Money
                           };
@@ -454,47 +457,32 @@ namespace SKG.DAL
                 price1 = ok.Price1;
                 price2 = ok.Price2;
 
+                rose1 = ok.Rose1;
+                rose2 = ok.Rose2;
+
                 int seats = ok.Seats ?? 0;
                 int beds = ok.Beds ?? 0;
-                money = 0;
 
-                if (ok.GroupCode.Substring(0, 4) == "KIND")
-                {
-                    // Xe vãng lai
-                    switch (ok.GroupCode)
-                    {
-                        case "KIND_6"://Taxi vãng lai
-                        case "KIND_7"://Xe ba bánh
-                            money = (dayL + dayF) * price2;
-                            break;
-
-                        case "KIND_0": //Xe khách vãng lai, quá cảnh, trung chuyển
-                            money = (dayL + dayF) * price2 * beds + seats * price1;
-                            break;
-
-                        default:
-                            if (dayF == 0) money = price1;
-                            else money = dayF * price2 + dayL * price1;
-                            break;
-                    }
-                }
+                if (ok.Fixed)
+                    money = (price1 + rose1) * (seats > 1 ? seats - 1 : 0) + (price2 + rose2) * beds;
                 else
-                {
-                    // Xe tuyến cố định
-                    money = ok.TariffPrice1 * (seats - 1) + ok.TariffPrice2 * beds;
-                    
-                }
+                    money = (price1 + rose1) * dayL + (price2 + rose2) * dayF;
 
                 if (isOut)
                 {
                     d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
                     d.DateOut = obj.DateOut; // thời gian hiện tại trên server
+
                     d.Days = dayF;
                     d.Hours = hour;
 
-                    d.Money = money;
                     d.Price1 = price1;
                     d.Price2 = price2;
+
+                    d.Rose1 = rose1;
+                    d.Rose2 = rose2;
+
+                    d.Money = money;
 
                     _db.SaveChanges();
                 }
@@ -521,7 +509,7 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Details
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
                               //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
@@ -536,7 +524,7 @@ namespace SKG.DAL
                               s.Pol_UserOutId,
                               UserOutName = s.Pol_UserOut.Name,
 
-                              Number=s.Tra_Vehicle.Code,
+                              Number = s.Tra_Vehicle.Code,
                               s.DateIn,
                               s.DateOut,
 
@@ -546,9 +534,11 @@ namespace SKG.DAL
 
                               s.Price1,
                               s.Price2,
+                              s.Rose1,
+                              s.Rose2,
                               Price = s.Days == 0 ? s.Price1 : s.Price2,
                               s.Money,
-                              
+
                               GroupName = k.Group.Text,
                               KindName = k.Text,
                               GroupCode = k.Group.Code

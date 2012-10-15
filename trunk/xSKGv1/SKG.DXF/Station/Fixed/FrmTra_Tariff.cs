@@ -17,7 +17,7 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá tuyến", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá xe cố định", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }
@@ -102,9 +102,13 @@ namespace SKG.DXF.Station.Fixed
         protected override void ResetInput()
         {
             txtName.Text = null;
+            txtDescript.Text = null;
+
             calPrice1.Text = null;
             calPrice2.Text = null;
-            txtDescript.Text = null;
+
+            calRose1.Text = null;
+            calRose2.Text = null;
 
             base.ResetInput();
         }
@@ -166,11 +170,13 @@ namespace SKG.DXF.Station.Fixed
                     Id = id,
 
                     Text = txtName.Text,
+                    Note = txtDescript.Text,
+
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
+
                     Rose1 = (int)calRose1.Value,
-                    Rose2 = (int)calRose2.Value,
-                    Note = txtDescript.Text
+                    Rose2 = (int)calRose2.Value
                 };
 
                 var oki = _bll.Tra_Tariff.Update(o);
@@ -190,11 +196,13 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Tariff()
                 {
                     Text = txtName.Text,
+                    Note = txtDescript.Text,
+
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
+
                     Rose1 = (int)calRose1.Value,
-                    Rose2 = (int)calRose2.Value,
-                    Note = txtDescript.Text
+                    Rose2 = (int)calRose2.Value
                 };
 
                 var oki = _bll.Tra_Tariff.Insert(o);

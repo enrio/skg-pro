@@ -549,11 +549,11 @@ namespace SKG.DAL
                 switch (group)
                 {
                     case Group.A:
-                        res = res.Where(p => p.GroupCode == "GROUP_1");
+                        res = res.Where(p => p.GroupCode == "GROUP_0");
                         break;
 
                     case Group.B:
-                        res = res.Where(p => p.GroupCode == "GROUP_2");
+                        res = res.Where(p => p.GroupCode == "GROUP_1");
                         break;
 
                     default:

@@ -34,7 +34,7 @@ namespace SKG.DXF.Station.Manage
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
-            //tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;

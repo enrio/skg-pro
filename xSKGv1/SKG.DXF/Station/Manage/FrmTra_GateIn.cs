@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
+    using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
@@ -321,6 +322,13 @@ namespace SKG.DXF.Station.Manage
             }
 
             return oki;
+        }
+
+        protected override void TimerTick(object sender, EventArgs e)
+        {
+            lblDateIn.Text = Global.Session.Current.ToStringVN();
+
+            base.TimerTick(sender, e);
         }
         #endregion
 

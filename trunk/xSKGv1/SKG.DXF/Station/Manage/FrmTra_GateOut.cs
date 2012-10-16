@@ -171,7 +171,7 @@ namespace SKG.DXF.Station.Manage
                     lblDuration.Text = string.Format("{0}ngày {1}giờ => {2}{3}ngày", day, hour, dayF, dayL);
 
                     if (price1 == 0) lblPrice.Text = String.Format("{0:0,0}VNĐ (một lần)", price2);
-                    else lblPrice.Text = String.Format("{0:0,0}VNĐ (một ngày); {1:0,0}VNĐ (nửa ngày)", price2, price1);
+                    else lblPrice.Text = String.Format("{0:0,0}VNĐ (nửa ngày); {1:0,0}VNĐ (một ngày)", price1, price2);
 
                     lblMoney.Text = String.Format("{0:0,0}VNĐ", money);
 

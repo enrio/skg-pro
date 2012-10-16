@@ -394,6 +394,7 @@ namespace SKG.DAL
 
                               Tra_GroupId = l.Tariff.GroupId,
                               GroupName = l.Tariff.Group.Text,
+                              GroupCode = l.Tariff.Group.Code,
                               KindName = l.Tariff.Text,
 
                               l.Tariff.Price1,
@@ -433,6 +434,7 @@ namespace SKG.DAL
 
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,
+                              GroupCode = k.Group.Code,
                               KindName = k.Text,
 
                               k.Price1,

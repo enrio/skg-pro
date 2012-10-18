@@ -42,7 +42,7 @@ namespace SKG.Data
         {
             try
             {
-                var tbl = ExecuteQuery("select name from sys.sysdatabases where sid <> 0x01");
+                var tbl = ExecuteQuery("select [name] from sys.sysdatabases where [name] not in ('master', 'tempdb', 'model', 'msdb')");
                 var lst = new List<string>();
                 foreach (DataRow r in tbl.Rows) lst.Add(r["name"] + "");
                 return lst;

@@ -339,6 +339,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7D4EC563977146288C8BA4DA3721E76B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7DB983D4B328C637F723512DFABAC9DB"
         "OwnerKey" = "8:_A321CC92468E428EA9B72A76CA2DEC17"
         "MsmSig" = "8:_UNDEFINED"
@@ -778,6 +784,12 @@
         "Entry"
         {
         "MsmKey" = "8:_EA4A434D69C14792BD73CA64CB32339E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EDC4670622AD458295C9D4276CB983A9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1877,6 +1889,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D4EC563977146288C8BA4DA3721E76B"
+            {
+            "SourcePath" = "8:..\\SKG.Client\\Icons\\AuditDay.png"
+            "TargetName" = "8:AuditDay.png"
+            "Tag" = "8:"
+            "Folder" = "8:_D1EA98E9DAE346B0A3EAA23A0F281243"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7DB983D4B328C637F723512DFABAC9DB"
             {
             "AssemblyRegister" = "3:1"
@@ -2146,11 +2178,6 @@
             "AssemblyAsmDisplayName" = "8:SKG, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_A70340C541655BCD05E6CC5B9BE05A4B"
-                    {
-                    "Name" = "8:SKG.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SKG.dll"
             "TargetName" = "8:"
@@ -2636,6 +2663,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDC4670622AD458295C9D4276CB983A9"
+            {
+            "SourcePath" = "8:..\\SKG.Client\\Icons\\AuditMonth.png"
+            "TargetName" = "8:AuditMonth.png"
+            "Tag" = "8:"
+            "Folder" = "8:_D1EA98E9DAE346B0A3EAA23A0F281243"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EDE862DC4A945B8FE66D58B78052517E"
             {
             "AssemblyRegister" = "3:1"
@@ -2674,11 +2721,6 @@
             "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_F12DA404755BE4421726C2DAC222E066"
-                    {
-                    "Name" = "8:SKG.DXF.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SKG.DXF.dll"
             "TargetName" = "8:"
@@ -2745,11 +2787,6 @@
             "AssemblyAsmDisplayName" = "8:SKG.MSF, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_F898CD01DC12C3AEF93289129DEE04D5"
-                    {
-                    "Name" = "8:SKG.MSF.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:SKG.MSF.dll"
             "TargetName" = "8:"

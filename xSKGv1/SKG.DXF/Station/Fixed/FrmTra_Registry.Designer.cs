@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -138,6 +139,7 @@
             this.labelControl1.Size = new System.Drawing.Size(38, 19);
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Tỉnh:";
+            this.labelControl1.Visible = false;
             // 
             // lblRole
             // 
@@ -168,6 +170,7 @@
             this.lokBenden.Properties.ValueMember = "Id";
             this.lokBenden.Size = new System.Drawing.Size(267, 26);
             this.lokBenden.TabIndex = 7;
+            this.lokBenden.Visible = false;
             // 
             // lokTariff
             // 
@@ -412,7 +415,7 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Tuyến";
-            this.gridColumn5.FieldName = "Route";
+            this.gridColumn5.FieldName = "Tariff";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
@@ -429,7 +432,7 @@
             this.gridColumn8.FieldName = "TimeLeaves";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 4;
+            this.gridColumn8.VisibleIndex = 3;
             // 
             // gridColumn9
             // 
@@ -437,7 +440,7 @@
             this.gridColumn9.FieldName = "Transport";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.VisibleIndex = 4;
             // 
             // gridColumn10
             // 

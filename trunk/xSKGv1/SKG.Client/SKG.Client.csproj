@@ -162,6 +162,12 @@
     <Content Include="Icons\Commission.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\AuditDay.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Icons\AuditMonth.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Media.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

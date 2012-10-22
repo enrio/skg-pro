@@ -275,7 +275,7 @@ namespace SKG.DAL
 
             try
             {
-                var res = from s in _db.Tra_Details
+                var res1 = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
                           join k in _db.Tra_Tariffs on v.TariffId equals k.Id
@@ -297,6 +297,31 @@ namespace SKG.DAL
                               KindName = k.Text,
                               GroupName = k.Group.Text,
                           };
+
+                var res2 = from s in _db.Tra_Details
+
+                          join v in _db.Tra_Registries on s.Tra_VehicleId equals v.VehicleId
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
+
+                          where s.Pol_UserOutId == null
+                          orderby s.DateIn descending, v.Code
+
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              v.Vehicle.Code,
+                              v.Vehicle.Seats,
+                              v.Vehicle.Beds,
+
+                              KindName = k.Text,
+                              GroupName = k.Group.Text,
+                          };
+
+                var res = res1.Union(res2);
 
                 total = res.Count();
                 if (number != null) res = res.Where(p => p.Code == number);
@@ -369,8 +394,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-                          join l in _db.Tra_Registries on v.Id equals l.VehicleId
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Code
@@ -392,15 +416,15 @@ namespace SKG.DAL
                               v.Seats,
                               v.Beds,
 
-                              Tra_GroupId = l.Tariff.GroupId,
-                              GroupName = l.Tariff.Group.Text,
-                              GroupCode = l.Tariff.Group.Code,
-                              KindName = l.Tariff.Text,
+                              Tra_GroupId = k.GroupId,
+                              GroupName = k.Group.Text,
+                              GroupCode = k.Group.Code,
+                              KindName = k.Text,
 
-                              l.Tariff.Price1,
-                              l.Tariff.Price2,
-                              l.Tariff.Rose1,
-                              l.Tariff.Rose2,
+                              k.Price1,
+                              k.Price2,
+                              k.Rose1,
+                              k.Rose2,
 
                               s.Money
                           };
@@ -409,7 +433,7 @@ namespace SKG.DAL
                 {
                     res = from s in _db.Tra_Details
 
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join v in _db.Tra_Registries on s.Tra_VehicleId equals v.VehicleId
                           join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
@@ -421,16 +445,16 @@ namespace SKG.DAL
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
                               UserOutName = s.Pol_UserOut.Name,
-                              v.Code,
-                              v.Fixed,
+                              v.Vehicle.Code,
+                              v.Vehicle.Fixed,
 
                               s.DateIn,
                               s.DateOut,
                               s.Days,
                               s.Hours,
 
-                              v.Seats,
-                              v.Beds,
+                              v.Vehicle.Seats,
+                              v.Vehicle.Beds,
 
                               Tra_GroupId = k.GroupId,
                               GroupName = k.Group.Text,

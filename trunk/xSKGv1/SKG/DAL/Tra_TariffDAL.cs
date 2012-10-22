@@ -241,7 +241,7 @@ namespace SKG.DAL
 
                               Region = "",
                               Area = s.Group.Text,
-                              Route = s.Text,
+                              s.Text,
                               s.Note,
 
                               s.Price1,

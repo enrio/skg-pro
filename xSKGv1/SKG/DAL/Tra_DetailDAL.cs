@@ -477,8 +477,14 @@ namespace SKG.DAL
                 hour = dt.Value.Hours;
                 day = dt.Value.Days;
 
-                int dayL = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
+                int dayL;// = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
                 int dayF = (hour >= 12) ? day + 1 : day; // lớn hơn bằng 12 giờ thì tính một ngày
+
+                if (dayF > 0)
+                {
+                    dayL = (hour < 12 && hour >0) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
+                }
+                else dayL = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
 
                 price1 = ok.Price1;
                 price2 = ok.Price2;

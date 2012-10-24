@@ -334,7 +334,7 @@ namespace SKG.DXF.Station.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
-            lblUserIn.Text = Global.Session.User.Name.ToUpper();
+            //lblUserIn.Text = Global.Session.User.Name.ToUpper();
 
             ReadOnlyControl();
         }

@@ -319,6 +319,9 @@
     <EmbeddedResource Include="Station\Manage\FrmTra_GateIn2.resx">
       <DependentUpon>FrmTra_GateIn2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
+      <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_Group.resx">
       <DependentUpon>FrmTra_Group.cs</DependentUpon>
     </EmbeddedResource>

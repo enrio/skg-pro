@@ -99,7 +99,7 @@ namespace SKG.DXF.Station.Manage
             int sum;
             _dtb = _bll.Tra_Detail.GetInDepot(out sum);
             cmdInvoice.Enabled = sum > 0 ? true : false;
-            cmdRedo.Enabled = cmdInvoice.Enabled;
+            //cmdRedo.Enabled = cmdInvoice.Enabled;
 
             cbbNumber.DataSource = _dtb;
             cbbNumber.ValueMember = "Id";
@@ -139,55 +139,55 @@ namespace SKG.DXF.Station.Manage
 
                 if (tb == null) return;
 
-                if (tb.Rows.Count > 0)
-                {
-                    DateTime timeIn = Convert.ToDateTime(tb.Rows[0]["DateIn"]);
-                    DateTime timeOut = isOut ? Convert.ToDateTime(tb.Rows[0]["DateOut"]) : o.DateOut.Value;
+                //if (tb.Rows.Count > 0)
+                //{
+                //    DateTime timeIn = Convert.ToDateTime(tb.Rows[0]["DateIn"]);
+                //    DateTime timeOut = isOut ? Convert.ToDateTime(tb.Rows[0]["DateOut"]) : o.DateOut.Value;
 
-                    string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
-                    int seats = (tb.Rows[0]["Seats"] + "").ToInt32();
-                    int beds = (tb.Rows[0]["Beds"] + "").ToInt32();
+                //    string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
+                //    int seats = (tb.Rows[0]["Seats"] + "").ToInt32();
+                //    int beds = (tb.Rows[0]["Beds"] + "").ToInt32();
 
-                    lblDateIn.Text = timeIn.ToStringVN();
-                    lblDateOut.Text = timeOut.ToStringVN();
+                //    lblDateIn.Text = timeIn.ToStringVN();
+                //    lblDateOut.Text = timeOut.ToStringVN();
 
-                    lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
-                    lblGroup.Text = tb.Rows[0]["GroupName"] + "";
-                    lblKind.Text = tb.Rows[0]["KindName"].ToString();
-                    lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
-                    lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
+                //    lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
+                //    lblGroup.Text = tb.Rows[0]["GroupName"] + "";
+                //    lblKind.Text = tb.Rows[0]["KindName"].ToString();
+                //    lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
+                //    lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
 
-                    lblChair.Text = seats + "";
+                //    lblChair.Text = seats + "";
 
-                    string dayL = (hour > 0 && hour < 12) ? ".5" : "";
-                    int dayF = (hour >= 12) ? day + 1 : day;
+                //    string dayL = (hour > 0 && hour < 12) ? ".5" : "";
+                //    int dayF = (hour >= 12) ? day + 1 : day;
 
-                    if (day == 0)
-                    {
-                        if (code == "A") dayL = ".5";
-                        if (code == "B") dayF = 1;
-                    }
+                //    if (day == 0)
+                //    {
+                //        if (code == "A") dayL = ".5";
+                //        if (code == "B") dayF = 1;
+                //    }
 
-                    lblDuration.Text = string.Format("{0}ngày {1}giờ => {2}{3}ngày", day, hour, dayF, dayL);
+                //    lblDuration.Text = string.Format("{0}ngày {1}giờ => {2}{3}ngày", day, hour, dayF, dayL);
 
-                    if (price1 == 0) lblPrice.Text = String.Format("{0:0,0}VNĐ (một lần)", price2);
-                    else lblPrice.Text = String.Format("{0:0,0}VNĐ (nửa ngày); {1:0,0}VNĐ (một ngày)", price1, price2);
+                //    if (price1 == 0) lblPrice.Text = String.Format("{0:0,0}VNĐ (một lần)", price2);
+                //    else lblPrice.Text = String.Format("{0:0,0}VNĐ (nửa ngày); {1:0,0}VNĐ (một ngày)", price1, price2);
 
-                    lblMoney.Text = String.Format("{0:0,0}VNĐ", money);
+                //    lblMoney.Text = String.Format("{0:0,0}VNĐ", money);
 
-                    if (isOut)
-                    {
-                        LoadData();
-                        tmrMain.Enabled = false;
-                    }
-                }
+                //    if (isOut)
+                //    {
+                //        LoadData();
+                //        tmrMain.Enabled = false;
+                //    }
+                //}
             }
             catch (Exception ex) { XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text); }
         }
 
         private void FrmGateOut_Load(object sender, EventArgs e)
         {
-            lblAccOut.Text = Global.Session.User.Name.ToUpper();
+            //lblAccOut.Text = Global.Session.User.Name.ToUpper();
         }
 
         private void cmdRedo_Click(object sender, EventArgs e)
@@ -256,6 +256,11 @@ namespace SKG.DXF.Station.Manage
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
+        }
+
+        private void labelControl10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

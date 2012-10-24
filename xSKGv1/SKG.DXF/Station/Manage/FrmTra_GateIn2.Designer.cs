@@ -107,9 +107,9 @@
             this.labelControl4.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.labelControl4.Location = new System.Drawing.Point(750, 32);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(135, 25);
+            this.labelControl4.Size = new System.Drawing.Size(127, 25);
             this.labelControl4.TabIndex = 7;
-            this.labelControl4.Text = "XE VÃNG LAI";
+            this.labelControl4.Text = "XE CỐ ĐỊNH";
             // 
             // labelControl2
             // 
@@ -413,7 +413,7 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Loại xe";
+            this.gridColumn7.Caption = "Tuyến";
             this.gridColumn7.FieldName = "KindName";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
@@ -421,7 +421,7 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Nhóm xe";
+            this.gridColumn8.Caption = "ĐVVT";
             this.gridColumn8.FieldName = "GroupName";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
@@ -451,13 +451,13 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 71;
             // 
-            // FrmTra_GateIn1
+            // FrmTra_GateIn2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_GateIn1";
+            this.Name = "FrmTra_GateIn2";
             this.Text = "Cổng vào";
             this.Load += new System.EventHandler(this.FrmGateIn_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);

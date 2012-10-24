@@ -281,7 +281,7 @@ namespace SKG.DXF.Station.Manage
             //    gridColumn2.BestFit(); // fit column STT
             //}
 
-            _dtb = _bll.Tra_Detail.Get20Latest();
+            _dtb = _bll.Tra_Detail.Get20LatestForNormal();
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

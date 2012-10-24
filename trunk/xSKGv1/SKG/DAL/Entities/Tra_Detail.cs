@@ -113,9 +113,9 @@ namespace SKG.DAL.Entities
         /// <param name="price2">Price of a full day (or a bed)</param>
         /// <param name="seats">Number of seat</param>
         /// <param name="beds">Number of bed</param>
-        /// <param name="error">Errot of time</param>
+        /// <param name="error">Error of time</param>
         /// <returns>Money</returns>
-        public decimal ChargeForNormal(int price1, int price2, int seats, int beds, int error = 11)
+        public long ChargeForNormal(int price1, int price2, int seats, int beds, int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -124,7 +124,7 @@ namespace SKG.DAL.Entities
             var span = DateOut.Value - DateIn;
             var odd = span.TotalDays - span.Days;
 
-            var money = span.Days * price2;
+            long money = span.Days * price2;
             if (odd < 0.5) money += price1;
             else money += price2;
 
@@ -142,7 +142,7 @@ namespace SKG.DAL.Entities
         /// <param name="beds">Number of bed</param>
         /// <param name="error">Error of time</param>
         /// <returns>Money</returns>
-        public decimal ChargeForFixed(int price1, int price2, int rose1, int rose2, int seats, int beds, int error = 11)
+        public long ChargeForFixed(int price1, int price2, int rose1, int rose2, int seats, int beds, int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -151,7 +151,7 @@ namespace SKG.DAL.Entities
             var span = DateOut.Value - DateIn;
             var odd = span.TotalDays - span.Days;
 
-            var money = span.Days * price2;
+            long money = span.Days * price2;
             if (odd < 0.5) money += price1;
             else money += price2;
 

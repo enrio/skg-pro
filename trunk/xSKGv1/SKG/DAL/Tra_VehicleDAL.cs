@@ -32,7 +32,23 @@ namespace SKG.DAL
         /// <returns></returns>
         public int Count()
         {
+            var res = (from s in _db.Tra_Vehicles
+                       where s.Code ==""
+                      select s.Tra_Details).FirstOrDefault();
+
+            var r = (from s in res
+                    where s.DateOut == null
+                    select s).FirstOrDefault();
+            
+           
+
+            //foreach (var x in res) 
+            //{
+            //   var xu= x.Sum(o => o.Money);
+            //}
+
             return _db.Tra_Vehicles.Count();
+
         }
 
         /// <summary>

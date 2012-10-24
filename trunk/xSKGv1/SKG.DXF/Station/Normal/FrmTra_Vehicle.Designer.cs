@@ -281,9 +281,11 @@
             this.grvMain.Appearance.Empty.Options.UseBackColor = true;
             this.grvMain.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvMain.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.EvenRow.Options.UseBackColor = true;
             this.grvMain.Appearance.EvenRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.EvenRow.Options.UseFont = true;
             this.grvMain.Appearance.EvenRow.Options.UseForeColor = true;
             this.grvMain.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -328,7 +330,7 @@
             this.grvMain.Appearance.GroupFooter.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
-            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvMain.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.GroupPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.GroupPanel.Options.UseFont = true;
@@ -362,9 +364,11 @@
             this.grvMain.Appearance.HorzLine.Options.UseBackColor = true;
             this.grvMain.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvMain.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.OddRow.Options.UseBackColor = true;
             this.grvMain.Appearance.OddRow.Options.UseBorderColor = true;
+            this.grvMain.Appearance.OddRow.Options.UseFont = true;
             this.grvMain.Appearance.OddRow.Options.UseForeColor = true;
             this.grvMain.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
             this.grvMain.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));

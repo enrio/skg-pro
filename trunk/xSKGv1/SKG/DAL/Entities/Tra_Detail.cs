@@ -148,12 +148,8 @@ namespace SKG.DAL.Entities
             if (DateOut.Value < DateIn) return 0;
             var dateOut = DateOut.Value.Subtract(new TimeSpan(0, error, 0));
 
-            var span = DateOut.Value - DateIn;
-            var odd = span.TotalDays - span.Days;
-
-            long money = span.Days * price2;
-            if (odd < 0.5) money += price1;
-            else money += price2;
+            long money = price1 * seats + rose1 * (seats - 1);
+            money += (price2 + rose2) * beds;
 
             return money;
         }

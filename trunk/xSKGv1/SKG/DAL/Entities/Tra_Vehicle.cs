@@ -37,12 +37,22 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Belong to tariff and commission (reference to Tra_Tariff)
         /// </summary>
-        [Column(Order = 1), ForeignKey("Tariff")]
+        [Column(Order = 2), ForeignKey("Tariff")]
         public Guid? TariffId { set; get; }
         /// <summary>
         /// Have tariff and commission
         /// </summary>
         public virtual Tra_Tariff Tariff { get; set; }
+
+        /// <summary>
+        /// Creator (refercence to Pol_User)
+        /// </summary>
+        [Column(Order = 3), ForeignKey("Creator")]
+        public Guid? CreatorId { set; get; }
+        /// <summary>
+        /// Creator
+        /// </summary>
+        public virtual Pol_User Creator { get; set; }
 
         /// <summary>
         /// List of details in/out

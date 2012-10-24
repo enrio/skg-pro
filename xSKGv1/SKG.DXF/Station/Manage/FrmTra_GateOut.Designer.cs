@@ -34,41 +34,47 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.calRose2 = new DevExpress.XtraEditors.CalcEdit();
+            this.calRose1 = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
+            this.calPrice1 = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdRedo = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
-            this.tblAep = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAccOut = new System.Windows.Forms.Label();
             this.cbbNumber = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblAccIn = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblMoney = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblDuration = new System.Windows.Forms.Label();
-            this.lblDateOut = new System.Windows.Forms.Label();
-            this.lblDateIn = new System.Windows.Forms.Label();
-            this.lblChair = new System.Windows.Forms.Label();
-            this.lblWeight = new System.Windows.Forms.Label();
-            this.lblNumber = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblGroup = new System.Windows.Forms.Label();
-            this.lblKind = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtSeats = new DevExpress.XtraEditors.TextEdit();
+            this.txtBeds = new DevExpress.XtraEditors.TextEdit();
+            this.lblBeds = new DevExpress.XtraEditors.LabelControl();
+            this.lblSeats = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -76,7 +82,24 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            this.tblAep.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -138,70 +161,208 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.labelControl15);
+            this.groupControl1.Controls.Add(this.textEdit9);
+            this.groupControl1.Controls.Add(this.textEdit8);
+            this.groupControl1.Controls.Add(this.labelControl13);
+            this.groupControl1.Controls.Add(this.textEdit6);
+            this.groupControl1.Controls.Add(this.labelControl11);
+            this.groupControl1.Controls.Add(this.textEdit7);
+            this.groupControl1.Controls.Add(this.labelControl12);
+            this.groupControl1.Controls.Add(this.textEdit4);
+            this.groupControl1.Controls.Add(this.labelControl9);
+            this.groupControl1.Controls.Add(this.textEdit5);
+            this.groupControl1.Controls.Add(this.labelControl10);
+            this.groupControl1.Controls.Add(this.labelControl8);
+            this.groupControl1.Controls.Add(this.textEdit3);
+            this.groupControl1.Controls.Add(this.labelControl7);
+            this.groupControl1.Controls.Add(this.textEdit2);
+            this.groupControl1.Controls.Add(this.labelControl6);
+            this.groupControl1.Controls.Add(this.textEdit1);
+            this.groupControl1.Controls.Add(this.labelControl3);
+            this.groupControl1.Controls.Add(this.groupBox3);
+            this.groupControl1.Controls.Add(this.cbbNumber);
+            this.groupControl1.Controls.Add(this.groupBox2);
+            this.groupControl1.Controls.Add(this.groupBox1);
             this.groupControl1.Controls.Add(this.cmdSumary2);
             this.groupControl1.Controls.Add(this.cmdSumary1);
             this.groupControl1.Controls.Add(this.cmdInList);
-            this.groupControl1.Controls.Add(this.cmdRedo);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
             this.groupControl1.Controls.Add(this.lblInfo);
-            this.groupControl1.Controls.Add(this.tblAep);
             this.groupControl1.Location = new System.Drawing.Point(88, 27);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(756, 418);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.labelControl4);
+            this.groupBox2.Controls.Add(this.calRose2);
+            this.groupBox2.Controls.Add(this.calRose1);
+            this.groupBox2.Controls.Add(this.labelControl5);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 240);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(279, 59);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Đ.giá hoa hồng";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(131, 30);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(58, 19);
+            this.labelControl4.TabIndex = 12;
+            this.labelControl4.Text = "Giường:";
+            // 
+            // calRose2
+            // 
+            this.calRose2.Location = new System.Drawing.Point(195, 27);
+            this.calRose2.Name = "calRose2";
+            this.calRose2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calRose2.Properties.Appearance.Options.UseFont = true;
+            this.calRose2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calRose2.Properties.DisplayFormat.FormatString = "#,#";
+            this.calRose2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose2.Properties.EditFormat.FormatString = "#,#";
+            this.calRose2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose2.Properties.ReadOnly = true;
+            this.calRose2.Size = new System.Drawing.Size(78, 26);
+            this.calRose2.TabIndex = 13;
+            // 
+            // calRose1
+            // 
+            this.calRose1.Location = new System.Drawing.Point(46, 27);
+            this.calRose1.Name = "calRose1";
+            this.calRose1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calRose1.Properties.Appearance.Options.UseFont = true;
+            this.calRose1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calRose1.Properties.DisplayFormat.FormatString = "#,#";
+            this.calRose1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose1.Properties.EditFormat.FormatString = "#,#";
+            this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calRose1.Properties.ReadOnly = true;
+            this.calRose1.Size = new System.Drawing.Size(78, 26);
+            this.calRose1.TabIndex = 11;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Location = new System.Drawing.Point(6, 30);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(34, 19);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "Ghế:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.calPrice2);
+            this.groupBox1.Controls.Add(this.calPrice1);
+            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(12, 158);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(279, 59);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Đ.giá lệ phí";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(131, 30);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(58, 19);
+            this.labelControl2.TabIndex = 7;
+            this.labelControl2.Text = "Giường:";
+            // 
+            // calPrice2
+            // 
+            this.calPrice2.Location = new System.Drawing.Point(195, 27);
+            this.calPrice2.Name = "calPrice2";
+            this.calPrice2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calPrice2.Properties.Appearance.Options.UseFont = true;
+            this.calPrice2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calPrice2.Properties.DisplayFormat.FormatString = "#,#";
+            this.calPrice2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice2.Properties.EditFormat.FormatString = "#,#";
+            this.calPrice2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice2.Properties.ReadOnly = true;
+            this.calPrice2.Size = new System.Drawing.Size(78, 26);
+            this.calPrice2.TabIndex = 8;
+            // 
+            // calPrice1
+            // 
+            this.calPrice1.Location = new System.Drawing.Point(46, 27);
+            this.calPrice1.Name = "calPrice1";
+            this.calPrice1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calPrice1.Properties.Appearance.Options.UseFont = true;
+            this.calPrice1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calPrice1.Properties.DisplayFormat.FormatString = "#,#";
+            this.calPrice1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice1.Properties.EditFormat.FormatString = "#,#";
+            this.calPrice1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice1.Properties.ReadOnly = true;
+            this.calPrice1.Size = new System.Drawing.Size(78, 26);
+            this.calPrice1.TabIndex = 6;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(6, 30);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(34, 19);
+            this.labelControl1.TabIndex = 5;
+            this.labelControl1.Text = "Ghế:";
+            // 
             // cmdSumary2
             // 
-            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(435, 375);
+            this.cmdSumary2.Location = new System.Drawing.Point(440, 375);
             this.cmdSumary2.Name = "cmdSumary2";
-            this.cmdSumary2.Size = new System.Drawing.Size(76, 37);
+            this.cmdSumary2.Size = new System.Drawing.Size(104, 37);
             this.cmdSumary2.TabIndex = 17;
             this.cmdSumary2.Text = "I&n nhóm 2";
             this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
             // 
             // cmdSumary1
             // 
-            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(353, 375);
+            this.cmdSumary1.Location = new System.Drawing.Point(330, 375);
             this.cmdSumary1.Name = "cmdSumary1";
-            this.cmdSumary1.Size = new System.Drawing.Size(76, 37);
+            this.cmdSumary1.Size = new System.Drawing.Size(104, 37);
             this.cmdSumary1.TabIndex = 16;
             this.cmdSumary1.Text = "&In nhóm 1";
             this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
             // 
             // cmdInList
             // 
-            this.cmdInList.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdInList.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInList.Appearance.Options.UseFont = true;
-            this.cmdInList.Location = new System.Drawing.Point(251, 375);
+            this.cmdInList.Location = new System.Drawing.Point(196, 375);
             this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(96, 37);
+            this.cmdInList.Size = new System.Drawing.Size(128, 37);
             this.cmdInList.TabIndex = 15;
             this.cmdInList.Text = "&Xe trong bến";
             this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
-            // cmdRedo
-            // 
-            this.cmdRedo.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRedo.Appearance.Options.UseFont = true;
-            this.cmdRedo.Location = new System.Drawing.Point(169, 375);
-            this.cmdRedo.Name = "cmdRedo";
-            this.cmdRedo.Size = new System.Drawing.Size(76, 37);
-            this.cmdRedo.TabIndex = 14;
-            this.cmdRedo.Text = "&Sửa lại";
-            this.cmdRedo.Click += new System.EventHandler(this.cmdRedo_Click);
-            // 
             // cmdOut
             // 
-            this.cmdOut.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdOut.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOut.Appearance.Options.UseFont = true;
             this.cmdOut.Enabled = false;
-            this.cmdOut.Location = new System.Drawing.Point(87, 375);
+            this.cmdOut.Location = new System.Drawing.Point(114, 375);
             this.cmdOut.Name = "cmdOut";
             this.cmdOut.Size = new System.Drawing.Size(76, 37);
             this.cmdOut.TabIndex = 13;
@@ -210,89 +371,24 @@
             // 
             // cmdInvoice
             // 
-            this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInvoice.Appearance.Options.UseFont = true;
-            this.cmdInvoice.Location = new System.Drawing.Point(5, 375);
+            this.cmdInvoice.Location = new System.Drawing.Point(12, 375);
             this.cmdInvoice.Name = "cmdInvoice";
-            this.cmdInvoice.Size = new System.Drawing.Size(76, 37);
+            this.cmdInvoice.Size = new System.Drawing.Size(95, 37);
             this.cmdInvoice.TabIndex = 12;
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
             // 
             // lblInfo
             // 
-            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblInfo.Location = new System.Drawing.Point(517, 375);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(230, 37);
             this.lblInfo.TabIndex = 8;
-            // 
-            // tblAep
-            // 
-            this.tblAep.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.tblAep.ColumnCount = 3;
-            this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tblAep.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tblAep.Controls.Add(this.lblAccOut, 1, 11);
-            this.tblAep.Controls.Add(this.cbbNumber, 1, 0);
-            this.tblAep.Controls.Add(this.label6, 2, 0);
-            this.tblAep.Controls.Add(this.label15, 0, 11);
-            this.tblAep.Controls.Add(this.label2, 0, 2);
-            this.tblAep.Controls.Add(this.lblAccIn, 1, 10);
-            this.tblAep.Controls.Add(this.label1, 0, 1);
-            this.tblAep.Controls.Add(this.label13, 0, 10);
-            this.tblAep.Controls.Add(this.label4, 0, 0);
-            this.tblAep.Controls.Add(this.lblMoney, 1, 9);
-            this.tblAep.Controls.Add(this.lblPrice, 1, 8);
-            this.tblAep.Controls.Add(this.lblDuration, 1, 7);
-            this.tblAep.Controls.Add(this.lblDateOut, 1, 6);
-            this.tblAep.Controls.Add(this.lblDateIn, 1, 5);
-            this.tblAep.Controls.Add(this.lblChair, 1, 4);
-            this.tblAep.Controls.Add(this.lblWeight, 1, 3);
-            this.tblAep.Controls.Add(this.lblNumber, 2, 4);
-            this.tblAep.Controls.Add(this.label10, 2, 3);
-            this.tblAep.Controls.Add(this.lblGroup, 1, 1);
-            this.tblAep.Controls.Add(this.lblKind, 1, 2);
-            this.tblAep.Controls.Add(this.label11, 0, 9);
-            this.tblAep.Controls.Add(this.label9, 0, 8);
-            this.tblAep.Controls.Add(this.label8, 0, 7);
-            this.tblAep.Controls.Add(this.label7, 0, 6);
-            this.tblAep.Controls.Add(this.label5, 0, 5);
-            this.tblAep.Controls.Add(this.label3, 0, 4);
-            this.tblAep.Controls.Add(this.label12, 0, 3);
-            this.tblAep.Location = new System.Drawing.Point(5, 25);
-            this.tblAep.Name = "tblAep";
-            this.tblAep.RowCount = 12;
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAep.Size = new System.Drawing.Size(747, 344);
-            this.tblAep.TabIndex = 5;
-            // 
-            // lblAccOut
-            // 
-            this.lblAccOut.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblAccOut, 2);
-            this.lblAccOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccOut.ForeColor = System.Drawing.Color.Black;
-            this.lblAccOut.Location = new System.Drawing.Point(183, 317);
-            this.lblAccOut.Name = "lblAccOut";
-            this.lblAccOut.Size = new System.Drawing.Size(25, 25);
-            this.lblAccOut.TabIndex = 27;
-            this.lblAccOut.Text = "?";
-            this.lblAccOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cbbNumber
             // 
@@ -302,327 +398,273 @@
             this.cbbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
             this.cbbNumber.FormattingEnabled = true;
-            this.cbbNumber.Location = new System.Drawing.Point(183, 5);
+            this.cbbNumber.Location = new System.Drawing.Point(125, 33);
             this.cbbNumber.Name = "cbbNumber";
-            this.cbbNumber.Size = new System.Drawing.Size(152, 33);
+            this.cbbNumber.Size = new System.Drawing.Size(172, 33);
             this.cbbNumber.TabIndex = 3;
             this.cbbNumber.ValueMember = "Id";
             this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
             this.cbbNumber.Enter += new System.EventHandler(this.cbbNumber_Enter);
             this.cbbNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNumber_KeyDown);
             // 
-            // label6
+            // groupBox3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Location = new System.Drawing.Point(343, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(399, 39);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "CỔNG RA";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.groupBox3.Controls.Add(this.txtSeats);
+            this.groupBox3.Controls.Add(this.txtBeds);
+            this.groupBox3.Controls.Add(this.lblBeds);
+            this.groupBox3.Controls.Add(this.lblSeats);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(12, 78);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(279, 54);
+            this.groupBox3.TabIndex = 20;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tải trọng";
             // 
-            // label15
+            // txtSeats
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Gray;
-            this.label15.Location = new System.Drawing.Point(5, 317);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(153, 25);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Người cho ra:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtSeats.Location = new System.Drawing.Point(69, 23);
+            this.txtSeats.Name = "txtSeats";
+            this.txtSeats.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeats.Properties.Appearance.Options.UseFont = true;
+            this.txtSeats.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtSeats.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtSeats.Size = new System.Drawing.Size(55, 26);
+            this.txtSeats.TabIndex = 11;
             // 
-            // label2
+            // txtBeds
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(5, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Loại xe:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtBeds.Location = new System.Drawing.Point(218, 23);
+            this.txtBeds.Name = "txtBeds";
+            this.txtBeds.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBeds.Properties.Appearance.Options.UseFont = true;
+            this.txtBeds.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtBeds.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtBeds.Size = new System.Drawing.Size(55, 26);
+            this.txtBeds.TabIndex = 13;
             // 
-            // lblAccIn
+            // lblBeds
             // 
-            this.lblAccIn.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblAccIn, 2);
-            this.lblAccIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccIn.ForeColor = System.Drawing.Color.Black;
-            this.lblAccIn.Location = new System.Drawing.Point(183, 290);
-            this.lblAccIn.Name = "lblAccIn";
-            this.lblAccIn.Size = new System.Drawing.Size(25, 25);
-            this.lblAccIn.TabIndex = 25;
-            this.lblAccIn.Text = "?";
-            this.lblAccIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblBeds.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeds.Location = new System.Drawing.Point(150, 26);
+            this.lblBeds.Name = "lblBeds";
+            this.lblBeds.Size = new System.Drawing.Size(58, 19);
+            this.lblBeds.TabIndex = 12;
+            this.lblBeds.Text = "Giường:";
             // 
-            // label1
+            // lblSeats
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(5, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Nhóm xe:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSeats.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeats.Location = new System.Drawing.Point(6, 26);
+            this.lblSeats.Name = "lblSeats";
+            this.lblSeats.Size = new System.Drawing.Size(34, 19);
+            this.lblSeats.TabIndex = 10;
+            this.lblSeats.Text = "Ghế:";
             // 
-            // label13
+            // textEdit1
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Gray;
-            this.label13.Location = new System.Drawing.Point(5, 290);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(170, 25);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Người cho vào:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textEdit1.Location = new System.Drawing.Point(468, 316);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.textEdit1.Properties.Appearance.Options.UseFont = true;
+            this.textEdit1.Properties.Appearance.Options.UseForeColor = true;
+            this.textEdit1.Properties.DisplayFormat.FormatString = "#,#";
+            this.textEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.textEdit1.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit1.Properties.ReadOnly = true;
+            this.textEdit1.Size = new System.Drawing.Size(279, 46);
+            this.textEdit1.TabIndex = 22;
             // 
-            // label4
+            // labelControl3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gray;
-            this.label4.Location = new System.Drawing.Point(5, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 25);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Tìm biển số:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(351, 322);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(111, 37);
+            this.labelControl3.TabIndex = 21;
+            this.labelControl3.Text = "T.TIỀN:";
             // 
-            // lblMoney
+            // textEdit2
             // 
-            this.lblMoney.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblMoney, 2);
-            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoney.ForeColor = System.Drawing.Color.Blue;
-            this.lblMoney.Location = new System.Drawing.Point(183, 263);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(25, 25);
-            this.lblMoney.TabIndex = 23;
-            this.lblMoney.Text = "?";
-            this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit2.Location = new System.Drawing.Point(459, 213);
+            this.textEdit2.Name = "textEdit2";
+            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit2.Properties.Appearance.Options.UseFont = true;
+            this.textEdit2.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit2.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit2.Properties.ReadOnly = true;
+            this.textEdit2.Size = new System.Drawing.Size(288, 30);
+            this.textEdit2.TabIndex = 24;
             // 
-            // lblPrice
+            // labelControl6
             // 
-            this.lblPrice.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblPrice, 2);
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.ForeColor = System.Drawing.Color.Black;
-            this.lblPrice.Location = new System.Drawing.Point(183, 236);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(25, 25);
-            this.lblPrice.TabIndex = 21;
-            this.lblPrice.Text = "?";
-            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Location = new System.Drawing.Point(314, 216);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(128, 24);
+            this.labelControl6.TabIndex = 23;
+            this.labelControl6.Text = "Người cho vào:";
             // 
-            // lblDuration
+            // textEdit3
             // 
-            this.lblDuration.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblDuration, 2);
-            this.lblDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.ForeColor = System.Drawing.Color.Black;
-            this.lblDuration.Location = new System.Drawing.Point(183, 209);
-            this.lblDuration.Name = "lblDuration";
-            this.lblDuration.Size = new System.Drawing.Size(25, 25);
-            this.lblDuration.TabIndex = 19;
-            this.lblDuration.Text = "?";
-            this.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit3.Location = new System.Drawing.Point(459, 249);
+            this.textEdit3.Name = "textEdit3";
+            this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit3.Properties.Appearance.Options.UseFont = true;
+            this.textEdit3.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit3.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit3.Properties.ReadOnly = true;
+            this.textEdit3.Size = new System.Drawing.Size(288, 30);
+            this.textEdit3.TabIndex = 26;
             // 
-            // lblDateOut
+            // labelControl7
             // 
-            this.lblDateOut.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblDateOut, 2);
-            this.lblDateOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOut.ForeColor = System.Drawing.Color.Black;
-            this.lblDateOut.Location = new System.Drawing.Point(183, 182);
-            this.lblDateOut.Name = "lblDateOut";
-            this.lblDateOut.Size = new System.Drawing.Size(25, 25);
-            this.lblDateOut.TabIndex = 17;
-            this.lblDateOut.Text = "?";
-            this.lblDateOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl7.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl7.Location = new System.Drawing.Point(314, 252);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(116, 24);
+            this.labelControl7.TabIndex = 25;
+            this.labelControl7.Text = "Số điện thoại:";
             // 
-            // lblDateIn
+            // labelControl8
             // 
-            this.lblDateIn.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblDateIn, 2);
-            this.lblDateIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateIn.ForeColor = System.Drawing.Color.Black;
-            this.lblDateIn.Location = new System.Drawing.Point(183, 155);
-            this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(25, 25);
-            this.lblDateIn.TabIndex = 15;
-            this.lblDateIn.Text = "?";
-            this.lblDateIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl8.Location = new System.Drawing.Point(12, 40);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(100, 19);
+            this.labelControl8.TabIndex = 27;
+            this.labelControl8.Text = "Tìm biển số:";
             // 
-            // lblChair
+            // textEdit4
             // 
-            this.lblChair.AutoSize = true;
-            this.lblChair.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChair.ForeColor = System.Drawing.Color.Black;
-            this.lblChair.Location = new System.Drawing.Point(183, 124);
-            this.lblChair.Name = "lblChair";
-            this.lblChair.Size = new System.Drawing.Size(25, 25);
-            this.lblChair.TabIndex = 12;
-            this.lblChair.Text = "?";
-            this.lblChair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit4.Location = new System.Drawing.Point(459, 69);
+            this.textEdit4.Name = "textEdit4";
+            this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit4.Properties.Appearance.Options.UseFont = true;
+            this.textEdit4.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit4.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit4.Properties.ReadOnly = true;
+            this.textEdit4.Size = new System.Drawing.Size(288, 30);
+            this.textEdit4.TabIndex = 31;
             // 
-            // lblWeight
+            // labelControl9
             // 
-            this.lblWeight.AutoSize = true;
-            this.lblWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeight.ForeColor = System.Drawing.Color.Black;
-            this.lblWeight.Location = new System.Drawing.Point(183, 97);
-            this.lblWeight.Name = "lblWeight";
-            this.lblWeight.Size = new System.Drawing.Size(25, 25);
-            this.lblWeight.TabIndex = 9;
-            this.lblWeight.Text = "?";
-            this.lblWeight.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblWeight.Visible = false;
+            this.labelControl9.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl9.Location = new System.Drawing.Point(314, 72);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(125, 24);
+            this.labelControl9.TabIndex = 30;
+            this.labelControl9.Text = "Tuyến/Loại xe:";
             // 
-            // lblNumber
+            // textEdit5
             // 
-            this.lblNumber.AutoSize = true;
-            this.lblNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumber.ForeColor = System.Drawing.Color.Red;
-            this.lblNumber.Location = new System.Drawing.Point(343, 124);
-            this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(399, 29);
-            this.lblNumber.TabIndex = 13;
-            this.lblNumber.Text = "?";
-            this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.textEdit5.Location = new System.Drawing.Point(459, 33);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit5.Properties.Appearance.Options.UseFont = true;
+            this.textEdit5.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit5.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit5.Properties.ReadOnly = true;
+            this.textEdit5.Size = new System.Drawing.Size(288, 30);
+            this.textEdit5.TabIndex = 29;
             // 
-            // label10
+            // labelControl10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label10.Location = new System.Drawing.Point(343, 97);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(399, 25);
-            this.label10.TabIndex = 10;
-            this.label10.Text = "BIỂN SỐ XE";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl10.Location = new System.Drawing.Point(314, 36);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(139, 24);
+            this.labelControl10.TabIndex = 28;
+            this.labelControl10.Text = "ĐVVT/Nhóm xe:";
+            this.labelControl10.Click += new System.EventHandler(this.labelControl10_Click);
             // 
-            // lblGroup
+            // textEdit6
             // 
-            this.lblGroup.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblGroup, 2);
-            this.lblGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.ForeColor = System.Drawing.Color.Gray;
-            this.lblGroup.Location = new System.Drawing.Point(183, 43);
-            this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(19, 20);
-            this.lblGroup.TabIndex = 5;
-            this.lblGroup.Text = "?";
-            this.lblGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit6.Location = new System.Drawing.Point(459, 141);
+            this.textEdit6.Name = "textEdit6";
+            this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit6.Properties.Appearance.Options.UseFont = true;
+            this.textEdit6.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit6.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit6.Properties.ReadOnly = true;
+            this.textEdit6.Size = new System.Drawing.Size(288, 30);
+            this.textEdit6.TabIndex = 35;
             // 
-            // lblKind
+            // labelControl11
             // 
-            this.lblKind.AutoSize = true;
-            this.tblAep.SetColumnSpan(this.lblKind, 2);
-            this.lblKind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKind.ForeColor = System.Drawing.Color.Gray;
-            this.lblKind.Location = new System.Drawing.Point(183, 70);
-            this.lblKind.Name = "lblKind";
-            this.lblKind.Size = new System.Drawing.Size(19, 20);
-            this.lblKind.TabIndex = 7;
-            this.lblKind.Text = "?";
-            this.lblKind.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl11.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl11.Location = new System.Drawing.Point(314, 144);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(79, 24);
+            this.labelControl11.TabIndex = 34;
+            this.labelControl11.Text = "T.gian ra:";
             // 
-            // label11
+            // textEdit7
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Gray;
-            this.label11.Location = new System.Drawing.Point(5, 263);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 25);
-            this.label11.TabIndex = 22;
-            this.label11.Text = "Số tiền:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit7.Location = new System.Drawing.Point(459, 105);
+            this.textEdit7.Name = "textEdit7";
+            this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit7.Properties.Appearance.Options.UseFont = true;
+            this.textEdit7.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit7.Properties.ReadOnly = true;
+            this.textEdit7.Size = new System.Drawing.Size(288, 30);
+            this.textEdit7.TabIndex = 33;
             // 
-            // label9
+            // labelControl12
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gray;
-            this.label9.Location = new System.Drawing.Point(5, 236);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 25);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Đơn giá:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl12.Location = new System.Drawing.Point(314, 108);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(93, 24);
+            this.labelControl12.TabIndex = 32;
+            this.labelControl12.Text = "T.gian vào:";
             // 
-            // label8
+            // textEdit8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(5, 209);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(163, 25);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Thời gian đậu:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit8.Location = new System.Drawing.Point(459, 177);
+            this.textEdit8.Name = "textEdit8";
+            this.textEdit8.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit8.Properties.Appearance.Options.UseFont = true;
+            this.textEdit8.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit8.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit8.Properties.ReadOnly = true;
+            this.textEdit8.Size = new System.Drawing.Size(288, 30);
+            this.textEdit8.TabIndex = 37;
             // 
-            // label7
+            // labelControl13
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gray;
-            this.label7.Location = new System.Drawing.Point(5, 182);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(145, 25);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Thời gian ra:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelControl13.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl13.Location = new System.Drawing.Point(314, 180);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(75, 24);
+            this.labelControl13.TabIndex = 36;
+            this.labelControl13.Text = "Lưu đậu:";
             // 
-            // label5
+            // textEdit9
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(5, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(162, 25);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Thời gian vào:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.textEdit9.Location = new System.Drawing.Point(103, 316);
+            this.textEdit9.Name = "textEdit9";
+            this.textEdit9.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEdit9.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.textEdit9.Properties.Appearance.Options.UseFont = true;
+            this.textEdit9.Properties.Appearance.Options.UseForeColor = true;
+            this.textEdit9.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.textEdit9.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.textEdit9.Properties.ReadOnly = true;
+            this.textEdit9.Size = new System.Drawing.Size(182, 46);
+            this.textEdit9.TabIndex = 40;
             // 
-            // label3
+            // labelControl15
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(5, 124);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 25);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Số ghế:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Gray;
-            this.label12.Location = new System.Drawing.Point(5, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(113, 25);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "Tải trọng:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label12.Visible = false;
+            this.labelControl15.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl15.Location = new System.Drawing.Point(12, 322);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(85, 37);
+            this.labelControl15.TabIndex = 41;
+            this.labelControl15.Text = "B.SỐ:";
             // 
             // FrmTra_GateOut
             // 
@@ -641,8 +683,28 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.tblAep.ResumeLayout(false);
-            this.tblAep.PerformLayout();
+            this.groupControl1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -655,40 +717,46 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.TableLayoutPanel tblAep;
-        private System.Windows.Forms.Label lblAccOut;
         private System.Windows.Forms.ComboBox cbbNumber;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblAccIn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblMoney;
-        private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label lblDuration;
-        private System.Windows.Forms.Label lblDateOut;
-        private System.Windows.Forms.Label lblDateIn;
-        private System.Windows.Forms.Label lblChair;
-        private System.Windows.Forms.Label lblWeight;
-        private System.Windows.Forms.Label lblNumber;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblGroup;
-        private System.Windows.Forms.Label lblKind;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label12;
         private DevExpress.XtraEditors.LabelControl lblInfo;
         private DevExpress.XtraEditors.SimpleButton cmdSumary2;
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
         private DevExpress.XtraEditors.SimpleButton cmdInList;
-        private DevExpress.XtraEditors.SimpleButton cmdRedo;
         private DevExpress.XtraEditors.SimpleButton cmdOut;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.CalcEdit calRose2;
+        private DevExpress.XtraEditors.CalcEdit calRose1;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.CalcEdit calPrice2;
+        private DevExpress.XtraEditors.CalcEdit calPrice1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private DevExpress.XtraEditors.TextEdit txtSeats;
+        private DevExpress.XtraEditors.TextEdit txtBeds;
+        private DevExpress.XtraEditors.LabelControl lblBeds;
+        private DevExpress.XtraEditors.LabelControl lblSeats;
+        private DevExpress.XtraEditors.TextEdit textEdit8;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.TextEdit textEdit6;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.TextEdit textEdit7;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
+        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit textEdit5;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.TextEdit textEdit3;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.TextEdit textEdit2;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.TextEdit textEdit9;
     }
 }

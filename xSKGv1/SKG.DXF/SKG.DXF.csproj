@@ -231,11 +231,11 @@
     </Compile>
     <Compile Include="Station\Fixed\Level2.cs" />
     <Compile Include="Station\Level1.cs" />
-    <Compile Include="Station\Manage\FrmTra_GateIn.cs">
+    <Compile Include="Station\Manage\FrmTra_GateIn1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_GateIn.Designer.cs">
-      <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
+    <Compile Include="Station\Manage\FrmTra_GateIn1.Designer.cs">
+      <DependentUpon>FrmTra_GateIn1.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\FrmTra_GateOut.cs">
       <SubType>Form</SubType>
@@ -309,9 +309,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateIn.resx">
-      <DependentUpon>FrmTra_GateIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_Group.resx">
       <DependentUpon>FrmTra_Group.cs</DependentUpon>

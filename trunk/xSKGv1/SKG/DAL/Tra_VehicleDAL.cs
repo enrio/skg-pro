@@ -277,7 +277,8 @@ namespace SKG.DAL
                               s.Code,
                               s.TransportId,
                               s.TariffId,
-                              Kind = s.Tariff.Text,
+
+                              Tariff = s.Tariff.Text,
                               Transport = s.Transport.Text,
 
                               s.Seats,

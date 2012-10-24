@@ -575,7 +575,7 @@ namespace SKG.DAL
             catch { return null; }
         }
 
-        public Tra_Detail InvoiceOut(string number, bool isOut)
+        public DataTable InvoiceOut(string number, bool isOut)
         {
             try
             {
@@ -611,9 +611,7 @@ namespace SKG.DAL
                               s.Money
                           };
 
-
-
-                return null;
+                return res.ToDataTable();
             }
             catch { return null; }
         }

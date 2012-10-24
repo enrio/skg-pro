@@ -126,6 +126,13 @@ namespace SKG.DXF.Station.Manage
 
             try
             {
+               var detail= _bll.Tra_Detail.InvoiceOut(cbbNumber.Text, isOut);
+
+               //txtNumber.EditValue = detail.Tra_Vehicle.Code;
+               // txtMoney.EditValue = detail.Tra_Vehicle.Fixed ? detail.ChargeForFixed() : detail.ChargeForNormal();
+               // txtDateIn.EditValue = detail.DateIn;
+               // txtDateOut.EditValue = detail.DateOut;
+                
                 var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
                 if (v == null) return;
                 var o = new Tra_Detail() { Pol_UserOutId = Global.Session.User.Id, Tra_VehicleId = v.Id, DateOut = Global.Session.Current };

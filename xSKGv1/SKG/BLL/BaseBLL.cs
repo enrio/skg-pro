@@ -53,11 +53,6 @@ namespace SKG.BLL
         public Tra_TariffBLL Tra_Tariff { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Tra_Registries: đăng kí giá.
-        /// </summary>
-        public Tra_RegistryBLL Tra_Registry { set; get; }
-
-        /// <summary>
         /// Truy cập cơ sở dữ liệu bảng Tra_Vehicle: danh sách xe cộ.
         /// </summary>
         public Tra_VehicleBLL Tra_Vehicle { set; get; }
@@ -79,7 +74,6 @@ namespace SKG.BLL
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
             Tra_Tariff = new Tra_TariffBLL();
-            Tra_Registry = new Tra_RegistryBLL();
             Tra_Vehicle = new Tra_VehicleBLL();
             Tra_Detail = new Tra_DetailBLL();
         }

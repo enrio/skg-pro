@@ -4,9 +4,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
@@ -15,20 +12,22 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Cổng vào
     /// </summary>
-    public partial class FrmTra_GateIn_Bak : SKG.DXF.FrmInput
+    public partial class FrmTra_GateIn2 : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Caption = "Cổng vào Bak", Level = 3, Order = 24, Picture = @"Icons\GateIn.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateIn1).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG VÀO - XE CỐ ĐỊNH", Level = 3, Order = 27, Picture = @"Icons\GateIn.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_GateIn_Bak()
+        Guid _idLoaixe = Guid.Empty;
+
+        public FrmTra_GateIn2()
         {
             InitializeComponent();
 
@@ -44,7 +43,20 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void PerformDelete()
         {
-            //var tmp = grvMain.GetFocusedRowCellValue("Id") + "";
+            var tmp = grvMain.GetFocusedRowCellValue("Id");
+            if (tmp + "" == "") return;
+            var id = (Guid)tmp;
+
+            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
+                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+            }
 
             base.PerformDelete();
         }
@@ -55,8 +67,12 @@ namespace SKG.DXF.Station.Manage
 
             if (_dtb != null)
             {
-                ClearDataBindings();
-                if (_dtb.Rows.Count > 0) DataBindingControl();
+
+                if (_dtb.Rows.Count > 0)
+                {
+                    ClearDataBindings();
+                    DataBindingControl();
+                }
             }
 
             base.PerformRefresh();
@@ -64,6 +80,8 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformSave()
         {
+            txtNumber_KeyDown(null, null);
+
             switch (_state)
             {
                 case State.Add:
@@ -89,16 +107,16 @@ namespace SKG.DXF.Station.Manage
 
         protected override void ResetInput()
         {
-            lkeGroup.ItemIndex = 0;
-            lkeKind.ItemIndex = 0;
+            //lkeGroup.ItemIndex = 0;
+            //lkeKind.ItemIndex = 0;
 
             txtNumber.Text = null;
-            txtChair.Text = null;
+            //txtChair.Text = null;
 
-            txtDriver.Text = null;
-            txtAddress.Text = null;
-            txtPhone.Text = null;
-            txtDescript.Text = null;
+            //txtDriver.Text = null;
+            //txtAddress.Text = null;
+            //txtPhone.Text = null;
+            //txtDescript.Text = null;
 
             base.ResetInput();
         }
@@ -106,42 +124,42 @@ namespace SKG.DXF.Station.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
-            txtChair.DataBindings.Clear();
+            //txtChair.DataBindings.Clear();
 
-            txtDriver.DataBindings.Clear();
-            dteBirth.DataBindings.Clear();
-            txtAddress.DataBindings.Clear();
-            txtPhone.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
+            //txtDriver.DataBindings.Clear();
+            //dteBirth.DataBindings.Clear();
+            //txtAddress.DataBindings.Clear();
+            //txtPhone.DataBindings.Clear();
+            //txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            txtNumber.DataBindings.Add("EditValue", _dtb, ".Number");
-            txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
-            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
-            dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
-            txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
-            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
+            txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
+            //txtChair.DataBindings.Add("EditValue", _dtb, ".Chair");
+            //txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            //dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
+            //txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
+            //txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+            //txtDescript.DataBindings.Add("EditValue", _dtb, ".Descript");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            lkeGroup.Properties.ReadOnly = isReadOnly;
-            lkeKind.Properties.ReadOnly = isReadOnly;
+            //lkeGroup.Properties.ReadOnly = isReadOnly;
+            //lkeKind.Properties.ReadOnly = isReadOnly;
 
             txtNumber.Properties.ReadOnly = isReadOnly;
-            txtChair.Properties.ReadOnly = isReadOnly;
-            txtDriver.Properties.ReadOnly = isReadOnly;
-            dteBirth.Properties.ReadOnly = isReadOnly;
-            txtAddress.Properties.ReadOnly = isReadOnly;
-            txtPhone.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
+            //txtChair.Properties.ReadOnly = isReadOnly;
+            //txtDriver.Properties.ReadOnly = isReadOnly;
+            //dteBirth.Properties.ReadOnly = isReadOnly;
+            //txtAddress.Properties.ReadOnly = isReadOnly;
+            //txtPhone.Properties.ReadOnly = isReadOnly;
+            //txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -162,6 +180,9 @@ namespace SKG.DXF.Station.Manage
                     //Tra_VehicleId = id,
                     DateIn = Global.Session.Current
                 };
+
+                //var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(txtNumber.Text);
+                //ve.Number = 
 
                 if (_bll.Tra_Detail.Update(o) != null) return true;
                 else
@@ -204,14 +225,14 @@ namespace SKG.DXF.Station.Manage
                     {
                         var ve = new Tra_Vehicle
                         {
-                            Number = txtNumber.Text,
-                            Tra_KindId = (Guid)lkeKind.GetColumnValue("Id"),
-                            Chair = txtChair.Text.ToInt32(),
-                            Driver = txtDriver.Text,
-                            Birth = dteBirth.DateTime,
-                            Address = txtAddress.Text,
-                            Phone = txtPhone.Text,
-                            Descript = txtDescript.Text
+                            Code = txtNumber.Text,
+                            TransportId = _idLoaixe,
+                            //Seats = txtChair.Text.ToInt32(),
+                            //Driver = txtDriver.Text,
+                            //Birth = dteBirth.DateTime,
+                            //Address = txtAddress.Text,
+                            //Phone = txtPhone.Text,
+                            //Note = txtDescript.Text
                         };
 
                         if (_bll.Tra_Vehicle.Insert(ve) != null) // thêm xe nào vào danh sách xe cộ
@@ -244,9 +265,12 @@ namespace SKG.DXF.Station.Manage
                 }
             }
             catch { return false; }
-            finally { GetDataInMinute(); }
+            finally { LoadData(); }
         }
 
+        /// <summary>
+        /// Danh sách 20 xe vào bến cuối cùng
+        /// </summary>
         protected override void LoadData()
         {
             //_dtb = _bll.Select();
@@ -256,6 +280,21 @@ namespace SKG.DXF.Station.Manage
             //    grcMain.DataSource = _dtb;
             //    gridColumn2.BestFit(); // fit column STT
             //}
+
+            _dtb = _bll.Tra_Detail.Get20Latest();
+            if (_dtb == null) return;
+
+            if (_dtb.Rows.Count > 0)
+                grcMain.DataSource = _dtb;
+            else
+            {
+                for (int i = 0; i < grvMain.RowCount; i++)
+                    grvMain.DeleteRow(i);
+
+                //cmdIn.Enabled = true;
+                bbiEdit.Enabled = false;
+                bbiDelete.Enabled = false;
+            }
 
             base.LoadData();
         }
@@ -282,19 +321,11 @@ namespace SKG.DXF.Station.Manage
                 if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
             }
 
-            if (lkeGroup.GetColumnValue("Code") + "" == "E")
-            {
-                oki = txtChair.Text.Length == 0 ? false : true;
-                if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
-            }
-
             return oki;
         }
 
-        static int _sec; // current second
         protected override void TimerTick(object sender, EventArgs e)
         {
-            _sec++; if (_sec >= 10) { GetDataInMinute(); _sec = 0; }
             lblDateIn.Text = Global.Session.Current.ToStringVN();
 
             base.TimerTick(sender, e);
@@ -303,40 +334,9 @@ namespace SKG.DXF.Station.Manage
 
         private void FrmGateIn_Load(object sender, EventArgs e)
         {
-            lblUserIn.Text = Global.Session.User.Name.ToUpper();
-
-            lkeGroup.Properties.DataSource = _bll.Tra_Group.Select();
-            lkeGroup.ItemIndex = 0;
+            //lblUserIn.Text = Global.Session.User.Name.ToUpper();
 
             ReadOnlyControl();
-        }
-
-        private void lkeGroup_EditValueChanged(object sender, EventArgs e)
-        {
-            var id = (Guid)lkeGroup.GetColumnValue("Id");
-            lkeKind.Properties.DataSource = _bll.Tra_Kind.Select(id);
-            lkeKind.ItemIndex = 0;
-        }
-
-        /// <summary>
-        /// Danh sách xe vào bến trong vòng 01 phút
-        /// </summary>
-        private void GetDataInMinute()
-        {
-            _dtb = _bll.Tra_Detail.GetDataInMinute();
-            if (_dtb == null) return;
-
-            if (_dtb.Rows.Count > 0)
-                grcMain.DataSource = _dtb;
-            else
-            {
-                for (int i = 0; i < grvMain.RowCount; i++)
-                    grvMain.DeleteRow(i);
-
-                //cmdIn.Enabled = true;
-                //cmdEdit.Enabled = false;
-                //cmdDelete.Enabled = false;
-            }
         }
 
         const string STR_MENU = "Cổng &vào";
@@ -364,7 +364,35 @@ namespace SKG.DXF.Station.Manage
         #region Properties
         public string EditNumber { set; get; } // number need to update from form gate out
         public bool EditMode { set; get; } // edit mode allow edit mode in this form or another form
-        public bool EditHand { set; get; } // edit by hand
+        public bool EditHand { set; get; } // edit by hand        
         #endregion
+
+        private const string STR_ADD = "Thêm chi tiết ra/vào";
+        private const string STR_EDIT = "Sửa chi tiết ra/vào";
+        private const string STR_DELETE = "Xoá chi tiết ra/vào";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá số xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Mã này có rồi";
+
+        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e == null || e.KeyCode == Keys.Enter)
+            {
+                var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+                if (o == null)
+                {
+                    var frm = new Station.Normal.FrmTra_Vehicle
+                    {
+                        _num = txtNumber.Text,
+                        WindowState = FormWindowState.Maximized,
+                        AllowCancel = false,
+                        _state = State.Add
+                    };
+                    frm.ShowDialog();
+                }
+            }
+        }
     }
 }

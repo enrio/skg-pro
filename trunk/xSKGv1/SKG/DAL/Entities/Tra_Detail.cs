@@ -101,6 +101,18 @@ namespace SKG.DAL.Entities
         public int Rose2 { set; get; }
         #endregion
 
+        #region Weight
+        /// <summary>
+        /// Number of seats current
+        /// </summary>
+        public int? Seats { set; get; }
+
+        /// <summary>
+        /// Number of beds current
+        /// </summary>
+        public int? Beds { set; get; }
+        #endregion
+
         /// <summary>
         /// Total money
         /// </summary>

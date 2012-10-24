@@ -193,6 +193,12 @@
     <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
       <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Manage\FrmTra_GateIn2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_GateIn2.Designer.cs">
+      <DependentUpon>FrmTra_GateIn2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Normal\Level2.cs" />
     <Compile Include="Station\Normal\FrmTra_Vehicle.cs">
       <SubType>Form</SubType>

@@ -119,9 +119,10 @@ namespace SKG.DAL.Entities
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
-            var dateOut = DateOut.Value.Subtract(new TimeSpan(0, error, 0));
 
-            var span = DateOut.Value - DateIn;
+            // Allow error of number minutes
+            var dateIn = DateIn.AddMinutes(error);
+            var span = DateOut.Value - dateIn;
             var odd = span.TotalDays - span.Days;
 
             long money = span.Days * price2;
@@ -146,9 +147,13 @@ namespace SKG.DAL.Entities
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
-            var dateOut = DateOut.Value.Subtract(new TimeSpan(0, error, 0));
 
-            long money = price1 * seats + rose1 * (seats - 1);
+            // Pass to 2 AM make a day with price 20000
+            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 2, error, 0);
+            var span = DateOut.Value - dateIn;
+            long money = span.Days * 20000;
+
+            money += price1 * seats + rose1 * (seats - 1);
             money += (price2 + rose2) * beds;
 
             return money;

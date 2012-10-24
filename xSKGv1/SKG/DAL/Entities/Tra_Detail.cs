@@ -143,6 +143,22 @@ namespace SKG.DAL.Entities
             return money;
         }
 
+        public long ChargeForNormal(int error = 11)
+        {
+            if (DateOut == null) return 0;
+            if (DateOut.Value < DateIn) return 0;
+
+            var dateIn = DateIn.AddMinutes(error);
+            var span = DateOut.Value - dateIn;
+            var odd = span.TotalDays - span.Days;
+
+            long money = span.Days * Price2;
+            money += odd < 0.5 ? Price1 : Price2;
+            money += Price1 * Seats.Value + Price2 * Beds.Value;
+
+            return money;
+        }
+
         /// <summary>
         /// Charge for vehicle fixed
         /// </summary>
@@ -165,6 +181,21 @@ namespace SKG.DAL.Entities
 
             money += price1 * seats + rose1 * (seats - 1);
             money += (price2 + rose2) * beds;
+
+            return money;
+        }
+
+        public long ChargeForFixed(int error = 11)
+        {
+            if (DateOut == null) return 0;
+            if (DateOut.Value < DateIn) return 0;
+
+            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 2, error, 0);
+            var span = DateOut.Value - dateIn;
+            long money = span.Days * 20000;
+
+            money += Price1 * Seats.Value + Rose1 * (Seats.Value - 1);
+            money += (Price2 + Rose2) * Beds.Value;
 
             return money;
         }

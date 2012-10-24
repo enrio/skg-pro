@@ -296,7 +296,7 @@ namespace SKG.DAL
 
                               KindName = k.Text,
                               GroupName = k.Group.Text,
-                          };               
+                          };
 
                 total = res.Count();
                 if (number != null) res = res.Where(p => p.Code == number);
@@ -369,7 +369,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id                          
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
                           where s.Tra_VehicleId == obj.Tra_VehicleId
                           orderby v.Code
@@ -403,7 +403,7 @@ namespace SKG.DAL
 
                               s.Money
                           };
-                
+
 
                 var ok = res.Single(h => h.DateOut == null);
 
@@ -417,7 +417,7 @@ namespace SKG.DAL
 
                 if (dayF > 0)
                 {
-                    dayL = (hour < 12 && hour >0) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
+                    dayL = (hour < 12 && hour > 0) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
                 }
                 else dayL = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
 
@@ -529,6 +529,49 @@ namespace SKG.DAL
 
                 total = res.Sum(k => k.Money);
                 return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        public Tra_Detail InvoiceOut(string number, bool isOut)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Tra_Vehicle.Code == number && s.DateOut == null
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+                              UserOutName = s.Pol_UserOut.Name,
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Fixed,
+
+                              s.DateIn,
+                              s.DateOut,
+                              s.Days,
+                              s.Hours,
+
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
+
+                              Tra_GroupId = s.Tra_Vehicle.Tariff.GroupId,
+                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
+                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
+                              KindName = s.Tra_Vehicle.Tariff.Text,
+
+                              s.Tra_Vehicle.Tariff.Price1,
+                              s.Tra_Vehicle.Tariff.Price2,
+                              s.Tra_Vehicle.Tariff.Rose1,
+                              s.Tra_Vehicle.Tariff.Rose2,
+
+                              s.Money
+                          };
+
+
+
+                return null;
             }
             catch { return null; }
         }

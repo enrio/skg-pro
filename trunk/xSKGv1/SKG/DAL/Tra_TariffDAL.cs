@@ -237,9 +237,8 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              Tra_GroupId = s.GroupId,
-
-                              Region = "",
+                               s.GroupId,
+                              
                               Area = s.Group.Text,
                               s.Text,
                               s.Note,

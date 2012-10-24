@@ -190,21 +190,29 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Id = id,
                     TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueRoute.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
                     Fixed = true,
 
-                    ProductionYear = Convert.ToInt32(txtProductionYear.Text),
-                    LimitedRegistration = dteLimitedRegistration.DateTime,
-                    TermInsurance = dteTermInsurance.DateTime,
-                    TermFixedRoutes = dteTermFixedRoutes.DateTime,
-                    TermDriverLicense = dteTermDriverLicense.DateTime,
-
+                    ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
                     ServerQuality = txtServerQuality.Text
                 };
+
+                if (dteLimitedRegistration.EditValue + "" != "")
+                    o.LimitedRegistration = dteLimitedRegistration.DateTime;
+
+                if (dteTermInsurance.EditValue + "" != "")
+                    o.TermInsurance = dteTermInsurance.DateTime;
+
+                if (dteTermFixedRoutes.EditValue + "" != "")
+                    o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
+
+                if (dteTermDriverLicense.EditValue + "" != "")
+                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
@@ -223,21 +231,29 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Vehicle()
                 {
                     TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueRoute.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
                     Fixed = true,
 
-                    ProductionYear = Convert.ToInt32(txtProductionYear.Text),
-                    LimitedRegistration = dteLimitedRegistration.DateTime,
-                    TermInsurance = dteTermInsurance.DateTime,
-                    TermFixedRoutes = dteTermFixedRoutes.DateTime,
-                    TermDriverLicense = dteTermDriverLicense.DateTime,
-
+                    ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
                     ServerQuality = txtServerQuality.Text
                 };
+
+                if (dteLimitedRegistration.EditValue + "" != "")
+                    o.LimitedRegistration = dteLimitedRegistration.DateTime;
+
+                if (dteTermInsurance.EditValue + "" != "")
+                    o.TermInsurance = dteTermInsurance.DateTime;
+
+                if (dteTermFixedRoutes.EditValue + "" != "")
+                    o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
+
+                if (dteTermDriverLicense.EditValue + "" != "")
+                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
@@ -282,6 +298,9 @@ namespace SKG.DXF.Station.Fixed
         {
             lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
             lueTransport.ItemIndex = 0;
+
+            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
+            lueRoute.ItemIndex = 0;
 
             if (_num + "" != "")
             {

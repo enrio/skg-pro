@@ -81,7 +81,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Production year
         /// </summary>
-        public int? ProductionYear { set; get; }
+        public string ProductionYear { set; get; }
 
         /// <summary>
         /// Limited registration

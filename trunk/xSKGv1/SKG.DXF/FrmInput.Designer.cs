@@ -124,7 +124,7 @@
             // 
             // bbiCancel
             // 
-            this.bbiCancel.Caption = "&Trở về";
+            this.bbiCancel.Caption = "T&rở về";
             this.bbiCancel.Enabled = false;
             this.bbiCancel.Glyph = global::SKG.DXF.Properties.Resources.cancel;
             this.bbiCancel.Id = 4;

@@ -661,9 +661,9 @@
             this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(517, 375);
+            this.lblInfo.Location = new System.Drawing.Point(550, 375);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(230, 37);
+            this.lblInfo.Size = new System.Drawing.Size(197, 37);
             this.lblInfo.TabIndex = 8;
             // 
             // FrmTra_GateOut

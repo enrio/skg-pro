@@ -19,13 +19,13 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Vận tải - Danh sách xe
+    /// Transport - List of all vehicles
     /// </summary>
     public class Tra_Vehicle : Zinfors
     {
         #region Foreign key
         /// <summary>
-        /// Belong to transport (reference to Pol_Dictionary)
+        /// Belong to transport unit (reference to Pol_Dictionary)
         /// </summary>
         [Column(Order = 1), ForeignKey("Transport")]
         public Guid? TransportId { set; get; }
@@ -35,12 +35,12 @@ namespace SKG.DAL.Entities
         public virtual Pol_Dictionary Transport { get; set; }
 
         /// <summary>
-        /// Belong to tariff and commission (reference to Tra_Tariff)
+        /// Have a tariff (ticket and commission) (reference to Tra_Tariff)
         /// </summary>
         [Column(Order = 2), ForeignKey("Tariff")]
         public Guid? TariffId { set; get; }
         /// <summary>
-        /// Have tariff and commission
+        /// Have a tariff (ticket and commission)
         /// </summary>
         public virtual Tra_Tariff Tariff { get; set; }
 
@@ -55,10 +55,15 @@ namespace SKG.DAL.Entities
         public virtual Pol_User Creator { get; set; }
 
         /// <summary>
-        /// List of details in/out
+        /// List of detail in or out station
         /// </summary>
         public virtual ICollection<Tra_Detail> Tra_Details { get; set; }
         #endregion
+
+        /// <summary>
+        /// Create date
+        /// </summary>
+        public DateTime? CreateDate { get; set; }
 
         #region Weight
         /// <summary>

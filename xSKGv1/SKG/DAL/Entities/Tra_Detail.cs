@@ -107,17 +107,42 @@ namespace SKG.DAL.Entities
         public decimal Money { set; get; }
 
         /// <summary>
-        /// Make money
+        /// Charge for vehicle normal
         /// </summary>
-        /// <param name="price1">Price of a half day or a seat</param>
-        /// <param name="price2">Price of a full day or a bed</param>
+        /// <param name="price1">Price of a half day (or a seat)</param>
+        /// <param name="price2">Price of a full day (or a bed)</param>
+        /// <param name="seats">Number of seat</param>
+        /// <param name="beds">Number of bed</param>
+        /// <param name="error">Errot of time</param>
+        /// <returns>Money</returns>
+        public decimal ChargeForNormal(int price1, int price2, int seats, int beds, int error = 11)
+        {
+            if (DateOut == null) return 0;
+            if (DateOut.Value < DateIn) return 0;
+            var dateOut = DateOut.Value.Subtract(new TimeSpan(0, error, 0));
+
+            var span = DateOut.Value - DateIn;
+            var odd = span.TotalDays - span.Days;
+
+            var money = span.Days * price2;
+            if (odd < 0.5) money += price1;
+            else money += price2;
+
+            return money;
+        }
+
+        /// <summary>
+        /// Charge for vehicle fixed
+        /// </summary>
+        /// <param name="price1">Price of a seat</param>
+        /// <param name="price2">Price of a bed</param>
         /// <param name="rose1">Commission of a seat</param>
         /// <param name="rose2">Commission of a bed</param>
-        /// <param name="seats">Number of seats</param>
-        /// <param name="beds">Number of beds</param>
+        /// <param name="seats">Number of seat</param>
+        /// <param name="beds">Number of bed</param>
         /// <param name="error">Error of time</param>
-        /// <returns></returns>
-        public long Charge(int price1, int price2, int rose1 = 0, int rose2 = 0, int seats = 0, int beds = 0, int error = 11)
+        /// <returns>Money</returns>
+        public decimal ChargeForFixed(int price1, int price2, int rose1, int rose2, int seats, int beds, int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;

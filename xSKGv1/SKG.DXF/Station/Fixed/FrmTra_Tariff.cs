@@ -101,8 +101,8 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            txtName.Text = null;
-            txtDescript.Text = null;
+            lokGroup.ItemIndex = 0;
+            txtName.Text = null;           
 
             calPrice1.Text = null;
             calPrice2.Text = null;
@@ -115,8 +115,8 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ClearDataBindings()
         {
-            txtName.DataBindings.Clear();
-            txtDescript.DataBindings.Clear();
+            lokGroup.DataBindings.Clear();
+            txtName.DataBindings.Clear();            
 
             calPrice1.DataBindings.Clear();
             calPrice2.DataBindings.Clear();
@@ -129,8 +129,8 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void DataBindingControl()
         {
-            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
-            txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            lokGroup.DataBindings.Add("EditValue", _dtb, ".GroupId");            
+            txtName.DataBindings.Add("EditValue", _dtb, ".Text");            
 
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
@@ -144,7 +144,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtName.Properties.ReadOnly = isReadOnly;
-            txtDescript.Properties.ReadOnly = isReadOnly;
+            lokGroup.Properties.ReadOnly = isReadOnly;
 
             calPrice1.Properties.ReadOnly = isReadOnly;
             calPrice2.Properties.ReadOnly = isReadOnly;
@@ -170,7 +170,7 @@ namespace SKG.DXF.Station.Fixed
                     Id = id,
 
                     Text = txtName.Text,
-                    Note = txtDescript.Text,
+                    //Note = txtDescript.Text,
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -196,7 +196,7 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Tariff()
                 {
                     Text = txtName.Text,
-                    Note = txtDescript.Text,
+                   // Note = txtDescript.Text,
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -243,5 +243,11 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Loại này có rồi";
+
+        private void FrmTra_Tariff_Load(object sender, EventArgs e)
+        {
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_AREA);
+            lokGroup.ItemIndex = 0;
+        }
     }
 }

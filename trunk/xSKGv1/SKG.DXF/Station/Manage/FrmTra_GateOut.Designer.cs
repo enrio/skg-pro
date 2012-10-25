@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -36,21 +37,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
-            this.txtInDepot = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDateOut = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDateIn = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.txtKind = new DevExpress.XtraEditors.TextEdit();
-            this.lblKind = new DevExpress.XtraEditors.LabelControl();
-            this.txtGroup = new DevExpress.XtraEditors.TextEdit();
-            this.lblGroup = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.txtPhone = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.txtUserIn = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtMoney = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -75,6 +62,22 @@
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.lblGroupValue = new System.Windows.Forms.Label();
+            this.lblKindValue = new System.Windows.Forms.Label();
+            this.lblKind = new System.Windows.Forms.Label();
+            this.lblDateOut = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblDateIn = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblDeposit = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblUserIn = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -83,13 +86,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInDepot.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateOut.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKind.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGroup.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserIn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoney.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
@@ -161,23 +157,25 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.lblMoney);
+            this.groupControl1.Controls.Add(this.label12);
+            this.groupControl1.Controls.Add(this.lblPhone);
+            this.groupControl1.Controls.Add(this.label14);
+            this.groupControl1.Controls.Add(this.lblUserIn);
+            this.groupControl1.Controls.Add(this.label16);
+            this.groupControl1.Controls.Add(this.lblDeposit);
+            this.groupControl1.Controls.Add(this.label10);
+            this.groupControl1.Controls.Add(this.lblDateOut);
+            this.groupControl1.Controls.Add(this.label6);
+            this.groupControl1.Controls.Add(this.lblDateIn);
+            this.groupControl1.Controls.Add(this.label8);
+            this.groupControl1.Controls.Add(this.lblKindValue);
+            this.groupControl1.Controls.Add(this.lblKind);
+            this.groupControl1.Controls.Add(this.lblGroupValue);
+            this.groupControl1.Controls.Add(this.lblGroup);
             this.groupControl1.Controls.Add(this.labelControl15);
             this.groupControl1.Controls.Add(this.txtNumber);
-            this.groupControl1.Controls.Add(this.txtInDepot);
-            this.groupControl1.Controls.Add(this.labelControl13);
-            this.groupControl1.Controls.Add(this.txtDateOut);
-            this.groupControl1.Controls.Add(this.labelControl11);
-            this.groupControl1.Controls.Add(this.txtDateIn);
-            this.groupControl1.Controls.Add(this.labelControl12);
-            this.groupControl1.Controls.Add(this.txtKind);
-            this.groupControl1.Controls.Add(this.lblKind);
-            this.groupControl1.Controls.Add(this.txtGroup);
-            this.groupControl1.Controls.Add(this.lblGroup);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.txtPhone);
-            this.groupControl1.Controls.Add(this.labelControl7);
-            this.groupControl1.Controls.Add(this.txtUserIn);
-            this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.txtMoney);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.groupBox3);
@@ -219,112 +217,6 @@
             this.txtNumber.Size = new System.Drawing.Size(182, 46);
             this.txtNumber.TabIndex = 40;
             // 
-            // txtInDepot
-            // 
-            this.txtInDepot.Location = new System.Drawing.Point(459, 177);
-            this.txtInDepot.Name = "txtInDepot";
-            this.txtInDepot.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInDepot.Properties.Appearance.Options.UseFont = true;
-            this.txtInDepot.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtInDepot.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtInDepot.Properties.ReadOnly = true;
-            this.txtInDepot.Size = new System.Drawing.Size(288, 30);
-            this.txtInDepot.TabIndex = 37;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl13.Location = new System.Drawing.Point(314, 180);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(75, 24);
-            this.labelControl13.TabIndex = 36;
-            this.labelControl13.Text = "Lưu đậu:";
-            // 
-            // txtDateOut
-            // 
-            this.txtDateOut.Location = new System.Drawing.Point(459, 141);
-            this.txtDateOut.Name = "txtDateOut";
-            this.txtDateOut.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateOut.Properties.Appearance.Options.UseFont = true;
-            this.txtDateOut.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtDateOut.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtDateOut.Properties.ReadOnly = true;
-            this.txtDateOut.Size = new System.Drawing.Size(288, 30);
-            this.txtDateOut.TabIndex = 35;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl11.Location = new System.Drawing.Point(314, 144);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(79, 24);
-            this.labelControl11.TabIndex = 34;
-            this.labelControl11.Text = "T.gian ra:";
-            // 
-            // txtDateIn
-            // 
-            this.txtDateIn.Location = new System.Drawing.Point(459, 105);
-            this.txtDateIn.Name = "txtDateIn";
-            this.txtDateIn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateIn.Properties.Appearance.Options.UseFont = true;
-            this.txtDateIn.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtDateIn.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtDateIn.Properties.ReadOnly = true;
-            this.txtDateIn.Size = new System.Drawing.Size(288, 30);
-            this.txtDateIn.TabIndex = 33;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl12.Location = new System.Drawing.Point(314, 108);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(93, 24);
-            this.labelControl12.TabIndex = 32;
-            this.labelControl12.Text = "T.gian vào:";
-            // 
-            // txtKind
-            // 
-            this.txtKind.Location = new System.Drawing.Point(459, 69);
-            this.txtKind.Name = "txtKind";
-            this.txtKind.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKind.Properties.Appearance.Options.UseFont = true;
-            this.txtKind.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtKind.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtKind.Properties.ReadOnly = true;
-            this.txtKind.Size = new System.Drawing.Size(288, 30);
-            this.txtKind.TabIndex = 31;
-            // 
-            // lblKind
-            // 
-            this.lblKind.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKind.Location = new System.Drawing.Point(314, 72);
-            this.lblKind.Name = "lblKind";
-            this.lblKind.Size = new System.Drawing.Size(125, 24);
-            this.lblKind.TabIndex = 30;
-            this.lblKind.Text = "Tuyến/Loại xe:";
-            // 
-            // txtGroup
-            // 
-            this.txtGroup.Location = new System.Drawing.Point(459, 33);
-            this.txtGroup.Name = "txtGroup";
-            this.txtGroup.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGroup.Properties.Appearance.Options.UseFont = true;
-            this.txtGroup.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtGroup.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtGroup.Properties.ReadOnly = true;
-            this.txtGroup.Size = new System.Drawing.Size(288, 30);
-            this.txtGroup.TabIndex = 29;
-            // 
-            // lblGroup
-            // 
-            this.lblGroup.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.Location = new System.Drawing.Point(314, 36);
-            this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(139, 24);
-            this.lblGroup.TabIndex = 28;
-            this.lblGroup.Text = "ĐVVT/Nhóm xe:";
-            this.lblGroup.Click += new System.EventHandler(this.labelControl10_Click);
-            // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -333,48 +225,6 @@
             this.labelControl8.Size = new System.Drawing.Size(100, 19);
             this.labelControl8.TabIndex = 27;
             this.labelControl8.Text = "Tìm biển số:";
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(459, 249);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtPhone.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtPhone.Properties.ReadOnly = true;
-            this.txtPhone.Size = new System.Drawing.Size(288, 30);
-            this.txtPhone.TabIndex = 26;
-            // 
-            // labelControl7
-            // 
-            this.labelControl7.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(314, 252);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(116, 24);
-            this.labelControl7.TabIndex = 25;
-            this.labelControl7.Text = "Số điện thoại:";
-            // 
-            // txtUserIn
-            // 
-            this.txtUserIn.Location = new System.Drawing.Point(459, 213);
-            this.txtUserIn.Name = "txtUserIn";
-            this.txtUserIn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUserIn.Properties.Appearance.Options.UseFont = true;
-            this.txtUserIn.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtUserIn.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtUserIn.Properties.ReadOnly = true;
-            this.txtUserIn.Size = new System.Drawing.Size(288, 30);
-            this.txtUserIn.TabIndex = 24;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(314, 216);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(128, 24);
-            this.labelControl6.TabIndex = 23;
-            this.labelControl6.Text = "Người cho vào:";
             // 
             // txtMoney
             // 
@@ -666,6 +516,150 @@
             this.lblInfo.Size = new System.Drawing.Size(197, 37);
             this.lblInfo.TabIndex = 8;
             // 
+            // lblGroup
+            // 
+            this.lblGroup.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(315, 28);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(80, 31);
+            this.lblGroup.TabIndex = 42;
+            this.lblGroup.Text = "Nhóm:";
+            // 
+            // lblGroupValue
+            // 
+            this.lblGroupValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblGroupValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroupValue.Location = new System.Drawing.Point(386, 28);
+            this.lblGroupValue.Name = "lblGroupValue";
+            this.lblGroupValue.Size = new System.Drawing.Size(361, 31);
+            this.lblGroupValue.TabIndex = 43;
+            // 
+            // lblKindValue
+            // 
+            this.lblKindValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblKindValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKindValue.Location = new System.Drawing.Point(386, 65);
+            this.lblKindValue.Name = "lblKindValue";
+            this.lblKindValue.Size = new System.Drawing.Size(361, 31);
+            this.lblKindValue.TabIndex = 45;
+            // 
+            // lblKind
+            // 
+            this.lblKind.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKind.Location = new System.Drawing.Point(315, 66);
+            this.lblKind.Name = "lblKind";
+            this.lblKind.Size = new System.Drawing.Size(80, 31);
+            this.lblKind.TabIndex = 44;
+            this.lblKind.Text = "Loại:";
+            // 
+            // lblDateOut
+            // 
+            this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOut.Location = new System.Drawing.Point(572, 138);
+            this.lblDateOut.Name = "lblDateOut";
+            this.lblDateOut.Size = new System.Drawing.Size(175, 31);
+            this.lblDateOut.TabIndex = 49;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(440, 138);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 31);
+            this.label6.TabIndex = 48;
+            this.label6.Text = "T.gian ra:";
+            // 
+            // lblDateIn
+            // 
+            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateIn.Location = new System.Drawing.Point(572, 101);
+            this.lblDateIn.Name = "lblDateIn";
+            this.lblDateIn.Size = new System.Drawing.Size(175, 31);
+            this.lblDateIn.TabIndex = 47;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(440, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 31);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "T.gian vào:";
+            // 
+            // lblDeposit
+            // 
+            this.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDeposit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeposit.Location = new System.Drawing.Point(572, 176);
+            this.lblDeposit.Name = "lblDeposit";
+            this.lblDeposit.Size = new System.Drawing.Size(175, 31);
+            this.lblDeposit.TabIndex = 51;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(440, 176);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 31);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Lưu đậu:";
+            // 
+            // lblMoney
+            // 
+            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.Location = new System.Drawing.Point(572, 291);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(175, 31);
+            this.lblMoney.TabIndex = 57;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(440, 291);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 31);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "T.TIỀN:";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(572, 253);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(175, 31);
+            this.lblPhone.TabIndex = 55;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(440, 253);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(126, 31);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Số ĐT:";
+            // 
+            // lblUserIn
+            // 
+            this.lblUserIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblUserIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserIn.Location = new System.Drawing.Point(572, 216);
+            this.lblUserIn.Name = "lblUserIn";
+            this.lblUserIn.Size = new System.Drawing.Size(175, 31);
+            this.lblUserIn.TabIndex = 53;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(440, 216);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(126, 31);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "Cho vào:";
+            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -685,13 +679,6 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInDepot.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateOut.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKind.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGroup.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtUserIn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMoney.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -739,24 +726,26 @@
         private DevExpress.XtraEditors.TextEdit txtBeds;
         private DevExpress.XtraEditors.LabelControl lblBeds;
         private DevExpress.XtraEditors.LabelControl lblSeats;
-        private DevExpress.XtraEditors.TextEdit txtInDepot;
-        private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.TextEdit txtDateOut;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.TextEdit txtDateIn;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.TextEdit txtKind;
-        private DevExpress.XtraEditors.LabelControl lblKind;
-        private DevExpress.XtraEditors.TextEdit txtGroup;
-        private DevExpress.XtraEditors.LabelControl lblGroup;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit txtPhone;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.TextEdit txtUserIn;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.TextEdit txtMoney;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.TextEdit txtNumber;
+        private System.Windows.Forms.Label lblMoney;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblUserIn;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblDeposit;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblDateOut;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDateIn;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblKindValue;
+        private System.Windows.Forms.Label lblKind;
+        private System.Windows.Forms.Label lblGroupValue;
+        private System.Windows.Forms.Label lblGroup;
     }
 }

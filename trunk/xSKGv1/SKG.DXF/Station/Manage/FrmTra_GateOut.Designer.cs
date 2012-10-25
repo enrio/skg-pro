@@ -62,9 +62,9 @@
             this.cbbNumber = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPrice2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblFullDay = new System.Windows.Forms.Label();
             this.lblPrice1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblHalfDay = new System.Windows.Forms.Label();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
@@ -195,11 +195,11 @@
             // 
             this.label6.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(397, 29);
+            this.label6.Location = new System.Drawing.Point(344, 29);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(354, 50);
+            this.label6.Size = new System.Drawing.Size(407, 50);
             this.label6.TabIndex = 62;
-            this.label6.Text = "CHO XE RA BẾN";
+            this.label6.Text = "CỔNG RA-CHO XE RA BẾN";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox4
@@ -446,7 +446,7 @@
             this.cbbNumber.FormattingEnabled = true;
             this.cbbNumber.Location = new System.Drawing.Point(119, 31);
             this.cbbNumber.Name = "cbbNumber";
-            this.cbbNumber.Size = new System.Drawing.Size(272, 47);
+            this.cbbNumber.Size = new System.Drawing.Size(219, 47);
             this.cbbNumber.TabIndex = 3;
             this.cbbNumber.ValueMember = "Id";
             this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
@@ -456,9 +456,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblPrice2);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblFullDay);
             this.groupBox1.Controls.Add(this.lblPrice1);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblHalfDay);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 84);
             this.groupBox1.Name = "groupBox1";
@@ -478,15 +478,15 @@
             this.lblPrice2.Text = "105.000";
             this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lblFullDay
             // 
-            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 31);
-            this.label5.TabIndex = 58;
-            this.label5.Text = "Một ngày:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFullDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullDay.Location = new System.Drawing.Point(6, 54);
+            this.lblFullDay.Name = "lblFullDay";
+            this.lblFullDay.Size = new System.Drawing.Size(115, 31);
+            this.lblFullDay.TabIndex = 58;
+            this.lblFullDay.Text = "Một ngày:";
+            this.lblFullDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPrice1
             // 
@@ -499,15 +499,15 @@
             this.lblPrice1.Text = "105.000";
             this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lblHalfDay
             // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 31);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "Nửa ngày:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblHalfDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHalfDay.Location = new System.Drawing.Point(6, 23);
+            this.lblHalfDay.Name = "lblHalfDay";
+            this.lblHalfDay.Size = new System.Drawing.Size(115, 31);
+            this.lblHalfDay.TabIndex = 56;
+            this.lblHalfDay.Text = "Nửa ngày:";
+            this.lblHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdSumary2
             // 
@@ -573,7 +573,6 @@
             this.Name = "FrmTra_GateOut";
             this.Tag = "";
             this.Text = "Cổng ra";
-            this.Load += new System.EventHandler(this.FrmGateOut_Load);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -612,9 +611,9 @@
         private System.Windows.Forms.Label lblGroup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblPrice2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblFullDay;
         private System.Windows.Forms.Label lblPrice1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblHalfDay;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox4;

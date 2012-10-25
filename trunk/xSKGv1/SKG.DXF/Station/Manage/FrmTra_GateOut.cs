@@ -6,7 +6,6 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Extend;
     using SKG.Plugin;
-    using DAL.Entities;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -58,14 +57,14 @@ namespace SKG.DXF.Station.Manage
         {
             Invoice();
             cmdOut.Enabled = true;
-            
+
         }
 
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
             cmdOut.Enabled = false;
-            
+
         }
 
         private void cbbNumber_Enter(object sender, EventArgs e)
@@ -122,134 +121,54 @@ namespace SKG.DXF.Station.Manage
         /// <param name="isOut">Cho xe ra</param>
         private void Invoice(bool isOut = false)
         {
-            if (cbbNumber.Text == "") return;
-
             try
             {
+                if (cbbNumber.Text == "") return;
+
                 var detail = _bll.Tra_Detail.InvoiceOut(cbbNumber.Text, isOut);
 
-                
+                if (detail.Tra_Vehicle.Fixed)
+                {
+                    lblKind.Text = "Tuyến: " + detail.Tra_Vehicle.Tariff.Text;
+                    lblGroup.Text = "ĐVVT: " + detail.Tra_Vehicle.Transport.Text;
+                    lblMoney.Text = detail.ChargeForFixed().ToString("#,#");
 
-                    if(detail.Tra_Vehicle.Fixed)
-                    {                        
-                        lblKind.Text ="Tuyến: "+ detail.Tra_Vehicle.Tariff.Text;                                               
-                        lblGroup.Text ="ĐVVT: "+ detail.Tra_Vehicle.Transport.Text;
-                        lblMoney.Text = detail.ChargeForFixed().ToString("#,#");                        
-                    }
-                    else
-                    {                        
-                        lblKind.Text ="Loại xe: "+ detail.Tra_Vehicle.Tariff.Text;                        
-                        lblGroup.Text ="Nhóm xe: "+ detail.Tra_Vehicle.Tariff.Group.Text;
-                        lblMoney.Text = detail.ChargeForNormal().ToString("#,#");                        
-                    }
+                    lblHalfDay.Text = "Ghế:";
+                    lblFullDay.Text = "Giường:";
+                }
+                else
+                {
+                    lblKind.Text = "Loại xe: " + detail.Tra_Vehicle.Tariff.Text;
+                    lblGroup.Text = "Nhóm xe: " + detail.Tra_Vehicle.Tariff.Group.Text;
+                    lblMoney.Text = detail.ChargeForNormal().ToString("#,#");
 
-                lblNumber.Text ="BS: " +detail.Tra_Vehicle.Code;
+                    lblHalfDay.Text = "Nửa ngày:";
+                    lblFullDay.Text = "Một ngày:";
+                }
+
+                lblNumber.Text = "BS:" + detail.Tra_Vehicle.Code;
 
                 lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
                 lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
 
-                lblSeats.Text = detail.Seats.Value.ToString("#,#"); 
-                lblBeds.Text = detail.Beds.Value.ToString("#,#"); 
+                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,#");
+                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,#");
 
                 lblPrice1.Text = detail.Price1.ToString("#,#");
                 lblRose1.Text = detail.Rose1.ToString("#,#");
 
                 lblPrice2.Text = detail.Price2.ToString("#,#");
-                lblRose2.Text = detail.Rose2.ToString("#,#"); 
+                lblRose2.Text = detail.Rose2.ToString("#,#");
 
                 var d = detail.DateOut.Value - detail.DateIn;
-                lblDeposit.Text ="Lưu đậu tại bến: " +d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
-                
-                lblUserIn.Text = detail.Pol_UserIn.Name;
-                lblPhone.Text = detail.Pol_UserIn.Phone;
+                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút", d.Days, d.Hours, d.Minutes);
 
-                var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
-                if (v == null) return;
-                var o = new Tra_Detail() { Pol_UserOutId = Global.Session.User.Id, Tra_VehicleId = v.Id, DateOut = Global.Session.Current };
+                lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
+                lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
 
-                decimal money = 0;
-                int price1 = 0, price2 = 0;
-                int rose1 = 0, rose2 = 0;
-                int day = 0, hour = 0;
-
-                var tb = _bll.Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, ref  rose1, ref  rose2, isOut);
-
-                if (tb == null) return;
-
-                //if (tb.Rows.Count > 0)
-                //{
-                //    DateTime timeIn = Convert.ToDateTime(tb.Rows[0]["DateIn"]);
-                //    DateTime timeOut = isOut ? Convert.ToDateTime(tb.Rows[0]["DateOut"]) : o.DateOut.Value;
-
-                //    string code = tb.Rows[0]["GroupCode"] + "" != "" ? tb.Rows[0]["GroupCode"] + "" : "";
-                //    int seats = (tb.Rows[0]["Seats"] + "").ToInt32();
-                //    int beds = (tb.Rows[0]["Beds"] + "").ToInt32();
-
-                //    lblDateIn.Text = timeIn.ToStringVN();
-                //    lblDateOut.Text = timeOut.ToStringVN();
-
-                //    lblNumber.Text = (tb.Rows[0]["Code"] + "").ToUpper();
-                //    lblGroup.Text = tb.Rows[0]["GroupName"] + "";
-                //    lblKind.Text = tb.Rows[0]["KindName"].ToString();
-                //    lblAccIn.Text = (tb.Rows[0]["UserInName"] + "").ToUpper();
-                //    lblAccIn.Text += " - SĐT: " + tb.Rows[0]["UserInPhone"];
-
-                //    lblChair.Text = seats + "";
-
-                //    string dayL = (hour > 0 && hour < 12) ? ".5" : "";
-                //    int dayF = (hour >= 12) ? day + 1 : day;
-
-                //    if (day == 0)
-                //    {
-                //        if (code == "A") dayL = ".5";
-                //        if (code == "B") dayF = 1;
-                //    }
-
-                //    lblDuration.Text = string.Format("{0}ngày {1}giờ => {2}{3}ngày", day, hour, dayF, dayL);
-
-                //    if (price1 == 0) lblPrice.Text = String.Format("{0:0,0}VNĐ (một lần)", price2);
-                //    else lblPrice.Text = String.Format("{0:0,0}VNĐ (nửa ngày); {1:0,0}VNĐ (một ngày)", price1, price2);
-
-                //    lblMoney.Text = String.Format("{0:0,0}VNĐ", money);
-
-                //    if (isOut)
-                //    {
-                //        LoadData();
-                //        tmrMain.Enabled = false;
-                //    }
-                //}
             }
-            catch (Exception ex) { XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text); }
-        }
-
-        private void FrmGateOut_Load(object sender, EventArgs e)
-        {
-            //lblAccOut.Text = Global.Session.User.Name.ToUpper();
-        }
-
-        private void cmdRedo_Click(object sender, EventArgs e)
-        {
-            //using (var x = new FrmTra_GateIn { EditNumber = cbbNumber.Text, EditMode = false, StartPosition = FormStartPosition.CenterScreen })
-            //{
-            //    x.ShowDialog();
-            //    x.EditNumber = null;
-            //    x.EditMode = true;
-            //    LoadData();
-            //}
-
-            if (cbbNumber.Text == "") return;
-            cmdOut.Enabled = false;
-
-            var x = new Station.Normal.FrmTra_Vehicle
-            {
-                num = cbbNumber.Text,
-                AllowAdd = false,
-                AllowDelete = false,
-                WindowState = FormWindowState.Maximized
-            };
-            x.AllowCancel = false;
-            x.ShowDialog();
-            LoadData();
+            catch (Exception ex)
+            { XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text); }
         }
 
         private void cmdInList_Click(object sender, EventArgs e)
@@ -293,16 +212,6 @@ namespace SKG.DXF.Station.Manage
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
-        }
-
-        private void labelControl10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

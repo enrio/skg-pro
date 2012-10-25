@@ -35,38 +35,36 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lblMoney = new System.Windows.Forms.Label();
+            this.lblNumber = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblUserIn = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblDeposit = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblDateOut = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblDateOut = new System.Windows.Forms.Label();
             this.lblDateIn = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblKindValue = new System.Windows.Forms.Label();
-            this.lblKind = new System.Windows.Forms.Label();
-            this.lblGroupValue = new System.Windows.Forms.Label();
-            this.lblGroup = new System.Windows.Forms.Label();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtSeats = new DevExpress.XtraEditors.TextEdit();
-            this.txtBeds = new DevExpress.XtraEditors.TextEdit();
-            this.lblBeds = new DevExpress.XtraEditors.LabelControl();
-            this.lblSeats = new DevExpress.XtraEditors.LabelControl();
-            this.cbbNumber = new System.Windows.Forms.ComboBox();
+            this.lblBeds = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblSeats = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.calRose2 = new DevExpress.XtraEditors.CalcEdit();
-            this.calRose1 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.lblRose2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblRose1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.lblUserIn = new System.Windows.Forms.Label();
+            this.lblDeposit = new System.Windows.Forms.Label();
+            this.lblKind = new System.Windows.Forms.Label();
+            this.lblGroup = new System.Windows.Forms.Label();
+            this.cbbNumber = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
-            this.calPrice1 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblPrice2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblPrice1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
@@ -79,15 +77,10 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -149,25 +142,19 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.lblMoney);
+            this.groupControl1.Controls.Add(this.lblNumber);
             this.groupControl1.Controls.Add(this.lblPhone);
-            this.groupControl1.Controls.Add(this.label14);
-            this.groupControl1.Controls.Add(this.lblUserIn);
-            this.groupControl1.Controls.Add(this.label16);
-            this.groupControl1.Controls.Add(this.lblDeposit);
-            this.groupControl1.Controls.Add(this.label10);
-            this.groupControl1.Controls.Add(this.lblDateOut);
             this.groupControl1.Controls.Add(this.label6);
-            this.groupControl1.Controls.Add(this.lblDateIn);
-            this.groupControl1.Controls.Add(this.label8);
-            this.groupControl1.Controls.Add(this.lblKindValue);
-            this.groupControl1.Controls.Add(this.lblKind);
-            this.groupControl1.Controls.Add(this.lblGroupValue);
-            this.groupControl1.Controls.Add(this.lblGroup);
-            this.groupControl1.Controls.Add(this.labelControl8);
+            this.groupControl1.Controls.Add(this.groupBox4);
             this.groupControl1.Controls.Add(this.groupBox3);
-            this.groupControl1.Controls.Add(this.cbbNumber);
             this.groupControl1.Controls.Add(this.groupBox2);
+            this.groupControl1.Controls.Add(this.label1);
+            this.groupControl1.Controls.Add(this.lblMoney);
+            this.groupControl1.Controls.Add(this.lblUserIn);
+            this.groupControl1.Controls.Add(this.lblDeposit);
+            this.groupControl1.Controls.Add(this.lblKind);
+            this.groupControl1.Controls.Add(this.lblGroup);
+            this.groupControl1.Controls.Add(this.cbbNumber);
             this.groupControl1.Controls.Add(this.groupBox1);
             this.groupControl1.Controls.Add(this.cmdSumary2);
             this.groupControl1.Controls.Add(this.cmdSumary1);
@@ -180,370 +167,347 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // lblNumber
+            // 
+            this.lblNumber.BackColor = System.Drawing.Color.White;
+            this.lblNumber.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.ForeColor = System.Drawing.Color.Blue;
+            this.lblNumber.Location = new System.Drawing.Point(500, 241);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(251, 71);
+            this.lblNumber.TabIndex = 64;
+            this.lblNumber.Text = "BS: 50K0045";
+            this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(240, 241);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(260, 31);
+            this.lblPhone.TabIndex = 63;
+            this.lblPhone.Text = "Số ĐT: 01645 515 010";
+            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Blue;
+            this.label6.Location = new System.Drawing.Point(397, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(354, 50);
+            this.label6.TabIndex = 62;
+            this.label6.Text = "CHO XE RA BẾN";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.lblDateOut);
+            this.groupBox4.Controls.Add(this.lblDateIn);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(452, 84);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(299, 92);
+            this.groupBox4.TabIndex = 61;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Thời gian";
+            // 
+            // lblDateOut
+            // 
+            this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOut.Location = new System.Drawing.Point(71, 54);
+            this.lblDateOut.Name = "lblDateOut";
+            this.lblDateOut.Size = new System.Drawing.Size(222, 31);
+            this.lblDateOut.TabIndex = 61;
+            this.lblDateOut.Text = "22/10/2012 16:00:00";
+            this.lblDateOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDateIn
+            // 
+            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateIn.Location = new System.Drawing.Point(71, 23);
+            this.lblDateIn.Name = "lblDateIn";
+            this.lblDateIn.Size = new System.Drawing.Size(222, 31);
+            this.lblDateIn.TabIndex = 60;
+            this.lblDateIn.Text = "22/10/2012 16:00:00";
+            this.lblDateIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(6, 54);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(59, 31);
+            this.label20.TabIndex = 58;
+            this.label20.Text = "Ra:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label22
+            // 
+            this.label22.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(6, 23);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(59, 31);
+            this.label22.TabIndex = 56;
+            this.label22.Text = "Vào:";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblBeds);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.lblSeats);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(6, 182);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(228, 92);
+            this.groupBox3.TabIndex = 60;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Tải trọng";
+            // 
+            // lblBeds
+            // 
+            this.lblBeds.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBeds.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeds.Location = new System.Drawing.Point(127, 54);
+            this.lblBeds.Name = "lblBeds";
+            this.lblBeds.Size = new System.Drawing.Size(94, 31);
+            this.lblBeds.TabIndex = 59;
+            this.lblBeds.Text = "105.000";
+            this.lblBeds.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(6, 54);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(115, 31);
+            this.label15.TabIndex = 58;
+            this.label15.Text = "Số giường:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSeats
+            // 
+            this.lblSeats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSeats.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeats.Location = new System.Drawing.Point(127, 23);
+            this.lblSeats.Name = "lblSeats";
+            this.lblSeats.Size = new System.Drawing.Size(94, 31);
+            this.lblSeats.TabIndex = 57;
+            this.lblSeats.Text = "105.000";
+            this.lblSeats.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label18
+            // 
+            this.label18.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(6, 23);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(115, 31);
+            this.label18.TabIndex = 56;
+            this.label18.Text = "Số ghế:";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblRose2);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.lblRose1);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(240, 84);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(206, 92);
+            this.groupBox2.TabIndex = 59;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Đ.giá hoa hồng";
+            // 
+            // lblRose2
+            // 
+            this.lblRose2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRose2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRose2.Location = new System.Drawing.Point(104, 54);
+            this.lblRose2.Name = "lblRose2";
+            this.lblRose2.Size = new System.Drawing.Size(94, 31);
+            this.lblRose2.TabIndex = 59;
+            this.lblRose2.Text = "105.000";
+            this.lblRose2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 31);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Giường:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRose1
+            // 
+            this.lblRose1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRose1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRose1.Location = new System.Drawing.Point(104, 23);
+            this.lblRose1.Name = "lblRose1";
+            this.lblRose1.Size = new System.Drawing.Size(94, 31);
+            this.lblRose1.TabIndex = 57;
+            this.lblRose1.Text = "105.000";
+            this.lblRose1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 31);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "Ghế:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(5, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 48);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "B.SỐ:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblMoney
             // 
             this.lblMoney.BackColor = System.Drawing.Color.White;
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMoney.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.Color.Red;
-            this.lblMoney.Location = new System.Drawing.Point(506, 374);
+            this.lblMoney.Location = new System.Drawing.Point(500, 312);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(245, 38);
+            this.lblMoney.Size = new System.Drawing.Size(251, 100);
             this.lblMoney.TabIndex = 57;
             this.lblMoney.Text = "123.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(500, 154);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(251, 31);
-            this.lblPhone.TabIndex = 55;
-            this.lblPhone.Text = "01645 515 010";
-            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(397, 154);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(97, 31);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "Số ĐT:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblUserIn
             // 
             this.lblUserIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblUserIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIn.Location = new System.Drawing.Point(500, 123);
+            this.lblUserIn.Location = new System.Drawing.Point(240, 210);
             this.lblUserIn.Name = "lblUserIn";
-            this.lblUserIn.Size = new System.Drawing.Size(251, 31);
+            this.lblUserIn.Size = new System.Drawing.Size(511, 31);
             this.lblUserIn.TabIndex = 53;
-            this.lblUserIn.Text = "Nguyễn Văn Toàn Ten";
-            this.lblUserIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(397, 123);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(97, 31);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "Cho vào:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUserIn.Text = "Cho vào: Nguyễn Văn Toàn Ten";
+            this.lblUserIn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDeposit
             // 
             this.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDeposit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeposit.Location = new System.Drawing.Point(529, 92);
+            this.lblDeposit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDeposit.Location = new System.Drawing.Point(240, 179);
             this.lblDeposit.Name = "lblDeposit";
-            this.lblDeposit.Size = new System.Drawing.Size(222, 31);
+            this.lblDeposit.Size = new System.Drawing.Size(511, 31);
             this.lblDeposit.TabIndex = 51;
             this.lblDeposit.Text = "135ngày 24giờ 50phút";
             this.lblDeposit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(397, 92);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 31);
-            this.label10.TabIndex = 50;
-            this.label10.Text = "Lưu đậu:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDateOut
-            // 
-            this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOut.Location = new System.Drawing.Point(529, 61);
-            this.lblDateOut.Name = "lblDateOut";
-            this.lblDateOut.Size = new System.Drawing.Size(222, 31);
-            this.lblDateOut.TabIndex = 49;
-            this.lblDateOut.Text = "22/10/2012 16:00:00";
-            this.lblDateOut.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(397, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 31);
-            this.label6.TabIndex = 48;
-            this.label6.Text = "T.gian ra:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblDateIn
-            // 
-            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateIn.Location = new System.Drawing.Point(529, 30);
-            this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(222, 31);
-            this.lblDateIn.TabIndex = 47;
-            this.lblDateIn.Text = "22/10/2012 16:00:00";
-            this.lblDateIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(397, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(126, 31);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "T.gian vào:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
-            // 
-            // lblKindValue
-            // 
-            this.lblKindValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblKindValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKindValue.Location = new System.Drawing.Point(500, 247);
-            this.lblKindValue.Name = "lblKindValue";
-            this.lblKindValue.Size = new System.Drawing.Size(251, 125);
-            this.lblKindValue.TabIndex = 45;
-            // 
             // lblKind
             // 
+            this.lblKind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblKind.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKind.Location = new System.Drawing.Point(397, 247);
+            this.lblKind.ForeColor = System.Drawing.Color.Gray;
+            this.lblKind.Location = new System.Drawing.Point(5, 312);
             this.lblKind.Name = "lblKind";
-            this.lblKind.Size = new System.Drawing.Size(97, 31);
-            this.lblKind.TabIndex = 44;
-            this.lblKind.Text = "Tuyến:";
-            this.lblKind.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGroupValue
-            // 
-            this.lblGroupValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblGroupValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroupValue.Location = new System.Drawing.Point(500, 185);
-            this.lblGroupValue.Name = "lblGroupValue";
-            this.lblGroupValue.Size = new System.Drawing.Size(251, 62);
-            this.lblGroupValue.TabIndex = 43;
+            this.lblKind.Size = new System.Drawing.Size(495, 57);
+            this.lblKind.TabIndex = 45;
             // 
             // lblGroup
             // 
+            this.lblGroup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblGroup.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.Location = new System.Drawing.Point(397, 185);
+            this.lblGroup.ForeColor = System.Drawing.Color.Gray;
+            this.lblGroup.Location = new System.Drawing.Point(5, 277);
             this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(97, 31);
-            this.lblGroup.TabIndex = 42;
-            this.lblGroup.Text = "Nhóm:";
-            this.lblGroup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(6, 38);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(100, 19);
-            this.labelControl8.TabIndex = 27;
-            this.labelControl8.Text = "Tìm biển số:";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtSeats);
-            this.groupBox3.Controls.Add(this.txtBeds);
-            this.groupBox3.Controls.Add(this.lblBeds);
-            this.groupBox3.Controls.Add(this.lblSeats);
-            this.groupBox3.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(6, 69);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(279, 54);
-            this.groupBox3.TabIndex = 20;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Tải trọng";
-            // 
-            // txtSeats
-            // 
-            this.txtSeats.Location = new System.Drawing.Point(69, 23);
-            this.txtSeats.Name = "txtSeats";
-            this.txtSeats.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeats.Properties.Appearance.Options.UseFont = true;
-            this.txtSeats.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtSeats.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtSeats.Size = new System.Drawing.Size(55, 26);
-            this.txtSeats.TabIndex = 11;
-            // 
-            // txtBeds
-            // 
-            this.txtBeds.Location = new System.Drawing.Point(218, 23);
-            this.txtBeds.Name = "txtBeds";
-            this.txtBeds.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBeds.Properties.Appearance.Options.UseFont = true;
-            this.txtBeds.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtBeds.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtBeds.Size = new System.Drawing.Size(55, 26);
-            this.txtBeds.TabIndex = 13;
-            // 
-            // lblBeds
-            // 
-            this.lblBeds.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBeds.Location = new System.Drawing.Point(150, 26);
-            this.lblBeds.Name = "lblBeds";
-            this.lblBeds.Size = new System.Drawing.Size(58, 19);
-            this.lblBeds.TabIndex = 12;
-            this.lblBeds.Text = "Giường:";
-            // 
-            // lblSeats
-            // 
-            this.lblSeats.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeats.Location = new System.Drawing.Point(6, 26);
-            this.lblSeats.Name = "lblSeats";
-            this.lblSeats.Size = new System.Drawing.Size(34, 19);
-            this.lblSeats.TabIndex = 10;
-            this.lblSeats.Text = "Ghế:";
+            this.lblGroup.Size = new System.Drawing.Size(495, 35);
+            this.lblGroup.TabIndex = 43;
             // 
             // cbbNumber
             // 
             this.cbbNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cbbNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbbNumber.DisplayMember = "Number";
-            this.cbbNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
             this.cbbNumber.FormattingEnabled = true;
             this.cbbNumber.Location = new System.Drawing.Point(119, 31);
             this.cbbNumber.Name = "cbbNumber";
-            this.cbbNumber.Size = new System.Drawing.Size(172, 33);
+            this.cbbNumber.Size = new System.Drawing.Size(272, 47);
             this.cbbNumber.TabIndex = 3;
             this.cbbNumber.ValueMember = "Id";
             this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
             this.cbbNumber.Enter += new System.EventHandler(this.cbbNumber_Enter);
             this.cbbNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNumber_KeyDown);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.labelControl4);
-            this.groupBox2.Controls.Add(this.calRose2);
-            this.groupBox2.Controls.Add(this.calRose1);
-            this.groupBox2.Controls.Add(this.labelControl5);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 194);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(279, 59);
-            this.groupBox2.TabIndex = 19;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đ.giá hoa hồng";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(131, 30);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(58, 19);
-            this.labelControl4.TabIndex = 12;
-            this.labelControl4.Text = "Giường:";
-            // 
-            // calRose2
-            // 
-            this.calRose2.Location = new System.Drawing.Point(195, 27);
-            this.calRose2.Name = "calRose2";
-            this.calRose2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calRose2.Properties.Appearance.Options.UseFont = true;
-            this.calRose2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calRose2.Properties.DisplayFormat.FormatString = "#,#";
-            this.calRose2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose2.Properties.EditFormat.FormatString = "#,#";
-            this.calRose2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose2.Properties.ReadOnly = true;
-            this.calRose2.Size = new System.Drawing.Size(78, 26);
-            this.calRose2.TabIndex = 13;
-            // 
-            // calRose1
-            // 
-            this.calRose1.Location = new System.Drawing.Point(46, 27);
-            this.calRose1.Name = "calRose1";
-            this.calRose1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calRose1.Properties.Appearance.Options.UseFont = true;
-            this.calRose1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calRose1.Properties.DisplayFormat.FormatString = "#,#";
-            this.calRose1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose1.Properties.EditFormat.FormatString = "#,#";
-            this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calRose1.Properties.ReadOnly = true;
-            this.calRose1.Size = new System.Drawing.Size(78, 26);
-            this.calRose1.TabIndex = 11;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(6, 30);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(34, 19);
-            this.labelControl5.TabIndex = 10;
-            this.labelControl5.Text = "Ghế:";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelControl2);
-            this.groupBox1.Controls.Add(this.calPrice2);
-            this.groupBox1.Controls.Add(this.calPrice1);
-            this.groupBox1.Controls.Add(this.labelControl1);
+            this.groupBox1.Controls.Add(this.lblPrice2);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblPrice1);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 129);
+            this.groupBox1.Location = new System.Drawing.Point(6, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 59);
+            this.groupBox1.Size = new System.Drawing.Size(228, 92);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Đ.giá lệ phí";
             // 
-            // labelControl2
+            // lblPrice2
             // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(131, 30);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(58, 19);
-            this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Giường:";
+            this.lblPrice2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice2.Location = new System.Drawing.Point(127, 54);
+            this.lblPrice2.Name = "lblPrice2";
+            this.lblPrice2.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice2.TabIndex = 59;
+            this.lblPrice2.Text = "105.000";
+            this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // calPrice2
+            // label5
             // 
-            this.calPrice2.Location = new System.Drawing.Point(195, 27);
-            this.calPrice2.Name = "calPrice2";
-            this.calPrice2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calPrice2.Properties.Appearance.Options.UseFont = true;
-            this.calPrice2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calPrice2.Properties.DisplayFormat.FormatString = "#,#";
-            this.calPrice2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calPrice2.Properties.EditFormat.FormatString = "#,#";
-            this.calPrice2.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calPrice2.Properties.ReadOnly = true;
-            this.calPrice2.Size = new System.Drawing.Size(78, 26);
-            this.calPrice2.TabIndex = 8;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(115, 31);
+            this.label5.TabIndex = 58;
+            this.label5.Text = "Một ngày:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // calPrice1
+            // lblPrice1
             // 
-            this.calPrice1.Location = new System.Drawing.Point(46, 27);
-            this.calPrice1.Name = "calPrice1";
-            this.calPrice1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calPrice1.Properties.Appearance.Options.UseFont = true;
-            this.calPrice1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calPrice1.Properties.DisplayFormat.FormatString = "#,#";
-            this.calPrice1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calPrice1.Properties.EditFormat.FormatString = "#,#";
-            this.calPrice1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.calPrice1.Properties.ReadOnly = true;
-            this.calPrice1.Size = new System.Drawing.Size(78, 26);
-            this.calPrice1.TabIndex = 6;
+            this.lblPrice1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice1.Location = new System.Drawing.Point(127, 23);
+            this.lblPrice1.Name = "lblPrice1";
+            this.lblPrice1.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice1.TabIndex = 57;
+            this.lblPrice1.Text = "105.000";
+            this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // labelControl1
+            // label3
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(6, 30);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(34, 19);
-            this.labelControl1.TabIndex = 5;
-            this.labelControl1.Text = "Ghế:";
+            this.label3.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(115, 31);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "Nửa ngày:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdSumary2
             // 
@@ -618,19 +582,10 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -649,36 +604,34 @@
         private DevExpress.XtraEditors.SimpleButton cmdInList;
         private DevExpress.XtraEditors.SimpleButton cmdOut;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.CalcEdit calRose2;
-        private DevExpress.XtraEditors.CalcEdit calRose1;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.CalcEdit calPrice2;
-        private DevExpress.XtraEditors.CalcEdit calPrice1;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private DevExpress.XtraEditors.TextEdit txtSeats;
-        private DevExpress.XtraEditors.TextEdit txtBeds;
-        private DevExpress.XtraEditors.LabelControl lblBeds;
-        private DevExpress.XtraEditors.LabelControl lblSeats;
-        private DevExpress.XtraEditors.LabelControl labelControl8;
         private System.Windows.Forms.Label lblMoney;
-        private System.Windows.Forms.Label lblPhone;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblUserIn;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblDeposit;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label lblDateOut;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblDateIn;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblKindValue;
         private System.Windows.Forms.Label lblKind;
-        private System.Windows.Forms.Label lblGroupValue;
         private System.Windows.Forms.Label lblGroup;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPrice2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblPrice1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label lblDateOut;
+        private System.Windows.Forms.Label lblDateIn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblBeds;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblSeats;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblRose2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRose1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblNumber;
     }
 }

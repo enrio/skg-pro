@@ -131,41 +131,34 @@ namespace SKG.DXF.Station.Manage
                 
 
                     if(detail.Tra_Vehicle.Fixed)
-                    {
-                        lblKind.Text = "Tuyến:";
-                        lblKindValue.Text = detail.Tra_Vehicle.Tariff.Text;
-                        
-                        lblGroup.Text = "ĐVVT:";
-                        lblGroupValue.Text = detail.Tra_Vehicle.Transport.Text;
+                    {                        
+                        lblKind.Text ="Tuyến: "+ detail.Tra_Vehicle.Tariff.Text;                                               
+                        lblGroup.Text ="ĐVVT: "+ detail.Tra_Vehicle.Transport.Text;
                         lblMoney.Text = detail.ChargeForFixed().ToString("#,#");                        
                     }
                     else
-                    {
-                        lblKind.Text = "Loại xe:";
-                        lblKindValue.Text = detail.Tra_Vehicle.Tariff.Text;
-
-                        lblGroup.Text = "Nhóm xe:";
-                        lblGroupValue.Text = detail.Tra_Vehicle.Tariff.Group.Text;
+                    {                        
+                        lblKind.Text ="Loại xe: "+ detail.Tra_Vehicle.Tariff.Text;                        
+                        lblGroup.Text ="Nhóm xe: "+ detail.Tra_Vehicle.Tariff.Group.Text;
                         lblMoney.Text = detail.ChargeForNormal().ToString("#,#");                        
                     }
 
-                //txtNumber.EditValue = detail.Tra_Vehicle.Code;
-                
-                lblDateIn.Text = detail.DateIn.ToStringVN();
-                lblDateOut.Text = detail.DateOut.Value.ToStringVN();
+                lblNumber.Text ="BS: " +detail.Tra_Vehicle.Code;
 
-                txtSeats.EditValue = detail.Seats;
-                txtBeds.EditValue = detail.Beds;
+                lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
+                lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
 
-                calPrice1.EditValue = detail.Price1;
-                calRose1.EditValue = detail.Rose1;
+                lblSeats.Text = detail.Seats.Value.ToString("#,#"); 
+                lblBeds.Text = detail.Beds.Value.ToString("#,#"); 
 
-                calPrice2.EditValue = detail.Price2;
-                calRose2.EditValue = detail.Rose2;
+                lblPrice1.Text = detail.Price1.ToString("#,#");
+                lblRose1.Text = detail.Rose1.ToString("#,#");
+
+                lblPrice2.Text = detail.Price2.ToString("#,#");
+                lblRose2.Text = detail.Rose2.ToString("#,#"); 
 
                 var d = detail.DateOut.Value - detail.DateIn;
-                lblDeposit.Text = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
-
+                lblDeposit.Text ="Lưu đậu tại bến: " +d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
                 
                 lblUserIn.Text = detail.Pol_UserIn.Name;
                 lblPhone.Text = detail.Pol_UserIn.Phone;

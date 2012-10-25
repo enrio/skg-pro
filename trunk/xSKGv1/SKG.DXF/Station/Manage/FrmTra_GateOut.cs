@@ -58,14 +58,14 @@ namespace SKG.DXF.Station.Manage
         {
             Invoice();
             cmdOut.Enabled = true;
-            lblInfo.Text = "ĐANG TÍNH TIỀN";
+            
         }
 
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
             cmdOut.Enabled = false;
-            lblInfo.Text = "ĐÃ TÍNH TIỀN XONG - CHO XE RA";
+            
         }
 
         private void cbbNumber_Enter(object sender, EventArgs e)
@@ -137,8 +137,7 @@ namespace SKG.DXF.Station.Manage
                         
                         lblGroup.Text = "ĐVVT:";
                         lblGroupValue.Text = detail.Tra_Vehicle.Transport.Text;
-
-                        txtMoney.EditValue = detail.ChargeForFixed();
+                        lblMoney.Text = detail.ChargeForFixed().ToString("#,#");                        
                     }
                     else
                     {
@@ -147,12 +146,11 @@ namespace SKG.DXF.Station.Manage
 
                         lblGroup.Text = "Nhóm xe:";
                         lblGroupValue.Text = detail.Tra_Vehicle.Tariff.Group.Text;
-
-                        txtMoney.EditValue = detail.ChargeForNormal();
+                        lblMoney.Text = detail.ChargeForNormal().ToString("#,#");                        
                     }
 
                 txtNumber.EditValue = detail.Tra_Vehicle.Code;
-                txtMoney.EditValue = detail.Money;
+                
                 lblDateIn.Text = detail.DateIn.ToStringVN();
                 lblDateOut.Text = detail.DateOut.Value.ToStringVN();
 
@@ -168,7 +166,7 @@ namespace SKG.DXF.Station.Manage
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
 
-                lblMoney.Text = detail.Money.ToString("#,#");
+                
                 lblUserIn.Text = detail.Pol_UserIn.Text;
                 lblPhone.Text = detail.Pol_UserIn.Phone;
 

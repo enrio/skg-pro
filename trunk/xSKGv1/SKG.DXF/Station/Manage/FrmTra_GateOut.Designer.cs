@@ -35,11 +35,25 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblMoney = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblUserIn = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblDeposit = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblDateOut = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblDateIn = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblKindValue = new System.Windows.Forms.Label();
+            this.lblKind = new System.Windows.Forms.Label();
+            this.lblGroupValue = new System.Windows.Forms.Label();
+            this.lblGroup = new System.Windows.Forms.Label();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.txtMoney = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtSeats = new DevExpress.XtraEditors.TextEdit();
             this.txtBeds = new DevExpress.XtraEditors.TextEdit();
@@ -61,23 +75,6 @@
             this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
-            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
-            this.lblGroup = new System.Windows.Forms.Label();
-            this.lblGroupValue = new System.Windows.Forms.Label();
-            this.lblKindValue = new System.Windows.Forms.Label();
-            this.lblKind = new System.Windows.Forms.Label();
-            this.lblDateOut = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblDateIn = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblDeposit = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblMoney = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblUserIn = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -86,7 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoney.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
@@ -176,8 +172,6 @@
             this.groupControl1.Controls.Add(this.labelControl15);
             this.groupControl1.Controls.Add(this.txtNumber);
             this.groupControl1.Controls.Add(this.labelControl8);
-            this.groupControl1.Controls.Add(this.txtMoney);
-            this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Controls.Add(this.groupBox3);
             this.groupControl1.Controls.Add(this.cbbNumber);
             this.groupControl1.Controls.Add(this.groupBox2);
@@ -187,17 +181,159 @@
             this.groupControl1.Controls.Add(this.cmdInList);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
-            this.groupControl1.Controls.Add(this.lblInfo);
             this.groupControl1.Location = new System.Drawing.Point(88, 27);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(756, 418);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // lblMoney
+            // 
+            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.Location = new System.Drawing.Point(457, 291);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(290, 31);
+            this.lblMoney.TabIndex = 57;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(325, 294);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(126, 31);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "T.TIỀN:";
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(457, 253);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(290, 31);
+            this.lblPhone.TabIndex = 55;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(325, 256);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(126, 31);
+            this.label14.TabIndex = 54;
+            this.label14.Text = "Số ĐT:";
+            // 
+            // lblUserIn
+            // 
+            this.lblUserIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblUserIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserIn.Location = new System.Drawing.Point(457, 216);
+            this.lblUserIn.Name = "lblUserIn";
+            this.lblUserIn.Size = new System.Drawing.Size(290, 31);
+            this.lblUserIn.TabIndex = 53;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(325, 219);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(126, 31);
+            this.label16.TabIndex = 52;
+            this.label16.Text = "Cho vào:";
+            // 
+            // lblDeposit
+            // 
+            this.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDeposit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeposit.Location = new System.Drawing.Point(457, 176);
+            this.lblDeposit.Name = "lblDeposit";
+            this.lblDeposit.Size = new System.Drawing.Size(290, 31);
+            this.lblDeposit.TabIndex = 51;
+            // 
+            // label10
+            // 
+            this.label10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(325, 179);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(126, 31);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Lưu đậu:";
+            // 
+            // lblDateOut
+            // 
+            this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOut.Location = new System.Drawing.Point(457, 138);
+            this.lblDateOut.Name = "lblDateOut";
+            this.lblDateOut.Size = new System.Drawing.Size(290, 31);
+            this.lblDateOut.TabIndex = 49;
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(325, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 31);
+            this.label6.TabIndex = 48;
+            this.label6.Text = "T.gian ra:";
+            // 
+            // lblDateIn
+            // 
+            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateIn.Location = new System.Drawing.Point(457, 101);
+            this.lblDateIn.Name = "lblDateIn";
+            this.lblDateIn.Size = new System.Drawing.Size(290, 31);
+            this.lblDateIn.TabIndex = 47;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(308, 102);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 31);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "T.gian vào:";
+            // 
+            // lblKindValue
+            // 
+            this.lblKindValue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblKindValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKindValue.Location = new System.Drawing.Point(106, 329);
+            this.lblKindValue.Name = "lblKindValue";
+            this.lblKindValue.Size = new System.Drawing.Size(645, 31);
+            this.lblKindValue.TabIndex = 45;
+            // 
+            // lblKind
+            // 
+            this.lblKind.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKind.Location = new System.Drawing.Point(27, 330);
+            this.lblKind.Name = "lblKind";
+            this.lblKind.Size = new System.Drawing.Size(80, 31);
+            this.lblKind.TabIndex = 44;
+            this.lblKind.Text = "Loại:";
+            // 
+            // lblGroupValue
+            // 
+            this.lblGroupValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroupValue.Location = new System.Drawing.Point(386, 28);
+            this.lblGroupValue.Name = "lblGroupValue";
+            this.lblGroupValue.Size = new System.Drawing.Size(361, 31);
+            this.lblGroupValue.TabIndex = 43;
+            // 
+            // lblGroup
+            // 
+            this.lblGroup.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGroup.Location = new System.Drawing.Point(315, 28);
+            this.lblGroup.Name = "lblGroup";
+            this.lblGroup.Size = new System.Drawing.Size(80, 31);
+            this.lblGroup.TabIndex = 42;
+            this.lblGroup.Text = "Nhóm:";
+            // 
             // labelControl15
             // 
             this.labelControl15.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl15.Location = new System.Drawing.Point(12, 322);
+            this.labelControl15.Location = new System.Drawing.Point(440, 61);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(85, 37);
             this.labelControl15.TabIndex = 41;
@@ -205,7 +341,7 @@
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(103, 316);
+            this.txtNumber.Location = new System.Drawing.Point(569, 369);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -225,31 +361,6 @@
             this.labelControl8.Size = new System.Drawing.Size(100, 19);
             this.labelControl8.TabIndex = 27;
             this.labelControl8.Text = "Tìm biển số:";
-            // 
-            // txtMoney
-            // 
-            this.txtMoney.Location = new System.Drawing.Point(468, 316);
-            this.txtMoney.Name = "txtMoney";
-            this.txtMoney.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoney.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.txtMoney.Properties.Appearance.Options.UseFont = true;
-            this.txtMoney.Properties.Appearance.Options.UseForeColor = true;
-            this.txtMoney.Properties.DisplayFormat.FormatString = "#,#";
-            this.txtMoney.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.txtMoney.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtMoney.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtMoney.Properties.ReadOnly = true;
-            this.txtMoney.Size = new System.Drawing.Size(279, 46);
-            this.txtMoney.TabIndex = 22;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(351, 322);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(111, 37);
-            this.labelControl3.TabIndex = 21;
-            this.labelControl3.Text = "T.TIỀN:";
             // 
             // groupBox3
             // 
@@ -506,160 +617,6 @@
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
             // 
-            // lblInfo
-            // 
-            this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(550, 375);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(197, 37);
-            this.lblInfo.TabIndex = 8;
-            // 
-            // lblGroup
-            // 
-            this.lblGroup.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.Location = new System.Drawing.Point(315, 28);
-            this.lblGroup.Name = "lblGroup";
-            this.lblGroup.Size = new System.Drawing.Size(80, 31);
-            this.lblGroup.TabIndex = 42;
-            this.lblGroup.Text = "Nhóm:";
-            // 
-            // lblGroupValue
-            // 
-            this.lblGroupValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblGroupValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroupValue.Location = new System.Drawing.Point(386, 28);
-            this.lblGroupValue.Name = "lblGroupValue";
-            this.lblGroupValue.Size = new System.Drawing.Size(361, 31);
-            this.lblGroupValue.TabIndex = 43;
-            // 
-            // lblKindValue
-            // 
-            this.lblKindValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblKindValue.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKindValue.Location = new System.Drawing.Point(386, 65);
-            this.lblKindValue.Name = "lblKindValue";
-            this.lblKindValue.Size = new System.Drawing.Size(361, 31);
-            this.lblKindValue.TabIndex = 45;
-            // 
-            // lblKind
-            // 
-            this.lblKind.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKind.Location = new System.Drawing.Point(315, 66);
-            this.lblKind.Name = "lblKind";
-            this.lblKind.Size = new System.Drawing.Size(80, 31);
-            this.lblKind.TabIndex = 44;
-            this.lblKind.Text = "Loại:";
-            // 
-            // lblDateOut
-            // 
-            this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateOut.Location = new System.Drawing.Point(572, 138);
-            this.lblDateOut.Name = "lblDateOut";
-            this.lblDateOut.Size = new System.Drawing.Size(175, 31);
-            this.lblDateOut.TabIndex = 49;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(440, 138);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 31);
-            this.label6.TabIndex = 48;
-            this.label6.Text = "T.gian ra:";
-            // 
-            // lblDateIn
-            // 
-            this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateIn.Location = new System.Drawing.Point(572, 101);
-            this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(175, 31);
-            this.lblDateIn.TabIndex = 47;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(440, 101);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(126, 31);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "T.gian vào:";
-            // 
-            // lblDeposit
-            // 
-            this.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDeposit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeposit.Location = new System.Drawing.Point(572, 176);
-            this.lblDeposit.Name = "lblDeposit";
-            this.lblDeposit.Size = new System.Drawing.Size(175, 31);
-            this.lblDeposit.TabIndex = 51;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(440, 176);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(126, 31);
-            this.label10.TabIndex = 50;
-            this.label10.Text = "Lưu đậu:";
-            // 
-            // lblMoney
-            // 
-            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMoney.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoney.Location = new System.Drawing.Point(572, 291);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(175, 31);
-            this.lblMoney.TabIndex = 57;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(440, 291);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 31);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "T.TIỀN:";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(572, 253);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(175, 31);
-            this.lblPhone.TabIndex = 55;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(440, 253);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(126, 31);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "Số ĐT:";
-            // 
-            // lblUserIn
-            // 
-            this.lblUserIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblUserIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserIn.Location = new System.Drawing.Point(572, 216);
-            this.lblUserIn.Name = "lblUserIn";
-            this.lblUserIn.Size = new System.Drawing.Size(175, 31);
-            this.lblUserIn.TabIndex = 53;
-            // 
-            // label16
-            // 
-            this.label16.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(440, 216);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(126, 31);
-            this.label16.TabIndex = 52;
-            this.label16.Text = "Cho vào:";
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -679,7 +636,6 @@
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMoney.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).EndInit();
@@ -705,7 +661,6 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private System.Windows.Forms.ComboBox cbbNumber;
-        private DevExpress.XtraEditors.LabelControl lblInfo;
         private DevExpress.XtraEditors.SimpleButton cmdSumary2;
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
         private DevExpress.XtraEditors.SimpleButton cmdInList;
@@ -727,8 +682,6 @@
         private DevExpress.XtraEditors.LabelControl lblBeds;
         private DevExpress.XtraEditors.LabelControl lblSeats;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.TextEdit txtMoney;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.TextEdit txtNumber;
         private System.Windows.Forms.Label lblMoney;

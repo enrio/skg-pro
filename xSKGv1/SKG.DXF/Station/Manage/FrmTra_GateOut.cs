@@ -149,7 +149,7 @@ namespace SKG.DXF.Station.Manage
                         lblMoney.Text = detail.ChargeForNormal().ToString("#,#");                        
                     }
 
-                txtNumber.EditValue = detail.Tra_Vehicle.Code;
+                //txtNumber.EditValue = detail.Tra_Vehicle.Code;
                 
                 lblDateIn.Text = detail.DateIn.ToStringVN();
                 lblDateOut.Text = detail.DateOut.Value.ToStringVN();
@@ -167,7 +167,7 @@ namespace SKG.DXF.Station.Manage
                 lblDeposit.Text = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
 
                 
-                lblUserIn.Text = detail.Pol_UserIn.Text;
+                lblUserIn.Text = detail.Pol_UserIn.Name;
                 lblPhone.Text = detail.Pol_UserIn.Phone;
 
                 var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
@@ -303,6 +303,11 @@ namespace SKG.DXF.Station.Manage
         }
 
         private void labelControl10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }

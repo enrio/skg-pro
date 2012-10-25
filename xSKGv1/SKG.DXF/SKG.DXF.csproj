@@ -38,12 +38,17 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Charts.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v12.1.Core, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraBars.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -256,6 +261,12 @@
       <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
+    <Compile Include="Station\Report\Rpt_Doanhthu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Doanhthu.Designer.cs">
+      <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_Sumary1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -330,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_Vehicle.resx">
       <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_Doanhthu.resx">
+      <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
       <DependentUpon>Rpt_Sumary1.cs</DependentUpon>

@@ -154,7 +154,7 @@ namespace SKG.DAL.Entities
 
             long money = span.Days * Price2;
             money += odd < 0.5 ? Price1 : Price2;
-            money += Price1 * Seats.Value + Price2 * Beds.Value;
+            money += Price1 * Seats == null ? 0 : Seats.Value + Price2 * Beds == null ? 0 : Beds.Value;
 
             return money;
         }

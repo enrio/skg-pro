@@ -126,13 +126,50 @@ namespace SKG.DXF.Station.Manage
 
             try
             {
-               var detail= _bll.Tra_Detail.InvoiceOut(cbbNumber.Text, isOut);
+                var detail = _bll.Tra_Detail.InvoiceOut(cbbNumber.Text, isOut);
 
-               //txtNumber.EditValue = detail.Tra_Vehicle.Code;
-               // txtMoney.EditValue = detail.Tra_Vehicle.Fixed ? detail.ChargeForFixed() : detail.ChargeForNormal();
-               // txtDateIn.EditValue = detail.DateIn;
-               // txtDateOut.EditValue = detail.DateOut;
                 
+
+                    if(detail.Tra_Vehicle.Fixed)
+                    {
+                        lblKind.Text = "Tuyến:";
+                        txtKind.Text = detail.Tra_Vehicle.Tariff.Text;
+                        
+                        lblGroup.Text = "ĐVVT:";
+                        txtGroup.Text = detail.Tra_Vehicle.Transport.Text;
+
+                        txtMoney.EditValue = detail.ChargeForFixed();
+                    }
+                    else
+                    {
+                        lblKind.Text = "Loại xe:";
+                        txtKind.Text = detail.Tra_Vehicle.Tariff.Text;
+
+                        lblGroup.Text = "Nhóm xe:";
+                        txtGroup.Text = detail.Tra_Vehicle.Tariff.Group.Text;
+
+                        txtMoney.EditValue = detail.ChargeForNormal();
+                    }
+
+                txtNumber.EditValue = detail.Tra_Vehicle.Code;
+                txtMoney.EditValue = detail.Money;
+                txtDateIn.EditValue = detail.DateIn;
+                txtDateOut.EditValue = detail.DateOut;
+
+                txtSeats.EditValue = detail.Seats;
+                txtBeds.EditValue = detail.Beds;
+
+                calPrice1.EditValue = detail.Price1;
+                calRose1.EditValue = detail.Rose1;
+
+                calPrice2.EditValue = detail.Price2;
+                calRose2.EditValue = detail.Rose2;
+
+                var d = detail.DateOut.Value - detail.DateIn;
+                txtInDepot.EditValue = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
+
+
+
                 var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
                 if (v == null) return;
                 var o = new Tra_Detail() { Pol_UserOutId = Global.Session.User.Id, Tra_VehicleId = v.Id, DateOut = Global.Session.Current };

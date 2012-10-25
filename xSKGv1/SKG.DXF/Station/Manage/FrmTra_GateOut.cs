@@ -133,28 +133,28 @@ namespace SKG.DXF.Station.Manage
                     if(detail.Tra_Vehicle.Fixed)
                     {
                         lblKind.Text = "Tuyến:";
-                        txtKind.Text = detail.Tra_Vehicle.Tariff.Text;
+                        lblKindValue.Text = detail.Tra_Vehicle.Tariff.Text;
                         
                         lblGroup.Text = "ĐVVT:";
-                        txtGroup.Text = detail.Tra_Vehicle.Transport.Text;
+                        lblGroupValue.Text = detail.Tra_Vehicle.Transport.Text;
 
                         txtMoney.EditValue = detail.ChargeForFixed();
                     }
                     else
                     {
                         lblKind.Text = "Loại xe:";
-                        txtKind.Text = detail.Tra_Vehicle.Tariff.Text;
+                        lblKindValue.Text = detail.Tra_Vehicle.Tariff.Text;
 
                         lblGroup.Text = "Nhóm xe:";
-                        txtGroup.Text = detail.Tra_Vehicle.Tariff.Group.Text;
+                        lblGroupValue.Text = detail.Tra_Vehicle.Tariff.Group.Text;
 
                         txtMoney.EditValue = detail.ChargeForNormal();
                     }
 
                 txtNumber.EditValue = detail.Tra_Vehicle.Code;
                 txtMoney.EditValue = detail.Money;
-                txtDateIn.EditValue = detail.DateIn;
-                txtDateOut.EditValue = detail.DateOut;
+                lblDateIn.Text = detail.DateIn.ToStringVN();
+                lblDateOut.Text = detail.DateOut.Value.ToStringVN();
 
                 txtSeats.EditValue = detail.Seats;
                 txtBeds.EditValue = detail.Beds;
@@ -166,9 +166,11 @@ namespace SKG.DXF.Station.Manage
                 calRose2.EditValue = detail.Rose2;
 
                 var d = detail.DateOut.Value - detail.DateIn;
-                txtInDepot.EditValue = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
+                lblDeposit.Text = d.Days + "ngày " + d.Hours + "giờ " + d.Minutes + "phút";
 
-
+                lblMoney.Text = detail.Money.ToString("#,#");
+                lblUserIn.Text = detail.Pol_UserIn.Text;
+                lblPhone.Text = detail.Pol_UserIn.Phone;
 
                 var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(cbbNumber.Text);
                 if (v == null) return;

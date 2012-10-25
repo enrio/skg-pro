@@ -424,7 +424,7 @@ namespace SKG.DXF
 
                     m1 = new RibbonPage(text);
                     var zac = Global.Session.GetZAction(code);
-                    //m1.Visible = zac != null ? zac.Access : false;
+                    m1.Visible = zac != null ? zac.Access : false;
 
                     m1.Tag = code;
                     m1.Image = Image.FromFile(icon);
@@ -439,7 +439,7 @@ namespace SKG.DXF
 
                         m2 = new RibbonPageGroup(text);
                         zac = Global.Session.GetZAction(code);
-                        //m2.Visible = zac != null ? zac.Access : false;
+                        m2.Visible = zac != null ? zac.Access : false;
 
                         m2.Tag = code;
                         m2.Glyph = Image.FromFile(icon);
@@ -457,7 +457,8 @@ namespace SKG.DXF
                             if (code != typeof(FrmPol_Login).FullName)
                             {
                                 zac = Global.Session.GetZAction(code);
-                                m3.Enabled = zac != null ? zac.Access : false;
+                                var ok = zac != null ? zac.Access : false;
+                                m3.Visibility = ok ? BarItemVisibility.Always : BarItemVisibility.Never;
                             }
 
                             m2.ItemLinks.Add(m3);

@@ -31,7 +31,7 @@ namespace SKG.DXF.Station.Manage
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
-            tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            tmrMain.Enabled = true;
 
             AllowAdd = false;
             AllowEdit = false;
@@ -47,14 +47,12 @@ namespace SKG.DXF.Station.Manage
         {
             Invoice();
             cmdOut.Enabled = true;
-
         }
 
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
             cmdOut.Enabled = false;
-
         }
 
         private void cmdInList_Click(object sender, EventArgs e)
@@ -116,7 +114,6 @@ namespace SKG.DXF.Station.Manage
             decimal _sum;
 
             rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.Z, Global.Session.User.Id);
-            //rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
@@ -128,10 +125,44 @@ namespace SKG.DXF.Station.Manage
 
         protected override void LoadData()
         {
-            int sum;
-            _dtb = _bll.Tra_Detail.GetInDepot(out sum);
-            cmdInvoice.Enabled = sum > 0 ? true : false;
-            lkeNumber.Properties.DataSource = _dtb;
+            _dtb = _bll.Tra_Detail.GetInDepot();
+            if (_dtb.Rows.Count > 0)
+            {
+                cmdInvoice.Enabled = true;
+
+                lkeNumber.Properties.DataSource = _dtb;
+                lkeNumber.ItemIndex = 0;
+            }
+            else
+            {
+                cmdInvoice.Enabled = false;
+
+                lblHalfDay.Text = "Nửa ngày:";
+                lblFullDay.Text = "Một ngày:";
+
+                lblMoney.Text = null;
+                lblNumber.Text = null;
+
+                lblDateIn.Text = null;
+                lblDateOut.Text = null;
+
+                lblSeats.Text = null;
+                lblBeds.Text = null;
+
+                lblPrice1.Text = null;
+                lblRose1.Text = null;
+
+                lblPrice2.Text = null;
+                lblRose2.Text = null;
+
+                lblDeposit.Text = null;
+                lblSum.Text = null;
+
+                lblUserIn.Text = null;
+                lblPhone.Text = null;
+
+                lkeNumber.Properties.DataSource = null;
+            }
 
             base.LoadData();
         }
@@ -145,7 +176,7 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         /// <summary>
-        /// Tính tiền
+        /// Tính tiền và cho xe ra bến
         /// </summary>
         /// <param name="isOut">Cho xe ra</param>
         private void Invoice(bool isOut = false)
@@ -153,7 +184,6 @@ namespace SKG.DXF.Station.Manage
             try
             {
                 if (lkeNumber.Text == "") return;
-
                 var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
 
                 if (detail.Tra_Vehicle.Fixed)
@@ -198,9 +228,13 @@ namespace SKG.DXF.Station.Manage
                 lblSum.Text = "Tổng số xe trong bến";
                 lblSum.Text += "\nCố định:  " + _bll.Tra_Detail.SumOfFixed().ToString("#,#");
                 lblSum.Text += "\nVãng lai: " + _bll.Tra_Detail.SumOfNormal().ToString("#,#");
+
+                if (isOut) PerformRefresh();
             }
             catch (Exception ex)
-            { XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text); }
+            {
+                XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text);
+            }
         }
     }
 }

@@ -306,14 +306,11 @@ namespace SKG.DAL
 
         /// <summary>
         /// Danh sách xe trong bến
-        /// </summary>
-        /// <param name="total">Số lượng xe</param>
-        /// <param name="staIn">Xe trong bến</param>
+        /// </summary>        
         /// <param name="number">Biển số xe</param>
         /// <returns></returns>
-        public DataTable GetInDepot(out int total, string number = null)
+        public DataTable GetInDepot(string number = null)
         {
-            total = 0;
 
             try
             {
@@ -340,9 +337,8 @@ namespace SKG.DAL
                               GroupName = k.Group.Text,
                           };
 
-                total = res.Count();
-                if (number != null) res = res.Where(p => p.Code == number);
-
+                if (number != null)
+                    res = res.Where(p => p.Code == number);
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -575,6 +571,12 @@ namespace SKG.DAL
             catch { return null; }
         }
 
+        /// <summary>
+        /// Tính tiền và cho xe ra bến
+        /// </summary>
+        /// <param name="number">Biển số xe</param>
+        /// <param name="isOut">Cho xe ra bến</param>
+        /// <returns></returns>
         public Tra_Detail InvoiceOut(string number, bool isOut)
         {
             try
@@ -593,7 +595,13 @@ namespace SKG.DAL
                 a.Price2 = a.Tra_Vehicle.Tariff.Price2;
                 a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
 
-                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+
+                if (isOut)
+                {
+                    a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+                    _db.SaveChanges();
+                }
+
                 return a;
             }
             catch { return null; }

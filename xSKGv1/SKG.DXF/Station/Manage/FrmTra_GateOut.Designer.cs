@@ -193,6 +193,7 @@
             this.lkeNumber.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Biển số", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.lkeNumber.Properties.DisplayMember = "Code";
+            this.lkeNumber.Properties.NullText = "";
             this.lkeNumber.Properties.ValueMember = "Id";
             this.lkeNumber.Size = new System.Drawing.Size(239, 46);
             this.lkeNumber.TabIndex = 65;

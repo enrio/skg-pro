@@ -56,11 +56,10 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void LoadData()
         {
-            int sum;
-            var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
 
-            _dtb = _bll.Tra_Detail.GetInDepot(out sum, n);
-            Text = String.Format("Tổng số xe hiện có: {0}", sum.ToString("0"));
+            var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
+            _dtb = _bll.Tra_Detail.GetInDepot(n);
+            Text = String.Format("Tổng số xe hiện có: {0}", _dtb.Rows.Count.ToString("0"));
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT

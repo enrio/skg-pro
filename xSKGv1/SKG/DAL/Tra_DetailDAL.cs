@@ -575,43 +575,26 @@ namespace SKG.DAL
             catch { return null; }
         }
 
-        public DataTable InvoiceOut(string number, bool isOut)
+        public Tra_Detail InvoiceOut(string number, bool isOut)
         {
             try
             {
-                var res = from s in _db.Tra_Details
-                          where s.Tra_Vehicle.Code == number && s.DateOut == null
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-                              UserOutName = s.Pol_UserOut.Name,
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Fixed,
+                var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.DateOut == null);
 
-                              s.DateIn,
-                              s.DateOut,
-                              s.Days,
-                              s.Hours,
+                a.Pol_UserOutId = Global.Session.User.Id;
+                a.DateOut = Global.Session.Current;
 
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
+                a.Seats = a.Tra_Vehicle.Seats;
+                a.Beds = a.Tra_Vehicle.Beds;
 
-                              Tra_GroupId = s.Tra_Vehicle.Tariff.GroupId,
-                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
-                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
-                              KindName = s.Tra_Vehicle.Tariff.Text,
+                a.Price1 = a.Tra_Vehicle.Tariff.Price1;
+                a.Rose1 = a.Tra_Vehicle.Tariff.Rose1;
 
-                              s.Tra_Vehicle.Tariff.Price1,
-                              s.Tra_Vehicle.Tariff.Price2,
-                              s.Tra_Vehicle.Tariff.Rose1,
-                              s.Tra_Vehicle.Tariff.Rose2,
+                a.Price2 = a.Tra_Vehicle.Tariff.Price2;
+                a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;               
 
-                              s.Money
-                          };
-
-                return res.ToDataTable();
+                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+                return a;                
             }
             catch { return null; }
         }

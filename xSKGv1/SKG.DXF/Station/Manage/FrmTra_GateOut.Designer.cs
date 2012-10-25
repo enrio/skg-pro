@@ -35,6 +35,8 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -59,7 +61,6 @@
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblKind = new System.Windows.Forms.Label();
             this.lblGroup = new System.Windows.Forms.Label();
-            this.cbbNumber = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblPrice2 = new System.Windows.Forms.Label();
             this.lblFullDay = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,6 +144,8 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.lblSum);
+            this.groupControl1.Controls.Add(this.lkeNumber);
             this.groupControl1.Controls.Add(this.lblNumber);
             this.groupControl1.Controls.Add(this.lblPhone);
             this.groupControl1.Controls.Add(this.label6);
@@ -154,7 +158,6 @@
             this.groupControl1.Controls.Add(this.lblDeposit);
             this.groupControl1.Controls.Add(this.lblKind);
             this.groupControl1.Controls.Add(this.lblGroup);
-            this.groupControl1.Controls.Add(this.cbbNumber);
             this.groupControl1.Controls.Add(this.groupBox1);
             this.groupControl1.Controls.Add(this.cmdSumary2);
             this.groupControl1.Controls.Add(this.cmdSumary1);
@@ -167,15 +170,43 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // lblSum
+            // 
+            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblSum.Location = new System.Drawing.Point(500, 241);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(251, 71);
+            this.lblSum.TabIndex = 66;
+            // 
+            // lkeNumber
+            // 
+            this.lkeNumber.Location = new System.Drawing.Point(99, 31);
+            this.lkeNumber.Name = "lkeNumber";
+            this.lkeNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkeNumber.Properties.Appearance.Options.UseFont = true;
+            this.lkeNumber.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lkeNumber.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lkeNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lkeNumber.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Biển số", 30, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.lkeNumber.Properties.DisplayMember = "Code";
+            this.lkeNumber.Properties.ValueMember = "Id";
+            this.lkeNumber.Size = new System.Drawing.Size(239, 46);
+            this.lkeNumber.TabIndex = 65;
+            this.lkeNumber.EditValueChanged += new System.EventHandler(this.lkeNumber_EditValueChanged);
+            // 
             // lblNumber
             // 
             this.lblNumber.BackColor = System.Drawing.Color.White;
             this.lblNumber.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumber.ForeColor = System.Drawing.Color.Blue;
-            this.lblNumber.Location = new System.Drawing.Point(500, 241);
+            this.lblNumber.Location = new System.Drawing.Point(500, 312);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(251, 71);
+            this.lblNumber.Size = new System.Drawing.Size(251, 57);
             this.lblNumber.TabIndex = 64;
             this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -373,11 +404,12 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label1.Location = new System.Drawing.Point(5, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 48);
+            this.label1.Size = new System.Drawing.Size(89, 48);
             this.label1.TabIndex = 58;
-            this.label1.Text = "B.SỐ:";
+            this.label1.Text = "TÌM:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblMoney
@@ -386,9 +418,9 @@
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMoney.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.Color.Red;
-            this.lblMoney.Location = new System.Drawing.Point(500, 312);
+            this.lblMoney.Location = new System.Drawing.Point(500, 369);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(251, 100);
+            this.lblMoney.Size = new System.Drawing.Size(251, 43);
             this.lblMoney.TabIndex = 57;
             this.lblMoney.Text = "123.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -435,23 +467,6 @@
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(495, 35);
             this.lblGroup.TabIndex = 43;
-            // 
-            // cbbNumber
-            // 
-            this.cbbNumber.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cbbNumber.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbbNumber.DisplayMember = "Number";
-            this.cbbNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbNumber.ForeColor = System.Drawing.Color.Gray;
-            this.cbbNumber.FormattingEnabled = true;
-            this.cbbNumber.Location = new System.Drawing.Point(119, 31);
-            this.cbbNumber.Name = "cbbNumber";
-            this.cbbNumber.Size = new System.Drawing.Size(219, 47);
-            this.cbbNumber.TabIndex = 3;
-            this.cbbNumber.ValueMember = "Id";
-            this.cbbNumber.SelectedIndexChanged += new System.EventHandler(this.cbbNumber_SelectedIndexChanged);
-            this.cbbNumber.Enter += new System.EventHandler(this.cbbNumber_Enter);
-            this.cbbNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbbNumber_KeyDown);
             // 
             // groupBox1
             // 
@@ -581,6 +596,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -597,7 +613,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private System.Windows.Forms.ComboBox cbbNumber;
         private DevExpress.XtraEditors.SimpleButton cmdSumary2;
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
         private DevExpress.XtraEditors.SimpleButton cmdInList;
@@ -632,5 +647,7 @@
         private System.Windows.Forms.Label lblRose1;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblNumber;
+        private DevExpress.XtraEditors.LookUpEdit lkeNumber;
+        private System.Windows.Forms.Label lblSum;
     }
 }

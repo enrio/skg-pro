@@ -591,12 +591,30 @@ namespace SKG.DAL
                 a.Rose1 = a.Tra_Vehicle.Tariff.Rose1;
 
                 a.Price2 = a.Tra_Vehicle.Tariff.Price2;
-                a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;               
+                a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
-                return a;                
+                return a;
             }
             catch { return null; }
+        }
+
+        /// <summary>
+        /// Tổng số xe tuyến cố định trong bến
+        /// </summary>
+        /// <returns></returns>
+        public int SumOfFixed()
+        {
+            return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == true);
+        }
+
+        /// <summary>
+        /// Tổng số xe vãng lai trong bến
+        /// </summary>
+        /// <returns></returns>
+        public int SumOfNormal()
+        {
+            return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == false);
         }
     }
 }

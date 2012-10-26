@@ -12,14 +12,14 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Cổng vào
     /// </summary>
-    public partial class FrmTra_GateIn1 : SKG.DXF.FrmInput
+    public partial class FrmTra_GateInFixed : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_GateIn1).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG VÀO - XE VÃNG LAI", Level = 3, Order = 27, Picture = @"Icons\GateIn.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateInNormal).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG VÀO - XE CỐ ĐỊNH", Level = 3, Order = 27, Picture = @"Icons\GateIn.png" };
                 return menu;
             }
         }
@@ -27,7 +27,7 @@ namespace SKG.DXF.Station.Manage
 
         Guid _idLoaixe = Guid.Empty;
 
-        public FrmTra_GateIn1()
+        public FrmTra_GateInFixed()
         {
             InitializeComponent();
 
@@ -293,7 +293,7 @@ namespace SKG.DXF.Station.Manage
             //    gridColumn2.BestFit(); // fit column STT
             //}
 
-            _dtb = _bll.Tra_Detail.Get20LatestForNormal();
+            _dtb = _bll.Tra_Detail.Get20LatestForFixed();
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

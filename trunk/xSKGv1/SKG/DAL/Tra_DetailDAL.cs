@@ -263,7 +263,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Danh sách 20 xe vào bến sau cùng XE VÃNG LAI
+        /// Danh sách 20 xe vào bến sau cùng cố định
         /// </summary>
         /// <returns></returns>
         public DataTable Get20LatestForFixed()
@@ -282,11 +282,10 @@ namespace SKG.DAL
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
                               s.DateIn,
-
-                              //GroupId = k.Transport.GroupId,
+                              
                               KindId = k.TransportId,
-                              GroupName = k.Transport.Text,
-                              KindName = k.Tariff.Text,
+                              Transport = k.Transport.Text,
+                              Route = k.Tariff.Text,
 
                               k.Code,
                               k.Seats,

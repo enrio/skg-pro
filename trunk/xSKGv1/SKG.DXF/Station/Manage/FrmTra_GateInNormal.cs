@@ -249,15 +249,11 @@ namespace SKG.DXF.Station.Manage
             if (!oki) XtraMessageBox.Show(STR_NOT_INP, Text);
             else
             {
-                // Check format number
                 if (txtNumber.Text.Length > 2)
                 {
-                    int num;
+                    // Three cycle
                     string tmp = txtNumber.Text.Substring(0, 2);
-                    oki = oki && Int32.TryParse(tmp, out num);
-
-                    tmp = txtNumber.Text.Substring(2, 1);
-                    oki = oki && !Int32.TryParse(tmp, out num);
+                    if (tmp.ToUpper() == "BG") return true;
                 }
                 else oki = false;
 

@@ -82,5 +82,14 @@ namespace SKG.DAL.Entities
             }
             catch { return false; }
         }
+
+        /// <summary>
+        /// Check role administrator
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckAdmin()
+        {
+            return CheckRole("QT") || Acc.Contains("admin");
+        }
     }
 }

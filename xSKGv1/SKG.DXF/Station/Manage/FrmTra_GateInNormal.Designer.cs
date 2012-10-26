@@ -450,8 +450,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_GateIn1";
-            this.Text = "Cổng vào";
-            this.Load += new System.EventHandler(this.FrmGateIn_Load);
+            this.Text = "Cổng vào";            
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

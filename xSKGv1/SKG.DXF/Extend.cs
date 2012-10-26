@@ -359,55 +359,6 @@ namespace SKG.DXF
         {
             try
             {
-                //var menu = Services.GetMenu(s);
-                //if (menu == null) return;
-                //var path = Path.GetDirectoryName(s) + @"\";
-
-                //RibbonPage m1 = null;
-                //RibbonPageGroup m2 = null;
-
-                //for (int j = 0; j < menu.Count; j++)
-                //{
-                //    if (menu[j].Level == 1) // menu level 1 (root)
-                //    {
-                //        m1 = new RibbonPage(menu[j].Text);
-
-                //        var zac = Global.Session.GetZAction(menu[j].Code);
-                //        //m1.Visible = zac != null ? zac.Access : false;
-
-                //        m1.Tag = menu[j].Code;
-                //        m1.Image = Image.FromFile(path + menu[j].Picture);
-                //        m.Pages.Add(m1);
-                //    }
-                //    else if (menu[j].Level == 2) // menu level 2
-                //    {
-                //        m2 = new RibbonPageGroup(menu[j].Text);
-
-                //        var zac = Global.Session.GetZAction(menu[j].Code);
-                //        //m2.Visible = zac != null ? zac.Access : false;
-
-                //        m2.Tag = menu[j].Code;
-                //        m2.Glyph = Image.FromFile(path + menu[j].Picture);
-                //        m1.Groups.Add(m2);
-                //    }
-                //    else if (m2 != null) // menu level 3
-                //    {
-                //        var m3 = new BarButtonItem() { Caption = menu[j].Text };
-
-                //        if (menu[j].Code != typeof(FrmPol_Login).FullName)
-                //        {
-                //            var zac = Global.Session.GetZAction(menu[j].Code);
-                //            m3.Enabled = zac != null ? zac.Access : false;
-                //        }
-
-                //        m2.ItemLinks.Add(m3);
-                //        Assembly y = Assembly.LoadFile(s);
-                //        m3.Tag = y.CreateInstance(menu[j].Code);
-                //        m3.LargeGlyph = Image.FromFile(path + menu[j].Picture);
-                //        m3.ItemClick += ButtonItem_ItemClick;
-                //    }
-                //}
-
                 var menu = BaseBLL._bll.Pol_Dictionary.SelectRights();
                 if (menu == null) return;
 
@@ -424,7 +375,7 @@ namespace SKG.DXF
                     var code = r1["Code"] + "";
                     var icon = String.Format("{0}{1}", path, r1["More"]);
 
-                    m1 = new RibbonPage(text);
+                    m1 = new RibbonPage(text.ToUpper());
                     var zac = Global.Session.GetZAction(code);
                     m1.Visible = zac != null ? zac.Access : false;
 
@@ -439,7 +390,7 @@ namespace SKG.DXF
                         code = r2["Code"] + "";
                         icon = String.Format("{0}{1}", path, r2["More"]);
 
-                        m2 = new RibbonPageGroup(text);
+                        m2 = new RibbonPageGroup(text.ToUpper());
                         zac = Global.Session.GetZAction(code);
                         m2.Visible = zac != null ? zac.Access : false;
 
@@ -454,7 +405,7 @@ namespace SKG.DXF
                             code = r3["Code"] + "";
                             icon = String.Format("{0}{1}", path, r3["More"]);
 
-                            var m3 = new BarButtonItem() { Caption = text };
+                            var m3 = new BarButtonItem() { Caption = text.ToUpper() };
 
                             if (code != typeof(FrmPol_Login).FullName)
                             {

@@ -227,6 +227,8 @@ namespace SKG.DXF.Station.Normal
 
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
+            if (!Global.Session.User.CheckAdmin()) grvMain.Bands["badAudit"].Visible = false;
+
             lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
             lueTransport.ItemIndex = 0;
 

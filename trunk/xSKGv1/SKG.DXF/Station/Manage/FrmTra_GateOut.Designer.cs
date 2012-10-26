@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -198,6 +197,7 @@
             this.lkeNumber.Size = new System.Drawing.Size(239, 46);
             this.lkeNumber.TabIndex = 65;
             this.lkeNumber.EditValueChanged += new System.EventHandler(this.lkeNumber_EditValueChanged);
+            this.lkeNumber.Enter += new System.EventHandler(this.lkeNumber_Enter);
             // 
             // lblNumber
             // 

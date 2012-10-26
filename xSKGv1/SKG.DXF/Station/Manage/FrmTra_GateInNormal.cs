@@ -249,7 +249,7 @@ namespace SKG.DXF.Station.Manage
             if (!oki) XtraMessageBox.Show(STR_NOT_INP, Text);
             else
             {
-                if (txtNumber.Text.Length > 2)
+                if (txtNumber.Text.Length > 1)
                 {
                     // Three cycle
                     string tmp = txtNumber.Text.Substring(0, 2);

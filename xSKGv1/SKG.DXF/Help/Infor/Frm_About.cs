@@ -27,12 +27,18 @@ namespace SKG.DXF.Help.Infor
         {
             InitializeComponent();
 
-            this.Text = String.Format("About {0}", AssemblyTitle);
-            this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
-            this.labelCopyright.Text = AssemblyCopyright;
-            this.labelCompanyName.Text = AssemblyCompany;
-            this.textBoxDescription.Text = AssemblyDescription;
+            Text = String.Format("About {0}", AssemblyTitle);
+            labelProductName.Text = AssemblyProduct;
+            labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            labelCopyright.Text = AssemblyCopyright;
+            labelCompanyName.Text = AssemblyCompany;
+            textBoxDescription.Text = "Quản lí xe ra vào bến - bến xe Ngã Tư Ga - TP. Hồ Chí Minh"
+                + "\n\nCông Ty TNHH Thương Mại và Dịch Vụ Vi Tính Võ Minh"
+                + "\n541/26 Điện Biên Phủ, Phường 3, Quận 3, TP.HCM"
+                + "\nĐiện thoại: 0838 391 232"
+                + "\n\n Lập trình: Nguyễn Văn Toàn"
+                + "\nĐiện thoại: 01645 515 010"
+                + "\nEmail:nvt87x@gmail.com";
         }
 
         #region Assembly Attribute Accessors

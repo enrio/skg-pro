@@ -19,7 +19,15 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_GateOut).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG RA", Level = 3, Order = 28, Picture = @"Icons\GateOut.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmTra_GateOut).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "CỔNG RA",
+                    Level = 3,
+                    Order = 28,
+                    Picture = @"Icons\GateOut.png"
+                };
                 return menu;
             }
         }
@@ -232,9 +240,13 @@ namespace SKG.DXF.Station.Manage
                 lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
 
-                lblSum.Text = "Tổng số xe trong bến";
-                lblSum.Text += "\nCố định:  " + _bll.Tra_Detail.SumOfFixed().ToString("#,#");
-                lblSum.Text += "\nVãng lai: " + _bll.Tra_Detail.SumOfNormal().ToString("#,#");
+                var a = _bll.Tra_Detail.SumOfFixed();
+                var b = _bll.Tra_Detail.SumOfNormal();
+                var c = a + b;
+
+                lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
+                lblSum.Text += "\nCố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
+                lblSum.Text += "\nVãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
 
                 if (isOut) PerformRefresh();
             }

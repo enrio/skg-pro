@@ -4,8 +4,9 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
+    using Sumary;
     using SKG.Extend;
-    using SKG.Plugin;
+    using SKG.Plugin;    
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -18,7 +19,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_GateOut).FullName, Parent = typeof(Level2).FullName, Text = "Cổng ra", Level = 3, Order = 28, Picture = @"Icons\GateOut.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateOut).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG RA", Level = 3, Order = 28, Picture = @"Icons\GateOut.png" };
                 return menu;
             }
         }

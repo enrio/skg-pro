@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Station.Manage
+﻿namespace SKG.DXF.Station.Sumary
 {
     partial class FrmTra_InDepot
     {

@@ -33,12 +33,12 @@ namespace SKG.DXF.Help.Infor
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
             textBoxDescription.Text = "Quản lí xe ra vào bến - bến xe Ngã Tư Ga - TP. Hồ Chí Minh"
-                + "\n\nCông Ty TNHH Thương Mại và Dịch Vụ Vi Tính Võ Minh"
-                + "\n541/26 Điện Biên Phủ, Phường 3, Quận 3, TP.HCM"
-                + "\nĐiện thoại: 0838 391 232"
-                + "\n\n Lập trình: Nguyễn Văn Toàn"
-                + "\nĐiện thoại: 01645 515 010"
-                + "\nEmail:nvt87x@gmail.com";
+                + Environment.NewLine + Environment.NewLine + "Công Ty TNHH Thương Mại và Dịch Vụ Vi Tính Võ Minh"
+                + Environment.NewLine + "541/26 Điện Biên Phủ, Phường 3, Quận 3, TP. Hồ Chí Minh"
+                + Environment.NewLine + "Điện thoại: 0838 391 232"
+                + Environment.NewLine + Environment.NewLine + "Lập trình: Nguyễn Văn Toàn"
+                + Environment.NewLine + "Điện thoại: 01645 515 010"
+                + Environment.NewLine + "Email:nvt87x@gmail.com";
         }
 
         #region Assembly Attribute Accessors

@@ -181,6 +181,8 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Vehicle)obj;
+                if (Select(o.Code) != null) return null; // number already exists
+
                 o.Id = Guid.NewGuid();
                 o.CreatorId = Global.Session.User.Id;
                 o.CreateDate = Global.Session.Current;

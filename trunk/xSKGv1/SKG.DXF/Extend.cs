@@ -411,6 +411,7 @@ namespace SKG.DXF
                 var menu = BaseBLL._bll.Pol_Dictionary.SelectRights();
                 if (menu == null) return;
                 var path = Path.GetDirectoryName(s) + @"\";
+                Assembly y = Assembly.LoadFile(s);
 
                 RibbonPage m1 = null;
                 RibbonPageGroup m2 = null;
@@ -475,8 +476,8 @@ namespace SKG.DXF
                             }
 
                             m2.ItemLinks.Add(m3);
-                            Assembly y = Assembly.LoadFile(s);
                             m3.Tag = y.CreateInstance(code);
+
                             m3.LargeGlyph = Image.FromFile(icon);
                             m3.ItemClick += ButtonItem_ItemClick;
                         }

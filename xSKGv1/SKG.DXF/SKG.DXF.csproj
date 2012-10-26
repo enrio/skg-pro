@@ -108,6 +108,12 @@
     <Compile Include="FrmWait.Designer.cs">
       <DependentUpon>FrmWait.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\Infor\Frm_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\Infor\Frm_About.Designer.cs">
+      <DependentUpon>Frm_About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Help\Infor\Frm_PolManual.cs" />
     <Compile Include="Help\Infor\FrmPol_License.cs">
       <SubType>Form</SubType>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\Infor\Frm_About.resx">
+      <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>

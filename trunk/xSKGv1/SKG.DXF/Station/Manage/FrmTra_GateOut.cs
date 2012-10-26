@@ -245,8 +245,8 @@ namespace SKG.DXF.Station.Manage
                 var c = a + b;
 
                 lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
-                lblSum.Text += "\nCố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
-                lblSum.Text += "\nVãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
+                lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
+                lblSum.Text += "\n-Vãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
 
                 if (isOut) PerformRefresh();
             }

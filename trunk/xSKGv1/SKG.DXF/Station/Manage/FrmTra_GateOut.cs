@@ -110,7 +110,6 @@ namespace SKG.DXF.Station.Manage
         private void lkeNumber_EditValueChanged(object sender, EventArgs e)
         {
             Invoice();
-
         }
 
         private void lkeNumber_Enter(object sender, EventArgs e)
@@ -186,6 +185,14 @@ namespace SKG.DXF.Station.Manage
         {
             LoadData();
 
+            var a = _bll.Tra_Detail.SumOfFixed();
+            var b = _bll.Tra_Detail.SumOfNormal();
+            var c = a + b;
+
+            lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
+            lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
+            lblSum.Text += "\n-Vãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
+
             base.PerformRefresh();
         }
         #endregion
@@ -239,14 +246,6 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
-
-                var a = _bll.Tra_Detail.SumOfFixed();
-                var b = _bll.Tra_Detail.SumOfNormal();
-                var c = a + b;
-
-                lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
-                lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
-                lblSum.Text += "\n-Vãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
 
                 if (isOut) PerformRefresh();
             }

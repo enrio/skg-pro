@@ -33,14 +33,14 @@ namespace SKG.DAL
         public int Count()
         {
             var res = (from s in _db.Tra_Vehicles
-                       where s.Code ==""
-                      select s.Tra_Details).FirstOrDefault();
+                       where s.Code == ""
+                       select s.Tra_Details).FirstOrDefault();
 
             var r = (from s in res
-                    where s.DateOut == null
-                    select s).FirstOrDefault();
-            
-           
+                     where s.DateOut == null
+                     select s).FirstOrDefault();
+
+
 
             //foreach (var x in res) 
             //{
@@ -182,6 +182,9 @@ namespace SKG.DAL
             {
                 var o = (Tra_Vehicle)obj;
                 o.Id = Guid.NewGuid();
+                o.CreatorId = Global.Session.User.Id;
+                o.CreateDate = Global.Session.Current;
+
                 var oki = _db.Tra_Vehicles.Add(o);
 
                 _db.SaveChanges();
@@ -262,15 +265,15 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Tuyến cố định hoặc không cố định
+        /// Danh sách xe tuyến cố định
         /// </summary>
         /// <returns></returns>
-        public DataTable Select(bool isFixed)
+        public DataTable SelectForFixed()
         {
             try
             {
                 var res = from s in _db.Tra_Vehicles
-                          where s.Fixed == isFixed
+                          where s.Fixed == true && s.CreatorId == Global.Session.User.Id
                           select new
                           {
                               s.Id,
@@ -292,6 +295,47 @@ namespace SKG.DAL
                               s.TermInsurance,
                               s.TermFixedRoutes,
                               s.TermDriverLicense,
+
+                              s.Fixed,
+                              s.ServerQuality,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Text,
+                              s.Note,
+                              s.Order,
+                              s.Show
+                          };
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
+        /// Danh sách xe vãng lai
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectForNormal()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          where s.Fixed == false && s.CreatorId == Global.Session.User.Id
+                          select new
+                          {
+                              s.Id,
+                              s.Code,
+
+                              s.TariffId,
+                              Kind = s.Tariff.Text,
+
+                              GroupId = s.Tariff.Group.Id,
+                              Group = s.Tariff.Group.Text,
+
+                              s.Seats,
+                              s.Beds,
 
                               s.Fixed,
                               s.ServerQuality,

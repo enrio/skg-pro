@@ -260,10 +260,10 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_InDepot.cs">
+    <Compile Include="Station\Sumary\FrmTra_InDepot.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_InDepot.Designer.cs">
+    <Compile Include="Station\Sumary\FrmTra_InDepot.Designer.cs">
       <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />

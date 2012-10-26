@@ -2,15 +2,9 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Manage
+namespace SKG.DXF.Station.Sumary
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
-    using SKG.Extend;
     using SKG.Plugin;
-    using DAL.Entities;
-    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Danh sách xe trong bến

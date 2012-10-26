@@ -387,7 +387,7 @@ namespace SKG.DXF
             b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Sumary.Level2).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
-            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Manage.FrmTra_InDepot).FullName);
+            b = (Pol_Dictionary)Pol_Dictionary.Select(typeof(SKG.DXF.Station.Sumary.FrmTra_InDepot).FullName);
             o = new Pol_RoleRight() { Pol_RoleId = a.Id, Pol_RightId = b.Id, Access = true };
             Pol_RoleRight.Insert(o);
 

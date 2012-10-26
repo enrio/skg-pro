@@ -6,7 +6,7 @@ namespace SKG.DXF.Station.Manage
 {
     using Sumary;
     using SKG.Extend;
-    using SKG.Plugin;    
+    using SKG.Plugin;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -102,6 +102,12 @@ namespace SKG.DXF.Station.Manage
         private void lkeNumber_EditValueChanged(object sender, EventArgs e)
         {
             Invoice();
+
+        }
+
+        private void lkeNumber_Enter(object sender, EventArgs e)
+        {
+            PerformRefresh();
         }
         #endregion
 

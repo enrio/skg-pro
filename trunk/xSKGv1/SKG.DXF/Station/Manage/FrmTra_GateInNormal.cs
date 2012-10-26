@@ -245,21 +245,7 @@ namespace SKG.DXF.Station.Manage
         protected override bool ValidInput()
         {
             var oki = txtNumber.Text.Length == 0 ? false : true;
-
             if (!oki) XtraMessageBox.Show(STR_NOT_INP, Text);
-            else
-            {
-                if (txtNumber.Text.Length > 1)
-                {
-                    // Three cycle
-                    string tmp = txtNumber.Text.Substring(0, 2);
-                    if (tmp.ToUpper() == "BG") return true;
-                }
-                else oki = false;
-
-                if (!oki) XtraMessageBox.Show(STR_NOT_NUM, Text);
-            }
-
             return oki;
         }
 

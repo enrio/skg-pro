@@ -271,7 +271,7 @@ namespace SKG.DXF.Station.Fixed
                 _dtb = _bll.Tra_Vehicle.Select((object)num);
                 //PerformEdit();
             }
-            else _dtb = _bll.Tra_Vehicle.Select(true);
+            else _dtb = _bll.Tra_Vehicle.SelectForFixed();
 
             if (_dtb != null)
             {

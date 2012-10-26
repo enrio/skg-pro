@@ -410,13 +410,12 @@ namespace SKG.DXF
 
                 var menu = BaseBLL._bll.Pol_Dictionary.SelectRights();
                 if (menu == null) return;
+
                 var path = Path.GetDirectoryName(s) + @"\";
-                Assembly y = Assembly.LoadFile(s);
+                var asm = Assembly.LoadFile(s);
 
                 RibbonPage m1 = null;
                 RibbonPageGroup m2 = null;
-                var notAdmin = !Global.Session.User.CheckAdmin();
-                Zaction zac;
 
                 var root = menu.Select("ParentId Is Null");
                 foreach (System.Data.DataRow r1 in root)
@@ -426,14 +425,10 @@ namespace SKG.DXF
                     var icon = String.Format("{0}{1}", path, r1["More"]);
 
                     m1 = new RibbonPage(text);
+                    var zac = Global.Session.GetZAction(code);
+                    m1.Visible = zac != null ? zac.Access : false;
+
                     m1.Tag = code;
-
-                    if (notAdmin)
-                    {
-                        zac = Global.Session.GetZAction(code);
-                        m1.Visible = zac != null ? zac.Access : false;
-                    }
-
                     m1.Image = Image.FromFile(icon);
                     m.Pages.Add(m1);
 
@@ -445,14 +440,10 @@ namespace SKG.DXF
                         icon = String.Format("{0}{1}", path, r2["More"]);
 
                         m2 = new RibbonPageGroup(text);
+                        zac = Global.Session.GetZAction(code);
+                        m2.Visible = zac != null ? zac.Access : false;
+
                         m2.Tag = code;
-
-                        if (notAdmin)
-                        {
-                            zac = Global.Session.GetZAction(code);
-                            m1.Visible = zac != null ? zac.Access : false;
-                        }
-
                         m2.Glyph = Image.FromFile(icon);
                         m1.Groups.Add(m2);
 
@@ -467,16 +458,13 @@ namespace SKG.DXF
 
                             if (code != typeof(FrmPol_Login).FullName)
                             {
-                                if (notAdmin)
-                                {
-                                    zac = Global.Session.GetZAction(code);
-                                    var ok = zac != null ? zac.Access : false;
-                                    m3.Visibility = ok ? BarItemVisibility.Always : BarItemVisibility.Never;
-                                }
+                                zac = Global.Session.GetZAction(code);
+                                var ok = zac != null ? zac.Access : false;
+                                m3.Visibility = ok ? BarItemVisibility.Always : BarItemVisibility.Never;
                             }
 
                             m2.ItemLinks.Add(m3);
-                            m3.Tag = y.CreateInstance(code);
+                            m3.Tag = asm.CreateInstance(code);
 
                             m3.LargeGlyph = Image.FromFile(icon);
                             m3.ItemClick += ButtonItem_ItemClick;

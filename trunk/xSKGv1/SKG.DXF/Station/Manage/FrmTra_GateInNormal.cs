@@ -207,7 +207,7 @@ namespace SKG.DXF.Station.Manage
         protected override void ClearDataBindings()
         {
             txtNumber.DataBindings.Clear();
-            lblDateIn.DataBindings.Clear();
+            txtDateIn.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -215,7 +215,7 @@ namespace SKG.DXF.Station.Manage
         protected override void DataBindingControl()
         {
             txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
-            lblDateIn.DataBindings.Add("Text", _dtb, ".DateIn");
+            txtDateIn.DataBindings.Add("Text", _dtb, ".DateIn");
 
             base.DataBindingControl();
         }
@@ -269,7 +269,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void TimerTick(object sender, EventArgs e)
         {
-            lblDateIn.Text = Global.Session.Current.ToStringVN();
+            txtDateIn.EditValue = Global.Session.Current;
 
             base.TimerTick(sender, e);
         }

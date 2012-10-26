@@ -212,8 +212,6 @@ namespace SKG.DXF.Station.Manage
                 {
                     lblKind.Text = "Tuyến: " + detail.Tra_Vehicle.Tariff.Text;
                     lblGroup.Text = "ĐVVT: " + detail.Tra_Vehicle.Transport.Text;
-                    lblMoney.Text = detail.ChargeForFixed().ToString("#,#");
-
                     lblHalfDay.Text = "Ghế:";
                     lblFullDay.Text = "Giường:";
                 }
@@ -221,8 +219,6 @@ namespace SKG.DXF.Station.Manage
                 {
                     lblKind.Text = "Loại xe: " + detail.Tra_Vehicle.Tariff.Text;
                     lblGroup.Text = "Nhóm xe: " + detail.Tra_Vehicle.Tariff.Group.Text;
-                    lblMoney.Text = detail.ChargeForNormal().ToString("#,#");
-
                     lblHalfDay.Text = "Nửa ngày:";
                     lblFullDay.Text = "Một ngày:";
                 }
@@ -240,6 +236,8 @@ namespace SKG.DXF.Station.Manage
 
                 lblPrice2.Text = detail.Price2.ToString("#,#");
                 lblRose2.Text = detail.Rose2.ToString("#,#");
+
+                lblMoney.Text = detail.Money.ToString("#,#đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút", d.Days, d.Hours, d.Minutes);

@@ -67,7 +67,6 @@
             this.lblHalfDay = new System.Windows.Forms.Label();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdInList = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
@@ -160,7 +159,6 @@
             this.groupControl1.Controls.Add(this.groupBox1);
             this.groupControl1.Controls.Add(this.cmdSumary2);
             this.groupControl1.Controls.Add(this.cmdSumary1);
-            this.groupControl1.Controls.Add(this.cmdInList);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
             this.groupControl1.Location = new System.Drawing.Point(88, 27);
@@ -173,7 +171,7 @@
             // 
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.lblSum.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.lblSum.Location = new System.Drawing.Point(500, 241);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(251, 71);
@@ -419,9 +417,9 @@
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMoney.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.Color.Red;
-            this.lblMoney.Location = new System.Drawing.Point(500, 369);
+            this.lblMoney.Location = new System.Drawing.Point(379, 369);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(251, 43);
+            this.lblMoney.Size = new System.Drawing.Size(372, 43);
             this.lblMoney.TabIndex = 57;
             this.lblMoney.Text = "123.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -529,7 +527,7 @@
             // 
             this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(407, 375);
+            this.cmdSumary2.Location = new System.Drawing.Point(280, 375);
             this.cmdSumary2.Name = "cmdSumary2";
             this.cmdSumary2.Size = new System.Drawing.Size(93, 37);
             this.cmdSumary2.TabIndex = 17;
@@ -540,23 +538,12 @@
             // 
             this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(303, 375);
+            this.cmdSumary1.Location = new System.Drawing.Point(176, 376);
             this.cmdSumary1.Name = "cmdSumary1";
             this.cmdSumary1.Size = new System.Drawing.Size(98, 37);
             this.cmdSumary1.TabIndex = 16;
             this.cmdSumary1.Text = "In nhóm &1";
             this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
-            // 
-            // cmdInList
-            // 
-            this.cmdInList.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdInList.Appearance.Options.UseFont = true;
-            this.cmdInList.Location = new System.Drawing.Point(176, 375);
-            this.cmdInList.Name = "cmdInList";
-            this.cmdInList.Size = new System.Drawing.Size(121, 37);
-            this.cmdInList.TabIndex = 15;
-            this.cmdInList.Text = "&Xe trong bến";
-            this.cmdInList.Click += new System.EventHandler(this.cmdInList_Click);
             // 
             // cmdOut
             // 
@@ -616,7 +603,6 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.SimpleButton cmdSumary2;
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
-        private DevExpress.XtraEditors.SimpleButton cmdInList;
         private DevExpress.XtraEditors.SimpleButton cmdOut;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.GroupBox groupBox1;

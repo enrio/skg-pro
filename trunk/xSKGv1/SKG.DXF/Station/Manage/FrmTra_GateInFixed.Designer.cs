@@ -31,11 +31,11 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtDateIn = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.label6 = new System.Windows.Forms.Label();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
-            this.lblDateIn = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -56,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
@@ -89,34 +90,55 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtDateIn);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
             this.dockPanel1_Container.Controls.Add(this.label6);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.txtNumber);
-            this.dockPanel1_Container.Controls.Add(this.lblDateIn);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 72);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // txtDateIn
+            // 
+            this.txtDateIn.EditValue = "01/01/2012 08:09:10";
+            this.txtDateIn.Location = new System.Drawing.Point(633, 32);
+            this.txtDateIn.Name = "txtDateIn";
+            this.txtDateIn.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.txtDateIn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDateIn.Properties.Appearance.Options.UseBackColor = true;
+            this.txtDateIn.Properties.Appearance.Options.UseFont = true;
+            this.txtDateIn.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtDateIn.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.txtDateIn.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.txtDateIn.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.txtDateIn.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtDateIn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtDateIn.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.txtDateIn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.txtDateIn.Properties.ReadOnly = true;
+            this.txtDateIn.Size = new System.Drawing.Size(307, 38);
+            this.txtDateIn.TabIndex = 64;
+            // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl2.Location = new System.Drawing.Point(422, 32);
+            this.labelControl2.Location = new System.Drawing.Point(437, 32);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(195, 35);
+            this.labelControl2.Size = new System.Drawing.Size(190, 35);
             this.labelControl2.TabIndex = 6;
             this.labelControl2.Text = "T.GIAN VÀO:";
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(406, 3);
+            this.label6.Location = new System.Drawing.Point(437, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(534, 32);
+            this.label6.Size = new System.Drawing.Size(503, 32);
             this.label6.TabIndex = 63;
             this.label6.Text = "CỔNG VÀO - XE CỐ ĐỊNH";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -124,7 +146,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Gray;
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Silver;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(3, 3);
             this.labelControl1.Name = "labelControl1";
@@ -143,17 +165,6 @@
             this.txtNumber.Size = new System.Drawing.Size(290, 64);
             this.txtNumber.TabIndex = 0;
             this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
-            // 
-            // lblDateIn
-            // 
-            this.lblDateIn.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateIn.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblDateIn.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblDateIn.Location = new System.Drawing.Point(623, 32);
-            this.lblDateIn.Name = "lblDateIn";
-            this.lblDateIn.Size = new System.Drawing.Size(317, 35);
-            this.lblDateIn.TabIndex = 3;
-            this.lblDateIn.Text = "01/01/2012 08:09:10";
             // 
             // dockPanel2
             // 
@@ -451,13 +462,13 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_GateInFixed";
             this.Text = "Cổng vào";
-            this.Load += new System.EventHandler(this.FrmGateIn_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
@@ -475,7 +486,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
-        private DevExpress.XtraEditors.LabelControl lblDateIn;
         private DevExpress.XtraEditors.TextEdit txtNumber;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
@@ -493,5 +503,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private System.Windows.Forms.Label label6;
+        private DevExpress.XtraEditors.TextEdit txtDateIn;
     }
 }

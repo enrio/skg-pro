@@ -247,15 +247,5 @@ namespace SKG.DXF.Station.Normal
         private const string STR_DUPLICATE = "Xe này có rồi";
 
         private const string STR_NOT_C = "Chưa nhập số ghế!";
-
-        private void lblCode_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCode_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

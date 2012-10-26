@@ -280,6 +280,11 @@ namespace SKG.DAL
                           {
                               s.Id,
                               s.Code,
+
+                              s.CreatorId,
+                              Creator = s.Creator.Name,
+                              s.CreateDate,
+
                               s.TransportId,
                               s.TariffId,
 
@@ -298,7 +303,6 @@ namespace SKG.DAL
                               s.TermFixedRoutes,
                               s.TermDriverLicense,
 
-                              s.Fixed,
                               s.ServerQuality,
                               s.Driver,
                               s.Birth,
@@ -310,6 +314,10 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
+                if (!Global.Session.User.CheckAdmin())
+                    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
@@ -324,11 +332,15 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Vehicles
-                          where s.Fixed == false && s.CreatorId == Global.Session.User.Id
+                          where s.Fixed == false
                           select new
                           {
                               s.Id,
                               s.Code,
+
+                              s.CreatorId,
+                              Creator = s.Creator.Name,
+                              s.CreateDate,
 
                               s.TariffId,
                               Kind = s.Tariff.Text,
@@ -339,8 +351,6 @@ namespace SKG.DAL
                               s.Seats,
                               s.Beds,
 
-                              s.Fixed,
-                              s.ServerQuality,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -351,6 +361,10 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
+                if (!Global.Session.User.CheckAdmin())
+                    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
+
                 return res.ToDataTable();
             }
             catch { return _tb; }

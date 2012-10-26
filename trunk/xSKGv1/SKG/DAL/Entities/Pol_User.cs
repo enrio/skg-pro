@@ -67,5 +67,20 @@ namespace SKG.DAL.Entities
         /// User's phone
         /// </summary>
         public string Phone { set; get; }
+
+        /// <summary>
+        /// Check user's role
+        /// </summary>
+        /// <param name="roleCode">Role of code</param>
+        /// <returns></returns>
+        public bool CheckRole(string roleCode)
+        {
+            try
+            {
+                var role = Pol_UserRoles.Where(k => k.Pol_Role.Code == roleCode);
+                return (role.Count() > 0);
+            }
+            catch { return false; }
+        }
     }
 }

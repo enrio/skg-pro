@@ -282,7 +282,7 @@ namespace SKG.DAL
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
                               s.DateIn,
-                              
+
                               KindId = k.TransportId,
                               Transport = k.Transport.Text,
                               Route = k.Tariff.Text,
@@ -304,6 +304,86 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Danh sách xe vãng lai trong bến
+        /// </summary>        
+        /// <param name="number">Biển số xe</param>
+        /// <returns></returns>
+        public DataTable GetInDepotFixed(string number = null)
+        {
+
+            try
+            {
+                var res = from s in _db.Tra_Details
+
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
+
+                          where s.Pol_UserOutId == null && v.Fixed == true
+                          orderby s.DateIn descending, v.Code
+
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              v.Code,
+                              v.Seats,
+                              v.Beds,
+
+                              Route = k.Text,
+                              Transport = v.Transport.Text,
+                          };
+
+                if (number != null)
+                    res = res.Where(p => p.Code == number);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Danh sách xe vãng lai trong bến
+        /// </summary>        
+        /// <param name="number">Biển số xe</param>
+        /// <returns></returns>
+        public DataTable GetInDepotNormal(string number = null)
+        {
+
+            try
+            {
+                var res = from s in _db.Tra_Details
+
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
+
+                          where s.Pol_UserOutId == null && v.Fixed == false
+                          orderby s.DateIn descending, v.Code
+
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              v.Code,
+                              v.Seats,
+                              v.Beds,
+
+                              KindName = k.Text,
+                              GroupName = k.Group.Text,
+                          };
+
+                if (number != null)
+                    res = res.Where(p => p.Code == number);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Danh sách xe trong bến
         /// </summary>        
         /// <param name="number">Biển số xe</param>
@@ -318,7 +398,7 @@ namespace SKG.DAL
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
                           join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
-                          where s.Pol_UserOutId == null
+                          where s.Pol_UserOutId == null 
                           orderby s.DateIn descending, v.Code
 
                           select new
@@ -486,8 +566,6 @@ namespace SKG.DAL
                     d.Rose1 = rose1;
                     d.Rose2 = rose2;
 
-                    d.Money = money;
-
                     _db.SaveChanges();
                 }
 
@@ -541,7 +619,7 @@ namespace SKG.DAL
                               s.Rose1,
                               s.Rose2,
                               Price = s.Days == 0 ? s.Price1 : s.Price2,
-                              s.Money,
+                              //s.Money,
 
                               GroupName = k.Group.Text,
                               KindName = k.Text,
@@ -564,7 +642,7 @@ namespace SKG.DAL
 
                 if (userId != new Guid()) res = res.Where(p => p.Pol_UserOutId == userId);
 
-                total = res.Sum(k => k.Money);
+                //total = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -594,13 +672,7 @@ namespace SKG.DAL
                 a.Price2 = a.Tra_Vehicle.Tariff.Price2;
                 a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
 
-
-                if (isOut)
-                {
-                    a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
-                    _db.SaveChanges();
-                }
-
+                if (isOut) _db.SaveChanges();
                 return a;
             }
             catch { return null; }

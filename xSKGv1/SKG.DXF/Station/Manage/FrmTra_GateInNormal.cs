@@ -16,7 +16,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
@@ -94,7 +93,7 @@ namespace SKG.DXF.Station.Manage
             {
                 case State.Add:
                     if (InsertObject())
-                        ResetText();
+                        ResetInput();
                     break;
 
                 case State.Edit:
@@ -199,7 +198,6 @@ namespace SKG.DXF.Station.Manage
         protected override void ResetInput()
         {
             txtNumber.Text = null;
-            tmrMain.Enabled = true;
 
             base.ResetInput();
         }

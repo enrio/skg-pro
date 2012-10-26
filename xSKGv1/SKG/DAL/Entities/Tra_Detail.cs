@@ -116,18 +116,20 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Total money
         /// </summary>
-        public decimal Money { set; get; }
+        public decimal Money
+        {
+            get
+            {
+                return Tra_Vehicle.Fixed ? ChargeForFixed() : ChargeForNormal();
+            }
+        }
 
         /// <summary>
         /// Charge for vehicle normal
         /// </summary>
-        /// <param name="price1">Price of a half day (or a seat)</param>
-        /// <param name="price2">Price of a full day (or a bed)</param>
-        /// <param name="seats">Number of seat</param>
-        /// <param name="beds">Number of bed</param>
         /// <param name="error">Error of time</param>
-        /// <returns>Money</returns>
-        public long ChargeForNormal(int price1, int price2, int seats, int beds, int error = 11)
+        /// <returns></returns>
+        private long ChargeForNormal(int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -135,26 +137,13 @@ namespace SKG.DAL.Entities
             var dateIn = DateIn.AddMinutes(error);
             var span = DateOut.Value - dateIn;
             var odd = span.TotalDays - span.Days;
-
-            long money = span.Days * price2;
-            money += odd < 0.5 ? price1 : price2;
-            money += price1 * seats + price2 * beds;
-
-            return money;
-        }
-
-        public long ChargeForNormal(int error = 11)
-        {
-            if (DateOut == null) return 0;
-            if (DateOut.Value < DateIn) return 0;
-
-            var dateIn = DateIn.AddMinutes(error);
-            var span = DateOut.Value - dateIn;
-            var odd = span.TotalDays - span.Days;
-
             long money = span.Days * Price2;
+
+            var seat = Seats ?? 0;
+            var bed = Beds ?? 0;
+
             money += odd < 0.5 ? Price1 : Price2;
-            money += Price1 * Seats == null ? 0 : Seats.Value + Price2 * Beds == null ? 0 : Beds.Value;
+            money += Price1 * seat + Price2 * bed;
 
             return money;
         }
@@ -162,15 +151,9 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Charge for vehicle fixed
         /// </summary>
-        /// <param name="price1">Price of a seat</param>
-        /// <param name="price2">Price of a bed</param>
-        /// <param name="rose1">Commission of a seat</param>
-        /// <param name="rose2">Commission of a bed</param>
-        /// <param name="seats">Number of seat</param>
-        /// <param name="beds">Number of bed</param>
         /// <param name="error">Error of time</param>
-        /// <returns>Money</returns>
-        public long ChargeForFixed(int price1, int price2, int rose1, int rose2, int seats, int beds, int error = 11)
+        /// <returns></returns>
+        private long ChargeForFixed(int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -179,23 +162,11 @@ namespace SKG.DAL.Entities
             var span = DateOut.Value - dateIn;
             long money = span.Days * 20000;
 
-            money += price1 * seats + rose1 * (seats - 1);
-            money += (price2 + rose2) * beds;
+            var seat = Seats ?? 0;
+            var bed = Beds ?? 0;
 
-            return money;
-        }
-
-        public long ChargeForFixed(int error = 11)
-        {
-            if (DateOut == null) return 0;
-            if (DateOut.Value < DateIn) return 0;
-
-            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 2, error, 0);
-            var span = DateOut.Value - dateIn;
-            long money = span.Days * 20000;
-
-            money += Price1 * Seats.Value + Rose1 * (Seats.Value - 1);
-            money += (Price2 + Rose2) * Beds.Value;
+            money += Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
+            money += (Price2 + Rose2) * bed;
 
             return money;
         }

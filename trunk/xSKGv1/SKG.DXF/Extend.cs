@@ -565,6 +565,12 @@ namespace SKG.DXF
                     System.Windows.Forms.Help.ShowHelp(_frmMain, @"Manual.chm");
                     return;
                 }
+                else if (n == typeof(Help.Infor.Frm_About).FullName)
+                {
+                    var frm = new Help.Infor.Frm_About();
+                    frm.ShowDialog();
+                    return;
+                }
 
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))

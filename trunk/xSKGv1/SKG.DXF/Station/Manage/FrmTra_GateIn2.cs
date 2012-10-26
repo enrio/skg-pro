@@ -19,7 +19,7 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_GateIn1).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG VÀO - XE CỐ ĐỊNH", Level = 3, Order = 27, Picture = @"Icons\GateIn.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_GateIn1).FullName, Parent = typeof(Level2).FullName, Text = "CỔNG VÀO - XE VÃNG LAI", Level = 3, Order = 27, Picture = @"Icons\GateIn.png" };
                 return menu;
             }
         }
@@ -35,6 +35,7 @@ namespace SKG.DXF.Station.Manage
             dockPanel2.SetDockPanel("Danh sách");
 
             tmrMain.Enabled = true; // bật đồng hồ đếm giờ
+            AllowEdit = false;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
@@ -80,7 +81,18 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformSave()
         {
-            txtNumber_KeyDown(null, null);
+            var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+            if (o == null)
+            {
+                var frm = new Station.Normal.FrmTra_Vehicle
+                {
+                    _num = txtNumber.Text,
+                    WindowState = FormWindowState.Maximized,
+                    AllowCancel = false,
+                    _state = State.Add
+                };
+                frm.ShowDialog();
+            }
 
             switch (_state)
             {
@@ -281,7 +293,7 @@ namespace SKG.DXF.Station.Manage
             //    gridColumn2.BestFit(); // fit column STT
             //}
 
-            _dtb = _bll.Tra_Detail.Get20LatestForFixed();
+            _dtb = _bll.Tra_Detail.Get20LatestForNormal();
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)
@@ -378,21 +390,8 @@ namespace SKG.DXF.Station.Manage
 
         private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e == null || e.KeyCode == Keys.Enter)
-            {
-                var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
-                if (o == null)
-                {
-                    var frm = new Station.Normal.FrmTra_Vehicle
-                    {
-                        _num = txtNumber.Text,
-                        WindowState = FormWindowState.Maximized,
-                        AllowCancel = false,
-                        _state = State.Add
-                    };
-                    frm.ShowDialog();
-                }
-            }
+            if (e.KeyCode == Keys.Enter)
+                PerformSave();
         }
     }
 }

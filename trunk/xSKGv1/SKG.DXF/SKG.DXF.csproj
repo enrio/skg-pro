@@ -260,11 +260,23 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepot.cs">
+    <Compile Include="Station\Sumary\FrmTra_SalesNormal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepot.Designer.cs">
-      <DependentUpon>FrmTra_InDepot.cs</DependentUpon>
+    <Compile Include="Station\Sumary\FrmTra_SalesNormal.Designer.cs">
+      <DependentUpon>FrmTra_SalesNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_InDepotNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_InDepotNormal.Designer.cs">
+      <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_InDepotFixed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Sumary\FrmTra_InDepotFixed.Designer.cs">
+      <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
     <Compile Include="Station\Report\Rpt_Doanhthu.cs">
@@ -285,11 +297,11 @@
     <Compile Include="Station\Report\Rpt_Sumary2.Designer.cs">
       <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_Sales.cs">
+    <Compile Include="Station\Sumary\FrmTra_SalesFixed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_Sales.Designer.cs">
-      <DependentUpon>FrmTra_Sales.cs</DependentUpon>
+    <Compile Include="Station\Sumary\FrmTra_SalesFixed.Designer.cs">
+      <DependentUpon>FrmTra_SalesFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Sumary\Level2.cs" />
     <EmbeddedResource Include="FrmInput.resx">

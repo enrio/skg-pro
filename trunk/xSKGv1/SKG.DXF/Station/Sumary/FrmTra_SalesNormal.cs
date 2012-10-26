@@ -8,20 +8,20 @@ namespace SKG.DXF.Station.Sumary
     using SKG.Extend;
     using SKG.Plugin;
 
-    public partial class FrmTra_Sales : SKG.DXF.FrmInput
+    public partial class FrmTra_SalesNormal : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Sales).FullName, Parent = typeof(Level2).FullName, Text = "Doanh thu", Level = 3, Order = 28, Picture = @"Icons\Sales.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_SalesFixed).FullName, Parent = typeof(Level2).FullName, Text = "Doanh thu xe vãng lai", Level = 3, Order = 28, Picture = @"Icons\Sales.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_Sales()
+        public FrmTra_SalesNormal()
         {
             InitializeComponent();
 

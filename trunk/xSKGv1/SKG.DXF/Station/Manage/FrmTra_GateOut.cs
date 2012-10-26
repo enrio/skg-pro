@@ -58,7 +58,7 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdInList_Click(object sender, EventArgs e)
         {
-            Extend.ShowRight<FrmTra_InDepot>(Global.Parent);
+            Extend.ShowRight<FrmTra_InDepotFixed>(Global.Parent);
         }
 
         private void cmdSumary1_Click(object sender, EventArgs e)

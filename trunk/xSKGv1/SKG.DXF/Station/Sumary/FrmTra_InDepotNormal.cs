@@ -9,20 +9,20 @@ namespace SKG.DXF.Station.Sumary
     /// <summary>
     /// Danh sách xe trong bến
     /// </summary>
-    public partial class FrmTra_InDepot : SKG.DXF.FrmInput
+    public partial class FrmTra_InDepotNormal : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_InDepot).FullName, Parent = typeof(Level2).FullName, Text = "Xe trong bến", Level = 3, Order = 28, Picture = @"Icons\InDepot.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_InDepotFixed).FullName, Parent = typeof(Level2).FullName, Text = "Xe vãng lai trong bến", Level = 3, Order = 28, Picture = @"Icons\InDepot.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_InDepot()
+        public FrmTra_InDepotNormal()
         {
             InitializeComponent();
 

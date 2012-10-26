@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Sumary
 {
-    partial class FrmTra_Sales
+    partial class FrmTra_SalesFixed
     {
         /// <summary>
         /// Required designer variable.

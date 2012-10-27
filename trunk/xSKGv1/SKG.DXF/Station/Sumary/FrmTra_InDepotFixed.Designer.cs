@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -98,13 +99,13 @@
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Location = new System.Drawing.Point(3, 11);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(78, 19);
+            this.labelControl4.Size = new System.Drawing.Size(90, 19);
             this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Biển số xe:";
+            this.labelControl4.Text = "Tìm biển số:";
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(87, 3);
+            this.txtNumber.Location = new System.Drawing.Point(99, 3);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;

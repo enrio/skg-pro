@@ -168,6 +168,9 @@
     <Content Include="Icons\AuditMonth.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Update.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\SalesFixed.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

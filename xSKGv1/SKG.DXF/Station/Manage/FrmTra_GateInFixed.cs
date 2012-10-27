@@ -80,7 +80,7 @@ namespace SKG.DXF.Station.Manage
             if (o == null)
             {
                 XtraMessageBox.Show(String.Format(STR_NO_HAVE, txtNumber.Text),
-                    "CHƯA QUẢN LÝ",
+                    STR_MANAG,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Stop);
                 return;
@@ -90,7 +90,7 @@ namespace SKG.DXF.Station.Manage
             if (!ve.Fixed)
             {
                 XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
-                    "XE VÃNG LAI",
+                    STR_KIND,
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 return;
@@ -292,5 +292,7 @@ namespace SKG.DXF.Station.Manage
         private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE TUYẾN VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
+        private const string STR_KIND = "XE VÃNG LAI";
+        private const string STR_MANAG = "CHƯA QUẢN LÝ";
     }
 }

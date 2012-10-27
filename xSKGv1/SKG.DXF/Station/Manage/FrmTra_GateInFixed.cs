@@ -259,7 +259,12 @@ namespace SKG.DXF.Station.Manage
         protected override bool ValidInput()
         {
             var oki = txtNumber.Text.Length == 0 ? false : true;
-            if (!oki) XtraMessageBox.Show(STR_NOT_INP, Text);
+            if (!oki) XtraMessageBox.Show(STR_NOT_INP,
+                          STR_ADD,
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+            else
+                txtNumber.Text = txtNumber.Text.Replace(" ", "");
             return oki;
         }
 
@@ -277,7 +282,7 @@ namespace SKG.DXF.Station.Manage
                 PerformSave();
         }
 
-        private const string STR_NOT_INP = "Chưa nhập biển số!";
+        private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_ADD = "Thêm chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
         private const string STR_SELECT = "Chọn dữ liệu!";

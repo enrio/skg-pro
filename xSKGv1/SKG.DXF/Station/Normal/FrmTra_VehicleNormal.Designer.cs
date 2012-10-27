@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Normal
 {
-    partial class FrmTra_Vehicle
+    partial class FrmTra_VehicleNormal
     {
         /// <summary>
         /// Required designer variable.

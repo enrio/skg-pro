@@ -275,7 +275,8 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Vehicles
-                          where s.Fixed == true && s.CreatorId == Global.Session.User.Id
+                          where s.Fixed == true
+                          orderby s.Tariff.Text
                           select new
                           {
                               s.Id,
@@ -332,7 +333,8 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Vehicles
-                          where s.Fixed == false
+                          where s.Fixed == false //&& !s.Code.Contains("BG")
+                          orderby s.Tariff.Text
                           select new
                           {
                               s.Id,

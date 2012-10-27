@@ -89,7 +89,7 @@ namespace SKG.DXF.Station.Manage
             var ve = (Tra_Vehicle)o;
             if (!ve.Fixed)
             {
-                XtraMessageBox.Show(String.Format(STR_NORMAL, txtNumber.Text),
+                XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
                     "XE VÃNG LAI",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -282,14 +282,15 @@ namespace SKG.DXF.Station.Manage
                 PerformSave();
         }
 
-        private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_ADD = "Thêm chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
+
         private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
         private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ NGƯỜI QUẢN LÝ ĐỂ NHẬP THÔNG TIN XE";
-        private const string STR_NORMAL = "BIỂN SỐ {0} LÀ XE TUYẾN VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
+        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE TUYẾN VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
+        private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
     }
 }

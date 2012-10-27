@@ -79,7 +79,7 @@ namespace SKG.DXF.Station.Manage
 
             if (o == null)
             {
-                var frm = new Station.Normal.FrmTra_Vehicle
+                var frm = new Station.Normal.FrmTra_VehicleNormal
                 {
                     _num = txtNumber.Text,
                     WindowState = FormWindowState.Maximized,

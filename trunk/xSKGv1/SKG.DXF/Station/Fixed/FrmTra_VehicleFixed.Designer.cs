@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Fixed
 {
-    partial class FrmTra_Vehicle
+    partial class FrmTra_VehicleFixed
     {
         /// <summary>
         /// Required designer variable.

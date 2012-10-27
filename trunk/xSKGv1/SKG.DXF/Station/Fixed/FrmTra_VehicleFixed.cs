@@ -1,22 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Normal
+namespace SKG.DXF.Station.Fixed
 {
+    using SKG;
+    using BLL;
+    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Vehicle : SKG.DXF.FrmInput
+    public partial class FrmTra_VehicleFixed : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Vehicle).FullName, Parent = typeof(Level2).FullName, Text = "Xe vãng lai", Level = 3, Order = 25, Picture = @"Icons\Vehicle.png" };
+                var menu = new Menuz() { Code = typeof(FrmTra_VehicleFixed).FullName, Parent = typeof(Level2).FullName, Text = "Xe cố định", Level = 3, Order = 23, Picture = @"Icons\Vehicle.png" };
                 return menu;
             }
         }
@@ -24,7 +31,7 @@ namespace SKG.DXF.Station.Normal
 
         public string _num;
 
-        public FrmTra_Vehicle()
+        public FrmTra_VehicleFixed()
         {
             InitializeComponent();
 
@@ -116,15 +123,35 @@ namespace SKG.DXF.Station.Normal
             txtSeats.DataBindings.Clear();
             txtBeds.DataBindings.Clear();
 
+            txtProductionYear.DataBindings.Clear();
+            dteLimitedRegistration.DataBindings.Clear();
+            dteTermInsurance.DataBindings.Clear();
+            dteTermFixedRoutes.DataBindings.Clear();
+            dteTermDriverLicense.DataBindings.Clear();
+
+            cheHigh.DataBindings.Clear();
+            cheCity.DataBindings.Clear();
+            txtServerQuality.DataBindings.Clear();
+
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            lueTransport.DataBindings.Add("EditValue", _dtb, ".TariffId");
+            lueTransport.DataBindings.Add("EditValue", _dtb, ".TransportId");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
+
+            txtProductionYear.DataBindings.Add("EditValue", _dtb, ".ProductionYear");
+            dteLimitedRegistration.DataBindings.Add("EditValue", _dtb, ".LimitedRegistration");
+            dteTermInsurance.DataBindings.Add("EditValue", _dtb, ".TermInsurance");
+            dteTermFixedRoutes.DataBindings.Add("EditValue", _dtb, ".TermFixedRoutes");
+            dteTermDriverLicense.DataBindings.Add("EditValue", _dtb, ".TermDriverLicense");
+
+            cheHigh.DataBindings.Add("EditValue", _dtb, ".High");
+            cheCity.DataBindings.Add("EditValue", _dtb, ".City");
+            txtServerQuality.DataBindings.Add("EditValue", _dtb, ".ServerQuality");
 
             base.DataBindingControl();
         }
@@ -135,6 +162,16 @@ namespace SKG.DXF.Station.Normal
             txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;
+
+            txtProductionYear.Properties.ReadOnly = isReadOnly;
+            dteLimitedRegistration.Properties.ReadOnly = isReadOnly;
+            dteTermInsurance.Properties.ReadOnly = isReadOnly;
+            dteTermFixedRoutes.Properties.ReadOnly = isReadOnly;
+            dteTermDriverLicense.Properties.ReadOnly = isReadOnly;
+
+            cheHigh.Properties.ReadOnly = isReadOnly;
+            cheCity.Properties.ReadOnly = isReadOnly;
+            txtServerQuality.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -152,14 +189,30 @@ namespace SKG.DXF.Station.Normal
                 var o = new Tra_Vehicle()
                 {
                     Id = id,
-                    TariffId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueRoute.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = false,
-                    City = false,
-                    High = false
+                    Fixed = true,
+
+                    ProductionYear = txtProductionYear.Text,
+                    High = cheHigh.Checked,
+                    City = cheCity.Checked,
+                    ServerQuality = txtServerQuality.Text
                 };
+
+                if (dteLimitedRegistration.EditValue + "" != "")
+                    o.LimitedRegistration = dteLimitedRegistration.DateTime;
+
+                if (dteTermInsurance.EditValue + "" != "")
+                    o.TermInsurance = dteTermInsurance.DateTime;
+
+                if (dteTermFixedRoutes.EditValue + "" != "")
+                    o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
+
+                if (dteTermDriverLicense.EditValue + "" != "")
+                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
@@ -177,14 +230,30 @@ namespace SKG.DXF.Station.Normal
 
                 var o = new Tra_Vehicle()
                 {
-                    TariffId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TransportId = (Guid)lueTransport.GetColumnValue("Id"),
+                    TariffId = (Guid)lueRoute.GetColumnValue("Id"),
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = false,
-                    City = false,
-                    High = false
+                    Fixed = true,
+
+                    ProductionYear = txtProductionYear.Text,
+                    High = cheHigh.Checked,
+                    City = cheCity.Checked,
+                    ServerQuality = txtServerQuality.Text
                 };
+
+                if (dteLimitedRegistration.EditValue + "" != "")
+                    o.LimitedRegistration = dteLimitedRegistration.DateTime;
+
+                if (dteTermInsurance.EditValue + "" != "")
+                    o.TermInsurance = dteTermInsurance.DateTime;
+
+                if (dteTermFixedRoutes.EditValue + "" != "")
+                    o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
+
+                if (dteTermDriverLicense.EditValue + "" != "")
+                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
@@ -202,7 +271,7 @@ namespace SKG.DXF.Station.Normal
                 _dtb = _bll.Tra_Vehicle.Select((object)num);
                 //PerformEdit();
             }
-            else _dtb = _bll.Tra_Vehicle.SelectForNormal();
+            else _dtb = _bll.Tra_Vehicle.SelectForFixed();
 
             if (_dtb != null)
             {
@@ -227,10 +296,11 @@ namespace SKG.DXF.Station.Normal
 
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
-            if (!Global.Session.User.CheckAdmin()) grvMain.Bands["badAudit"].Visible = false;
-
-            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
+            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
             lueTransport.ItemIndex = 0;
+
+            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
+            lueRoute.ItemIndex = 0;
 
             if (_num + "" != "")
             {

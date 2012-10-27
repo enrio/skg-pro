@@ -211,17 +211,17 @@
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Normal\Level2.cs" />
-    <Compile Include="Station\Normal\FrmTra_Vehicle.cs">
+    <Compile Include="Station\Normal\FrmTra_VehicleNormal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Normal\FrmTra_Vehicle.Designer.cs">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    <Compile Include="Station\Normal\FrmTra_VehicleNormal.Designer.cs">
+      <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Vehicle.cs">
+    <Compile Include="Station\Fixed\FrmTra_VehicleFixed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Vehicle.Designer.cs">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    <Compile Include="Station\Fixed\FrmTra_VehicleFixed.Designer.cs">
+      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Normal\FrmTra_Group.cs">
       <SubType>Form</SubType>
@@ -345,8 +345,8 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Vehicle.resx">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
+      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
@@ -363,8 +363,8 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Normal\FrmTra_Vehicle.resx">
-      <DependentUpon>FrmTra_Vehicle.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
+      <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Doanhthu.resx">
       <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>

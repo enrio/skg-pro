@@ -17,7 +17,7 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_License).FullName, Parent = typeof(Level2).FullName, Text = "Sản phẩm", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
+                var menu = new Menuz() { Code = typeof(Frm_About).FullName, Parent = typeof(Level2).FullName, Text = "Sản phẩm", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
                 return menu;
             }
         }

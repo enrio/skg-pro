@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Help.Infor
+namespace SKG.DXF.Help.Util
 {
     using SKG.Hasher;
     using SKG.Plugin;

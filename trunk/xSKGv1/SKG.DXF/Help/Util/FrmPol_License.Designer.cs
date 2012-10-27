@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Help.Infor
+﻿namespace SKG.DXF.Help.Util
 {
     partial class FrmPol_License
     {

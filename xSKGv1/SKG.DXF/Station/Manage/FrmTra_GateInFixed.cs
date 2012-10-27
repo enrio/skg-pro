@@ -289,7 +289,7 @@ namespace SKG.DXF.Station.Manage
 
         private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
         private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ NGƯỜI QUẢN LÝ ĐỂ NHẬP THÔNG TIN XE";
-        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE TUYẾN VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
+        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_KIND = "XE VÃNG LAI";

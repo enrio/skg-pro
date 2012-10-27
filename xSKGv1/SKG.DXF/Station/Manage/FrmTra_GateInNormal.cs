@@ -86,7 +86,19 @@ namespace SKG.DXF.Station.Manage
                     AllowCancel = false,
                     _state = State.Add
                 };
+
                 frm.ShowDialog();
+                o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+            }
+
+            var ve = (Tra_Vehicle)o;
+            if (ve.Fixed)
+            {
+                XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
+                    STR_KIND,
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
             }
 
             switch (_state)
@@ -126,7 +138,10 @@ namespace SKG.DXF.Station.Manage
                     if (_bll.Tra_Detail.Insert(o) != null) return true;
                     else
                     {
-                        XtraMessageBox.Show(STR_IN_GATE, Text);
+                        XtraMessageBox.Show(STR_IN_GATE,
+                            STR_ADD,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
                         return false;
                     }
                 }
@@ -167,10 +182,16 @@ namespace SKG.DXF.Station.Manage
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var tg = txtDateIn.Text.Replace("AM", "SÁNG");
+                tg = tg.Replace("PM", "CHIỀU");
 
-                if (oki == DialogResult.OK)
+                var cfm = String.Format(STR_CONFIRM, txtNumber.Text, tg);
+                var oki = XtraMessageBox.Show(cfm,
+                              STR_DELETE,
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question);
+
+                if (oki == DialogResult.Yes)
                     if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
@@ -243,7 +264,12 @@ namespace SKG.DXF.Station.Manage
         protected override bool ValidInput()
         {
             var oki = txtNumber.Text.Length == 0 ? false : true;
-            if (!oki) XtraMessageBox.Show(STR_NOT_INP, Text);
+            if (!oki) XtraMessageBox.Show(STR_NOT_INP,
+                          STR_ADD,
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+            else
+                txtNumber.Text = txtNumber.Text.Replace(" ", "");
             return oki;
         }
 
@@ -261,35 +287,15 @@ namespace SKG.DXF.Station.Manage
                 PerformSave();
         }
 
-        const string STR_MENU = "Cổng &vào";
-        private const string STR_DESC = "In gate form";
-        private const string STR_DMY = "dd/MM/yyyy HH:mm:ss";
-
-        private const string STR_IN_GATE = "Xe này đang ở trong bến!";
-        private const string STR_IN_MAG = "Xe này đã có trong danh sách quản lí!";
-
-        private const string STR_INP_ERR = "Lỗi, nhập dữ liệu sai{0}{1}";
-        private const string STR_INP_HAD = "&Nhập bằng tay";
-        private const string STR_ADD_SUC = "";// "Đã cho xe vào!";
-        private const string STR_EDI_SUC = "Sửa thành công!";
-
-        private const string STR_DEL_SUC = "Xoá thành công!";
-        private const string STR_DEL_ERR = "Lỗi xoá dữ liệu!";
-
-        private const string STR_NO_SAVE = "Không thêm được!";
-        private const string STR_NOT_EDIT = "Không sửa được!";
-        private const string STR_NOT_DEL = "Không xoá được!";
-        private const string STR_NOT_NUM = "Biển số không hợp lệ hợp lệ!";
-        private const string STR_NOT_INP = "Chưa nhập biển số!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
-
         private const string STR_ADD = "Thêm chi tiết ra/vào";
-        private const string STR_EDIT = "Sửa chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
-
         private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá số xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Mã này có rồi";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
+
+        private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
+        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE CỐ ĐỊNH\nXIN HÃY NHẬP BÊN CỔNG VÀO CỐ ĐỊNH";
+        private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
+        private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
+        private const string STR_KIND = "XE CỐ ĐỊNH";
     }
 }

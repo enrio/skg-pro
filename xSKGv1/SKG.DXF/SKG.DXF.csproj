@@ -378,6 +378,9 @@
     <EmbeddedResource Include="Station\Sumary\FrmTra_InDepotFixed.resx">
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Sumary\FrmTra_InDepotNormal.resx">
+      <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Manual.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

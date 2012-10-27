@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -37,18 +38,18 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -98,13 +99,13 @@
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Location = new System.Drawing.Point(3, 11);
             this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(78, 19);
+            this.labelControl4.Size = new System.Drawing.Size(90, 19);
             this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Biển số xe:";
+            this.labelControl4.Text = "Tìm biển số:";
             // 
             // txtNumber
             // 
-            this.txtNumber.Location = new System.Drawing.Point(87, 3);
+            this.txtNumber.Location = new System.Drawing.Point(99, 3);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
@@ -289,11 +290,19 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             // 
-            // gridColumn1
+            // gridBand1
             // 
-            this.gridColumn1.Caption = "Mã";
-            this.gridColumn1.FieldName = "Id";
-            this.gridColumn1.Name = "gridColumn1";
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Columns.Add(this.gridColumn6);
+            this.gridBand1.Columns.Add(this.gridColumn7);
+            this.gridBand1.Columns.Add(this.gridColumn8);
+            this.gridBand1.Columns.Add(this.gridColumn9);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 815;
             // 
             // gridColumn2
             // 
@@ -303,6 +312,12 @@
             this.gridColumn2.Visible = true;
             this.gridColumn2.Width = 38;
             // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Mã";
+            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Name = "gridColumn1";
+            // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "Biển số xe";
@@ -310,22 +325,6 @@
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 128;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "Số ghế";
-            this.gridColumn4.FieldName = "Seats";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 128;
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.Caption = "Số giường";
-            this.gridColumn10.FieldName = "Beds";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 82;
             // 
             // gridColumn5
             // 
@@ -369,20 +368,6 @@
             this.gridColumn9.Visible = true;
             this.gridColumn9.Width = 137;
             // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Columns.Add(this.gridColumn8);
-            this.gridBand1.Columns.Add(this.gridColumn9);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 815;
-            // 
             // gridBand2
             // 
             this.gridBand2.Caption = "Tải trọng";
@@ -391,13 +376,29 @@
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.Width = 210;
             // 
-            // FrmTra_InDepot
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Số ghế";
+            this.gridColumn4.FieldName = "Seats";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.Width = 128;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Số giường";
+            this.gridColumn10.FieldName = "Beds";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.Width = 82;
+            // 
+            // FrmTra_InDepotNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_InDepot";
+            this.Name = "FrmTra_InDepotNormal";
             this.Text = "Danh sách xe trong bến";
             this.Activated += new System.EventHandler(this.FrmTra_InDepot_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);

@@ -82,7 +82,7 @@ namespace SKG.DXF
 #if !DEBUG
             CheckRight(this, true);
 #endif
-            Text = Menuz.Text;
+            Text = Menuz.Text.ToUpper();
             SetNullPrompt();
             PerformRefresh();
         }

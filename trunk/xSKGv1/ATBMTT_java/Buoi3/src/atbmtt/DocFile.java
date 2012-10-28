@@ -10,9 +10,14 @@ public class DocFile {
 			x.CreateFileMD5("c:\\toan.txt", msg);
 
 			// Tạo MD5 cho file
-			byte[] t = x.ReadFileMD5("c:\\toan.iso");
-			for (int i = 0; i < t.length; i++)
-				System.out.print(String.format("%X", t[i]) + " ");
+			String check = FileHasher.getMD5Checksum("c:\\toan.iso");
+			System.out.print("MD5:   " + check);
+
+			System.out.println();
+
+			// Tạo SHA-1 cho file
+			check = FileHasher.getSHAChecksum("c:\\toan.iso");
+			System.out.print("SHA-1: " + check);
 
 		} catch (Exception e) {
 			e.printStackTrace();

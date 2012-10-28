@@ -120,6 +120,7 @@ namespace SKG.DAL
                 if (res.Count() > 0) return null; // xe này còn ở trong bến
 
                 o.Id = Guid.NewGuid();
+                o.Pol_UserInId = Global.Session.User.Id;
                 var oki = _db.Tra_Details.Add(o);
 
                 _db.SaveChanges();

@@ -6,8 +6,8 @@ import java.security.*;
 public class FileHasher {
 	public byte[] ReadFileMD5(String filename) throws Exception {
 		InputStream fis = new FileInputStream(filename);
-
 		byte[] buffer = new byte[1024];
+
 		MessageDigest complete = MessageDigest.getInstance("MD5");
 		int numRead;
 
@@ -23,18 +23,14 @@ public class FileHasher {
 	}
 
 	public void CreateFileMD5(String filename, String data) throws Exception {
-
 		FileWriter fstream = new FileWriter(filename);
 		BufferedWriter out = new BufferedWriter(fstream);
 
 		MessageDigest complete = MessageDigest.getInstance("MD5");
 		byte[] h = complete.digest(data.getBytes());
-		System.out.println();
+
 		for (int i = 0; i < h.length; i++)
-		{
-			System.out.print(String.format("%X", h[i]) + " ");
 			out.write(String.format("%X", h[i]) + " ");
-		}
 		out.close();
 	}
 

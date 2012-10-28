@@ -17,6 +17,7 @@ using System.Windows.Forms;
 namespace SKG.DXF.Station.Manage
 {
     using SKG.Plugin;
+    using System.Data;
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
@@ -61,7 +62,42 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdFixed_Click(object sender, EventArgs e)
         {
+            var open = new OpenFileDialog();
+            open.ShowDialog();
+            if (open.CheckFileExists)
+            {
+                var tb = Data.Excel.ImportFromExcel(open.FileName, "Ravao");
+                tb.Columns.Add("Route");
+                tb.Columns.Add("Transport");
+                tb.Columns.Add("Seats");
+                tb.Columns.Add("Beds");
 
+                foreach (DataRow r in tb.Rows)
+                {
+                    var bs = r["Code"] + "";
+                    var dt = Global.Session.Current;
+                    DateTime.TryParse(r["DateIn"] + "", out dt);
+
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+                    if (ve == null) r.RowError = "Xe chưa có trong danh sách quản lí";
+                    else
+                    {
+                        r["Route"] = ve.Tariff.Text;
+                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                        r["Seats"] = ve.Seats;
+                        r["Beds"] = ve.Beds;
+                    }
+                    //else
+                    //{
+                    //    var o = new Tra_Detail();
+                    //    o.Tra_VehicleId = ve.Id;
+                    //    o.DateIn = dt;
+                    //    _bll.Tra_Detail.Insert(o);
+                    //}
+                }
+
+                grcMain.DataSource = tb;
+            }
         }
 
         private void cmdNormal_Click(object sender, EventArgs e)

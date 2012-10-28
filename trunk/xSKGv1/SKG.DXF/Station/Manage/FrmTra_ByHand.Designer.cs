@@ -28,14 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.txtDateIn = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.label6 = new System.Windows.Forms.Label();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
@@ -52,12 +48,12 @@
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.cmdFixed = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdNormal = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -84,97 +80,28 @@
             this.dockPanel1.ID = new System.Guid("82de06b3-fe08-438b-ab24-426659491166");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 99);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 99);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 67);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 67);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.txtDateIn);
-            this.dockPanel1_Container.Controls.Add(this.labelControl2);
-            this.dockPanel1_Container.Controls.Add(this.label6);
-            this.dockPanel1_Container.Controls.Add(this.labelControl1);
-            this.dockPanel1_Container.Controls.Add(this.txtNumber);
+            this.dockPanel1_Container.Controls.Add(this.cmdNormal);
+            this.dockPanel1_Container.Controls.Add(this.cmdFixed);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 72);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 40);
             this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // txtDateIn
-            // 
-            this.txtDateIn.EditValue = "01/01/2012 08:09:10";
-            this.txtDateIn.Location = new System.Drawing.Point(633, 32);
-            this.txtDateIn.Name = "txtDateIn";
-            this.txtDateIn.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.txtDateIn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDateIn.Properties.Appearance.Options.UseBackColor = true;
-            this.txtDateIn.Properties.Appearance.Options.UseFont = true;
-            this.txtDateIn.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtDateIn.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.txtDateIn.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.txtDateIn.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.txtDateIn.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.txtDateIn.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtDateIn.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.txtDateIn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtDateIn.Properties.ReadOnly = true;
-            this.txtDateIn.Size = new System.Drawing.Size(307, 38);
-            this.txtDateIn.TabIndex = 64;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.Silver;
-            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl2.Location = new System.Drawing.Point(437, 32);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(190, 35);
-            this.labelControl2.TabIndex = 6;
-            this.labelControl2.Text = "T.GIAN VÀO:";
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(437, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(503, 32);
-            this.label6.TabIndex = 63;
-            this.label6.Text = "CỔNG VÀO - XE CỐ ĐỊNH";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Silver;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(3, 3);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(101, 64);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "B.SỐ:";
-            // 
-            // txtNumber
-            // 
-            this.txtNumber.Location = new System.Drawing.Point(110, 3);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Properties.Appearance.Options.UseForeColor = true;
-            this.txtNumber.Size = new System.Drawing.Size(290, 64);
-            this.txtNumber.TabIndex = 0;
-            this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
             // 
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("804bc57b-767c-4b3f-9512-7be4421dcd18");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 162);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 130);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 404);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 436);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -182,7 +109,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 377);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 409);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -191,7 +118,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 377);
+            this.grcMain.Size = new System.Drawing.Size(943, 409);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -454,13 +381,35 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 71;
             // 
-            // FrmTra_GateInFixed
+            // cmdFixed
+            // 
+            this.cmdFixed.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdFixed.Appearance.Options.UseFont = true;
+            this.cmdFixed.Location = new System.Drawing.Point(3, 3);
+            this.cmdFixed.Name = "cmdFixed";
+            this.cmdFixed.Size = new System.Drawing.Size(89, 30);
+            this.cmdFixed.TabIndex = 0;
+            this.cmdFixed.Text = "Xe &cố định";
+            this.cmdFixed.Click += new System.EventHandler(this.cmdFixed_Click);
+            // 
+            // cmdNormal
+            // 
+            this.cmdNormal.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdNormal.Appearance.Options.UseFont = true;
+            this.cmdNormal.Location = new System.Drawing.Point(98, 3);
+            this.cmdNormal.Name = "cmdNormal";
+            this.cmdNormal.Size = new System.Drawing.Size(89, 30);
+            this.cmdNormal.TabIndex = 6;
+            this.cmdNormal.Text = "Xe &vãng lai";
+            this.cmdNormal.Click += new System.EventHandler(this.cmdNormal_Click);
+            // 
+            // FrmTra_ByHand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_GateInFixed";
+            this.Name = "FrmTra_ByHand";
             this.Text = "Cổng vào";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -468,8 +417,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -486,7 +433,6 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
-        private DevExpress.XtraEditors.TextEdit txtNumber;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
@@ -500,9 +446,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private System.Windows.Forms.Label label6;
-        private DevExpress.XtraEditors.TextEdit txtDateIn;
+        private DevExpress.XtraEditors.SimpleButton cmdNormal;
+        private DevExpress.XtraEditors.SimpleButton cmdFixed;
     }
 }

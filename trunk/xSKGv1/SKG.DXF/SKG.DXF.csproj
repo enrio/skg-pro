@@ -210,6 +210,12 @@
     <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
       <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Manage\FrmTra_ByHand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_ByHand.Designer.cs">
+      <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Manage\FrmTra_GateInFixed.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
       <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmTra_ByHand.resx">
+      <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>

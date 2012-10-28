@@ -62,17 +62,20 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdFixed_Click(object sender, EventArgs e)
         {
+            PerformAdd();
+
             var open = new OpenFileDialog();
             open.ShowDialog();
             if (open.CheckFileExists)
             {
-                var tb = Data.Excel.ImportFromExcel(open.FileName, "Ravao");
-                tb.Columns.Add("Route");
-                tb.Columns.Add("Transport");
-                tb.Columns.Add("Seats");
-                tb.Columns.Add("Beds");
+                _dtb = Data.Excel.ImportFromExcel(open.FileName, "Ravao");
+                _dtb.Columns.Add("Route");
+                _dtb.Columns.Add("Transport");
+                _dtb.Columns.Add("Seats");
+                _dtb.Columns.Add("Beds");
+                _dtb.Columns.Add("CodeId", typeof(Guid));
 
-                foreach (DataRow r in tb.Rows)
+                foreach (DataRow r in _dtb.Rows)
                 {
                     var bs = r["Code"] + "";
                     var dt = Global.Session.Current;
@@ -86,6 +89,7 @@ namespace SKG.DXF.Station.Manage
                         r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
                         r["Seats"] = ve.Seats;
                         r["Beds"] = ve.Beds;
+                        r["CodeId"] = ve.Id;
                     }
                     //else
                     //{
@@ -96,13 +100,31 @@ namespace SKG.DXF.Station.Manage
                     //}
                 }
 
-                grcMain.DataSource = tb;
+                grcMain.DataSource = _dtb;
             }
         }
 
         private void cmdNormal_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void PerformSave()
+        {
+            var dtr = _dtb.Select("[CodeId] Is Not Null ");
+            foreach (DataRow r in dtr)
+            {
+                var bs = r["Code"] + "";
+                var dt = Global.Session.Current;
+                DateTime.TryParse(r["DateIn"] + "", out dt);
+
+                var o = new Tra_Detail();
+                o.Tra_VehicleId = (Guid)r["CodeId"];
+                o.DateIn = dt;
+                _bll.Tra_Detail.Insert(o);
+            }
+
+            base.PerformSave();
         }
     }
 }

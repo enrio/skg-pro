@@ -24,6 +24,8 @@ public class Taokhoa {
 			fos = new FileOutputStream("c:\\ks.txt");
 			fos.write(ks.getEncoded());
 			fos.close();
+			
+			System.out.print("Tao khoa thanh cong!");			
 
 		} catch (Exception e) {
 			e.printStackTrace();

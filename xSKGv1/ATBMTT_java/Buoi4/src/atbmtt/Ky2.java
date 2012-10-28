@@ -4,9 +4,8 @@ import java.io.*;
 import java.security.*;
 import java.security.interfaces.*;
 import java.security.spec.*;
-import javax.crypto.*;
 
-public class Ky {
+public class Ky2 {
 	public static void main(String[] args) {
 		try {
 			// Đọc khoá bí mật
@@ -20,13 +19,13 @@ public class Ky {
 			KeyFactory keyfac = KeyFactory.getInstance("RSA");
 			RSAPrivateKey ks = (RSAPrivateKey) keyfac.generatePrivate(spec);
 
-			// Tạo và khởi động Si phơ với khoá bí mật ks
-			Cipher cp = Cipher.getInstance("RSA");
-			cp.init(Cipher.ENCRYPT_MODE, ks);
+			// Tạo chữ ký
+			Signature signer = Signature.getInstance("MD5withRSA");
+			signer.initSign(ks);
 
 			// Đọc file thông báo
 			fis = new FileInputStream("c:\\thong-bao.txt");
-			FileOutputStream fos = new FileOutputStream("c:\\chu-ky.txt");
+			FileOutputStream fos = new FileOutputStream("c:\\chu-ky2.txt");
 
 			// Cắt dữ liệu ra từng khối, kích thước <= 117 bytes
 			int size = 117;
@@ -36,12 +35,15 @@ public class Ky {
 				int n = fis.read(buff);
 				if (n <= 0)
 					break;
-				byte[] cip = cp.doFinal(buff, 0, n);
-				System.out.println("Size: " + cip.length);
-				fos.write(cip);
+				signer.update(buff, 0, n);
 			}
+
+			byte[] kq = signer.sign();
+			fos.write(kq);
+
 			fis.close();
 			fos.close();
+			
 			System.out.print("Ky thanh cong!");
 
 		} catch (Exception e) {

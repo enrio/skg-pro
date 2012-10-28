@@ -4,9 +4,8 @@ import java.io.*;
 import java.security.*;
 import java.security.interfaces.*;
 import java.security.spec.*;
-import javax.crypto.*;
 
-public class Kiemtra {
+public class Kiemtra2 {
 	public static void main(String[] args) {
 		try {
 			// Đọc khoá công khai
@@ -20,30 +19,36 @@ public class Kiemtra {
 			KeyFactory keyfac = KeyFactory.getInstance("RSA");
 			RSAPublicKey kp = (RSAPublicKey) keyfac.generatePublic(spec);
 
-			// Tạo và khởi động Si phơ với khoá bí mật ks
-			Cipher cp = Cipher.getInstance("RSA");
-			cp.init(Cipher.DECRYPT_MODE, kp);
+			// Khởi tạo kiểm tra chữ ký
+			Signature signer = Signature.getInstance("MD5withRSA");
+			signer.initVerify(kp);
 
-			// Đọc file chữ kí
-			fis = new FileInputStream("c:\\chu-ky.txt");
-			FileOutputStream fos = new FileOutputStream("c:\\so-sanh.txt");
+			// Đọc file thông báo
+			fis = new FileInputStream("c:\\thong-bao.txt");
 
-			// Đọc dữ liệu từng khối, kích thước 128 bytes
-			int size = 128;
+			// Cắt dữ liệu ra từng khối, kích thước <= 117 bytes
+			int size = 117;
 			buff = new byte[size];
 
 			while (true) {
 				int n = fis.read(buff);
 				if (n <= 0)
 					break;
-				byte[] cip = cp.doFinal(buff, 0, n);
-				System.out.println("Size: " + cip.length);
-				fos.write(cip);
+				signer.update(buff, 0, n);
 			}
 			fis.close();
-			fos.close();
-			
-			System.out.print("Da kiem tra, hay so sanh 2 file thong-bao.txt va so_sanh.txt");
+
+			// Đọc file chữ ký
+			fis = new FileInputStream("c:\\chu-ky2.txt");
+			byte[] signatureData = new byte[fis.available()];
+			fis.read(signatureData);
+			fis.close();
+
+			// Kiểm tra chữ ký
+			if (signer.verify(signatureData))
+				System.out.print("Chu ky dung");
+			else
+				System.out.print("Chu ky sai");
 
 		} catch (Exception e) {
 			e.printStackTrace();

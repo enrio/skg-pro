@@ -10,7 +10,7 @@ namespace SKG.Data
 
     public class Excel
     {
-        public static DataTable ImportFromExcel(string excelFile, DataTable tbl)
+        public static DataTable ImportFromExcel(string excelFile, string tableName)
         {
             try
             {
@@ -31,11 +31,12 @@ namespace SKG.Data
                 }
 
                 var oleCnn = new OleDbConnection(str);
-                var cmd = new OleDbCommand(String.Format("SELECT * FROM [{0}$]", tbl.TableName), oleCnn);
+                var cmd = new OleDbCommand(String.Format("SELECT * FROM [{0}$]", tableName), oleCnn);
 
                 oleCnn.Open();
                 var rdr = cmd.ExecuteReader();
 
+                var tbl = new DataTable(tableName);
                 tbl.Load(rdr);
                 oleCnn.Close();
                 return tbl;

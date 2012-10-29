@@ -30,13 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcNormal = new DevExpress.XtraGrid.GridControl();
             this.grvNormal = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -45,12 +43,12 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcFixed = new DevExpress.XtraGrid.GridControl();
             this.grvFixed = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -59,21 +57,25 @@
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.bandedGridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
-            this.dockPanel1.SuspendLayout();
-            this.dockPanel1_Container.SuspendLayout();
+            this.panelContainer1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).BeginInit();
+            this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcFixed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFixed)).BeginInit();
-            this.panelContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -88,25 +90,20 @@
             "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
             "DevExpress.XtraBars.Ribbon.RibbonControl"});
             // 
-            // dockPanel1
+            // panelContainer1
             // 
-            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
-            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel1.FloatVertical = true;
-            this.dockPanel1.ID = new System.Guid("82de06b3-fe08-438b-ab24-426659491166");
-            this.dockPanel1.Location = new System.Drawing.Point(4, 23);
-            this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 351);
-            this.dockPanel1.Size = new System.Drawing.Size(943, 449);
-            this.dockPanel1.Text = "dockPanel1";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Controls.Add(this.grcFixed);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 449);
-            this.dockPanel1_Container.TabIndex = 0;
+            this.panelContainer1.ActiveChild = this.dockPanel1;
+            this.panelContainer1.Controls.Add(this.dockPanel1);
+            this.panelContainer1.Controls.Add(this.dockPanel2);
+            this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.panelContainer1.FloatVertical = true;
+            this.panelContainer1.ID = new System.Guid("f3eb0aa0-088c-4ec4-bd38-1f777899c292");
+            this.panelContainer1.Location = new System.Drawing.Point(0, 63);
+            this.panelContainer1.Name = "panelContainer1";
+            this.panelContainer1.OriginalSize = new System.Drawing.Size(951, 200);
+            this.panelContainer1.Size = new System.Drawing.Size(951, 503);
+            this.panelContainer1.Tabbed = true;
+            this.panelContainer1.Text = "panelContainer1";
             // 
             // dockPanel2
             // 
@@ -290,26 +287,13 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.bandedGridColumn11});
             this.grvNormal.GridControl = this.grcNormal;
             this.grvNormal.Name = "grvNormal";
             this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
             this.grvNormal.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Columns.Add(this.gridColumn8);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 717;
             // 
             // gridColumn1
             // 
@@ -373,14 +357,6 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 164;
             // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Tải trọng";
-            this.gridBand2.Columns.Add(this.gridColumn9);
-            this.gridBand2.Columns.Add(this.gridColumn10);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 208;
-            // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Số ghế";
@@ -395,7 +371,27 @@
             this.gridColumn10.FieldName = "Beds";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 71;
+            this.gridColumn10.Width = 82;
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.dockPanel1.FloatVertical = true;
+            this.dockPanel1.ID = new System.Guid("82de06b3-fe08-438b-ab24-426659491166");
+            this.dockPanel1.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 351);
+            this.dockPanel1.Size = new System.Drawing.Size(943, 449);
+            this.dockPanel1.Text = "dockPanel1";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.grcFixed);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 449);
+            this.dockPanel1_Container.TabIndex = 0;
             // 
             // grcFixed
             // 
@@ -559,26 +555,13 @@
             this.bandedGridColumn7,
             this.bandedGridColumn8,
             this.bandedGridColumn9,
-            this.bandedGridColumn10});
+            this.bandedGridColumn10,
+            this.bandedGridColumn12});
             this.grvFixed.GridControl = this.grcFixed;
             this.grvFixed.Name = "grvFixed";
             this.grvFixed.OptionsView.EnableAppearanceEvenRow = true;
             this.grvFixed.OptionsView.EnableAppearanceOddRow = true;
             this.grvFixed.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridBand3
-            // 
-            this.gridBand3.Caption = "Thông tin";
-            this.gridBand3.Columns.Add(this.bandedGridColumn1);
-            this.gridBand3.Columns.Add(this.bandedGridColumn2);
-            this.gridBand3.Columns.Add(this.bandedGridColumn3);
-            this.gridBand3.Columns.Add(this.bandedGridColumn4);
-            this.gridBand3.Columns.Add(this.bandedGridColumn5);
-            this.gridBand3.Columns.Add(this.bandedGridColumn6);
-            this.gridBand3.Columns.Add(this.bandedGridColumn7);
-            this.gridBand3.Columns.Add(this.bandedGridColumn8);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 717;
             // 
             // bandedGridColumn1
             // 
@@ -642,14 +625,6 @@
             this.bandedGridColumn8.Visible = true;
             this.bandedGridColumn8.Width = 164;
             // 
-            // gridBand4
-            // 
-            this.gridBand4.Caption = "Tải trọng";
-            this.gridBand4.Columns.Add(this.bandedGridColumn9);
-            this.gridBand4.Columns.Add(this.bandedGridColumn10);
-            this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 208;
-            // 
             // bandedGridColumn9
             // 
             this.bandedGridColumn9.Caption = "Số ghế";
@@ -664,22 +639,67 @@
             this.bandedGridColumn10.FieldName = "Beds";
             this.bandedGridColumn10.Name = "bandedGridColumn10";
             this.bandedGridColumn10.Visible = true;
-            this.bandedGridColumn10.Width = 71;
+            this.bandedGridColumn10.Width = 82;
             // 
-            // panelContainer1
+            // bandedGridColumn11
             // 
-            this.panelContainer1.ActiveChild = this.dockPanel2;
-            this.panelContainer1.Controls.Add(this.dockPanel1);
-            this.panelContainer1.Controls.Add(this.dockPanel2);
-            this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.panelContainer1.FloatVertical = true;
-            this.panelContainer1.ID = new System.Guid("f3eb0aa0-088c-4ec4-bd38-1f777899c292");
-            this.panelContainer1.Location = new System.Drawing.Point(0, 63);
-            this.panelContainer1.Name = "panelContainer1";
-            this.panelContainer1.OriginalSize = new System.Drawing.Size(951, 200);
-            this.panelContainer1.Size = new System.Drawing.Size(951, 503);
-            this.panelContainer1.Tabbed = true;
-            this.panelContainer1.Text = "panelContainer1";
+            this.bandedGridColumn11.Caption = "Ghi chú";
+            this.bandedGridColumn11.FieldName = "Note";
+            this.bandedGridColumn11.Name = "bandedGridColumn11";
+            this.bandedGridColumn11.Visible = true;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn4);
+            this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Columns.Add(this.gridColumn6);
+            this.gridBand1.Columns.Add(this.gridColumn7);
+            this.gridBand1.Columns.Add(this.gridColumn8);
+            this.gridBand1.Columns.Add(this.bandedGridColumn11);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 792;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Tải trọng";
+            this.gridBand2.Columns.Add(this.gridColumn9);
+            this.gridBand2.Columns.Add(this.gridColumn10);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.Width = 219;
+            // 
+            // bandedGridColumn12
+            // 
+            this.bandedGridColumn12.Caption = "Ghi chú";
+            this.bandedGridColumn12.FieldName = "Note";
+            this.bandedGridColumn12.Name = "bandedGridColumn12";
+            this.bandedGridColumn12.Visible = true;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Caption = "Thông tin";
+            this.gridBand3.Columns.Add(this.bandedGridColumn1);
+            this.gridBand3.Columns.Add(this.bandedGridColumn2);
+            this.gridBand3.Columns.Add(this.bandedGridColumn3);
+            this.gridBand3.Columns.Add(this.bandedGridColumn4);
+            this.gridBand3.Columns.Add(this.bandedGridColumn5);
+            this.gridBand3.Columns.Add(this.bandedGridColumn6);
+            this.gridBand3.Columns.Add(this.bandedGridColumn7);
+            this.gridBand3.Columns.Add(this.bandedGridColumn8);
+            this.gridBand3.Columns.Add(this.bandedGridColumn12);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.Width = 792;
+            // 
+            // gridBand4
+            // 
+            this.gridBand4.Caption = "Tải trọng";
+            this.gridBand4.Columns.Add(this.bandedGridColumn9);
+            this.gridBand4.Columns.Add(this.bandedGridColumn10);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.Width = 219;
             // 
             // FrmTra_ByHand
             // 
@@ -691,15 +711,15 @@
             this.Controls.SetChildIndex(this.panelContainer1, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
-            this.dockPanel1.ResumeLayout(false);
-            this.dockPanel1_Container.ResumeLayout(false);
+            this.panelContainer1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).EndInit();
+            this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcFixed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFixed)).EndInit();
-            this.panelContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -723,12 +743,9 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn9;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraBars.Docking.DockPanel panelContainer1;
         private DevExpress.XtraGrid.GridControl grcFixed;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvFixed;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
@@ -737,8 +754,13 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn7;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn8;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn9;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn10;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn12;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn11;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
     }
 }

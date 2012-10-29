@@ -152,6 +152,8 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformSave()
         {
+            int fix = 0, normal = 0;
+
             // Fixed
             var dtr = _tb_fixed.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
@@ -173,6 +175,7 @@ namespace SKG.DXF.Station.Manage
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;
                 }
+                else fix++;
             }
 
             // Normal
@@ -196,9 +199,10 @@ namespace SKG.DXF.Station.Manage
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;
                 }
+                else normal++;
             }
 
-            XtraMessageBox.Show("NHẬP LIỆU THÀNH CÔNG!");
+            XtraMessageBox.Show(String.Format("XE CỐ ĐỊNH: {0}\nXE VÃNG LAI: {1}", fix, normal), Text);
             base.PerformSave();
         }
 

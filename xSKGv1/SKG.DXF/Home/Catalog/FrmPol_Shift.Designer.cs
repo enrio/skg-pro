@@ -48,9 +48,9 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -107,7 +107,7 @@
             // tedEnd
             // 
             this.tedEnd.EditValue = new System.DateTime(2012, 10, 29, 0, 0, 0, 0);
-            this.tedEnd.Location = new System.Drawing.Point(489, 7);
+            this.tedEnd.Location = new System.Drawing.Point(507, 7);
             this.tedEnd.Name = "tedEnd";
             this.tedEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tedEnd.Properties.Appearance.Options.UseFont = true;
@@ -117,13 +117,13 @@
             this.tedEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tedEnd.Properties.EditFormat.FormatString = "HH:mm:ss";
             this.tedEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.tedEnd.Size = new System.Drawing.Size(90, 26);
+            this.tedEnd.Size = new System.Drawing.Size(116, 26);
             this.tedEnd.TabIndex = 5;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(424, 10);
+            this.labelControl2.Location = new System.Drawing.Point(438, 10);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(63, 19);
             this.labelControl2.TabIndex = 4;
@@ -132,7 +132,7 @@
             // tedStart
             // 
             this.tedStart.EditValue = new System.DateTime(2012, 10, 29, 0, 0, 0, 0);
-            this.tedStart.Location = new System.Drawing.Point(320, 7);
+            this.tedStart.Location = new System.Drawing.Point(316, 7);
             this.tedStart.Name = "tedStart";
             this.tedStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tedStart.Properties.Appearance.Options.UseFont = true;
@@ -142,7 +142,7 @@
             this.tedStart.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tedStart.Properties.EditFormat.FormatString = "HH:mm:ss";
             this.tedStart.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.tedStart.Size = new System.Drawing.Size(90, 26);
+            this.tedStart.Size = new System.Drawing.Size(116, 26);
             this.tedStart.TabIndex = 3;
             // 
             // labelControl1
@@ -156,17 +156,17 @@
             // 
             // txtDescript
             // 
-            this.txtDescript.Location = new System.Drawing.Point(643, 7);
+            this.txtDescript.Location = new System.Drawing.Point(680, 7);
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(292, 26);
+            this.txtDescript.Size = new System.Drawing.Size(255, 26);
             this.txtDescript.TabIndex = 7;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(592, 10);
+            this.labelControl3.Location = new System.Drawing.Point(629, 10);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(45, 19);
             this.labelControl3.TabIndex = 6;
@@ -388,19 +388,10 @@
             this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 273;
             // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Mô tả";
-            this.gridColumn5.FieldName = "Note";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
-            this.gridColumn5.Width = 280;
-            // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Bắt đầu";
-            this.gridColumn6.FieldName = "Start";
+            this.gridColumn6.FieldName = "More";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
@@ -409,11 +400,20 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "Kết thúc";
-            this.gridColumn7.FieldName = "End";
+            this.gridColumn7.FieldName = "More1";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 273;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Mô tả";
+            this.gridColumn5.FieldName = "Note";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 280;
             // 
             // FrmPol_Shift
             // 

@@ -75,9 +75,9 @@ namespace SKG.DXF.Station.Manage
             var d = Global.Session.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();
-            decimal _sum;
+            decimal _sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.A, Global.Session.User.Id);
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.A);
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
@@ -94,9 +94,9 @@ namespace SKG.DXF.Station.Manage
             var d = Global.Session.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();
-            decimal _sum;
+            decimal _sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.B, Global.Session.User.Id);
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.B);
             rpt.xrcWatch.Text = d.ToWatch2() + "";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";

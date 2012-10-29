@@ -29,6 +29,7 @@
               <xs:element name="HalfDay" msprop:Generator_ColumnVarNameInTable="columnHalfDay" msprop:Generator_ColumnPropNameInRow="HalfDay" msprop:Generator_ColumnPropNameInTable="HalfDayColumn" msprop:Generator_UserColumnName="HalfDay" type="xs:int" minOccurs="0" />
               <xs:element name="UserInPhone" msprop:Generator_ColumnVarNameInTable="columnUserInPhone" msprop:Generator_ColumnPropNameInRow="UserInPhone" msprop:Generator_ColumnPropNameInTable="UserInPhoneColumn" msprop:Generator_UserColumnName="UserInPhone" type="xs:string" minOccurs="0" />
               <xs:element name="SeatBeds" msprop:Generator_ColumnVarNameInTable="columnSeatBeds" msprop:Generator_ColumnPropNameInRow="SeatBeds" msprop:Generator_ColumnPropNameInTable="SeatBedsColumn" msprop:Generator_UserColumnName="SeatBeds" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDays" msprop:Generator_ColumnVarNameInTable="columnTotalDays" msprop:Generator_ColumnPropNameInRow="TotalDays" msprop:Generator_ColumnPropNameInTable="TotalDaysColumn" msprop:Generator_UserColumnName="TotalDays" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -499,7 +499,13 @@ namespace SKG.DAL
                 var o = t.TotalDays - t.Days;
 
                 a.FullDay = t.Days;
-                a.HalfDay = o < 0.5 ? 0 : 1;
+                if (o < 0.5)
+                    a.HalfDay = 1;
+                else
+                {
+                    a.HalfDay = 0;
+                    a.FullDay++;
+                }
 
                 if (isOut) _db.SaveChanges();
                 return a;
@@ -556,9 +562,9 @@ namespace SKG.DAL
                               s.DateIn,
                               s.DateOut,
 
-                              Serial = "",
                               s.FullDay,
                               s.HalfDay,
+                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
                               s.Money,
 
                               s.Price1,

@@ -593,65 +593,47 @@ namespace SKG.DAL
             return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == false);
         }
 
-
-        public DataTable Sumary()
+        /// <summary>
+        /// Bảng kê xe vãng lai
+        /// </summary>
+        /// <param name="nhom">Nhóm xe</param>
+        /// <returns></returns>
+        public DataTable SumaryNormal(Group nhom = Group.Z)
         {
             try
             {
+                var fr = Global.Session.Current.ToStartOfDay();
+                var to = Global.Session.Current.ToEndOfDay();
+
                 var res = from s in _db.Tra_Details
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
-                          where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
-                          //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
-                          //&& s.DateOut >= fr && s.DateOut <= to
+                          where s.DateOut != null
+                          && s.Pol_UserOutId == Global.Session.User.Id
+                          && s.DateOut >= fr && s.DateOut <= to
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
-
                           select new
                           {
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
 
-                              s.Pol_UserOutId,
                               UserOutName = s.Pol_UserOut.Name,
-
                               Number = s.Tra_Vehicle.Code,
+
                               s.DateIn,
                               s.DateOut,
 
-                              s.Days,
-                              HalfDay = s.Hours < 12 ? 1 : 0,
-                              FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
+                              Serial = "",
+                              FullDays = 0,
+                              HalfDay = 0,
 
                               s.Price1,
                               s.Price2,
-                              s.Rose1,
-                              s.Rose2,
-                              Price = s.Days == 0 ? s.Price1 : s.Price2,
-                              //s.Money,
 
-                              GroupName = k.Group.Text,
-                              KindName = k.Text,
-                              GroupCode = k.Group.Code
+                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
+                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
+                              KindName = s.Tra_Vehicle.Tariff.Text
                           };
-
-                /*switch (group)
-                {
-                    case Group.A:
-                        res = res.Where(p => p.GroupCode == "GROUP_0");
-                        break;
-
-                    case Group.B:
-                        res = res.Where(p => p.GroupCode == "GROUP_1");
-                        break;
-
-                    default:
-                        break;
-                }*/
-
-                //if (userId != new Guid()) res = res.Where(p => p.Pol_UserOutId == userId);
-
-                //total = res.Sum(k => k.Money);
+                if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
+                else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
                 return res.ToDataTable();
             }
             catch { return null; }

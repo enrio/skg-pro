@@ -68,12 +68,15 @@ namespace SKG.DXF.Station.Manage
             open.ShowDialog();
             if (open.CheckFileExists)
             {
-                _dtb = Data.Excel.ImportFromExcel(open.FileName, "Ravao");
+                _dtb = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
+                _dtb.Columns[1].ColumnName = "Code";
+                _dtb.Columns[2].ColumnName = "DateIn";
+                _dtb.Columns.Add("CodeId", typeof(Guid));
+
                 _dtb.Columns.Add("Route");
                 _dtb.Columns.Add("Transport");
                 _dtb.Columns.Add("Seats");
                 _dtb.Columns.Add("Beds");
-                _dtb.Columns.Add("CodeId", typeof(Guid));
 
                 foreach (DataRow r in _dtb.Rows)
                 {

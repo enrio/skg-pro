@@ -196,5 +196,16 @@ namespace SKG.DXF.Station.Manage
             XtraMessageBox.Show("NHẬP LIỆU THÀNH CÔNG!");
             base.PerformSave();
         }
+
+        protected override void PerformRefresh()
+        {
+            _tb_fixed = null;
+            _tb_normal = null;
+
+            grcFixed = null;
+            grcNormal = null;
+
+            base.PerformRefresh();
+        }
     }
 }

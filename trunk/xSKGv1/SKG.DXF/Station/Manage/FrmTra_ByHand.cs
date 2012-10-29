@@ -77,19 +77,18 @@ namespace SKG.DXF.Station.Manage
             }
 
             #region Fixed
-            _dtb = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
-            _dtb.Columns[1].ColumnName = "Code";
-            _dtb.Columns[2].ColumnName = "DateIn";
-            _dtb.Columns.Add("CodeId", typeof(Guid));
+            _tb_fixed = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
+            _tb_fixed.Columns[1].ColumnName = "Code";
+            _tb_fixed.Columns[2].ColumnName = "DateIn";
+            _tb_fixed.Columns.Add("CodeId", typeof(Guid));
 
-            _dtb.Columns.Add("Route");
-            _dtb.Columns.Add("Transport");
-            _dtb.Columns.Add("Seats");
-            _dtb.Columns.Add("Beds");
-            _dtb.Columns.Add("Note");
+            _tb_fixed.Columns.Add("Route");
+            _tb_fixed.Columns.Add("Transport");
+            _tb_fixed.Columns.Add("Seats");
+            _tb_fixed.Columns.Add("Beds");
+            _tb_fixed.Columns.Add("Note");
 
-            _tb_fixed = _dtb;
-            foreach (DataRow r in _dtb.Rows)
+            foreach (DataRow r in _tb_fixed.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
@@ -108,7 +107,6 @@ namespace SKG.DXF.Station.Manage
                         r["Seats"] = ve.Seats;
                         r["Beds"] = ve.Beds;
                         r["CodeId"] = ve.Id;
-                        _tb_fixed.Rows.Add(r);
                     }
                     else
                     {
@@ -121,19 +119,18 @@ namespace SKG.DXF.Station.Manage
             #endregion
 
             #region Normal
-            _dtb = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
-            _dtb.Columns[1].ColumnName = "Code";
-            _dtb.Columns[2].ColumnName = "DateIn";
-            _dtb.Columns.Add("CodeId", typeof(Guid));
+            _tb_normal = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
+            _tb_normal.Columns[1].ColumnName = "Code";
+            _tb_normal.Columns[2].ColumnName = "DateIn";
+            _tb_normal.Columns.Add("CodeId", typeof(Guid));
 
-            _dtb.Columns.Add("Kind");
-            _dtb.Columns.Add("Group");
-            _dtb.Columns.Add("Seats");
-            _dtb.Columns.Add("Beds");
-            _dtb.Columns.Add("Note");
+            _tb_normal.Columns.Add("Kind");
+            _tb_normal.Columns.Add("Group");
+            _tb_normal.Columns.Add("Seats");
+            _tb_normal.Columns.Add("Beds");
+            _tb_normal.Columns.Add("Note");
 
-            _tb_normal = _dtb;
-            foreach (DataRow r in _dtb.Rows)
+            foreach (DataRow r in _tb_normal.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
@@ -152,7 +149,6 @@ namespace SKG.DXF.Station.Manage
                         r["Seats"] = ve.Seats;
                         r["Beds"] = ve.Beds;
                         r["CodeId"] = ve.Id;
-                        _tb_fixed.Rows.Add(r);
                     }
                     else
                     {

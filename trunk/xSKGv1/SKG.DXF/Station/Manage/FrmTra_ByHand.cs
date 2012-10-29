@@ -203,6 +203,8 @@ namespace SKG.DXF.Station.Manage
             }
 
             XtraMessageBox.Show(String.Format("XE CỐ ĐỊNH: {0}\nXE VÃNG LAI: {1}", fix, normal), Text);
+            PerformCancel();
+
             base.PerformSave();
         }
 
@@ -215,7 +217,7 @@ namespace SKG.DXF.Station.Manage
         DataTable ImportData(string fileName, string sheetName)
         {
             var tb = Data.Excel.ImportFromExcel(fileName, sheetName);
-            tb.Columns[0].ColumnName = "_No";
+            tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
             tb.Columns[2].ColumnName = "DateIn";
             tb.Columns.Add("CodeId", typeof(Guid));

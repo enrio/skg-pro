@@ -199,9 +199,6 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformRefresh()
         {
-            _tb_fixed = null;
-            _tb_normal = null;
-
             grcFixed = null;
             grcNormal = null;
 

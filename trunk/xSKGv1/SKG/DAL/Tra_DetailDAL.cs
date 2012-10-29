@@ -539,10 +539,11 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="nhom">Nhóm xe</param>
         /// <returns></returns>
-        public DataTable SumaryNormal(Group nhom = Group.Z)
+        public DataTable SumaryNormal(out decimal sum, Group nhom = Group.Z)
         {
             try
             {
+                sum = 0;
                 var fr = Global.Session.Current.ToStartOfDay();
                 var to = Global.Session.Current.ToEndOfDay();
 
@@ -576,9 +577,15 @@ namespace SKG.DAL
                           };
                 if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
+
+                sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
-            catch { return null; }
+            catch
+            {
+                sum = 0;
+                return null;
+            }
         }
         #endregion
     }

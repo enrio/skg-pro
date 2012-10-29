@@ -399,7 +399,7 @@ namespace SKG.DAL
                           join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
                           join k in _db.Tra_Tariffs on v.TariffId equals k.Id
 
-                          where s.Pol_UserOutId == null 
+                          where s.Pol_UserOutId == null
                           orderby s.DateIn descending, v.Code
 
                           select new
@@ -463,113 +463,6 @@ namespace SKG.DAL
                 total = Convert.ToInt32(tmp);
 
                 if (number != null) res.Where(p => p.Number == number).ToDataTable();
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Tính tiền, cho xe ra
-        /// </summary>
-        /// <param name="obj">Đối tượng Tra_Detail</param>
-        /// <param name="day">Số ngày đậu tại bến</param>
-        /// <param name="hour">Số giờ lẻ đậu tại bến</param>
-        /// <param name="money">Thành tiền</param>
-        /// <param name="price1">Đơn giá nửa ngày</param>
-        /// <param name="price2">Đơn giá một ngày</param>
-        /// <param name="isOut">Cho xe ra</param>
-        /// <returns></returns>
-        public DataTable InvoiceOut(Tra_Detail obj, ref int day, ref int hour, ref decimal money,
-            ref int price1, ref int price2, ref int rose1, ref int rose2, bool isOut = false)
-        {
-            try
-            {
-                var res = from s in _db.Tra_Details
-
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
-                          where s.Tra_VehicleId == obj.Tra_VehicleId
-                          orderby v.Code
-
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-                              UserOutName = s.Pol_UserOut.Name,
-                              v.Code,
-                              v.Fixed,
-
-                              s.DateIn,
-                              s.DateOut,
-                              s.Days,
-                              s.Hours,
-
-                              v.Seats,
-                              v.Beds,
-
-                              Tra_GroupId = k.GroupId,
-                              GroupName = k.Group.Text,
-                              GroupCode = k.Group.Code,
-                              KindName = k.Text,
-
-                              k.Price1,
-                              k.Price2,
-                              k.Rose1,
-                              k.Rose2,
-
-                              s.Money
-                          };
-
-
-                var ok = res.Single(h => h.DateOut == null);
-
-                var d = _db.Tra_Details.Single(k => k.Tra_VehicleId == obj.Tra_VehicleId && k.DateOut == null);
-                TimeSpan? dt = obj.DateOut - d.DateIn; // tính số giờ đậu tại bến
-                hour = dt.Value.Hours;
-                day = dt.Value.Days;
-
-                int dayL;// = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
-                int dayF = (hour >= 12) ? day + 1 : day; // lớn hơn bằng 12 giờ thì tính một ngày
-
-                if (dayF > 0)
-                {
-                    dayL = (hour < 12 && hour > 0) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
-                }
-                else dayL = (hour < 12) ? 1 : 0; // nhỏ hơn 12 giờ thì tính nửa ngày
-
-                price1 = ok.Price1;
-                price2 = ok.Price2;
-
-                rose1 = ok.Rose1;
-                rose2 = ok.Rose2;
-
-                int seats = ok.Seats ?? 0;
-                int beds = ok.Beds ?? 0;
-
-                if (ok.Fixed)
-                    money = (price1 + rose1) * (seats > 1 ? seats - 1 : 0) + (price2 + rose2) * beds;
-                else
-                    money = (price1 + rose1) * dayL + (price2 + rose2) * dayF;
-
-                if (isOut)
-                {
-                    d.Pol_UserOutId = obj.Pol_UserOutId; // Id user đang đăng nhập
-                    d.DateOut = obj.DateOut; // thời gian hiện tại trên server
-
-                    d.Days = dayF;
-                    d.Hours = hour;
-
-                    d.Price1 = price1;
-                    d.Price2 = price2;
-
-                    d.Rose1 = rose1;
-                    d.Rose2 = rose2;
-
-                    _db.SaveChanges();
-                }
-
                 return res.ToDataTable();
             }
             catch { return null; }

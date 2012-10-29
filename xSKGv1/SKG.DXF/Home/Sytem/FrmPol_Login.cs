@@ -18,6 +18,7 @@ namespace SKG.DXF.Home.Sytem
 {
     using BLL;
     using SKG.Plugin;
+    using System.Data;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -72,6 +73,11 @@ namespace SKG.DXF.Home.Sytem
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            var bll = new Pol_DictionaryBLL();
+            var tb = bll.Select((object)Global.STR_SHIFT);
+            foreach (DataRow r in tb.Rows)
+                cbbShift.Properties.Items.Add(r["Text"]);
+
 #if DEBUG
             txtUser.Text = "admin";
 #endif

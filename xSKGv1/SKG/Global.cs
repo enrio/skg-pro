@@ -80,6 +80,11 @@ namespace SKG
         /// Code of group busline (station)
         /// </summary>
         public const string STR_TRANSPORT = "TRANSPORT";
+
+        /// <summary>
+        /// Code of group shift
+        /// </summary>
+        public const string STR_SHIFT = "SHIFT";
         #endregion
 
         #region Global properties

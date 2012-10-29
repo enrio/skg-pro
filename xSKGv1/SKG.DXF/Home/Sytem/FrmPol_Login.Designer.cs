@@ -35,9 +35,10 @@
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.cbbShift = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
-            this.cbbShift = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelBackground)).BeginInit();
             this.panelBackground.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -144,6 +145,7 @@
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tableLayoutPanel1.SetColumnSpan(this.panelControl1, 2);
+            this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.cbbShift);
             this.panelControl1.Controls.Add(this.btnExit);
             this.panelControl1.Controls.Add(this.btnLogon);
@@ -153,6 +155,17 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(297, 34);
             this.panelControl1.TabIndex = 7;
+            // 
+            // cbbShift
+            // 
+            this.cbbShift.Location = new System.Drawing.Point(79, 3);
+            this.cbbShift.Name = "cbbShift";
+            this.cbbShift.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbShift.Properties.Appearance.Options.UseFont = true;
+            this.cbbShift.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbShift.Size = new System.Drawing.Size(53, 26);
+            this.cbbShift.TabIndex = 5;
             // 
             // btnExit
             // 
@@ -182,16 +195,15 @@
             this.btnLogon.Text = "Đăng nhập";
             this.btnLogon.Click += new System.EventHandler(this.btnLogon_Click);
             // 
-            // cbbShift
+            // labelControl1
             // 
-            this.cbbShift.Location = new System.Drawing.Point(3, 3);
-            this.cbbShift.Name = "cbbShift";
-            this.cbbShift.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbShift.Properties.Appearance.Options.UseFont = true;
-            this.cbbShift.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbbShift.Size = new System.Drawing.Size(129, 26);
-            this.cbbShift.TabIndex = 5;
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Navy;
+            this.labelControl1.Location = new System.Drawing.Point(7, 9);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(66, 16);
+            this.labelControl1.TabIndex = 7;
+            this.labelControl1.Text = "Ca làm việc";
             // 
             // FrmPol_Login
             // 
@@ -210,6 +222,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbbShift.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -227,5 +240,6 @@
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnLogon;
         private DevExpress.XtraEditors.ComboBoxEdit cbbShift;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }

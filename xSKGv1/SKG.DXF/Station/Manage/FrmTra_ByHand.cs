@@ -158,12 +158,21 @@ namespace SKG.DXF.Station.Manage
             {
                 var bs = r["Code"] + "";
                 var dt = Global.Session.Current;
-                DateTime.TryParse(r["DateIn"] + "", out dt);
+                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                {
+                    r["Note"] = "Thời gian nhập sai!";
+                    continue;
+                }
 
                 var o = new Tra_Detail();
                 o.Tra_VehicleId = (Guid)r["CodeId"];
                 o.DateIn = dt;
-                _bll.Tra_Detail.Insert(o);
+
+                if (_bll.Tra_Detail.Insert(o) == null)
+                {
+                    r["Note"] = "Xe này đã ở trong bến!";
+                    continue;
+                }
             }
 
             // Normal
@@ -172,12 +181,21 @@ namespace SKG.DXF.Station.Manage
             {
                 var bs = r["Code"] + "";
                 var dt = Global.Session.Current;
-                DateTime.TryParse(r["DateIn"] + "", out dt);
+                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                {
+                    r["Note"] = "Thời gian nhập sai!";
+                    continue;
+                }
 
                 var o = new Tra_Detail();
                 o.Tra_VehicleId = (Guid)r["CodeId"];
                 o.DateIn = dt;
-                _bll.Tra_Detail.Insert(o);
+
+                if (_bll.Tra_Detail.Insert(o) == null)
+                {
+                    r["Note"] = "Xe này đã ở trong bến!";
+                    continue;
+                }
             }
 
             XtraMessageBox.Show("NHẬP LIỆU THÀNH CÔNG!");

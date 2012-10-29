@@ -68,67 +68,102 @@ namespace SKG.DXF.Station.Manage
         protected override void PerformAdd()
         {
             var open = new OpenFileDialog();
+            open.Filter = "Excel file (Bangtay.xls)|Bangtay.xls";
             open.ShowDialog();
-            if (open.CheckFileExists)
+            if (open.FileName == "" || !open.CheckFileExists)
             {
-                #region Fixed
-                _tb_fixed = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
-                _tb_fixed.Columns[1].ColumnName = "Code";
-                _tb_fixed.Columns[2].ColumnName = "DateIn";
-                _tb_fixed.Columns.Add("CodeId", typeof(Guid));
-
-                _tb_fixed.Columns.Add("Route");
-                _tb_fixed.Columns.Add("Transport");
-                _tb_fixed.Columns.Add("Seats");
-                _tb_fixed.Columns.Add("Beds");
-
-                foreach (DataRow r in _tb_fixed.Rows)
-                {
-                    var bs = r["Code"] + "";
-                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                    if (ve == null) r.RowError = "Xe chưa có trong danh sách quản lí";
-                    else
-                    {
-                        r["Route"] = ve.Tariff.Text;
-                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-                        r["Seats"] = ve.Seats;
-                        r["Beds"] = ve.Beds;
-                        r["CodeId"] = ve.Id;
-                    }
-                }
-                grcFixed.DataSource = _tb_fixed;
-                #endregion
-
-                #region Normal
-                _tb_normal = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
-                _tb_normal.Columns[1].ColumnName = "Code";
-                _tb_normal.Columns[2].ColumnName = "DateIn";
-                _tb_normal.Columns.Add("CodeId", typeof(Guid));
-
-                _tb_normal.Columns.Add("Route");
-                _tb_normal.Columns.Add("Transport");
-                _tb_normal.Columns.Add("Seats");
-                _tb_normal.Columns.Add("Beds");
-
-                foreach (DataRow r in _tb_normal.Rows)
-                {
-                    var bs = r["Code"] + "";
-                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                    if (ve == null) r.RowError = "Xe chưa có trong danh sách quản lí";
-                    else
-                    {
-                        r["Route"] = ve.Tariff.Text;
-                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-                        r["Seats"] = ve.Seats;
-                        r["Beds"] = ve.Beds;
-                        r["CodeId"] = ve.Id;
-                    }
-                }
-                grcNormal.DataSource = _tb_normal;
-                #endregion
+                PerformCancel();
+                return;
             }
+
+            #region Fixed
+            _dtb = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
+            _dtb.Columns[1].ColumnName = "Code";
+            _dtb.Columns[2].ColumnName = "DateIn";
+            _dtb.Columns.Add("CodeId", typeof(Guid));
+
+            _dtb.Columns.Add("Route");
+            _dtb.Columns.Add("Transport");
+            _dtb.Columns.Add("Seats");
+            _dtb.Columns.Add("Beds");
+            _dtb.Columns.Add("Note");
+
+            _tb_fixed = _dtb;
+            foreach (DataRow r in _dtb.Rows)
+            {
+                var bs = r["Code"] + "";
+                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                if (ve == null)
+                {
+                    r.RowError = "Xe chưa có trong danh sách quản lí";
+                    r["Note"] = r.RowError;
+                }
+                else
+                {
+                    if (ve.Fixed)
+                    {
+                        r["Route"] = ve.Tariff.Text;
+                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                        r["Seats"] = ve.Seats;
+                        r["Beds"] = ve.Beds;
+                        r["CodeId"] = ve.Id;
+                        _tb_fixed.Rows.Add(r);
+                    }
+                    else
+                    {
+                        r.RowError = "Đây là xe vãng lai";
+                        r["Note"] = r.RowError;
+                    }
+                }
+            }
+            grcFixed.DataSource = _tb_fixed;
+            #endregion
+
+            #region Normal
+            _dtb = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
+            _dtb.Columns[1].ColumnName = "Code";
+            _dtb.Columns[2].ColumnName = "DateIn";
+            _dtb.Columns.Add("CodeId", typeof(Guid));
+
+            _dtb.Columns.Add("Kind");
+            _dtb.Columns.Add("Group");
+            _dtb.Columns.Add("Seats");
+            _dtb.Columns.Add("Beds");
+            _dtb.Columns.Add("Note");
+
+            _tb_normal = _dtb;
+            foreach (DataRow r in _dtb.Rows)
+            {
+                var bs = r["Code"] + "";
+                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                if (ve == null)
+                {
+                    r.RowError = "Xe chưa có trong danh sách quản lí";
+                    r["Note"] = r.RowError;
+                }
+                else
+                {
+                    if (!ve.Fixed)
+                    {
+                        r["Route"] = ve.Tariff.Text;
+                        r["Transport"] = ve.Transport == null ? "" : ve.Tariff.Group.Text;
+                        r["Seats"] = ve.Seats;
+                        r["Beds"] = ve.Beds;
+                        r["CodeId"] = ve.Id;
+                        _tb_fixed.Rows.Add(r);
+                    }
+                    else
+                    {
+                        r.RowError = "Đây là xe cố định";
+                        r["Note"] = r.RowError;
+                    }
+                }
+            }
+            grcNormal.DataSource = _tb_normal;
+            #endregion
+
             base.PerformAdd();
         }
 

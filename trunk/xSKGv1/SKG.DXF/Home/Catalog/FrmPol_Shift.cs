@@ -101,6 +101,8 @@ namespace SKG.DXF.Home.Catalog
         protected override void ResetInput()
         {
             txtName.Text = null;
+            tedStart.EditValue = null;
+            tedEnd.EditValue = null;
             txtDescript.Text = null;
 
             base.ResetInput();
@@ -109,6 +111,8 @@ namespace SKG.DXF.Home.Catalog
         protected override void ClearDataBindings()
         {
             txtName.DataBindings.Clear();
+            tedStart.DataBindings.Clear();
+            tedEnd.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -117,6 +121,8 @@ namespace SKG.DXF.Home.Catalog
         protected override void DataBindingControl()
         {
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            tedStart.DataBindings.Add("EditValue", _dtb, ".More");
+            tedEnd.DataBindings.Add("EditValue", _dtb, ".More1");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
@@ -125,6 +131,8 @@ namespace SKG.DXF.Home.Catalog
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtName.Properties.ReadOnly = isReadOnly;
+            tedStart.Properties.ReadOnly = isReadOnly;
+            tedEnd.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
@@ -144,6 +152,8 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Id = id,
                     Type = Global.STR_SHIFT,
+                    More = tedStart.Time.ToString("HH:mm:ss"),
+                    More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
@@ -166,6 +176,8 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Type = Global.STR_SHIFT,
                     Text = txtName.Text,
+                    More = tedStart.Time.ToString("HH:mm:ss"),
+                    More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     Note = txtDescript.Text
                 };
 

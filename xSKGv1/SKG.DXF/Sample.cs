@@ -589,14 +589,6 @@ namespace SKG.DXF
 
                 var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);
-
-                decimal money = 0;
-                int price1 = 0, price2 = 0;
-                int rose1 = 0, rose2 = 0;
-                int day = 0, hour = 0;
-                o = new Tra_Detail() { Pol_UserOutId = uo.Id, Tra_VehicleId = id, DateOut = d };
-
-                _bll.Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, ref  rose1, ref  rose2, true);
             }
             #endregion
 
@@ -616,14 +608,6 @@ namespace SKG.DXF
 
                 var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);
-
-                decimal money = 0;
-                int price1 = 0, price2 = 0;
-                int rose1 = 0, rose2 = 0;
-                int day = 0, hour = 0;
-                o = new Tra_Detail() { Pol_UserOutId = uo.Id, Tra_VehicleId = id, DateOut = d };
-
-                _bll.Tra_Detail.InvoiceOut(o, ref  day, ref  hour, ref  money, ref  price1, ref  price2, ref  rose1, ref  rose2, true);
             }
             #endregion
         }

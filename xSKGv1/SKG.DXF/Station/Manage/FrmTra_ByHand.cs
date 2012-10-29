@@ -144,8 +144,8 @@ namespace SKG.DXF.Station.Manage
                 {
                     if (!ve.Fixed)
                     {
-                        r["Route"] = ve.Tariff.Text;
-                        r["Transport"] = ve.Transport == null ? "" : ve.Tariff.Group.Text;
+                        r["Kind"] = ve.Tariff.Text;
+                        r["Group"] = ve.Transport == null ? "" : ve.Tariff.Group.Text;
                         r["Seats"] = ve.Seats;
                         r["Beds"] = ve.Beds;
                         r["CodeId"] = ve.Id;

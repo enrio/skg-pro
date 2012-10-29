@@ -4,7 +4,6 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
-    using Sumary;
     using SKG.Extend;
     using SKG.Plugin;
     using DevExpress.XtraEditors;
@@ -62,23 +61,15 @@ namespace SKG.DXF.Station.Manage
         {
             Invoice(true);
             cmdOut.Enabled = false;
-        }
-
-        private void cmdInList_Click(object sender, EventArgs e)
-        {
-            Extend.ShowRight<FrmTra_InDepotFixed>(Global.Parent);
-        }
+        }        
 
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
-            var d = Global.Session.Current;
-            var fr = d.ToStartOfDay();
-            var to = d.ToEndOfDay();
             decimal _sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.A);
-            rpt.xrcWatch.Text = d.ToWatch2() + "";
+            rpt.xrcWatch.Text = "Ca";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
@@ -91,13 +82,10 @@ namespace SKG.DXF.Station.Manage
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
-            var d = Global.Session.Current;
-            var fr = d.ToStartOfDay();
-            var to = d.ToEndOfDay();
             decimal _sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.B);
-            rpt.xrcWatch.Text = d.ToWatch2() + "";
+            rpt.xrcWatch.Text = "Ca";
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 
@@ -121,11 +109,8 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_Sumary2();
-            var d = Global.Session.Current;
-            var fr = d.ToStartOfDay();
-            var to = d.ToEndOfDay();
-            decimal _sum=0;
+            var rpt = new Report.Rpt_Sumary2();            
+            decimal _sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal();
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");

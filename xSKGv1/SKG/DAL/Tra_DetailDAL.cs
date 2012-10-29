@@ -494,6 +494,13 @@ namespace SKG.DAL
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
 
+                var dateIn = a.DateIn.AddMinutes(11);
+                var t = a.DateOut.Value - dateIn;
+                var o = t.TotalDays - t.Days;
+
+                a.FullDay = t.Days;
+                a.HalfDay = o < 0.5 ? 0 : 1;
+
                 if (isOut) _db.SaveChanges();
                 return a;
             }

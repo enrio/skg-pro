@@ -133,16 +133,12 @@ namespace SKG.DAL.Entities
             var odd = span.TotalDays - span.Days;
             long money = span.Days * Price2;
 
-            FullDay = span.Days;
-            HalfDay = odd < 0.5 ? 0 : 1;
-
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
             money += odd < 0.5 ? Price1 : Price2;
             money += Price1 * seat + Price2 * bed;
 
-            Money = money;
             return money;
         }
 
@@ -166,7 +162,6 @@ namespace SKG.DAL.Entities
             money += Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
             money += (Price2 + Rose2) * bed;
 
-            Money = money;
             return money;
         }
     }

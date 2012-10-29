@@ -61,19 +61,19 @@ namespace SKG.DXF.Station.Manage
         {
             Invoice(true);
             cmdOut.Enabled = false;
-        }        
+        }
 
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
-            decimal _sum = 0;
+            decimal sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.A);
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.A);
             rpt.xrcWatch.Text = "Ca";
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -82,14 +82,14 @@ namespace SKG.DXF.Station.Manage
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
-            decimal _sum = 0;
+            decimal sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(DAL.Tra_DetailDAL.Group.B);
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.B);
             rpt.xrcWatch.Text = "Ca";
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -109,10 +109,10 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_Sumary2();            
+            var rpt = new Report.Rpt_Sumary2();
             decimal _sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.SumaryNormal();
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out _sum);
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };

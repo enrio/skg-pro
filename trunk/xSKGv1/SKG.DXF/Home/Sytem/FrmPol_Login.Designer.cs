@@ -35,9 +35,9 @@
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnCard = new DevExpress.XtraEditors.SimpleButton();
             this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogon = new DevExpress.XtraEditors.SimpleButton();
+            this.cbbShift = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelBackground)).BeginInit();
             this.panelBackground.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -45,6 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbShift.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBackground
@@ -143,7 +144,7 @@
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.tableLayoutPanel1.SetColumnSpan(this.panelControl1, 2);
-            this.panelControl1.Controls.Add(this.btnCard);
+            this.panelControl1.Controls.Add(this.cbbShift);
             this.panelControl1.Controls.Add(this.btnExit);
             this.panelControl1.Controls.Add(this.btnLogon);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -152,19 +153,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(297, 34);
             this.panelControl1.TabIndex = 7;
-            // 
-            // btnCard
-            // 
-            this.btnCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCard.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCard.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.btnCard.Appearance.Options.UseFont = true;
-            this.btnCard.Appearance.Options.UseForeColor = true;
-            this.btnCard.Location = new System.Drawing.Point(9, 6);
-            this.btnCard.Name = "btnCard";
-            this.btnCard.Size = new System.Drawing.Size(129, 23);
-            this.btnCard.TabIndex = 3;
-            this.btnCard.Text = "Quét thẻ nhân viên";
             // 
             // btnExit
             // 
@@ -194,13 +182,24 @@
             this.btnLogon.Text = "Đăng nhập";
             this.btnLogon.Click += new System.EventHandler(this.btnLogon_Click);
             // 
-            // FrmLogin
+            // cbbShift
+            // 
+            this.cbbShift.Location = new System.Drawing.Point(3, 3);
+            this.cbbShift.Name = "cbbShift";
+            this.cbbShift.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbShift.Properties.Appearance.Options.UseFont = true;
+            this.cbbShift.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbShift.Size = new System.Drawing.Size(129, 26);
+            this.cbbShift.TabIndex = 5;
+            // 
+            // FrmPol_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 272);
             this.Controls.Add(this.panelBackground);
-            this.Name = "FrmLogin";
+            this.Name = "FrmPol_Login";
             this.Text = "Đăng nhập";
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelBackground)).EndInit();
@@ -211,6 +210,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbbShift.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -224,8 +224,8 @@
         private DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.TextEdit txtPass;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton btnCard;
         private DevExpress.XtraEditors.SimpleButton btnExit;
         private DevExpress.XtraEditors.SimpleButton btnLogon;
+        private DevExpress.XtraEditors.ComboBoxEdit cbbShift;
     }
 }

@@ -258,7 +258,7 @@
             // 
             this.xrTableCell29.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Money", "{0:#,#}")});
-            this.xrTableCell29.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell29.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell29.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.StylePriority.UseFont = false;

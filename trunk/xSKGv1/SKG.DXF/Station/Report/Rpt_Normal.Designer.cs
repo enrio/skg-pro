@@ -152,6 +152,7 @@
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.xrTableCell71 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -200,7 +201,8 @@
             this.xrTableCell48,
             this.xrTableCell28,
             this.xrTableCell29,
-            this.xrTableCell30});
+            this.xrTableCell30,
+            this.xrTableCell71});
             this.xrTableRow1.Name = "xrTableRow1";
             this.xrTableRow1.Weight = 1D;
             // 
@@ -298,10 +300,12 @@
             // xrTableCell30
             // 
             this.xrTableCell30.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.SeatBeds")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Seats", "{0:#,#}")});
             this.xrTableCell30.Name = "xrTableCell30";
+            this.xrTableCell30.StylePriority.UseTextAlignment = false;
             this.xrTableCell30.Text = "xrTableCell30";
-            this.xrTableCell30.Weight = 0.2002917071543241D;
+            this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrTableCell30.Weight = 0.10014585357716205D;
             // 
             // xrTable3
             // 
@@ -1188,6 +1192,16 @@
             this.Detail1.HeightF = 23.75002F;
             this.Detail1.Name = "Detail1";
             // 
+            // xrTableCell71
+            // 
+            this.xrTableCell71.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Beds", "{0:#,#}")});
+            this.xrTableCell71.Name = "xrTableCell71";
+            this.xrTableCell71.StylePriority.UseTextAlignment = false;
+            this.xrTableCell71.Text = "xrTableCell71";
+            this.xrTableCell71.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell71.Weight = 0.10014585357716205D;
+            // 
             // Rpt_Normal
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1341,5 +1355,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.DetailReportBand DetailReport;
         private DevExpress.XtraReports.UI.DetailBand Detail1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell71;
     }
 }

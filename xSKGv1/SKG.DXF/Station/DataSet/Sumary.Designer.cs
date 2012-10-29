@@ -338,9 +338,9 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnHalfDay;
             
-            private global::System.Data.DataColumn columnUserInPhone;
+            private global::System.Data.DataColumn columnSeats;
             
-            private global::System.Data.DataColumn columnSeatBeds;
+            private global::System.Data.DataColumn columnBeds;
             
             private global::System.Data.DataColumn columnTotalDays;
             
@@ -475,17 +475,17 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UserInPhoneColumn {
+            public global::System.Data.DataColumn SeatsColumn {
                 get {
-                    return this.columnUserInPhone;
+                    return this.columnSeats;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SeatBedsColumn {
+            public global::System.Data.DataColumn BedsColumn {
                 get {
-                    return this.columnSeatBeds;
+                    return this.columnBeds;
                 }
             }
             
@@ -534,7 +534,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RevenueRow AddRevenueRow(string No_, string UserInName, string UserOutName, string Number, System.DateTime DateIn, System.DateTime DateOut, decimal Money, string KindName, long Price1, long Price2, int FullDay, int HalfDay, string UserInPhone, string SeatBeds, decimal TotalDays) {
+            public RevenueRow AddRevenueRow(string No_, string UserInName, string UserOutName, string Number, System.DateTime DateIn, System.DateTime DateOut, decimal Money, string KindName, long Price1, long Price2, int FullDay, int HalfDay, int Seats, int Beds, decimal TotalDays) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -549,8 +549,8 @@ namespace SKG.DXF.Station.DataSet {
                         Price2,
                         FullDay,
                         HalfDay,
-                        UserInPhone,
-                        SeatBeds,
+                        Seats,
+                        Beds,
                         TotalDays};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
@@ -586,8 +586,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnPrice2 = base.Columns["Price2"];
                 this.columnFullDay = base.Columns["FullDay"];
                 this.columnHalfDay = base.Columns["HalfDay"];
-                this.columnUserInPhone = base.Columns["UserInPhone"];
-                this.columnSeatBeds = base.Columns["SeatBeds"];
+                this.columnSeats = base.Columns["Seats"];
+                this.columnBeds = base.Columns["Beds"];
                 this.columnTotalDays = base.Columns["TotalDays"];
             }
             
@@ -618,10 +618,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnFullDay);
                 this.columnHalfDay = new global::System.Data.DataColumn("HalfDay", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHalfDay);
-                this.columnUserInPhone = new global::System.Data.DataColumn("UserInPhone", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserInPhone);
-                this.columnSeatBeds = new global::System.Data.DataColumn("SeatBeds", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSeatBeds);
+                this.columnSeats = new global::System.Data.DataColumn("Seats", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSeats);
+                this.columnBeds = new global::System.Data.DataColumn("Beds", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBeds);
                 this.columnTotalDays = new global::System.Data.DataColumn("TotalDays", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalDays);
             }
@@ -1446,33 +1446,33 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string UserInPhone {
+            public int Seats {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.UserInPhoneColumn]));
+                        return ((int)(this[this.tableRevenue.SeatsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserInPhone\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Seats\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.UserInPhoneColumn] = value;
+                    this[this.tableRevenue.SeatsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string SeatBeds {
+            public int Beds {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.SeatBedsColumn]));
+                        return ((int)(this[this.tableRevenue.BedsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SeatBeds\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Beds\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.SeatBedsColumn] = value;
+                    this[this.tableRevenue.BedsColumn] = value;
                 }
             }
             
@@ -1638,26 +1638,26 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUserInPhoneNull() {
-                return this.IsNull(this.tableRevenue.UserInPhoneColumn);
+            public bool IsSeatsNull() {
+                return this.IsNull(this.tableRevenue.SeatsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUserInPhoneNull() {
-                this[this.tableRevenue.UserInPhoneColumn] = global::System.Convert.DBNull;
+            public void SetSeatsNull() {
+                this[this.tableRevenue.SeatsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSeatBedsNull() {
-                return this.IsNull(this.tableRevenue.SeatBedsColumn);
+            public bool IsBedsNull() {
+                return this.IsNull(this.tableRevenue.BedsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSeatBedsNull() {
-                this[this.tableRevenue.SeatBedsColumn] = global::System.Convert.DBNull;
+            public void SetBedsNull() {
+                this[this.tableRevenue.BedsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

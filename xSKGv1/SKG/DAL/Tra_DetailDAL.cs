@@ -550,17 +550,17 @@ namespace SKG.DAL
                               s.DateIn,
                               s.DateOut,
 
-                              s.FullDay,
-                              s.HalfDay,
-                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
                               s.Money,
 
                               s.Price1,
                               s.Price2,
 
-                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
-                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
-                              KindName = s.Tra_Vehicle.Tariff.Text
+                              s.Rose1,
+                              s.Rose2,
+
+                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Text,
+                              Area = s.Tra_Vehicle.Tariff.Group.Text,
+                              Route = s.Tra_Vehicle.Tariff.Text
                           };
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();

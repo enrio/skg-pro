@@ -71,7 +71,7 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Sumary1();
+            var rpt = new Report.Rpt_Normal();
             var d = Global.Session.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();
@@ -90,7 +90,7 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Sumary1();
+            var rpt = new Report.Rpt_Normal();
             var d = Global.Session.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();

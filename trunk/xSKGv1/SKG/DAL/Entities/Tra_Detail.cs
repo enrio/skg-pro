@@ -67,14 +67,14 @@ namespace SKG.DAL.Entities
         public DateTime? DateOut { set; get; }
 
         /// <summary>
-        /// Number of days in station
+        /// Full day
         /// </summary>
-        public int Days { set; get; }
+        public int FullDay { set; get; }
 
         /// <summary>
-        /// Number of hours in station
+        /// Half day
         /// </summary>
-        public int Hours { set; get; }
+        public int HalfDay { set; get; }
         #endregion
 
         #region Price
@@ -116,20 +116,14 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Total money
         /// </summary>
-        public decimal Money
-        {
-            get
-            {
-                return Tra_Vehicle.Fixed ? ChargeForFixed() : ChargeForNormal();
-            }
-        }
+        public decimal Money { set; get; }
 
         /// <summary>
         /// Charge for vehicle normal
         /// </summary>
         /// <param name="error">Error of time</param>
         /// <returns></returns>
-        private long ChargeForNormal(int error = 11)
+        public decimal ChargeForNormal(int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -139,12 +133,16 @@ namespace SKG.DAL.Entities
             var odd = span.TotalDays - span.Days;
             long money = span.Days * Price2;
 
+            FullDay = span.Days;
+            HalfDay = odd < 0.5 ? 0 : 1;
+
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
             money += odd < 0.5 ? Price1 : Price2;
             money += Price1 * seat + Price2 * bed;
 
+            Money = money;
             return money;
         }
 
@@ -153,7 +151,7 @@ namespace SKG.DAL.Entities
         /// </summary>
         /// <param name="error">Error of time</param>
         /// <returns></returns>
-        private long ChargeForFixed(int error = 11)
+        public decimal ChargeForFixed(int error = 11)
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -168,6 +166,7 @@ namespace SKG.DAL.Entities
             money += Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
             money += (Price2 + Rose2) * bed;
 
+            Money = money;
             return money;
         }
     }

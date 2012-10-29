@@ -125,9 +125,9 @@ namespace SKG.DXF.Station.Manage
             var d = Global.Session.Current;
             var fr = d.ToStartOfDay();
             var to = d.ToEndOfDay();
-            decimal _sum;
+            decimal _sum=0;
 
-            rpt.DataSource = _bll.Tra_Detail.Sumary(out _sum, fr, to, DAL.Tra_DetailDAL.Group.Z, Global.Session.User.Id);
+            rpt.DataSource = _bll.Tra_Detail.SumaryNormal();
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };

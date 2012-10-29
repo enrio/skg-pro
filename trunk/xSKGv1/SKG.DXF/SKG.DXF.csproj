@@ -136,6 +136,12 @@
     <Compile Include="Home\Catalog\FrmPol_Dictionary.Designer.cs">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Home\Catalog\FrmPol_Shift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Catalog\FrmPol_Shift.Designer.cs">
+      <DependentUpon>FrmPol_Shift.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Catalog\_FrmPol_Dictionary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_User.resx">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Shift.resx">
+      <DependentUpon>FrmPol_Shift.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Grant\FrmPol_RoleRight.resx">
       <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>

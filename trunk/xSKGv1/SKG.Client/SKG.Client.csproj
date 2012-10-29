@@ -171,6 +171,9 @@
     <Content Include="Icons\ByHand.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Icons\Shift.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\Util.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

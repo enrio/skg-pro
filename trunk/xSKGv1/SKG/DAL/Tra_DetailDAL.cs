@@ -466,7 +466,7 @@ namespace SKG.DAL
                 return res.ToDataTable();
             }
             catch { return null; }
-        }        
+        }
 
         /// <summary>
         /// Tính tiền và cho xe ra bến (cho xe cố định và vãng lai)
@@ -550,8 +550,9 @@ namespace SKG.DAL
                               s.DateOut,
 
                               Serial = "",
-                              FullDays = 0,
-                              HalfDay = 0,
+                              s.FullDay,
+                              s.HalfDay,
+                              s.Money,
 
                               s.Price1,
                               s.Price2,

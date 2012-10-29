@@ -45,46 +45,48 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
+        DataTable _tb_fixed;
+        DataTable _tb_normal;
+
         public FrmTra_ByHand()
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
+            dockPanel1.SetDockPanel("XE CỐ ĐỊNH");
+            dockPanel2.SetDockPanel("XE VÃNG LAI");
 
-            AllowAdd = false;
             AllowEdit = false;
             AllowDelete = false;
 
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
+            grvFixed.OptionsView.ShowAutoFilterRow = true;
+            grvFixed.OptionsBehavior.Editable = false;
+
+            grvNormal.OptionsView.ShowAutoFilterRow = true;
+            grvNormal.OptionsBehavior.Editable = false;
         }
 
-        private void cmdFixed_Click(object sender, EventArgs e)
+        protected override void PerformAdd()
         {
-            PerformAdd();
-
             var open = new OpenFileDialog();
             open.ShowDialog();
             if (open.CheckFileExists)
             {
-                _dtb = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
-                _dtb.Columns[1].ColumnName = "Code";
-                _dtb.Columns[2].ColumnName = "DateIn";
-                _dtb.Columns.Add("CodeId", typeof(Guid));
+                #region Fixed
+                _tb_fixed = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
+                _tb_fixed.Columns[1].ColumnName = "Code";
+                _tb_fixed.Columns[2].ColumnName = "DateIn";
+                _tb_fixed.Columns.Add("CodeId", typeof(Guid));
 
-                _dtb.Columns.Add("Route");
-                _dtb.Columns.Add("Transport");
-                _dtb.Columns.Add("Seats");
-                _dtb.Columns.Add("Beds");
+                _tb_fixed.Columns.Add("Route");
+                _tb_fixed.Columns.Add("Transport");
+                _tb_fixed.Columns.Add("Seats");
+                _tb_fixed.Columns.Add("Beds");
 
-                foreach (DataRow r in _dtb.Rows)
+                foreach (DataRow r in _tb_fixed.Rows)
                 {
                     var bs = r["Code"] + "";
-                    var dt = Global.Session.Current;
-                    DateTime.TryParse(r["DateIn"] + "", out dt);
-
                     var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
                     if (ve == null) r.RowError = "Xe chưa có trong danh sách quản lí";
                     else
                     {
@@ -94,27 +96,46 @@ namespace SKG.DXF.Station.Manage
                         r["Beds"] = ve.Beds;
                         r["CodeId"] = ve.Id;
                     }
-                    //else
-                    //{
-                    //    var o = new Tra_Detail();
-                    //    o.Tra_VehicleId = ve.Id;
-                    //    o.DateIn = dt;
-                    //    _bll.Tra_Detail.Insert(o);
-                    //}
                 }
+                grcFixed.DataSource = _tb_fixed;
+                #endregion
 
-                grcMain.DataSource = _dtb;
+                #region Normal
+                _tb_normal = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
+                _tb_normal.Columns[1].ColumnName = "Code";
+                _tb_normal.Columns[2].ColumnName = "DateIn";
+                _tb_normal.Columns.Add("CodeId", typeof(Guid));
+
+                _tb_normal.Columns.Add("Route");
+                _tb_normal.Columns.Add("Transport");
+                _tb_normal.Columns.Add("Seats");
+                _tb_normal.Columns.Add("Beds");
+
+                foreach (DataRow r in _tb_normal.Rows)
+                {
+                    var bs = r["Code"] + "";
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null) r.RowError = "Xe chưa có trong danh sách quản lí";
+                    else
+                    {
+                        r["Route"] = ve.Tariff.Text;
+                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                        r["Seats"] = ve.Seats;
+                        r["Beds"] = ve.Beds;
+                        r["CodeId"] = ve.Id;
+                    }
+                }
+                grcNormal.DataSource = _tb_normal;
+                #endregion
             }
-        }
-
-        private void cmdNormal_Click(object sender, EventArgs e)
-        {
-
+            base.PerformAdd();
         }
 
         protected override void PerformSave()
         {
-            var dtr = _dtb.Select("[CodeId] Is Not Null ");
+            // Fixed
+            var dtr = _tb_fixed.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var bs = r["Code"] + "";
@@ -127,6 +148,21 @@ namespace SKG.DXF.Station.Manage
                 _bll.Tra_Detail.Insert(o);
             }
 
+            // Normal
+            dtr = _tb_normal.Select("[CodeId] Is Not Null ");
+            foreach (DataRow r in dtr)
+            {
+                var bs = r["Code"] + "";
+                var dt = Global.Session.Current;
+                DateTime.TryParse(r["DateIn"] + "", out dt);
+
+                var o = new Tra_Detail();
+                o.Tra_VehicleId = (Guid)r["CodeId"];
+                o.DateIn = dt;
+                _bll.Tra_Detail.Insert(o);
+            }
+
+            XtraMessageBox.Show("NHẬP LIỆU THÀNH CÔNG!");
             base.PerformSave();
         }
     }

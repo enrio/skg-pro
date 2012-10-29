@@ -32,6 +32,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.tedEnd = new DevExpress.XtraEditors.TimeEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.tedStart = new DevExpress.XtraEditors.TimeEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtDescript = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
@@ -45,10 +49,14 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -83,6 +91,10 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.tedEnd);
+            this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Controls.Add(this.tedStart);
+            this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.txtDescript);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Controls.Add(this.txtName);
@@ -92,31 +104,81 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 38);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // tedEnd
+            // 
+            this.tedEnd.EditValue = new System.DateTime(2012, 10, 29, 0, 0, 0, 0);
+            this.tedEnd.Location = new System.Drawing.Point(489, 7);
+            this.tedEnd.Name = "tedEnd";
+            this.tedEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tedEnd.Properties.Appearance.Options.UseFont = true;
+            this.tedEnd.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tedEnd.Properties.DisplayFormat.FormatString = "HH:mm:ss";
+            this.tedEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.tedEnd.Properties.EditFormat.FormatString = "HH:mm:ss";
+            this.tedEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.tedEnd.Size = new System.Drawing.Size(90, 26);
+            this.tedEnd.TabIndex = 5;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(424, 10);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(63, 19);
+            this.labelControl2.TabIndex = 4;
+            this.labelControl2.Text = "Kết thúc:";
+            // 
+            // tedStart
+            // 
+            this.tedStart.EditValue = new System.DateTime(2012, 10, 29, 0, 0, 0, 0);
+            this.tedStart.Location = new System.Drawing.Point(320, 7);
+            this.tedStart.Name = "tedStart";
+            this.tedStart.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tedStart.Properties.Appearance.Options.UseFont = true;
+            this.tedStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.tedStart.Properties.DisplayFormat.FormatString = "HH:mm:ss";
+            this.tedStart.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.tedStart.Properties.EditFormat.FormatString = "HH:mm:ss";
+            this.tedStart.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.tedStart.Size = new System.Drawing.Size(90, 26);
+            this.tedStart.TabIndex = 3;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Location = new System.Drawing.Point(255, 10);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(59, 19);
+            this.labelControl1.TabIndex = 2;
+            this.labelControl1.Text = "Bắt đầu:";
+            // 
             // txtDescript
             // 
-            this.txtDescript.Location = new System.Drawing.Point(430, 7);
+            this.txtDescript.Location = new System.Drawing.Point(643, 7);
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(268, 26);
-            this.txtDescript.TabIndex = 3;
+            this.txtDescript.Size = new System.Drawing.Size(292, 26);
+            this.txtDescript.TabIndex = 7;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(379, 10);
+            this.labelControl3.Location = new System.Drawing.Point(592, 10);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(45, 19);
-            this.labelControl3.TabIndex = 2;
+            this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "Mô tả:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(96, 7);
+            this.txtName.Location = new System.Drawing.Point(70, 7);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(268, 26);
+            this.txtName.Size = new System.Drawing.Size(179, 26);
             this.txtName.TabIndex = 1;
             // 
             // lblName
@@ -124,9 +186,9 @@
             this.lblName.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.Location = new System.Drawing.Point(11, 10);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(79, 19);
+            this.lblName.Size = new System.Drawing.Size(53, 19);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "Tên nhóm:";
+            this.lblName.Text = "Tên ca:";
             // 
             // dockPanel2
             // 
@@ -177,7 +239,7 @@
             this.grvMain.Appearance.Empty.Options.UseBackColor = true;
             this.grvMain.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.grvMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.EvenRow.Options.UseBackColor = true;
             this.grvMain.Appearance.EvenRow.Options.UseBorderColor = true;
@@ -202,7 +264,7 @@
             this.grvMain.Appearance.FocusedCell.Options.UseForeColor = true;
             this.grvMain.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
             this.grvMain.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
-            this.grvMain.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
             this.grvMain.Appearance.FocusedRow.Options.UseBackColor = true;
             this.grvMain.Appearance.FocusedRow.Options.UseBorderColor = true;
@@ -226,14 +288,13 @@
             this.grvMain.Appearance.GroupFooter.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
-            this.grvMain.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grvMain.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.GroupPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.GroupPanel.Options.UseFont = true;
             this.grvMain.Appearance.GroupPanel.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
             this.grvMain.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.GroupRow.Options.UseBackColor = true;
             this.grvMain.Appearance.GroupRow.Options.UseBorderColor = true;
@@ -241,7 +302,7 @@
             this.grvMain.Appearance.GroupRow.Options.UseForeColor = true;
             this.grvMain.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
             this.grvMain.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
-            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.HeaderPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.HeaderPanel.Options.UseBorderColor = true;
@@ -257,7 +318,7 @@
             this.grvMain.Appearance.HorzLine.Options.UseBackColor = true;
             this.grvMain.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.grvMain.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.OddRow.Options.UseBackColor = true;
             this.grvMain.Appearance.OddRow.Options.UseBorderColor = true;
@@ -268,7 +329,7 @@
             this.grvMain.Appearance.Preview.Options.UseFont = true;
             this.grvMain.Appearance.Preview.Options.UseForeColor = true;
             this.grvMain.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.Row.ForeColor = System.Drawing.Color.Black;
             this.grvMain.Appearance.Row.Options.UseBackColor = true;
             this.grvMain.Appearance.Row.Options.UseFont = true;
@@ -289,6 +350,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn6,
+            this.gridColumn7,
             this.gridColumn5});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
@@ -318,11 +381,12 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Nhóm xe";
+            this.gridColumn4.Caption = "Tên ca";
             this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 273;
             // 
             // gridColumn5
             // 
@@ -330,15 +394,34 @@
             this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.Width = 280;
             // 
-            // FrmTra_Group
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Bắt đầu";
+            this.gridColumn6.FieldName = "Start";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 273;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Kết thúc";
+            this.gridColumn7.FieldName = "End";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.VisibleIndex = 3;
+            this.gridColumn7.Width = 273;
+            // 
+            // FrmPol_Shift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_Group";
+            this.Name = "FrmPol_Shift";
             this.Text = "Danh mục nhóm xe";
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -347,6 +430,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -375,5 +460,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblName;
+        private DevExpress.XtraEditors.TimeEdit tedEnd;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TimeEdit tedStart;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
     }
 }

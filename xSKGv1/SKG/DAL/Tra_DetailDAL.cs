@@ -466,81 +466,7 @@ namespace SKG.DAL
                 return res.ToDataTable();
             }
             catch { return null; }
-        }
-
-        /// <summary>
-        /// Thống kê theo thời gian ra bến, nhóm xe khi in, người dùng đăng nhập
-        /// </summary>
-        /// <param name="total">Tổng số tiền</param>
-        /// <param name="fr">Từ ngày</param>
-        /// <param name="to">Đến ngày</param>
-        /// <param name="group">Nhóm xe khi in</param>
-        /// <param name="userId">Id user đăng nhập</param>
-        /// <returns>Dữ liệu</returns>
-        public DataTable Sumary(out decimal total, DateTime fr, DateTime to, Group group = Group.Z, Guid userId = new Guid())
-        {
-            total = 0;
-
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
-                          where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
-                              //&& s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
-                          && s.DateOut >= fr && s.DateOut <= to
-                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
-
-                          select new
-                          {
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-
-                              s.Pol_UserOutId,
-                              UserOutName = s.Pol_UserOut.Name,
-
-                              Number = s.Tra_Vehicle.Code,
-                              s.DateIn,
-                              s.DateOut,
-
-                              s.Days,
-                              HalfDay = s.Hours < 12 ? 1 : 0,
-                              FullDays = s.Days + (s.Hours < 12 ? .5 : 0),
-
-                              s.Price1,
-                              s.Price2,
-                              s.Rose1,
-                              s.Rose2,
-                              Price = s.Days == 0 ? s.Price1 : s.Price2,
-                              //s.Money,
-
-                              GroupName = k.Group.Text,
-                              KindName = k.Text,
-                              GroupCode = k.Group.Code
-                          };
-
-                switch (group)
-                {
-                    case Group.A:
-                        res = res.Where(p => p.GroupCode == "GROUP_0");
-                        break;
-
-                    case Group.B:
-                        res = res.Where(p => p.GroupCode == "GROUP_1");
-                        break;
-
-                    default:
-                        break;
-                }
-
-                if (userId != new Guid()) res = res.Where(p => p.Pol_UserOutId == userId);
-
-                //total = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
+        }        
 
         /// <summary>
         /// Tính tiền và cho xe ra bến (cho xe cố định và vãng lai)
@@ -565,6 +491,8 @@ namespace SKG.DAL
 
                 a.Price2 = a.Tra_Vehicle.Tariff.Price2;
                 a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
+
+                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
 
                 if (isOut) _db.SaveChanges();
                 return a;

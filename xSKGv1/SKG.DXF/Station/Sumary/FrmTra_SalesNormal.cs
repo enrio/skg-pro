@@ -88,7 +88,7 @@ namespace SKG.DXF.Station.Sumary
             base.PerformPrint();
         }
 
-        decimal _sum;
+        decimal _sum = 0;
         protected override void LoadData()
         {
             _dtb = _bll.Tra_Detail.SumaryNormal();

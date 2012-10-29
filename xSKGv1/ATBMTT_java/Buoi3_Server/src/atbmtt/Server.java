@@ -50,9 +50,9 @@ public class Server {
 				cp.init(Cipher.ENCRYPT_MODE, kp_Client);
 
 				// Gởi thông điệp đã mã hoá cho Client
-				String hello = "Hello Zng Tfy!";
+				/*String hello = "Hello Zng Tfy!";
 				byte[] cip = cp.doFinal(hello.getBytes());
-				os.write(cip);
+				os.write(cip);*/
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -522,6 +522,55 @@ namespace SKG.DAL
         {
             return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == true);
         }
+
+        /// <summary>
+        /// Doanh thu xe cố định
+        /// </summary>
+        /// <param name="sum"></param>
+        /// <returns></returns>
+        public DataTable SumaryFixed(out decimal sum, DateTime fr, DateTime to)
+        {
+            try
+            {
+                sum = 0;
+
+                var res = from s in _db.Tra_Details
+                          where s.DateOut != null
+                          && s.Tra_Vehicle.Fixed == true
+                          && s.DateOut >= fr && s.DateOut <= to
+                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
+                          select new
+                          {
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+
+                              UserOutName = s.Pol_UserOut.Name,
+                              Number = s.Tra_Vehicle.Code,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.FullDay,
+                              s.HalfDay,
+                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              s.Money,
+
+                              s.Price1,
+                              s.Price2,
+
+                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
+                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
+                              KindName = s.Tra_Vehicle.Tariff.Text
+                          };
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch
+            {
+                sum = 0;
+                return null;
+            }
+        }
         #endregion
 
         #region Vihicle normal
@@ -549,6 +598,7 @@ namespace SKG.DAL
 
                 var res = from s in _db.Tra_Details
                           where s.DateOut != null
+                          && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
                           && s.DateOut >= fr && s.DateOut <= to
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Code

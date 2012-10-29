@@ -57,6 +57,7 @@ namespace SKG.DXF.Station.Manage
 
             AllowEdit = false;
             AllowDelete = false;
+            AllowRefresh = false;
 
             grvFixed.OptionsView.ShowAutoFilterRow = true;
             grvFixed.OptionsBehavior.Editable = false;
@@ -77,16 +78,9 @@ namespace SKG.DXF.Station.Manage
             }
 
             #region Fixed
-            _tb_fixed = Data.Excel.ImportFromExcel(open.FileName, "Codinh");
-            _tb_fixed.Columns[1].ColumnName = "Code";
-            _tb_fixed.Columns[2].ColumnName = "DateIn";
-            _tb_fixed.Columns.Add("CodeId", typeof(Guid));
-
+            _tb_fixed = ImportData(open.FileName, "Codinh");
             _tb_fixed.Columns.Add("Route");
             _tb_fixed.Columns.Add("Transport");
-            _tb_fixed.Columns.Add("Seats");
-            _tb_fixed.Columns.Add("Beds");
-            _tb_fixed.Columns.Add("Note");
 
             foreach (DataRow r in _tb_fixed.Rows)
             {
@@ -119,16 +113,9 @@ namespace SKG.DXF.Station.Manage
             #endregion
 
             #region Normal
-            _tb_normal = Data.Excel.ImportFromExcel(open.FileName, "Vanglai");
-            _tb_normal.Columns[1].ColumnName = "Code";
-            _tb_normal.Columns[2].ColumnName = "DateIn";
-            _tb_normal.Columns.Add("CodeId", typeof(Guid));
-
+            _tb_normal = ImportData(open.FileName, "Vanglai");
             _tb_normal.Columns.Add("Kind");
             _tb_normal.Columns.Add("Group");
-            _tb_normal.Columns.Add("Seats");
-            _tb_normal.Columns.Add("Beds");
-            _tb_normal.Columns.Add("Note");
 
             foreach (DataRow r in _tb_normal.Rows)
             {
@@ -197,12 +184,23 @@ namespace SKG.DXF.Station.Manage
             base.PerformSave();
         }
 
-        protected override void PerformRefresh()
+        /// <summary>
+        /// Import data from excel file (by hand)
+        /// </summary>
+        /// <param name="fileName">File excel name</param>
+        /// <param name="sheetName">Sheet name</param>
+        /// <returns></returns>
+        DataTable ImportData(string fileName, string sheetName)
         {
-            grcFixed = null;
-            grcNormal = null;
-
-            base.PerformRefresh();
+            var tb = Data.Excel.ImportFromExcel(fileName, sheetName);
+            tb.Columns[0].ColumnName = "_No";
+            tb.Columns[1].ColumnName = "Code";
+            tb.Columns[2].ColumnName = "DateIn";
+            tb.Columns.Add("CodeId", typeof(Guid));
+            tb.Columns.Add("Seats");
+            tb.Columns.Add("Beds");
+            tb.Columns.Add("Note");
+            return tb;
         }
     }
 }

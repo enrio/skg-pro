@@ -143,7 +143,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Dictionary()
                 {
                     Id = id,
-                    Type = Global.STR_GROUP,
+                    Type = Global.STR_SHIFT,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
@@ -164,7 +164,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Dictionary()
                 {
-                    Type = Global.STR_GROUP,
+                    Type = Global.STR_SHIFT,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
@@ -179,7 +179,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void LoadData()
         {
-            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            _dtb = _bll.Pol_Dictionary.Select((object)Global.STR_SHIFT);
 
             if (_dtb != null)
             {

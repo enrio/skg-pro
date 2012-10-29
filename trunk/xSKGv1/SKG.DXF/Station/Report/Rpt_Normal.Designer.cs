@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Report
 {
-    partial class Rpt_Sumary1
+    partial class Rpt_Normal
     {
         /// <summary>
         /// Required designer variable.

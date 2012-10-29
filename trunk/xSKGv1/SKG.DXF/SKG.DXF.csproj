@@ -303,11 +303,11 @@
     <Compile Include="Station\Report\Rpt_Doanhthu.Designer.cs">
       <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Sumary1.cs">
+    <Compile Include="Station\Report\Rpt_Normal.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Sumary1.Designer.cs">
-      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_Normal.Designer.cs">
+      <DependentUpon>Rpt_Normal.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_Sumary2.cs">
       <SubType>Component</SubType>
@@ -399,8 +399,8 @@
     <EmbeddedResource Include="Station\Report\Rpt_Doanhthu.resx">
       <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Sumary1.resx">
-      <DependentUpon>Rpt_Sumary1.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Report\Rpt_Normal.resx">
+      <DependentUpon>Rpt_Normal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Sumary2.resx">
       <DependentUpon>Rpt_Sumary2.cs</DependentUpon>

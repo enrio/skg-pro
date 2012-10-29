@@ -286,6 +286,8 @@
             this.gridColumn8,
             this.gridColumn9});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "\"Tổng xe: {0:0,0}\"")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;

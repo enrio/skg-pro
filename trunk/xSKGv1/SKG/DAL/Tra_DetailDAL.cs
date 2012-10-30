@@ -597,14 +597,18 @@ namespace SKG.DAL
             try
             {
                 sum = 0;
-                var fr = Global.Session.Current.ToStartOfDay();
-                var to = Global.Session.Current.ToEndOfDay();
+
+                var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
+                int min = s1.Count() == 0 ? 0 : s1.Max(p => p.Order);
+
+                var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
+                int max = s2.Count() == 0 ? 0 : s2.Max(p => p.Order);
 
                 var res = from s in _db.Tra_Details
                           where s.DateOut != null
                           && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
-                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Order > min && s.Order <= max
                           orderby s.Order
                           select new
                           {

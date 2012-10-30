@@ -33,7 +33,7 @@ namespace SKG.DXF.Station.Manage
             {
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_GateInNormal).FullName,
+                    Code = typeof(FrmTra_ByHand).FullName,
                     Parent = typeof(Level2).FullName,
                     Text = "NHẬP BẰNG TAY",
                     Level = 3,

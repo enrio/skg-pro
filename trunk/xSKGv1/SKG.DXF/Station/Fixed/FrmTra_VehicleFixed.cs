@@ -23,7 +23,12 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_VehicleFixed).FullName, Parent = typeof(Level2).FullName, Text = "Xe cố định", Level = 3, Order = 23, Picture = @"Icons\Vehicle.png" };
+                var menu = new Menuz { Code = typeof(FrmTra_VehicleFixed).FullName,
+                Parent = typeof(Level2).FullName,
+                Text = "SỬA THÔNG TIN XE CỐ ĐỊNH",
+                Level = 3,
+                Order = 23,
+                Picture = @"Icons\Vehicle.png" };
                 return menu;
             }
         }

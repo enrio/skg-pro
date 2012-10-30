@@ -37,11 +37,6 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblPrice2 = new System.Windows.Forms.Label();
-            this.lblFullDay = new System.Windows.Forms.Label();
-            this.lblPrice1 = new System.Windows.Forms.Label();
-            this.lblHalfDay = new System.Windows.Forms.Label();
             this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -56,11 +51,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lblSeats = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblRose2 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblRose1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.lblUserIn = new System.Windows.Forms.Label();
@@ -71,6 +61,16 @@
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPrice2 = new System.Windows.Forms.Label();
+            this.lblFullDay = new System.Windows.Forms.Label();
+            this.lblPrice1 = new System.Windows.Forms.Label();
+            this.lblHalfDay = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblRose2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblRose1 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -78,10 +78,10 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,68 +185,11 @@
             // 
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.lblSum.ForeColor = System.Drawing.Color.Red;
             this.lblSum.Location = new System.Drawing.Point(473, 269);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(278, 144);
             this.lblSum.TabIndex = 66;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblPrice2);
-            this.groupBox1.Controls.Add(this.lblFullDay);
-            this.groupBox1.Controls.Add(this.lblPrice1);
-            this.groupBox1.Controls.Add(this.lblHalfDay);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(622, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 92);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đ.giá lệ phí";
-            this.groupBox1.Visible = false;
-            // 
-            // lblPrice2
-            // 
-            this.lblPrice2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPrice2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice2.Location = new System.Drawing.Point(116, 54);
-            this.lblPrice2.Name = "lblPrice2";
-            this.lblPrice2.Size = new System.Drawing.Size(94, 31);
-            this.lblPrice2.TabIndex = 59;
-            this.lblPrice2.Text = "105.000";
-            this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblFullDay
-            // 
-            this.lblFullDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullDay.Location = new System.Drawing.Point(6, 54);
-            this.lblFullDay.Name = "lblFullDay";
-            this.lblFullDay.Size = new System.Drawing.Size(115, 31);
-            this.lblFullDay.TabIndex = 58;
-            this.lblFullDay.Text = "Một ngày:";
-            this.lblFullDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPrice1
-            // 
-            this.lblPrice1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPrice1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice1.Location = new System.Drawing.Point(116, 23);
-            this.lblPrice1.Name = "lblPrice1";
-            this.lblPrice1.Size = new System.Drawing.Size(94, 31);
-            this.lblPrice1.TabIndex = 57;
-            this.lblPrice1.Text = "105.000";
-            this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblHalfDay
-            // 
-            this.lblHalfDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalfDay.Location = new System.Drawing.Point(6, 23);
-            this.lblHalfDay.Name = "lblHalfDay";
-            this.lblHalfDay.Size = new System.Drawing.Size(115, 31);
-            this.lblHalfDay.TabIndex = 56;
-            this.lblHalfDay.Text = "Nửa ngày:";
-            this.lblHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lkeNumber
             // 
@@ -422,63 +365,6 @@
             this.label18.Text = "Số ghế:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblRose2);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.lblRose1);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(422, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(194, 92);
-            this.groupBox2.TabIndex = 59;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Đ.giá hoa hồng";
-            this.groupBox2.Visible = false;
-            // 
-            // lblRose2
-            // 
-            this.lblRose2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblRose2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRose2.Location = new System.Drawing.Point(92, 54);
-            this.lblRose2.Name = "lblRose2";
-            this.lblRose2.Size = new System.Drawing.Size(94, 31);
-            this.lblRose2.TabIndex = 59;
-            this.lblRose2.Text = "105.000";
-            this.lblRose2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 54);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 31);
-            this.label9.TabIndex = 58;
-            this.label9.Text = "Giường:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRose1
-            // 
-            this.lblRose1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblRose1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRose1.Location = new System.Drawing.Point(92, 23);
-            this.lblRose1.Name = "lblRose1";
-            this.lblRose1.Size = new System.Drawing.Size(94, 31);
-            this.lblRose1.TabIndex = 57;
-            this.lblRose1.Text = "105.000";
-            this.lblRose1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label12
-            // 
-            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 23);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(92, 31);
-            this.label12.TabIndex = 56;
-            this.label12.Text = "Ghế:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -592,6 +478,120 @@
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPrice2);
+            this.groupBox1.Controls.Add(this.lblFullDay);
+            this.groupBox1.Controls.Add(this.lblPrice1);
+            this.groupBox1.Controls.Add(this.lblHalfDay);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(622, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(217, 92);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Đ.giá lệ phí";
+            this.groupBox1.Visible = false;
+            // 
+            // lblPrice2
+            // 
+            this.lblPrice2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice2.Location = new System.Drawing.Point(116, 54);
+            this.lblPrice2.Name = "lblPrice2";
+            this.lblPrice2.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice2.TabIndex = 59;
+            this.lblPrice2.Text = "105.000";
+            this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblFullDay
+            // 
+            this.lblFullDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullDay.Location = new System.Drawing.Point(6, 54);
+            this.lblFullDay.Name = "lblFullDay";
+            this.lblFullDay.Size = new System.Drawing.Size(115, 31);
+            this.lblFullDay.TabIndex = 58;
+            this.lblFullDay.Text = "Một ngày:";
+            this.lblFullDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPrice1
+            // 
+            this.lblPrice1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice1.Location = new System.Drawing.Point(116, 23);
+            this.lblPrice1.Name = "lblPrice1";
+            this.lblPrice1.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice1.TabIndex = 57;
+            this.lblPrice1.Text = "105.000";
+            this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblHalfDay
+            // 
+            this.lblHalfDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHalfDay.Location = new System.Drawing.Point(6, 23);
+            this.lblHalfDay.Name = "lblHalfDay";
+            this.lblHalfDay.Size = new System.Drawing.Size(115, 31);
+            this.lblHalfDay.TabIndex = 56;
+            this.lblHalfDay.Text = "Nửa ngày:";
+            this.lblHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblRose2);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.lblRose1);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(422, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(194, 92);
+            this.groupBox2.TabIndex = 59;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Đ.giá hoa hồng";
+            this.groupBox2.Visible = false;
+            // 
+            // lblRose2
+            // 
+            this.lblRose2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRose2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRose2.Location = new System.Drawing.Point(92, 54);
+            this.lblRose2.Name = "lblRose2";
+            this.lblRose2.Size = new System.Drawing.Size(94, 31);
+            this.lblRose2.TabIndex = 59;
+            this.lblRose2.Text = "105.000";
+            this.lblRose2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 54);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(92, 31);
+            this.label9.TabIndex = 58;
+            this.label9.Text = "Giường:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRose1
+            // 
+            this.lblRose1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblRose1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRose1.Location = new System.Drawing.Point(92, 23);
+            this.lblRose1.Name = "lblRose1";
+            this.lblRose1.Size = new System.Drawing.Size(94, 31);
+            this.lblRose1.TabIndex = 57;
+            this.lblRose1.Text = "105.000";
+            this.lblRose1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label12
+            // 
+            this.label12.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 23);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 31);
+            this.label12.TabIndex = 56;
+            this.label12.Text = "Ghế:";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,10 +608,10 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 

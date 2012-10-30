@@ -507,7 +507,11 @@ namespace SKG.DAL
                     a.FullDay++;
                 }
 
-                if (isOut) _db.SaveChanges();
+                if (isOut)
+                {
+                    a.Order = _db.Tra_Details.Max(p => p.Order) + 1;
+                    _db.SaveChanges();
+                }
                 return a;
             }
             catch { return null; }
@@ -601,9 +605,11 @@ namespace SKG.DAL
                           && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
                           && s.DateOut >= fr && s.DateOut <= to
-                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
+                          orderby s.Order
                           select new
                           {
+                              No_ = s.Order,
+
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,
 
@@ -629,7 +635,7 @@ namespace SKG.DAL
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
 
                 sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
+                return res.ToDataTable(false);
             }
             catch
             {

@@ -509,7 +509,8 @@ namespace SKG.DAL
 
                 if (isOut)
                 {
-                    a.Order = _db.Tra_Details.Max(p => p.Order) + 1;
+                    if (a.Tra_Vehicle.Fixed)
+                        a.Order = _db.Tra_Details.Max(p => p.Order) + 1;
                     _db.SaveChanges();
                 }
                 return a;

@@ -24,17 +24,18 @@ namespace SKG.DXF.Help.Util
 
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
-            MessageBox.Show("Download completed!");
+            MessageBox.Show("Tải xong bản cập nhật!");
         }
 
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
             string url = @"https://skg-pro.googlecode.com/svn/trunk/xSKGv1/Update/Update.zip";
+            string path = Application.StartupPath;
 
             WebClient webClient = new WebClient();
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            webClient.DownloadFileAsync(new Uri(url), @"c:\Update.zip");
+            webClient.DownloadFileAsync(new Uri(url),path+ @"\Update.zip");
         }
     }
 }

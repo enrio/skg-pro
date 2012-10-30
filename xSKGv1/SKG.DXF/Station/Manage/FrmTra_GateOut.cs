@@ -73,6 +73,12 @@ namespace SKG.DXF.Station.Manage
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
+            rpt.xrcLve1.Text = "15.000";
+            rpt.xrcLve2.Text = "20.000";
+            rpt.xrcLve3.Text = "25.000";
+            rpt.xrcLve4.Text = "30.000";
+            rpt.xrcLve5.Text = "35.000";
+
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
@@ -88,6 +94,12 @@ namespace SKG.DXF.Station.Manage
             rpt.xrcWatch.Text = "Ca";
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
+
+            rpt.xrcLve1.Text = "5.000";
+            rpt.xrcLve2.Text = "8.000";
+            rpt.xrcLve3.Text = "10.000";
+            rpt.xrcLve4.Text = "15.000";
+            rpt.xrcLve5.Text = "";
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);

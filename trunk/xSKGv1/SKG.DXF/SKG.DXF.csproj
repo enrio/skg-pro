@@ -222,10 +222,10 @@
     <Compile Include="Station\Manage\FrmTra_ByHand.Designer.cs">
       <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_GateInFixed.cs">
+    <Compile Include="Station\Fixed\FrmTra_GateInFixed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_GateInFixed.Designer.cs">
+    <Compile Include="Station\Fixed\FrmTra_GateInFixed.Designer.cs">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Normal\Level2.cs" />
@@ -266,10 +266,10 @@
     </Compile>
     <Compile Include="Station\Fixed\Level2.cs" />
     <Compile Include="Station\Level1.cs" />
-    <Compile Include="Station\Manage\FrmTra_GateInNormal.cs">
+    <Compile Include="Station\Normal\FrmTra_GateInNormal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_GateInNormal.Designer.cs">
+    <Compile Include="Station\Normal\FrmTra_GateInNormal.Designer.cs">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\FrmTra_GateOut.cs">
@@ -378,10 +378,10 @@
     <EmbeddedResource Include="Station\Manage\FrmTra_ByHand.resx">
       <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateInFixed.resx">
+    <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateInNormal.resx">
+    <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">

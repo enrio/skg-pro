@@ -222,7 +222,7 @@ namespace SKG.DXF.Station.Manage
                 lblPrice2.Text = detail.Price2.ToString("#,#");
                 lblRose2.Text = detail.Rose2.ToString("#,#");
 
-                lblMoney.Text = detail.Money.ToString("#,#đ");
+                lblMoney.Text = detail.Money.ToString("LỆ PHÍ #,#đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút", d.Days, d.Hours, d.Minutes);
@@ -236,6 +236,19 @@ namespace SKG.DXF.Station.Manage
             {
                 XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text);
             }
+        }
+
+        private void cmdTariff_Click(object sender, EventArgs e)
+        {
+            var frm = new Frm_Tariff();
+
+            frm.lblPrice1.Text = lblPrice1.Text;
+            frm.lblPrice2.Text = lblPrice2.Text;
+
+            frm.lblRose1.Text = lblRose1.Text;
+            frm.lblRose2.Text = lblRose2.Text;
+
+            frm.ShowDialog();
         }
     }
 }

@@ -228,6 +228,12 @@
     <Compile Include="Station\Fixed\FrmTra_GateInFixed.Designer.cs">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Manage\Frm_Tariff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\Frm_Tariff.Designer.cs">
+      <DependentUpon>Frm_Tariff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Normal\Level2.cs" />
     <Compile Include="Station\Normal\FrmTra_VehicleNormal.cs">
       <SubType>Form</SubType>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
+      <DependentUpon>Frm_Tariff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>

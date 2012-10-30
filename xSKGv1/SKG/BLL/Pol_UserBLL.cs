@@ -36,7 +36,9 @@ namespace SKG.BLL
             {
                 var sss = new Session() { User = (Pol_User)Select(acc), Login = GetDate() };
                 sss.Current = sss.Login.Value;
+
                 pass = Coder.Encode(pass);
+
                 if (sss.User.Pass != pass) return null;
                 return sss;
             }

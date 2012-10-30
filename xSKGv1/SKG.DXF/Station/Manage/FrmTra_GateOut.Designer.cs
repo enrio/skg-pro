@@ -35,7 +35,13 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPrice2 = new System.Windows.Forms.Label();
+            this.lblFullDay = new System.Windows.Forms.Label();
+            this.lblPrice1 = new System.Windows.Forms.Label();
+            this.lblHalfDay = new System.Windows.Forms.Label();
             this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -61,16 +67,10 @@
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblKind = new System.Windows.Forms.Label();
             this.lblGroup = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblPrice2 = new System.Windows.Forms.Label();
-            this.lblFullDay = new System.Windows.Forms.Label();
-            this.lblPrice1 = new System.Windows.Forms.Label();
-            this.lblHalfDay = new System.Windows.Forms.Label();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -78,11 +78,11 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -136,6 +136,8 @@
             // dockPanel2_Container
             // 
             this.dockPanel2_Container.Controls.Add(this.groupControl1);
+            this.dockPanel2_Container.Controls.Add(this.groupBox1);
+            this.dockPanel2_Container.Controls.Add(this.groupBox2);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 476);
@@ -144,16 +146,14 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.simpleButton1);
+            this.groupControl1.Controls.Add(this.cmdTariff);
             this.groupControl1.Controls.Add(this.lblSum);
-            this.groupControl1.Controls.Add(this.groupBox1);
             this.groupControl1.Controls.Add(this.lkeNumber);
             this.groupControl1.Controls.Add(this.lblNumber);
             this.groupControl1.Controls.Add(this.lblPhone);
             this.groupControl1.Controls.Add(this.label6);
             this.groupControl1.Controls.Add(this.groupBox4);
             this.groupControl1.Controls.Add(this.groupBox3);
-            this.groupControl1.Controls.Add(this.groupBox2);
             this.groupControl1.Controls.Add(this.label1);
             this.groupControl1.Controls.Add(this.lblMoney);
             this.groupControl1.Controls.Add(this.lblUserIn);
@@ -170,15 +170,83 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // cmdTariff
+            // 
+            this.cmdTariff.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdTariff.Appearance.Options.UseFont = true;
+            this.cmdTariff.Location = new System.Drawing.Point(6, 376);
+            this.cmdTariff.Name = "cmdTariff";
+            this.cmdTariff.Size = new System.Drawing.Size(88, 37);
+            this.cmdTariff.TabIndex = 67;
+            this.cmdTariff.Text = "Đơ&n giá";
+            this.cmdTariff.Click += new System.EventHandler(this.cmdTariff_Click);
+            // 
             // lblSum
             // 
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSum.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.lblSum.Location = new System.Drawing.Point(473, 330);
+            this.lblSum.Location = new System.Drawing.Point(473, 269);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(278, 83);
+            this.lblSum.Size = new System.Drawing.Size(278, 144);
             this.lblSum.TabIndex = 66;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblPrice2);
+            this.groupBox1.Controls.Add(this.lblFullDay);
+            this.groupBox1.Controls.Add(this.lblPrice1);
+            this.groupBox1.Controls.Add(this.lblHalfDay);
+            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(622, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(217, 92);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Đ.giá lệ phí";
+            this.groupBox1.Visible = false;
+            // 
+            // lblPrice2
+            // 
+            this.lblPrice2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice2.Location = new System.Drawing.Point(116, 54);
+            this.lblPrice2.Name = "lblPrice2";
+            this.lblPrice2.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice2.TabIndex = 59;
+            this.lblPrice2.Text = "105.000";
+            this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblFullDay
+            // 
+            this.lblFullDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFullDay.Location = new System.Drawing.Point(6, 54);
+            this.lblFullDay.Name = "lblFullDay";
+            this.lblFullDay.Size = new System.Drawing.Size(115, 31);
+            this.lblFullDay.TabIndex = 58;
+            this.lblFullDay.Text = "Một ngày:";
+            this.lblFullDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblPrice1
+            // 
+            this.lblPrice1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblPrice1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice1.Location = new System.Drawing.Point(116, 23);
+            this.lblPrice1.Name = "lblPrice1";
+            this.lblPrice1.Size = new System.Drawing.Size(94, 31);
+            this.lblPrice1.TabIndex = 57;
+            this.lblPrice1.Text = "105.000";
+            this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblHalfDay
+            // 
+            this.lblHalfDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHalfDay.Location = new System.Drawing.Point(6, 23);
+            this.lblHalfDay.Name = "lblHalfDay";
+            this.lblHalfDay.Size = new System.Drawing.Size(115, 31);
+            this.lblHalfDay.TabIndex = 56;
+            this.lblHalfDay.Text = "Nửa ngày:";
+            this.lblHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lkeNumber
             // 
@@ -207,18 +275,19 @@
             this.lblNumber.BackColor = System.Drawing.Color.White;
             this.lblNumber.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumber.ForeColor = System.Drawing.Color.Blue;
-            this.lblNumber.Location = new System.Drawing.Point(270, 330);
+            this.lblNumber.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblNumber.Location = new System.Drawing.Point(6, 272);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(197, 42);
+            this.lblNumber.Size = new System.Drawing.Size(461, 58);
             this.lblNumber.TabIndex = 64;
-            this.lblNumber.Text = "50K0045";
+            this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPhone
             // 
             this.lblPhone.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblPhone.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.ForeColor = System.Drawing.Color.Green;
             this.lblPhone.Location = new System.Drawing.Point(295, 238);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(456, 31);
@@ -255,6 +324,7 @@
             // 
             this.lblDateOut.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDateOut.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateOut.ForeColor = System.Drawing.Color.Green;
             this.lblDateOut.Location = new System.Drawing.Point(53, 54);
             this.lblDateOut.Name = "lblDateOut";
             this.lblDateOut.Size = new System.Drawing.Size(222, 31);
@@ -266,6 +336,7 @@
             // 
             this.lblDateIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDateIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateIn.ForeColor = System.Drawing.Color.Green;
             this.lblDateIn.Location = new System.Drawing.Point(53, 23);
             this.lblDateIn.Name = "lblDateIn";
             this.lblDateIn.Size = new System.Drawing.Size(222, 31);
@@ -311,6 +382,7 @@
             // 
             this.lblBeds.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblBeds.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeds.ForeColor = System.Drawing.Color.Green;
             this.lblBeds.Location = new System.Drawing.Point(127, 54);
             this.lblBeds.Name = "lblBeds";
             this.lblBeds.Size = new System.Drawing.Size(94, 31);
@@ -332,6 +404,7 @@
             // 
             this.lblSeats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSeats.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeats.ForeColor = System.Drawing.Color.Green;
             this.lblSeats.Location = new System.Drawing.Point(127, 23);
             this.lblSeats.Name = "lblSeats";
             this.lblSeats.Size = new System.Drawing.Size(94, 31);
@@ -356,12 +429,13 @@
             this.groupBox2.Controls.Add(this.lblRose1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(260, 96);
+            this.groupBox2.Location = new System.Drawing.Point(422, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(194, 92);
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đ.giá hoa hồng";
+            this.groupBox2.Visible = false;
             // 
             // lblRose2
             // 
@@ -421,18 +495,19 @@
             this.lblMoney.BackColor = System.Drawing.Color.White;
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMoney.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoney.ForeColor = System.Drawing.Color.Red;
+            this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblMoney.Location = new System.Drawing.Point(6, 330);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(258, 43);
+            this.lblMoney.Size = new System.Drawing.Size(461, 43);
             this.lblMoney.TabIndex = 57;
-            this.lblMoney.Text = "123.456.789đ";
+            this.lblMoney.Text = "LỆ PHÍ: 123.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserIn
             // 
             this.lblUserIn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblUserIn.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserIn.ForeColor = System.Drawing.Color.Green;
             this.lblUserIn.Location = new System.Drawing.Point(295, 207);
             this.lblUserIn.Name = "lblUserIn";
             this.lblUserIn.Size = new System.Drawing.Size(456, 31);
@@ -444,7 +519,7 @@
             // 
             this.lblDeposit.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblDeposit.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeposit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblDeposit.ForeColor = System.Drawing.Color.Green;
             this.lblDeposit.Location = new System.Drawing.Point(295, 177);
             this.lblDeposit.Name = "lblDeposit";
             this.lblDeposit.Size = new System.Drawing.Size(456, 31);
@@ -456,7 +531,7 @@
             // 
             this.lblKind.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblKind.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKind.ForeColor = System.Drawing.Color.Gray;
+            this.lblKind.ForeColor = System.Drawing.Color.Green;
             this.lblKind.Location = new System.Drawing.Point(6, 117);
             this.lblKind.Name = "lblKind";
             this.lblKind.Size = new System.Drawing.Size(511, 57);
@@ -466,67 +541,11 @@
             // 
             this.lblGroup.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblGroup.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGroup.ForeColor = System.Drawing.Color.Gray;
+            this.lblGroup.ForeColor = System.Drawing.Color.Green;
             this.lblGroup.Location = new System.Drawing.Point(6, 82);
             this.lblGroup.Name = "lblGroup";
             this.lblGroup.Size = new System.Drawing.Size(511, 35);
             this.lblGroup.TabIndex = 43;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblPrice2);
-            this.groupBox1.Controls.Add(this.lblFullDay);
-            this.groupBox1.Controls.Add(this.lblPrice1);
-            this.groupBox1.Controls.Add(this.lblHalfDay);
-            this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(16, 116);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(217, 92);
-            this.groupBox1.TabIndex = 18;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Đ.giá lệ phí";
-            // 
-            // lblPrice2
-            // 
-            this.lblPrice2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPrice2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice2.Location = new System.Drawing.Point(116, 54);
-            this.lblPrice2.Name = "lblPrice2";
-            this.lblPrice2.Size = new System.Drawing.Size(94, 31);
-            this.lblPrice2.TabIndex = 59;
-            this.lblPrice2.Text = "105.000";
-            this.lblPrice2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblFullDay
-            // 
-            this.lblFullDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullDay.Location = new System.Drawing.Point(6, 54);
-            this.lblFullDay.Name = "lblFullDay";
-            this.lblFullDay.Size = new System.Drawing.Size(115, 31);
-            this.lblFullDay.TabIndex = 58;
-            this.lblFullDay.Text = "Một ngày:";
-            this.lblFullDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPrice1
-            // 
-            this.lblPrice1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPrice1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice1.Location = new System.Drawing.Point(116, 23);
-            this.lblPrice1.Name = "lblPrice1";
-            this.lblPrice1.Size = new System.Drawing.Size(94, 31);
-            this.lblPrice1.TabIndex = 57;
-            this.lblPrice1.Text = "105.000";
-            this.lblPrice1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblHalfDay
-            // 
-            this.lblHalfDay.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalfDay.Location = new System.Drawing.Point(6, 23);
-            this.lblHalfDay.Name = "lblHalfDay";
-            this.lblHalfDay.Size = new System.Drawing.Size(115, 31);
-            this.lblHalfDay.TabIndex = 56;
-            this.lblHalfDay.Text = "Nửa ngày:";
-            this.lblHalfDay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdSumary2
             // 
@@ -573,16 +592,6 @@
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Location = new System.Drawing.Point(6, 376);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(88, 37);
-            this.simpleButton1.TabIndex = 67;
-            this.simpleButton1.Text = "Đơ&n giá";
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,11 +608,11 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -651,6 +660,6 @@
         private System.Windows.Forms.Label lblNumber;
         private DevExpress.XtraEditors.LookUpEdit lkeNumber;
         private System.Windows.Forms.Label lblSum;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton cmdTariff;
     }
 }

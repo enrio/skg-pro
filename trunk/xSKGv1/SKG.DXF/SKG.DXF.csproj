@@ -216,6 +216,7 @@
     <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
       <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\InDepot\Level2.cs" />
     <Compile Include="Station\Manage\FrmTra_ByHand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,16 +291,16 @@
     <Compile Include="Station\Sumary\FrmTra_SalesNormal.Designer.cs">
       <DependentUpon>FrmTra_SalesNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepotNormal.cs">
+    <Compile Include="Station\InDepot\FrmTra_InDepotNormal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepotNormal.Designer.cs">
+    <Compile Include="Station\InDepot\FrmTra_InDepotNormal.Designer.cs">
       <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepotFixed.cs">
+    <Compile Include="Station\InDepot\FrmTra_InDepotFixed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Sumary\FrmTra_InDepotFixed.Designer.cs">
+    <Compile Include="Station\InDepot\FrmTra_InDepotFixed.Designer.cs">
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
@@ -414,10 +415,10 @@
     <EmbeddedResource Include="Station\Report\Rpt_Sumary2.resx">
       <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Sumary\FrmTra_InDepotFixed.resx">
+    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotFixed.resx">
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Sumary\FrmTra_InDepotNormal.resx">
+    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotNormal.resx">
       <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Manual.chm">

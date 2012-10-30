@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Sumary
+namespace SKG.DXF.Station.InDepot
 {
     using SKG.Plugin;
 

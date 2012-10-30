@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Station.Sumary
+﻿namespace SKG.DXF.Station.InDepot
 {
-    partial class FrmTra_InDepotNormal
+    partial class FrmTra_InDepotFixed
     {
         /// <summary>
         /// Required designer variable.
@@ -356,16 +356,16 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.Caption = "Loại xe";
-            this.gridColumn8.FieldName = "KindName";
+            this.gridColumn8.Caption = "Tuyến";
+            this.gridColumn8.FieldName = "Route";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 128;
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "Nhóm xe";
-            this.gridColumn9.FieldName = "GroupName";
+            this.gridColumn9.Caption = "Đ.vị Vận tải";
+            this.gridColumn9.FieldName = "Transport";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.Width = 137;
@@ -394,13 +394,13 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 82;
             // 
-            // FrmTra_InDepotNormal
+            // FrmTra_InDepotFixed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_InDepotNormal";
+            this.Name = "FrmTra_InDepotFixed";
             this.Text = "Danh sách xe trong bến";
             this.Activated += new System.EventHandler(this.FrmTra_InDepot_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);

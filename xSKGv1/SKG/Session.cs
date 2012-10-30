@@ -13,6 +13,18 @@ namespace SKG
         public DateTime? Login { set; get; }
         public DateTime Current { set; get; }
 
+        #region Shift
+        /// <summary>
+        /// Begin of shift
+        /// </summary>
+        public DateTime Start { set; get; }
+
+        /// <summary>
+        /// End of shift
+        /// </summary>
+        public DateTime End { set; get; }
+        #endregion
+
         public List<Zaction> ZActions
         {
             get { return _bll.GetRights(User.Id); }

@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Report
 {
-    partial class Rpt_Doanhthu
+    partial class Rpt_Fixed
     {
         /// <summary>
         /// Required designer variable.

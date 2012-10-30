@@ -71,7 +71,7 @@ namespace SKG.DXF.Station.Sumary
         #region Override
         protected override void PerformPrint()
         {
-            var a = new Report.Rpt_Doanhthu() { DataSource = _dtb };
+            var a = new Report.Rpt_Fixed() { DataSource = _dtb };
             /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
                 dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
             a.xrcMoney.Text = _sum.ToVietnamese("đồng");

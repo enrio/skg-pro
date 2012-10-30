@@ -31,6 +31,8 @@
             this.cmdUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
             this.prbUpdate = new System.Windows.Forms.ProgressBar();
+            this.hyperLinkEdit1 = new DevExpress.XtraEditors.HyperLinkEdit();
+            ((System.ComponentModel.ISupportInitialize)(this.hyperLinkEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // cmdUpdate
@@ -64,10 +66,19 @@
             this.prbUpdate.Size = new System.Drawing.Size(283, 14);
             this.prbUpdate.TabIndex = 4;
             // 
+            // hyperLinkEdit1
+            // 
+            this.hyperLinkEdit1.EditValue = "https://skg-pro.googlecode.com/svn/trunk/Update.zip";
+            this.hyperLinkEdit1.Location = new System.Drawing.Point(12, 81);
+            this.hyperLinkEdit1.Name = "hyperLinkEdit1";
+            this.hyperLinkEdit1.Size = new System.Drawing.Size(283, 20);
+            this.hyperLinkEdit1.TabIndex = 5;
+            // 
             // Frm_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(307, 85);
+            this.ClientSize = new System.Drawing.Size(307, 111);
+            this.Controls.Add(this.hyperLinkEdit1);
             this.Controls.Add(this.prbUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdUpdate);
@@ -75,6 +86,7 @@
             this.Name = "Frm_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật phần mềm";
+            ((System.ComponentModel.ISupportInitialize)(this.hyperLinkEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,5 +96,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdUpdate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar prbUpdate;
+        private DevExpress.XtraEditors.HyperLinkEdit hyperLinkEdit1;
     }
 }

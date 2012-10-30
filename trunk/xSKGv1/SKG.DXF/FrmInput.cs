@@ -99,12 +99,10 @@ namespace SKG.DXF
             switch (e.Item.Name)
             {
                 case "bbiAdd":
-                    _state = State.Add;
                     PerformAdd();
                     break;
 
                 case "bbiEdit":
-                    _state = State.Edit;
                     PerformEdit();
                     break;
 
@@ -121,7 +119,6 @@ namespace SKG.DXF
                     break;
 
                 case "bbiRefresh":
-                    _state = State.View;
                     PerformRefresh();
                     break;
 
@@ -171,9 +168,9 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void PerformAdd()
         {
+            _state = State.Add;
             ChangeStatus(false);
             ReadOnlyControl(false);
-
             ClearDataBindings();
             ResetInput();
         }
@@ -183,6 +180,7 @@ namespace SKG.DXF
         /// </summary>
         protected virtual void PerformEdit()
         {
+            _state = State.Edit;
             ChangeStatus(false);
             ReadOnlyControl(false);
         }
@@ -210,7 +208,10 @@ namespace SKG.DXF
         /// <summary>
         /// Load data or perform when click refresh button
         /// </summary>
-        protected virtual void PerformRefresh() { }
+        protected virtual void PerformRefresh()
+        {
+            _state = State.View;
+        }
 
         /// <summary>
         /// Perform when click find button

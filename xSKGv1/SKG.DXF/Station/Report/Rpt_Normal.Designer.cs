@@ -598,22 +598,22 @@
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
             this.xrTableCell8.Text = "Ca trực:";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell8.Weight = 0.53501628314793914D;
+            this.xrTableCell8.Weight = 0.46827715727449554D;
             // 
             // xrcWatch
             // 
             this.xrcWatch.Name = "xrcWatch";
             this.xrcWatch.StylePriority.UseTextAlignment = false;
             this.xrcWatch.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrcWatch.Weight = 0.85371069729762961D;
+            this.xrcWatch.Weight = 0.73141187477232639D;
             // 
             // xrTableCell9
             // 
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "Ngày trực:";
-            this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell9.Weight = 0.58999012019467612D;
+            this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell9.Weight = 0.6498276056143204D;
             // 
             // xrTableCell5
             // 
@@ -623,7 +623,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "12/12/2012";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell5.Weight = 1.0212828993597554D;
+            this.xrTableCell5.Weight = 1.150483362338858D;
             // 
             // xrTableRow3
             // 

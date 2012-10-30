@@ -297,11 +297,11 @@
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
-    <Compile Include="Station\Report\Rpt_Doanhthu.cs">
+    <Compile Include="Station\Report\Rpt_Fixed.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Doanhthu.Designer.cs">
-      <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_Fixed.Designer.cs">
+      <DependentUpon>Rpt_Fixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_Normal.cs">
       <SubType>Component</SubType>
@@ -396,8 +396,8 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Doanhthu.resx">
-      <DependentUpon>Rpt_Doanhthu.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Report\Rpt_Fixed.resx">
+      <DependentUpon>Rpt_Fixed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Normal.resx">
       <DependentUpon>Rpt_Normal.cs</DependentUpon>

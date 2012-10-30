@@ -6,9 +6,9 @@ using DevExpress.XtraReports.UI;
 
 namespace SKG.DXF.Station.Report
 {
-    public partial class Rpt_Doanhthu : DevExpress.XtraReports.UI.XtraReport
+    public partial class Rpt_Fixed : DevExpress.XtraReports.UI.XtraReport
     {
-        public Rpt_Doanhthu()
+        public Rpt_Fixed()
         {
             InitializeComponent();
         }

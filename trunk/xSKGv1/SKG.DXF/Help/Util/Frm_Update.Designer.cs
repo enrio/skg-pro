@@ -31,8 +31,7 @@
             this.cmdUpdate = new DevExpress.XtraEditors.SimpleButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            this.prbUpdate = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // cmdUpdate
@@ -41,17 +40,17 @@
             this.cmdUpdate.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.cmdUpdate.Appearance.Options.UseFont = true;
             this.cmdUpdate.Appearance.Options.UseForeColor = true;
-            this.cmdUpdate.Location = new System.Drawing.Point(206, 9);
+            this.cmdUpdate.Location = new System.Drawing.Point(219, 12);
             this.cmdUpdate.Name = "cmdUpdate";
-            this.cmdUpdate.Size = new System.Drawing.Size(89, 46);
+            this.cmdUpdate.Size = new System.Drawing.Size(76, 30);
             this.cmdUpdate.TabIndex = 0;
             this.cmdUpdate.Text = "&Cập nhật";
-            this.cmdUpdate.Click += new System.EventHandler(this.buttonDownloadFile_Click);
+            this.cmdUpdate.Click += new System.EventHandler(this.cmdUpdate_Click);
             // 
             // linkLabel1
             // 
             this.linkLabel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.linkLabel1.Location = new System.Drawing.Point(0, 87);
+            this.linkLabel1.Location = new System.Drawing.Point(0, 78);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(307, 20);
             this.linkLabel1.TabIndex = 1;
@@ -70,18 +69,18 @@
             this.label1.Text = "QUẢN LÍ XE RA/VÀO BẾN XE NGÃ TƯ GA - TP.HCM";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // progressBarControl1
+            // prbUpdate
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(6, 61);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(289, 17);
-            this.progressBarControl1.TabIndex = 3;
+            this.prbUpdate.Location = new System.Drawing.Point(12, 61);
+            this.prbUpdate.Name = "prbUpdate";
+            this.prbUpdate.Size = new System.Drawing.Size(283, 14);
+            this.prbUpdate.TabIndex = 4;
             // 
             // Frm_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(307, 107);
-            this.Controls.Add(this.progressBarControl1);
+            this.ClientSize = new System.Drawing.Size(307, 98);
+            this.Controls.Add(this.prbUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.cmdUpdate);
@@ -89,7 +88,6 @@
             this.Name = "Frm_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật phần mềm";
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -99,6 +97,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdUpdate;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
+        private System.Windows.Forms.ProgressBar prbUpdate;
     }
 }

@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Manage
+namespace SKG.DXF.Station.Normal
 {
     using SKG.Plugin;
     using DAL.Entities;
@@ -34,7 +34,7 @@ namespace SKG.DXF.Station.Manage
                 {
                     Code = typeof(FrmTra_GateInNormal).FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "CỔNG VÀO - XE VÃNG LAI",
+                    Text = "NHẬP XE VÃNG LAI",
                     Level = 3,
                     Order = 27,
                     Picture = @"Icons\GateIn.png"
@@ -91,7 +91,9 @@ namespace SKG.DXF.Station.Manage
                 o = _bll.Tra_Vehicle.Select(txtNumber.Text);
             }
 
+            if (o == null) return;
             var ve = (Tra_Vehicle)o;
+
             if (ve.Fixed)
             {
                 XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),

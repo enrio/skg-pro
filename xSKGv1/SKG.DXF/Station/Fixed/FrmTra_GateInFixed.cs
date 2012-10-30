@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Manage
+namespace SKG.DXF.Station.Fixed
 {
     using SKG.Plugin;
     using DAL.Entities;
@@ -32,9 +32,9 @@ namespace SKG.DXF.Station.Manage
             {
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_GateInNormal).FullName,
+                    Code = typeof(FrmTra_GateInFixed).FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "CỔNG VÀO - XE CỐ ĐỊNH",
+                    Text = "NHẬP XE CỐ ĐỊNH",
                     Level = 3,
                     Order = 27,
                     Picture = @"Icons\GateIn.png"

@@ -1,4 +1,4 @@
-﻿namespace SKG.DXF.Station.Manage
+﻿namespace SKG.DXF.Station.Normal
 {
     partial class FrmTra_GateInNormal
     {

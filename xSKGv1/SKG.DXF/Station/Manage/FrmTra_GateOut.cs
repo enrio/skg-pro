@@ -66,6 +66,8 @@ namespace SKG.DXF.Station.Manage
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
+            rpt.Name = Global.Session.User.Acc
+                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss_n1");
             decimal sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.A);
@@ -93,6 +95,8 @@ namespace SKG.DXF.Station.Manage
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal();
+            rpt.Name = Global.Session.User.Acc
+                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss_n2");
             decimal sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.B);

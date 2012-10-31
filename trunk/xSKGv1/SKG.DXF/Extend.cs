@@ -22,6 +22,7 @@ namespace SKG.DXF
     using DAL.Entities;
     using System.Drawing;
     using System.Reflection;
+    using System.Diagnostics;
     using DevExpress.XtraBars;
     using System.Windows.Forms;
     using DevExpress.XtraEditors;
@@ -529,9 +530,31 @@ namespace SKG.DXF
                 }
                 else if (n == typeof(Help.Util.Frm_Update).FullName)
                 {
-                    var frm = new Help.Util.Frm_Update();
-                    frm.ShowDialog();
-                    return;
+                    Process.Start("SKG.Update.exe");
+                    Application.ExitThread();
+                    Application.Exit();
+
+                    //// Prepare the process to run
+                    //ProcessStartInfo start = new ProcessStartInfo();
+
+                    //// Enter in the command line arguments, everything you would enter after the executable name itself
+                    //start.Arguments = "";
+
+                    //// Enter the executable to run, including the complete path
+                    //start.FileName = "";
+
+                    //// Do you want to show a console window?
+                    //start.WindowStyle = ProcessWindowStyle.Hidden;
+                    //start.CreateNoWindow = true;
+
+                    //// Run the external process & wait for it to finish
+                    //using (Process proc = Process.Start(start))
+                    //{
+                    //    proc.WaitForExit();
+
+                    //    // Retrieve the app's exit code
+                    //    var exitCode = proc.ExitCode;
+                    //}
                 }
 
                 var f = (Form)e.Item.Tag;

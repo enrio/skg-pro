@@ -606,17 +606,11 @@ namespace SKG.DAL
             {
                 sum = 0;
 
-                var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
-                int min = s1.Count() == 0 ? 0 : s1.Max(p => p.Order);
-
-                var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
-                int max = s2.Count() == 0 ? 0 : s2.Max(p => p.Order);
-
                 var res = from s in _db.Tra_Details
                           where s.DateOut != null
                           && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
-                          && s.Order > min && s.Order <= max
+                          //&& s.Order > min && s.Order <= max
                           orderby s.Order
                           select new
                           {
@@ -641,10 +635,41 @@ namespace SKG.DAL
 
                               GroupName = s.Tra_Vehicle.Tariff.Group.Text,
                               GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
-                              KindName = s.Tra_Vehicle.Tariff.Text
+                              KindName = s.Tra_Vehicle.Tariff.Text,
+                              s.Order
                           };
-                if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
-                else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
+
+
+                if (nhom == Group.A)
+                {
+                    const string grp = "GROUP_0";
+                    var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
+                    s1 = s1.Where(p => p.Code == grp);
+
+                    var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
+                    s2 = s2.Where(p => p.Code == grp);
+
+                    int min = s1.Count() == 0 ? 0 : s1.Max(p => p.Order);
+                    int max = s2.Count() == 0 ? 0 : s2.Max(p => p.Order);
+
+                    res = res.Where(p => p.GroupCode == grp);
+                    res = res.Where(p => p.Order > min && p.Order <= max);
+                }
+                else if (nhom == Group.B)
+                {
+                    const string grp = "GROUP_1";
+                    var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
+                    s1 = s1.Where(p => p.Code == grp);
+
+                    var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
+                    s2 = s2.Where(p => p.Code == grp);
+
+                    int min = s1.Count() == 0 ? 0 : s1.Max(p => p.Order);
+                    int max = s2.Count() == 0 ? 0 : s2.Max(p => p.Order);
+
+                    res = res.Where(p => p.GroupCode == grp);
+                    res = res.Where(p => p.Order > min && p.Order <= max);
+                }
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable(false);

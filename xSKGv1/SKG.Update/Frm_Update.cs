@@ -7,9 +7,15 @@ using System.Windows.Forms;
 namespace SKG.Update
 {
     using System.Net;
+    using System.IO;
+    using ICSharpCode.SharpZipLib.Zip;
+    using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
     public partial class Frm_Update : Form
     {
+        const string file = "Update.zip";
+        string path = Application.StartupPath;
+
         public Frm_Update()
         {
             InitializeComponent();
@@ -17,10 +23,7 @@ namespace SKG.Update
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            const string file = "Update.zip";
             string url = @"https://skg-pro.googlecode.com/svn/trunk/" + file;
-            string path = Application.StartupPath;
-
             WebClient webClient = new WebClient();
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
@@ -34,8 +37,35 @@ namespace SKG.Update
 
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
-            MessageBox.Show("Tải xong bản cập nhật!", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
+            using (ZipInputStream s = new ZipInputStream(File.OpenRead(String.Format(@"{0}\{1}", path, file))))
+            {
+                ZipEntry theEntry;
+                while ((theEntry = s.GetNextEntry()) != null)
+                {
+                    string directoryName = Path.GetDirectoryName(theEntry.Name);
+                    string fileName = Path.GetFileName(theEntry.Name);
+
+                    // Create directory
+                    if (directoryName.Length > 0)
+                        Directory.CreateDirectory(directoryName);
+
+                    if (fileName != String.Empty)
+                    {
+                        using (FileStream streamWriter = File.Create(theEntry.Name))
+                        {
+                            int size = 2048;
+                            byte[] data = new byte[2048];
+                            while (true)
+                            {
+                                size = s.Read(data, 0, data.Length);
+                                if (size > 0)
+                                    streamWriter.Write(data, 0, size);
+                                else break;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

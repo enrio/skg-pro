@@ -51,12 +51,6 @@ namespace SKG.DXF.Station.Normal
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
-            AllowAdd = false;
-            AllowEdit = false;
-            AllowDelete = false;
-            AllowSave = false;
-            AllowCancel = false;
-
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
@@ -306,6 +300,7 @@ namespace SKG.DXF.Station.Normal
 
         private void FrmTra_GateInNormal_Load(object sender, EventArgs e)
         {
+            AllowBar = false;
             PerformAdd();
         }
     }

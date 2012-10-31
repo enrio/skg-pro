@@ -309,5 +309,10 @@ namespace SKG.DXF.Station.Manage
             else
                 return 2;
         }
+
+        private void FrmTra_GateOut_Load(object sender, EventArgs e)
+        {
+            AllowBar = false;
+        }
     }
 }

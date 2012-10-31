@@ -130,14 +130,25 @@ namespace SKG.DAL.Entities
 
             var dateIn = DateIn.AddMinutes(error);
             var span = DateOut.Value - dateIn;
+
             var odd = span.TotalDays - span.Days;
-            long money = span.Days * Price2;
+            long money;
 
-            var seat = Seats ?? 0;
-            var bed = Beds ?? 0;
+            var taxi = Tra_Vehicle.Tariff.Code;
+            if (taxi.Contains("KIND_7") || taxi.Contains("KIND_8"))
+            {
+                money = Price1;
+            }
+            else
+            {
+                money = span.Days * Price2;
 
-            money += odd < 0.5 ? Price1 : Price2;
-            money += Price1 * seat + Price2 * bed;
+                var seat = Seats ?? 0;
+                var bed = Beds ?? 0;
+
+                money += odd < 0.5 ? Price1 : Price2;
+                money += Price1 * seat + Price2 * bed;
+            }
 
             return money;
         }

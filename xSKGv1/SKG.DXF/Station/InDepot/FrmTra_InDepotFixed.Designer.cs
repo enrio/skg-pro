@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.lblSum = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -87,12 +88,24 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.lblSum);
             this.dockPanel1_Container.Controls.Add(this.labelControl4);
             this.dockPanel1_Container.Controls.Add(this.txtNumber);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 43);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // lblSum
+            // 
+            this.lblSum.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lblSum.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblSum.Location = new System.Drawing.Point(243, 6);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(331, 29);
+            this.lblSum.TabIndex = 6;
+            this.lblSum.Text = "TỔNG SỐ XE CỐ ĐỊNH TRONG BẾN: {0}";
             // 
             // labelControl4
             // 
@@ -442,5 +455,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
+        private DevExpress.XtraEditors.LabelControl lblSum;
     }
 }

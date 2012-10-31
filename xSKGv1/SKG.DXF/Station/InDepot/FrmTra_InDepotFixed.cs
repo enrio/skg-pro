@@ -53,7 +53,9 @@ namespace SKG.DXF.Station.InDepot
 
             var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
             _dtb = _bll.Tra_Detail.GetInDepotFixed(n);
-            Text = String.Format("Tổng số xe cố định hiện có: {0}", _dtb.Rows.Count.ToString("0"));
+
+            Text = String.Format("Tổng số xe cố định trong bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
+            lblSum.Text = Text;
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT

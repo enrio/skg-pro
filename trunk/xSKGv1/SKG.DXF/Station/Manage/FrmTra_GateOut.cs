@@ -128,21 +128,6 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Override
-        protected override void PerformPrint()
-        {
-            var rpt = new Report.Rpt_Sumary2();
-            decimal _sum = 0;
-
-            rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out _sum);
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
-
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(rpt);
-            frm.Show(MdiParent);
-
-            base.PerformPrint();
-        }
-
         protected override void LoadData()
         {
             _dtb = _bll.Tra_Detail.GetInDepot();

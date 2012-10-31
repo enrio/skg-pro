@@ -27,14 +27,7 @@ namespace SKG.DXF.Help.Util
 
         private void cmdUpdate_Click(object sender, EventArgs e)
         {
-            const string file = "Update.zip";
-            string url = @"https://skg-pro.googlecode.com/svn/trunk/" + file;
-            string path = Application.StartupPath;
-
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            webClient.DownloadFileAsync(new Uri(url), String.Format(@"{0}\{1}", path, file));
+            
         }
     }
 }

@@ -72,6 +72,9 @@ namespace SKG.DXF.Station.Sumary
         protected override void PerformPrint()
         {
             var a = new Report.Rpt_Sumary2() { DataSource = _dtb };
+            a.Name = Global.Session.User.Acc
+                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss");
+
             a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
                 dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
             a.xrcMoney.Text = _sum.ToVietnamese("đồng");

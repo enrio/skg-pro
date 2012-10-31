@@ -210,6 +210,16 @@
     <Compile Include="Home\Sytem\Level2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sample.cs" />
+    <Compile Include="Station\DataSet\Dts_Fixed.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dts_Fixed.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Station\DataSet\Dts_Normal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dts_Normal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Station\Fixed\FrmTra_Catalog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +443,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Station\DataSet\Dts_Fixed.xsc">
+      <DependentUpon>Dts_Fixed.xsd</DependentUpon>
+    </None>
+    <None Include="Station\DataSet\Dts_Fixed.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dts_Fixed.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Station\DataSet\Dts_Fixed.xss">
+      <DependentUpon>Dts_Fixed.xsd</DependentUpon>
+    </None>
+    <None Include="Station\DataSet\Dts_Normal.xsc">
+      <DependentUpon>Dts_Normal.xsd</DependentUpon>
+    </None>
+    <None Include="Station\DataSet\Dts_Normal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dts_Normal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Station\DataSet\Dts_Normal.xss">
+      <DependentUpon>Dts_Normal.xsd</DependentUpon>
+    </None>
     <None Include="Station\DataSet\Sumary.xsc">
       <DependentUpon>Sumary.xsd</DependentUpon>
     </None>

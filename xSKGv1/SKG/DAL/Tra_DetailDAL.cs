@@ -121,6 +121,11 @@ namespace SKG.DAL
 
                 o.Id = Guid.NewGuid();
                 o.Pol_UserInId = Global.Session.User.Id;
+
+                // Cập nhật mã nhóm xe vãng lai/mã vùng xe cố định
+                var ve = _db.Tra_Vehicles.SingleOrDefault(p => p.Id == o.Tra_VehicleId);
+                o.Code = ve.Tariff.Group.Code;
+
                 var oki = _db.Tra_Details.Add(o);
 
                 _db.SaveChanges();
@@ -509,8 +514,10 @@ namespace SKG.DAL
 
                 if (isOut)
                 {
-                    if (!a.Tra_Vehicle.Fixed)
-                        a.Order = _db.Tra_Details.Max(p => p.Order) + 1;
+                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định
+                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                    a.Order = dt.Max(p => p.Order) + 1;
+
                     _db.SaveChanges();
                 }
                 return a;

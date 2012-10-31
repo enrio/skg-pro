@@ -12,7 +12,7 @@
   <xs:element name="Dts_Fixed" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Dts_Fixed" msprop:Generator_UserDSName="Dts_Fixed">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_UserTableName="Sales" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_RowEvArgName="SalesRowChangeEvent" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_RowClassName="SalesRow">
+        <xs:element name="Revenue" msprop:Generator_TableClassName="RevenueDataTable" msprop:Generator_TableVarName="tableRevenue" msprop:Generator_TablePropName="Revenue" msprop:Generator_RowDeletingName="RevenueRowDeleting" msprop:Generator_UserTableName="Revenue" msprop:Generator_RowChangingName="RevenueRowChanging" msprop:Generator_RowEvHandlerName="RevenueRowChangeEventHandler" msprop:Generator_RowDeletedName="RevenueRowDeleted" msprop:Generator_RowEvArgName="RevenueRowChangeEvent" msprop:Generator_RowChangedName="RevenueRowChanged" msprop:Generator_RowClassName="RevenueRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Route" msprop:Generator_ColumnVarNameInTable="columnRoute" msprop:Generator_ColumnPropNameInRow="Route" msprop:Generator_ColumnPropNameInTable="RouteColumn" msprop:Generator_UserColumnName="Route" type="xs:string" minOccurs="0" />

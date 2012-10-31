@@ -614,7 +614,7 @@ namespace SKG.DAL
                 var max = s2.Max(p => p.DateOut);
 
                 var res = from s in _db.Tra_Details
-                          where s.DateOut > min && s.DateOut <= max
+                          where s.DateOut >= min && s.DateOut <= max
                           && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
                           orderby s.Order

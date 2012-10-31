@@ -117,11 +117,6 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
-        private void lkeNumber_EditValueChanged(object sender, EventArgs e)
-        {
-            Invoice();
-        }
-
         private void lkeNumber_Enter(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -195,6 +190,30 @@ namespace SKG.DXF.Station.Manage
             var a = _bll.Tra_Detail.SumOfFixed();
             var b = _bll.Tra_Detail.SumOfNormal();
             var c = a + b;
+
+            lblKind.Text = null;
+            lblGroup.Text = null;
+            lblHalfDay.Text = null;
+            lblFullDay.Text = null;
+
+            lblNumber.Text = null;
+            lblDateIn.Text = null;
+            lblDateOut.Text = null;
+
+            lblSeats.Text = null;
+            lblBeds.Text = null;
+
+            lblPrice1.Text = null;
+            lblRose1.Text = null;
+
+            lblPrice2.Text = null;
+            lblRose2.Text = null;
+
+            lblMoney.Text = null;
+            lblDeposit.Text = null;
+
+            lblUserIn.Text = null;
+            lblPhone.Text = null;
 
             lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
             lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));

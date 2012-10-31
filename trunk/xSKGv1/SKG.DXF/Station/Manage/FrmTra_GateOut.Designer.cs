@@ -210,7 +210,7 @@
             this.lkeNumber.Properties.ValueMember = "Id";
             this.lkeNumber.Size = new System.Drawing.Size(239, 46);
             this.lkeNumber.TabIndex = 65;
-            this.lkeNumber.EditValueChanged += new System.EventHandler(this.lkeNumber_EditValueChanged);
+            
             this.lkeNumber.Enter += new System.EventHandler(this.lkeNumber_Enter);
             // 
             // lblNumber

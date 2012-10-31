@@ -152,7 +152,7 @@
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
-            this.dts_Normal1 = new SKG.DXF.Station.DataSet.Dts_Normal();
+            this.dts_Normal = new SKG.DXF.Station.DataSet.Dts_Normal();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -162,7 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dts_Normal1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dts_Normal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -1195,7 +1195,7 @@
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1});
-            this.DetailReport.DataSource = this.dts_Normal1;
+            this.DetailReport.DataSource = this.dts_Normal;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             // 
@@ -1206,10 +1206,10 @@
             this.Detail1.HeightF = 23.75002F;
             this.Detail1.Name = "Detail1";
             // 
-            // dts_Normal1
+            // dts_Normal
             // 
-            this.dts_Normal1.DataSetName = "Dts_Normal";
-            this.dts_Normal1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dts_Normal.DataSetName = "Dts_Normal";
+            this.dts_Normal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Rpt_Normal
             // 
@@ -1223,7 +1223,7 @@
             this.PageHeader,
             this.DetailReport});
             this.DataMember = "Revenue";
-            this.DataSource = this.dts_Normal1;
+            this.DataSource = this.dts_Normal;
             this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
             this.PageHeight = 827;
@@ -1239,7 +1239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dts_Normal1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dts_Normal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1364,6 +1364,6 @@
         public DevExpress.XtraReports.UI.XRTableCell xrcLve3;
         public DevExpress.XtraReports.UI.XRTableCell xrcLve4;
         public DevExpress.XtraReports.UI.XRTableCell xrcLve5;
-        private DataSet.Dts_Normal dts_Normal1;
+        private DataSet.Dts_Normal dts_Normal;
     }
 }

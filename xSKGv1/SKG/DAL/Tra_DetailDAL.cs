@@ -608,7 +608,9 @@ namespace SKG.DAL
 
                 var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
                 var min = s1.Max(p => p.DateOut);
+
                 var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
+                if (min == null) min = s2.Min(p => p.DateOut);
                 var max = s2.Max(p => p.DateOut);
 
                 var res = from s in _db.Tra_Details

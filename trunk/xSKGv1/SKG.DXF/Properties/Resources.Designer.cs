@@ -178,5 +178,12 @@ namespace SKG.DXF.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap xSKGv1 {
+            get {
+                object obj = ResourceManager.GetObject("xSKGv1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

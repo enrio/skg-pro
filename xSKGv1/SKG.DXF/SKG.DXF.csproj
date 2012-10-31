@@ -270,11 +270,6 @@
     <Compile Include="Station\Normal\FrmTra_Tariff.Designer.cs">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\DataSet\Sumary.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Sumary.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Station\Fixed\FrmTra_Tariff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,12 +320,6 @@
     </Compile>
     <Compile Include="Station\Report\Rpt_Normal.Designer.cs">
       <DependentUpon>Rpt_Normal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Station\Report\Rpt_Sumary2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Station\Report\Rpt_Sumary2.Designer.cs">
-      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Sumary\FrmTra_SalesFixed.cs">
       <SubType>Form</SubType>
@@ -422,9 +411,6 @@
     <EmbeddedResource Include="Station\Report\Rpt_Normal.resx">
       <DependentUpon>Rpt_Normal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Sumary2.resx">
-      <DependentUpon>Rpt_Sumary2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotFixed.resx">
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </EmbeddedResource>
@@ -464,17 +450,6 @@
     </None>
     <None Include="Station\DataSet\Dts_Normal.xss">
       <DependentUpon>Dts_Normal.xsd</DependentUpon>
-    </None>
-    <None Include="Station\DataSet\Sumary.xsc">
-      <DependentUpon>Sumary.xsd</DependentUpon>
-    </None>
-    <None Include="Station\DataSet\Sumary.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Sumary.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Station\DataSet\Sumary.xss">
-      <DependentUpon>Sumary.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

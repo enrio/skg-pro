@@ -210,7 +210,6 @@
             this.lkeNumber.Properties.ValueMember = "Id";
             this.lkeNumber.Size = new System.Drawing.Size(239, 46);
             this.lkeNumber.TabIndex = 65;
-            
             this.lkeNumber.Enter += new System.EventHandler(this.lkeNumber_Enter);
             // 
             // lblNumber
@@ -600,6 +599,7 @@
             this.Name = "FrmTra_GateOut";
             this.Tag = "";
             this.Text = "Cổng ra";
+            this.Load += new System.EventHandler(this.FrmTra_GateOut_Load);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();

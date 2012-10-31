@@ -24,3 +24,24 @@ Select U.*, Rr.* From Pol_RoleRight Rr
 
 Delete From Pol_Dictionary Where ParentId Is Not Null
 Delete From Pol_Dictionary
+
+Select B.Code, A.Code, A.[Order], A.DateOut, * From Tra_Detail A
+Join Tra_Vehicle B On A.Tra_VehicleId = B.Id
+Join Pol_User C On A.Pol_UserOutId = C.Id
+Where C.Acc = 'admin'
+Order By A.[Code], A.DateOut
+
+Select B.Code, A.Code, A.[Order], A.DateOut, * From Tra_Detail A
+Join Tra_Vehicle B On A.Tra_VehicleId = B.Id
+Join Pol_User C On A.Pol_UserOutId = C.Id
+Where C.Acc = 'cr'
+Order By A.[Code], A.DateOut
+
+Select B.Code, A.Code, A.[Order], A.DateOut, * From Tra_Detail A
+Join Tra_Vehicle B On A.Tra_VehicleId = B.Id
+Join Pol_User C On A.Pol_UserOutId = C.Id
+Where C.Acc = 'ntt'
+Order By A.[Code], A.DateOut
+
+Delete From Tra_Detail
+Select * From Tra_Detail

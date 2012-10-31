@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace SKG.Update
 {
-    using System.Net;
     using System.IO;
+    using System.Net;
+    using System.Diagnostics;
     using ICSharpCode.SharpZipLib.Zip;
-    using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
 
     public partial class Frm_Update : Form
     {
@@ -66,6 +66,10 @@ namespace SKG.Update
                     }
                 }
             }
+
+            Process.Start("SKG.Client.exe");
+            Application.ExitThread();
+            Application.Exit();
         }
     }
 }

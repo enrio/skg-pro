@@ -378,6 +378,7 @@ namespace SKG.DXF
                     m1 = new RibbonPage(text.ToUpper());
                     var zac = Global.Session.GetZAction(code);
                     m1.Visible = zac != null ? zac.Access : false;
+                    if (!m1.Visible) continue;
 
                     m1.Tag = code;
                     m1.Image = Image.FromFile(icon);
@@ -393,6 +394,7 @@ namespace SKG.DXF
                         m2 = new RibbonPageGroup(text.ToUpper());
                         zac = Global.Session.GetZAction(code);
                         m2.Visible = zac != null ? zac.Access : false;
+                        if (!m2.Visible) continue;
 
                         m2.Tag = code;
                         m2.Glyph = Image.FromFile(icon);
@@ -414,11 +416,14 @@ namespace SKG.DXF
                                 m3.Visibility = ok ? BarItemVisibility.Always : BarItemVisibility.Never;
                             }
 
-                            m2.ItemLinks.Add(m3);
-                            m3.Tag = asm.CreateInstance(code);
+                            if (m3.Visibility == BarItemVisibility.Always)
+                            {
+                                m2.ItemLinks.Add(m3);
+                                m3.Tag = asm.CreateInstance(code);
 
-                            m3.LargeGlyph = Image.FromFile(icon);
-                            m3.ItemClick += ButtonItem_ItemClick;
+                                m3.LargeGlyph = Image.FromFile(icon);
+                                m3.ItemClick += ButtonItem_ItemClick;
+                            }
                         }
                     }
                 }

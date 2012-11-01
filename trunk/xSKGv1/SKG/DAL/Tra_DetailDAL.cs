@@ -625,21 +625,29 @@ namespace SKG.DAL
             {
                 sum = 0;
 
-                var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
+                /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
                 var min = s1.Max(p => p.DateOut);
 
                 var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
                 if (min == null) min = s2.Min(p => p.DateOut);
-                var max = s2.Max(p => p.DateOut);
+                var max = s2.Max(p => p.DateOut);*/
+
+                // Ca làm việc
+                int i = Shift();
+                var shift = Global.Session.Current.Date;
+                if (i == 2) shift = shift.AddDays(1);
+                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 var res = from s in _db.Tra_Details
-                          where s.DateOut >= min && s.DateOut <= max
+                          //where s.DateOut >= min && s.DateOut <= max
+                          where s.More.Contains(more)
                           && s.Tra_Vehicle.Fixed == false
                           && s.Pol_UserOutId == Global.Session.User.Id
                           orderby s.Order
                           select new
                           {
                               No_ = s.Order,
+                              s.More,
 
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,

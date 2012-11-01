@@ -115,7 +115,7 @@ namespace SKG.DAL
                 var o = (Tra_Detail)obj;
 
                 var res = from s in _db.Tra_Details
-                          where s.DateOut == null && s.Tra_VehicleId == o.Tra_VehicleId
+                          where s.Pol_UserOutId == null && s.Tra_VehicleId == o.Tra_VehicleId
                           select s;
                 if (res.Count() > 0) return null; // xe này còn ở trong bến
 
@@ -198,7 +198,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null && s.DateIn >= d
+                          where s.Pol_UserOutId == null && s.DateIn >= d
 
                           orderby s.DateIn descending
                           select new
@@ -239,7 +239,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null && k.Fixed == false
+                          where s.Pol_UserOutId == null && k.Fixed == false
 
                           orderby s.DateIn descending
                           select new
@@ -281,7 +281,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
 
                           join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.DateOut == null && k.Fixed == true
+                          where s.Pol_UserOutId == null && k.Fixed == true
 
                           orderby s.DateIn descending
                           select new
@@ -445,7 +445,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.DateOut != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.DateOut == null)
+                          where s.Pol_UserOutId != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.Pol_UserOutId == null)
                           && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Code
                           select new
@@ -485,7 +485,7 @@ namespace SKG.DAL
         {
             try
             {
-                var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.DateOut == null);
+                var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.Pol_UserOutId == null);
 
                 a.Pol_UserOutId = Global.Session.User.Id;
                 a.DateOut = Global.Session.Current;
@@ -534,7 +534,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public int SumOfFixed()
         {
-            return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == true);
+            return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == true);
         }
 
         /// <summary>
@@ -549,7 +549,7 @@ namespace SKG.DAL
                 sum = 0;
 
                 var res = from s in _db.Tra_Details
-                          where s.DateOut != null
+                          where s.Pol_UserOutId != null
                           && s.Tra_Vehicle.Fixed == true
                           && s.DateOut >= fr && s.DateOut <= to
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
@@ -594,7 +594,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public int SumOfNormal()
         {
-            return _db.Tra_Details.Count(k => k.DateOut == null && k.Tra_Vehicle.Fixed == false);
+            return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == false);
         }
 
         /// <summary>

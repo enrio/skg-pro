@@ -35,6 +35,7 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblNote = new System.Windows.Forms.Label();
             this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
             this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
@@ -71,7 +72,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtNote = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -147,7 +147,7 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.txtNote);
+            this.groupControl1.Controls.Add(this.lblNote);
             this.groupControl1.Controls.Add(this.cmdTariff);
             this.groupControl1.Controls.Add(this.lblSum);
             this.groupControl1.Controls.Add(this.lkeNumber);
@@ -172,6 +172,17 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // lblNote
+            // 
+            this.lblNote.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNote.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.ForeColor = System.Drawing.Color.Red;
+            this.lblNote.Location = new System.Drawing.Point(473, 353);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(278, 60);
+            this.lblNote.TabIndex = 68;
+            this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // cmdTariff
             // 
             this.cmdTariff.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -190,7 +201,7 @@
             this.lblSum.ForeColor = System.Drawing.Color.Red;
             this.lblSum.Location = new System.Drawing.Point(473, 269);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(278, 104);
+            this.lblSum.Size = new System.Drawing.Size(278, 84);
             this.lblSum.TabIndex = 66;
             // 
             // lkeNumber
@@ -593,17 +604,6 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtNote
-            // 
-            this.txtNote.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.txtNote.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote.ForeColor = System.Drawing.Color.Red;
-            this.txtNote.Location = new System.Drawing.Point(473, 373);
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(278, 40);
-            this.txtNote.TabIndex = 68;
-            this.txtNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -674,6 +674,6 @@
         private DevExpress.XtraEditors.LookUpEdit lkeNumber;
         private System.Windows.Forms.Label lblSum;
         private DevExpress.XtraEditors.SimpleButton cmdTariff;
-        private System.Windows.Forms.Label txtNote;
+        private System.Windows.Forms.Label lblNote;
     }
 }

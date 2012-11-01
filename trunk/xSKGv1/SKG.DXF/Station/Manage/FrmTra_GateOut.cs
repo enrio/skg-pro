@@ -161,6 +161,7 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = null;
                 lblPhone.Text = null;
+                lblNote.Text = null;
 
                 lkeNumber.Properties.DataSource = null;
             }
@@ -199,6 +200,7 @@ namespace SKG.DXF.Station.Manage
 
             lblUserIn.Text = null;
             lblPhone.Text = null;
+            lblNote.Text = null;
 
             lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
             lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
@@ -255,6 +257,7 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
+                lblNote.Text = detail.Note;
 
                 if (isOut) PerformRefresh();
             }

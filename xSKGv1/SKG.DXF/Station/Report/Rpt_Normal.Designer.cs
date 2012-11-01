@@ -602,8 +602,11 @@
             // 
             // xrcWatch
             // 
+            this.xrcWatch.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Text")});
             this.xrcWatch.Name = "xrcWatch";
             this.xrcWatch.StylePriority.UseTextAlignment = false;
+            this.xrcWatch.Text = "xrcWatch";
             this.xrcWatch.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcWatch.Weight = 0.73141187477232639D;
             // 

@@ -69,12 +69,6 @@ namespace SKG.DXF.Station.Manage
             decimal sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.A);
-
-            if (_bll.Tra_Detail.Shift() == 1)
-                rpt.xrcWatch.Text = "07:00 - 16:00";
-            else
-                rpt.xrcWatch.Text = "16:00 - 07:00";
-
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
@@ -96,12 +90,6 @@ namespace SKG.DXF.Station.Manage
             decimal sum = 0;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.B);
-
-            if (_bll.Tra_Detail.Shift() == 1)
-                rpt.xrcWatch.Text = "07:00 - 16:00";
-            else
-                rpt.xrcWatch.Text = "16:00 - 07:00";
-
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 

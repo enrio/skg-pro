@@ -648,6 +648,7 @@ namespace SKG.DAL
                           {
                               No_ = s.Order,
                               s.More,
+                              s.Text,
 
                               UserInName = s.Pol_UserIn.Name,
                               UserInPhone = s.Pol_UserIn.Phone,

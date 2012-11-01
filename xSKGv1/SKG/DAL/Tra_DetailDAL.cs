@@ -571,10 +571,16 @@ namespace SKG.DAL
                            select new
                            {
                                g.Key,
-                               Soxe = g.Count(),
-                               Tongtien = g.Sum(p => p.Money),
-                               Tongghe = g.Sum(p => p.Tra_Vehicle.Seats) ?? 0,
-                               Tonggiuong = g.Sum(p => p.Tra_Vehicle.Beds) ?? 0
+                               Count = g.Count(),
+
+                               Seats = g.Sum(p => p.Tra_Vehicle.Seats) ?? 0,
+                               Beds = g.Sum(p => p.Tra_Vehicle.Beds) ?? 0,
+
+                               Cost = g.Sum(p => p.Cost),
+                               Rose = g.Sum(p => p.Rose),
+                               Parked = g.Sum(p => p.Parked),
+
+                               Money = g.Sum(p => p.Money),
                            };
 
                 var res2 = from s in res1
@@ -582,20 +588,17 @@ namespace SKG.DAL
                            select new
                            {
                                s.Key,
-                               s.Soxe,
-                               s.Tongghe,
-                               s.Tonggiuong,
-                               s.Tongtien,
+                               s.Count,
 
-                               t.Price1,
-                               t.Price2,
-                               t.Rose1,
-                               t.Rose2,
+                               s.Seats,
+                               s.Beds,
 
-                               Tongtienghe = (s.Tongghe - s.Soxe) * t.Price1 + s.Tongghe * t.Rose1,
-                               Tongtiengiuong = s.Tonggiuong * (t.Price2 + t.Rose2),
-                               Tongtien2 = ((s.Tongghe - s.Soxe) * t.Price1 + s.Tongghe * t.Rose1)
-                               + (s.Tonggiuong * (t.Price2 + t.Rose2))
+                               s.Cost,
+                               s.Rose,
+                               s.Parked,
+
+                               s.Money,
+                               //Total = s.Parked + s.Cost + s.Rose,
                            };
 
                 var txx = res2.ToDataTable();

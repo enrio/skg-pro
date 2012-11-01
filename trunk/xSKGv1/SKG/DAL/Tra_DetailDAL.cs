@@ -563,6 +563,43 @@ namespace SKG.DAL
         {
             try
             {
+                var res1 = from s in _db.Tra_Details
+                           where s.Pol_UserOutId != null
+                           && s.Tra_Vehicle.Fixed == true
+                           && s.DateOut >= fr && s.DateOut <= to
+                           group s by s.Tra_Vehicle.Tariff.Code into g
+                           select new
+                           {
+                               g.Key,
+                               Soxe = g.Count(),
+                               Tongtien = g.Sum(p => p.Money),
+                               Tongghe = g.Sum(p => p.Tra_Vehicle.Seats) ?? 0,
+                               Tonggiuong = g.Sum(p => p.Tra_Vehicle.Beds) ?? 0
+                           };
+
+                var res2 = from s in res1
+                           join t in _db.Tra_Tariffs on s.Key equals t.Code
+                           select new
+                           {
+                               s.Key,
+                               s.Soxe,
+                               s.Tongghe,
+                               s.Tonggiuong,
+                               s.Tongtien,
+
+                               t.Price1,
+                               t.Price2,
+                               t.Rose1,
+                               t.Rose2,
+
+                               Tongtienghe = (s.Tongghe - s.Soxe) * t.Price1 + s.Tongghe * t.Rose1,
+                               Tongtiengiuong = s.Tonggiuong * (t.Price2 + t.Rose2),
+                               Tongtien2 = ((s.Tongghe - s.Soxe) * t.Price1 + s.Tongghe * t.Rose1)
+                               + (s.Tonggiuong * (t.Price2 + t.Rose2))
+                           };
+
+                var txx = res2.ToDataTable();
+
                 sum = 0;
 
                 var res = from s in _db.Tra_Details

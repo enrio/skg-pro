@@ -668,5 +668,27 @@ namespace SKG.DAL
             }
         }
         #endregion
+
+        /// <summary>
+        /// Work of shift (2 shifts: 07:00 - 16:00 today and 16:00 - 07:00 tomorrow)
+        /// </summary>
+        /// <returns></returns>
+        public int Shift()
+        {
+            var cur = Global.Session.Current;
+            var log = Global.Session.Login.Value;
+
+            var t = cur - log;
+            var tick = t.Ticks / 2;
+            var shift = cur.Subtract(new TimeSpan(tick));
+
+            var start = cur.Date.AddHours(7); // start of shift 1
+            var end = cur.Date.AddHours(16); // end of shift 1            
+
+            if (shift >= start && shift <= end)
+                return 1;
+            else
+                return 2;
+        }
     }
 }

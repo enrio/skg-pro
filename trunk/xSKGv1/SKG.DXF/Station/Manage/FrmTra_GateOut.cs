@@ -70,7 +70,7 @@ namespace SKG.DXF.Station.Manage
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.A);
 
-            if (Shift() == 1)
+            if (_bll.Tra_Detail.Shift() == 1)
                 rpt.xrcWatch.Text = "07:00 - 16:00";
             else
                 rpt.xrcWatch.Text = "16:00 - 07:00";
@@ -97,7 +97,7 @@ namespace SKG.DXF.Station.Manage
 
             rpt.DataSource = _bll.Tra_Detail.SumaryNormal(out sum, DAL.Tra_DetailDAL.Group.B);
 
-            if (Shift() == 1)
+            if (_bll.Tra_Detail.Shift() == 1)
                 rpt.xrcWatch.Text = "07:00 - 16:00";
             else
                 rpt.xrcWatch.Text = "16:00 - 07:00";
@@ -278,24 +278,6 @@ namespace SKG.DXF.Station.Manage
             frm.lblRose2.Text = lblRose2.Text;
 
             frm.ShowDialog();
-        }
-
-        private int Shift()
-        {
-            var cur = Global.Session.Current;
-            var log = Global.Session.Login.Value;
-
-            var t = cur - log;
-            var tick = t.Ticks / 2;
-            var shift = cur.Subtract(new TimeSpan(tick));
-
-            var start = cur.Date.AddHours(7); // start of shift 1
-            var end = cur.Date.AddHours(16); // end of shift 1            
-
-            if (shift >= start && shift <= end)
-                return 1;
-            else
-                return 2;
         }
 
         private void FrmTra_GateOut_Load(object sender, EventArgs e)

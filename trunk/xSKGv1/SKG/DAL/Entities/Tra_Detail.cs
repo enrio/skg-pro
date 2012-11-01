@@ -113,10 +113,27 @@ namespace SKG.DAL.Entities
         public int? Beds { set; get; }
         #endregion
 
+        #region Money
+        /// <summary>
+        /// Sum of cost
+        /// </summary>
+        public long Cost { set; get; }
+
+        /// <summary>
+        /// Sum of rose
+        /// </summary>
+        public long Rose { set; get; }
+
+        /// <summary>
+        /// Parked in the bus station overnight
+        /// </summary>
+        public long Parked { set; get; }
+
         /// <summary>
         /// Total money
         /// </summary>
         public decimal Money { set; get; }
+        #endregion
 
         /// <summary>
         /// Charge for vehicle normal
@@ -154,14 +171,14 @@ namespace SKG.DAL.Entities
 
             var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 2, error, 0);
             var span = DateOut.Value - dateIn;
-            long money = span.Days * 20000;
+            Parked = span.Days * 20000;
 
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
-            money += Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
-            money += (Price2 + Rose2) * bed;
-            return money;
+            Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
+            Rose += (Price2 + Rose2) * bed;
+            return Parked + Cost + Rose;
         }
     }
 }

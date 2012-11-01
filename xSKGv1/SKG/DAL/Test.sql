@@ -45,3 +45,7 @@ Order By A.[Code], A.DateOut
 
 Delete From Tra_Detail
 Select * From Tra_Detail
+
+Select B.Code, A.DateOut, * From Tra_Detail A
+Join Tra_Vehicle B On A.Tra_VehicleId = B.Id
+Where A.DateOut Is Not Null

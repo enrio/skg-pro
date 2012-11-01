@@ -486,6 +486,27 @@ namespace SKG.DAL
             try
             {
                 var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.Pol_UserOutId == null);
+                var ql = Global.Session.User.CheckOperator();
+
+                if (!isOut) // tinh tien                               
+                {
+                    if (ql)
+                    {
+                        a.DateOut = Global.Session.Current;
+                        a.Note = String.Format("ĐỘI ĐIỀU HÀNH CHO RA{0}({1})", Environment.NewLine, Global.Session.User.Name);
+                    }
+                    else if (a.DateOut == null || a.Note == null) a.DateOut = Global.Session.Current;
+                }
+
+                if (isOut && !ql) // cho ra
+                {
+                    // Người cho ra
+                    a.Pol_UserOutId = Global.Session.User.Id;
+
+                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
+                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                    a.Order = dt.Max(p => p.Order) + 1;
+                }
 
                 a.Seats = a.Tra_Vehicle.Seats;
                 a.Beds = a.Tra_Vehicle.Beds;
@@ -495,16 +516,6 @@ namespace SKG.DAL
 
                 a.Price2 = a.Tra_Vehicle.Tariff.Price2;
                 a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
-
-                if (a.DateOut == null)
-                    a.DateOut = Global.Session.Current;
-
-                var ql = Global.Session.User.CheckOperator();
-                if (ql)
-                    a.Note = String.Format("ĐỘI ĐIỀU HÀNH CHO RA{0}({1})",
-                    Environment.NewLine, Global.Session.User.Name);
-
-                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
 
                 var dateIn = a.DateIn.AddMinutes(11);
                 var t = a.DateOut.Value - dateIn;
@@ -519,16 +530,7 @@ namespace SKG.DAL
                     a.FullDay++;
                 }
 
-                if (isOut && !ql)
-                {
-                    // Người cho ra
-                    a.Pol_UserOutId = Global.Session.User.Id;
-
-                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
-                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                    a.Order = dt.Max(p => p.Order) + 1;
-                }
-
+                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
                 _db.SaveChanges();
                 return a;
             }

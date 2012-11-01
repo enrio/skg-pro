@@ -91,5 +91,14 @@ namespace SKG.DAL.Entities
         {
             return CheckRole("QT") || Acc.Contains("admin");
         }
+
+        /// <summary>
+        /// Check role operator teams
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckOperator()
+        {
+            return CheckRole("QL");
+        }
     }
 }

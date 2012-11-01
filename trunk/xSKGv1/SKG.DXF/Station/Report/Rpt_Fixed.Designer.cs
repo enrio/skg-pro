@@ -1095,7 +1095,7 @@
             // xrTableCell37
             // 
             this.xrTableCell37.Name = "xrTableCell37";
-            this.xrTableCell37.Text = "Thành tiền có VAT";
+            this.xrTableCell37.Text = "Thành tiền (có VAT)";
             this.xrTableCell37.Weight = 2.049935280413191D;
             // 
             // xrTableRow11

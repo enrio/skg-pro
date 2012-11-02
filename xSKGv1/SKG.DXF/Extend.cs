@@ -595,7 +595,7 @@ namespace SKG.DXF
             _frmMain.ribbon.LoadMenu(GetPlugins);
 
             VisibleMenuParentForm(_frmMain);
-            _frmMain.bsiUser.Caption = Global.Session.User.Name;
+            _frmMain.bsiUser.Caption = String.Format("{0} {1}", Global.Session.User.Name, Global.Session.User.Note);
 
             //var ax = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_RoleRights);
             //var bx = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_UserRights);

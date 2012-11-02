@@ -232,7 +232,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Tariffs
-                          where s.Code.Contains("PROVINCE") && s.Show == true
+                          where s.Code.Contains("STATION") && s.Show == true
                           orderby s.Group.Text, s.Text
                           select new
                           {

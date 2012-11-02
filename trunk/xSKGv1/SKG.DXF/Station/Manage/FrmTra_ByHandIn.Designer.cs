@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Manage
 {
-    partial class FrmTra_ByHand
+    partial class FrmTra_ByHandIn
     {
         /// <summary>
         /// Required designer variable.

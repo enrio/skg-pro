@@ -227,11 +227,17 @@
       <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\InDepot\Level2.cs" />
-    <Compile Include="Station\Manage\FrmTra_ByHand.cs">
+    <Compile Include="Station\Manage\FrmTra_ByHandOut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmTra_ByHand.Designer.cs">
-      <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
+    <Compile Include="Station\Manage\FrmTra_ByHandOut.Designer.cs">
+      <DependentUpon>FrmTra_ByHandOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_ByHandIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_ByHandIn.Designer.cs">
+      <DependentUpon>FrmTra_ByHandIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Fixed\FrmTra_GateInFixed.cs">
       <SubType>Form</SubType>
@@ -381,8 +387,11 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
       <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_ByHand.resx">
-      <DependentUpon>FrmTra_ByHand.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Manage\FrmTra_ByHandOut.resx">
+      <DependentUpon>FrmTra_ByHandOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmTra_ByHandIn.resx">
+      <DependentUpon>FrmTra_ByHandIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>

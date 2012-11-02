@@ -120,7 +120,7 @@
             // 
             // lokGroup
             // 
-            this.lokGroup.Location = new System.Drawing.Point(64, 4);
+            this.lokGroup.Location = new System.Drawing.Point(77, 4);
             this.lokGroup.Name = "lokGroup";
             this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lokGroup.Properties.Appearance.Options.UseFont = true;
@@ -136,7 +136,7 @@
             this.lokGroup.Properties.DisplayMember = "Text";
             this.lokGroup.Properties.NullText = "";
             this.lokGroup.Properties.ValueMember = "Id";
-            this.lokGroup.Size = new System.Drawing.Size(246, 26);
+            this.lokGroup.Size = new System.Drawing.Size(233, 26);
             this.lokGroup.TabIndex = 1;
             // 
             // groupBox2
@@ -265,11 +265,11 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(64, 36);
+            this.txtName.Location = new System.Drawing.Point(77, 36);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(246, 26);
+            this.txtName.Size = new System.Drawing.Size(233, 26);
             this.txtName.TabIndex = 3;
             // 
             // labelControl3
@@ -277,9 +277,9 @@
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Location = new System.Drawing.Point(8, 7);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(43, 19);
+            this.labelControl3.Size = new System.Drawing.Size(63, 19);
             this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "Vùng:";
+            this.labelControl3.Text = "Tỉnh/TP:";
             // 
             // lblName
             // 

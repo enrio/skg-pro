@@ -102,7 +102,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ResetInput()
         {
             lokGroup.ItemIndex = 0;
-            txtName.Text = null;           
+            txtName.Text = null;
 
             calPrice1.Text = null;
             calPrice2.Text = null;
@@ -116,7 +116,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ClearDataBindings()
         {
             lokGroup.DataBindings.Clear();
-            txtName.DataBindings.Clear();            
+            txtName.DataBindings.Clear();
 
             calPrice1.DataBindings.Clear();
             calPrice2.DataBindings.Clear();
@@ -129,8 +129,8 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void DataBindingControl()
         {
-            lokGroup.DataBindings.Add("EditValue", _dtb, ".GroupId");            
-            txtName.DataBindings.Add("EditValue", _dtb, ".Text");            
+            lokGroup.DataBindings.Add("EditValue", _dtb, ".GroupId");
+            txtName.DataBindings.Add("EditValue", _dtb, ".Text");
 
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
             calPrice2.DataBindings.Add("EditValue", _dtb, ".Price2");
@@ -198,7 +198,7 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Tariff()
                 {
                     Text = txtName.Text,
-                   // Note = txtDescript.Text,
+                    // Note = txtDescript.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Code = "PROVINCE",
                     Price1 = (int)calPrice1.Value,
@@ -249,7 +249,7 @@ namespace SKG.DXF.Station.Fixed
 
         private void FrmTra_Tariff_Load(object sender, EventArgs e)
         {
-            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_AREA);
+            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_PROVINCE);
             lokGroup.ItemIndex = 0;
         }
     }

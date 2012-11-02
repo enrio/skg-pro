@@ -316,8 +316,8 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                //if (!Global.Session.User.CheckAdmin())
-                //    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
+                if (!Global.Session.User.CheckAdmin() && !Global.Session.User.CheckOperator())
+                    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
 
                 return res.ToDataTable();
             }
@@ -364,7 +364,7 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                if (!Global.Session.User.CheckAdmin())
+                if (!Global.Session.User.CheckAdmin() && !Global.Session.User.CheckOperator())
                     res = res.Where(k => k.CreatorId == Global.Session.User.Id);
 
                 return res.ToDataTable();

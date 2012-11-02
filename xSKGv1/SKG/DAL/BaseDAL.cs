@@ -41,8 +41,8 @@ namespace SKG.DAL
         /// </summary>
         public BaseDAL()
         {
-            Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
-            //Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
+            //Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
+            Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
         }
 
         /// <summary>

@@ -23,12 +23,15 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz { Code = typeof(FrmTra_VehicleFixed).FullName,
-                Parent = typeof(Level2).FullName,
-                Text = "SỬA THÔNG TIN XE CỐ ĐỊNH",
-                Level = 3,
-                Order = 23,
-                Picture = @"Icons\Vehicle.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmTra_VehicleFixed).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "SỬA THÔNG TIN XE CỐ ĐỊNH",
+                    Level = 3,
+                    Order = 23,
+                    Picture = @"Icons\Vehicle.png"
+                };
                 return menu;
             }
         }
@@ -114,6 +117,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ResetInput()
         {
             lueTransport.ItemIndex = 0;
+            lueRoute.ItemIndex = 0;
             txtCode.Text = null;
             txtSeats.Text = "0";
             txtBeds.Text = "0";
@@ -124,6 +128,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ClearDataBindings()
         {
             lueTransport.DataBindings.Clear();
+            lueRoute.DataBindings.Clear();
             txtCode.DataBindings.Clear();
             txtSeats.DataBindings.Clear();
             txtBeds.DataBindings.Clear();
@@ -144,6 +149,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void DataBindingControl()
         {
             lueTransport.DataBindings.Add("EditValue", _dtb, ".TransportId");
+            lueRoute.DataBindings.Add("EditValue", _dtb, ".TariffId");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
@@ -164,6 +170,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             lueTransport.Properties.ReadOnly = isReadOnly;
+            lueRoute.Properties.ReadOnly = isReadOnly;
             txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;

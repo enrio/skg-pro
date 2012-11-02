@@ -68,9 +68,9 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog();
-            open.Filter = "Excel file (Bangtay.xls)|Bangtay.xls";
+            var open = new OpenFileDialog { Filter = "Excel file (Bangtay.xls)|Bangtay.xls" };
             open.ShowDialog();
+
             if (open.FileName == "" || !open.CheckFileExists)
             {
                 PerformCancel();
@@ -96,11 +96,19 @@ namespace SKG.DXF.Station.Manage
                 {
                     if (ve.Fixed)
                     {
-                        r["Route"] = ve.Tariff.Text;
-                        r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-                        r["Seats"] = ve.Seats;
-                        r["Beds"] = ve.Beds;
-                        r["CodeId"] = ve.Id;
+                        if (ve.Tariff == null)
+                        {
+                            r.RowError = "Xe chưa đăng kí tuyến";
+                            r["Note"] = r.RowError;
+                        }
+                        else
+                        {
+                            r["Route"] = ve.Tariff.Text;
+                            r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                            r["Seats"] = ve.Seats;
+                            r["Beds"] = ve.Beds;
+                            r["CodeId"] = ve.Id;
+                        }
                     }
                     else
                     {
@@ -158,7 +166,6 @@ namespace SKG.DXF.Station.Manage
             var dtr = _tb_fixed.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
             {
-                var bs = r["Code"] + "";
                 var dt = Global.Session.Current;
                 if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
@@ -166,9 +173,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail();
-                o.Tra_VehicleId = (Guid)r["CodeId"];
-                o.DateIn = dt;
+                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
@@ -182,7 +187,6 @@ namespace SKG.DXF.Station.Manage
             dtr = _tb_normal.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
             {
-                var bs = r["Code"] + "";
                 var dt = Global.Session.Current;
                 if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
@@ -190,9 +194,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail();
-                o.Tra_VehicleId = (Guid)r["CodeId"];
-                o.DateIn = dt;
+                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {

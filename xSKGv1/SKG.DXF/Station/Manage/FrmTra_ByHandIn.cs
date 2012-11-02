@@ -24,7 +24,7 @@ namespace SKG.DXF.Station.Manage
     /// <summary>
     /// Input gate
     /// </summary>
-    public partial class FrmTra_ByHand : SKG.DXF.FrmInput
+    public partial class FrmTra_ByHandIn : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -33,9 +33,9 @@ namespace SKG.DXF.Station.Manage
             {
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_ByHand).FullName,
+                    Code = typeof(FrmTra_ByHandIn).FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "NHẬP BẰNG TAY",
+                    Text = "NHẬP XE BẰNG TAY",
                     Level = 3,
                     Order = 27,
                     Picture = @"Icons\ByHand.png"
@@ -48,7 +48,7 @@ namespace SKG.DXF.Station.Manage
         DataTable _tb_fixed;
         DataTable _tb_normal;
 
-        public FrmTra_ByHand()
+        public FrmTra_ByHandIn()
         {
             InitializeComponent();
 

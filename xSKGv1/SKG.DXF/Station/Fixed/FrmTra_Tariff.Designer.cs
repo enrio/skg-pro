@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.lokGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.calRose2 = new DevExpress.XtraEditors.CalcEdit();
@@ -62,11 +63,11 @@
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.lokGroup = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calRose1.Properties)).BeginInit();
@@ -78,7 +79,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -117,6 +117,27 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 73);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // lokGroup
+            // 
+            this.lokGroup.Location = new System.Drawing.Point(64, 4);
+            this.lokGroup.Name = "lokGroup";
+            this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokGroup.Properties.Appearance.Options.UseFont = true;
+            this.lokGroup.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lokGroup.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lokGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lokGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", 100, "Tên"),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
+            this.lokGroup.Properties.DisplayMember = "Text";
+            this.lokGroup.Properties.NullText = "";
+            this.lokGroup.Properties.ValueMember = "Id";
+            this.lokGroup.Size = new System.Drawing.Size(246, 26);
+            this.lokGroup.TabIndex = 1;
             // 
             // groupBox2
             // 
@@ -502,7 +523,7 @@
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "Vùng";
+            this.gridColumn11.Caption = "Tỉnh/TP";
             this.gridColumn11.FieldName = "Area";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
@@ -571,27 +592,6 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 122;
             // 
-            // lokGroup
-            // 
-            this.lokGroup.Location = new System.Drawing.Point(64, 4);
-            this.lokGroup.Name = "lokGroup";
-            this.lokGroup.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lokGroup.Properties.Appearance.Options.UseFont = true;
-            this.lokGroup.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lokGroup.Properties.AppearanceDropDown.Options.UseFont = true;
-            this.lokGroup.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lokGroup.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", 100, "Tên"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Note", 30, "Mô tả")});
-            this.lokGroup.Properties.DisplayMember = "Text";
-            this.lokGroup.Properties.NullText = "";
-            this.lokGroup.Properties.ValueMember = "Id";
-            this.lokGroup.Size = new System.Drawing.Size(246, 26);
-            this.lokGroup.TabIndex = 1;
-            // 
             // FrmTra_Tariff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -607,6 +607,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.calRose2.Properties)).EndInit();
@@ -620,7 +621,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Home.Sytem
 {
-    partial class FrmPol_ChangPass
+    partial class FrmPol_ChangePass
     {
         /// <summary>
         /// Required designer variable.

@@ -50,12 +50,11 @@
             // panelBackground
             // 
             this.panelBackground.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelBackground.ContentImage = global::SKG.DXF.Properties.Resources.logon;
             this.panelBackground.Controls.Add(this.tableLayoutPanel1);
             this.panelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBackground.Location = new System.Drawing.Point(0, 63);
             this.panelBackground.Name = "panelBackground";
-            this.panelBackground.Size = new System.Drawing.Size(380, 209);
+            this.panelBackground.Size = new System.Drawing.Size(563, 342);
             this.panelBackground.TabIndex = 10;
             // 
             // tableLayoutPanel1
@@ -70,7 +69,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtPass, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtConfirm, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelControl1, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 112);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 179);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -179,13 +178,13 @@
             this.btnSave.Text = "&Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // FrmPol_ChangePass
+            // FrmPol_ChangPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 272);
+            this.ClientSize = new System.Drawing.Size(563, 405);
             this.Controls.Add(this.panelBackground);
-            this.Name = "FrmPol_ChangePass";
+            this.Name = "FrmPol_ChangPass";
             this.Load += new System.EventHandler(this.FrmPol_ChangePass_Load);
             this.Controls.SetChildIndex(this.panelBackground, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

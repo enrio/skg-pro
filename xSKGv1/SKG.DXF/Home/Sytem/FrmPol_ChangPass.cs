@@ -68,12 +68,21 @@ namespace SKG.DXF.Home.Sytem
             {
                 var bll = new Pol_UserBLL();
                 if (bll.ChangePass(txtPass.Text))
+                {
                     XtraMessageBox.Show(STR_SUCC, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Close();
+                }
                 else
+                {
                     XtraMessageBox.Show(STR_ERR, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtPass.Focus();
+                }
             }
             else
+            {
                 XtraMessageBox.Show(STR_CONFIRM, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtConfirm.Focus();
+            }
         }
 
         private void FrmPol_ChangePass_Load(object sender, EventArgs e)

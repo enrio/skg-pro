@@ -187,6 +187,12 @@
     </Compile>
     <Compile Include="Home\Grant\Level2.cs" />
     <Compile Include="Home\Level1.cs" />
+    <Compile Include="Home\Sytem\FrmPol_ChangePass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home\Sytem\FrmPol_ChangePass.Designer.cs">
+      <DependentUpon>FrmPol_ChangePass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home\Sytem\FrmPol_Close.cs" />
     <Compile Include="Home\Sytem\FrmPol_Exit.cs" />
     <Compile Include="Home\Sytem\FrmPol_Login.cs">
@@ -366,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Grant\FrmPol_UserRole.resx">
       <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Sytem\FrmPol_ChangePass.resx">
+      <DependentUpon>FrmPol_ChangePass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Sytem\FrmPol_Login.resx">
       <DependentUpon>FrmPol_Login.cs</DependentUpon>

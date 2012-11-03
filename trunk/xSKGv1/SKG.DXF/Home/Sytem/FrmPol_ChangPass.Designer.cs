@@ -50,6 +50,7 @@
             // panelBackground
             // 
             this.panelBackground.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelBackground.ContentImage = global::SKG.DXF.Properties.Resources.changepass;
             this.panelBackground.Controls.Add(this.tableLayoutPanel1);
             this.panelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBackground.Location = new System.Drawing.Point(0, 63);

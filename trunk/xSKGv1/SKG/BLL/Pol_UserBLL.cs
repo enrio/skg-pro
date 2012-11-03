@@ -44,5 +44,23 @@ namespace SKG.BLL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Change password
+        /// </summary>
+        /// <param name="pass">New password need to change</param>
+        /// <returns></returns>
+        public bool ChangePass(string pass)
+        {
+            object ok;
+            if (Global.Session.User != null)
+            {
+                Global.Session.User.Pass = pass;
+                ok = Update(Global.Session.User);
+                if (ok != null) return true;
+                else return false;
+            }
+            else return false;
+        }
     }
 }

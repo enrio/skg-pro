@@ -23,7 +23,7 @@ namespace SKG.DXF.Home.Sytem
     /// <summary>
     /// Menuz - Login
     /// </summary>
-    public partial class FrmPol_ChangePass : SKG.DXF.FrmInput
+    public partial class FrmPol_ChangPass : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -34,7 +34,7 @@ namespace SKG.DXF.Home.Sytem
             {
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_ChangePass).FullName,
+                    Code = typeof(FrmPol_ChangPass).FullName,
                     Parent = typeof(Level2).FullName,
                     Text = "Đổi mật khẩu",
                     Level = 3,
@@ -47,7 +47,7 @@ namespace SKG.DXF.Home.Sytem
         #endregion
 
 
-        public FrmPol_ChangePass()
+        public FrmPol_ChangPass()
         {
             InitializeComponent();
         }

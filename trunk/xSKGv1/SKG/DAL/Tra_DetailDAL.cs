@@ -543,20 +543,21 @@ namespace SKG.DAL
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
 
+                // Tính tiền lưu đậu đêm lần trước (ra do xin ra ngoài sửa xe)
+                var b = _db.Tra_Details.FirstOrDefault(k => k.Tra_Vehicle.Code == number && k.Repair == true && k.Id != a.Id);
+                if (b != null)
+                {
+                    a.Money += b.Parked;
+                    a.Note = String.Format("{0} - Lưu đậu đêm: {1:#,#đ}", b.Note, b.Parked);
+                    if (isOut) b.Repair = false;
+                }
+
                 // Xe ra ngoài sửa không tính tiền phí, hoa hồng; chỉ tính tiền lưu đậu đêm
                 if (a.Repair)
                 {
                     a.Cost = 0;
                     a.Rose = 0;
                     a.Money = a.Parked;
-                }
-
-                // Tính tiền lưu đậu đêm lần trước (ra do xin ra ngoài sửa xe)
-                var b = _db.Tra_Details.FirstOrDefault(k => k.Tra_Vehicle.Code == number && k.Repair == true);
-                if (b != null)
-                {
-                    a.Money += b.Parked;
-                    a.Note = "Tiền lưu đậu đêm lần vô trước: " + b.Parked.ToString("#,#");
                 }
 
                 _db.SaveChanges();

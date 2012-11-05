@@ -35,9 +35,9 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lblNote = new System.Windows.Forms.Label();
-            this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
+            this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
+            this.lblNote = new System.Windows.Forms.Label();
             this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.lblNumber = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
@@ -147,9 +147,9 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.lblNote);
-            this.groupControl1.Controls.Add(this.cmdTariff);
             this.groupControl1.Controls.Add(this.lblSum);
+            this.groupControl1.Controls.Add(this.cmdTariff);
+            this.groupControl1.Controls.Add(this.lblNote);
             this.groupControl1.Controls.Add(this.lkeNumber);
             this.groupControl1.Controls.Add(this.lblNumber);
             this.groupControl1.Controls.Add(this.lblPhone);
@@ -172,16 +172,16 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
-            // lblNote
+            // lblSum
             // 
-            this.lblNote.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNote.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNote.ForeColor = System.Drawing.Color.Red;
-            this.lblNote.Location = new System.Drawing.Point(473, 330);
-            this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(278, 83);
-            this.lblNote.TabIndex = 68;
-            this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.ForeColor = System.Drawing.Color.Red;
+            this.lblSum.Location = new System.Drawing.Point(473, 330);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(278, 83);
+            this.lblSum.TabIndex = 68;
+            this.lblSum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmdTariff
             // 
@@ -194,15 +194,15 @@
             this.cmdTariff.Text = "Đơ&n giá";
             this.cmdTariff.Click += new System.EventHandler(this.cmdTariff_Click);
             // 
-            // lblSum
+            // lblNote
             // 
-            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.ForeColor = System.Drawing.Color.Red;
-            this.lblSum.Location = new System.Drawing.Point(295, 269);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(456, 61);
-            this.lblSum.TabIndex = 66;
+            this.lblNote.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNote.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.ForeColor = System.Drawing.Color.Red;
+            this.lblNote.Location = new System.Drawing.Point(295, 269);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(456, 61);
+            this.lblNote.TabIndex = 66;
             // 
             // lkeNumber
             // 
@@ -672,8 +672,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblNumber;
         private DevExpress.XtraEditors.LookUpEdit lkeNumber;
-        private System.Windows.Forms.Label lblSum;
-        private DevExpress.XtraEditors.SimpleButton cmdTariff;
         private System.Windows.Forms.Label lblNote;
+        private DevExpress.XtraEditors.SimpleButton cmdTariff;
+        private System.Windows.Forms.Label lblSum;
     }
 }

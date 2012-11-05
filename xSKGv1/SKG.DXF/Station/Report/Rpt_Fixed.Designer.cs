@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary5 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary6 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary7 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary8 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary9 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -216,7 +224,7 @@
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Route")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Province")});
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.Weight = 1.6491170723721118D;
@@ -224,7 +232,7 @@
             // xrTableCell4
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Number")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Count", "{0:#,#}")});
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.Weight = 0.3698774965132206D;
@@ -232,7 +240,7 @@
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Seats")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Seats", "{0:#,#}")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.Text = "xrTableCell9";
             this.xrTableCell9.Weight = 0.54981611971970046D;
@@ -240,7 +248,7 @@
             // xrTableCell10
             // 
             this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Beds")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Beds", "{0:#,#}")});
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.Text = "xrTableCell10";
             this.xrTableCell10.Weight = 0.52161540811645091D;
@@ -248,7 +256,7 @@
             // xrTableCell11
             // 
             this.xrTableCell11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Price1")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Price1", "{0:#,#}")});
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.Text = "xrTableCell11";
             this.xrTableCell11.Weight = 0.62207697520316851D;
@@ -256,7 +264,7 @@
             // xrTableCell12
             // 
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Rose1")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Rose1", "{0:#,#}")});
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.Text = "xrTableCell12";
             this.xrTableCell12.Weight = 0.72926171201199574D;
@@ -264,7 +272,7 @@
             // xrTableCell13
             // 
             this.xrTableCell13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumPrice")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Cost", "{0:#,#}")});
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.Text = "xrTableCell13";
             this.xrTableCell13.Weight = 0.648292785166895D;
@@ -272,7 +280,7 @@
             // xrTableCell14
             // 
             this.xrTableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumRose")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Rose", "{0:#,#}")});
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.Text = "xrTableCell14";
             this.xrTableCell14.Weight = 0.690257136664194D;
@@ -280,7 +288,7 @@
             // xrTableCell15
             // 
             this.xrTableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Daudem")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Parked", "{0:#,#}")});
             this.xrTableCell15.Name = "xrTableCell15";
             this.xrTableCell15.Text = "xrTableCell15";
             this.xrTableCell15.Weight = 0.75917563780057651D;
@@ -288,7 +296,7 @@
             // xrTableCell16
             // 
             this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumwVAT")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Totals", "{0:#,#}")});
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.Text = "xrTableCell16";
             this.xrTableCell16.Weight = 2.3280101276681728D;
@@ -296,7 +304,7 @@
             // xrTableCell17
             // 
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Doanhthu")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Sales", "{0:#,#}")});
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.Text = "xrTableCell17";
             this.xrTableCell17.Weight = 0.70126408425308617D;
@@ -304,7 +312,7 @@
             // xrTableCell18
             // 
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.VAT")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Vat", "{0:#,#}")});
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.Weight = 0.67389292228963582D;
@@ -698,7 +706,6 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Number")});
             this.xrTableCell8.Name = "xrTableCell8";
             xrSummary1.FormatString = "{0:#,#}";
-            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell8.Summary = xrSummary1;
             this.xrTableCell8.Text = "xrTableCell8";
@@ -709,7 +716,10 @@
             this.xrTableCell51.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Seats")});
             this.xrTableCell51.Name = "xrTableCell51";
-            this.xrTableCell51.Text = "xrTableCell9";
+            xrSummary2.FormatString = "{0:#,#}";
+            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell51.Summary = xrSummary2;
+            this.xrTableCell51.Text = "xrTableCell51";
             this.xrTableCell51.Weight = 0.54981611971970046D;
             // 
             // xrTableCell52
@@ -717,23 +727,20 @@
             this.xrTableCell52.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Beds")});
             this.xrTableCell52.Name = "xrTableCell52";
-            this.xrTableCell52.Text = "xrTableCell10";
+            xrSummary3.FormatString = "{0:#,#}";
+            xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell52.Summary = xrSummary3;
+            this.xrTableCell52.Text = "xrTableCell52";
             this.xrTableCell52.Weight = 0.52161540811645091D;
             // 
             // xrTableCell53
             // 
-            this.xrTableCell53.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Price1")});
             this.xrTableCell53.Name = "xrTableCell53";
-            this.xrTableCell53.Text = "xrTableCell11";
             this.xrTableCell53.Weight = 0.62207697520316851D;
             // 
             // xrTableCell54
             // 
-            this.xrTableCell54.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Rose1")});
             this.xrTableCell54.Name = "xrTableCell54";
-            this.xrTableCell54.Text = "xrTableCell12";
             this.xrTableCell54.Weight = 0.72926171201199574D;
             // 
             // xrTableCell55
@@ -741,31 +748,43 @@
             this.xrTableCell55.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumPrice")});
             this.xrTableCell55.Name = "xrTableCell55";
-            this.xrTableCell55.Text = "xrTableCell13";
+            xrSummary4.FormatString = "{0:#,#}";
+            xrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell55.Summary = xrSummary4;
+            this.xrTableCell55.Text = "xrTableCell55";
             this.xrTableCell55.Weight = 0.648292785166895D;
             // 
             // xrTableCell56
             // 
             this.xrTableCell56.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumRose")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Rose")});
             this.xrTableCell56.Name = "xrTableCell56";
-            this.xrTableCell56.Text = "xrTableCell14";
+            xrSummary5.FormatString = "{0:#,#}";
+            xrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell56.Summary = xrSummary5;
+            this.xrTableCell56.Text = "xrTableCell56";
             this.xrTableCell56.Weight = 0.690257136664194D;
             // 
             // xrTableCell57
             // 
             this.xrTableCell57.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Daudem")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Parked")});
             this.xrTableCell57.Name = "xrTableCell57";
-            this.xrTableCell57.Text = "xrTableCell15";
+            xrSummary6.FormatString = "{0:#,#}";
+            xrSummary6.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell57.Summary = xrSummary6;
+            this.xrTableCell57.Text = "xrTableCell57";
             this.xrTableCell57.Weight = 0.75917563780057651D;
             // 
             // xrTableCell58
             // 
             this.xrTableCell58.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.SumwVAT")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Totals")});
             this.xrTableCell58.Name = "xrTableCell58";
-            this.xrTableCell58.Text = "xrTableCell16";
+            xrSummary7.FormatString = "{0:#,#}";
+            xrSummary7.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell58.Summary = xrSummary7;
+            this.xrTableCell58.Text = "xrTableCell58";
             this.xrTableCell58.Weight = 2.3280101276681728D;
             // 
             // xrTableCell59
@@ -773,15 +792,21 @@
             this.xrTableCell59.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Doanhthu")});
             this.xrTableCell59.Name = "xrTableCell59";
-            this.xrTableCell59.Text = "xrTableCell17";
+            xrSummary8.FormatString = "{0:#,#}";
+            xrSummary8.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell59.Summary = xrSummary8;
+            this.xrTableCell59.Text = "xrTableCell59";
             this.xrTableCell59.Weight = 0.70126408425308617D;
             // 
             // xrTableCell60
             // 
             this.xrTableCell60.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.VAT")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Vat")});
             this.xrTableCell60.Name = "xrTableCell60";
-            this.xrTableCell60.Text = "xrTableCell18";
+            xrSummary9.FormatString = "{0:#,#}";
+            xrSummary9.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell60.Summary = xrSummary9;
+            this.xrTableCell60.Text = "xrTableCell60";
             this.xrTableCell60.Weight = 0.67389292228963582D;
             // 
             // PageHeader

@@ -261,7 +261,7 @@
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Seats", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Seats", "{0:#,#}")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "xrTableCell9";
@@ -271,7 +271,7 @@
             // xrTableCell10
             // 
             this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Beds", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Beds", "{0:#,#}")});
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "xrTableCell10";
@@ -281,7 +281,7 @@
             // xrTableCell11
             // 
             this.xrTableCell11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Price1", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Price1", "{0:#,#}")});
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
             this.xrTableCell11.Text = "xrTableCell11";
@@ -291,7 +291,7 @@
             // xrTableCell12
             // 
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Rose1", "{0:#,#}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Rose1", "{0:#,#}")});
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
             this.xrTableCell12.Text = "xrTableCell12";
@@ -755,7 +755,7 @@
             // xrTableCell51
             // 
             this.xrTableCell51.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Seats")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Seats")});
             this.xrTableCell51.Name = "xrTableCell51";
             this.xrTableCell51.StylePriority.UseTextAlignment = false;
             xrSummary3.FormatString = "{0:#,#}";
@@ -768,7 +768,7 @@
             // xrTableCell52
             // 
             this.xrTableCell52.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Beds")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Beds")});
             this.xrTableCell52.Name = "xrTableCell52";
             this.xrTableCell52.StylePriority.UseTextAlignment = false;
             xrSummary4.FormatString = "{0:#,#}";
@@ -843,7 +843,7 @@
             // xrTableCell59
             // 
             this.xrTableCell59.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Sales.Doanhthu")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Sales")});
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StylePriority.UseTextAlignment = false;
             xrSummary9.FormatString = "{0:#,#}";

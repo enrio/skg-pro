@@ -71,20 +71,36 @@ namespace SKG.DXF.Station.Sumary
         #region Override
         protected override void PerformPrint()
         {
-            var a = new Report.Rpt_Fixed() { DataSource = _dtb };
-            a.Name = Global.Session.User.Acc
-                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss");
+            var rpt = new Report.Rpt_Fixed
+            {
+                Name = Global.Session.User.Acc +
+                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_cd"
+            };
+            decimal sum = 0;
 
-            /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
-                dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
-            a.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            // Ca làm việc
+            DateTime shift;
+            int i = Global.Session.Shift(out shift);
 
-            var d = Global.Session.Current;
-            a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
-            a.xrcAccount.Text = Global.Session.User.Name;*/
+            var end = dteTo.DateTime.ToEndOfDay();
+            var start = dteFrom.DateTime.ToStartOfDay();
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(a);
+            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA"
+                + "\n\rTừ ngày " + start.ToString("dd/MM/yyyy")
+                + " đến ngày " + end.ToString("dd/MM/yyyy");
+
+            var tmp = shift.Date.ToString("A dd B MM C yyyy");
+            tmp = tmp.Replace("A", "Ngày");
+            tmp = tmp.Replace("B", "tháng");
+            tmp = tmp.Replace("C", "nămy");
+            rpt.xrcDate.Text = tmp;
+            rpt.xrlCashier.Text = Global.Session.User.Name;
+
+            rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 

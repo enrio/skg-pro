@@ -136,6 +136,11 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
+        /// Gate out to repair
+        /// </summary>
+        public bool Repair { set; get; }
+
+        /// <summary>
         /// Charge for vehicle normal
         /// </summary>
         /// <param name="error">Error of time</param>

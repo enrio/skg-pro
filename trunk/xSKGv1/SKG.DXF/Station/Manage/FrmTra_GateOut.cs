@@ -111,21 +111,15 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdSumaryFixed_Click(object sender, EventArgs e)
         {
-            decimal _sum = 0;
-            var a = new Report.Rpt_Fixed() { DataSource = _dtb };
-            a.Name = Global.Session.User.Acc
-                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss");
+            var rpt = new Report.Rpt_Fixed { Name = Global.Session.User.Acc + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss_cd") };
+            decimal sum = 0;
 
-            /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
-                dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
-            a.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            var end = Global.Session.Current.Date.AddHours(13);
+            var start = end.AddDays(-1);
+            rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
 
-            var d = Global.Session.Current;
-            a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
-            a.xrcAccount.Text = Global.Session.User.Name;*/
-
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(a);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
         }

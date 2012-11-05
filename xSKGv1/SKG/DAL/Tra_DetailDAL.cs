@@ -600,7 +600,7 @@ namespace SKG.DAL
                                Beds = g.Sum(p => p.Tra_Vehicle.Beds) ?? 0,
 
                                Cost = g.Sum(p => p.Cost),
-                               //Rose = g.Sum(p => p.Rose),
+                               Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
 
                                Money = g.Sum(p => p.Money),
@@ -617,11 +617,16 @@ namespace SKG.DAL
                                s.Beds,
 
                                s.Cost,
-                               //s.Rose,
+                               s.Rose,
                                s.Parked,
 
                                s.Money,
-                               //Total = s.Parked + s.Cost + s.Rose,
+                               Total = s.Parked + s.Cost + s.Rose,
+
+                               Station = t.Text,
+                               Province = t.Group.Text,
+                               Area = t.Group.Parent.Text,
+                               Region = t.Group.Parent.Parent.Text
                            };
 
                 var txx = res2.ToDataTable();

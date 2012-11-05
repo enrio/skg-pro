@@ -89,7 +89,7 @@ namespace SKG
 
         public Session()
         {
-            Current = _bll.GetDate();
+            //Current = _bll.GetDate();
         }
 
         public void Dispose()

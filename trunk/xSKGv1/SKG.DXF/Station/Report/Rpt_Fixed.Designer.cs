@@ -97,7 +97,6 @@
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell51 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -158,9 +157,9 @@
             this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
-            this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.GroupHeader3 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.GroupHeader4 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -448,8 +447,8 @@
             // 
             // xrTable10
             // 
-            this.xrTable10.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
-                        | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTable10.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
+                        | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable10.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrTable10.Name = "xrTable10";
@@ -491,7 +490,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Area")});
             this.xrTableCell75.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell75.Name = "xrTableCell75";
+            this.xrTableCell75.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 0, 0, 0, 100F);
             this.xrTableCell75.StylePriority.UseFont = false;
+            this.xrTableCell75.StylePriority.UsePadding = false;
             this.xrTableCell75.StylePriority.UseTextAlignment = false;
             this.xrTableCell75.Text = "xrTableCell75";
             this.xrTableCell75.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -554,7 +555,8 @@
             // 
             // xrTable9
             // 
-            this.xrTable9.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTable9.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
+                        | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable9.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(3.973643E-05F, 0F);
             this.xrTable9.Name = "xrTable9";
@@ -681,7 +683,6 @@
             // xrTableRow3
             // 
             this.xrTableRow3.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell5,
             this.xrTableCell7,
             this.xrTableCell8,
             this.xrTableCell51,
@@ -697,11 +698,6 @@
             this.xrTableRow3.Name = "xrTableRow3";
             this.xrTableRow3.Weight = 1D;
             // 
-            // xrTableCell5
-            // 
-            this.xrTableCell5.Name = "xrTableCell5";
-            this.xrTableCell5.Weight = 0.40019966507793392D;
-            // 
             // xrTableCell7
             // 
             this.xrTableCell7.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -709,8 +705,8 @@
             this.xrTableCell7.StylePriority.UseFont = false;
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "TỔNG CỘNG";
-            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell7.Weight = 1.6491170723721118D;
+            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell7.Weight = 2.0493167374500456D;
             // 
             // xrTableCell8
             // 
@@ -849,8 +845,7 @@
             // 
             // xrTable8
             // 
-            this.xrTable8.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top)
-                        | DevExpress.XtraPrinting.BorderSide.Right)
+            this.xrTable8.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable8.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable8.LocationFloat = new DevExpress.Utils.PointFloat(0F, 49.79165F);
@@ -1216,11 +1211,6 @@
             this.Detail1.HeightF = 25F;
             this.Detail1.Name = "Detail1";
             // 
-            // dts_Fixed
-            // 
-            this.dts_Fixed.DataSetName = "Dts_Fixed";
-            this.dts_Fixed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // GroupHeader3
             // 
             this.GroupHeader3.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -1239,6 +1229,11 @@
             this.GroupHeader4.HeightF = 25F;
             this.GroupHeader4.Level = 1;
             this.GroupHeader4.Name = "GroupHeader4";
+            // 
+            // dts_Fixed
+            // 
+            this.dts_Fixed.DataSetName = "Dts_Fixed";
+            this.dts_Fixed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Rpt_Fixed
             // 
@@ -1351,7 +1346,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell50;
         private DevExpress.XtraReports.UI.XRTable xrTable3;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow3;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell51;

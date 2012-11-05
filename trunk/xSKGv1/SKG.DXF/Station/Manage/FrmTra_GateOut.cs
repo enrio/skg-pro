@@ -132,7 +132,17 @@ namespace SKG.DXF.Station.Manage
 
             var end = shift.Date.AddHours(13);
             var start = end.AddDays(-1);
+
+            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA NGÀY " + shift.Date.ToString("dd/MM/yyyy");
+            var tmp = shift.Date.ToString("A dd B MM C yyyy");
+            tmp = tmp.Replace("A", "Ngày");
+            tmp = tmp.Replace("B", "tháng");
+            tmp = tmp.Replace("C", "nămy");
+            rpt.xrcDate.Text = tmp;
+            rpt.xrlCashier.Text = Global.Session.User.Name;
+
             rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);

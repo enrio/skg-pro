@@ -177,9 +177,9 @@
             this.lblNote.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblNote.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNote.ForeColor = System.Drawing.Color.Red;
-            this.lblNote.Location = new System.Drawing.Point(473, 353);
+            this.lblNote.Location = new System.Drawing.Point(473, 330);
             this.lblNote.Name = "lblNote";
-            this.lblNote.Size = new System.Drawing.Size(278, 60);
+            this.lblNote.Size = new System.Drawing.Size(278, 83);
             this.lblNote.TabIndex = 68;
             this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -199,9 +199,9 @@
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSum.ForeColor = System.Drawing.Color.Red;
-            this.lblSum.Location = new System.Drawing.Point(473, 269);
+            this.lblSum.Location = new System.Drawing.Point(295, 269);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(278, 84);
+            this.lblSum.Size = new System.Drawing.Size(456, 61);
             this.lblSum.TabIndex = 66;
             // 
             // lkeNumber
@@ -233,7 +233,7 @@
             this.lblNumber.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblNumber.Location = new System.Drawing.Point(6, 272);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(461, 58);
+            this.lblNumber.Size = new System.Drawing.Size(283, 58);
             this.lblNumber.TabIndex = 64;
             this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

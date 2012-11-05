@@ -136,11 +136,6 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
-        /// Gate out to repair
-        /// </summary>
-        public bool Repair { set; get; }
-
-        /// <summary>
         /// Charge for vehicle normal
         /// </summary>
         /// <param name="error">Error of time</param>
@@ -181,12 +176,8 @@ namespace SKG.DAL.Entities
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
-            if (!Repair)
-            {
-                Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
-                Rose += (Price2 + Rose2) * bed;
-            }
-
+            Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
+            Rose += (Price2 + Rose2) * bed;
             Money = Parked + Cost + Rose;
             return Money;
         }

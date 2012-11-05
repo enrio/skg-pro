@@ -35,7 +35,8 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.lblSumCaption = new System.Windows.Forms.Label();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.lblCaption = new System.Windows.Forms.Label();
             this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
             this.lblNote = new System.Windows.Forms.Label();
             this.lkeNumber = new DevExpress.XtraEditors.LookUpEdit();
@@ -72,7 +73,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblSum = new System.Windows.Forms.Label();
+            this.cmdSumaryFixed = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -148,8 +149,9 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.cmdSumaryFixed);
             this.groupControl1.Controls.Add(this.lblSum);
-            this.groupControl1.Controls.Add(this.lblSumCaption);
+            this.groupControl1.Controls.Add(this.lblCaption);
             this.groupControl1.Controls.Add(this.cmdTariff);
             this.groupControl1.Controls.Add(this.lblNote);
             this.groupControl1.Controls.Add(this.lkeNumber);
@@ -174,16 +176,27 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
-            // lblSumCaption
+            // lblSum
             // 
-            this.lblSumCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSumCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSumCaption.ForeColor = System.Drawing.Color.Red;
-            this.lblSumCaption.Location = new System.Drawing.Point(473, 330);
-            this.lblSumCaption.Name = "lblSumCaption";
-            this.lblSumCaption.Size = new System.Drawing.Size(206, 83);
-            this.lblSumCaption.TabIndex = 68;
-            this.lblSumCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.ForeColor = System.Drawing.Color.Red;
+            this.lblSum.Location = new System.Drawing.Point(686, 330);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(65, 83);
+            this.lblSum.TabIndex = 69;
+            this.lblSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCaption
+            // 
+            this.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaption.ForeColor = System.Drawing.Color.Red;
+            this.lblCaption.Location = new System.Drawing.Point(473, 330);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Size = new System.Drawing.Size(213, 83);
+            this.lblCaption.TabIndex = 68;
+            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cmdTariff
             // 
@@ -205,6 +218,7 @@
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(456, 61);
             this.lblNote.TabIndex = 66;
+            this.lblNote.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lkeNumber
             // 
@@ -235,7 +249,7 @@
             this.lblNumber.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblNumber.Location = new System.Drawing.Point(6, 272);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(283, 58);
+            this.lblNumber.Size = new System.Drawing.Size(282, 58);
             this.lblNumber.TabIndex = 64;
             this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -398,9 +412,9 @@
             this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblMoney.Location = new System.Drawing.Point(6, 330);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(461, 43);
+            this.lblMoney.Size = new System.Drawing.Size(362, 43);
             this.lblMoney.TabIndex = 57;
-            this.lblMoney.Text = "LỆ PHÍ: 123.456.789đ";
+            this.lblMoney.Text = "LỆ PHÍ: 23.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserIn
@@ -455,7 +469,7 @@
             this.cmdSumary2.Name = "cmdSumary2";
             this.cmdSumary2.Size = new System.Drawing.Size(93, 37);
             this.cmdSumary2.TabIndex = 17;
-            this.cmdSumary2.Text = "In nhóm &2";
+            this.cmdSumary2.Text = "In nhó&m 2";
             this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
             // 
             // cmdSumary1
@@ -466,7 +480,7 @@
             this.cmdSumary1.Name = "cmdSumary1";
             this.cmdSumary1.Size = new System.Drawing.Size(98, 37);
             this.cmdSumary1.TabIndex = 16;
-            this.cmdSumary1.Text = "In nhóm &1";
+            this.cmdSumary1.Text = "In &nhóm 1";
             this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
             // 
             // cmdOut
@@ -606,16 +620,15 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblSum
+            // cmdSumaryFixed
             // 
-            this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.ForeColor = System.Drawing.Color.Red;
-            this.lblSum.Location = new System.Drawing.Point(675, 330);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(76, 83);
-            this.lblSum.TabIndex = 69;
-            this.lblSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cmdSumaryFixed.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumaryFixed.Appearance.Options.UseFont = true;
+            this.cmdSumaryFixed.Location = new System.Drawing.Point(374, 333);
+            this.cmdSumaryFixed.Name = "cmdSumaryFixed";
+            this.cmdSumaryFixed.Size = new System.Drawing.Size(93, 37);
+            this.cmdSumaryFixed.TabIndex = 70;
+            this.cmdSumaryFixed.Text = "In &cố định";
             // 
             // FrmTra_GateOut
             // 
@@ -687,7 +700,8 @@
         private DevExpress.XtraEditors.LookUpEdit lkeNumber;
         private System.Windows.Forms.Label lblNote;
         private DevExpress.XtraEditors.SimpleButton cmdTariff;
-        private System.Windows.Forms.Label lblSumCaption;
+        private System.Windows.Forms.Label lblCaption;
         private System.Windows.Forms.Label lblSum;
+        private DevExpress.XtraEditors.SimpleButton cmdSumaryFixed;
     }
 }

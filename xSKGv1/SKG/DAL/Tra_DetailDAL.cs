@@ -500,6 +500,12 @@ namespace SKG.DAL
 
                 if (isOut && !ql) // cho ra
                 {
+                    // Cho xe ra để sửa chữa or lý do khác
+                    // khi xe vô bến (vẫn cho vào như bình thường)
+                    // khi cho xe ra bến tính tiền bình thường của lân ra bến thực sự (không phải ra do sửa chữa)
+                    // cộng tiền lưu đậu đem lần trước (không tính lệ phí, hoa hồng)
+                    if (ql) a.Repair = true;
+
                     // Người cho ra
                     a.Pol_UserOutId = Global.Session.User.Id;
 

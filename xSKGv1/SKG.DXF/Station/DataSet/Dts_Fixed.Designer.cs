@@ -523,7 +523,7 @@ namespace SKG.DXF.Station.DataSet {
                         string Province, 
                         string Area, 
                         string Region, 
-                        string Count, 
+                        int Count, 
                         int Seats, 
                         int Beds, 
                         long Price1, 
@@ -606,7 +606,7 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnArea);
                 this.columnRegion = new global::System.Data.DataColumn("Region", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRegion);
-                this.columnCount = new global::System.Data.DataColumn("Count", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCount = new global::System.Data.DataColumn("Count", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCount);
                 this.columnSeats = new global::System.Data.DataColumn("Seats", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeats);
@@ -824,10 +824,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Count {
+            public int Count {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.CountColumn]));
+                        return ((int)(this[this.tableRevenue.CountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Count\' in table \'Revenue\' is DBNull.", e);

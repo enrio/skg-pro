@@ -700,7 +700,7 @@ namespace SKG.DAL
                 // Ca làm việc
                 int i = Shift();
                 var shift = Global.Session.Current.Date;
-                if (i == 2) shift = shift.AddDays(1);
+                if (i == 1) shift = shift.AddDays(1);
                 var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 var res = from s in _db.Tra_Details

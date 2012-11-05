@@ -13,5 +13,20 @@ namespace SKG.DXF.Station.Report
             InitializeComponent();
         }
 
+        private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+        }
+
+        private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+        }
+
+        private void xrcProvince_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+        }
+
     }
 }

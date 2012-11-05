@@ -498,29 +498,24 @@ namespace SKG.DAL
                     else if (a.DateOut == null || a.Note == null) a.DateOut = Global.Session.Current;
                 }
 
-                if (isOut) // cho ra
+                if (isOut && !ql) // cho ra
                 {
-                    if (!ql)
-                    {
-                        // Người cho ra
-                        a.Pol_UserOutId = Global.Session.User.Id;
+                    // Cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                    if (ql) a.Repair = true;
 
-                        // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
-                        var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                        a.Order = dt.Max(p => p.Order) + 1;
+                    // Người cho ra
+                    a.Pol_UserOutId = Global.Session.User.Id;
 
-                        // Ca làm việc
-                        int i = Shift();
-                        var shift = Global.Session.Current.Date;
-                        if (i == 2) shift = shift.AddDays(1);
-                        a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                        a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
-                    }
-                    else
-                    {
-                        a.DateOutRepair = Global.Session.Current;
-                        a.Note = String.Format("ĐỘI ĐIỀU HÀNH CHO RA{0}({1})", Environment.NewLine, Global.Session.User.Name);
-                    }
+                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
+                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                    a.Order = dt.Max(p => p.Order) + 1;
+
+                    // Ca làm việc
+                    int i = Shift();
+                    var shift = Global.Session.Current.Date;
+                    if (i == 2) shift = shift.AddDays(1);
+                    a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
+                    a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                 }
 
                 a.Seats = a.Tra_Vehicle.Seats;
@@ -574,6 +569,7 @@ namespace SKG.DAL
                 var res1 = from s in _db.Tra_Details
                            where s.Pol_UserOutId != null
                            && s.Tra_Vehicle.Fixed == true
+                           && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
                            group s by s.Tra_Vehicle.Tariff.Code into g
                            select new
@@ -616,6 +612,7 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
                           where s.Pol_UserOutId != null
                           && s.Tra_Vehicle.Fixed == true
+                          && s.Repair == false
                           && s.DateOut >= fr && s.DateOut <= to
                           orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
                           select new

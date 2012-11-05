@@ -549,7 +549,7 @@ namespace SKG.DAL
                 {
                     a.Parked += b.Parked;
                     a.Money += b.Parked;
-                    a.Note = String.Format("{0} - Lưu đậu đêm: {1:#,#đ}", b.Note, b.Parked);
+                    a.Note = String.Format("{0} + Lưu đậu đêm: {1:#,#đ}", b.Note, b.Parked);
                     if (isOut) b.Repair = false;
                 }
 

@@ -544,6 +544,17 @@ namespace SKG.DAL
                 }
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+
+                // Tính tiền đậu đêm của xe này vô lần trước (ra bên đi sửa xe or lí do khác)
+                var parked = from s in _db.Tra_Details
+                             where s.Tra_VehicleId == a.Tra_VehicleId
+                             && s.Repair == true
+                             orderby s.DateOut descending
+                             select s;
+                var det = parked.FirstOrDefault();
+                a.Parked = det.Parked;
+                a.Money += det.Parked;
+
                 _db.SaveChanges();
                 return a;
             }

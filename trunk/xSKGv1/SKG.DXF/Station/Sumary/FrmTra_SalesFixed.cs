@@ -85,9 +85,9 @@ namespace SKG.DXF.Station.Sumary
             var end = dteTo.DateTime.ToEndOfDay();
             var start = dteFrom.DateTime.ToStartOfDay();
 
-            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA"
-                + "\n\rTừ ngày " + start.ToString("dd/MM/yyyy")
-                + " đến ngày " + end.ToString("dd/MM/yyyy");
+            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
+            rpt.xrlDuration.Text += "Từ ngày " + start.ToString("dd/MM/yyyy");
+            rpt.xrlDuration.Text += " đến ngày " + end.ToString("dd/MM/yyyy");
 
             var tmp = shift.Date.ToString("A dd B MM C yyyy");
             tmp = tmp.Replace("A", "Ngày");

@@ -48,6 +48,10 @@ namespace SKG.DXF.Station.Manage
             AllowCancel = false;
             AllowFind = false;
             AllowPrint = false;
+
+            lblCaption.Text = "Tổng xe trong bến:";
+            lblCaption.Text += "\n\r - Cố định:";
+            lblCaption.Text += "\n\r - Vãng lai:";
         }
 
         #region Events
@@ -188,11 +192,11 @@ namespace SKG.DXF.Station.Manage
 
             lblUserIn.Text = null;
             lblPhone.Text = null;
-            lblCaption.Text = null;
+            lblNote.Text = null;
 
-            lblNote.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
-            lblNote.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
-            lblNote.Text += "\n-Vãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
+            lblSum.Text = (c == 0 ? "0" : c.ToString("#,#"));
+            lblSum.Text += "\n\r" + (a == 0 ? "0" : a.ToString("#,#"));
+            lblSum.Text += "\n\r" + (b == 0 ? "0" : b.ToString("#,#"));
 
             base.PerformRefresh();
         }
@@ -241,11 +245,12 @@ namespace SKG.DXF.Station.Manage
                 lblMoney.Text = detail.Money.ToString("LỆ PHÍ #,#đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
-                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút", d.Days, d.Hours, d.Minutes);
+                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
+                    d.Days, d.Hours, d.Minutes, d.Seconds);
 
                 lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
-                lblCaption.Text = detail.Note;
+                lblNote.Text = detail.Note;
 
                 if (isOut) PerformRefresh();
             }

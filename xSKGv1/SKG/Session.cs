@@ -56,6 +56,37 @@ namespace SKG
             return res.FirstOrDefault();
         }
 
+        /// <summary>
+        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 2]; 16:00 - 07:00 tomorrow [shift 1])
+        /// </summary>
+        /// <param name="dt">Date of shift</param>
+        /// <returns></returns>
+        public int Shift(out DateTime dt)
+        {
+            var cur = Global.Session.Current;
+            var log = Global.Session.Login.Value;
+
+            var t = cur - log;
+            var tick = t.Ticks / 2;
+            var shift = cur.Subtract(new TimeSpan(tick));
+
+            var start = cur.Date.AddHours(7); // start of shift 2
+            var end = cur.Date.AddHours(16); // end of shift 2
+
+            if (shift >= start && shift <= end)
+            {
+                dt = shift.Date;
+                return 2;
+            }
+            else
+            {
+                if (shift > start)
+                    dt = shift.Date.AddDays(1);
+                else dt = shift.Date;
+                return 1;
+            }
+        }
+
         public void Dispose()
         {
             _bll.Dispose();

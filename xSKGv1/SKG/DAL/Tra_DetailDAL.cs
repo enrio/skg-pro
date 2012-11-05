@@ -511,7 +511,7 @@ namespace SKG.DAL
 
                         // Ca làm việc
                         DateTime shift;
-                        int i = Shift(out shift);
+                        int i = Global.Session.Shift(out shift);
                         a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
                         a.Text = i == 2 ? "07:00-16:00" : "16:00-07:00";
                     }
@@ -706,7 +706,7 @@ namespace SKG.DAL
 
                 // Ca làm việc
                 DateTime shift;
-                int i = Shift(out shift);
+                int i = Global.Session.Shift(out shift);
                 var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 var res = from s in _db.Tra_Details
@@ -755,36 +755,5 @@ namespace SKG.DAL
             }
         }
         #endregion
-
-        /// <summary>
-        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 2]; 16:00 - 07:00 tomorrow [shift 1])
-        /// </summary>
-        /// <param name="dt">Date of shift</param>
-        /// <returns></returns>
-        public int Shift(out DateTime dt)
-        {
-            var cur = Global.Session.Current;
-            var log = Global.Session.Login.Value;
-
-            var t = cur - log;
-            var tick = t.Ticks / 2;
-            var shift = cur.Subtract(new TimeSpan(tick));
-
-            var start = cur.Date.AddHours(7); // start of shift 2
-            var end = cur.Date.AddHours(16); // end of shift 2
-
-            if (shift >= start && shift <= end)
-            {
-                dt = shift.Date;
-                return 2;
-            }
-            else
-            {
-                if (shift > start)
-                    dt = shift.Date.AddDays(1);
-                else dt = shift.Date;
-                return 1;
-            }
-        }
     }
 }

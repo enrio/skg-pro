@@ -68,7 +68,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (Bangtay.xls)|Bangtay.xls" };
+            var open = new OpenFileDialog { Filter = "Excel file (XuatBT.xls)|XuatBT.xls" };
             open.ShowDialog();
 
             if (open.FileName == "" || !open.CheckFileExists)
@@ -221,7 +221,7 @@ namespace SKG.DXF.Station.Manage
             var tb = Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
-            tb.Columns[2].ColumnName = "DateIn";
+            tb.Columns[2].ColumnName = "DateOut";
             tb.Columns.Add("CodeId", typeof(Guid));
             tb.Columns.Add("Seats");
             tb.Columns.Add("Beds");

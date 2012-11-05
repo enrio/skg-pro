@@ -68,7 +68,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (Bangtay.xls)|Bangtay.xls" };
+            var open = new OpenFileDialog { Filter = "Excel file (NhapBT.xls)|NhapBT.xls" };
             open.ShowDialog();
 
             if (open.FileName == "" || !open.CheckFileExists)

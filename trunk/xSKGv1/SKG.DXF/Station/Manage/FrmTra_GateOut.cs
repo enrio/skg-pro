@@ -149,7 +149,7 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = null;
                 lblPhone.Text = null;
-                lblSum.Text = null;
+                lblSumCaption.Text = null;
 
                 lkeNumber.Properties.DataSource = null;
             }
@@ -188,11 +188,15 @@ namespace SKG.DXF.Station.Manage
 
             lblUserIn.Text = null;
             lblPhone.Text = null;
-            lblSum.Text = null;
+            lblSumCaption.Text = null;
 
-            lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
-            lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));
-            lblSum.Text += "\n-Vãng lai: " + (b == 0 ? "0" : b.ToString("#,#"));
+            lblSumCaption.Text = " Tổng xe trong bến:";
+            lblSumCaption.Text += "\n\r  - Cố định:";
+            lblSumCaption.Text += "\n\r  - Vãng lai:";
+
+            lblSum.Text = c == 0 ? "0" : c.ToString("#,#");
+            lblSum.Text += "\n\r" + (a == 0 ? "0" : a.ToString("#,#"));
+            lblSum.Text += "\n\r" + (b == 0 ? "0" : b.ToString("#,#"));
 
             base.PerformRefresh();
         }
@@ -241,7 +245,8 @@ namespace SKG.DXF.Station.Manage
                 lblMoney.Text = detail.Money.ToString("LỆ PHÍ #,#đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
-                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút", d.Days, d.Hours, d.Minutes);
+                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
+                    d.Days, d.Hours, d.Minutes, d.Seconds);
 
                 lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;

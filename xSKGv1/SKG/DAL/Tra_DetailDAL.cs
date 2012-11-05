@@ -498,14 +498,8 @@ namespace SKG.DAL
                     else if (a.DateOut == null || a.Note == null) a.DateOut = Global.Session.Current;
                 }
 
-                if (isOut) // cho ra
+                if (isOut && !ql) // cho ra
                 {
-                    // Cho xe ra để sửa chữa or lý do khác
-                    // khi xe vô bến (vẫn cho vào như bình thường)
-                    // khi cho xe ra bến tính tiền bình thường của lân ra bến thực sự (không phải ra do sửa chữa)
-                    // cộng tiền lưu đậu đem lần trước (không tính lệ phí, hoa hồng)
-                    if (ql) a.Repair = true;
-
                     // Người cho ra
                     a.Pol_UserOutId = Global.Session.User.Id;
 
@@ -544,20 +538,6 @@ namespace SKG.DAL
                 }
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
-
-                // Tính tiền đậu đêm của xe này vô lần trước (ra bên đi sửa xe or lí do khác)
-                var parked = from s in _db.Tra_Details
-                             where s.Tra_VehicleId == a.Tra_VehicleId
-                             && s.Repair == true
-                             orderby s.DateOut descending
-                             select s;
-                var det = parked.FirstOrDefault();
-                if (det != null)
-                {
-                    a.Parked = det.Parked;
-                    a.Money += det.Parked;
-                }
-
                 _db.SaveChanges();
                 return a;
             }

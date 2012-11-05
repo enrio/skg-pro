@@ -512,9 +512,9 @@ namespace SKG.DAL
                         // Ca làm việc
                         int i = Shift();
                         var shift = Global.Session.Current.Date;
-                        if (i == 2) shift = shift.AddDays(1);
+                        if (i == 1) shift = shift.AddDays(1);
                         a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                        a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
+                        a.Text = i == 2 ? "07:00-16:00" : "16:00-07:00";
                     }
                     else a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                 }
@@ -751,7 +751,7 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Work of shift (2 shifts: 07:00 - 16:00 today and 16:00 - 07:00 tomorrow)
+        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 2]; 16:00 - 07:00 tomorrow [shift 2])
         /// </summary>
         /// <returns></returns>
         public int Shift()
@@ -763,13 +763,13 @@ namespace SKG.DAL
             var tick = t.Ticks / 2;
             var shift = cur.Subtract(new TimeSpan(tick));
 
-            var start = cur.Date.AddHours(7); // start of shift 1
-            var end = cur.Date.AddHours(16); // end of shift 1            
+            var start = cur.Date.AddHours(7); // start of shift 2
+            var end = cur.Date.AddHours(16); // end of shift 2
 
             if (shift >= start && shift <= end)
-                return 1;
-            else
                 return 2;
+            else
+                return 1;
         }
     }
 }

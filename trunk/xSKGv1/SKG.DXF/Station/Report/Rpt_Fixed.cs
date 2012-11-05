@@ -13,19 +13,20 @@ namespace SKG.DXF.Station.Report
             InitializeComponent();
         }
 
-        static int _region = 0;
+        int _region = 0;
         private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xrcRegion.Text = "" + ++_region;
+            var x = 'A' + _region++;
+            xrcRegion.Text = (char)x + "";
         }
 
-        static int _area = 0;
+        int _area = 0;
         private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrcArea.Text = "" + ++_area;
         }
 
-        static int _province = 0;
+        int _province = 0;
         private void xrcProvince_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrcProvince.Text = "" + ++_province;

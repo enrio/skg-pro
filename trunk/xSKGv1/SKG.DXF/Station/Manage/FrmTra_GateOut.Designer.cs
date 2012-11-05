@@ -35,6 +35,7 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmdSumaryFixed = new DevExpress.XtraEditors.SimpleButton();
             this.lblSum = new System.Windows.Forms.Label();
             this.lblCaption = new System.Windows.Forms.Label();
             this.cmdTariff = new DevExpress.XtraEditors.SimpleButton();
@@ -73,7 +74,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cmdSumaryFixed = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -176,6 +176,17 @@
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "Cho xe ra bến";
             // 
+            // cmdSumaryFixed
+            // 
+            this.cmdSumaryFixed.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumaryFixed.Appearance.Options.UseFont = true;
+            this.cmdSumaryFixed.Location = new System.Drawing.Point(430, 333);
+            this.cmdSumaryFixed.Name = "cmdSumaryFixed";
+            this.cmdSumaryFixed.Size = new System.Drawing.Size(100, 37);
+            this.cmdSumaryFixed.TabIndex = 70;
+            this.cmdSumaryFixed.Text = "In &cố định";
+            this.cmdSumaryFixed.Click += new System.EventHandler(this.cmdSumaryFixed_Click);
+            // 
             // lblSum
             // 
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -189,14 +200,13 @@
             // 
             // lblCaption
             // 
-            this.lblCaption.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.Red;
-            this.lblCaption.Location = new System.Drawing.Point(473, 330);
+            this.lblCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCaption.Location = new System.Drawing.Point(536, 330);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(213, 83);
+            this.lblCaption.Size = new System.Drawing.Size(150, 83);
             this.lblCaption.TabIndex = 68;
-            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmdTariff
             // 
@@ -204,7 +214,7 @@
             this.cmdTariff.Appearance.Options.UseFont = true;
             this.cmdTariff.Location = new System.Drawing.Point(6, 376);
             this.cmdTariff.Name = "cmdTariff";
-            this.cmdTariff.Size = new System.Drawing.Size(88, 37);
+            this.cmdTariff.Size = new System.Drawing.Size(100, 37);
             this.cmdTariff.TabIndex = 67;
             this.cmdTariff.Text = "Đơ&n giá";
             this.cmdTariff.Click += new System.EventHandler(this.cmdTariff_Click);
@@ -412,7 +422,7 @@
             this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblMoney.Location = new System.Drawing.Point(6, 330);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(362, 43);
+            this.lblMoney.Size = new System.Drawing.Size(418, 43);
             this.lblMoney.TabIndex = 57;
             this.lblMoney.Text = "LỆ PHÍ: 23.456.789đ";
             this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -465,9 +475,9 @@
             // 
             this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(374, 376);
+            this.cmdSumary2.Location = new System.Drawing.Point(430, 376);
             this.cmdSumary2.Name = "cmdSumary2";
-            this.cmdSumary2.Size = new System.Drawing.Size(93, 37);
+            this.cmdSumary2.Size = new System.Drawing.Size(100, 37);
             this.cmdSumary2.TabIndex = 17;
             this.cmdSumary2.Text = "In nhó&m 2";
             this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
@@ -476,9 +486,9 @@
             // 
             this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(270, 376);
+            this.cmdSumary1.Location = new System.Drawing.Point(324, 376);
             this.cmdSumary1.Name = "cmdSumary1";
-            this.cmdSumary1.Size = new System.Drawing.Size(98, 37);
+            this.cmdSumary1.Size = new System.Drawing.Size(100, 37);
             this.cmdSumary1.TabIndex = 16;
             this.cmdSumary1.Text = "In &nhóm 1";
             this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
@@ -488,9 +498,9 @@
             this.cmdOut.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOut.Appearance.Options.UseFont = true;
             this.cmdOut.Enabled = false;
-            this.cmdOut.Location = new System.Drawing.Point(193, 376);
+            this.cmdOut.Location = new System.Drawing.Point(218, 376);
             this.cmdOut.Name = "cmdOut";
-            this.cmdOut.Size = new System.Drawing.Size(71, 37);
+            this.cmdOut.Size = new System.Drawing.Size(100, 37);
             this.cmdOut.TabIndex = 13;
             this.cmdOut.Text = "&Cho ra";
             this.cmdOut.Click += new System.EventHandler(this.cmdOut_Click);
@@ -499,9 +509,9 @@
             // 
             this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInvoice.Appearance.Options.UseFont = true;
-            this.cmdInvoice.Location = new System.Drawing.Point(99, 376);
+            this.cmdInvoice.Location = new System.Drawing.Point(112, 376);
             this.cmdInvoice.Name = "cmdInvoice";
-            this.cmdInvoice.Size = new System.Drawing.Size(88, 37);
+            this.cmdInvoice.Size = new System.Drawing.Size(100, 37);
             this.cmdInvoice.TabIndex = 12;
             this.cmdInvoice.Text = "&Tính tiền";
             this.cmdInvoice.Click += new System.EventHandler(this.cmdInvoice_Click);
@@ -619,16 +629,6 @@
             this.label12.TabIndex = 56;
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmdSumaryFixed
-            // 
-            this.cmdSumaryFixed.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumaryFixed.Appearance.Options.UseFont = true;
-            this.cmdSumaryFixed.Location = new System.Drawing.Point(374, 333);
-            this.cmdSumaryFixed.Name = "cmdSumaryFixed";
-            this.cmdSumaryFixed.Size = new System.Drawing.Size(93, 37);
-            this.cmdSumaryFixed.TabIndex = 70;
-            this.cmdSumaryFixed.Text = "In &cố định";
             // 
             // FrmTra_GateOut
             // 

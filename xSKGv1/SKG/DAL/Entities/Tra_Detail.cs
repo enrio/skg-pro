@@ -81,7 +81,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Date time into again when vehicle repair out gate succesfull
         /// </summary>
-        public DateTime DateInRepair { set; get; }
+        public DateTime? DateInRepair { set; get; }
 
         /// <summary>
         /// Date time out when vehicle gate out to repair

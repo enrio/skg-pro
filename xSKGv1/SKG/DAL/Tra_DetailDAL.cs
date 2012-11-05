@@ -662,7 +662,9 @@ namespace SKG.DAL
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
-                               Totals = g.Sum(p => p.Totals)
+                               Totals = g.Sum(p => p.Totals),
+                               Vat = g.Sum(p => p.Totals) * 10 / 100,
+                               Sales = g.Sum(p => p.Totals) * 90 / 100
                            };
                 sum = 0;
                 sum = res3.Sum(k => k.Totals);

@@ -181,8 +181,12 @@ namespace SKG.DAL.Entities
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
-            Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
-            Rose += (Price2 + Rose2) * bed;
+            if (!Repair)
+            {
+                Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
+                Rose += (Price2 + Rose2) * bed;
+            }
+
             Money = Parked + Cost + Rose;
             return Money;
         }

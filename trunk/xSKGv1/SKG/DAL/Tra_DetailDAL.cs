@@ -541,6 +541,15 @@ namespace SKG.DAL
                 }
 
                 a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+
+                // Xe ra ngoài sửa tiền phí, hoa hồng; chỉ tính tiền đậu đêm
+                if (a.Repair)
+                {
+                    a.Cost = 0;
+                    a.Rose = 0;
+                    a.Money = a.Parked;
+                }
+
                 _db.SaveChanges();
                 return a;
             }

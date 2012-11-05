@@ -500,22 +500,23 @@ namespace SKG.DAL
 
                 if (isOut) // cho ra
                 {
-                    // Cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
-                    if (ql) a.Repair = true;
+                    if (!ql)
+                    {
+                        // Người cho ra
+                        a.Pol_UserOutId = Global.Session.User.Id;
 
-                    // Người cho ra
-                    a.Pol_UserOutId = Global.Session.User.Id;
+                        // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
+                        var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                        a.Order = dt.Max(p => p.Order) + 1;
 
-                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
-                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                    a.Order = dt.Max(p => p.Order) + 1;
-
-                    // Ca làm việc
-                    int i = Shift();
-                    var shift = Global.Session.Current.Date;
-                    if (i == 2) shift = shift.AddDays(1);
-                    a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                    a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
+                        // Ca làm việc
+                        int i = Shift();
+                        var shift = Global.Session.Current.Date;
+                        if (i == 2) shift = shift.AddDays(1);
+                        a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
+                        a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
+                    }
+                    else a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                 }
 
                 a.Seats = a.Tra_Vehicle.Seats;

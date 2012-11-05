@@ -145,11 +145,11 @@ namespace SKG.DXF.Station.Manage
                 lblRose2.Text = null;
 
                 lblDeposit.Text = null;
-                lblSum.Text = null;
+                lblNote.Text = null;
 
                 lblUserIn.Text = null;
                 lblPhone.Text = null;
-                lblNote.Text = null;
+                lblSum.Text = null;
 
                 lkeNumber.Properties.DataSource = null;
             }
@@ -188,7 +188,7 @@ namespace SKG.DXF.Station.Manage
 
             lblUserIn.Text = null;
             lblPhone.Text = null;
-            lblNote.Text = null;
+            lblSum.Text = null;
 
             lblSum.Text = "Tổng xe trong bến: " + (c == 0 ? "0" : c.ToString("#,#"));
             lblSum.Text += "\n-Cố định:  " + (a == 0 ? "0" : a.ToString("#,#"));

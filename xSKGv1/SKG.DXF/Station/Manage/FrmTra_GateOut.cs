@@ -126,10 +126,12 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            var end = Global.Session.Current.Date.AddHours(13);
-            var start = end.AddDays(-1);
-            end = end.AddDays(1);
+            // Ca làm việc
+            DateTime shift;
+            int i = Global.Session.Shift(out shift);
 
+            var end = shift.Date.AddHours(13);
+            var start = end.AddDays(-1);
             rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };

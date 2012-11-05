@@ -167,17 +167,16 @@ namespace SKG.DXF.Station.Manage
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
                     r["Note"] = "Thời gian nhập sai!";
                     continue;
                 }
 
-                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
-
-                if (_bll.Tra_Detail.Insert(o) == null)
+                var bs = r["Code"] + "";
+                if (_bll.Tra_Detail.InvoiceOut(bs, true) == null)
                 {
-                    r["Note"] = "Xe này đã ở trong bến!";
+                    r["Note"] = "Xe này không ở trong bến!";
                     continue;
                 }
                 else fix++;
@@ -188,15 +187,14 @@ namespace SKG.DXF.Station.Manage
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
                     r["Note"] = "Thời gian nhập sai!";
                     continue;
                 }
 
-                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
-
-                if (_bll.Tra_Detail.Insert(o) == null)
+                var bs = r["Code"] + "";
+                if (_bll.Tra_Detail.InvoiceOut(bs, true) == null)
                 {
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;

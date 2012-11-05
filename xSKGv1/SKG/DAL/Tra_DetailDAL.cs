@@ -603,7 +603,7 @@ namespace SKG.DAL
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
 
-                               Money = g.Sum(p => p.Money),
+                               //Money = g.Sum(p => p.Money),
                            };
 
                 var res2 = from s in res1
@@ -620,32 +620,52 @@ namespace SKG.DAL
                                s.Rose,
                                s.Parked,
 
-                               s.Money,
-                               Total = s.Parked + s.Cost + s.Rose,
+                               //s.Money,
+                               Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,
                                Province = t.Group.Text,
                                Area = t.Group.Parent.Text,
-                               Region = t.Group.Parent.Parent.Text
+                               Region = t.Group.Parent.Parent.Text,
+
+                               t.Rose1,
+                               t.Rose2,
+                               t.Price1,
+                               t.Price2
                            };
 
                 var res3 = from s in res2
-                           group s by new { s.Province, s.Area, s.Region } into g
+                           group s by new
+                           {
+                               s.Province,
+                               s.Area,
+                               s.Region,
+                               s.Rose1,
+                               s.Rose2,
+                               s.Price1,
+                               s.Price2,
+                           } into g
                            select new
                            {
                                g.Key.Region,
                                g.Key.Area,
                                g.Key.Province,
+
+                               g.Key.Rose1,
+                               g.Key.Rose2,
+                               g.Key.Price1,
+                               g.Key.Price2,
+
                                Count = g.Sum(p => p.Count),
                                Seats = g.Sum(p => p.Seats),
                                Beds = g.Sum(p => p.Beds),
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
-                               Money = g.Sum(p => p.Money)
+                               Totals = g.Sum(p => p.Totals)
                            };
                 sum = 0;
-                sum = res3.Sum(k => k.Money);
+                sum = res3.Sum(k => k.Totals);
                 return res3.ToDataTable();
             }
             catch

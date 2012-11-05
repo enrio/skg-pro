@@ -116,6 +116,8 @@ namespace SKG.DXF.Station.Manage
 
             var end = Global.Session.Current.Date.AddHours(13);
             var start = end.AddDays(-1);
+            end = end.AddDays(1);
+
             rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };

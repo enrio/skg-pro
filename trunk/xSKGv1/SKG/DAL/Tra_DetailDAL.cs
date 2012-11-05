@@ -552,8 +552,11 @@ namespace SKG.DAL
                              orderby s.DateOut descending
                              select s;
                 var det = parked.FirstOrDefault();
-                a.Parked = det.Parked;
-                a.Money += det.Parked;
+                if (det != null)
+                {
+                    a.Parked = det.Parked;
+                    a.Money += det.Parked;
+                }
 
                 _db.SaveChanges();
                 return a;

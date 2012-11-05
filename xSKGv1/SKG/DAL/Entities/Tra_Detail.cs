@@ -77,18 +77,6 @@ namespace SKG.DAL.Entities
         public int HalfDay { set; get; }
         #endregion
 
-        #region Out station
-        /// <summary>
-        /// Date time into again when vehicle repair out gate succesfull
-        /// </summary>
-        public DateTime? DateInRepair { set; get; }
-
-        /// <summary>
-        /// Date time out when vehicle gate out to repair
-        /// </summary>
-        public DateTime? DateOutRepair { set; get; }
-        #endregion
-
         #region Price
         /// <summary>
         /// Price of a seat or a half day
@@ -148,6 +136,11 @@ namespace SKG.DAL.Entities
         #endregion
 
         /// <summary>
+        /// Allow out gate to repair not make money
+        /// </summary>
+        public bool Repair { set; get; }
+
+        /// <summary>
         /// Charge for vehicle normal
         /// </summary>
         /// <param name="error">Error of time</param>
@@ -188,8 +181,12 @@ namespace SKG.DAL.Entities
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
-            Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
-            Rose += (Price2 + Rose2) * bed;
+            if (!Repair)
+            {
+                Cost = Price1 * seat + Rose1 * (seat < 1 ? 1 : seat - 1);
+                Rose += (Price2 + Rose2) * bed;
+            }
+
             Money = Parked + Cost + Rose;
             return Money;
         }

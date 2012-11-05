@@ -77,6 +77,18 @@ namespace SKG.DAL.Entities
         public int HalfDay { set; get; }
         #endregion
 
+        #region Out station
+        /// <summary>
+        /// Date time into again when vehicle repair out gate succesfull
+        /// </summary>
+        public DateTime DateInRepair { set; get; }
+
+        /// <summary>
+        /// Date time out when vehicle gate out to repair
+        /// </summary>
+        public DateTime? DateOutRepair { set; get; }
+        #endregion
+
         #region Price
         /// <summary>
         /// Price of a seat or a half day

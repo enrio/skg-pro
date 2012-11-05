@@ -498,7 +498,7 @@ namespace SKG.DAL
                     else if (a.DateOut == null || a.Note == null) a.DateOut = Global.Session.Current;
                 }
 
-                if (isOut && !ql) // cho ra
+                if (isOut) // cho ra
                 {
                     // Cho xe ra để sửa chữa or lý do khác
                     // khi xe vô bến (vẫn cho vào như bình thường)

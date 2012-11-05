@@ -629,41 +629,24 @@ namespace SKG.DAL
                                Region = t.Group.Parent.Parent.Text
                            };
 
-                var txx = res2.ToDataTable();
-
+                var res3 = from s in res2
+                           group s by new { s.Province, s.Area, s.Region } into g
+                           select new
+                           {
+                               g.Key.Region,
+                               g.Key.Area,
+                               g.Key.Province,
+                               Count = g.Sum(p => p.Count),
+                               Seats = g.Sum(p => p.Seats),
+                               Beds = g.Sum(p => p.Beds),
+                               Cost = g.Sum(p => p.Cost),
+                               Rose = g.Sum(p => p.Rose),
+                               Parked = g.Sum(p => p.Parked),
+                               Money = g.Sum(p => p.Money)
+                           };
                 sum = 0;
-
-                var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId != null
-                          && s.Tra_Vehicle.Fixed == true
-                          && s.Repair == false
-                          && s.DateOut >= fr && s.DateOut <= to
-                          orderby s.Pol_UserOutId, s.Tra_Vehicle.Code
-                          select new
-                          {
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-
-                              UserOutName = s.Pol_UserOut.Name,
-                              Number = s.Tra_Vehicle.Code,
-
-                              s.DateIn,
-                              s.DateOut,
-
-                              s.Money,
-
-                              s.Price1,
-                              s.Price2,
-
-                              s.Rose1,
-                              s.Rose2,
-
-                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Text,
-                              Area = s.Tra_Vehicle.Tariff.Group.Text,
-                              Route = s.Tra_Vehicle.Tariff.Text
-                          };
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
+                sum = res3.Sum(k => k.Money);
+                return res3.ToDataTable();
             }
             catch
             {

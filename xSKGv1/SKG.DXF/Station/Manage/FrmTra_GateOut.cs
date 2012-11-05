@@ -49,7 +49,7 @@ namespace SKG.DXF.Station.Manage
             AllowFind = false;
             AllowPrint = false;
 
-            lblCaption.Text = "Tổng xe trong bến:";
+            lblCaption.Text = "Xe trong bến:";
             lblCaption.Text += "\n\r - Cố định:";
             lblCaption.Text += "\n\r - Vãng lai:";
         }
@@ -109,6 +109,27 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
+        private void cmdSumaryFixed_Click(object sender, EventArgs e)
+        {
+            decimal _sum = 0;
+            var a = new Report.Rpt_Fixed() { DataSource = _dtb };
+            a.Name = Global.Session.User.Acc
+                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss");
+
+            /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
+                dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));
+            a.xrcMoney.Text = _sum.ToVietnamese("đồng");
+
+            var d = Global.Session.Current;
+            a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
+            a.xrcAccount.Text = Global.Session.User.Name;*/
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            frm.SetReport(a);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+        }
+
         private void lkeNumber_Enter(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -153,7 +174,6 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = null;
                 lblPhone.Text = null;
-                lblCaption.Text = null;
 
                 lkeNumber.Properties.DataSource = null;
             }

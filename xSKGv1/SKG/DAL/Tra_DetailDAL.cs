@@ -699,7 +699,6 @@ namespace SKG.DAL
                 // Ca làm việc
                 DateTime shift;
                 int i = Shift(out shift);
-                if (i == 1) shift = shift.AddDays(1);
                 var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 var res = from s in _db.Tra_Details

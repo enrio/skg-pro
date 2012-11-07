@@ -420,7 +420,15 @@ namespace SKG.DXF
                             if (m3.Visibility == BarItemVisibility.Always)
                             {
                                 m2.ItemLinks.Add(m3);
-                                m3.Tag = asm.CreateInstance(code);
+
+                                var tmp = asm.CreateInstance(code);
+                                if (tmp is Form)
+                                {
+                                    var frm = (Form)tmp;
+                                    frm.Text = text.ToUpper();
+                                    m3.Tag = frm;
+                                }
+                                else m3.Tag = tmp;
 
                                 m3.LargeGlyph = Image.FromFile(icon);
                                 m3.ItemClick += ButtonItem_ItemClick;

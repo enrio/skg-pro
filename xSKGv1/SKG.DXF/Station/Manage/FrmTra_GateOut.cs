@@ -292,7 +292,19 @@ namespace SKG.DXF.Station.Manage
                 lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
                 lblNote.Text = detail.Note;
 
-                if (isOut) PerformRefresh();
+                if (isOut)
+                {
+                    var rpt = new Report.Rpt_Receipt
+                    {
+                        Name = Global.Session.User.Acc +
+                            Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_pt"
+                    };
+
+                    rpt.DataSource = detail;
+                    rpt.Print();
+
+                    PerformRefresh();
+                }
             }
             catch (Exception ex)
             {

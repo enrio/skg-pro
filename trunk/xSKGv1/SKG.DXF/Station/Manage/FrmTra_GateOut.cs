@@ -295,29 +295,32 @@ namespace SKG.DXF.Station.Manage
 
                 if (isOut)
                 {
-                    var rpt = new Report.Rpt_Receipt
+                    if (detail.Tra_Vehicle.Fixed)
                     {
-                        Name = Global.Session.User.Acc +
-                            Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_pt"
-                    };
+                        var rpt = new Report.Rpt_Receipt
+                        {
+                            Name = Global.Session.User.Acc +
+                                Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_pt"
+                        };
 
-                    var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
-                    var dtr = tbl.NewRow();
+                        var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
+                        var dtr = tbl.NewRow();
 
-                    dtr["Seri"] = detail.Order + "/" + Global.Session.Current.Month;
-                    dtr["Date"] = Global.Session.Current;
-                    dtr["Number"] = detail.Tra_Vehicle.Code;
-                    dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;
-                    dtr["Cost"] = detail.Cost;
-                    dtr["Rose"] = detail.Rose;
-                    dtr["Parked"] = detail.Parked;
-                    dtr["Money"] = detail.Money;
-                    dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
-                    rpt.xrcCreator.Text = Global.Session.User.Name;
+                        dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
+                        dtr["Date"] = Global.Session.Current;
+                        dtr["Number"] = detail.Tra_Vehicle.Code;
+                        dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;
+                        dtr["Cost"] = detail.Cost;
+                        dtr["Rose"] = detail.Rose;
+                        dtr["Parked"] = detail.Parked;
+                        dtr["Money"] = detail.Money;
+                        dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
+                        rpt.xrcCreator.Text = Global.Session.User.Name;
 
-                    tbl.Rows.Add(dtr);
-                    rpt.DataSource = tbl;
-                    rpt.Print();
+                        tbl.Rows.Add(dtr);
+                        rpt.DataSource = tbl;
+                        rpt.Print();
+                    }
 
                     PerformRefresh();
                 }

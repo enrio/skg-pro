@@ -104,9 +104,6 @@
     <Compile Include="Hasher\Registri.cs" />
     <Compile Include="Hasher\Windows.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="PCPrint.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Plugin\IHost.cs" />
     <Compile Include="Plugin\IPlugin.cs" />
     <Compile Include="Plugin\Menuz.cs" />

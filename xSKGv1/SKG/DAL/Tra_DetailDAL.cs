@@ -513,7 +513,7 @@ namespace SKG.DAL
                         DateTime shift;
                         int i = Global.Session.Shift(out shift);
                         a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                        a.Text = i == 2 ? "07:00-16:00" : "16:00-07:00";
+                        a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                     }
                     else a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                 }

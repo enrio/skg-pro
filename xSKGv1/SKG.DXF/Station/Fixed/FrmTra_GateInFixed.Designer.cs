@@ -463,7 +463,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_GateInFixed";
-            this.Text = "Cổng vào";
+            this.Text = "NHẬP XE CỐ ĐỊNH";
             this.Load += new System.EventHandler(this.FrmTra_GateInFixed_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);

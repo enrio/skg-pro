@@ -173,11 +173,11 @@
     <Compile Include="Home\Grant\FrmPol_RoleRight.Designer.cs">
       <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Grant\_FrmPol_UserRight.cs">
+    <Compile Include="Home\Grant\FrmPol_UserRight.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Grant\_FrmPol_UserRight.Designer.cs">
-      <DependentUpon>_FrmPol_UserRight.cs</DependentUpon>
+    <Compile Include="Home\Grant\FrmPol_UserRight.Designer.cs">
+      <DependentUpon>FrmPol_UserRight.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Grant\FrmPol_UserRole.cs">
       <SubType>Form</SubType>

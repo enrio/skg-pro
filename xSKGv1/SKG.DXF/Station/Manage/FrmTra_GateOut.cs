@@ -304,7 +304,7 @@ namespace SKG.DXF.Station.Manage
                     var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                     var dtr = tbl.NewRow();
 
-                    dtr["Seri"] = "01/10";
+                    dtr["Seri"] = detail.Order + "/" + Global.Session.Current.Month;
                     dtr["Date"] = Global.Session.Current;
                     dtr["Number"] = detail.Tra_Vehicle.Code;
                     dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;

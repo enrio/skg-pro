@@ -6,6 +6,7 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Extend;
     using SKG.Plugin;
+    using System.Data;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -300,7 +301,13 @@ namespace SKG.DXF.Station.Manage
                             Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_pt"
                     };
 
-                    rpt.DataSource = detail;
+                    var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
+                    var dtr = tbl.NewRow();
+
+                    dtr["Number"] = detail.Code;
+                    tbl.Rows.Add(dtr);
+
+                    rpt.DataSource = tbl;
                     rpt.Print();
 
                     PerformRefresh();

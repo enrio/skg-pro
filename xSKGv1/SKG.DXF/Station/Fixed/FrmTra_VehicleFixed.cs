@@ -121,6 +121,7 @@ namespace SKG.DXF.Station.Fixed
             txtCode.Text = null;
             txtSeats.Text = "0";
             txtBeds.Text = "0";
+            txtNode.Text = "0";
 
             base.ResetInput();
         }

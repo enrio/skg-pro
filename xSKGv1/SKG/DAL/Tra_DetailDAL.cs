@@ -154,6 +154,7 @@ namespace SKG.DAL
                 res.DateIn = o.DateIn;
                 //res.DateOut = o.DateOut;
 
+                res.Guest = o.Guest;
                 res.Code = o.Code;
                 res.Note = o.Note;
                 res.Order = o.Order;
@@ -415,6 +416,7 @@ namespace SKG.DAL
                               UserInName = s.Pol_UserIn.Name,
                               Phone = s.Pol_UserIn.Phone,
                               s.DateIn,
+                              s.Guest,
 
                               v.Code,
                               v.Seats,

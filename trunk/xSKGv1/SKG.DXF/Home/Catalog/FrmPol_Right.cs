@@ -168,9 +168,11 @@ namespace SKG.DXF.Home.Catalog
                     Code = txtCode.Text,
                     Text = txtName.Text,
                     More = txtMore.Text,
-                    ParentId = (Guid)lueParent.EditValue,
                     Note = txtDescript.Text
                 };
+
+                var parent = lueParent.EditValue + "";
+                if (parent != "") o.ParentId = (Guid)lueParent.EditValue;
 
                 var oki = _bll.Pol_Dictionary.UpdateRight(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);

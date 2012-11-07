@@ -304,9 +304,15 @@ namespace SKG.DXF.Station.Manage
                     var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                     var dtr = tbl.NewRow();
 
-                    dtr["Number"] = detail.Code;
-                    tbl.Rows.Add(dtr);
+                    dtr["Number"] = detail.Tra_Vehicle.Code;
+                    dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;
+                    dtr["Cost"] = detail.Cost;
+                    dtr["Rose"] = detail.Rose;
+                    dtr["Parked"] = detail.Parked;
+                    dtr["Money"] = detail.Money;
+                    dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
 
+                    tbl.Rows.Add(dtr);
                     rpt.DataSource = tbl;
                     rpt.Print();
 

@@ -413,7 +413,8 @@
             this.lueRoute.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueRoute.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueRoute.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.lueRoute.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
@@ -424,6 +425,7 @@
             this.lueRoute.Properties.ValueMember = "Id";
             this.lueRoute.Size = new System.Drawing.Size(254, 26);
             this.lueRoute.TabIndex = 4;
+            this.lueRoute.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueRoute_ButtonClick);
             // 
             // labelControl1
             // 
@@ -461,7 +463,8 @@
             this.lueTransport.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lueTransport.Properties.AppearanceDropDown.Options.UseFont = true;
             this.lueTransport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.lueTransport.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
@@ -472,6 +475,7 @@
             this.lueTransport.Properties.ValueMember = "Id";
             this.lueTransport.Size = new System.Drawing.Size(254, 26);
             this.lueTransport.TabIndex = 6;
+            this.lueTransport.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lueTransport_ButtonClick);
             // 
             // lblTransport
             // 

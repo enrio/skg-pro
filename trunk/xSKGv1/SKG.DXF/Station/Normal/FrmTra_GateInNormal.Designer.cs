@@ -367,7 +367,7 @@
             this.gridBand1.Columns.Add(this.gridColumn7);
             this.gridBand1.Columns.Add(this.gridColumn8);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 717;
+            this.gridBand1.Width = 829;
             // 
             // gridColumn1
             // 
@@ -396,6 +396,7 @@
             this.gridColumn4.Caption = "Người cho vào";
             this.gridColumn4.FieldName = "UserInName";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
             this.gridColumn4.Width = 112;
             // 
             // gridColumn5

@@ -53,6 +53,18 @@ namespace SKG.DXF.Station.Manage
             lblCaption.Text = "Xe trong bến:";
             lblCaption.Text += "\n\r - Cố định:";
             lblCaption.Text += "\n\r - Vãng lai:";
+
+            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+            if (ql)
+            {
+                cmdInvoice.Text = "Tạm ra bến";
+                cmdInvoice.Width += 10;
+
+                cmdOut.Visible = false;
+                cmdSumary1.Visible = false;
+                cmdSumary2.Visible = false;
+                cmdSumaryFixed.Visible = false;
+            }
         }
 
         #region Events
@@ -282,8 +294,7 @@ namespace SKG.DXF.Station.Manage
 
                 lblPrice2.Text = detail.Price2.ToString("#,#");
                 lblRose2.Text = detail.Rose2.ToString("#,#");
-
-                lblMoney.Text = detail.Money.ToString("LỆ PHÍ #,#đ");
+                lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ") + detail.Money.ToString("#,#đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
@@ -295,7 +306,7 @@ namespace SKG.DXF.Station.Manage
 
                 if (isOut)
                 {
-                    if (detail.Tra_Vehicle.Fixed)
+                    if (detail.Tra_Vehicle.Fixed && !detail.Repair)
                     {
                         var rpt = new Report.Rpt_Receipt
                         {

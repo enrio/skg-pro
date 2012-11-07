@@ -89,7 +89,7 @@ namespace SKG.DAL.Entities
         /// <returns></returns>
         public bool CheckAdmin()
         {
-            return CheckRole("QT") || Acc.Contains("admin");
+            return CheckRole("QT");
         }
 
         /// <summary>

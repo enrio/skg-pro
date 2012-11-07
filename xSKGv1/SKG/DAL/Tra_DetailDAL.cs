@@ -486,36 +486,29 @@ namespace SKG.DAL
             try
             {
                 var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.Pol_UserOutId == null);
-                var ql = Global.Session.User.CheckOperator();
+                a.DateOut = Global.Session.Current;
 
-                if (!isOut) // tinh tien                               
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (ql)
                 {
-                    if (ql)
-                    {
-                        a.DateOut = Global.Session.Current;
-                        a.Note = String.Format("ĐỘI ĐIỀU HÀNH CHO RA{0}({1})", Environment.NewLine, Global.Session.User.Name);
-                    }
-                    else if (a.DateOut == null || a.Note == null) a.DateOut = Global.Session.Current;
+                    a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                    a.Note = String.Format("ĐỘI ĐIỀU HÀNH TẠM CHO RA BẾN\n\r ({0})", Global.Session.User.Name);
                 }
 
-                if (isOut) // cho ra
+                if (isOut && !ql) // cho ra
                 {
-                    if (!ql)
-                    {
-                        // Người cho ra
-                        a.Pol_UserOutId = Global.Session.User.Id;
+                    // Người cho ra
+                    a.Pol_UserOutId = Global.Session.User.Id;
 
-                        // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
-                        var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                        a.Order = dt.Max(p => p.Order) + 1;
+                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
+                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                    a.Order = dt.Max(p => p.Order) + 1;
 
-                        // Ca làm việc
-                        DateTime shift;
-                        int i = Global.Session.Shift(out shift);
-                        a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                        a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
-                    }
-                    else a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                    // Ca làm việc
+                    DateTime shift;
+                    int i = Global.Session.Shift(out shift);
+                    a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
+                    a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                 }
 
                 a.Seats = a.Tra_Vehicle.Seats;

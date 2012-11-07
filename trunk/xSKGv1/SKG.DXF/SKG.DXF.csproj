@@ -232,6 +232,12 @@
     <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
       <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Transport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_Transport.Designer.cs">
+      <DependentUpon>FrmTra_Transport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\InDepot\Level2.cs" />
     <Compile Include="Station\Manage\FrmTra_ByHandOut.cs">
       <SubType>Form</SubType>
@@ -390,6 +396,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Transport.resx">
+      <DependentUpon>FrmTra_Transport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
     </EmbeddedResource>

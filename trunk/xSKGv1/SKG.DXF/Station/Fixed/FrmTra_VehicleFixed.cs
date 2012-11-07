@@ -141,7 +141,7 @@ namespace SKG.DXF.Station.Fixed
 
             cheHigh.DataBindings.Clear();
             cheCity.DataBindings.Clear();
-            txtServerQuality.DataBindings.Clear();
+            txtNode.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -162,7 +162,7 @@ namespace SKG.DXF.Station.Fixed
 
             cheHigh.DataBindings.Add("EditValue", _dtb, ".High");
             cheCity.DataBindings.Add("EditValue", _dtb, ".City");
-            txtServerQuality.DataBindings.Add("EditValue", _dtb, ".ServerQuality");
+            txtNode.DataBindings.Add("EditValue", _dtb, ".Node");
 
             base.DataBindingControl();
         }
@@ -183,7 +183,7 @@ namespace SKG.DXF.Station.Fixed
 
             cheHigh.Properties.ReadOnly = isReadOnly;
             cheCity.Properties.ReadOnly = isReadOnly;
-            txtServerQuality.Properties.ReadOnly = isReadOnly;
+            txtNode.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -211,7 +211,7 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    ServerQuality = txtServerQuality.Text
+                    ServerQuality = txtNode.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")
@@ -252,7 +252,7 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    ServerQuality = txtServerQuality.Text
+                    ServerQuality = txtNode.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")

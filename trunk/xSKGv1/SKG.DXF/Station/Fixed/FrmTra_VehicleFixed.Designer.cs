@@ -32,8 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.txtServerQuality = new DevExpress.XtraEditors.TextEdit();
-            this.lblServerQuality = new DevExpress.XtraEditors.LabelControl();
+            this.lblNode = new DevExpress.XtraEditors.LabelControl();
             this.txtProductionYear = new DevExpress.XtraEditors.TextEdit();
             this.lblProductionYear = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -82,11 +81,11 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.txtNode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtServerQuality.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties.VistaTimeProperties)).BeginInit();
@@ -110,6 +109,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -138,8 +138,10 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.txtServerQuality);
-            this.dockPanel1_Container.Controls.Add(this.lblServerQuality);
+            this.dockPanel1_Container.Controls.Add(this.cheCity);
+            this.dockPanel1_Container.Controls.Add(this.txtNode);
+            this.dockPanel1_Container.Controls.Add(this.lblNode);
+            this.dockPanel1_Container.Controls.Add(this.cheHigh);
             this.dockPanel1_Container.Controls.Add(this.txtProductionYear);
             this.dockPanel1_Container.Controls.Add(this.lblProductionYear);
             this.dockPanel1_Container.Controls.Add(this.groupBox3);
@@ -150,23 +152,14 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 128);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // txtServerQuality
+            // lblNode
             // 
-            this.txtServerQuality.Location = new System.Drawing.Point(600, 95);
-            this.txtServerQuality.Name = "txtServerQuality";
-            this.txtServerQuality.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtServerQuality.Properties.Appearance.Options.UseFont = true;
-            this.txtServerQuality.Size = new System.Drawing.Size(316, 26);
-            this.txtServerQuality.TabIndex = 26;
-            // 
-            // lblServerQuality
-            // 
-            this.lblServerQuality.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblServerQuality.Location = new System.Drawing.Point(506, 98);
-            this.lblServerQuality.Name = "lblServerQuality";
-            this.lblServerQuality.Size = new System.Drawing.Size(62, 19);
-            this.lblServerQuality.TabIndex = 25;
-            this.lblServerQuality.Text = "Phục vụ:";
+            this.lblNode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNode.Location = new System.Drawing.Point(496, 98);
+            this.lblNode.Name = "lblNode";
+            this.lblNode.Size = new System.Drawing.Size(99, 19);
+            this.lblNode.TabIndex = 23;
+            this.lblNode.Text = "Nốt tài/tháng:";
             // 
             // txtProductionYear
             // 
@@ -177,7 +170,7 @@
             this.txtProductionYear.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
             this.txtProductionYear.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtProductionYear.Size = new System.Drawing.Size(55, 26);
-            this.txtProductionYear.TabIndex = 24;
+            this.txtProductionYear.TabIndex = 13;
             // 
             // lblProductionYear
             // 
@@ -185,7 +178,7 @@
             this.lblProductionYear.Location = new System.Drawing.Point(364, 98);
             this.lblProductionYear.Name = "lblProductionYear";
             this.lblProductionYear.Size = new System.Drawing.Size(62, 19);
-            this.lblProductionYear.TabIndex = 23;
+            this.lblProductionYear.TabIndex = 12;
             this.lblProductionYear.Text = "Năm SX:";
             // 
             // groupBox3
@@ -320,7 +313,7 @@
             this.groupBox2.Location = new System.Drawing.Point(362, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(132, 88);
-            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tải trọng";
             // 
@@ -333,7 +326,7 @@
             this.txtSeats.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
             this.txtSeats.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtSeats.Size = new System.Drawing.Size(55, 26);
-            this.txtSeats.TabIndex = 11;
+            this.txtSeats.TabIndex = 9;
             // 
             // txtBeds
             // 
@@ -344,7 +337,7 @@
             this.txtBeds.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
             this.txtBeds.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtBeds.Size = new System.Drawing.Size(55, 26);
-            this.txtBeds.TabIndex = 13;
+            this.txtBeds.TabIndex = 11;
             // 
             // lblBeds
             // 
@@ -352,7 +345,7 @@
             this.lblBeds.Location = new System.Drawing.Point(6, 58);
             this.lblBeds.Name = "lblBeds";
             this.lblBeds.Size = new System.Drawing.Size(58, 19);
-            this.lblBeds.TabIndex = 12;
+            this.lblBeds.TabIndex = 10;
             this.lblBeds.Text = "Giường:";
             // 
             // lblSeats
@@ -361,14 +354,12 @@
             this.lblSeats.Location = new System.Drawing.Point(6, 26);
             this.lblSeats.Name = "lblSeats";
             this.lblSeats.Size = new System.Drawing.Size(34, 19);
-            this.lblSeats.TabIndex = 10;
+            this.lblSeats.TabIndex = 8;
             this.lblSeats.Text = "Ghế:";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cheCity);
             this.groupBox1.Controls.Add(this.lueRoute);
-            this.groupBox1.Controls.Add(this.cheHigh);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Controls.Add(this.txtCode);
             this.groupBox1.Controls.Add(this.lblCode);
@@ -384,13 +375,13 @@
             // 
             // cheCity
             // 
-            this.cheCity.Location = new System.Drawing.Point(264, 19);
+            this.cheCity.Location = new System.Drawing.Point(840, 97);
             this.cheCity.Name = "cheCity";
             this.cheCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cheCity.Properties.Appearance.Options.UseFont = true;
             this.cheCity.Properties.Caption = "Xe TP";
             this.cheCity.Size = new System.Drawing.Size(76, 24);
-            this.cheCity.TabIndex = 3;
+            this.cheCity.TabIndex = 26;
             // 
             // lueRoute
             // 
@@ -407,20 +398,21 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên")});
             this.lueRoute.Properties.DisplayMember = "Text";
+            this.lueRoute.Properties.NullText = "";
             this.lueRoute.Properties.ShowHeader = false;
             this.lueRoute.Properties.ValueMember = "Id";
-            this.lueRoute.Size = new System.Drawing.Size(156, 26);
-            this.lueRoute.TabIndex = 6;
+            this.lueRoute.Size = new System.Drawing.Size(254, 26);
+            this.lueRoute.TabIndex = 4;
             // 
             // cheHigh
             // 
-            this.cheHigh.Location = new System.Drawing.Point(262, 51);
+            this.cheHigh.Location = new System.Drawing.Point(718, 97);
             this.cheHigh.Name = "cheHigh";
             this.cheHigh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cheHigh.Properties.Appearance.Options.UseFont = true;
             this.cheHigh.Properties.Caption = "Xe CLC";
             this.cheHigh.Size = new System.Drawing.Size(85, 24);
-            this.cheHigh.TabIndex = 4;
+            this.cheHigh.TabIndex = 25;
             // 
             // labelControl1
             // 
@@ -428,7 +420,7 @@
             this.labelControl1.Location = new System.Drawing.Point(6, 54);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(85, 19);
-            this.labelControl1.TabIndex = 5;
+            this.labelControl1.TabIndex = 3;
             this.labelControl1.Text = "Chạy tuyến:";
             // 
             // txtCode
@@ -464,10 +456,11 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Tên")});
             this.lueTransport.Properties.DisplayMember = "Text";
+            this.lueTransport.Properties.NullText = "";
             this.lueTransport.Properties.ShowHeader = false;
             this.lueTransport.Properties.ValueMember = "Id";
             this.lueTransport.Size = new System.Drawing.Size(254, 26);
-            this.lueTransport.TabIndex = 8;
+            this.lueTransport.TabIndex = 6;
             // 
             // lblTransport
             // 
@@ -475,7 +468,7 @@
             this.lblTransport.Location = new System.Drawing.Point(6, 86);
             this.lblTransport.Name = "lblTransport";
             this.lblTransport.Size = new System.Drawing.Size(81, 19);
-            this.lblTransport.TabIndex = 7;
+            this.lblTransport.TabIndex = 5;
             this.lblTransport.Text = "ĐV.Vận tải:";
             // 
             // dockPanel2
@@ -831,13 +824,24 @@
             this.gridColumn16.Visible = true;
             this.gridColumn16.Width = 79;
             // 
-            // FrmTra_Vehicle
+            // txtNode
+            // 
+            this.txtNode.Location = new System.Drawing.Point(601, 95);
+            this.txtNode.Name = "txtNode";
+            this.txtNode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNode.Properties.Appearance.Options.UseFont = true;
+            this.txtNode.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtNode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtNode.Size = new System.Drawing.Size(107, 26);
+            this.txtNode.TabIndex = 24;
+            // 
+            // FrmTra_VehicleFixed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_Vehicle";
+            this.Name = "FrmTra_VehicleFixed";
             this.Load += new System.EventHandler(this.FrmTra_Media_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
@@ -846,7 +850,6 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtServerQuality.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -873,6 +876,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -905,8 +909,7 @@
         private DevExpress.XtraEditors.LabelControl lblTransport;
         private DevExpress.XtraEditors.CheckEdit cheCity;
         private DevExpress.XtraEditors.CheckEdit cheHigh;
-        private DevExpress.XtraEditors.TextEdit txtServerQuality;
-        private DevExpress.XtraEditors.LabelControl lblServerQuality;
+        private DevExpress.XtraEditors.LabelControl lblNode;
         private DevExpress.XtraEditors.TextEdit txtProductionYear;
         private DevExpress.XtraEditors.LabelControl lblProductionYear;
         private DevExpress.XtraGrid.GridControl grcMain;
@@ -932,5 +935,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraEditors.TextEdit txtNode;
     }
 }

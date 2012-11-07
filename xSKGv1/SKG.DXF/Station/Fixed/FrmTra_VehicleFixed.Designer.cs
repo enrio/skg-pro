@@ -32,7 +32,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cheCity = new DevExpress.XtraEditors.CheckEdit();
+            this.txtNode = new DevExpress.XtraEditors.TextEdit();
             this.lblNode = new DevExpress.XtraEditors.LabelControl();
+            this.cheHigh = new DevExpress.XtraEditors.CheckEdit();
             this.txtProductionYear = new DevExpress.XtraEditors.TextEdit();
             this.lblProductionYear = new DevExpress.XtraEditors.LabelControl();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -50,9 +53,7 @@
             this.lblBeds = new DevExpress.XtraEditors.LabelControl();
             this.lblSeats = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cheCity = new DevExpress.XtraEditors.CheckEdit();
             this.lueRoute = new DevExpress.XtraEditors.LookUpEdit();
-            this.cheHigh = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.lblCode = new DevExpress.XtraEditors.LabelControl();
@@ -68,7 +69,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -81,11 +82,13 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.txtNode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dteTermDriverLicense.Properties.VistaTimeProperties)).BeginInit();
@@ -100,16 +103,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSeats.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRoute.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -152,6 +152,27 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 128);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // cheCity
+            // 
+            this.cheCity.Location = new System.Drawing.Point(840, 97);
+            this.cheCity.Name = "cheCity";
+            this.cheCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheCity.Properties.Appearance.Options.UseFont = true;
+            this.cheCity.Properties.Caption = "Xe TP";
+            this.cheCity.Size = new System.Drawing.Size(76, 24);
+            this.cheCity.TabIndex = 26;
+            // 
+            // txtNode
+            // 
+            this.txtNode.Location = new System.Drawing.Point(601, 95);
+            this.txtNode.Name = "txtNode";
+            this.txtNode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNode.Properties.Appearance.Options.UseFont = true;
+            this.txtNode.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtNode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtNode.Size = new System.Drawing.Size(107, 26);
+            this.txtNode.TabIndex = 24;
+            // 
             // lblNode
             // 
             this.lblNode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,6 +181,16 @@
             this.lblNode.Size = new System.Drawing.Size(99, 19);
             this.lblNode.TabIndex = 23;
             this.lblNode.Text = "Nốt tài/tháng:";
+            // 
+            // cheHigh
+            // 
+            this.cheHigh.Location = new System.Drawing.Point(718, 97);
+            this.cheHigh.Name = "cheHigh";
+            this.cheHigh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cheHigh.Properties.Appearance.Options.UseFont = true;
+            this.cheHigh.Properties.Caption = "Xe CLC";
+            this.cheHigh.Size = new System.Drawing.Size(85, 24);
+            this.cheHigh.TabIndex = 25;
             // 
             // txtProductionYear
             // 
@@ -373,16 +404,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin xe";
             // 
-            // cheCity
-            // 
-            this.cheCity.Location = new System.Drawing.Point(840, 97);
-            this.cheCity.Name = "cheCity";
-            this.cheCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheCity.Properties.Appearance.Options.UseFont = true;
-            this.cheCity.Properties.Caption = "Xe TP";
-            this.cheCity.Size = new System.Drawing.Size(76, 24);
-            this.cheCity.TabIndex = 26;
-            // 
             // lueRoute
             // 
             this.lueRoute.Location = new System.Drawing.Point(93, 51);
@@ -403,16 +424,6 @@
             this.lueRoute.Properties.ValueMember = "Id";
             this.lueRoute.Size = new System.Drawing.Size(254, 26);
             this.lueRoute.TabIndex = 4;
-            // 
-            // cheHigh
-            // 
-            this.cheHigh.Location = new System.Drawing.Point(718, 97);
-            this.cheHigh.Name = "cheHigh";
-            this.cheHigh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cheHigh.Properties.Appearance.Options.UseFont = true;
-            this.cheHigh.Properties.Caption = "Xe CLC";
-            this.cheHigh.Size = new System.Drawing.Size(85, 24);
-            this.cheHigh.TabIndex = 25;
             // 
             // labelControl1
             // 
@@ -654,13 +665,13 @@
             this.gridColumn6,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn11,
             this.gridColumn12,
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
             this.gridColumn16,
-            this.bandedGridColumn1});
+            this.bandedGridColumn1,
+            this.bandedGridColumn2});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Transport", null, "- Số xe: {0:0,0}")});
@@ -676,9 +687,9 @@
             this.gridBand1.Columns.Add(this.gridColumn3);
             this.gridBand1.Columns.Add(this.gridColumn4);
             this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn11);
+            this.gridBand1.Columns.Add(this.bandedGridColumn2);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 393;
+            this.gridBand1.Width = 438;
             // 
             // gridColumn1
             // 
@@ -692,7 +703,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 41;
+            this.gridColumn2.Width = 42;
             // 
             // gridColumn3
             // 
@@ -700,7 +711,7 @@
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 60;
+            this.gridColumn3.Width = 61;
             // 
             // gridColumn4
             // 
@@ -708,7 +719,7 @@
             this.gridColumn4.FieldName = "Transport";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 152;
+            this.gridColumn4.Width = 156;
             // 
             // bandedGridColumn1
             // 
@@ -716,14 +727,15 @@
             this.bandedGridColumn1.FieldName = "Tariff";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
+            this.bandedGridColumn1.Width = 77;
             // 
-            // gridColumn11
+            // bandedGridColumn2
             // 
-            this.gridColumn11.Caption = "Phục vụ";
-            this.gridColumn11.FieldName = "ServerQuality";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.Width = 65;
+            this.bandedGridColumn2.Caption = "Nốt tài/tháng";
+            this.bandedGridColumn2.FieldName = "Node";
+            this.bandedGridColumn2.Name = "bandedGridColumn2";
+            this.bandedGridColumn2.Visible = true;
+            this.bandedGridColumn2.Width = 102;
             // 
             // gridBand2
             // 
@@ -731,7 +743,7 @@
             this.gridBand2.Columns.Add(this.gridColumn5);
             this.gridBand2.Columns.Add(this.gridColumn6);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 136;
+            this.gridBand2.Width = 134;
             // 
             // gridColumn5
             // 
@@ -739,7 +751,7 @@
             this.gridColumn5.FieldName = "Seats";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 66;
+            this.gridColumn5.Width = 64;
             // 
             // gridColumn6
             // 
@@ -755,7 +767,7 @@
             this.gridBand3.Columns.Add(this.gridColumn8);
             this.gridBand3.Columns.Add(this.gridColumn9);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 132;
+            this.gridBand3.Width = 130;
             // 
             // gridColumn8
             // 
@@ -763,7 +775,7 @@
             this.gridColumn8.FieldName = "High";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 66;
+            this.gridColumn8.Width = 64;
             // 
             // gridColumn9
             // 
@@ -790,7 +802,7 @@
             this.gridColumn12.FieldName = "YearProduction";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.Width = 69;
+            this.gridColumn12.Width = 68;
             // 
             // gridColumn13
             // 
@@ -798,7 +810,7 @@
             this.gridColumn13.FieldName = "LimitedRegistration";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.Width = 92;
+            this.gridColumn13.Width = 91;
             // 
             // gridColumn14
             // 
@@ -806,7 +818,7 @@
             this.gridColumn14.FieldName = "TermInsurance";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.Width = 91;
+            this.gridColumn14.Width = 90;
             // 
             // gridColumn15
             // 
@@ -814,7 +826,7 @@
             this.gridColumn15.FieldName = "TermFixedRoutes";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.Width = 73;
+            this.gridColumn15.Width = 72;
             // 
             // gridColumn16
             // 
@@ -822,18 +834,7 @@
             this.gridColumn16.FieldName = "TermDriverLicense";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
-            this.gridColumn16.Width = 79;
-            // 
-            // txtNode
-            // 
-            this.txtNode.Location = new System.Drawing.Point(601, 95);
-            this.txtNode.Name = "txtNode";
-            this.txtNode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNode.Properties.Appearance.Options.UseFont = true;
-            this.txtNode.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtNode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNode.Size = new System.Drawing.Size(107, 26);
-            this.txtNode.TabIndex = 24;
+            this.gridColumn16.Width = 83;
             // 
             // FrmTra_VehicleFixed
             // 
@@ -850,6 +851,9 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductionYear.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -867,16 +871,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBeds.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cheCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueRoute.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cheHigh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -918,7 +919,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn11;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
@@ -930,11 +930,12 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn16;
         private DevExpress.XtraEditors.LookUpEdit lueRoute;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
+        private DevExpress.XtraEditors.TextEdit txtNode;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
-        private DevExpress.XtraEditors.TextEdit txtNode;
     }
 }

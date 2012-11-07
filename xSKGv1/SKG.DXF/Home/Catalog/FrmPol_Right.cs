@@ -111,6 +111,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.Text = null;
             txtCode.Text = null;
             txtDescript.Text = null;
+            txtMore.Text = null;
 
             base.ResetInput();
         }
@@ -120,6 +121,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.DataBindings.Clear();
             txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
+            txtMore.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -129,6 +131,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            txtMore.DataBindings.Add("EditValue", _dtb, ".More");
 
             base.DataBindingControl();
         }
@@ -138,6 +141,7 @@ namespace SKG.DXF.Home.Catalog
             txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
+            txtMore.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -159,6 +163,7 @@ namespace SKG.DXF.Home.Catalog
                     Id = id,
                     Code = txtCode.Text,
                     Text = txtName.Text,
+                    More = txtMore.Text,
                     Note = txtDescript.Text
                 };
 
@@ -180,6 +185,7 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Code = txtCode.Text,
                     Text = txtName.Text,
+                    More = txtMore.Text,
                     Note = txtDescript.Text
                 };
 

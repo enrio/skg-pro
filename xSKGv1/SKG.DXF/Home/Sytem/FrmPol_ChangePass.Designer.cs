@@ -86,9 +86,9 @@
             this.labelUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelUser.Location = new System.Drawing.Point(3, 3);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(57, 16);
+            this.labelUser.Size = new System.Drawing.Size(82, 16);
             this.labelUser.TabIndex = 5;
-            this.labelUser.Text = "Mật khẩu:";
+            this.labelUser.Text = "Mật khẩu mới:";
             // 
             // labelPassword
             // 
@@ -105,7 +105,7 @@
             // 
             this.txtPass.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPass.EditValue = "";
-            this.txtPass.Location = new System.Drawing.Point(67, 3);
+            this.txtPass.Location = new System.Drawing.Point(91, 3);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -122,7 +122,7 @@
             // 
             this.txtConfirm.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtConfirm.EditValue = "";
-            this.txtConfirm.Location = new System.Drawing.Point(67, 29);
+            this.txtConfirm.Location = new System.Drawing.Point(91, 29);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtConfirm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -148,7 +148,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 52);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(299, 34);
+            this.panelControl1.Size = new System.Drawing.Size(323, 34);
             this.panelControl1.TabIndex = 7;
             // 
             // btnExit
@@ -158,7 +158,7 @@
             this.btnExit.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Appearance.Options.UseForeColor = true;
-            this.btnExit.Location = new System.Drawing.Point(214, 6);
+            this.btnExit.Location = new System.Drawing.Point(226, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 4;
@@ -172,20 +172,20 @@
             this.btnSave.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Appearance.Options.UseForeColor = true;
-            this.btnSave.Location = new System.Drawing.Point(139, 6);
+            this.btnSave.Location = new System.Drawing.Point(151, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
             this.btnSave.Text = "&Lưu";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // FrmPol_ChangPass
+            // FrmPol_ChangePass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 405);
             this.Controls.Add(this.panelBackground);
-            this.Name = "FrmPol_ChangPass";
+            this.Name = "FrmPol_ChangePass";
             this.Load += new System.EventHandler(this.FrmPol_ChangePass_Load);
             this.Controls.SetChildIndex(this.panelBackground, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

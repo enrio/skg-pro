@@ -141,6 +141,11 @@ namespace SKG.DAL.Entities
         public bool Repair { set; get; }
 
         /// <summary>
+        /// Number of guest out gate
+        /// </summary>
+        public int? Guest { set; get; }
+
+        /// <summary>
         /// Charge for vehicle normal
         /// </summary>
         /// <param name="error">Error of time</param>

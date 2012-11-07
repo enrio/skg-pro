@@ -39,6 +39,8 @@ namespace SKG.DXF.Station.Fixed
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
+            AllowPrint = true;
+
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
         }
@@ -110,7 +112,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ResetInput()
         {
             txtCode.Text = null;
-            txtNode.Text = "0";
+            txtGuest.Text = "0";
 
             base.ResetInput();
         }
@@ -118,7 +120,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ClearDataBindings()
         {
             txtCode.DataBindings.Clear();
-            txtNode.DataBindings.Clear();
+            txtGuest.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -126,7 +128,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void DataBindingControl()
         {
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
-            txtNode.DataBindings.Add("EditValue", _dtb, ".Node");
+            txtGuest.DataBindings.Add("EditValue", _dtb, ".Guest");
 
             base.DataBindingControl();
         }
@@ -134,7 +136,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtCode.Properties.ReadOnly = isReadOnly;
-            txtNode.Properties.ReadOnly = isReadOnly;
+            txtGuest.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -152,6 +154,7 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Detail()
                 {
                     Id = id,
+                    Guest = txtGuest.Text.ToInt32()
                 };
 
                 var oki = _bll.Tra_Vehicle.Update(o);
@@ -176,6 +179,22 @@ namespace SKG.DXF.Station.Fixed
             base.LoadData();
         }
 
+        protected override void PerformPrint()
+        {
+            var rpt = new Report.Rpt_Audit
+            {
+                Name = Global.Session.User.Acc +
+                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_td"
+            };
+
+            var frm = new FrmPrint();
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+
+            base.PerformPrint();
+        }
+
         protected override bool ValidInput()
         {
             var a = txtCode.Text.Length == 0 ? false : true;
@@ -186,10 +205,10 @@ namespace SKG.DXF.Station.Fixed
                 return false;
             }
 
-            var c = txtNode.Text.Length == 0 ? false : true;
+            var c = txtGuest.Text.Length == 0 ? false : true;
             if (!c)
             {
-                txtNode.Focus();
+                txtGuest.Focus();
                 XtraMessageBox.Show(STR_NOT_N, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -218,6 +237,6 @@ namespace SKG.DXF.Station.Fixed
 
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
-        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        private const string STR_NOT_N = "Chưa nhập lượt khách đi!";
     }
 }

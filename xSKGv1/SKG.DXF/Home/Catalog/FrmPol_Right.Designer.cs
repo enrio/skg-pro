@@ -332,7 +332,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 47;
+            this.gridColumn2.Width = 56;
             // 
             // gridColumn3
             // 
@@ -346,11 +346,11 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "Tên form, menu";
-            this.gridColumn4.FieldName = "Caption";
+            this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
-            this.gridColumn4.Width = 125;
+            this.gridColumn4.Width = 152;
             // 
             // gridColumn5
             // 
@@ -376,11 +376,11 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Mô tả";
-            this.gridColumn8.FieldName = "Descript";
+            this.gridColumn8.FieldName = "Note";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 3;
-            this.gridColumn8.Width = 514;
+            this.gridColumn8.Width = 629;
             // 
             // FrmPol_Right
             // 

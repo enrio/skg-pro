@@ -36,7 +36,7 @@
             // Detail
             // 
             this.Detail.Dpi = 254F;
-            this.Detail.HeightF = 254F;
+            this.Detail.HeightF = 1463.146F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 254F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;

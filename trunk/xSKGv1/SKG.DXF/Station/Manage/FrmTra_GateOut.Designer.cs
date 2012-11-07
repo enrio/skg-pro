@@ -637,7 +637,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Name = "FrmTra_GateOut";
             this.Tag = "";
-            this.Text = "Cổng ra";
+            this.Text = "CỔNG RA";
             this.Load += new System.EventHandler(this.FrmTra_GateOut_Load);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

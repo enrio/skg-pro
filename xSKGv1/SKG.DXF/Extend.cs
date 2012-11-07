@@ -420,15 +420,16 @@ namespace SKG.DXF
                             if (m3.Visibility == BarItemVisibility.Always)
                             {
                                 m2.ItemLinks.Add(m3);
+                                m3.Tag = asm.CreateInstance(code);
 
-                                var tmp = asm.CreateInstance(code);
+                                /*var tmp = asm.CreateInstance(code);
                                 if (tmp is Form)
                                 {
                                     var frm = (Form)tmp;
                                     frm.Text = text.ToUpper();
                                     m3.Tag = frm;
                                 }
-                                else m3.Tag = tmp;
+                                else m3.Tag = tmp;*/
 
                                 m3.LargeGlyph = Image.FromFile(icon);
                                 m3.ItemClick += ButtonItem_ItemClick;
@@ -568,15 +569,21 @@ namespace SKG.DXF
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))
                 {
-                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as FrmInput;
+                    if (f == null || f.IsDisposed)
+                        f = Activator.CreateInstance(f.GetType()) as FrmInput;
+
+                    f.Text = e.Item.Caption;
                     ((FrmInput)f).ShowRight(Global.Parent);
                 }
                 else
                 {
-                    if (f == null || f.IsDisposed) f = Activator.CreateInstance(f.GetType()) as Form;
+                    if (f == null || f.IsDisposed)
+                        f = Activator.CreateInstance(f.GetType()) as Form;
+
                     if (f.GetType().FullName != typeof(FrmPol_Login).FullName)
                     {
                         f.MdiParent = Global.Parent;
+                        f.Text = e.Item.Caption;
                         f.Show();
                     }
                     else Login();

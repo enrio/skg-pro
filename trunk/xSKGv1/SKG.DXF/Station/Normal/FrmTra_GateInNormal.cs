@@ -105,7 +105,10 @@ namespace SKG.DXF.Station.Normal
             {
                 case State.Add:
                     if (InsertObject())
+                    {
+                        XtraMessageBox.Show("CHO XE VÀO", "XE VÃNG LAI", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
+                    }
                     break;
 
                 case State.Edit:

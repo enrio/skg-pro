@@ -83,7 +83,7 @@ namespace SKG.DAL
                               s.TermDriverLicense,
 
                               s.Fixed,
-                              s.ServerQuality,
+                              s.Node,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -150,7 +150,7 @@ namespace SKG.DAL
                               s.TermDriverLicense,
 
                               s.Fixed,
-                              s.ServerQuality,
+                              s.Node,
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -224,7 +224,7 @@ namespace SKG.DAL
                 res.TermDriverLicense = o.TermDriverLicense;
 
                 res.Fixed = o.Fixed;
-                res.ServerQuality = o.ServerQuality;
+                res.Node = o.Node;
                 res.Driver = o.Driver;
                 res.Birth = o.Birth;
                 res.Address = o.Address;
@@ -304,7 +304,7 @@ namespace SKG.DAL
                               s.TermFixedRoutes,
                               s.TermDriverLicense,
 
-                              s.ServerQuality,
+                              s.Node,
                               s.Driver,
                               s.Birth,
                               s.Address,

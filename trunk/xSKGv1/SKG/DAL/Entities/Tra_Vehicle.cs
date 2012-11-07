@@ -102,6 +102,11 @@ namespace SKG.DAL.Entities
         /// Term driver license
         /// </summary>
         public DateTime? TermDriverLicense { set; get; }
+
+        /// <summary>
+        /// Number of nodes per month
+        /// </summary>
+        public int Node { set; get; }
         #endregion
 
         #region Information of vehicle
@@ -122,11 +127,6 @@ namespace SKG.DAL.Entities
         #endregion
 
         #region Difference information
-        /// <summary>
-        /// Server quality
-        /// </summary>
-        public string ServerQuality { set; get; }
-
         /// <summary>
         /// Driver's fullname
         /// </summary>

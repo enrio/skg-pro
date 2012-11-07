@@ -308,6 +308,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_Receipt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Receipt.Designer.cs">
+      <DependentUpon>Rpt_Receipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Sumary\FrmTra_SalesNormal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -443,6 +449,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotNormal.resx">
       <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_Receipt.resx">
+      <DependentUpon>Rpt_Receipt.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Manual.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Home.Grant
 {
-    partial class _FrmPol_UserRight
+    partial class FrmPol_UserRight
     {
         /// <summary>
         /// Required designer variable.

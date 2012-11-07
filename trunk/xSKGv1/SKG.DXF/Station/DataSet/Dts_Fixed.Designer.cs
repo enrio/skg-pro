@@ -814,6 +814,8 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnRose;
             
+            private global::System.Data.DataColumn columnParked;
+            
             private global::System.Data.DataColumn columnMoney;
             
             private global::System.Data.DataColumn columnByChar;
@@ -901,6 +903,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ParkedColumn {
+                get {
+                    return this.columnParked;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn MoneyColumn {
                 get {
                     return this.columnMoney;
@@ -952,7 +962,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, string Cost, string Rose, decimal Money, string ByChar) {
+            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar) {
                 ReceiptRow rowReceiptRow = ((ReceiptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Seri,
@@ -961,6 +971,7 @@ namespace SKG.DXF.Station.DataSet {
                         Transport,
                         Cost,
                         Rose,
+                        Parked,
                         Money,
                         ByChar};
                 rowReceiptRow.ItemArray = columnValuesArray;
@@ -991,6 +1002,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnTransport = base.Columns["Transport"];
                 this.columnCost = base.Columns["Cost"];
                 this.columnRose = base.Columns["Rose"];
+                this.columnParked = base.Columns["Parked"];
                 this.columnMoney = base.Columns["Money"];
                 this.columnByChar = base.Columns["ByChar"];
             }
@@ -1006,10 +1018,12 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnNumber);
                 this.columnTransport = new global::System.Data.DataColumn("Transport", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransport);
-                this.columnCost = new global::System.Data.DataColumn("Cost", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnCost = new global::System.Data.DataColumn("Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCost);
-                this.columnRose = new global::System.Data.DataColumn("Rose", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnRose = new global::System.Data.DataColumn("Rose", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRose);
+                this.columnParked = new global::System.Data.DataColumn("Parked", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnParked);
                 this.columnMoney = new global::System.Data.DataColumn("Money", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMoney);
                 this.columnByChar = new global::System.Data.DataColumn("ByChar", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1711,10 +1725,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Cost {
+            public decimal Cost {
                 get {
                     try {
-                        return ((string)(this[this.tableReceipt.CostColumn]));
+                        return ((decimal)(this[this.tableReceipt.CostColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Cost\' in table \'Receipt\' is DBNull.", e);
@@ -1727,10 +1741,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Rose {
+            public decimal Rose {
                 get {
                     try {
-                        return ((string)(this[this.tableReceipt.RoseColumn]));
+                        return ((decimal)(this[this.tableReceipt.RoseColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Rose\' in table \'Receipt\' is DBNull.", e);
@@ -1738,6 +1752,22 @@ namespace SKG.DXF.Station.DataSet {
                 }
                 set {
                     this[this.tableReceipt.RoseColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Parked {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableReceipt.ParkedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Parked\' in table \'Receipt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReceipt.ParkedColumn] = value;
                 }
             }
             
@@ -1843,6 +1873,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRoseNull() {
                 this[this.tableReceipt.RoseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsParkedNull() {
+                return this.IsNull(this.tableReceipt.ParkedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetParkedNull() {
+                this[this.tableReceipt.ParkedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

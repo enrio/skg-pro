@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Catalog
@@ -13,7 +9,7 @@ namespace SKG.DXF.Home.Catalog
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class _FrmPol_Right : SKG.DXF.FrmInput
+    public partial class FrmPol_Right : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -22,13 +18,13 @@ namespace SKG.DXF.Home.Catalog
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(_FrmPol_Right).FullName, Parent = typeof(Level2).FullName, Text = "Chức năng", Level = 0, Order = 11, Picture = @"Icons\Right.png" };
+                var menu = new Menuz() { Code = typeof(FrmPol_Right).FullName, Parent = typeof(Level2).FullName, Text = "Chức năng", Level = 0, Order = 11, Picture = @"Icons\Right.png" };
                 return menu;
             }
         }
         #endregion
 
-        public _FrmPol_Right()
+        public FrmPol_Right()
         {
             InitializeComponent();
 

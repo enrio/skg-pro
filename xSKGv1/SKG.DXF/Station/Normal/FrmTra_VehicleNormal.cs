@@ -20,7 +20,7 @@ namespace SKG.DXF.Station.Normal
                 {
                     Code = typeof(FrmTra_VehicleNormal).FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "SỬA THÔNG TIN XE VÃNG LAI",
+                    Text = "NHẬP-SỬA XE VÃNG LAI",
                     Level = 3,
                     Order = 25,
                     Picture = @"Icons\Vehicle.png"

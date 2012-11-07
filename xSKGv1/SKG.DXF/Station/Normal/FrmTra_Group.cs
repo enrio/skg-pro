@@ -20,7 +20,12 @@ namespace SKG.DXF.Station.Normal
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Group).FullName, Parent = typeof(Level2).FullName, Text = "Nhóm xe", Level = 3, Order = 20, Picture = @"Icons\Group.png" };
+                var menu = new Menuz { Code = typeof(FrmTra_Group).FullName,
+                Parent = typeof(Level2).FullName,
+                Text = "Nhóm xe",
+                Level = 3,
+                Order = 20,
+                Picture = @"Icons\Group.png" };
                 return menu;
             }
         }

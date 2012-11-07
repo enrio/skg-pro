@@ -13,7 +13,12 @@ namespace SKG.DXF.Station.InDepot
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Danh sách xe trong bến", Level = 2, Order = 24, Picture = @"Icons\Catalog.png" };
+                var menu = new Menuz { Code = typeof(Level2).FullName,
+                Parent = typeof(Level1).FullName,
+                Text = "Danh sách xe trong bến",
+                Level = 2,
+                Order = 24,
+                Picture = @"Icons\Catalog.png" };
                 return menu;
             }
         }

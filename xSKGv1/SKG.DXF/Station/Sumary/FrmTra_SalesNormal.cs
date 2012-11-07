@@ -15,7 +15,12 @@ namespace SKG.DXF.Station.Sumary
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_SalesFixed).FullName, Parent = typeof(Level2).FullName, Text = "Doanh thu xe vãng lai", Level = 3, Order = 28, Picture = @"Icons\Sales.png" };
+                var menu = new Menuz { Code = typeof(FrmTra_SalesFixed).FullName,
+                Parent = typeof(Level2).FullName,
+                Text = "Doanh thu xe vãng lai",
+                Level = 3,
+                Order = 28,
+                Picture = @"Icons\Sales.png" };
                 return menu;
             }
         }

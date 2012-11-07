@@ -298,9 +298,9 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
 
         private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
-        private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ NGƯỜI QUẢN LÝ ĐỂ NHẬP THÔNG TIN XE";
+        private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ ĐỘI ĐIỀU HÀNH ĐỂ NHẬP THÔNG TIN XE";
         private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
-        private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÍ TUYẾN";
+        private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÝ TUYẾN";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_KIND = "XE VÃNG LAI";

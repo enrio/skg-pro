@@ -27,7 +27,7 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Code = typeof(FrmTra_VehicleFixed).FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "SỬA THÔNG TIN XE CỐ ĐỊNH",
+                    Text = "NHẬP-SỬA XE CỐ ĐỊNH",
                     Level = 3,
                     Order = 23,
                     Picture = @"Icons\Vehicle.png"

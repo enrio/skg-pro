@@ -9,7 +9,7 @@ namespace SKG.DXF.Station.Fixed
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Catalog : SKG.DXF.FrmInput
+    public partial class FrmTra_Province : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -18,13 +18,18 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Catalog).FullName, Parent = typeof(Level2).FullName, Text = "Danh mục", Level = 0, Order = 12, Picture = @"Icons\Lang.png" };
+                var menu = new Menuz { Code = typeof(FrmTra_Province).FullName,
+                Parent = typeof(Level2).FullName,
+                Text = "Tỉnh/TP",
+                Level = 0,
+                Order = 12,
+                Picture = @"Icons\Province.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_Catalog()
+        public FrmTra_Province()
         {
             InitializeComponent();
 

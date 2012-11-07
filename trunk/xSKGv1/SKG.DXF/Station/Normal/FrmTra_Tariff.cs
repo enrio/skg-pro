@@ -17,7 +17,12 @@ namespace SKG.DXF.Station.Normal
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmTra_Tariff).FullName, Parent = typeof(Level2).FullName, Text = "Bảng giá xe vãng lai", Level = 3, Order = 21, Picture = @"Icons\Kind.png" };
+                var menu = new Menuz { Code = typeof(FrmTra_Tariff).FullName,
+                Parent = typeof(Level2).FullName,
+                Text = "Bảng giá xe vãng lai",
+                Level = 3,
+                Order = 21,
+                Picture = @"Icons\Kind.png" };
                 return menu;
             }
         }

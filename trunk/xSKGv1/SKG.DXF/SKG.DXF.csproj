@@ -226,11 +226,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dts_Normal.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Catalog.cs">
+    <Compile Include="Station\Fixed\FrmTra_Province.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_Catalog.Designer.cs">
-      <DependentUpon>FrmTra_Catalog.cs</DependentUpon>
+    <Compile Include="Station\Fixed\FrmTra_Province.Designer.cs">
+      <DependentUpon>FrmTra_Province.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Fixed\FrmTra_Transport.cs">
       <SubType>Form</SubType>

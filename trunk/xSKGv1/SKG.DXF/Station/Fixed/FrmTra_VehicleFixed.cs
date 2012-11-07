@@ -298,13 +298,19 @@ namespace SKG.DXF.Station.Fixed
         protected override bool ValidInput()
         {
             var a = txtCode.Text.Length == 0 ? false : true;
-            if (!a) txtCode.Focus();
+            if (!a)
+            {
+                txtCode.Focus();
+                XtraMessageBox.Show(STR_NOT_V, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
             var b = txtSeats.Text.Length == 0 ? false : true;
             if (!b)
             {
                 txtSeats.Focus();
                 XtraMessageBox.Show(STR_NOT_C, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             var c = txtNode.Text.Length == 0 ? false : true;
@@ -312,9 +318,10 @@ namespace SKG.DXF.Station.Fixed
             {
                 txtNode.Focus();
                 XtraMessageBox.Show(STR_NOT_N, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
-            return a && b && c;
+            return true;
         }
         #endregion
 
@@ -342,6 +349,7 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Xe này có rồi";
 
+        private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
     }

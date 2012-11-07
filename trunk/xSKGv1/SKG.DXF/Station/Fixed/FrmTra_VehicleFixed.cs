@@ -301,7 +301,11 @@ namespace SKG.DXF.Station.Fixed
             if (!a) txtCode.Focus();
 
             var oki = txtSeats.Text.Length == 0 ? false : true;
-            if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
+            if (!oki)
+            {
+                txtSeats.Focus();
+                XtraMessageBox.Show(STR_NOT_C, Text);
+            }
 
             return a && oki;
         }

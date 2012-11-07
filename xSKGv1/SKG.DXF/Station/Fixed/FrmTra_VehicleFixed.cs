@@ -211,7 +211,7 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    ServerQuality = txtNode.Text
+                    Node = txtNode.Text.ToInt32()
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")
@@ -252,7 +252,7 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    ServerQuality = txtNode.Text
+                    Node = txtNode.Text.ToInt32()
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")

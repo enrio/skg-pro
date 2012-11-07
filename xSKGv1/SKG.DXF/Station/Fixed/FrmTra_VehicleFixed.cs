@@ -300,14 +300,21 @@ namespace SKG.DXF.Station.Fixed
             var a = txtCode.Text.Length == 0 ? false : true;
             if (!a) txtCode.Focus();
 
-            var oki = txtSeats.Text.Length == 0 ? false : true;
-            if (!oki)
+            var b = txtSeats.Text.Length == 0 ? false : true;
+            if (!b)
             {
                 txtSeats.Focus();
-                XtraMessageBox.Show(STR_NOT_C, Text);
+                XtraMessageBox.Show(STR_NOT_C, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            return a && oki;
+            var c = txtNode.Text.Length == 0 ? false : true;
+            if (!c)
+            {
+                txtNode.Focus();
+                XtraMessageBox.Show(STR_NOT_N, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return a && b && c;
         }
         #endregion
 
@@ -336,5 +343,6 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_DUPLICATE = "Xe này có rồi";
 
         private const string STR_NOT_C = "Chưa nhập số ghế!";
+        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
     }
 }

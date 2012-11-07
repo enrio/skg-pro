@@ -148,11 +148,11 @@
     <Compile Include="Home\Catalog\_FrmPol_Dictionary.Designer.cs">
       <DependentUpon>_FrmPol_Dictionary.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Right.cs">
+    <Compile Include="Home\Catalog\FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Right.Designer.cs">
-      <DependentUpon>_FrmPol_Right.cs</DependentUpon>
+    <Compile Include="Home\Catalog\FrmPol_Right.Designer.cs">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
     </Compile>
     <Compile Include="Home\Catalog\FrmPol_Role.cs">
       <SubType>Form</SubType>
@@ -369,6 +369,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Right.resx">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
       <DependentUpon>FrmPol_Role.cs</DependentUpon>

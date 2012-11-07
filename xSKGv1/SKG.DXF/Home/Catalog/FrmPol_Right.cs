@@ -112,6 +112,7 @@ namespace SKG.DXF.Home.Catalog
             txtCode.Text = null;
             txtDescript.Text = null;
             txtMore.Text = null;
+            lueParent.ItemIndex = 0;
 
             base.ResetInput();
         }
@@ -122,6 +123,7 @@ namespace SKG.DXF.Home.Catalog
             txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
             txtMore.DataBindings.Clear();
+            lueParent.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -132,6 +134,7 @@ namespace SKG.DXF.Home.Catalog
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
             txtMore.DataBindings.Add("EditValue", _dtb, ".More");
+            lueParent.DataBindings.Add("EditValue", _dtb, ".ParentId");
 
             base.DataBindingControl();
         }
@@ -142,6 +145,7 @@ namespace SKG.DXF.Home.Catalog
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
             txtMore.Properties.ReadOnly = isReadOnly;
+            lueParent.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -164,6 +168,7 @@ namespace SKG.DXF.Home.Catalog
                     Code = txtCode.Text,
                     Text = txtName.Text,
                     More = txtMore.Text,
+                    ParentId = (Guid)lueParent.EditValue,
                     Note = txtDescript.Text
                 };
 
@@ -186,6 +191,7 @@ namespace SKG.DXF.Home.Catalog
                     Code = txtCode.Text,
                     Text = txtName.Text,
                     More = txtMore.Text,
+                    ParentId = (Guid)lueParent.EditValue,
                     Note = txtDescript.Text
                 };
 
@@ -230,5 +236,11 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_CONFIRM = "Có xoá mã '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
+
+        private void FrmPol_Right_Load(object sender, EventArgs e)
+        {
+            lueParent.Properties.DataSource = _bll.Pol_Dictionary.SelectRights();
+            lueParent.ItemIndex = 0;
+        }
     }
 }

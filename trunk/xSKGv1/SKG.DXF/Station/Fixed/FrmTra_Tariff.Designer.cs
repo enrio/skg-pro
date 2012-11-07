@@ -599,6 +599,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_Tariff";
+            this.Text = "Bảng giá xe cố định";
             this.Load += new System.EventHandler(this.FrmTra_Tariff_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);

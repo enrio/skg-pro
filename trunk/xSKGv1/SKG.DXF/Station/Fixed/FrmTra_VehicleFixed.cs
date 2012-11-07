@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Fixed
 {
-    using SKG;
-    using BLL;
-    using SKG.DXF;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraEditors.Controls;
 
     public partial class FrmTra_VehicleFixed : SKG.DXF.FrmInput
     {
@@ -352,5 +346,21 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+
+        private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Ellipsis)
+            {
+                DXF.Extend.ShowRight<FrmTra_Tariff>(Global.Parent);
+            }
+        }
+
+        private void lueTransport_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Ellipsis)
+            {
+                DXF.Extend.ShowRight<FrmTra_Transport>(Global.Parent);
+            }
+        }
     }
 }

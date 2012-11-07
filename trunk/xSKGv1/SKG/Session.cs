@@ -57,7 +57,7 @@ namespace SKG
         }
 
         /// <summary>
-        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 2]; 16:00 - 07:00 tomorrow [shift 1])
+        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 1]; 16:00 - 07:00 tomorrow [shift 2])
         /// </summary>
         /// <param name="dt">Date of shift</param>
         /// <returns></returns>
@@ -70,20 +70,20 @@ namespace SKG
             var tick = t.Ticks / 2;
             var shift = cur.Subtract(new TimeSpan(tick));
 
-            var start = cur.Date.AddHours(7); // start of shift 2
-            var end = cur.Date.AddHours(16); // end of shift 2
+            var start = cur.Date.AddHours(7); // start of shift 1
+            var end = cur.Date.AddHours(16); // end of shift 1
 
             if (shift >= start && shift <= end)
             {
                 dt = shift.Date;
-                return 2;
+                return 1;
             }
             else
             {
                 if (shift > start)
                     dt = shift.Date.AddDays(1);
                 else dt = shift.Date;
-                return 1;
+                return 2;
             }
         }
 

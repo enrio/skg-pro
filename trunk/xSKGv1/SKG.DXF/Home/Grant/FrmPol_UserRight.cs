@@ -65,7 +65,7 @@ namespace SKG.DXF.Home.Grant
                 _idParent = (Guid)n.ParentNode.GetValue("ID");
             }
 
-            using (var frm = new FrmSelect() { Text = Text, Caption = "Tên form (chức năng)", DataSource = _bll.Pol_Dictionary.SelectRights() })
+            using (var frm = new FrmSelect() { Text = Text, Caption = "Tên form (chức năng)", Field = "Text", DataSource = _bll.Pol_Dictionary.SelectRights() })
             {
                 frm.ShowDialog();
                 if (frm.ListInfo == null) return;

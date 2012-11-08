@@ -447,7 +447,7 @@
             // 
             // xrTable9
             // 
-            this.xrTable9.BackColor = System.Drawing.Color.DarkGray;
+            this.xrTable9.BackColor = System.Drawing.Color.Transparent;
             this.xrTable9.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1005,7 +1005,6 @@
             this.GroupHeader4,
             this.GroupHeader1,
             this.GroupHeader2});
-            this.DetailReport.DataMember = "Audit";
             this.DetailReport.DataSource = this.dts_Fixed;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
@@ -1028,7 +1027,7 @@
             // 
             // xrTable8
             // 
-            this.xrTable8.BackColor = System.Drawing.Color.DarkGray;
+            this.xrTable8.BackColor = System.Drawing.Color.Transparent;
             this.xrTable8.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable8.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1139,7 +1138,7 @@
             // 
             // xrTable6
             // 
-            this.xrTable6.BackColor = System.Drawing.Color.DarkGray;
+            this.xrTable6.BackColor = System.Drawing.Color.Transparent;
             this.xrTable6.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable6.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1250,7 +1249,7 @@
             // 
             // xrTable2
             // 
-            this.xrTable2.BackColor = System.Drawing.Color.DarkGray;
+            this.xrTable2.BackColor = System.Drawing.Color.Transparent;
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

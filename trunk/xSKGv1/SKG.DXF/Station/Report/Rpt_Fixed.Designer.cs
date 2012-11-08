@@ -57,6 +57,7 @@
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrlDuration = new DevExpress.XtraReports.UI.XRLabel();
             this.xrlTitle = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -174,7 +175,6 @@
             this.GroupHeader3 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.GroupHeader4 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
-            this.xrlDuration = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -383,6 +383,17 @@
             this.xrTable2});
             this.ReportHeader.HeightF = 172.9167F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrlDuration
+            // 
+            this.xrlDuration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrlDuration.LocationFloat = new DevExpress.Utils.PointFloat(204.1667F, 143.75F);
+            this.xrlDuration.Name = "xrlDuration";
+            this.xrlDuration.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrlDuration.SizeF = new System.Drawing.SizeF(710.4166F, 26.04166F);
+            this.xrlDuration.StylePriority.UseFont = false;
+            this.xrlDuration.StylePriority.UseTextAlignment = false;
+            this.xrlDuration.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrlTitle
             // 
@@ -1396,17 +1407,6 @@
             // 
             this.dts_Fixed.DataSetName = "Dts_Fixed";
             this.dts_Fixed.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // xrlDuration
-            // 
-            this.xrlDuration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrlDuration.LocationFloat = new DevExpress.Utils.PointFloat(204.1667F, 143.75F);
-            this.xrlDuration.Name = "xrlDuration";
-            this.xrlDuration.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlDuration.SizeF = new System.Drawing.SizeF(710.4166F, 26.04166F);
-            this.xrlDuration.StylePriority.UseFont = false;
-            this.xrlDuration.StylePriority.UseTextAlignment = false;
-            this.xrlDuration.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // Rpt_Fixed
             // 

@@ -237,6 +237,8 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Receipt.CostDescript")});
             this.xrTableCell18.Dpi = 254F;
             this.xrTableCell18.Name = "xrTableCell18";
+            this.xrTableCell18.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 0, 0, 0, 254F);
+            this.xrTableCell18.StylePriority.UsePadding = false;
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.Weight = 2.5564475105262456D;
             // 
@@ -276,6 +278,8 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Receipt.RoseDescript")});
             this.xrTableCell19.Dpi = 254F;
             this.xrTableCell19.Name = "xrTableCell19";
+            this.xrTableCell19.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 0, 0, 0, 254F);
+            this.xrTableCell19.StylePriority.UsePadding = false;
             this.xrTableCell19.Text = "xrTableCell19";
             this.xrTableCell19.Weight = 2.5564475105262456D;
             // 

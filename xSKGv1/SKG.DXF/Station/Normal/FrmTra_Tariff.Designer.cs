@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
@@ -38,7 +37,7 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lokGroup = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.txtName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblName = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +55,8 @@
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -63,12 +64,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -97,13 +99,15 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtDescript);
+            this.dockPanel1_Container.Controls.Add(this.labelControl4);
             this.dockPanel1_Container.Controls.Add(this.calPrice2);
             this.dockPanel1_Container.Controls.Add(this.calPrice1);
             this.dockPanel1_Container.Controls.Add(this.lblRole);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
             this.dockPanel1_Container.Controls.Add(this.lokGroup);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
-            this.dockPanel1_Container.Controls.Add(this.txtDescript);
+            this.dockPanel1_Container.Controls.Add(this.txtCode);
             this.dockPanel1_Container.Controls.Add(this.txtName);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Controls.Add(this.lblName);
@@ -190,22 +194,22 @@
             this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Đ.giá nửa ngày:";
             // 
-            // txtDescript
+            // txtCode
             // 
-            this.txtDescript.Location = new System.Drawing.Point(85, 35);
-            this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(366, 26);
-            this.txtDescript.TabIndex = 5;
+            this.txtCode.Location = new System.Drawing.Point(85, 35);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Properties.Appearance.Options.UseFont = true;
+            this.txtCode.Size = new System.Drawing.Size(81, 26);
+            this.txtCode.TabIndex = 5;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(457, 3);
+            this.txtName.Location = new System.Drawing.Point(458, 3);
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(441, 26);
+            this.txtName.Size = new System.Drawing.Size(440, 26);
             this.txtName.TabIndex = 3;
             // 
             // labelControl3
@@ -213,9 +217,9 @@
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Location = new System.Drawing.Point(8, 38);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(45, 19);
+            this.labelControl3.Size = new System.Drawing.Size(56, 19);
             this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "Mô tả:";
+            this.labelControl3.Text = "Mã loại:";
             // 
             // lblName
             // 
@@ -424,7 +428,7 @@
             this.gridBand1.Columns.Add(this.gridColumn5);
             this.gridBand1.Columns.Add(this.gridColumn6);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 549;
+            this.gridBand1.Width = 624;
             // 
             // gridColumn1
             // 
@@ -444,6 +448,7 @@
             this.gridColumn3.Caption = "Mã";
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
             // 
             // gridColumn4
             // 
@@ -497,6 +502,24 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 189;
             // 
+            // txtDescript
+            // 
+            this.txtDescript.Location = new System.Drawing.Point(223, 35);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescript.Properties.Appearance.Options.UseFont = true;
+            this.txtDescript.Size = new System.Drawing.Size(228, 26);
+            this.txtDescript.TabIndex = 7;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(172, 38);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(45, 19);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Mô tả:";
+            // 
             // FrmTra_Tariff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,12 +539,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +560,7 @@
         private DevExpress.XtraGrid.GridControl grcMain;
         private DevExpress.XtraEditors.LabelControl lblRole;
         private DevExpress.XtraEditors.LookUpEdit lokGroup;
-        private DevExpress.XtraEditors.TextEdit txtDescript;
+        private DevExpress.XtraEditors.TextEdit txtCode;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl lblName;
@@ -555,5 +579,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraEditors.TextEdit txtDescript;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

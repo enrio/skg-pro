@@ -130,6 +130,7 @@ namespace SKG.DXF.Station.Normal
             lokGroup.ItemIndex = 0;
 
             txtName.Text = null;
+            txtCode.Text = null;
             txtDescript.Text = null;
 
             calPrice1.Text = null;
@@ -143,6 +144,7 @@ namespace SKG.DXF.Station.Normal
             lokGroup.DataBindings.Clear();
 
             txtName.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             calPrice1.DataBindings.Clear();
@@ -156,6 +158,7 @@ namespace SKG.DXF.Station.Normal
             lokGroup.DataBindings.Add("EditValue", _dtb, ".Tra_GroupId");
 
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             calPrice1.DataBindings.Add("EditValue", _dtb, ".Price1");
@@ -169,6 +172,7 @@ namespace SKG.DXF.Station.Normal
             lokGroup.Properties.ReadOnly = isReadOnly;
 
             txtName.Properties.ReadOnly = isReadOnly;
+            txtCode.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             calPrice1.Properties.ReadOnly = isReadOnly;
@@ -191,10 +195,10 @@ namespace SKG.DXF.Station.Normal
                 {
                     Id = id,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "KIND",
+                    Code = txtCode.Text,
 
                     Text = txtName.Text,
-                    Note = txtDescript.Text,
+                    Note = txtCode.Text,
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value
@@ -217,10 +221,10 @@ namespace SKG.DXF.Station.Normal
                 var o = new Tra_Tariff()
                 {
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "KIND",
+                    Code = txtCode.Text,
 
                     Text = txtName.Text,
-                    Note = txtDescript.Text,
+                    Note = txtCode.Text,
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value

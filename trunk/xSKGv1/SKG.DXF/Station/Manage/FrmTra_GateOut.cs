@@ -345,7 +345,7 @@ namespace SKG.DXF.Station.Manage
 
                         try
                         {
-                            rpt.ShowPreview();
+                            rpt.Print();
                         }
                         catch
                         {

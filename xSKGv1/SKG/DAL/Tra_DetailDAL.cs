@@ -175,9 +175,9 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Detail)obj;
-                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);                
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Guest = o.Guest;               
+                res.Guest = o.Guest;
                 return _db.SaveChanges();
             }
             catch { return null; }
@@ -767,5 +767,43 @@ namespace SKG.DAL
             }
         }
         #endregion
+
+        /// <summary>
+        /// Theo dõi tháng xe cố định
+        /// </summary>
+        /// <returns></returns>
+        public DataTable AuditMonthFixed()
+        {
+
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Pol_UserOutId == null
+                          && s.Tra_Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          select new
+                          {
+                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Text,
+                              Area = s.Tra_Vehicle.Tariff.Group.Text,
+                              Province = s.Tra_Vehicle.Tariff.Text,
+                              Transport = s.Tra_Vehicle.Transport.Text,
+                              Number = s.Tra_Vehicle.Code,
+
+                              Kh_Soxe = 1,
+                              Kh_Ts_Ghe = 0,
+                              Kh_Lx_Xuatben = 0,
+
+                              Th_Soxe = 1,
+                              Th_Ts_Ghe = 0,
+                              Th_Lx_Xuatben = 0,
+                              Th_Lk_Di = 0,
+                              Tile_Nottai = 0,
+                              Nottai_Hoatdong = 0
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
     }
 }

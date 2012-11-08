@@ -62,7 +62,6 @@
             this.xrTableRow6 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
@@ -99,7 +98,6 @@
             this.xrTableRow13 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrc_CompanyAddress = new DevExpress.XtraReports.UI.XRTableCell();
             this.lblNgay_Chungtu = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrcPaymenter = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -129,7 +127,6 @@
             this.xrLabel14,
             this.xrTable1,
             this.xrLabel6,
-            this.xrLabel5,
             this.xrLabel4,
             this.xrLabel7,
             this.xrLabel3,
@@ -144,7 +141,6 @@
             this.xrLabel11,
             this.xrTable9,
             this.lblNgay_Chungtu,
-            this.xrcPaymenter,
             this.xrLabel10});
             this.Detail.Dpi = 254F;
             this.Detail.HeightF = 2573.073F;
@@ -289,10 +285,10 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Receipt.Creator")});
             this.xrcCreator1.Dpi = 254F;
             this.xrcCreator1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrcCreator1.LocationFloat = new DevExpress.Utils.PointFloat(152.1537F, 2511.16F);
+            this.xrcCreator1.LocationFloat = new DevExpress.Utils.PointFloat(257.9871F, 2511.16F);
             this.xrcCreator1.Name = "xrcCreator1";
             this.xrcCreator1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrcCreator1.SizeF = new System.Drawing.SizeF(808.1178F, 61.9126F);
+            this.xrcCreator1.SizeF = new System.Drawing.SizeF(702.2844F, 61.9126F);
             this.xrcCreator1.StylePriority.UseFont = false;
             this.xrcCreator1.Text = "xrcCreator1";
             this.xrcCreator1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -523,17 +519,6 @@
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.Text = "lblNgay_Chungtu";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Dpi = 254F;
-            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(961.9297F, 2511.16F);
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(789.8563F, 61.9126F);
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
             // 
@@ -845,10 +830,10 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Receipt.Creator")});
             this.xrcCreator.Dpi = 254F;
             this.xrcCreator.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrcCreator.LocationFloat = new DevExpress.Utils.PointFloat(152.1537F, 1102.254F);
+            this.xrcCreator.LocationFloat = new DevExpress.Utils.PointFloat(257.9871F, 1102.254F);
             this.xrcCreator.Name = "xrcCreator";
             this.xrcCreator.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrcCreator.SizeF = new System.Drawing.SizeF(808.1178F, 61.9126F);
+            this.xrcCreator.SizeF = new System.Drawing.SizeF(702.2844F, 61.9126F);
             this.xrcCreator.StylePriority.UseFont = false;
             this.xrcCreator.Text = "xrcCreator";
             this.xrcCreator.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -943,17 +928,6 @@
             this.lblNgay_Chungtu.StylePriority.UseFont = false;
             this.lblNgay_Chungtu.Text = "lblNgay_Chungtu";
             this.lblNgay_Chungtu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrcPaymenter
-            // 
-            this.xrcPaymenter.Dpi = 254F;
-            this.xrcPaymenter.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrcPaymenter.LocationFloat = new DevExpress.Utils.PointFloat(961.9297F, 1102.254F);
-            this.xrcPaymenter.Name = "xrcPaymenter";
-            this.xrcPaymenter.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 254F);
-            this.xrcPaymenter.SizeF = new System.Drawing.SizeF(789.8563F, 61.9126F);
-            this.xrcPaymenter.StylePriority.UseFont = false;
-            this.xrcPaymenter.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel10
             // 
@@ -1059,7 +1033,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
-        public DevExpress.XtraReports.UI.XRLabel xrcPaymenter;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow8;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
@@ -1093,7 +1066,6 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow6;
         public DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel6;
-        public DevExpress.XtraReports.UI.XRLabel xrLabel5;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
     }

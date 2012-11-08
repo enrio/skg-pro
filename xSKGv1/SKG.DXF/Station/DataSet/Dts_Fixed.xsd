@@ -70,6 +70,7 @@
               <xs:element name="Kh_Soxe" msprop:Generator_ColumnVarNameInTable="columnKh_Soxe" msprop:Generator_ColumnPropNameInRow="Kh_Soxe" msprop:Generator_ColumnPropNameInTable="Kh_SoxeColumn" msprop:Generator_UserColumnName="Kh_Soxe" type="xs:int" minOccurs="0" />
               <xs:element name="Th_Soxe" msprop:Generator_ColumnVarNameInTable="columnTh_Soxe" msprop:Generator_ColumnPropNameInRow="Th_Soxe" msprop:Generator_ColumnPropNameInTable="Th_SoxeColumn" msprop:Generator_UserColumnName="Th_Soxe" type="xs:int" minOccurs="0" />
               <xs:element name="Transport" msprop:Generator_ColumnVarNameInTable="columnTransport" msprop:Generator_ColumnPropNameInRow="Transport" msprop:Generator_ColumnPropNameInTable="TransportColumn" msprop:Generator_UserColumnName="Transport" type="xs:string" minOccurs="0" />
+              <xs:element name="Station" msprop:Generator_ColumnVarNameInTable="columnStation" msprop:Generator_ColumnPropNameInRow="Station" msprop:Generator_ColumnPropNameInTable="StationColumn" msprop:Generator_UserColumnName="Station" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -324,8 +324,17 @@ namespace SKG.DXF.Station.Manage
                         dtr["Date"] = Global.Session.Current;
                         dtr["Number"] = detail.Tra_Vehicle.Code;
                         dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;
+
                         dtr["Cost"] = detail.Cost;
                         dtr["Rose"] = detail.Rose;
+
+                        var seat = detail.Seats ?? 0;
+                        var bed = detail.Beds ?? 0;
+                        dtr["CostDescript"] = String.Format(" = {0:#,#} x {1} + {2:#,#} x {3}",
+                            detail.Price1, seat, detail.Price2, bed);
+                        dtr["RoseDescript"] = String.Format(" = {0:#,#} x {1} + {2:#,#} x {3}",
+                            detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
+
                         dtr["Parked"] = detail.Parked;
                         dtr["Money"] = detail.Money;
                         dtr["ByChar"] = detail.Money.ToVietnamese("đồng");

@@ -157,7 +157,7 @@ namespace SKG.DXF.Station.Fixed
                     Guest = txtGuest.Text.ToInt32()
                 };
 
-                var oki = _bll.Tra_Vehicle.Update(o);
+                var oki = _bll.Tra_Detail.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;
@@ -168,7 +168,7 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.GetInDepot();
+            _dtb = _bll.Tra_Detail.GetInDepotFixed();
 
             if (_dtb != null)
             {

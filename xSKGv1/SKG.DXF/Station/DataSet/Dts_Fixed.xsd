@@ -48,6 +48,8 @@
               <xs:element name="Money" msprop:Generator_ColumnVarNameInTable="columnMoney" msprop:Generator_ColumnPropNameInRow="Money" msprop:Generator_ColumnPropNameInTable="MoneyColumn" msprop:Generator_UserColumnName="Money" type="xs:decimal" minOccurs="0" />
               <xs:element name="ByChar" msprop:Generator_ColumnVarNameInTable="columnByChar" msprop:Generator_ColumnPropNameInRow="ByChar" msprop:Generator_ColumnPropNameInTable="ByCharColumn" msprop:Generator_UserColumnName="ByChar" type="xs:string" minOccurs="0" />
               <xs:element name="Creator" msprop:Generator_ColumnVarNameInTable="columnCreator" msprop:Generator_ColumnPropNameInRow="Creator" msprop:Generator_ColumnPropNameInTable="CreatorColumn" msprop:Generator_UserColumnName="Creator" type="xs:string" minOccurs="0" />
+              <xs:element name="CostDescript" msprop:Generator_ColumnVarNameInTable="columnCostDescript" msprop:Generator_ColumnPropNameInRow="CostDescript" msprop:Generator_ColumnPropNameInTable="CostDescriptColumn" msprop:Generator_UserColumnName="CostDescript" type="xs:string" minOccurs="0" />
+              <xs:element name="RoseDescript" msprop:Generator_ColumnVarNameInTable="columnRoseDescript" msprop:Generator_ColumnPropNameInRow="RoseDescript" msprop:Generator_ColumnPropNameInTable="RoseDescriptColumn" msprop:Generator_UserColumnName="RoseDescript" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

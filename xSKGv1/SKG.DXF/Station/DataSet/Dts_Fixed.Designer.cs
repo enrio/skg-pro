@@ -822,6 +822,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnCreator;
             
+            private global::System.Data.DataColumn columnCostDescript;
+            
+            private global::System.Data.DataColumn columnRoseDescript;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReceiptDataTable() {
@@ -937,6 +941,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CostDescriptColumn {
+                get {
+                    return this.columnCostDescript;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RoseDescriptColumn {
+                get {
+                    return this.columnRoseDescript;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -972,7 +992,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator) {
+            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator, string CostDescript, string RoseDescript) {
                 ReceiptRow rowReceiptRow = ((ReceiptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Seri,
@@ -984,7 +1004,9 @@ namespace SKG.DXF.Station.DataSet {
                         Parked,
                         Money,
                         ByChar,
-                        Creator};
+                        Creator,
+                        CostDescript,
+                        RoseDescript};
                 rowReceiptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReceiptRow);
                 return rowReceiptRow;
@@ -1017,6 +1039,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnMoney = base.Columns["Money"];
                 this.columnByChar = base.Columns["ByChar"];
                 this.columnCreator = base.Columns["Creator"];
+                this.columnCostDescript = base.Columns["CostDescript"];
+                this.columnRoseDescript = base.Columns["RoseDescript"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1042,6 +1066,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnByChar);
                 this.columnCreator = new global::System.Data.DataColumn("Creator", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreator);
+                this.columnCostDescript = new global::System.Data.DataColumn("CostDescript", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCostDescript);
+                this.columnRoseDescript = new global::System.Data.DataColumn("RoseDescript", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRoseDescript);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1835,6 +1863,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CostDescript {
+                get {
+                    try {
+                        return ((string)(this[this.tableReceipt.CostDescriptColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CostDescript\' in table \'Receipt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReceipt.CostDescriptColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RoseDescript {
+                get {
+                    try {
+                        return ((string)(this[this.tableReceipt.RoseDescriptColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RoseDescript\' in table \'Receipt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReceipt.RoseDescriptColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeriNull() {
                 return this.IsNull(this.tableReceipt.SeriColumn);
             }
@@ -1951,6 +2011,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCreatorNull() {
                 this[this.tableReceipt.CreatorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCostDescriptNull() {
+                return this.IsNull(this.tableReceipt.CostDescriptColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCostDescriptNull() {
+                this[this.tableReceipt.CostDescriptColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRoseDescriptNull() {
+                return this.IsNull(this.tableReceipt.RoseDescriptColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRoseDescriptNull() {
+                this[this.tableReceipt.RoseDescriptColumn] = global::System.Convert.DBNull;
             }
         }
         

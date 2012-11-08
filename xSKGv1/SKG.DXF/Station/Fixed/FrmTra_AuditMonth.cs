@@ -157,7 +157,7 @@ namespace SKG.DXF.Station.Fixed
                     Guest = txtGuest.Text.ToInt32()
                 };
 
-                var oki = _bll.Tra_Detail.Update(o);
+                var oki = _bll.Tra_Detail.UpdateGuest(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
 
                 return oki != null ? true : false;

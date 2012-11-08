@@ -165,6 +165,24 @@ namespace SKG.DAL
             catch { return null; }
         }
 
+        /// <summary>
+        /// Cập nhật số hành khách đi xe
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public object UpdateGuest(object obj)
+        {
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);                
+
+                res.Guest = o.Guest;               
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
+
         public object Delete(Guid id = new Guid())
         {
             try

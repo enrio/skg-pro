@@ -137,12 +137,6 @@
     <Compile Include="Home\Catalog\FrmPol_Shift.Designer.cs">
       <DependentUpon>FrmPol_Shift.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Dictionary.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Home\Catalog\_FrmPol_Dictionary.Designer.cs">
-      <DependentUpon>_FrmPol_Dictionary.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home\Catalog\FrmPol_Right.cs">
       <SubType>Form</SubType>
     </Compile>

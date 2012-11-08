@@ -59,6 +59,12 @@ namespace SKG.DXF.Station.Sumary
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
             var d = Global.Session.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
@@ -91,9 +97,12 @@ namespace SKG.DXF.Station.Sumary
         #region Override
         protected override void PerformPrint()
         {
-            var a = new Report.Rpt_Normal() { DataSource = _dtb };
-            a.Name = Global.Session.User.Acc
-                + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss");
+            var a = new Report.Rpt_Normal
+            {
+                DataSource = _dtb,
+                Name = Global.Session.User.Acc
+                    + Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss")
+            };
 
             /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
                 dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));

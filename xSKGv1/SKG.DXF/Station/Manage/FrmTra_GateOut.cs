@@ -6,7 +6,6 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Extend;
     using SKG.Plugin;
-    using System.Data;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -141,16 +140,19 @@ namespace SKG.DXF.Station.Manage
 
             // Ca làm việc
             DateTime shift;
-            int i = Global.Session.Shift(out shift);
+            Global.Session.Shift(out shift);
 
             var end = shift.Date.AddHours(13);
             var start = end.AddDays(-1);
 
-            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA NGÀY " + shift.Date.ToString("dd/MM/yyyy");
+            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA NGÀY "
+                + shift.Date.ToString("dd/MM/yyyy");
+
             var tmp = shift.Date.ToString("A dd B MM C yyyy");
             tmp = tmp.Replace("A", "Ngày");
             tmp = tmp.Replace("B", "tháng");
             tmp = tmp.Replace("C", "năm");
+
             rpt.xrcDate.Text = tmp;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
@@ -331,7 +333,16 @@ namespace SKG.DXF.Station.Manage
 
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
-                        rpt.Print();
+
+                        try
+                        {
+                            rpt.Print();
+                        }
+                        catch
+                        {
+                            XtraMessageBox.Show("KHÔNG CÓ MÁY IN", Text,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     PerformRefresh();

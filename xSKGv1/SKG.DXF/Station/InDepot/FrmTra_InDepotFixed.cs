@@ -76,6 +76,35 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Override
+        protected override void PerformRefresh()
+        {
+            LoadData();
+
+            if (_dtb != null)
+            {
+                ClearDataBindings();
+                if (_dtb.Rows.Count > 0) DataBindingControl();
+            }
+
+            ReadOnlyControl();
+
+            base.PerformRefresh();
+        }
+
+        protected override void DataBindingControl()
+        {
+            txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
+
+            base.DataBindingControl();
+        }
+
+        protected override void ClearDataBindings()
+        {
+            txtNumber.DataBindings.Clear();
+
+            base.ClearDataBindings();
+        }
+
         protected override void PerformDelete()
         {
             var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
@@ -83,7 +112,7 @@ namespace SKG.DXF.Station.InDepot
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, "");
+                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
@@ -109,13 +138,6 @@ namespace SKG.DXF.Station.InDepot
             gridColumn4.BestFit(); // fit column Chairs
 
             base.LoadData();
-        }
-
-        protected override void PerformRefresh()
-        {
-            LoadData();
-
-            base.PerformRefresh();
         }
 
         protected override void PerformFind()

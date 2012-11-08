@@ -29,7 +29,15 @@ namespace SKG.DXF.Help.Util
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Frm_License).FullName, Parent = typeof(Level2).FullName, Text = "Đăng kí", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(Frm_License).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Đăng kí",
+                    Level = 3,
+                    Order = 996,
+                    Picture = @"Icons\License.png"
+                };
                 return menu;
             }
         }

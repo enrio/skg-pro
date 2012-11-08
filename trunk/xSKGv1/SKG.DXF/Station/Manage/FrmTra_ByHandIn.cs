@@ -16,6 +16,7 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
+    using SKG.Extend;
     using SKG.Plugin;
     using System.Data;
     using DAL.Entities;
@@ -153,6 +154,11 @@ namespace SKG.DXF.Station.Manage
                     else
                     {
                         ve_x.TariffId = tar.Id;
+                        var seats = r["Seats"] + "";
+                        var beds = r["Seats"] + "";
+                        ve_x.Seats = seats.ToInt32();
+                        ve_x.Beds = beds.ToInt32();
+
                         if (_bll.Tra_Vehicle.Insert(ve_x) == null)
                         {
                             r.RowError = "Không thêm thông tin xe được!";
@@ -166,8 +172,8 @@ namespace SKG.DXF.Station.Manage
                     {
                         r["Kind"] = ve.Tariff.Text;
                         r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
-                        r["Seats"] = ve.Seats;
-                        r["Beds"] = ve.Beds;
+                        r["Seats"] = ve.Seats ?? 0;
+                        r["Beds"] = ve.Beds ?? 0;
                         r["CodeId"] = ve.Id;
                     }
                     else
@@ -243,7 +249,7 @@ namespace SKG.DXF.Station.Manage
         /// <returns></returns>
         DataTable ImportData(string fileName, string sheetName)
         {
-            var tb = Data.Excel.ImportFromExcel(fileName, sheetName);
+            var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
             tb.Columns[2].ColumnName = "DateIn";

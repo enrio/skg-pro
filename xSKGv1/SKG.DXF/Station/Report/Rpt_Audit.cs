@@ -23,7 +23,7 @@ namespace SKG.DXF.Station.Report
         int _area = 0;
         private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xrcArea.Text = SKG.Extend.Number.ToRoman(++_area);
+            //xrcArea.Text = SKG.Extend.Number.ToRoman(++_area);
         }
 
         int _province = 0;

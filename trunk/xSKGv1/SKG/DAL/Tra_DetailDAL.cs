@@ -323,26 +323,23 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
-                          where s.Pol_UserOutId == null && v.Fixed == true
-                          orderby s.DateIn descending, v.Code
-
+                          where s.Pol_UserOutId == null
+                          && s.Tra_Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
                           select new
                           {
                               s.Id,
                               UserInName = s.Pol_UserIn.Name,
                               Phone = s.Pol_UserIn.Phone,
                               s.DateIn,
+                              s.Guest,
+                              Route = s.Tra_Vehicle.Tariff.Text,
+                              s.Tra_Vehicle.Node,
 
-                              v.Code,
-                              v.Seats,
-                              v.Beds,
-
-                              Route = k.Text,
-                              Transport = v.Transport.Text,
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
+                              Transport = s.Tra_Vehicle.Transport.Text,
                           };
 
                 if (number != null)

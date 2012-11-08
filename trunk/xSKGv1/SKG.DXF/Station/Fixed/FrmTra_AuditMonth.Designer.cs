@@ -376,7 +376,7 @@
             // bandedGridColumn1
             // 
             this.bandedGridColumn1.Caption = "Tuyến";
-            this.bandedGridColumn1.FieldName = "Tariff";
+            this.bandedGridColumn1.FieldName = "Route";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
             this.bandedGridColumn1.Width = 77;

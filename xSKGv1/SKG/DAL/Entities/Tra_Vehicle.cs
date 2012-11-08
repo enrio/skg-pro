@@ -106,7 +106,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Number of nodes per month
         /// </summary>
-        public int Node { set; get; }
+        public int? Node { set; get; }
         #endregion
 
         #region Information of vehicle

@@ -491,7 +491,7 @@ namespace SKG.DAL
                 a.DateOut = Global.Session.Current;
 
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (ql)
+                if (ql && a.Tra_Vehicle.Fixed)
                 {
                     a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                     a.Note = String.Format("ĐỘI ĐIỀU HÀNH TẠM CHO RA BẾN\n\r ({0})", Global.Session.User.Name);

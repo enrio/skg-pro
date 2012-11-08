@@ -17,6 +17,8 @@ using System.Windows.Forms;
 namespace SKG.DXF.Station.InDepot
 {
     using SKG.Plugin;
+    using SKG.Plugin;
+    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Danh sách xe trong bến
@@ -51,7 +53,7 @@ namespace SKG.DXF.Station.InDepot
 
             AllowAdd = false;
             AllowEdit = false;
-            AllowDelete = false;
+            //AllowDelete = false;
             AllowSave = false;
             AllowCancel = false;
             AllowPrint = false;
@@ -74,6 +76,24 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Override
+        protected override void PerformDelete()
+        {
+            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+
+            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, "");
+                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+            }
+
+            base.PerformDelete();
+        }
+
         protected override void LoadData()
         {
 
@@ -110,5 +130,18 @@ namespace SKG.DXF.Station.InDepot
         {
             PerformRefresh();
         }
+
+        private const string STR_ADD = "Thêm xe";
+        private const string STR_EDIT = "Sửa xe";
+        private const string STR_DELETE = "Xoá xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Xe này có rồi";
+
+        private const string STR_NOT_V = "Chưa nhập biển số xe!";
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
+        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
     }
 }

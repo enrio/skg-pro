@@ -315,6 +315,8 @@ namespace SKG.DXF.Station.Fixed
                 return false;
             }
 
+            var tmp = txtCode.Text.Replace(" ", "");
+            txtCode.Text = tmp.ToUpper();
             return true;
         }
         #endregion

@@ -229,6 +229,8 @@ namespace SKG.DXF.Station.Normal
             var oki = txtSeats.Text.Length == 0 ? false : true;
             if (!oki) XtraMessageBox.Show(STR_NOT_C, Text);
 
+            var tmp = txtCode.Text.Replace(" ", "");
+            txtCode.Text = tmp.ToUpper();
             return a && oki;
         }
         #endregion

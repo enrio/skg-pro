@@ -783,9 +783,10 @@ namespace SKG.DAL
                           orderby s.DateIn descending, s.Tra_Vehicle.Code
                           select new
                           {
-                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Text,
-                              Area = s.Tra_Vehicle.Tariff.Group.Text,
-                              Province = s.Tra_Vehicle.Tariff.Text,
+                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,
+                              Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
+                              Province = s.Tra_Vehicle.Tariff.Group.Text,
+                              Station = s.Tra_Vehicle.Tariff.Text,
                               Transport = s.Tra_Vehicle.Transport.Text,
                               Number = s.Tra_Vehicle.Code,
 

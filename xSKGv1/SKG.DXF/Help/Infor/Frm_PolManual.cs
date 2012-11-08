@@ -25,7 +25,15 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Frm_PolManual).FullName, Parent = typeof(Level2).FullName, Text = "Sử dụng", Level = 3, Order = 997, Picture = @"Icons\Manual.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(Frm_PolManual).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Sử dụng",
+                    Level = 3,
+                    Order = 997,
+                    Picture = @"Icons\Manual.png"
+                };
                 return menu;
             }
         }

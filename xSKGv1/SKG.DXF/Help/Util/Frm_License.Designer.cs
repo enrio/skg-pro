@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Help.Util
 {
-    partial class FrmPol_License
+    partial class Frm_License
     {
         /// <summary>
         /// Required designer variable.

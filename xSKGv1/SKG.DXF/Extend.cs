@@ -526,7 +526,7 @@ namespace SKG.DXF
                     Application.ExitThread();
                     return;
                 }
-                else if (n == typeof(Help.Infor.Frm_PolManual).FullName)
+                else if (n == typeof(Help.Infor.Frm_Manual).FullName)
                 {
                     System.Windows.Forms.Help.ShowHelp(_frmMain, @"Manual.chm");
                     return;

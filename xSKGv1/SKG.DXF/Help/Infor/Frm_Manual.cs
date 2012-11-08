@@ -18,7 +18,7 @@ namespace SKG.DXF.Help.Infor
 {
     using SKG.Plugin;
 
-    public class Frm_PolManual : Level
+    public class Frm_Manual : Level
     {
         #region Override plugin
         public override Menuz Menuz
@@ -27,7 +27,7 @@ namespace SKG.DXF.Help.Infor
             {
                 var menu = new Menuz
                 {
-                    Code = typeof(Frm_PolManual).FullName,
+                    Code = typeof(Frm_Manual).FullName,
                     Parent = typeof(Level2).FullName,
                     Text = "Sử dụng",
                     Level = 3,

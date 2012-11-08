@@ -20,7 +20,7 @@ namespace SKG.DXF.Help.Util
     using SKG.Plugin;
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_License : SKG.DXF.FrmMenuz
+    public partial class Frm_License : SKG.DXF.FrmMenuz
     {
         #region Override plugin
         public override Form Form { get { return this; } }
@@ -29,13 +29,13 @@ namespace SKG.DXF.Help.Util
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_License).FullName, Parent = typeof(Level2).FullName, Text = "Đăng kí", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
+                var menu = new Menuz() { Code = typeof(Frm_License).FullName, Parent = typeof(Level2).FullName, Text = "Đăng kí", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_License()
+        public Frm_License()
         {
             InitializeComponent();
         }

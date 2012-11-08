@@ -247,20 +247,47 @@ namespace SKG.DXF.Station.Fixed
         protected override bool ValidInput()
         {
             var a = txtName.Text.Length == 0 ? false : true;
-            if (!a) txtName.Focus();
+            if (!a)
+            {
+                XtraMessageBox.Show("CHƯA NHẬP TÊN TUYẾN", Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            return a;
+                txtName.Focus();
+                return false;
+            }
+
+            var b = calPrice1.Text.Length == 0 ? false : true;
+            if (!b)
+            {
+                XtraMessageBox.Show("CHƯA NHẬP ĐƠN GIÁ LỆ PHÍ GHẾ", Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                calPrice1.Focus();
+                return false;
+            }
+
+            var c = calRose1.Text.Length == 0 ? false : true;
+            if (!c)
+            {
+                XtraMessageBox.Show("CHƯA NHẬP ĐƠN GIÁ HOA HỒNG GHẾ", Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                calRose1.Focus();
+                return false;
+            }
+
+            return true;
         }
         #endregion
 
-        private const string STR_ADD = "Thêm loại xe";
-        private const string STR_EDIT = "Sửa loại xe";
-        private const string STR_DELETE = "Xoá loại xe";
+        private const string STR_ADD = "THÊM BẢNG GIÁ TUYẾN";
+        private const string STR_EDIT = "SỬA BẢNG GIÁ TUYẾN";
+        private const string STR_DELETE = "XOÁ BẢNG GIÁ TUYẾN";
 
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá loại '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Loại này có rồi";
+        private const string STR_SELECT = "HÃY CHỌN DỮ LIỆU";
+        private const string STR_CONFIRM = "CÓ XOÁ TUYẾN '{0}' NÀY KHÔNG?";
+        private const string STR_UNDELETE = "KHÔNG XOÁ ĐƯỢC\n\rDỮ LIỆU ĐANG SỬ DỤNG";
+        private const string STR_DUPLICATE = "TUYẾN NÀY CÓ RỒI";
 
         private void FrmTra_Tariff_Load(object sender, EventArgs e)
         {

@@ -17,12 +17,15 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var menu = new Menuz { Code = typeof(FrmTra_Tariff).FullName,
-                Parent = typeof(Level2).FullName,
-                Text = "Bảng giá xe cố định",
-                Level = 3,
-                Order = 21,
-                Picture = @"Icons\Kind.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmTra_Tariff).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Bảng giá xe cố định",
+                    Level = 3,
+                    Order = 21,
+                    Picture = @"Icons\Kind.png"
+                };
                 return menu;
             }
         }
@@ -256,6 +259,16 @@ namespace SKG.DXF.Station.Fixed
         {
             lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_PROVINCE);
             lokGroup.ItemIndex = 0;
+        }
+
+        private void calPrice1_EditValueChanged(object sender, EventArgs e)
+        {
+            calPrice2.EditValue = Convert.ToInt32(calPrice1.EditValue) * 130 / 100;
+        }
+
+        private void calRose1_EditValueChanged(object sender, EventArgs e)
+        {
+            calRose2.EditValue = Convert.ToInt32(calRose1.EditValue) * 130 / 100;
         }
     }
 }

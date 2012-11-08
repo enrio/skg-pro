@@ -187,6 +187,8 @@ namespace SKG.DXF.Station.Fixed
                     Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_td"
             };
 
+            rpt.DataSource = _dtb;
+
             var frm = new FrmPrint();
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;

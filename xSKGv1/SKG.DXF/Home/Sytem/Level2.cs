@@ -25,7 +25,15 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Hệ thống", Level = 2, Order = 2, Picture = @"Icons\System.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(Level2).FullName,
+                    Parent = typeof(Level1).FullName,
+                    Text = "Hệ thống",
+                    Level = 2,
+                    Order = 2,
+                    Picture = @"Icons\System.png"
+                };
                 return menu;
             }
         }

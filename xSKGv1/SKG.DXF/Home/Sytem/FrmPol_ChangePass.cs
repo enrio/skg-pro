@@ -39,7 +39,7 @@ namespace SKG.DXF.Home.Sytem
                     Text = "Đổi mật khẩu",
                     Level = 3,
                     Order = 3,
-                    Picture = @"Icons\Login.png"
+                    Picture = @"Icons\ChangePass.png"
                 };
                 return menu;
             }

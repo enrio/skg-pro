@@ -25,7 +25,15 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Level2).FullName, Parent = typeof(Level1).FullName, Text = "Phân quyền", Level = 2, Order = 14, Picture = @"Icons\Permission.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(Level2).FullName,
+                    Parent = typeof(Level1).FullName,
+                    Text = "Phân quyền",
+                    Level = 2,
+                    Order = 14,
+                    Picture = @"Icons\Grant.png"
+                };
                 return menu;
             }
         }

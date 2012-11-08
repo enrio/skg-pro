@@ -1,21 +1,29 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 29/07/2012 10:27
+ * Update: 29/07/2012 10:27
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Grant
 {
-    using Sytem;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
     using System.Drawing.Drawing2D;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Nodes;
-    using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraTreeList.StyleFormatConditions;
 
     public partial class FrmPol_UserRole : SKG.DXF.FrmInput
@@ -27,7 +35,15 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_UserRole).FullName, Parent = typeof(Level2).FullName, Text = "Người dùng thuộc nhóm", Level = 3, Order = 16, Picture = @"Icons\UserRole.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmPol_UserRole).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Người dùng thuộc nhóm",
+                    Level = 3,
+                    Order = 16,
+                    Picture = @"Icons\UserRole.png"
+                };
                 return menu;
             }
         }

@@ -12,17 +12,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Sytem
 {
-    using BLL;
     using SKG.Plugin;
-    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Menuz - Permission
@@ -36,7 +30,15 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_Permis).FullName, Parent = typeof(Level2).FullName, Text = "Phân quyền", Level = 0, Order = 5, Picture = @"Icons\Permission.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmPol_Permis).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Phân quyền",
+                    Level = 0,
+                    Order = 5,
+                    Picture = @"Icons\Permission.png"
+                };
                 return menu;
             }
         }

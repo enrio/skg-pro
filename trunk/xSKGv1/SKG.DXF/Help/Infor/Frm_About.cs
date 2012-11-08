@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 29/07/2012 10:27
+ * Update: 29/07/2012 10:27
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -17,7 +29,15 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(Frm_About).FullName, Parent = typeof(Level2).FullName, Text = "Sản phẩm", Level = 3, Order = 996, Picture = @"Icons\Registry.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(Frm_About).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Sản phẩm",
+                    Level = 3,
+                    Order = 996,
+                    Picture = @"Icons\About.png"
+                };
                 return menu;
             }
         }

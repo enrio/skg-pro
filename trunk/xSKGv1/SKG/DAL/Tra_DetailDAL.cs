@@ -125,7 +125,7 @@ namespace SKG.DAL
                 // Cập nhật mã nhóm xe vãng lai/mã vùng xe cố định
                 var ve = _db.Tra_Vehicles.SingleOrDefault(p => p.Id == o.Tra_VehicleId);
                 var c = ve.Tariff.Group.Code.Substring(0, 1);
-                if (c == "A") o.Code = "FIXED";
+                if (c == "P") o.Code = "FIXED";
                 else o.Code = ve.Tariff.Group.Code;
 
                 var oki = _db.Tra_Details.Add(o);

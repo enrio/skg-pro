@@ -331,9 +331,9 @@ namespace SKG.DXF.Station.Manage
                         var seat = detail.Seats ?? 0;
                         var bed = detail.Beds ?? 0;
                         dtr["CostDescript"] = String.Format(" = {0:#,#} x {1} + {2:#,#} x {3}",
-                            detail.Price1, seat, detail.Price2, bed);
+                             seat, detail.Price1, bed, detail.Price2);
                         dtr["RoseDescript"] = String.Format(" = {0:#,#} x {1} + {2:#,#} x {3}",
-                            detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
+                             (seat < 1 ? 1 : seat - 1), detail.Rose1, bed, detail.Rose2);
 
                         dtr["Parked"] = detail.Parked;
                         dtr["Money"] = detail.Money;

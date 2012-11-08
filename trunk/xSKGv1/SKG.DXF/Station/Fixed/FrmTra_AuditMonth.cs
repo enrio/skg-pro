@@ -51,10 +51,18 @@ namespace SKG.DXF.Station.Fixed
             dockPanel1.SetDockPanel("Nhập liệu");
             dockPanel2.SetDockPanel("Danh sách");
 
+            AllowAdd = false;
+            AllowDelete = false;
             AllowPrint = true;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
         }
 
         #region Override

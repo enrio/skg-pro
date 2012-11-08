@@ -59,6 +59,12 @@ namespace SKG.DXF.Station.Sumary
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
 
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
             var d = Global.Session.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
@@ -93,14 +99,14 @@ namespace SKG.DXF.Station.Sumary
         {
             var rpt = new Report.Rpt_Fixed
             {
-                Name = Global.Session.User.Acc +
-                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_cd"
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd",
+                Global.Session.User.Acc, Global.Session.Current)
             };
             decimal sum = 0;
 
             // Ca làm việc
             DateTime shift;
-            int i = Global.Session.Shift(out shift);
+            Global.Session.Shift(out shift);
 
             var end = dteTo.DateTime.ToEndOfDay();
             var start = dteFrom.DateTime.ToStartOfDay();

@@ -53,6 +53,9 @@ namespace SKG.DXF.Station.Fixed
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
         }
 
         private void FrmPol_Dictionary_Load(object sender, EventArgs e)

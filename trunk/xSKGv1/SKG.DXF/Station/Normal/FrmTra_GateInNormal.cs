@@ -53,6 +53,12 @@ namespace SKG.DXF.Station.Normal
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
         }
 
         #region Override

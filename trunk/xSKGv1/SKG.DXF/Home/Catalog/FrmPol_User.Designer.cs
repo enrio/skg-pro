@@ -123,24 +123,24 @@
             this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(742, 17);
+            this.lblInfo.Location = new System.Drawing.Point(794, 17);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(193, 55);
+            this.lblInfo.Size = new System.Drawing.Size(141, 55);
             this.lblInfo.TabIndex = 27;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(625, 14);
+            this.txtPhone.Location = new System.Drawing.Point(664, 14);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Size = new System.Drawing.Size(111, 26);
+            this.txtPhone.Size = new System.Drawing.Size(124, 26);
             this.txtPhone.TabIndex = 4;
             // 
             // dteBirth
             // 
             this.dteBirth.EditValue = null;
-            this.dteBirth.Location = new System.Drawing.Point(442, 14);
+            this.dteBirth.Location = new System.Drawing.Point(467, 14);
             this.dteBirth.Name = "dteBirth";
             this.dteBirth.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteBirth.Properties.Appearance.Options.UseFont = true;
@@ -148,13 +148,13 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteBirth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteBirth.Size = new System.Drawing.Size(95, 26);
+            this.dteBirth.Size = new System.Drawing.Size(109, 26);
             this.dteBirth.TabIndex = 3;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(543, 17);
+            this.labelControl2.Location = new System.Drawing.Point(582, 17);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(76, 20);
             this.labelControl2.TabIndex = 26;
@@ -163,7 +163,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(363, 17);
+            this.labelControl1.Location = new System.Drawing.Point(388, 17);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(73, 20);
             this.labelControl1.TabIndex = 23;
@@ -171,17 +171,17 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(442, 46);
+            this.txtAddress.Location = new System.Drawing.Point(467, 46);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtAddress.Size = new System.Drawing.Size(294, 26);
+            this.txtAddress.Size = new System.Drawing.Size(321, 26);
             this.txtAddress.TabIndex = 5;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(384, 49);
+            this.labelControl3.Location = new System.Drawing.Point(388, 49);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(52, 20);
             this.labelControl3.TabIndex = 25;
@@ -194,7 +194,7 @@
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Properties.Appearance.Options.UseFont = true;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(104, 26);
+            this.txtPass.Size = new System.Drawing.Size(128, 26);
             this.txtPass.TabIndex = 2;
             // 
             // lblPass
@@ -230,7 +230,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(268, 26);
+            this.txtName.Size = new System.Drawing.Size(292, 26);
             this.txtName.TabIndex = 0;
             // 
             // lblName

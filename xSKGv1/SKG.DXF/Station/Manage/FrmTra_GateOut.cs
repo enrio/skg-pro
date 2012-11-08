@@ -150,7 +150,7 @@ namespace SKG.DXF.Station.Manage
             var tmp = shift.Date.ToString("A dd B MM C yyyy");
             tmp = tmp.Replace("A", "Ngày");
             tmp = tmp.Replace("B", "tháng");
-            tmp = tmp.Replace("C", "nămy");
+            tmp = tmp.Replace("C", "năm");
             rpt.xrcDate.Text = tmp;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 

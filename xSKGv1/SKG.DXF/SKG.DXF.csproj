@@ -365,33 +365,6 @@
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
-      <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Right.resx">
-      <DependentUpon>FrmPol_Right.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
-      <DependentUpon>FrmPol_Role.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_User.resx">
-      <DependentUpon>FrmPol_User.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Shift.resx">
-      <DependentUpon>FrmPol_Shift.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Grant\FrmPol_RoleRight.resx">
-      <DependentUpon>FrmPol_RoleRight.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Grant\FrmPol_UserRole.resx">
-      <DependentUpon>FrmPol_UserRole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Sytem\FrmPol_ChangePass.resx">
-      <DependentUpon>FrmPol_ChangePass.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Sytem\FrmPol_Login.resx">
-      <DependentUpon>FrmPol_Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -403,45 +376,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_AuditMonth.resx">
-      <DependentUpon>FrmTra_AuditMonth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Transport.resx">
-      <DependentUpon>FrmTra_Transport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
-      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
-      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_ByHandOut.resx">
-      <DependentUpon>FrmTra_ByHandOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_ByHandIn.resx">
-      <DependentUpon>FrmTra_ByHandIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
-      <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
-      <DependentUpon>Frm_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
-      <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
-      <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Normal\FrmTra_Group.resx">
-      <DependentUpon>FrmTra_Group.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Normal\FrmTra_Tariff.resx">
-      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
-      <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Audit.resx">
       <DependentUpon>Rpt_Audit.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,12 +384,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Normal.resx">
       <DependentUpon>Rpt_Normal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotFixed.resx">
-      <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotNormal.resx">
-      <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Receipt.resx">
       <DependentUpon>Rpt_Receipt.cs</DependentUpon>

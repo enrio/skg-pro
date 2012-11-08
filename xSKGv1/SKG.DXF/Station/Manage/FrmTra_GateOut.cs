@@ -269,6 +269,7 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
+        bool _isFixed;
         /// <summary>
         /// Tính tiền và cho xe ra bến
         /// </summary>
@@ -279,8 +280,9 @@ namespace SKG.DXF.Station.Manage
             {
                 if (lkeNumber.Text == "") return;
                 var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
+                _isFixed = detail.Tra_Vehicle.Fixed;
 
-                if (detail.Tra_Vehicle.Fixed)
+                if (_isFixed)
                 {
                     lblKind.Text = "Tuyến: " + detail.Tra_Vehicle.Tariff.Text;
                     lblGroup.Text = "ĐVVT: " + detail.Tra_Vehicle.Transport.Text;
@@ -321,7 +323,7 @@ namespace SKG.DXF.Station.Manage
 
                 if (isOut)
                 {
-                    if (detail.Tra_Vehicle.Fixed && !detail.Repair)
+                    if (_isFixed && !detail.Repair)
                     {
                         var rpt = new Report.Rpt_Receipt
                         {
@@ -384,6 +386,17 @@ namespace SKG.DXF.Station.Manage
 
             frm.lblRose1.Text = lblRose1.Text;
             frm.lblRose2.Text = lblRose2.Text;
+
+            if (_isFixed)
+            {
+                frm.lblHalfDay.Text = "Ghế:";
+                frm.lblFullDay.Text = "Giường";
+            }
+            else
+            {
+                frm.lblHalfDay.Text = "Nửa ngày:";
+                frm.lblFullDay.Text = "Một ngày:";
+            }
 
             frm.ShowDialog();
         }

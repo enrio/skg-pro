@@ -173,8 +173,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblFullDay;
-        private System.Windows.Forms.Label lblHalfDay;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
@@ -182,5 +180,7 @@
         public System.Windows.Forms.Label lblPrice1;
         public System.Windows.Forms.Label lblRose2;
         public System.Windows.Forms.Label lblRose1;
+        public System.Windows.Forms.Label lblHalfDay;
+        public System.Windows.Forms.Label lblFullDay;
     }
 }

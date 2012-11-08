@@ -373,6 +373,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
+      <DependentUpon>Frm_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Audit.resx">
       <DependentUpon>Rpt_Audit.cs</DependentUpon>
     </EmbeddedResource>

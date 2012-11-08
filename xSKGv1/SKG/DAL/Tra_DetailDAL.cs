@@ -517,9 +517,21 @@ namespace SKG.DAL
                     // Người cho ra
                     a.Pol_UserOutId = Global.Session.User.Id;
 
-                    // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng, xe cố định)
-                    var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                    a.Order = dt.Max(p => p.Order) + 1;
+                    if (a.Tra_Vehicle.Fixed)
+                    {
+                        // Đánh số phiếu thu theo tháng, năm
+                        var dt = _db.Tra_Details.Where(p => p.Code == a.Code
+                            && p.DateOut.Value.Month == Global.Session.Current.Month
+                            && p.DateOut.Value.Year == Global.Session.Current.Year);
+
+                        a.Order = dt.Max(p => p.Order) + 1;
+                    }
+                    else
+                    {
+                        // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng)
+                        var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
+                        a.Order = dt.Max(p => p.Order) + 1;
+                    }
 
                     // Ca làm việc
                     DateTime shift;

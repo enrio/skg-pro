@@ -1,14 +1,23 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 29/07/2012 10:27
+ * Update: 29/07/2012 10:27
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Grant
 {
-    using Sytem;
     using SKG.Plugin;
     using DAL.Entities;
     using DevExpress.XtraEditors;
@@ -27,7 +36,15 @@ namespace SKG.DXF.Home.Grant
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_UserRight).FullName, Parent = typeof(Level2).FullName, Text = "Gán quyền người dùng", Level = 3, Order = 15, Picture = @"Icons\UserRight.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmPol_UserRight).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Gán quyền người dùng",
+                    Level = 3,
+                    Order = 15,
+                    Picture = @"Icons\UserRight.png"
+                };
                 return menu;
             }
         }

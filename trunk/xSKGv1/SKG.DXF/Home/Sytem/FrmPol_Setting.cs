@@ -35,7 +35,15 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
-                var menu = new Menuz() { Code = typeof(FrmPol_Setting).FullName, Parent = typeof(Level2).FullName, Text = "Cài đặt", Level = 3, Order = 4, Picture = @"Icons\Setting.png" };
+                var menu = new Menuz
+                {
+                    Code = typeof(FrmPol_Setting).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Cài đặt",
+                    Level = 3,
+                    Order = 4,
+                    Picture = @"Icons\Setting.png"
+                };
                 return menu;
             }
         }

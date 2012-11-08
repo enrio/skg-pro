@@ -359,9 +359,6 @@
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\Sytem\FrmPol_ChangePass.resx">
-      <DependentUpon>FrmPol_ChangePass.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

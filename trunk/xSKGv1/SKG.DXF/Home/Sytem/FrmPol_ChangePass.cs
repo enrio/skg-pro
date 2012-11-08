@@ -89,5 +89,11 @@ namespace SKG.DXF.Home.Sytem
         {
             AllowBar = false;
         }
+
+        private void txtConfirm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSave_Click(sender, null);
+        }
     }
 }

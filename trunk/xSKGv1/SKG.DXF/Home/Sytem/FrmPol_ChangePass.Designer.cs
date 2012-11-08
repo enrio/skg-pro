@@ -134,6 +134,7 @@
             this.txtConfirm.Properties.UseSystemPasswordChar = true;
             this.txtConfirm.Size = new System.Drawing.Size(229, 20);
             this.txtConfirm.TabIndex = 1;
+            this.txtConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirm_KeyDown);
             // 
             // panelControl1
             // 

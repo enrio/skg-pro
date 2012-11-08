@@ -741,6 +741,7 @@ namespace SKG.DAL
                           orderby s.Order
                           select new
                           {
+                              s.Id,
                               No_ = s.Order,
                               s.More,
                               s.Text,

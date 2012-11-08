@@ -134,7 +134,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Normal
             _tb_normal = ImportData(open.FileName, "Vanglai");
-            _tb_normal.Columns.Add("Kind");
             _tb_normal.Columns.Add("Group");
 
             foreach (DataRow r in _tb_normal.Rows)
@@ -144,8 +143,22 @@ namespace SKG.DXF.Station.Manage
 
                 if (ve == null)
                 {
-                    r.RowError = "Xe chưa có trong danh sách quản lí";
-                    r["Note"] = r.RowError;
+                    var ve_x = new Tra_Vehicle { Code = bs };
+                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Kind"] + "");
+                    if (tar == null)
+                    {
+                        r.RowError = "Loại xe này không có!";
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        ve_x.TariffId = tar.Id;
+                        if (_bll.Tra_Vehicle.Insert(ve_x) == null)
+                        {
+                            r.RowError = "Không thêm thông tin xe được!";
+                            r["Note"] = r.RowError;
+                        }
+                    }
                 }
                 else
                 {
@@ -234,9 +247,20 @@ namespace SKG.DXF.Station.Manage
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
             tb.Columns[2].ColumnName = "DateIn";
+
+            if (sheetName.ToLower() == "vanglai")
+            {
+                tb.Columns[3].ColumnName = "Kind";
+                tb.Columns[4].ColumnName = "Seats";
+                tb.Columns[5].ColumnName = "Beds";
+            }
+            else
+            {
+                tb.Columns.Add("Seats");
+                tb.Columns.Add("Beds");
+            }
+
             tb.Columns.Add("CodeId", typeof(Guid));
-            tb.Columns.Add("Seats");
-            tb.Columns.Add("Beds");
             tb.Columns.Add("Note");
             return tb;
         }

@@ -1,33 +1,42 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 29/07/2012 10:27
+ * Update: 29/07/2012 10:27
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Windows.Forms;
+using System.Linq;
 
 namespace SKG.DXF.Help.Util
 {
-    using System.Net;
+    using SKG.Plugin;
 
-    public partial class Frm_Update : SKG.DXF.FrmMenuz
+    public class Frm_Update : Level
     {
-        public Frm_Update()
+        #region Override plugin
+        public override Menuz Menuz
         {
-            InitializeComponent();
+            get
+            {
+                var menu = new Menuz
+                {
+                    Code = typeof(Frm_Update).FullName,
+                    Parent = typeof(Level2).FullName,
+                    Text = "Sử dụng",
+                    Level = 3,
+                    Order = 997,
+                    Picture = @"Icons\Update.png"
+                };
+                return menu;
+            }
         }
-
-        private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            prbUpdate.Value = e.ProgressPercentage;
-        }
-
-        private void Completed(object sender, AsyncCompletedEventArgs e)
-        {
-            MessageBox.Show("Tải xong bản cập nhật!", "Cập nhật", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
-        }
-
-        private void cmdUpdate_Click(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }

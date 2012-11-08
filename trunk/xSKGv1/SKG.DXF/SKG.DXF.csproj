@@ -114,21 +114,16 @@
     <Compile Include="Help\Infor\Frm_About.Designer.cs">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Help\Infor\Frm_PolManual.cs" />
-    <Compile Include="Help\Util\FrmPol_License.cs">
+    <Compile Include="Help\Infor\Frm_Manual.cs" />
+    <Compile Include="Help\Util\Frm_License.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Help\Util\FrmPol_License.Designer.cs">
-      <DependentUpon>FrmPol_License.cs</DependentUpon>
+    <Compile Include="Help\Util\Frm_License.Designer.cs">
+      <DependentUpon>Frm_License.cs</DependentUpon>
     </Compile>
     <Compile Include="Help\Infor\Level2.cs" />
     <Compile Include="Help\Level1.cs" />
-    <Compile Include="Help\Util\Frm_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Help\Util\Frm_Update.Designer.cs">
-      <DependentUpon>Frm_Update.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Help\Util\Frm_Update.cs" />
     <Compile Include="Help\Util\Level2.cs" />
     <Compile Include="Home\Catalog\FrmPol_Dictionary.cs">
       <SubType>Form</SubType>
@@ -375,9 +370,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Help\Util\Frm_Update.resx">
-      <DependentUpon>Frm_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>

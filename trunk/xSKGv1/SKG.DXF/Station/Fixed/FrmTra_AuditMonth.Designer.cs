@@ -341,7 +341,7 @@
             this.gridBand1.Columns.Add(this.bandedGridColumn1);
             this.gridBand1.Columns.Add(this.bandedGridColumn2);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 438;
+            this.gridBand1.Width = 486;
             // 
             // gridColumn1
             // 
@@ -355,7 +355,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 42;
+            this.gridColumn2.Width = 44;
             // 
             // gridColumn3
             // 
@@ -363,7 +363,7 @@
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 61;
+            this.gridColumn3.Width = 68;
             // 
             // gridColumn4
             // 
@@ -371,7 +371,7 @@
             this.gridColumn4.FieldName = "Transport";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 156;
+            this.gridColumn4.Width = 169;
             // 
             // bandedGridColumn1
             // 
@@ -379,7 +379,7 @@
             this.bandedGridColumn1.FieldName = "Route";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 77;
+            this.bandedGridColumn1.Width = 150;
             // 
             // bandedGridColumn2
             // 
@@ -387,7 +387,7 @@
             this.bandedGridColumn2.FieldName = "Node";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 102;
+            this.bandedGridColumn2.Width = 55;
             // 
             // gridBand2
             // 
@@ -395,7 +395,7 @@
             this.gridBand2.Columns.Add(this.gridColumn5);
             this.gridBand2.Columns.Add(this.gridColumn6);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 134;
+            this.gridBand2.Width = 172;
             // 
             // gridColumn5
             // 
@@ -403,7 +403,7 @@
             this.gridColumn5.FieldName = "Seats";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 64;
+            this.gridColumn5.Width = 80;
             // 
             // gridColumn6
             // 
@@ -411,7 +411,7 @@
             this.gridColumn6.FieldName = "Beds";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.Width = 70;
+            this.gridColumn6.Width = 92;
             // 
             // gridBand3
             // 
@@ -420,7 +420,7 @@
             this.gridBand3.Columns.Add(this.bandedGridColumn4);
             this.gridBand3.Columns.Add(this.bandedGridColumn3);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 225;
+            this.gridBand3.Width = 267;
             // 
             // bandedGridColumn5
             // 
@@ -428,13 +428,17 @@
             this.bandedGridColumn5.FieldName = "UserInName";
             this.bandedGridColumn5.Name = "bandedGridColumn5";
             this.bandedGridColumn5.Visible = true;
+            this.bandedGridColumn5.Width = 97;
             // 
             // bandedGridColumn4
             // 
             this.bandedGridColumn4.Caption = "T.gian vào";
+            this.bandedGridColumn4.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.bandedGridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.bandedGridColumn4.FieldName = "DateIn";
             this.bandedGridColumn4.Name = "bandedGridColumn4";
             this.bandedGridColumn4.Visible = true;
+            this.bandedGridColumn4.Width = 117;
             // 
             // bandedGridColumn3
             // 
@@ -442,6 +446,7 @@
             this.bandedGridColumn3.FieldName = "Guest";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
+            this.bandedGridColumn3.Width = 53;
             // 
             // FrmTra_AuditMonth
             // 
@@ -490,11 +495,11 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
         private DevExpress.XtraEditors.TextEdit txtGuest;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
     }
 }

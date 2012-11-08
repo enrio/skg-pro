@@ -366,7 +366,9 @@
             this.xrTableCell16.Dpi = 254F;
             this.xrTableCell16.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell16.Name = "xrTableCell16";
+            this.xrTableCell16.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 0, 0, 0, 254F);
             this.xrTableCell16.StylePriority.UseFont = false;
+            this.xrTableCell16.StylePriority.UsePadding = false;
             this.xrTableCell16.Text = "xrTableCell16";
             this.xrTableCell16.Weight = 1.9483962939297703D;
             // 

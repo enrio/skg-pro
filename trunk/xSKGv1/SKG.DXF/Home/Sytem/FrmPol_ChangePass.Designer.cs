@@ -86,9 +86,9 @@
             this.labelUser.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelUser.Location = new System.Drawing.Point(3, 3);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(82, 16);
+            this.labelUser.Size = new System.Drawing.Size(52, 16);
             this.labelUser.TabIndex = 5;
-            this.labelUser.Text = "Mật khẩu mới:";
+            this.labelUser.Text = "Mật khẩu";
             // 
             // labelPassword
             // 
@@ -103,9 +103,8 @@
             // 
             // txtPass
             // 
-            this.txtPass.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtPass.EditValue = "";
-            this.txtPass.Location = new System.Drawing.Point(91, 3);
+            this.txtPass.Location = new System.Drawing.Point(67, 3);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -115,14 +114,13 @@
             this.txtPass.Properties.Appearance.Options.UseForeColor = true;
             this.txtPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(229, 20);
+            this.txtPass.Size = new System.Drawing.Size(122, 20);
             this.txtPass.TabIndex = 0;
             // 
             // txtConfirm
             // 
-            this.txtConfirm.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtConfirm.EditValue = "";
-            this.txtConfirm.Location = new System.Drawing.Point(91, 29);
+            this.txtConfirm.Location = new System.Drawing.Point(67, 29);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtConfirm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -132,7 +130,7 @@
             this.txtConfirm.Properties.Appearance.Options.UseForeColor = true;
             this.txtConfirm.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtConfirm.Properties.UseSystemPasswordChar = true;
-            this.txtConfirm.Size = new System.Drawing.Size(229, 20);
+            this.txtConfirm.Size = new System.Drawing.Size(122, 20);
             this.txtConfirm.TabIndex = 1;
             this.txtConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirm_KeyDown);
             // 

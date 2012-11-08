@@ -329,7 +329,7 @@ namespace SKG.DXF.Station.Manage
                         dtr["Parked"] = detail.Parked;
                         dtr["Money"] = detail.Money;
                         dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
-                        rpt.xrcCreator.Text = Global.Session.User.Name;
+                        dtr["Creator"] = Global.Session.User.Name;
 
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;

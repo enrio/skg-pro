@@ -55,7 +55,7 @@
             this.panelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBackground.Location = new System.Drawing.Point(0, 63);
             this.panelBackground.Name = "panelBackground";
-            this.panelBackground.Size = new System.Drawing.Size(563, 342);
+            this.panelBackground.Size = new System.Drawing.Size(369, 274);
             this.panelBackground.TabIndex = 10;
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtPass, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtConfirm, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelControl1, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(133, 179);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(36, 145);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -83,28 +83,29 @@
             // 
             this.labelUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.labelUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelUser.Location = new System.Drawing.Point(3, 3);
             this.labelUser.Name = "labelUser";
-            this.labelUser.Size = new System.Drawing.Size(52, 16);
+            this.labelUser.Size = new System.Drawing.Size(77, 16);
             this.labelUser.TabIndex = 5;
-            this.labelUser.Text = "Mật khẩu";
+            this.labelUser.Text = "Mật khẩu mới";
             // 
             // labelPassword
             // 
             this.labelPassword.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.labelPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPassword.Location = new System.Drawing.Point(3, 29);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(58, 16);
+            this.labelPassword.Size = new System.Drawing.Size(70, 16);
             this.labelPassword.TabIndex = 6;
-            this.labelPassword.Text = "Xác nhận:";
+            this.labelPassword.Text = "Xác nhận lại";
             // 
             // txtPass
             // 
+            this.txtPass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPass.EditValue = "";
-            this.txtPass.Location = new System.Drawing.Point(67, 3);
+            this.txtPass.Location = new System.Drawing.Point(86, 3);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -114,13 +115,14 @@
             this.txtPass.Properties.Appearance.Options.UseForeColor = true;
             this.txtPass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(122, 20);
+            this.txtPass.Size = new System.Drawing.Size(208, 20);
             this.txtPass.TabIndex = 0;
             // 
             // txtConfirm
             // 
+            this.txtConfirm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtConfirm.EditValue = "";
-            this.txtConfirm.Location = new System.Drawing.Point(67, 29);
+            this.txtConfirm.Location = new System.Drawing.Point(86, 29);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.Properties.Appearance.BackColor = System.Drawing.Color.AliceBlue;
             this.txtConfirm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -130,7 +132,7 @@
             this.txtConfirm.Properties.Appearance.Options.UseForeColor = true;
             this.txtConfirm.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
             this.txtConfirm.Properties.UseSystemPasswordChar = true;
-            this.txtConfirm.Size = new System.Drawing.Size(122, 20);
+            this.txtConfirm.Size = new System.Drawing.Size(208, 20);
             this.txtConfirm.TabIndex = 1;
             this.txtConfirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtConfirm_KeyDown);
             // 
@@ -147,7 +149,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 52);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(323, 34);
+            this.panelControl1.Size = new System.Drawing.Size(297, 34);
             this.panelControl1.TabIndex = 7;
             // 
             // btnExit
@@ -157,7 +159,7 @@
             this.btnExit.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnExit.Appearance.Options.UseFont = true;
             this.btnExit.Appearance.Options.UseForeColor = true;
-            this.btnExit.Location = new System.Drawing.Point(226, 6);
+            this.btnExit.Location = new System.Drawing.Point(213, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 4;
@@ -171,7 +173,7 @@
             this.btnSave.Appearance.ForeColor = System.Drawing.Color.Navy;
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.Appearance.Options.UseForeColor = true;
-            this.btnSave.Location = new System.Drawing.Point(151, 6);
+            this.btnSave.Location = new System.Drawing.Point(138, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 3;
@@ -182,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 405);
+            this.ClientSize = new System.Drawing.Size(369, 337);
             this.Controls.Add(this.panelBackground);
             this.Name = "FrmPol_ChangePass";
             this.Load += new System.EventHandler(this.FrmPol_ChangePass_Load);

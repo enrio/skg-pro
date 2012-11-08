@@ -70,7 +70,7 @@ namespace SKG.DXF.Home.Sytem
                 if (bll.ChangePass(txtPass.Text))
                 {
                     XtraMessageBox.Show(STR_SUCC, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Close();
+                    Extend.Login();
                 }
                 else
                 {

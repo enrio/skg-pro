@@ -55,7 +55,7 @@
             this.panelBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBackground.Location = new System.Drawing.Point(0, 0);
             this.panelBackground.Name = "panelBackground";
-            this.panelBackground.Size = new System.Drawing.Size(380, 272);
+            this.panelBackground.Size = new System.Drawing.Size(374, 272);
             this.panelBackground.TabIndex = 10;
             // 
             // tableLayoutPanel1
@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txtUser, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtPass, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.panelControl1, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(42, 144);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(39, 144);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -83,7 +83,7 @@
             // 
             this.labelUser.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUser.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.labelUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelUser.Location = new System.Drawing.Point(3, 3);
             this.labelUser.Name = "labelUser";
             this.labelUser.Size = new System.Drawing.Size(56, 16);
@@ -94,7 +94,7 @@
             // 
             this.labelPassword.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Appearance.ForeColor = System.Drawing.Color.Navy;
-            this.labelPassword.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelPassword.Location = new System.Drawing.Point(3, 29);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(52, 16);
@@ -103,7 +103,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUser.EditValue = "";
             this.txtUser.Location = new System.Drawing.Point(65, 3);
             this.txtUser.Name = "txtUser";
@@ -120,7 +120,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtPass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPass.EditValue = "";
             this.txtPass.Location = new System.Drawing.Point(65, 29);
             this.txtPass.Name = "txtPass";
@@ -199,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(380, 272);
+            this.ClientSize = new System.Drawing.Size(374, 272);
             this.Controls.Add(this.panelBackground);
             this.Name = "FrmPol_Login";
             this.Text = "Đăng nhập";

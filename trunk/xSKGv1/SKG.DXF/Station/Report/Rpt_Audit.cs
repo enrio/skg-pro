@@ -17,7 +17,7 @@ namespace SKG.DXF.Station.Report
         private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var x = 'A' + _region++;
-            xrcRegion.Text = (char)x + "";
+            //xrcRegion.Text = (char)x + "";
         }
 
         int _area = 0;

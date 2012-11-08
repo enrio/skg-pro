@@ -155,7 +155,8 @@ namespace SKG.DXF.Station.Manage
                     {
                         ve_x.TariffId = tar.Id;
                         var seats = r["Seats"] + "";
-                        var beds = r["Seats"] + "";
+                        var beds = r["Beds"] + "";
+
                         ve_x.Seats = seats.ToInt32();
                         ve_x.Beds = beds.ToInt32();
 

@@ -52,7 +52,14 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformDelete()
         {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                return;
+            }
+
+            var id = (Guid)tmpId;
 
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
@@ -109,7 +116,7 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            lokGroup.ItemIndex = 0;
+            //lokGroup.ItemIndex = 0;
             txtName.Text = null;
 
             calPrice1.Text = null;

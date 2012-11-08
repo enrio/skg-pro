@@ -191,6 +191,7 @@
             this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calRose1.Size = new System.Drawing.Size(78, 26);
             this.calRose1.TabIndex = 11;
+            this.calRose1.EditValueChanged += new System.EventHandler(this.calRose1_EditValueChanged);
             // 
             // labelControl5
             // 
@@ -253,6 +254,7 @@
             this.calPrice1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calPrice1.Size = new System.Drawing.Size(78, 26);
             this.calPrice1.TabIndex = 6;
+            this.calPrice1.EditValueChanged += new System.EventHandler(this.calPrice1_EditValueChanged);
             // 
             // labelControl1
             // 

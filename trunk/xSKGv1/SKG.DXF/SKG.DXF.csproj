@@ -373,8 +373,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
+      <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
       <DependentUpon>Frm_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
+      <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>

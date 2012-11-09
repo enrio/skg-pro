@@ -312,5 +312,10 @@ namespace SKG.DXF.Station.Normal
             AllowBar = false;
             PerformAdd();
         }
+
+        private void FrmTra_GateInNormal_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
     }
 }

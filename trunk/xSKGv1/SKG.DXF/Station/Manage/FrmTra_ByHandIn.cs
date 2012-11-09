@@ -81,7 +81,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (NhapBT.xls)|NhapBT.xls" };
+            var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
             open.ShowDialog();
 
             if (open.FileName == "" || !open.CheckFileExists)
@@ -146,6 +146,8 @@ namespace SKG.DXF.Station.Manage
                 {
                     var ve_x = new Tra_Vehicle { Code = bs };
                     var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Kind"] + "");
+                    r["Kind"] = tar.Text;
+
                     if (tar == null)
                     {
                         r.RowError = "Loại xe này không có!";
@@ -160,10 +162,15 @@ namespace SKG.DXF.Station.Manage
                         ve_x.Seats = seats.ToInt32();
                         ve_x.Beds = beds.ToInt32();
 
-                        if (_bll.Tra_Vehicle.Insert(ve_x) == null)
+                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(ve_x);
+                        if (tmp == null)
                         {
                             r.RowError = "Không thêm thông tin xe được!";
                             r["Note"] = r.RowError;
+                        }
+                        else
+                        {
+                            r["CodeId"] = tmp.Id;
                         }
                     }
                 }

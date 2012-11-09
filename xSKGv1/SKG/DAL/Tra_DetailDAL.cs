@@ -819,5 +819,39 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Danh sách các xe cố định đã xuất bến để theo dõi
+        /// </summary>
+        /// <param name="fr">Từ ngày</param>
+        /// <param name="to">Đến ngày</param>
+        /// <returns></returns>
+        public DataTable GetForAuditFixed(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.DateOut >= fr && s.DateOut <= to
+                          && s.Tra_Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+                              s.Guest,
+                              Route = s.Tra_Vehicle.Tariff.Text,
+                              s.Tra_Vehicle.Node,
+
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
+                              Transport = s.Tra_Vehicle.Transport.Text,
+                          };
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
     }
 }

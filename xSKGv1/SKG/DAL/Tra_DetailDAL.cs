@@ -787,35 +787,51 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable AuditMonthFixed(DateTime fr, DateTime to)
         {
-
             try
             {
-                var res = from s in _db.Tra_Details
-                          where s.DateOut >= fr && s.DateOut <= to
-                          && s.Tra_Vehicle.Fixed == true
-                          orderby s.DateOut descending, s.DateIn descending, s.Tra_Vehicle.Code
-                          select new
-                          {
-                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,
-                              Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
-                              Province = s.Tra_Vehicle.Tariff.Group.Text,
-                              Station = s.Tra_Vehicle.Tariff.Text,
-                              Transport = s.Tra_Vehicle.Transport.Text,
-                              Number = s.Tra_Vehicle.Code,
+                var res1 = from s in _db.Tra_Details
+                           where s.Pol_UserOutId != null
+                           && s.Tra_Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && s.Parked != s.Money
+                           group s by s.Tra_VehicleId into g
+                           select new
+                           {
+                               g.Key,
+                               Th_Lx_Xuatben = g.Count(),
+                               Th_Lk_Di = g.Sum(p => p.Guest) ?? 0
+                           };
 
-                              Kh_Soxe = 1,
-                              Kh_Ts_Ghe = (s.Tra_Vehicle.Seats + s.Tra_Vehicle.Beds) - 1,
-                              Kh_Lx_Xuatben = s.Tra_Vehicle.Node,
+                var res2 =
+                           from v in _db.Tra_Vehicles
+                           join r in res1 on v.Id equals r.Key into l
+                           from s in l.DefaultIfEmpty()
+                           where v.Fixed == true
+                           orderby v.Tariff.Group.Parent.Parent.Text,
+                           v.Tariff.Group.Parent.Text, v.Tariff.Text,
+                           v.Transport.Text, v.Code
+                           select new
+                           {
+                               Region = v.Tariff.Group.Parent.Parent.Text,
+                               Area = v.Tariff.Group.Parent.Text,
+                               Province = v.Tariff.Group.Text,
+                               Station = v.Tariff.Text,
+                               Transport = v.Transport.Text,
+                               Number = v.Code,
 
-                              Th_Soxe = 1,
-                              Th_Ts_Ghe = 0,
-                              Th_Lx_Xuatben = 0,
-                              Th_Lk_Di = s.Guest,
-                              Tile_Nottai = 0,
-                              Nottai_Hoatdong = 0
-                          };
+                               Kh_Soxe = 1,
+                               Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
+                               Kh_Lx_Xuatben = v.Node,
 
-                return res.ToDataTable();
+                               Th_Soxe = 1,
+                               Th_Ts_Ghe = 0,
+                               Th_Lx_Xuatben = s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben,
+                               Th_Lk_Di = s.Th_Lk_Di == null ? 0 : s.Th_Lk_Di,
+                               Tile_Nottai = (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / v.Node,
+                               Nottai_Hoatdong = (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / 30
+                           };
+                return res2.ToDataTable();
             }
             catch { return null; }
         }

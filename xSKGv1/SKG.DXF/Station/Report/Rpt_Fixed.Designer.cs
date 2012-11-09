@@ -101,6 +101,7 @@
             this.xrTable12 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow19 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcDate = new DevExpress.XtraReports.UI.XRTableCell();
+            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrTableRow20 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell93 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTable11 = new DevExpress.XtraReports.UI.XRTable();
@@ -177,7 +178,6 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -400,6 +400,8 @@
             // 
             // xrlTitle
             // 
+            this.xrlTitle.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:\"BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA NGÀY\" dd/MM/yyyy}")});
             this.xrlTitle.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrlTitle.LocationFloat = new DevExpress.Utils.PointFloat(204.1667F, 110.4167F);
             this.xrlTitle.Name = "xrlTitle";
@@ -407,7 +409,7 @@
             this.xrlTitle.SizeF = new System.Drawing.SizeF(710.4166F, 33.33334F);
             this.xrlTitle.StylePriority.UseFont = false;
             this.xrlTitle.StylePriority.UseTextAlignment = false;
-            this.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA NGÀY 29/10/2012";
+            this.xrlTitle.Text = "xrlTitle";
             this.xrlTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel4
@@ -754,6 +756,14 @@
             this.xrcDate.StylePriority.UseFont = false;
             this.xrcDate.Text = "xrcDate";
             this.xrcDate.Weight = 3D;
+            // 
+            // parDate
+            // 
+            this.parDate.Description = "Ngày in báo cáo";
+            this.parDate.Name = "parDate";
+            this.parDate.Type = typeof(System.DateTime);
+            this.parDate.Value = new System.DateTime(2012, 11, 9, 14, 29, 12, 421);
+            this.parDate.Visible = false;
             // 
             // xrTableRow20
             // 
@@ -1431,14 +1441,6 @@
             this.xrPageInfo1.StylePriority.UseFont = false;
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            // 
-            // parDate
-            // 
-            this.parDate.Description = "Ngày in báo cáo";
-            this.parDate.Name = "parDate";
-            this.parDate.Type = typeof(System.DateTime);
-            this.parDate.Value = new System.DateTime(2012, 11, 9, 14, 29, 12, 421);
-            this.parDate.Visible = false;
             // 
             // Rpt_Fixed
             // 

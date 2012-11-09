@@ -317,5 +317,10 @@ namespace SKG.DXF.Station.Fixed
             AllowBar = false;
             PerformAdd();
         }
+
+        private void FrmTra_GateInFixed_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
     }
 }

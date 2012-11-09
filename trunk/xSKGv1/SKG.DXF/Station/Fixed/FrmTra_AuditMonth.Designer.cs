@@ -31,7 +31,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.dteMonth = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -55,8 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -89,31 +89,31 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.dateEdit1);
+            this.dockPanel1_Container.Controls.Add(this.dteMonth);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // dateEdit1
+            // dteMonth
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(65, 3);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteMonth.EditValue = null;
+            this.dteMonth.Location = new System.Drawing.Point(65, 3);
+            this.dteMonth.Name = "dteMonth";
+            this.dteMonth.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteMonth.Properties.Appearance.Options.UseFont = true;
+            this.dteMonth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.DisplayFormat.FormatString = "MM/yyyy";
-            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.EditFormat.FormatString = "MM/yyyy";
-            this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEdit1.Properties.Mask.EditMask = "MM/yyyy";
-            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
+            this.dteMonth.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteMonth.Properties.EditFormat.FormatString = "MM/yyyy";
+            this.dteMonth.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteMonth.Properties.Mask.EditMask = "MM/yyyy";
+            this.dteMonth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEdit1.Size = new System.Drawing.Size(147, 26);
-            this.dateEdit1.TabIndex = 24;
+            this.dteMonth.Size = new System.Drawing.Size(88, 26);
+            this.dteMonth.TabIndex = 24;
             // 
             // lblGuest
             // 
@@ -458,8 +458,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -492,6 +492,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DevExpress.XtraEditors.DateEdit dteMonth;
     }
 }

@@ -21,7 +21,6 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using System.Data;
     using DAL.Entities;
-    using DevExpress.XtraEditors;
 
     public partial class FrmTra_AuditMonth : SKG.DXF.FrmInput
     {
@@ -65,6 +64,8 @@ namespace SKG.DXF.Station.Fixed
 
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            dteMonth.DateTime = Global.Session.Current;
         }
 
         #region Override

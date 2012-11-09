@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dteMonth = new DevExpress.XtraEditors.DateEdit();
@@ -103,8 +104,6 @@
             this.dteMonth.Name = "dteMonth";
             this.dteMonth.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteMonth.Properties.Appearance.Options.UseFont = true;
-            this.dteMonth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
             this.dteMonth.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dteMonth.Properties.EditFormat.FormatString = "MM/yyyy";
@@ -112,9 +111,9 @@
             this.dteMonth.Properties.Mask.EditMask = "MM/yyyy";
             this.dteMonth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteMonth.Size = new System.Drawing.Size(88, 26);
+            this.dteMonth.Size = new System.Drawing.Size(68, 26);
             this.dteMonth.TabIndex = 24;
-            
+            this.dteMonth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dteMonth_KeyDown);
             // 
             // lblGuest
             // 

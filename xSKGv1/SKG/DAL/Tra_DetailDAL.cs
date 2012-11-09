@@ -498,12 +498,24 @@ namespace SKG.DAL
         /// <param name="number">Biển số xe</param>
         /// <param name="isOut">Cho xe ra bến</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut)
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null)
         {
             try
             {
+                int m, y;
                 var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.Pol_UserOutId == null);
-                a.DateOut = Global.Session.Current;
+                if (dateOut == null)
+                {
+                    a.DateOut = Global.Session.Current;
+                    m = Global.Session.Current.Month;
+                    y = Global.Session.Current.Year;
+                }
+                else
+                {
+                    a.DateOut = dateOut;
+                    m = dateOut.Value.Month;
+                    y = dateOut.Value.Year;
+                }
 
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
                 if (ql && a.Tra_Vehicle.Fixed)
@@ -521,9 +533,8 @@ namespace SKG.DAL
                     {
                         // Đánh số phiếu thu theo tháng, năm
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code
-                            && p.DateOut.Value.Month == Global.Session.Current.Month
-                            && p.DateOut.Value.Year == Global.Session.Current.Year);
-
+                            && p.DateOut.Value.Month == m
+                            && p.DateOut.Value.Year == y);
                         a.Order = dt.Max(p => p.Order) + 1;
                     }
                     else

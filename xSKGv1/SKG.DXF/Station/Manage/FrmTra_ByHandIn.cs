@@ -219,7 +219,11 @@ namespace SKG.DXF.Station.Manage
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;
                 }
-                else fix++;
+                else
+                {
+                    r["Note"] = "ĐÃ CHO XE VÀO!";
+                    fix++;
+                }
             }
 
             // Normal
@@ -240,7 +244,11 @@ namespace SKG.DXF.Station.Manage
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;
                 }
-                else normal++;
+                else
+                {
+                    r["Note"] = "ĐÃ CHO XE VÀO!";
+                    normal++;
+                }
             }
 
             XtraMessageBox.Show(String.Format("XE CỐ ĐỊNH: {0}\nXE VÃNG LAI: {1}", fix, normal), Text);

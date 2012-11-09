@@ -66,31 +66,6 @@ namespace SKG.DXF.Station.Fixed
         }
 
         #region Override
-        protected override void SetNullPrompt()
-        {
-            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
-
-            base.SetNullPrompt();
-        }
-
-        protected override void PerformDelete()
-        {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
-
-            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
-            else
-            {
-                var cfm = String.Format(STR_CONFIRM, txtCode.Text);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
-
-                if (oki == DialogResult.OK)
-                    if (_bll.Tra_Vehicle.Delete(id) != null) PerformRefresh();
-                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
-            }
-
-            base.PerformDelete();
-        }
-
         protected override void PerformRefresh()
         {
             LoadData();
@@ -129,40 +104,6 @@ namespace SKG.DXF.Station.Fixed
             base.PerformSave();
         }
 
-        protected override void ResetInput()
-        {
-            txtCode.Text = null;
-            txtGuest.Text = "0";
-
-            base.ResetInput();
-        }
-
-        protected override void ClearDataBindings()
-        {
-            txtCode.DataBindings.Clear();
-            txtGuest.DataBindings.Clear();
-
-            base.ClearDataBindings();
-        }
-
-        protected override void DataBindingControl()
-        {
-            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
-            txtGuest.DataBindings.Add("EditValue", _dtb, ".Guest");
-
-            base.DataBindingControl();
-        }
-
-        protected override void ReadOnlyControl(bool isReadOnly = true)
-        {
-            txtCode.Properties.ReadOnly = isReadOnly;
-            txtGuest.Properties.ReadOnly = isReadOnly;
-
-            grcMain.Enabled = isReadOnly;
-
-            base.ReadOnlyControl(isReadOnly);
-        }
-
         protected override bool UpdateObject()
         {
             try
@@ -170,11 +111,12 @@ namespace SKG.DXF.Station.Fixed
                 if (!ValidInput()) return false;
 
                 var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+                var guest = "" + grvMain.GetFocusedRowCellValue("Guest");
 
                 var o = new Tra_Detail()
                 {
                     Id = id,
-                    Guest = txtGuest.Text.ToInt32()
+                    Guest = guest.ToInt32()
                 };
 
                 var oki = _bll.Tra_Detail.UpdateGuest(o);
@@ -217,37 +159,7 @@ namespace SKG.DXF.Station.Fixed
 
             base.PerformPrint();
         }
-
-        protected override bool ValidInput()
-        {
-            var a = txtCode.Text.Length == 0 ? false : true;
-            if (!a)
-            {
-                txtCode.Focus();
-                XtraMessageBox.Show(STR_NOT_V, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            var c = txtGuest.Text.Length == 0 ? false : true;
-            if (!c)
-            {
-                txtGuest.Focus();
-                XtraMessageBox.Show(STR_NOT_N, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
-        }
         #endregion
-
-        private void FrmTra_Media_Load(object sender, EventArgs e)
-        {
-            if (_num + "" != "")
-            {
-                PerformAdd();
-                txtCode.Text = _num;
-            }
-        }
 
         private const string STR_ADD = "Thêm xe";
         private const string STR_EDIT = "Sửa xe";

@@ -28,13 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.txtCode = new DevExpress.XtraEditors.TextEdit();
-            this.txtGuest = new DevExpress.XtraEditors.TextEdit();
-            this.lblCode = new DevExpress.XtraEditors.LabelControl();
+            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -44,6 +41,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -53,13 +51,12 @@
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuest.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -86,68 +83,56 @@
             this.dockPanel1.ID = new System.Guid("10b3cfe1-e785-4df6-b3c7-5ee3233ad318");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 63);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 63);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 60);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 60);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.txtCode);
-            this.dockPanel1_Container.Controls.Add(this.txtGuest);
-            this.dockPanel1_Container.Controls.Add(this.lblCode);
+            this.dockPanel1_Container.Controls.Add(this.dateEdit1);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 36);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // txtCode
+            // dateEdit1
             // 
-            this.txtCode.Location = new System.Drawing.Point(71, 3);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(156, 26);
-            this.txtCode.TabIndex = 2;
-            // 
-            // txtGuest
-            // 
-            this.txtGuest.Location = new System.Drawing.Point(362, 3);
-            this.txtGuest.Name = "txtGuest";
-            this.txtGuest.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGuest.Properties.Appearance.Options.UseFont = true;
-            this.txtGuest.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
-            this.txtGuest.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtGuest.Size = new System.Drawing.Size(91, 26);
-            this.txtGuest.TabIndex = 24;
-            // 
-            // lblCode
-            // 
-            this.lblCode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(8, 6);
-            this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(57, 19);
-            this.lblCode.TabIndex = 1;
-            this.lblCode.Text = "Biển số:";
+            this.dateEdit1.EditValue = null;
+            this.dateEdit1.Location = new System.Drawing.Point(65, 3);
+            this.dateEdit1.Name = "dateEdit1";
+            this.dateEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit1.Properties.Appearance.Options.UseFont = true;
+            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEdit1.Properties.DisplayFormat.FormatString = "MM/yyyy";
+            this.dateEdit1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit1.Properties.EditFormat.FormatString = "MM/yyyy";
+            this.dateEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEdit1.Properties.Mask.EditMask = "MM/yyyy";
+            this.dateEdit1.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dateEdit1.Size = new System.Drawing.Size(147, 26);
+            this.dateEdit1.TabIndex = 24;
             // 
             // lblGuest
             // 
             this.lblGuest.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGuest.Location = new System.Drawing.Point(233, 6);
+            this.lblGuest.Location = new System.Drawing.Point(8, 6);
             this.lblGuest.Name = "lblGuest";
-            this.lblGuest.Size = new System.Drawing.Size(123, 19);
+            this.lblGuest.Size = new System.Drawing.Size(51, 19);
             this.lblGuest.TabIndex = 23;
-            this.lblGuest.Text = "Lượt khách đi xe:";
+            this.lblGuest.Text = "Tháng:";
             // 
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("d59a7d3a-6cea-460f-9e5e-a1f9105d471d");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 126);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 123);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 440);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 443);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -155,7 +140,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 413);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 416);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -165,7 +150,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 413);
+            this.grcMain.Size = new System.Drawing.Size(943, 416);
             this.grcMain.TabIndex = 0;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -330,6 +315,7 @@
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.OptionsView.ShowGroupPanel = false;
             // 
             // gridBand1
             // 
@@ -337,11 +323,12 @@
             this.gridBand1.Columns.Add(this.gridColumn1);
             this.gridBand1.Columns.Add(this.gridColumn2);
             this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.bandedGridColumn3);
             this.gridBand1.Columns.Add(this.gridColumn4);
             this.gridBand1.Columns.Add(this.bandedGridColumn1);
             this.gridBand1.Columns.Add(this.bandedGridColumn2);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 486;
+            this.gridBand1.Width = 539;
             // 
             // gridColumn1
             // 
@@ -354,6 +341,7 @@
             this.gridColumn2.Caption = "STT";
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.Width = 44;
             // 
@@ -362,14 +350,24 @@
             this.gridColumn3.Caption = "Biển số";
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 68;
+            // 
+            // bandedGridColumn3
+            // 
+            this.bandedGridColumn3.Caption = "Lượt khách đi";
+            this.bandedGridColumn3.FieldName = "Guest";
+            this.bandedGridColumn3.Name = "bandedGridColumn3";
+            this.bandedGridColumn3.Visible = true;
+            this.bandedGridColumn3.Width = 53;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "ĐVVT";
             this.gridColumn4.FieldName = "Transport";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
             this.gridColumn4.Width = 169;
             // 
@@ -378,6 +376,7 @@
             this.bandedGridColumn1.Caption = "Tuyến";
             this.bandedGridColumn1.FieldName = "Route";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
+            this.bandedGridColumn1.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn1.Visible = true;
             this.bandedGridColumn1.Width = 150;
             // 
@@ -386,6 +385,7 @@
             this.bandedGridColumn2.Caption = "Nốt tài/tháng";
             this.bandedGridColumn2.FieldName = "Node";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
+            this.bandedGridColumn2.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn2.Visible = true;
             this.bandedGridColumn2.Width = 55;
             // 
@@ -402,6 +402,7 @@
             this.gridColumn5.Caption = "Ghế";
             this.gridColumn5.FieldName = "Seats";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
             this.gridColumn5.Width = 80;
             // 
@@ -410,6 +411,7 @@
             this.gridColumn6.Caption = "Giường";
             this.gridColumn6.FieldName = "Beds";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.Width = 92;
             // 
@@ -418,15 +420,15 @@
             this.gridBand3.Caption = "Thông tin vào";
             this.gridBand3.Columns.Add(this.bandedGridColumn5);
             this.gridBand3.Columns.Add(this.bandedGridColumn4);
-            this.gridBand3.Columns.Add(this.bandedGridColumn3);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 267;
+            this.gridBand3.Width = 214;
             // 
             // bandedGridColumn5
             // 
             this.bandedGridColumn5.Caption = "Người cho vào";
             this.bandedGridColumn5.FieldName = "UserInName";
             this.bandedGridColumn5.Name = "bandedGridColumn5";
+            this.bandedGridColumn5.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn5.Visible = true;
             this.bandedGridColumn5.Width = 97;
             // 
@@ -437,16 +439,9 @@
             this.bandedGridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.bandedGridColumn4.FieldName = "DateIn";
             this.bandedGridColumn4.Name = "bandedGridColumn4";
+            this.bandedGridColumn4.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn4.Visible = true;
             this.bandedGridColumn4.Width = 117;
-            // 
-            // bandedGridColumn3
-            // 
-            this.bandedGridColumn3.Caption = "Lượt khách đi";
-            this.bandedGridColumn3.FieldName = "Guest";
-            this.bandedGridColumn3.Name = "bandedGridColumn3";
-            this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.Width = 53;
             // 
             // FrmTra_AuditMonth
             // 
@@ -456,7 +451,6 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_AuditMonth";
             this.Text = "THEO DÕI THÁNG";
-            this.Load += new System.EventHandler(this.FrmTra_Media_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -464,8 +458,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuest.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -481,8 +475,6 @@
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
-        private DevExpress.XtraEditors.TextEdit txtCode;
-        private DevExpress.XtraEditors.LabelControl lblCode;
         private DevExpress.XtraEditors.LabelControl lblGuest;
         private DevExpress.XtraGrid.GridControl grcMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
@@ -493,7 +485,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
-        private DevExpress.XtraEditors.TextEdit txtGuest;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
@@ -501,5 +492,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
+        private DevExpress.XtraEditors.DateEdit dateEdit1;
     }
 }

@@ -259,15 +259,16 @@
             this.xrcNumber.StylePriority.UseFont = false;
             this.xrcNumber.StylePriority.UsePadding = false;
             this.xrcNumber.StylePriority.UseTextAlignment = false;
-            this.xrcNumber.Text = "+";
             this.xrcNumber.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcNumber.Weight = 0.40713046189529783D;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Number")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Number", "+ {0}")});
             this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(20, 0, 0, 0, 100F);
+            this.xrTableCell2.StylePriority.UsePadding = false;
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.Weight = 1.6653210346427168D;
             // 
@@ -1016,15 +1017,16 @@
             this.xrcTransport.StylePriority.UseFont = false;
             this.xrcTransport.StylePriority.UsePadding = false;
             this.xrcTransport.StylePriority.UseTextAlignment = false;
-            this.xrcTransport.Text = "-";
             this.xrcTransport.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcTransport.Weight = 0.40713046189529783D;
             // 
             // xrTableCell48
             // 
             this.xrTableCell48.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Transport")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Transport", "- {0}")});
             this.xrTableCell48.Name = "xrTableCell48";
+            this.xrTableCell48.Padding = new DevExpress.XtraPrinting.PaddingInfo(15, 0, 0, 0, 100F);
+            this.xrTableCell48.StylePriority.UsePadding = false;
             this.xrTableCell48.Text = "xrTableCell48";
             this.xrTableCell48.Weight = 1.6653210346427168D;
             // 
@@ -1204,6 +1206,8 @@
             this.xrTableCell31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Station")});
             this.xrTableCell31.Name = "xrTableCell31";
+            this.xrTableCell31.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 0, 0, 0, 100F);
+            this.xrTableCell31.StylePriority.UsePadding = false;
             this.xrTableCell31.Text = "xrTableCell31";
             this.xrTableCell31.Weight = 1.6653210346427168D;
             // 
@@ -1383,6 +1387,8 @@
             this.xrTableCell3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Area")});
             this.xrTableCell3.Name = "xrTableCell3";
+            this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
+            this.xrTableCell3.StylePriority.UsePadding = false;
             this.xrTableCell3.Text = "xrTableCell3";
             this.xrTableCell3.Weight = 1.6653210346427168D;
             // 

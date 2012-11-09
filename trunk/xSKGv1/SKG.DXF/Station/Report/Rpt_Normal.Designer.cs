@@ -695,13 +695,13 @@
             this.xrTable7,
             this.xrTable6,
             this.xrTable5});
-            this.ReportFooter.HeightF = 337.2918F;
+            this.ReportFooter.HeightF = 333.1251F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 173.3333F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(34.375F, 169.1666F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(109.375F, 20.83333F);
@@ -716,7 +716,7 @@
                         | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(3.973643E-05F, 194.1667F);
+            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(34.37504F, 190F);
             this.xrTable9.Name = "xrTable9";
             this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow18,
@@ -910,10 +910,10 @@
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOutName")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(659.6931F, 194.1667F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(784.6932F, 194.1667F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(449.3068F, 20.83333F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(324.3066F, 20.83333F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "xrLabel2";
@@ -922,12 +922,12 @@
             // xrTable7
             // 
             this.xrTable7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(659.6931F, 46.875F);
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(784.6932F, 46.875F);
             this.xrTable7.Name = "xrTable7";
             this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow15,
             this.xrTableRow14});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(449.3068F, 55.72915F);
+            this.xrTable7.SizeF = new System.Drawing.SizeF(324.3066F, 55.72915F);
             this.xrTable7.StylePriority.UseFont = false;
             this.xrTable7.StylePriority.UseTextAlignment = false;
             this.xrTable7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -965,7 +965,7 @@
             // xrTable6
             // 
             this.xrTable6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(0F, 46.875F);
+            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(34.375F, 46.875F);
             this.xrTable6.Name = "xrTable6";
             this.xrTable6.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow13,

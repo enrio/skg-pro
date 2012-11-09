@@ -824,7 +824,7 @@ namespace SKG.DAL
                                Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
                                Kh_Lx_Xuatben = v.Node,
 
-                               Th_Soxe = 1,
+                               Th_Soxe = s.Key == null ? 0 : 1,
                                Th_Ts_Ghe = 0,
                                Th_Lx_Xuatben = s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben,
                                Th_Lk_Di = s.Th_Lk_Di == null ? 0 : s.Th_Lk_Di,

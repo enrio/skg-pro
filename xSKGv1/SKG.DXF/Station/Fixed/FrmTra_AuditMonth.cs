@@ -207,6 +207,7 @@ namespace SKG.DXF.Station.Fixed
                     Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_td"
             };
 
+            rpt.parDate.Value = Global.Session.Current;
             rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed();
 
             var frm = new FrmPrint();

@@ -469,6 +469,7 @@
             this.parDate.Name = "parDate";
             this.parDate.Type = typeof(System.DateTime);
             this.parDate.Value = new System.DateTime(2012, 11, 8, 0, 21, 44, 78);
+            this.parDate.Visible = false;
             // 
             // xrlTitle
             // 
@@ -1795,7 +1796,6 @@
         public DevExpress.XtraReports.UI.XRLabel xrLabel5;
         public DevExpress.XtraReports.UI.XRLabel xrLabel4;
         public DevExpress.XtraReports.UI.XRLabel xrLabel3;
-        private DevExpress.XtraReports.Parameters.Parameter parDate;
         public DevExpress.XtraReports.UI.XRLabel xrLabel6;
         public DevExpress.XtraReports.UI.XRLabel xrLabel7;
         public DevExpress.XtraReports.UI.XRLabel xrLabel10;
@@ -1870,5 +1870,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell27;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell28;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell29;
+        public DevExpress.XtraReports.Parameters.Parameter parDate;
     }
 }

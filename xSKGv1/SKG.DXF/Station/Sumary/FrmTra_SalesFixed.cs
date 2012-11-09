@@ -145,11 +145,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.xrlDuration.Text += "Từ ngày " + start.ToString("dd/MM/yyyy");
             rpt.xrlDuration.Text += " đến ngày " + end.ToString("dd/MM/yyyy");
 
-            var tmp = shift.Date.ToString("A dd B MM C yyyy");
-            tmp = tmp.Replace("A", "Ngày");
-            tmp = tmp.Replace("B", "tháng");
-            tmp = tmp.Replace("C", "nămy");
-            rpt.xrcDate.Text = tmp;
+            rpt.parDate.Value = shift.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
             rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);

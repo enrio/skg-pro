@@ -177,6 +177,7 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -746,9 +747,12 @@
             // 
             // xrcDate
             // 
+            this.xrcDate.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:\"Ngày\" dd \"tháng\" MM \"năm\" yyyy}")});
             this.xrcDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrcDate.Name = "xrcDate";
             this.xrcDate.StylePriority.UseFont = false;
+            this.xrcDate.Text = "xrcDate";
             this.xrcDate.Weight = 3D;
             // 
             // xrTableRow20
@@ -1428,6 +1432,14 @@
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
+            // parDate
+            // 
+            this.parDate.Description = "Ngày in báo cáo";
+            this.parDate.Name = "parDate";
+            this.parDate.Type = typeof(System.DateTime);
+            this.parDate.Value = new System.DateTime(2012, 11, 9, 14, 29, 12, 421);
+            this.parDate.Visible = false;
+            // 
             // Rpt_Fixed
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1446,6 +1458,9 @@
             this.PageHeight = 827;
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
+            this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.parDate});
+            this.RequestParameters = false;
             this.Version = "12.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
@@ -1605,5 +1620,6 @@
         public DevExpress.XtraReports.UI.XRLabel xrlDuration;
         private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
+        public DevExpress.XtraReports.Parameters.Parameter parDate;
     }
 }

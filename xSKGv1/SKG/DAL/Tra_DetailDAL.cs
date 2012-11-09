@@ -936,11 +936,11 @@ namespace SKG.DAL
                               Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
                               Province = s.Tra_Vehicle.Tariff.Group.Text,
                               Route = s.Tra_Vehicle.Tariff.Text,
-                              Transport = s.Tra_Vehicle.Transport.Text
+                              Transport = s.Tra_Vehicle.Transport.Text,
 
                               s.Parked,
                               s.Cost,
-                              s.Rose,
+                              s.Rose
                           };
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();

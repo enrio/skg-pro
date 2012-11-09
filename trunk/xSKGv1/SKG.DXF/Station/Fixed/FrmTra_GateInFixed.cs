@@ -236,16 +236,16 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ClearDataBindings()
         {
-            txtNumber.DataBindings.Clear();
-            txtDateIn.DataBindings.Clear();
+            //txtNumber.DataBindings.Clear();
+            //txtDateIn.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void DataBindingControl()
         {
-            txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
-            txtDateIn.DataBindings.Add("Text", _dtb, ".DateIn");
+            //txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
+            //txtDateIn.DataBindings.Add("Text", _dtb, ".DateIn");
 
             base.DataBindingControl();
         }
@@ -321,6 +321,7 @@ namespace SKG.DXF.Station.Fixed
         private void FrmTra_GateInFixed_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
+            PerformAdd();
         }
     }
 }

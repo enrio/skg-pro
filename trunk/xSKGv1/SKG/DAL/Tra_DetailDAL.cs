@@ -785,15 +785,15 @@ namespace SKG.DAL
         /// Theo dõi tháng xe cố định
         /// </summary>
         /// <returns></returns>
-        public DataTable AuditMonthFixed()
+        public DataTable AuditMonthFixed(DateTime fr, DateTime to)
         {
 
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
+                          where s.DateOut >= fr && s.DateOut <= to
                           && s.Tra_Vehicle.Fixed == true
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          orderby s.DateOut descending, s.DateIn descending, s.Tra_Vehicle.Code
                           select new
                           {
                               Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,

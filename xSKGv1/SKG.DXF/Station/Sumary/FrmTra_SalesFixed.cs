@@ -100,13 +100,22 @@ namespace SKG.DXF.Station.Sumary
         #region Override
         protected override void PerformDelete()
         {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
 
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, "");
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
                     if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();

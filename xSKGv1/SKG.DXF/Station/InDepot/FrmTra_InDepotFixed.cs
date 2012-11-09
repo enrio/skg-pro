@@ -122,7 +122,7 @@ namespace SKG.DXF.Station.InDepot
             else
             {
                 var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
                     if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();

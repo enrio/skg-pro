@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using DevExpress.XtraReports.UI;
 
 namespace SKG.DXF.Station.Report
 {
+    /// <summary>
+    /// Theo dõi tình hình hoạt động của xe cố định theo tháng
+    /// </summary>
     public partial class Rpt_Audit : DevExpress.XtraReports.UI.XtraReport
     {
         public Rpt_Audit()

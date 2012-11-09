@@ -93,26 +93,35 @@ namespace SKG.DXF.Station.InDepot
 
         protected override void DataBindingControl()
         {
-            txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
+            //txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
 
             base.DataBindingControl();
         }
 
         protected override void ClearDataBindings()
         {
-            txtNumber.DataBindings.Clear();
+            //txtNumber.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
 
         protected override void PerformDelete()
         {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
 
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtNumber.Text);
+                var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
                 var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)

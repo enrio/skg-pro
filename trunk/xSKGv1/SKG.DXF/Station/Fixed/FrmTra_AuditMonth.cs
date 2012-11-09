@@ -141,7 +141,10 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.GetInDepotFixed();
+            var fr = dteMonth.DateTime.ToStartOfMonth();
+            var to = dteMonth.DateTime.ToEndOfMonth();
+
+            _dtb = _bll.Tra_Detail.GetForAuditFixed(fr, to);
 
             if (_dtb != null)
             {
@@ -171,17 +174,9 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
-        private const string STR_DELETE = "Xoá xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
-
-        private const string STR_NOT_V = "Chưa nhập biển số xe!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
-        private const string STR_NOT_N = "Chưa nhập lượt khách đi!";
+        private void dteMonth_EditValueChanged(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
     }
 }

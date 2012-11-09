@@ -804,7 +804,7 @@ namespace SKG.DAL
                               Number = s.Tra_Vehicle.Code,
 
                               Kh_Soxe = 1,
-                              Kh_Ts_Ghe = (s.Tra_Vehicle.Seats ?? 0 + s.Tra_Vehicle.Beds ?? 0) - 1,
+                              Kh_Ts_Ghe = (s.Tra_Vehicle.Seats + s.Tra_Vehicle.Beds) - 1,
                               Kh_Lx_Xuatben = s.Tra_Vehicle.Node,
 
                               Th_Soxe = 1,

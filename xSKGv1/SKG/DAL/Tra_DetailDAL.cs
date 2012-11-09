@@ -546,7 +546,7 @@ namespace SKG.DAL
 
                     // Ca làm việc
                     DateTime shift;
-                    int i = Global.Session.Shift(out shift);
+                    int i = Global.Session.Shift(out shift, dateOut);
                     a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
                     a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                 }

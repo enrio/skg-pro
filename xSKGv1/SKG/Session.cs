@@ -61,10 +61,15 @@ namespace SKG
         /// </summary>
         /// <param name="dt">Date of shift</param>
         /// <returns></returns>
-        public int Shift(out DateTime dt)
+        public int Shift(out DateTime dt, DateTime? date = null)
         {
-            var cur = Global.Session.Current;
-            var log = Global.Session.Login.Value;
+            DateTime cur, log;
+            if (date == null)
+            {
+                cur = Global.Session.Current;
+                log = Global.Session.Login.Value;
+            }
+            else cur = log = date.Value;
 
             var t = cur - log;
             var tick = t.Ticks / 2;

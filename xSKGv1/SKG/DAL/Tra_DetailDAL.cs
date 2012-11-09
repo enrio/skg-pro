@@ -884,5 +884,69 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        public DataTable SumaryCodinh(out decimal sum)
+        {
+            try
+            {
+                sum = 0;
+
+                /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
+                var min = s1.Max(p => p.DateOut);
+
+                var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
+                if (min == null) min = s2.Min(p => p.DateOut);
+                var max = s2.Max(p => p.DateOut);*/
+
+                // Ca làm việc
+                DateTime shift;
+                int i = Global.Session.Shift(out shift);
+                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
+
+                var res = from s in _db.Tra_Details
+                          //where s.DateOut >= min && s.DateOut <= max
+                          where s.More.Contains(more)
+                          && s.Tra_Vehicle.Fixed == true
+                          && s.Pol_UserOutId == Global.Session.User.Id
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              No_ = s.Order,
+                              s.More,
+                              s.Text,
+
+                              UserInName = s.Pol_UserIn.Name,
+                              UserInPhone = s.Pol_UserIn.Phone,
+
+                              UserOutName = s.Pol_UserOut.Name,
+                              Number = s.Tra_Vehicle.Code,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.FullDay,
+                              s.HalfDay,
+                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              s.Money,
+
+                              s.Price1,
+                              s.Price2,
+
+                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,
+                              Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
+                              Province = s.Tra_Vehicle.Tariff.Group.Text,
+                              Station = s.Tra_Vehicle.Tariff.Text,
+                              Transport = s.Tra_Vehicle.Transport.Text
+                          };
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch
+            {
+                sum = 0;
+                return null;
+            }
+        }
     }
 }

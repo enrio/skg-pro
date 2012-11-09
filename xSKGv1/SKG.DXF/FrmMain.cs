@@ -36,7 +36,6 @@ namespace SKG.DXF
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",
                 Global.Connection.DataSource, Global.Connection.Database);
             bsiUser.Caption = null;
-            bsiTimer.Caption = null;
             #endregion
         }
 
@@ -65,7 +64,6 @@ namespace SKG.DXF
         /// <param name="e"></param>
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            if (Global.Session.Current == null) return;
             bsiTimer.Caption = Global.Session.Current.ToStringVN();
             Global.Session.Current = Global.Session.Current.AddSeconds(1);
         }

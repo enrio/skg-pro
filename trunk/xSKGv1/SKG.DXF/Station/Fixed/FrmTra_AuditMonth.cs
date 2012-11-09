@@ -68,6 +68,12 @@ namespace SKG.DXF.Station.Fixed
             dteMonth.DateTime = Global.Session.Current;
         }
 
+        private void dteMonth_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                PerformRefresh();
+        }
+
         #region Override
         protected override void PerformEdit()
         {

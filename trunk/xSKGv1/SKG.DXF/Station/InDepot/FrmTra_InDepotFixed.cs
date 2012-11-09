@@ -116,7 +116,9 @@ namespace SKG.DXF.Station.InDepot
             }
 
             var code = grvMain.GetFocusedRowCellValue("Code");
-            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn") + "";
+            dateIn = dateIn.Replace("AM", "SÁNG");
+            dateIn = dateIn.Replace("PM", "CHIỀU");
             var id = (Guid)tmpId;
 
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);

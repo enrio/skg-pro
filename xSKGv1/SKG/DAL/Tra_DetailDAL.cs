@@ -876,6 +876,9 @@ namespace SKG.DAL
                               s.Tra_Vehicle.Seats,
                               s.Tra_Vehicle.Beds,
                               Transport = s.Tra_Vehicle.Transport.Text,
+                              s.Parked,
+                              s.Cost,
+                              s.Rose,
 
                               UserOutName = s.Pol_UserOut.Name,
                               s.DateOut
@@ -905,14 +908,13 @@ namespace SKG.DAL
 
                 var res = from s in _db.Tra_Details
                           //where s.DateOut >= min && s.DateOut <= max
-                          where s.More.Contains(more)
-                          && s.Tra_Vehicle.Fixed == true
+                          where s.Tra_Vehicle.Fixed == true
                           && s.Pol_UserOutId == Global.Session.User.Id
                           orderby s.Order
                           select new
                           {
                               s.Id,
-                              No_ = s.Order,
+                              //No_ = s.Order,
                               s.More,
                               s.Text,
 

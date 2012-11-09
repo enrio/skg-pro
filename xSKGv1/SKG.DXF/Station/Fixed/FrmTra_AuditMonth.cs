@@ -16,8 +16,10 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Fixed
 {
+
     using SKG.Extend;
     using SKG.Plugin;
+    using System.Data;
     using DAL.Entities;
     using DevExpress.XtraEditors;
 
@@ -116,19 +118,21 @@ namespace SKG.DXF.Station.Fixed
             {
                 if (!ValidInput()) return false;
 
-                var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
-                var guest = "" + grvMain.GetFocusedRowCellValue("Guest");
-
-                var o = new Tra_Detail()
+                var tb = _dtb.GetChanges(DataRowState.Modified);
+                foreach (DataRow r in tb.Rows)
                 {
-                    Id = id,
-                    Guest = guest.ToInt32()
-                };
+                    var id = (Guid)r["Id"];
+                    var guest = "" + r["Guest"];
 
-                var oki = _bll.Tra_Detail.UpdateGuest(o);
-                if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
+                    var o = new Tra_Detail()
+                    {
+                        Id = id,
+                        Guest = guest.ToInt32()
+                    };
 
-                return oki != null ? true : false;
+                    _bll.Tra_Detail.UpdateGuest(o);
+                }
+                return true;
             }
             catch { return false; }
         }

@@ -876,9 +876,6 @@ namespace SKG.DAL
                               s.Tra_Vehicle.Seats,
                               s.Tra_Vehicle.Beds,
                               Transport = s.Tra_Vehicle.Transport.Text,
-                              s.Parked,
-                              s.Cost,
-                              s.Rose,
 
                               UserOutName = s.Pol_UserOut.Name,
                               s.DateOut
@@ -938,8 +935,12 @@ namespace SKG.DAL
                               Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,
                               Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
                               Province = s.Tra_Vehicle.Tariff.Group.Text,
-                              Station = s.Tra_Vehicle.Tariff.Text,
+                              Route = s.Tra_Vehicle.Tariff.Text,
                               Transport = s.Tra_Vehicle.Transport.Text
+
+                              s.Parked,
+                              s.Cost,
+                              s.Rose,
                           };
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();

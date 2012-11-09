@@ -397,6 +397,9 @@
     <EmbeddedResource Include="Station\Report\Rpt_Receipt.resx">
       <DependentUpon>Rpt_Receipt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Sumary\FrmTra_SalesNormal.resx">
+      <DependentUpon>FrmTra_SalesNormal.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Manual.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

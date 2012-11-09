@@ -143,7 +143,6 @@ namespace SKG.DXF.Station.Fixed
         {
             var fr = dteMonth.DateTime.ToStartOfMonth();
             var to = dteMonth.DateTime.ToEndOfMonth();
-
             _dtb = _bll.Tra_Detail.GetForAuditFixed(fr, to);
 
             if (_dtb != null)
@@ -173,10 +172,5 @@ namespace SKG.DXF.Station.Fixed
             base.PerformPrint();
         }
         #endregion
-
-        private void dteMonth_EditValueChanged(object sender, EventArgs e)
-        {
-            PerformRefresh();
-        }
     }
 }

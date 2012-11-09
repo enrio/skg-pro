@@ -80,17 +80,29 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformDelete()
         {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            var text = grvMain.GetFocusedRowCellValue("Text");
+            var id = (Guid)tmpId;
+
+            if (id == new Guid())
+                XtraMessageBox.Show(STR_SELECT.ToUpper(), STR_DELETE.ToUpper(),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtText.Text);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var cfm = String.Format(STR_CONFIRM, text);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE.ToUpper(), MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
-                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE.ToUpper(), STR_DELETE.ToUpper(),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             base.PerformDelete();
@@ -277,9 +289,9 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
-        private const string STR_ADD = "Thêm ngôn ngữ";
-        private const string STR_EDIT = "Sửa ngôn ngữ";
-        private const string STR_DELETE = "Xoá ngôn ngữ";
+        private const string STR_ADD = "Thêm tỉnh/tp";
+        private const string STR_EDIT = "Sửa tỉnh/tp";
+        private const string STR_DELETE = "Xoá tỉnh/tp";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá '{0}' không?";

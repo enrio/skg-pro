@@ -120,6 +120,19 @@ namespace SKG.DXF.Station.Manage
                             r["Seats"] = ve.Seats;
                             r["Beds"] = ve.Beds;
                             r["CodeId"] = ve.Id;
+
+                            var dt = Global.Session.Current;
+                            if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                            {
+                                r["Note"] = "Thời gian nhập sai!";
+                                continue;
+                            }
+
+                            if (_bll.Tra_Detail.InvoiceOut(bs, false, dt) == null)
+                            {
+                                r["Note"] = "Xe này không ở trong bến!";
+                                continue;
+                            }
                         }
                     }
                     else
@@ -156,6 +169,19 @@ namespace SKG.DXF.Station.Manage
                         r["Seats"] = ve.Seats;
                         r["Beds"] = ve.Beds;
                         r["CodeId"] = ve.Id;
+
+                        var dt = Global.Session.Current;
+                        if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                        {
+                            r["Note"] = "Thời gian nhập sai!";
+                            continue;
+                        }
+
+                        if (_bll.Tra_Detail.InvoiceOut(bs, false, dt) == null)
+                        {
+                            r["Note"] = "Xe này không ở trong bến!";
+                            continue;
+                        }
                     }
                     else
                     {
@@ -186,7 +212,7 @@ namespace SKG.DXF.Station.Manage
                 }
 
                 var bs = r["Code"] + "";
-                if (_bll.Tra_Detail.InvoiceOut(bs, true) == null)
+                if (_bll.Tra_Detail.InvoiceOut(bs, true, dt) == null)
                 {
                     r["Note"] = "Xe này không ở trong bến!";
                     continue;
@@ -206,7 +232,7 @@ namespace SKG.DXF.Station.Manage
                 }
 
                 var bs = r["Code"] + "";
-                if (_bll.Tra_Detail.InvoiceOut(bs, true) == null)
+                if (_bll.Tra_Detail.InvoiceOut(bs, true, dt) == null)
                 {
                     r["Note"] = "Xe này đã ở trong bến!";
                     continue;

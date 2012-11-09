@@ -114,7 +114,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteMonth.Size = new System.Drawing.Size(88, 26);
             this.dteMonth.TabIndex = 24;
-            this.dteMonth.EditValueChanged += new System.EventHandler(this.dteMonth_EditValueChanged);
+            
             // 
             // lblGuest
             // 

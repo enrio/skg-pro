@@ -95,8 +95,7 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_Normal
             {
-                Name = Global.Session.User.Acc +
-                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_n1"
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
             };
             decimal sum = 0;
 
@@ -120,8 +119,7 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_Normal
             {
-                Name = Global.Session.User.Acc +
-                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_n2"
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
             };
             decimal sum = 0;
 
@@ -145,8 +143,7 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_Fixed
             {
-                Name = Global.Session.User.Acc +
-                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_cd"
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd", Global.Session.User.Acc, Global.Session.Current)
             };
             decimal sum = 0;
 
@@ -319,8 +316,7 @@ namespace SKG.DXF.Station.Manage
                     {
                         var rpt = new Report.Rpt_Receipt
                         {
-                            Name = Global.Session.User.Acc +
-                                Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_pt"
+                            Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_pt", Global.Session.User.Acc, Global.Session.Current)
                         };
 
                         var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
@@ -349,15 +345,11 @@ namespace SKG.DXF.Station.Manage
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
 
-                        try
-                        {
+                        if (Global.CheckValidPrinting())
                             rpt.Print();
-                        }
-                        catch
-                        {
+                        else
                             XtraMessageBox.Show("KHÔNG CÓ MÁY IN", Text,
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
                     }
 
                     PerformRefresh();

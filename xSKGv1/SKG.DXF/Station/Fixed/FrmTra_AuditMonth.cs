@@ -56,6 +56,7 @@ namespace SKG.DXF.Station.Fixed
             AllowPrint = true;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
 
             grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
             grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -65,6 +66,12 @@ namespace SKG.DXF.Station.Fixed
         }
 
         #region Override
+        protected override void PerformEdit()
+        {
+            grvMain.OptionsBehavior.Editable = true;
+            base.PerformEdit();
+        }
+
         protected override void PerformRefresh()
         {
             LoadData();

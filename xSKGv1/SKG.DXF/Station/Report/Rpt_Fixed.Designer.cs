@@ -59,6 +59,7 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrlDuration = new DevExpress.XtraReports.UI.XRLabel();
             this.xrlTitle = new DevExpress.XtraReports.UI.XRLabel();
+            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
@@ -101,7 +102,6 @@
             this.xrTable12 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow19 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcDate = new DevExpress.XtraReports.UI.XRTableCell();
-            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrTableRow20 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell93 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTable11 = new DevExpress.XtraReports.UI.XRTable();
@@ -412,6 +412,14 @@
             this.xrlTitle.Text = "xrlTitle";
             this.xrlTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
+            // parDate
+            // 
+            this.parDate.Description = "Ngày in báo cáo";
+            this.parDate.Name = "parDate";
+            this.parDate.Type = typeof(System.DateTime);
+            this.parDate.Value = new System.DateTime(2012, 11, 9, 14, 29, 12, 421);
+            this.parDate.Visible = false;
+            // 
             // xrLabel4
             // 
             this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -719,10 +727,10 @@
             // xrlCashier
             // 
             this.xrlCashier.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrlCashier.LocationFloat = new DevExpress.Utils.PointFloat(659.6931F, 184.3749F);
+            this.xrlCashier.LocationFloat = new DevExpress.Utils.PointFloat(782.5F, 184.3749F);
             this.xrlCashier.Name = "xrlCashier";
             this.xrlCashier.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlCashier.SizeF = new System.Drawing.SizeF(449.3068F, 20.83333F);
+            this.xrlCashier.SizeF = new System.Drawing.SizeF(326.4999F, 20.83333F);
             this.xrlCashier.StylePriority.UseFont = false;
             this.xrlCashier.StylePriority.UseTextAlignment = false;
             this.xrlCashier.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -730,12 +738,12 @@
             // xrTable12
             // 
             this.xrTable12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable12.LocationFloat = new DevExpress.Utils.PointFloat(659.6931F, 44.58332F);
+            this.xrTable12.LocationFloat = new DevExpress.Utils.PointFloat(782.5F, 44.58332F);
             this.xrTable12.Name = "xrTable12";
             this.xrTable12.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow19,
             this.xrTableRow20});
-            this.xrTable12.SizeF = new System.Drawing.SizeF(449.3068F, 55.72915F);
+            this.xrTable12.SizeF = new System.Drawing.SizeF(326.4999F, 55.72915F);
             this.xrTable12.StylePriority.UseFont = false;
             this.xrTable12.StylePriority.UseTextAlignment = false;
             this.xrTable12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -757,14 +765,6 @@
             this.xrcDate.Text = "xrcDate";
             this.xrcDate.Weight = 3D;
             // 
-            // parDate
-            // 
-            this.parDate.Description = "Ngày in báo cáo";
-            this.parDate.Name = "parDate";
-            this.parDate.Type = typeof(System.DateTime);
-            this.parDate.Value = new System.DateTime(2012, 11, 9, 14, 29, 12, 421);
-            this.parDate.Visible = false;
-            // 
             // xrTableRow20
             // 
             this.xrTableRow20.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
@@ -781,7 +781,7 @@
             // xrTable11
             // 
             this.xrTable11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable11.LocationFloat = new DevExpress.Utils.PointFloat(3.973643E-05F, 44.58332F);
+            this.xrTable11.LocationFloat = new DevExpress.Utils.PointFloat(22.91671F, 44.58332F);
             this.xrTable11.Name = "xrTable11";
             this.xrTable11.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow16,

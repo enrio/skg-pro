@@ -56,7 +56,6 @@ namespace SKG.DXF.Station.Fixed
             AllowPrint = true;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
 
             grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
             grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -145,8 +144,7 @@ namespace SKG.DXF.Station.Fixed
         {
             var rpt = new Report.Rpt_Audit
             {
-                Name = Global.Session.User.Acc +
-                    Global.Session.Current.ToString("_dd.MM.yyyy_HH.mm.ss") + "_td"
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_td", Global.Session.User.Acc, Global.Session.Current)
             };
 
             rpt.parDate.Value = Global.Session.Current;

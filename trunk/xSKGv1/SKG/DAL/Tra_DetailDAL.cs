@@ -828,7 +828,7 @@ namespace SKG.DAL
                                Th_Ts_Ghe = 0,
                                Th_Lx_Xuatben = s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben,
                                Th_Lk_Di = s.Th_Lk_Di == null ? 0 : s.Th_Lk_Di,
-                               Tile_Nottai = (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / v.Node,
+                               Tile_Nottai = (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / v.Node * 100,
                                Nottai_Hoatdong = (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / 30
                            };
                 return res2.ToDataTable();

@@ -804,13 +804,13 @@ namespace SKG.DAL
                               Number = s.Tra_Vehicle.Code,
 
                               Kh_Soxe = 1,
-                              Kh_Ts_Ghe = 0,
-                              Kh_Lx_Xuatben = 0,
+                              Kh_Ts_Ghe = (s.Tra_Vehicle.Seats ?? 0 + s.Tra_Vehicle.Beds ?? 0) - 1,
+                              Kh_Lx_Xuatben = s.Tra_Vehicle.Node,
 
                               Th_Soxe = 1,
                               Th_Ts_Ghe = 0,
                               Th_Lx_Xuatben = 0,
-                              Th_Lk_Di = 0,
+                              Th_Lk_Di = s.Guest,
                               Tile_Nottai = 0,
                               Nottai_Hoatdong = 0
                           };

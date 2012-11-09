@@ -80,7 +80,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (XuatBT.xls)|XuatBT.xls" };
+            var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
             open.ShowDialog();
 
             if (open.FileName == "" || !open.CheckFileExists)

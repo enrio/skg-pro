@@ -19,12 +19,23 @@ namespace SKG
     using DAL.Entities;
     using System.Data.Common;
     using System.Windows.Forms;
+    using System.Drawing.Printing;
 
     /// <summary>
     /// Global objects
     /// </summary>
     public class Global
     {
+        /// <summary>
+        /// Check valid printing
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckValidPrinting()
+        {
+            var prter = new PrinterSettings();
+            return prter.IsValid;
+        }
+
         #region Dictionary constants
         /// <summary>
         /// Code of group kind of data

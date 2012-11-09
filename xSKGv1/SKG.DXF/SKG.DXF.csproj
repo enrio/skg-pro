@@ -373,6 +373,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_AuditMonth.resx">
+      <DependentUpon>FrmTra_AuditMonth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </EmbeddedResource>

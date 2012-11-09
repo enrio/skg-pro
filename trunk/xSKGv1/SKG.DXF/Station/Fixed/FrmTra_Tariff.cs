@@ -73,21 +73,26 @@ namespace SKG.DXF.Station.Fixed
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            var text = grvMain.GetFocusedRowCellValue("Text");
             var id = (Guid)tmpId;
 
-            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            if (id == new Guid())
+                XtraMessageBox.Show(STR_SELECT.ToUpper(), STR_DELETE.ToUpper(),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtName.Text);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var cfm = String.Format(STR_CONFIRM, text);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE.ToUpper(), MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Tariff.Delete(id) != null) PerformRefresh();
-                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE.ToUpper(), STR_DELETE.ToUpper(),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             base.PerformDelete();

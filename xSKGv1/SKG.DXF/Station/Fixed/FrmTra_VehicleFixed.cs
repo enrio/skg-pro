@@ -32,19 +32,17 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
-                var type = typeof(Level1);
-                var cls = type.Name.Split('_').Last();
-                var nsp = type.Namespace.Split('.').Last();
-                var name = cls.Contains("Level") ? nsp : cls;
+                var type = typeof(FrmTra_VehicleFixed);
+                var name = Global.GetIconName(type);
 
                 var menu = new Menuz
                 {
                     Code = type.FullName,
-                    Parent = typeof(Level1).FullName,
+                    Parent = typeof(Level2).FullName,
                     Text = STR_TITLE,
-                    Level = 3,
-                    Order = 27,
-                    Picture = String.Format(STR_ICON, name)
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
@@ -341,8 +339,8 @@ namespace SKG.DXF.Station.Fixed
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel(STR_PAN1);
-            dockPanel2.SetDockPanel(STR_PAN2);
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
@@ -403,15 +401,10 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "NHẬP-SỬA XE CỐ ĐỊNH";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "Nhập liệu";
-        private const string STR_PAN2 = "Danh sách";
-
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
-        private const string STR_DELETE = "Xoá xe";
+        private const string STR_TITLE = "Nhập-sửa xe cố định";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";

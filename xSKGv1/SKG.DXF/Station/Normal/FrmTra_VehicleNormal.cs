@@ -28,40 +28,27 @@ namespace SKG.DXF.Station.Normal
         {
             get
             {
+                var type = typeof(FrmTra_VehicleNormal);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_VehicleNormal).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "NHẬP-SỬA XE VÃNG LAI",
-                    Level = 3,
-                    Order = 25,
-                    Picture = @"Icons\Vehicle.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public string _num;
+        #region Implements
+        #endregion
 
-        public FrmTra_VehicleNormal()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        }
-
-        #region Override
+        #region Overrides
         protected override void SetNullPrompt()
         {
             txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
@@ -265,6 +252,26 @@ namespace SKG.DXF.Station.Normal
         }
         #endregion
 
+        #region Methods
+        public FrmTra_VehicleNormal()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+        }
+        #endregion
+
+        #region Events
         private void FrmTra_Media_Load(object sender, EventArgs e)
         {
             if (!Global.Session.User.CheckAdmin()) grvMain.Bands["badAudit"].Visible = false;
@@ -278,7 +285,17 @@ namespace SKG.DXF.Station.Normal
                 txtCode.Text = _num;
             }
         }
+        #endregion
 
+        #region Properties
+        #endregion
+
+        #region Fields
+        public string _num;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Nhập-sửa xe vãng lai";
         private const string STR_ADD = "Thêm xe";
         private const string STR_EDIT = "Sửa xe";
         private const string STR_DELETE = "Xoá xe";
@@ -289,5 +306,6 @@ namespace SKG.DXF.Station.Normal
         private const string STR_DUPLICATE = "Xe này có rồi";
 
         private const string STR_NOT_C = "Chưa nhập số ghế!";
+        #endregion
     }
 }

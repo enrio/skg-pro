@@ -30,38 +30,27 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
+                var type = typeof(FrmTra_GateInFixed);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_GateInFixed).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "NHẬP XE CỐ ĐỊNH",
-                    Level = 3,
-                    Order = 27,
-                    Picture = @"Icons\GateIn.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_GateInFixed()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        }
-
-        #region Override
+        #region Overrides
         protected override void PerformAdd()
         {
             tmrMain.Enabled = true;
@@ -292,11 +281,53 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
+        #region Methods
+        public FrmTra_GateInFixed()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+        }
+        #endregion
+
+        #region Events
         private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 PerformSave();
         }
+
+        private void FrmTra_GateInFixed_Load(object sender, EventArgs e)
+        {
+            AllowBar = false;
+            PerformAdd();
+        }
+
+        private void FrmTra_GateInFixed_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+            PerformAdd();
+        }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Nhập xe cố định";
 
         private const string STR_ADD = "Thêm chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
@@ -311,17 +342,6 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_KIND = "XE VÃNG LAI";
         private const string STR_MANAG = "CHƯA QUẢN LÝ";
-
-        private void FrmTra_GateInFixed_Load(object sender, EventArgs e)
-        {
-            AllowBar = false;
-            PerformAdd();
-        }
-
-        private void FrmTra_GateInFixed_Activated(object sender, EventArgs e)
-        {
-            PerformRefresh();
-            PerformAdd();
-        }
+        #endregion
     }
 }

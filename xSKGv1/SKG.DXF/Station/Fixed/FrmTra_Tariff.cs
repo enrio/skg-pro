@@ -29,38 +29,27 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
+                var type = typeof(FrmTra_Tariff);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_Tariff).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Bảng giá xe cố định",
-                    Level = 3,
-                    Order = 21,
-                    Picture = @"Icons\Kind.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_Tariff()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        }
-
-        #region Override
+        #region Overrides
         protected override void SetNullPrompt()
         {
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
@@ -303,15 +292,26 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
-        private const string STR_ADD = "THÊM BẢNG GIÁ TUYẾN";
-        private const string STR_EDIT = "SỬA BẢNG GIÁ TUYẾN";
-        private const string STR_DELETE = "XOÁ BẢNG GIÁ TUYẾN";
+        #region Methods
+        public FrmTra_Tariff()
+        {
+            InitializeComponent();
 
-        private const string STR_SELECT = "HÃY CHỌN DỮ LIỆU";
-        private const string STR_CONFIRM = "CÓ XOÁ TUYẾN '{0}' NÀY KHÔNG?";
-        private const string STR_UNDELETE = "KHÔNG XOÁ ĐƯỢC\n\rDỮ LIỆU ĐANG SỬ DỤNG";
-        private const string STR_DUPLICATE = "TUYẾN NÀY CÓ RỒI";
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
 
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+        }
+        #endregion
+
+        #region Events
         private void FrmTra_Tariff_Load(object sender, EventArgs e)
         {
             lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_PROVINCE);
@@ -327,5 +327,24 @@ namespace SKG.DXF.Station.Fixed
         {
             calRose2.EditValue = Convert.ToInt32(calRose1.EditValue) * 130 / 100;
         }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Bảng giá tuyến";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
+
+        private const string STR_SELECT = "HÃY CHỌN DỮ LIỆU";
+        private const string STR_CONFIRM = "CÓ XOÁ TUYẾN '{0}' NÀY KHÔNG?";
+        private const string STR_UNDELETE = "KHÔNG XOÁ ĐƯỢC\n\rDỮ LIỆU ĐANG SỬ DỤNG";
+        private const string STR_DUPLICATE = "TUYẾN NÀY CÓ RỒI";
+        #endregion
     }
 }

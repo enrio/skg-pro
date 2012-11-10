@@ -30,20 +30,81 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
+                var type = typeof(FrmTra_GateOut);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_GateOut).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "CỔNG RA",
-                    Level = 3,
-                    Order = 28,
-                    Picture = @"Icons\GateOut.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Implements
+        #endregion
+
+        #region Overrides
+        protected override void LoadData()
+        {
+            int fix, nor;
+            _dtb = _bll.Tra_Detail.GetInDepot(out fix, out nor);
+            var all = fix + nor;
+
+            // Số lượng xe trong bến
+            lblSum.Text = all.ToString("#,0");
+            lblSum.Text += "\n\r" + fix.ToString("#,0"); // xe cố định
+            lblSum.Text += "\n\r" + nor.ToString("#,0"); // xe vãng lai
+
+            if (_dtb.Rows.Count > 0)
+            {
+                cmdInvoice.Enabled = true;
+                lkeNumber.Properties.DataSource = _dtb;
+                lkeNumber.ItemIndex = 0;
+            }
+            else cmdInvoice.Enabled = false;
+
+            base.LoadData();
+        }
+
+        protected override void ResetInput()
+        {
+            lblGroup.Text = null;
+            lblKind.Text = null;
+
+            lblSeats.Text = null;
+            lblBeds.Text = null;
+
+            lblDateIn.Text = null;
+            lblDateOut.Text = null;
+
+            lblDeposit.Text = null;
+            lblUserIn.Text = null;
+            lblPhone.Text = null;
+
+            lblNumber.Text = null;
+            lblNote.Text = null;
+            lblMoney.Text = null;
+
+            base.ResetInput();
+        }
+
+        protected override void PerformRefresh()
+        {
+            ResetInput();
+            LoadData();
+
+            base.PerformRefresh();
+        }
+        #endregion
+
+        #region Methods
         public FrmTra_GateOut()
         {
             InitializeComponent();
@@ -75,6 +136,112 @@ namespace SKG.DXF.Station.Manage
                 cmdSumaryFixed.Visible = false;
             }
         }
+
+        /// <summary>
+        /// Tính tiền và cho xe ra bến
+        /// </summary>
+        /// <param name="isOut">Cho xe ra</param>
+        private void Invoice(bool isOut = false)
+        {
+            try
+            {
+                if (lkeNumber.Text == "") return;
+                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
+                _isFixed = detail.Vehicle.Fixed;
+
+                if (_isFixed)
+                {
+                    lblKind.Text = "Tuyến: " + detail.Vehicle.Tariff.Text;
+                    lblGroup.Text = "ĐVVT: " + detail.Vehicle.Transport.Text;
+                    lblHalfDay.Text = "Ghế:";
+                    lblFullDay.Text = "Giường:";
+                }
+                else
+                {
+                    lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
+                    lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;
+                    lblHalfDay.Text = "Nửa ngày:";
+                    lblFullDay.Text = "Một ngày:";
+                }
+
+                lblNumber.Text = "BS " + detail.Vehicle.Code;
+
+                lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
+                lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
+
+                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,#");
+                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,#");
+
+                lblPrice1.Text = detail.Price1.ToString("#,#");
+                lblRose1.Text = detail.Rose1.ToString("#,#");
+
+                lblPrice2.Text = detail.Price2.ToString("#,#");
+                lblRose2.Text = detail.Rose2.ToString("#,#");
+                lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
+                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
+
+                var d = detail.DateOut.Value - detail.DateIn;
+                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
+                    d.Days, d.Hours, d.Minutes, d.Seconds);
+
+                lblUserIn.Text = "Cho vào: " + detail.UserIn.Name;
+                lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
+                lblNote.Text = detail.Note;
+
+                if (isOut)
+                {
+                    if (_isFixed && !detail.Repair) // in phiếu thu xe cố định
+                    {
+                        var rpt = new Report.Rpt_Receipt();
+                        var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
+                        var dtr = tbl.NewRow();
+
+                        dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
+                        dtr["Date"] = Global.Session.Current;
+                        dtr["Number"] = detail.Vehicle.Code;
+                        dtr["Transport"] = detail.Vehicle.Transport.Text;
+
+                        dtr["Cost"] = detail.Cost;
+                        dtr["Rose"] = detail.Rose;
+
+                        var seat = detail.Seats ?? 0;
+                        var bed = detail.Beds ?? 0;
+                        dtr["CostDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
+                            detail.Price1, seat, detail.Price2, bed);
+                        dtr["RoseDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
+                            detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
+
+                        dtr["Parked"] = detail.Parked;
+                        dtr["Money"] = detail.Money;
+                        dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
+                        dtr["Creator"] = Global.Session.User.Name;
+
+                        tbl.Rows.Add(dtr);
+                        rpt.DataSource = tbl;
+
+                        // Kiểm tra máy in và in phiếu thu
+                        if (Global.CheckPrinter())
+                            try { rpt.Print(); }
+                            catch
+                            {
+                                XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!", Text,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        else
+                            XtraMessageBox.Show("LỖI: KHÔNG CÓ MÁY IN!", Text,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    PerformRefresh();
+                }
+                cmdOut.Enabled = !isOut;
+                cmdTariff.Enabled = !isOut;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text);
+            }
+        }
+        #endregion
 
         #region Events
         /// <summary>
@@ -230,164 +397,15 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
-        #region Override
-        protected override void LoadData()
-        {
-            int fix, nor;
-            _dtb = _bll.Tra_Detail.GetInDepot(out fix, out nor);
-            var all = fix + nor;
-
-            // Số lượng xe trong bến
-            lblSum.Text = all.ToString("#,0");
-            lblSum.Text += "\n\r" + fix.ToString("#,0"); // xe cố định
-            lblSum.Text += "\n\r" + nor.ToString("#,0"); // xe vãng lai
-
-            if (_dtb.Rows.Count > 0)
-            {
-                cmdInvoice.Enabled = true;
-                lkeNumber.Properties.DataSource = _dtb;
-                lkeNumber.ItemIndex = 0;
-            }
-            else cmdInvoice.Enabled = false;
-
-            base.LoadData();
-        }
-
-        protected override void ResetInput()
-        {
-            lblGroup.Text = null;
-            lblKind.Text = null;
-
-            lblSeats.Text = null;
-            lblBeds.Text = null;
-
-            lblDateIn.Text = null;
-            lblDateOut.Text = null;
-
-            lblDeposit.Text = null;
-            lblUserIn.Text = null;
-            lblPhone.Text = null;
-
-            lblNumber.Text = null;
-            lblNote.Text = null;
-            lblMoney.Text = null;
-
-            base.ResetInput();
-        }
-
-        protected override void PerformRefresh()
-        {
-            ResetInput();
-            LoadData();
-
-            base.PerformRefresh();
-        }
+        #region Properties
         #endregion
 
+        #region Fields
         bool _isFixed;
-        /// <summary>
-        /// Tính tiền và cho xe ra bến
-        /// </summary>
-        /// <param name="isOut">Cho xe ra</param>
-        private void Invoice(bool isOut = false)
-        {
-            try
-            {
-                if (lkeNumber.Text == "") return;
-                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
-                _isFixed = detail.Vehicle.Fixed;
+        #endregion
 
-                if (_isFixed)
-                {
-                    lblKind.Text = "Tuyến: " + detail.Vehicle.Tariff.Text;
-                    lblGroup.Text = "ĐVVT: " + detail.Vehicle.Transport.Text;
-                    lblHalfDay.Text = "Ghế:";
-                    lblFullDay.Text = "Giường:";
-                }
-                else
-                {
-                    lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
-                    lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;
-                    lblHalfDay.Text = "Nửa ngày:";
-                    lblFullDay.Text = "Một ngày:";
-                }
-
-                lblNumber.Text = "BS " + detail.Vehicle.Code;
-
-                lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
-                lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
-
-                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,#");
-                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,#");
-
-                lblPrice1.Text = detail.Price1.ToString("#,#");
-                lblRose1.Text = detail.Rose1.ToString("#,#");
-
-                lblPrice2.Text = detail.Price2.ToString("#,#");
-                lblRose2.Text = detail.Rose2.ToString("#,#");
-                lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
-                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
-
-                var d = detail.DateOut.Value - detail.DateIn;
-                lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
-                    d.Days, d.Hours, d.Minutes, d.Seconds);
-
-                lblUserIn.Text = "Cho vào: " + detail.UserIn.Name;
-                lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
-                lblNote.Text = detail.Note;
-
-                if (isOut)
-                {
-                    if (_isFixed && !detail.Repair) // in phiếu thu xe cố định
-                    {
-                        var rpt = new Report.Rpt_Receipt();
-                        var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
-                        var dtr = tbl.NewRow();
-
-                        dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
-                        dtr["Date"] = Global.Session.Current;
-                        dtr["Number"] = detail.Vehicle.Code;
-                        dtr["Transport"] = detail.Vehicle.Transport.Text;
-
-                        dtr["Cost"] = detail.Cost;
-                        dtr["Rose"] = detail.Rose;
-
-                        var seat = detail.Seats ?? 0;
-                        var bed = detail.Beds ?? 0;
-                        dtr["CostDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
-                            detail.Price1, seat, detail.Price2, bed);
-                        dtr["RoseDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
-                            detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
-
-                        dtr["Parked"] = detail.Parked;
-                        dtr["Money"] = detail.Money;
-                        dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
-                        dtr["Creator"] = Global.Session.User.Name;
-
-                        tbl.Rows.Add(dtr);
-                        rpt.DataSource = tbl;
-
-                        // Kiểm tra máy in và in phiếu thu
-                        if (Global.CheckPrinter())
-                            try { rpt.Print(); }
-                            catch
-                            {
-                                XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!", Text,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        else
-                            XtraMessageBox.Show("LỖI: KHÔNG CÓ MÁY IN!", Text,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    PerformRefresh();
-                }
-                cmdOut.Enabled = !isOut;
-                cmdTariff.Enabled = !isOut;
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text);
-            }
-        }
+        #region Constants
+        private const string STR_TITLE = "Cổng ra";
+        #endregion
     }
 }

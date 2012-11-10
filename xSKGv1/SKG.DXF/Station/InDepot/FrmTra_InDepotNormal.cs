@@ -30,52 +30,27 @@ namespace SKG.DXF.Station.InDepot
         {
             get
             {
+                var type = typeof(FrmTra_InDepotNormal);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_InDepotFixed).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Xe vãng lai trong bến",
-                    Level = 3,
-                    Order = 28,
-                    Picture = @"Icons\InDepot.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_InDepotNormal()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            AllowAdd = false;
-            AllowEdit = false;
-            //AllowDelete = false;
-            AllowSave = false;
-            AllowCancel = false;
-            AllowPrint = false;
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        }
-
-        #region Events
-        private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter) PerformFind();
-        }
+        #region Implements
         #endregion
 
-        #region Override
+        #region Overrides
         protected override void PerformRefresh()
         {
             LoadData();
@@ -160,11 +135,52 @@ namespace SKG.DXF.Station.InDepot
         }
         #endregion
 
+        #region Methods
+        public FrmTra_InDepotNormal()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowAdd = false;
+            AllowEdit = false;
+            //AllowDelete = false;
+            AllowSave = false;
+            AllowCancel = false;
+            AllowPrint = false;
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+        }
+        #endregion
+
+        #region Events
+        private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) PerformFind();
+        }
+
         private void FrmTra_InDepot_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
         }
+        #endregion
 
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Xe vãng lai trong bến";
         private const string STR_ADD = "Thêm xe";
         private const string STR_EDIT = "Sửa xe";
         private const string STR_DELETE = "Xoá xe";
@@ -177,5 +193,6 @@ namespace SKG.DXF.Station.InDepot
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        #endregion
     }
 }

@@ -28,92 +28,30 @@ namespace SKG.DXF.Station.Manage
     /// </summary>
     public partial class FrmTra_ByHandIn : SKG.DXF.FrmInput
     {
-        #region Constants
-        private const string STR_TITLE = "NHẬP XE BẰNG TAY";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "XE CỐ ĐỊNH";
-        private const string STR_PAN2 = "XE VÃNG LAI";
-
-        private const string STR_ERR_DATE = "Thời gian nhập sai";
-        private const string STR_NO_LIST = "Không có trong danh sách";
-        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
-        private const string STR_NO_TARIFF = "Loại xe này không có";
-        private const string STR_NO_ADD = "Không thêm thông tin được";
-
-        private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
-        private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
-
-        private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
-        private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
-        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
-        #endregion
-
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var tmp = typeof(FrmTra_ByHandIn);
-                var icon = tmp.Name.Split('_');
+                var type = typeof(FrmTra_ByHandIn);
+                var name = Global.GetIconName(type);
 
                 var menu = new Menuz
                 {
-                    Code = tmp.FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
                     Text = STR_TITLE,
-                    Level = 3,
-                    Order = 27,
-                    Picture = String.Format(STR_ICON, icon[1])
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        #region Fields
-        /// <summary>
-        /// List all of vihicle fixed
-        /// </summary>
-        private DataTable _tbFixed;
-
-        /// <summary>
-        /// List all of vihicle normal
-        /// </summary>
-        private DataTable _tbNormal;
+        #region Implements
         #endregion
-
-        #region Properties
-        #endregion
-
-        #region Methods
-        public FrmTra_ByHandIn()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel(STR_PAN1);
-            dockPanel2.SetDockPanel(STR_PAN2);
-
-            AllowEdit = false;
-            AllowDelete = false;
-            AllowRefresh = false;
-
-            grvFixed.OptionsView.ShowAutoFilterRow = true;
-            grvFixed.OptionsBehavior.Editable = false;
-            grvFixed.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvFixed.IndicatorWidth = 40;
-
-            grvNormal.OptionsView.ShowAutoFilterRow = true;
-            grvNormal.OptionsBehavior.Editable = false;
-            grvNormal.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvNormal.IndicatorWidth = 40;
-        }
 
         #region Overrides
         protected override void PerformAdd()
@@ -301,6 +239,35 @@ namespace SKG.DXF.Station.Manage
         }
         #endregion
 
+        #region Methods
+        public FrmTra_ByHandIn()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowEdit = false;
+            AllowDelete = false;
+            AllowRefresh = false;
+
+            grvFixed.OptionsView.ShowAutoFilterRow = true;
+            grvFixed.OptionsBehavior.Editable = false;
+            grvFixed.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvFixed.IndicatorWidth = 40;
+
+            grvNormal.OptionsView.ShowAutoFilterRow = true;
+            grvNormal.OptionsBehavior.Editable = false;
+            grvNormal.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvNormal.IndicatorWidth = 40;
+        }
+
         /// <summary>
         /// Import data from excel file (by hand)
         /// </summary>
@@ -334,27 +301,73 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Events
-
-        #region Numbered
+        /// <summary>
+        /// Numbered for vihicle fixed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grvFixed_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator)
             {
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
                 e.Info.DisplayText = "" + (e.RowHandle + 1);
                 e.Handled = false;
             }
         }
 
+        /// <summary>
+        /// Numbered for vihicle normal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void grvNormal_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator)
             {
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
                 e.Info.DisplayText = "" + (e.RowHandle + 1);
                 e.Handled = false;
             }
         }
         #endregion
 
+        #region Properties
+        #endregion
+
+        #region Fields
+        /// <summary>
+        /// List all of vihicle fixed
+        /// </summary>
+        private DataTable _tbFixed;
+
+        /// <summary>
+        /// List all of vihicle normal
+        /// </summary>
+        private DataTable _tbNormal;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Nhập xe bằng tay";
+
+        private const string STR_ERR_DATE = "Thời gian nhập sai";
+        private const string STR_NO_LIST = "Không có trong danh sách";
+        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
+        private const string STR_NO_TARIFF = "Loại xe này không có";
+        private const string STR_NO_ADD = "Không thêm thông tin được";
+
+        private const string STR_FIXED = "ĐÂY LÀ " + Global.STR_PAN1;
+        private const string STR_NORMAL = "ĐÂY LÀ " + Global.STR_PAN2;
+
+        private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
+        private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
+        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
         #endregion
     }
 }

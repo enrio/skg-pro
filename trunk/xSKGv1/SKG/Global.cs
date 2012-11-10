@@ -4,28 +4,29 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 09/08/2013 20:32
- * Update: 09/08/2013 20:32
+ * Create: 10/11/2012 21:48
+ * Update: 10/11/2012 21:48
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Data.Common;
+using System.Windows.Forms;
+using System.Drawing.Printing;
+using System.Collections.Generic;
 
 namespace SKG
 {
     using DAL.Entities;
-    using System.Data.Common;
-    using System.Windows.Forms;
-    using System.Drawing.Printing;
 
     /// <summary>
     /// Global objects
     /// </summary>
     public class Global
     {
+        #region Methods
         /// <summary>
         /// Check valid printing
         /// </summary>
@@ -47,6 +48,24 @@ namespace SKG
             var nsp = type.Namespace.Split('.').Last();
             return cls.Contains("Level") ? nsp : cls;
         }
+        #endregion
+
+        #region Icon and panel constants
+        /// <summary>
+        /// Path of image icon
+        /// </summary>
+        public const string STR_ICON = @"Icons\{0}.png";
+
+        /// <summary>
+        /// Default title of dock panel 2
+        /// </summary>
+        public const string STR_PAN1 = "Nhập liệu";
+
+        /// <summary>
+        /// Default title of dock panel 2
+        /// </summary>
+        public const string STR_PAN2 = "Danh sách";
+        #endregion
 
         #region Dictionary constants
         /// <summary>

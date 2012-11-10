@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Create: 10/11/2012 21:48
+ * Update: 10/11/2012 21:48
  * Status: OK
  */
 #endregion
@@ -33,9 +33,9 @@ namespace SKG.DXF.Help
                     Code = type.FullName,
                     Parent = typeof(Level1).FullName,
                     Text = STR_TITLE,
-                    Level = 3,
-                    Order = 27,
-                    Picture = String.Format(STR_ICON, name)
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
@@ -62,10 +62,6 @@ namespace SKG.DXF.Help
 
         #region Constants
         private const string STR_TITLE = "Trợ giúp";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "Nhập liệu";
-        private const string STR_PAN2 = "Danh sách";
         #endregion
     }
 }

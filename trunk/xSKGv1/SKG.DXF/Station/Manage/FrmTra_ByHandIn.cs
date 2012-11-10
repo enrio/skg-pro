@@ -32,29 +32,53 @@ namespace SKG.DXF.Station.Manage
         {
             get
             {
+                var tmp = typeof(FrmTra_ByHandIn);
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_ByHandIn).FullName,
+                    Code = tmp.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "NHẬP XE BẰNG TAY",
+                    Text = STR_TITLE,
                     Level = 3,
                     Order = 27,
-                    Picture = @"Icons\ByHand.png"
+                    Picture = String.Format(STR_ICON, tmp.Name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        DataTable _tb_fixed;
-        DataTable _tb_normal;
+        #region Fields
+        /// <summary>
+        /// List all of vihicle fixed
+        /// </summary>
+        private DataTable _tbFixed;
 
+        /// <summary>
+        /// List all of vihicle normal
+        /// </summary>
+        private DataTable _tbNormal;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "NHẬP XE BẰNG TAY";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "XE CỐ ĐỊNH";
+        private const string STR_PAN2 = "XE VÃNG LAI";
+
+        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Methods
         public FrmTra_ByHandIn()
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("XE CỐ ĐỊNH");
-            dockPanel2.SetDockPanel("XE VÃNG LAI");
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
 
             AllowEdit = false;
             AllowDelete = false;
@@ -79,6 +103,7 @@ namespace SKG.DXF.Station.Manage
             grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
         }
 
+        #region Overrides
         protected override void PerformAdd()
         {
             var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
@@ -91,11 +116,11 @@ namespace SKG.DXF.Station.Manage
             }
 
             #region Fixed
-            _tb_fixed = ImportData(open.FileName, "Codinh");
-            _tb_fixed.Columns.Add("Route");
-            _tb_fixed.Columns.Add("Transport");
+            _tbFixed = ImportData(open.FileName, "Codinh");
+            _tbFixed.Columns.Add("Route");
+            _tbFixed.Columns.Add("Transport");
 
-            foreach (DataRow r in _tb_fixed.Rows)
+            foreach (DataRow r in _tbFixed.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
@@ -130,14 +155,14 @@ namespace SKG.DXF.Station.Manage
                     }
                 }
             }
-            grcFixed.DataSource = _tb_fixed;
+            grcFixed.DataSource = _tbFixed;
             #endregion
 
             #region Normal
-            _tb_normal = ImportData(open.FileName, "Vanglai");
-            _tb_normal.Columns.Add("Group");
+            _tbNormal = ImportData(open.FileName, "Vanglai");
+            _tbNormal.Columns.Add("Group");
 
-            foreach (DataRow r in _tb_normal.Rows)
+            foreach (DataRow r in _tbNormal.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
@@ -191,7 +216,7 @@ namespace SKG.DXF.Station.Manage
                     }
                 }
             }
-            grcNormal.DataSource = _tb_normal;
+            grcNormal.DataSource = _tbNormal;
             #endregion
 
             base.PerformAdd();
@@ -201,8 +226,8 @@ namespace SKG.DXF.Station.Manage
         {
             int fix = 0, normal = 0;
 
-            // Fixed
-            var dtr = _tb_fixed.Select("[CodeId] Is Not Null ");
+            #region Fixed
+            var dtr = _tbFixed.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
@@ -225,9 +250,10 @@ namespace SKG.DXF.Station.Manage
                     fix++;
                 }
             }
+            #endregion
 
-            // Normal
-            dtr = _tb_normal.Select("[CodeId] Is Not Null ");
+            #region Normal
+            dtr = _tbNormal.Select("[CodeId] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
@@ -250,12 +276,14 @@ namespace SKG.DXF.Station.Manage
                     normal++;
                 }
             }
+            #endregion
 
-            XtraMessageBox.Show(String.Format("XE CỐ ĐỊNH: {0}\nXE VÃNG LAI: {1}", fix, normal), Text);
+            XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
             PerformCancel();
 
             base.PerformSave();
         }
+        #endregion
 
         /// <summary>
         /// Import data from excel file (by hand)
@@ -263,7 +291,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="fileName">File excel name</param>
         /// <param name="sheetName">Sheet name</param>
         /// <returns></returns>
-        DataTable ImportData(string fileName, string sheetName)
+        private DataTable ImportData(string fileName, string sheetName)
         {
             var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
@@ -286,5 +314,9 @@ namespace SKG.DXF.Station.Manage
             tb.Columns.Add("Note");
             return tb;
         }
+        #endregion
+
+        #region Events
+        #endregion
     }
 }

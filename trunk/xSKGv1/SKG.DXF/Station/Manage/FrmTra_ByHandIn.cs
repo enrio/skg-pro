@@ -153,9 +153,12 @@ namespace SKG.DXF.Station.Manage
                         {
                             r["Tariff"] = ve.Tariff.Text;
                             r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
                             r["Seats"] = ve.Seats;
                             r["Beds"] = ve.Beds;
+
                             r["Id"] = ve.Id;
+                            r["UserIn"] = Global.Session.User.Name;
                         }
                     }
                     else
@@ -204,10 +207,7 @@ namespace SKG.DXF.Station.Manage
                             r.RowError = STR_NO_ADD;
                             r["Note"] = r.RowError;
                         }
-                        else
-                        {
-                            r["Id"] = tmp.Id;
-                        }
+                        else r["Id"] = tmp.Id;
                     }
                 }
                 else
@@ -216,9 +216,12 @@ namespace SKG.DXF.Station.Manage
                     {
                         r["Tariff"] = ve.Tariff.Text;
                         r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
+
                         r["Seats"] = ve.Seats ?? 0;
                         r["Beds"] = ve.Beds ?? 0;
+
                         r["Id"] = ve.Id;
+                        r["UserIn"] = Global.Session.User.Name;
                     }
                     else
                     {
@@ -322,6 +325,7 @@ namespace SKG.DXF.Station.Manage
             }
 
             tb.Columns.Add("Id", typeof(Guid));
+            tb.Columns.Add("UserIn");
             tb.Columns.Add("Note");
             return tb;
         }

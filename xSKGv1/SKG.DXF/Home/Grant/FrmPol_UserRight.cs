@@ -30,44 +30,31 @@ namespace SKG.DXF.Home.Grant
     public partial class FrmPol_UserRight : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_UserRight);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_UserRight).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Gán quyền người dùng",
-                    Level = 3,
-                    Order = 15,
-                    Picture = @"Icons\UserRight.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_UserRight()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            dockPanel2.SetDockPanel("Danh sách");
-
-            AllowCollapse = true;
-            AllowExpand = true;
-            AllowFind = false;
-
-            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
-            AddTreeListColumns();
-            FormatRows();
-        }
-
-        #region Override
-        Guid _idParent;
+        #region Overrides
         protected override void PerformAdd()
         {
             TreeListNode n = trlMain.FocusedNode;
@@ -275,10 +262,27 @@ namespace SKG.DXF.Home.Grant
         }
         #endregion
 
+        #region Methods
+        public FrmPol_UserRight()
+        {
+            InitializeComponent();
+
+            dockPanel1.Visibility = DockVisibility.Hidden;
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowCollapse = true;
+            AllowExpand = true;
+            AllowFind = false;
+
+            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
+            AddTreeListColumns();
+            FormatRows();
+        }
+
         /// <summary>
         /// Định dạng in đậm, màu dòng cấp cha
         /// </summary>
-        void FormatRows()
+        private void FormatRows()
         {
             var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
                 trlMain.Columns["Format"], null, true, true, true);
@@ -297,7 +301,7 @@ namespace SKG.DXF.Home.Grant
         /// <summary>
         /// Thêm các cột quyền truy cập (Thêm, Sửa, Xoá, ...)
         /// </summary>
-        void AddTreeListColumns()
+        private void AddTreeListColumns()
         {
             try
             {
@@ -322,7 +326,9 @@ namespace SKG.DXF.Home.Grant
                 MessageBox.Show(ex.Message, "");
             }
         }
+        #endregion
 
+        #region Events
         /// <summary>
         /// Khi click check ở dòng cha, tất cả dòng con sẽ được check
         /// </summary>
@@ -461,9 +467,21 @@ namespace SKG.DXF.Home.Grant
                 if (oki) e.Node.ParentNode.Checked = true;
             }
         }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        Guid _idParent;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Gán quyền người dùng";
 
         private const string STR_DELETE = "Xoá chức năng (form) của người dùng";
         private const string STR_SELECT = "Chọn chức năng (form)!";
         private const string STR_CONFIRM = "Có muốn xoá chức năng (form) được\nchọn của người dùng không?";
+        #endregion
     }
 }

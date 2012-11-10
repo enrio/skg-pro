@@ -29,95 +29,41 @@ namespace SKG.DXF.Home.Sytem
     public partial class FrmPol_Setting : SKG.DXF.FrmMenuz
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_Setting);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Setting).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Cài đặt",
-                    Level = 3,
-                    Order = 4,
-                    Picture = @"Icons\Setting.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        /// <summary>
-        /// Connection string for SQL Server
-        /// </summary>
-        ConnectionStringSettings _a = new ConnectionStringSettings("xSKGv1", @"Data Source=.;Initial Catalog=xSKGv1;Integrated Security=True", "System.Data.SqlClient");
+        #region Implements
+        #endregion
 
-        /// <summary>
-        /// Connection string for SQL CE 4.0
-        /// </summary>
-        ConnectionStringSettings _b = new ConnectionStringSettings("xSKGv1", @"Data Source=|DataDirectory|\xSKGv1.sdf", "System.Data.SqlServerCe.4.0");
+        #region Overrides
+        #endregion
 
-        /// <summary>
-        /// Get string connect
-        /// </summary>
-        private ConnectionStringSettings ConnectionStringSetting
-        {
-            get
-            {
-                if (chkSQLCE.Checked) return _b;
-
-                var sver = cbbServer.Text;
-                var user = cbbUser.Text;
-                var pass = txtPass.Text;
-                var data = cbbDb.Text;
-                var str = "";
-
-                if (data == "" || data == STR_FIND) data = "xSKGv1";
-                if (cbbAuthen.Text == STR_WIND) str = String.Format(SqlServer.STR_TRU, sver, data);
-                else str = String.Format(SqlServer.STR_SEC, sver, data, user, pass);
-
-                _a.ConnectionString = str;
-                return _a;
-            }
-        }
-
-        private bool IsValid
-        {
-            get
-            {
-                var a = ConnectionStringSetting.ConnectionString;
-                if (chkSQLCE.Checked)
-                {
-                    var b = a.Split(new char[] { '|' });
-                    var c = String.Format("{0}{1}", Application.StartupPath, b[2]);
-                    if (!c.CheckSqlCeConnect())
-                    {
-                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
-                        return false;
-                    }
-                }
-                else
-                {
-                    var b = a.Replace("xSKGv1", "master");
-                    if (!b.CheckSqlConnect())
-                    {
-                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
-                        return false;
-                    }
-                }
-                return true;
-            }
-        }
-
+        #region Methods
         public FrmPol_Setting()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region Events
-        Configuration _config;
         private void FrmSetting_Load(object sender, EventArgs e)
         {
             _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
@@ -246,6 +192,81 @@ namespace SKG.DXF.Home.Sytem
         }
         #endregion
 
+        #region Properties
+        /// <summary>
+        /// This configuration
+        /// </summary>
+        Configuration _config;
+
+        /// <summary>
+        /// Connection string for SQL Server
+        /// </summary>
+        private ConnectionStringSettings _a = new ConnectionStringSettings("xSKGv1", @"Data Source=.;Initial Catalog=xSKGv1;Integrated Security=True", "System.Data.SqlClient");
+
+        /// <summary>
+        /// Connection string for SQL CE 4.0
+        /// </summary>
+        private ConnectionStringSettings _b = new ConnectionStringSettings("xSKGv1", @"Data Source=|DataDirectory|\xSKGv1.sdf", "System.Data.SqlServerCe.4.0");
+
+        /// <summary>
+        /// Get string connect
+        /// </summary>
+        private ConnectionStringSettings ConnectionStringSetting
+        {
+            get
+            {
+                if (chkSQLCE.Checked) return _b;
+
+                var sver = cbbServer.Text;
+                var user = cbbUser.Text;
+                var pass = txtPass.Text;
+                var data = cbbDb.Text;
+                var str = "";
+
+                if (data == "" || data == STR_FIND) data = "xSKGv1";
+                if (cbbAuthen.Text == STR_WIND) str = String.Format(SqlServer.STR_TRU, sver, data);
+                else str = String.Format(SqlServer.STR_SEC, sver, data, user, pass);
+
+                _a.ConnectionString = str;
+                return _a;
+            }
+        }
+
+        private bool IsValid
+        {
+            get
+            {
+                var a = ConnectionStringSetting.ConnectionString;
+                if (chkSQLCE.Checked)
+                {
+                    var b = a.Split(new char[] { '|' });
+                    var c = String.Format("{0}{1}", Application.StartupPath, b[2]);
+                    if (!c.CheckSqlCeConnect())
+                    {
+                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
+                        return false;
+                    }
+                }
+                else
+                {
+                    var b = a.Replace("xSKGv1", "master");
+                    if (!b.CheckSqlConnect())
+                    {
+                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Cài đặt";
+
         private const string STR_FIND = "<Tìm kiếm>";
         private const string STR_WIND = "Windows";
 
@@ -256,5 +277,6 @@ namespace SKG.DXF.Home.Sytem
         private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
         private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";
+        #endregion
     }
 }

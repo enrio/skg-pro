@@ -24,29 +24,51 @@ namespace SKG.DXF.Home.Sytem
     public partial class FrmPol_Permis : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_Permis);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Permis).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Phân quyền",
-                    Level = 0,
-                    Order = 5,
-                    Picture = @"Icons\Permission.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
         public FrmPol_Permis()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Phân quyền";
+        #endregion
     }
 }

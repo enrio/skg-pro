@@ -26,27 +26,30 @@ namespace SKG.DXF.Home.Sytem
     public partial class FrmPol_Login : SKG.DXF.FrmMenuz
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_Login);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Login).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Đăng nhập",
-                    Level = 3,
-                    Order = 3,
-                    Picture = @"Icons\Login.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
+
+        public override Form Form { get { return this; } }
         #endregion
 
-        #region Sự kiện đăng nhập
+        #region Delegate and event when logon
         /// <summary>
         /// Uỷ nhiệm xử lí đăng nhập
         /// </summary>
@@ -73,11 +76,20 @@ namespace SKG.DXF.Home.Sytem
         void NotifyAfterLogon() { if (AfterLogon != null) AfterLogon(); }
         #endregion
 
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
         public FrmPol_Login()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void FrmLogin_Load(object sender, EventArgs e)
         {
 #if DEBUG
@@ -125,8 +137,19 @@ namespace SKG.DXF.Home.Sytem
             if (txtPass.Text == "")
                 txtPass_KeyDown(sender, e);
         }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Đăng nhập";
 
         private const string STR_ERR = "Lỗi đăng nhập";
         private const string STR_LOGIN = "Đăng nhập";
+        #endregion
     }
 }

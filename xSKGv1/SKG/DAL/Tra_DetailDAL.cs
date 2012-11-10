@@ -214,13 +214,14 @@ namespace SKG.DAL
         }
         #endregion
 
+        #region Private methods
         /// <summary>
         /// Find vihicle in depot
         /// </summary>
         /// <param name="group">Group of vihicle</param>
         /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
-        public IQueryable<dynamic> FindInDepot(Group group, string number = null)
+        private IQueryable<dynamic> FindInDepot(Group group, string number = null)
         {
             try
             {
@@ -253,7 +254,7 @@ namespace SKG.DAL
                               s.Price2,
                               s.Rose1,
                               s.Rose2,
-                              s.Money,
+                              //s.Money,
 
                               s.Vehicle.Fixed,
                               GroupCode = s.Vehicle.Tariff.Group.Code
@@ -282,6 +283,81 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Find vihicle out depot
+        /// </summary>
+        /// <param name="group">Group of vihicel</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        private IQueryable<dynamic> FindOutDepot(Group group, DateTime fr, DateTime to, string number = null)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          orderby s.DateIn descending, s.Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+
+                              s.UserIn.Phone,
+                              UserIn = s.UserIn.Name,
+                              UserOut = s.UserOut.Name,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
+
+                              s.Guest,
+                              s.Vehicle.Node,
+
+                              Tariff = s.Vehicle.Tariff.Text,
+                              Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
+                              Group = s.Vehicle.Tariff.Group.Text,
+
+                              s.Price1,
+                              s.Price2,
+                              s.Rose1,
+                              s.Rose2,
+
+                              s.Cost,
+                              s.Rose,
+                              s.Parked,
+                              s.Money,
+
+                              s.Vehicle.Fixed,
+                              GroupCode = s.Vehicle.Tariff.Group.Code
+                          };
+                switch (group)
+                {
+                    case Group.A:
+                        res = res.Where(p => p.GroupCode == "GROUP_0");
+                        break;
+                    case Group.B:
+                        res = res.Where(p => p.GroupCode == "GROUP_1");
+                        break;
+                    case Group.N:
+                        res = res.Where(p => p.Fixed == false);
+                        break;
+                    case Group.F:
+                        res = res.Where(p => p.Fixed == true);
+                        break;
+                    default:
+                        break;
+                }
+                if (number != null) res = res.Where(p => p.Code == number);
+                return res;
+            }
+            catch { return null; }
+        }
+        #endregion
+
+        /// <summary>
         /// List of all vihicle in depot
         /// </summary>
         /// <param name="number">Number of vihicle</param>
@@ -292,7 +368,19 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of all vihicle in depot
+        /// List of all vihicle out depot
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        private DataTable FindOutDepot(DateTime fr, DateTime to, string number = null)
+        {
+            return FindOutDepot(Group.Z, fr, to, number).ToDataTable();
+        }
+
+        /// <summary>
+        /// List of all vihicle out depot
         /// </summary>
         /// <param name="total">Number of vihicles</param>
         /// <param name="number">Number of vihicle</param>

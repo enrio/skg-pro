@@ -29,44 +29,31 @@ namespace SKG.DXF.Home.Grant
     public partial class FrmPol_UserRole : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_UserRole);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_UserRole).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Người dùng thuộc nhóm",
-                    Level = 3,
-                    Order = 16,
-                    Picture = @"Icons\UserRole.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_UserRole()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            dockPanel2.SetDockPanel("Danh sách");
-
-            AllowCollapse = true;
-            AllowExpand = true;
-            AllowEdit = false;
-            AllowFind = false;
-
-            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
-            FormatRows();
-        }
-
-        #region Override
-        Guid _idParent;
+        #region Overrides
         protected override void PerformAdd()
         {
             TreeListNode n = trlMain.FocusedNode;
@@ -195,10 +182,27 @@ namespace SKG.DXF.Home.Grant
         }
         #endregion
 
+        #region Methods
+        public FrmPol_UserRole()
+        {
+            InitializeComponent();
+
+            dockPanel1.Visibility = DockVisibility.Hidden;
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowCollapse = true;
+            AllowExpand = true;
+            AllowEdit = false;
+            AllowFind = false;
+
+            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
+            FormatRows();
+        }
+
         /// <summary>
         /// Định dạng in đậm, màu dòng cấp cha
         /// </summary>
-        void FormatRows()
+        private void FormatRows()
         {
             var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
                 trlMain.Columns["Format"], null, true, true, true);
@@ -230,9 +234,24 @@ namespace SKG.DXF.Home.Grant
                 if (oki) e.Node.ParentNode.Checked = true;
             }
         }
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        Guid _idParent;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Người dùng thuộc nhóm";
 
         private const string STR_DELETE = "Xoá người dùng trong nhóm";
         private const string STR_SELECT = "Chọn người dùng!";
         private const string STR_CONFIRM = "Có muốn xoá người dùng được\nchọn ra khỏi nhóm không?";
+        #endregion
     }
 }

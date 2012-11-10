@@ -28,18 +28,43 @@ namespace SKG.DXF.Home.Sytem
         {
             get
             {
+                var type = typeof(FrmPol_Exit);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Exit).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Thoát",
-                    Level = 3,
-                    Order = 7,
-                    Picture = @"Icons\Exit.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
+        #endregion
+
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Thoát";
         #endregion
     }
 }

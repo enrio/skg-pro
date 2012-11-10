@@ -26,41 +26,45 @@ namespace SKG.DXF.Home.Sytem
     public partial class FrmPol_ChangePass : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_ChangePass);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_ChangePass).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Đổi mật khẩu",
-                    Level = 3,
-                    Order = 3,
-                    Picture = @"Icons\ChangePass.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Implements
+        #endregion
 
+        #region Overrides
+        #endregion
+
+        #region Methods
         public FrmPol_ChangePass()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnExit_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-        private const string STR_ERR = "Không đổi được mật khẩu!";
-        private const string STR_CONFIRM = "Mật khẩu không trùng khớp";
-        private const string STR_SUCC = "Đổi mật khẩu thành công!";
-        private const string STR_TITLE = "Change password";
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -95,5 +99,20 @@ namespace SKG.DXF.Home.Sytem
             if (e.KeyCode == Keys.Enter)
                 btnSave_Click(sender, null);
         }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Đổi mật khẩu";
+
+        private const string STR_ERR = "Không đổi được mật khẩu!";
+        private const string STR_CONFIRM = "Mật khẩu không trùng khớp";
+        private const string STR_SUCC = "Đổi mật khẩu thành công!";
+        #endregion
     }
 }

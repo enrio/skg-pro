@@ -379,6 +379,12 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotFixed.resx">
+      <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotNormal.resx">
+      <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
       <DependentUpon>Frm_Tariff.cs</DependentUpon>
     </EmbeddedResource>

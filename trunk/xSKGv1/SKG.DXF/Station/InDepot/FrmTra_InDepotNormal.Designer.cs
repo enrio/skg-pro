@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.lblSum = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -50,7 +51,6 @@
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.lblSum = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -95,6 +95,17 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 43);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // lblSum
+            // 
+            this.lblSum.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSum.Appearance.ForeColor = System.Drawing.Color.Green;
+            this.lblSum.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblSum.Location = new System.Drawing.Point(243, 6);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(331, 29);
+            this.lblSum.TabIndex = 7;
+            this.lblSum.Text = "TỔNG SỐ XE VÃNG LAI TRONG BẾN: {0}";
             // 
             // labelControl4
             // 
@@ -343,7 +354,7 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Người cho vào";
-            this.gridColumn6.FieldName = "UserInName";
+            this.gridColumn6.FieldName = "Name";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.Width = 128;
@@ -359,7 +370,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Loại xe";
-            this.gridColumn8.FieldName = "KindName";
+            this.gridColumn8.FieldName = "Tariff";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 128;
@@ -367,7 +378,7 @@
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Nhóm xe";
-            this.gridColumn9.FieldName = "GroupName";
+            this.gridColumn9.FieldName = "Group";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.Width = 137;
@@ -395,17 +406,6 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 82;
-            // 
-            // lblSum
-            // 
-            this.lblSum.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lblSum.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblSum.Location = new System.Drawing.Point(243, 6);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(331, 29);
-            this.lblSum.TabIndex = 7;
-            this.lblSum.Text = "TỔNG SỐ XE VÃNG LAI TRONG BẾN: {0}";
             // 
             // FrmTra_InDepotNormal
             // 

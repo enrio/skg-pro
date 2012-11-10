@@ -29,6 +29,9 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 0), ForeignKey("Sender")]
         public Guid? SenderId { set; get; }
+        /// <summary>
+        /// Sender
+        /// </summary>
         public virtual Pol_User Sender { get; set; }
 
         /// <summary>
@@ -36,6 +39,9 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 1), ForeignKey("Receiver")]
         public Guid? ReceiverId { set; get; }
+        /// <summary>
+        /// Receiver
+        /// </summary>
         public virtual Pol_User Receiver { get; set; }
         #endregion
 

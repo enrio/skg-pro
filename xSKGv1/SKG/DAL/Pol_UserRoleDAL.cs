@@ -70,11 +70,11 @@ namespace SKG.DAL
                         select new
                         {
                             ID = s.Id,
-                            ParentID = s.Pol_Role.Id,
-                            UserId = s.Pol_UserId,
+                            ParentID = s.Role.Id,
+                            UserId = s.UserId,
                             Format = false,
-                            Name = s.Pol_User.Name,
-                            Descript = s.Pol_User.Acc,
+                            Name = s.User.Name,
+                            Descript = s.User.Acc,
                         };
                 Guid? id = new Guid();
                 var b = from s in _db.Pol_Dictionarys
@@ -130,8 +130,8 @@ namespace SKG.DAL
                 var o = (Pol_UserRole)obj;
                 var res = _db.Pol_UserRoles.SingleOrDefault(s => s.Id == o.Id);
 
-                res.Pol_UserId = o.Pol_UserId;
-                res.Pol_RoleId = o.Pol_RoleId;
+                res.UserId = o.UserId;
+                res.RoleId = o.RoleId;
                 res.Code = o.Code;
                 res.Note = o.Note;
                 res.Order = o.Order;

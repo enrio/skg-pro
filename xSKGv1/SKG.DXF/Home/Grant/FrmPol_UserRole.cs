@@ -157,7 +157,7 @@ namespace SKG.DXF.Home.Grant
                 {
                     foreach (DataRow r in tb.Rows)
                     {
-                        var o = new Pol_UserRole() { Pol_UserId = (Guid)r["ID"], Pol_RoleId = _idParent };
+                        var o = new Pol_UserRole() { UserId = (Guid)r["ID"], RoleId = _idParent };
                         _bll.Pol_UserRole.Insert(o);
                     }
                     return true;

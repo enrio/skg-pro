@@ -28,15 +28,21 @@ namespace SKG.DAL.Entities
         /// Refercence to Pol_Role
         /// </summary>
         [Column(Order = 0), ForeignKey("Pol_Role")]
-        public Guid? Pol_RoleId { set; get; }
-        public virtual Pol_Dictionary Pol_Role { get; set; }
+        public Guid? RoleId { set; get; }
+        /// <summary>
+        /// Role
+        /// </summary>
+        public virtual Pol_Dictionary Role { get; set; }
 
         /// <summary>
         /// Refercence to Pol_Right
         /// </summary>
         [Column(Order = 1), ForeignKey("Pol_Right")]
-        public Guid? Pol_RightId { set; get; }
-        public virtual Pol_Dictionary Pol_Right { get; set; }
+        public Guid? RightId { set; get; }
+        /// <summary>
+        /// Right
+        /// </summary>
+        public virtual Pol_Dictionary Right { get; set; }
         #endregion
     }
 }

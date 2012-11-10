@@ -29,9 +29,8 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 0), ForeignKey("Parent")]
         public Guid? ParentId { get; set; }
-
         /// <summary>
-        /// Reference to itself (object)
+        /// Parent itself
         /// </summary>
         public virtual Pol_Dictionary Parent { get; set; }
 

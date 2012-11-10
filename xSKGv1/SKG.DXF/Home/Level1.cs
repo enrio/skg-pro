@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:17
- * Update: 10/11/2012 18:00
+ * Update: 10/11/2012 18:57
  * Status: OK
  */
 #endregion
@@ -20,28 +20,15 @@ namespace SKG.DXF.Home
 
     public class Level1 : Level
     {
-        #region Constants
-        private const string STR_TITLE = "Trang chính";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "Nhập liệu";
-        private const string STR_PAN2 = "Danh sách";
-        #endregion
-
-        #region Fields
-        #endregion
-
-        #region Properties
-        /// <summary>
-        /// Override menuz of plugin
-        /// </summary>
+        #region Override plugin
         public override Menuz Menuz
         {
             get
             {
                 var type = typeof(Level1);
-                var split = type.Name.Split('_');
-                var name = split.Count() > 1 ? split[1] : type.Namespace;
+                var cls = type.Name.Split('_').Last();
+                var nsp = type.Namespace.Split('.').Last();
+                var name = cls.Contains("Level") ? nsp : cls;
 
                 var menu = new Menuz
                 {
@@ -57,14 +44,30 @@ namespace SKG.DXF.Home
         }
         #endregion
 
-        #region Methods
+        #region Implements
+        #endregion
 
         #region Overrides
         #endregion
 
+        #region Methods
         #endregion
 
         #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Trang chính";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "Nhập liệu";
+        private const string STR_PAN2 = "Danh sách";
         #endregion
     }
 }

@@ -278,6 +278,7 @@ namespace SKG.DXF.Station.Fixed
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
 
+            grvMain.Columns["No_"].Visible = false; // hide No_ column
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
@@ -287,6 +288,24 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
+        /// <summary>
+        /// Numbered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
+            }
+        }
+
         private void FrmPol_Dictionary_Load(object sender, EventArgs e)
         {
             lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectForFixed();

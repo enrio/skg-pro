@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.calPrice2 = new DevExpress.XtraEditors.CalcEdit();
             this.calPrice1 = new DevExpress.XtraEditors.CalcEdit();
             this.lblRole = new DevExpress.XtraEditors.LabelControl();
@@ -55,12 +58,11 @@
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.txtDescript = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).BeginInit();
@@ -70,7 +72,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -115,6 +116,24 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 69);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtDescript
+            // 
+            this.txtDescript.Location = new System.Drawing.Point(223, 35);
+            this.txtDescript.Name = "txtDescript";
+            this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescript.Properties.Appearance.Options.UseFont = true;
+            this.txtDescript.Size = new System.Drawing.Size(228, 26);
+            this.txtDescript.TabIndex = 7;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(172, 38);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(45, 19);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Mô tả:";
             // 
             // calPrice2
             // 
@@ -417,6 +436,7 @@
             this.grvMain.OptionsView.ShowGroupPanel = false;
             this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn6, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // gridBand1
             // 
@@ -502,24 +522,6 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 189;
             // 
-            // txtDescript
-            // 
-            this.txtDescript.Location = new System.Drawing.Point(223, 35);
-            this.txtDescript.Name = "txtDescript";
-            this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(228, 26);
-            this.txtDescript.TabIndex = 7;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(172, 38);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(45, 19);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Mô tả:";
-            // 
             // FrmTra_Tariff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,6 +538,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lokGroup.Properties)).EndInit();
@@ -545,7 +548,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -349,6 +349,7 @@
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // gridColumn1
             // 
@@ -386,13 +387,13 @@
             this.gridColumn4.VisibleIndex = 3;
             this.gridColumn4.Width = 89;
             // 
-            // FrmPol_Dictionary
+            // FrmTra_Province
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmPol_Dictionary";
+            this.Name = "FrmTra_Province";
             this.Load += new System.EventHandler(this.FrmPol_Dictionary_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);

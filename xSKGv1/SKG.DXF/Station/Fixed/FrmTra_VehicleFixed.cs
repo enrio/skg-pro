@@ -342,6 +342,7 @@ namespace SKG.DXF.Station.Fixed
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
 
+            grvMain.Columns["No_"].Visible = false; // hide No_ column
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
             grvMain.Appearance.BandPanel.Options.UseTextOptions = true;

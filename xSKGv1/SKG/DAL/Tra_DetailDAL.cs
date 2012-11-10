@@ -601,13 +601,16 @@ namespace SKG.DAL
 
         #region Vihicle fixed
         /// <summary>
-        /// Tổng số xe tuyến cố định trong bến
+        /// Sum of vihicle fixed in depot
         /// </summary>
         /// <returns></returns>
-        public int SumOfFixed()
+        public int SumInDepotFixed
         {
-            return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == true);
-        }
+            get
+            {
+                return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == true);
+            }
+        }        
 
         /// <summary>
         /// Doanh thu xe cố định
@@ -713,13 +716,16 @@ namespace SKG.DAL
 
         #region Vihicle normal
         /// <summary>
-        /// Tổng số xe vãng lai trong bến
+        /// Sum of vihicle normal in depot
         /// </summary>
         /// <returns></returns>
-        public int SumOfNormal()
+        public int SumInDepotNormal
         {
-            return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == false);
-        }
+            get
+            {
+                return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == false);
+            }
+        }        
 
         /// <summary>
         /// Bảng kê xe vãng lai

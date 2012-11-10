@@ -221,9 +221,13 @@ namespace SKG.DXF.Station.Manage
         {
             LoadData();
 
-            var a = _bll.Tra_Detail.SumOfFixed();
-            var b = _bll.Tra_Detail.SumOfNormal();
+            var a = _bll.Tra_Detail.SumInDepotFixed;
+            var b = _bll.Tra_Detail.SumInDepotNormal;
             var c = a + b;
+
+            lblSum.Text = c.ToString("#,0");
+            lblSum.Text += "\n\r" + a.ToString("#,0");
+            lblSum.Text += "\n\r" + b.ToString("#,0");
 
             lblKind.Text = null;
             lblGroup.Text = null;
@@ -249,10 +253,6 @@ namespace SKG.DXF.Station.Manage
             lblUserIn.Text = null;
             lblPhone.Text = null;
             lblNote.Text = null;
-
-            lblSum.Text = (c == 0 ? "0" : c.ToString("#,#"));
-            lblSum.Text += "\n\r" + (a == 0 ? "0" : a.ToString("#,#"));
-            lblSum.Text += "\n\r" + (b == 0 ? "0" : b.ToString("#,#"));
 
             base.PerformRefresh();
         }

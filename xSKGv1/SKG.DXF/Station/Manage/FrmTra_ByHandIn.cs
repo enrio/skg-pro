@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Manage
     using SKG.Plugin;
     using System.Data;
     using DAL.Entities;
+    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -88,21 +89,17 @@ namespace SKG.DXF.Station.Manage
 
             grvFixed.OptionsView.ShowAutoFilterRow = true;
             grvFixed.OptionsBehavior.Editable = false;
-
             grvFixed.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
 
             grvNormal.OptionsView.ShowAutoFilterRow = true;
             grvNormal.OptionsBehavior.Editable = false;
-
             grvNormal.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
         }
 
         #region Overrides

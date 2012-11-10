@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Create: 23/07/2012 22:50
+ * Update: 10/11/2012 16:32
  * Status: OK
  */
 #endregion
@@ -19,39 +19,57 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
 
     public partial class FrmTra_VehicleFixed : SKG.DXF.FrmInput
     {
+        #region Constants
+        private const string STR_TITLE = "NHẬP-SỬA XE CỐ ĐỊNH";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "Nhập liệu";
+        private const string STR_PAN2 = "Danh sách";
+        #endregion
+
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
+                var tmp = typeof(FrmTra_VehicleFixed);
+                var icon = tmp.Name.Split('_');
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_VehicleFixed).FullName,
+                    Code = tmp.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "NHẬP-SỬA XE CỐ ĐỊNH",
+                    Text = STR_TITLE,
                     Level = 3,
-                    Order = 23,
-                    Picture = @"Icons\Vehicle.png"
+                    Order = 27,
+                    Picture = String.Format(STR_ICON, icon[1])
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Fields
         public string _num;
+        #endregion
 
+        #region Properties
+        #endregion
+
+        #region Methods
         public FrmTra_VehicleFixed()
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
@@ -61,6 +79,18 @@ namespace SKG.DXF.Station.Fixed
             grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvMain.IndicatorWidth = 40;
         }
+
+        #region Overrides
+        #endregion
+
+        #endregion
+
+        #region Events
+
+        #region Numbered
+        #endregion
+
+        #endregion
 
         #region Override
         protected override void SetNullPrompt()

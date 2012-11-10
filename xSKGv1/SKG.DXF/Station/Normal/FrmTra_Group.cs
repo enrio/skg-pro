@@ -11,15 +11,17 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Normal
 {
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
+    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_Group : SKG.DXF.FrmInput
@@ -235,9 +237,9 @@ namespace SKG.DXF.Station.Normal
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
-
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.IndicatorWidth = 50;
         }
         #endregion
 

@@ -11,14 +11,16 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Normal
 {
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
+    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_VehicleNormal : SKG.DXF.FrmInput
@@ -262,12 +264,11 @@ namespace SKG.DXF.Station.Normal
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
-
             grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.IndicatorWidth = 50;
         }
         #endregion
 
@@ -304,7 +305,6 @@ namespace SKG.DXF.Station.Normal
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Xe này có rồi";
-
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         #endregion
     }

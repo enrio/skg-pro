@@ -29,6 +29,16 @@ namespace SKG.DAL
             B,
 
             /// <summary>
+            /// Tất cả xe vãng lai
+            /// </summary>
+            N,
+
+            /// <summary>
+            /// Tất cả xe cố định
+            /// </summary>
+            F,
+
+            /// <summary>
             /// Tất cả xe
             /// </summary>
             Z
@@ -207,9 +217,10 @@ namespace SKG.DAL
         /// <summary>
         /// Find vihicle in depot
         /// </summary>
+        /// <param name="group">Group of vihicle</param>
         /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
-        public IQueryable<dynamic> FindInDepot(string number = null)
+        public IQueryable<dynamic> FindInDepot(Group group, string number = null)
         {
             try
             {
@@ -234,8 +245,27 @@ namespace SKG.DAL
 
                               Tariff = s.Vehicle.Tariff.Text,
                               Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
-                              Group = s.Vehicle.Tariff.Group.Text
+
+                              Group = s.Vehicle.Tariff.Group.Text,
+                              GroupCode = s.Vehicle.Tariff.Group.Code
                           };
+                switch (group)
+                {
+                    case Group.A:
+                        res = res.Where(p => p.GroupCode == "GROUP_0");
+                        break;
+                    case Group.B:
+                        res = res.Where(p => p.GroupCode == "GROUP_1");
+                        break;
+                    case Group.N:
+                        res = res.Where(p => p.Fixed == false);
+                        break;
+                    case Group.F:
+                        res = res.Where(p => p.Fixed == true);
+                        break;
+                    default:
+                        break;
+                }
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;
             }
@@ -249,7 +279,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable GetInDepot(string number = null)
         {
-            return FindInDepot(number).ToDataTable();
+            return FindInDepot(Group.Z, number).ToDataTable();
         }
 
         /// <summary>
@@ -562,32 +592,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable GetInDepotFixed(string number = null)
         {
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId == null
-                          && s.Vehicle.Fixed == true
-                          orderby s.DateIn descending, s.Vehicle.Code
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.UserIn.Name,
-                              Phone = s.UserIn.Phone,
-
-                              s.DateIn,
-                              s.Guest,
-                              Route = s.Vehicle.Tariff.Text,
-                              s.Vehicle.Node,
-
-                              s.Vehicle.Code,
-                              s.Vehicle.Seats,
-                              s.Vehicle.Beds,
-                              Transport = s.Vehicle.Transport.Text,
-                          };
-                if (number != null) res = res.Where(p => p.Code == number);
-                return res.ToDataTable();
-            }
-            catch { return null; }
+            return FindInDepot(Group.F, number).ToDataTable();
         }
         #endregion
 
@@ -610,7 +615,7 @@ namespace SKG.DAL
         /// <param name="sum">Sum of money</param>
         /// <param name="nhom">Group of vihicle</param>
         /// <returns></returns>
-        public DataTable GetRevenueShift(out decimal sum, Group nhom = Group.Z)
+        public DataTable GetRevenueShift(out decimal sum, Group nhom = Group.N)
         {
             try
             {
@@ -723,30 +728,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable GetInDepotNormal(string number = null)
         {
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId == null
-                          && s.Vehicle.Fixed == false
-                          orderby s.DateIn descending, s.Vehicle.Code
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.UserIn.Name,
-                              Phone = s.UserIn.Phone,
-                              s.DateIn,
-
-                              s.Vehicle.Code,
-                              s.Vehicle.Seats,
-                              s.Vehicle.Beds,
-
-                              KindName = s.Vehicle.Tariff.Text,
-                              GroupName = s.Vehicle.Tariff.Group.Text,
-                          };
-                if (number != null) res = res.Where(p => p.Code == number);
-                return res.ToDataTable();
-            }
-            catch { return null; }
+            return FindInDepot(Group.N, number).ToDataTable();
         }
         #endregion
 

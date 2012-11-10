@@ -105,9 +105,9 @@
             this.groupBox2.Controls.Add(this.lblRose1);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(235, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 110);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(194, 92);
+            this.groupBox2.Size = new System.Drawing.Size(217, 92);
             this.groupBox2.TabIndex = 61;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Đ.giá hoa hồng";
@@ -116,7 +116,7 @@
             // 
             this.lblRose2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblRose2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRose2.Location = new System.Drawing.Point(92, 54);
+            this.lblRose2.Location = new System.Drawing.Point(116, 54);
             this.lblRose2.Name = "lblRose2";
             this.lblRose2.Size = new System.Drawing.Size(94, 31);
             this.lblRose2.TabIndex = 59;
@@ -137,7 +137,7 @@
             // 
             this.lblRose1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblRose1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRose1.Location = new System.Drawing.Point(92, 23);
+            this.lblRose1.Location = new System.Drawing.Point(116, 23);
             this.lblRose1.Name = "lblRose1";
             this.lblRose1.Size = new System.Drawing.Size(94, 31);
             this.lblRose1.TabIndex = 57;
@@ -157,11 +157,12 @@
             // Frm_Tariff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(439, 114);
+            this.ClientSize = new System.Drawing.Size(240, 213);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Frm_Tariff";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐƠN GIÁ";
             this.groupBox1.ResumeLayout(false);

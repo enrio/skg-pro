@@ -97,7 +97,7 @@ namespace SKG.DXF.Station.Manage
             if (_isFixed)
             {
                 frm.lblHalfDay.Text = "Ghế:";
-                frm.lblFullDay.Text = "Giường";
+                frm.lblFullDay.Text = "Giường:";
             }
             else
             {
@@ -126,7 +126,6 @@ namespace SKG.DXF.Station.Manage
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
             Invoice();
-            cmdOut.Enabled = true;
         }
 
         /// <summary>
@@ -137,7 +136,6 @@ namespace SKG.DXF.Station.Manage
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
-            cmdOut.Enabled = false;
         }
 
         /// <summary>
@@ -385,6 +383,8 @@ namespace SKG.DXF.Station.Manage
                     }
                     PerformRefresh();
                 }
+                cmdOut.Enabled = !isOut;
+                cmdTariff.Enabled = !isOut;
             }
             catch (Exception ex)
             {

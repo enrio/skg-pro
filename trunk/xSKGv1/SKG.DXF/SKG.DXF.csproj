@@ -379,6 +379,15 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Province.resx">
+      <DependentUpon>FrmTra_Province.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Tariff.resx">
+      <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_Transport.resx">
+      <DependentUpon>FrmTra_Transport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
       <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,8 +409,14 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Normal\FrmTra_Group.resx">
+      <DependentUpon>FrmTra_Group.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_Tariff.resx">
       <DependentUpon>FrmTra_Tariff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
+      <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Audit.resx">
       <DependentUpon>Rpt_Audit.cs</DependentUpon>

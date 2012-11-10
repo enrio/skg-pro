@@ -19,8 +19,6 @@ namespace SKG.DXF.Station.Sumary
 {
     using SKG.Extend;
     using SKG.Plugin;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_SalesFixed : SKG.DXF.FrmInput
@@ -85,7 +83,6 @@ namespace SKG.DXF.Station.Sumary
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd",
                 Global.Session.User.Acc, Global.Session.Current)
             };
-            decimal sum = 0;
 
             // Ca làm việc
             DateTime shift;
@@ -102,9 +99,9 @@ namespace SKG.DXF.Station.Sumary
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
             //rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
-            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+            //rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, 0) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -140,7 +137,7 @@ namespace SKG.DXF.Station.Sumary
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;

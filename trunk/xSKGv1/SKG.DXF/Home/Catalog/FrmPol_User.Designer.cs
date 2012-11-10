@@ -291,6 +291,7 @@
             this.gridColumn8});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
+            this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // gridColumn1
             // 

@@ -19,8 +19,6 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using SKG.Extend;
     using DAL.Entities;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_Province : SKG.DXF.FrmInput
@@ -277,7 +275,7 @@ namespace SKG.DXF.Station.Fixed
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
         }
         #endregion
 

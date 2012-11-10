@@ -17,8 +17,6 @@ using System.Collections.Generic;
 namespace SKG.DXF.Station.InDepot
 {
     using SKG.Plugin;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -143,7 +141,7 @@ namespace SKG.DXF.Station.InDepot
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;

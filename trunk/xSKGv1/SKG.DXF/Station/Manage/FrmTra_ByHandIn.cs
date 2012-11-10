@@ -20,8 +20,6 @@ namespace SKG.DXF.Station.Manage
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -247,8 +245,8 @@ namespace SKG.DXF.Station.Manage
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvFixed.SetGridViewStandard();
-            grvNormal.SetGridViewStandard();
+            grvFixed.SetStandard();
+            grvNormal.SetStandard();
 
             AllowEdit = false;
             AllowDelete = false;

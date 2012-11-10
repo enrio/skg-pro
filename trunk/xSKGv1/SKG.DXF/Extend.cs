@@ -21,6 +21,7 @@ namespace SKG.DXF
     using Home.Sytem;
     using DAL.Entities;
     using System.Drawing;
+    using DevExpress.Utils;
     using System.Reflection;
     using System.Diagnostics;
     using DevExpress.XtraBars;
@@ -29,7 +30,9 @@ namespace SKG.DXF
     using DevExpress.XtraTreeList;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraGrid.Views.Grid;
     using DevExpress.XtraTreeList.Columns;
+    using DevExpress.XtraGrid.Views.BandedGrid;
 
     /// <summary>
     /// Extension of methods for presentation layer
@@ -284,7 +287,7 @@ namespace SKG.DXF
         /// Set grid view standard
         /// </summary>
         /// <param name="grv">BandedGridView</param>
-        public static void SetGridViewStandard(this DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grv)
+        public static void SetStandard(this BandedGridView grv)
         {
             try
             {
@@ -292,9 +295,9 @@ namespace SKG.DXF
                 grv.OptionsView.ShowAutoFilterRow = true;
                 grv.OptionsBehavior.Editable = false;
                 grv.Appearance.BandPanel.Options.UseTextOptions = true;
-                grv.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
                 grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-                grv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
                 grv.IndicatorWidth = 50;
             }
             catch (Exception ex)
@@ -310,7 +313,7 @@ namespace SKG.DXF
         /// Set grid view standard
         /// </summary>
         /// <param name="grv">GridView</param>
-        public static void SetGridViewStandard(this DevExpress.XtraGrid.Views.Grid.GridView grv)
+        public static void SetStandard(this GridView grv)
         {
             try
             {
@@ -318,7 +321,7 @@ namespace SKG.DXF
                 grv.OptionsView.ShowAutoFilterRow = true;
                 grv.OptionsBehavior.Editable = false;
                 grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-                grv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
                 grv.IndicatorWidth = 50;
             }
             catch (Exception ex)

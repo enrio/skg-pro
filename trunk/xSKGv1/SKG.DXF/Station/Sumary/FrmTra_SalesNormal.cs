@@ -19,8 +19,6 @@ namespace SKG.DXF.Station.Sumary
 {
     using SKG.Extend;
     using SKG.Plugin;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_SalesNormal : SKG.DXF.FrmInput
@@ -95,7 +93,7 @@ namespace SKG.DXF.Station.Sumary
             a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
             a.xrcAccount.Text = Global.Session.User.Name;*/
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, 0) };
             frm.SetReport(a);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -103,7 +101,6 @@ namespace SKG.DXF.Station.Sumary
             base.PerformPrint();
         }
 
-        decimal _sum = 0;
         protected override void LoadData()
         {
             //_dtb = _bll.Tra_Detail.SumaryNormal(out _sum);
@@ -131,7 +128,7 @@ namespace SKG.DXF.Station.Sumary
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;

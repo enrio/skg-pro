@@ -18,8 +18,6 @@ namespace SKG.DXF.Station.Normal
 {
     using SKG.Plugin;
     using DAL.Entities;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -288,7 +286,7 @@ namespace SKG.DXF.Station.Normal
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
         }
         #endregion
 

@@ -168,13 +168,19 @@ namespace SKG.DXF.Station.Manage
         #region Override
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.GetInDepot();
+            int fix, nor;
+            _dtb = _bll.Tra_Detail.GetInDepot(out fix, out nor);
+            var all = fix + nor;
+
+            // Số lượng xe trong bến
+            lblSum.Text = all.ToString("#,0");
+            lblSum.Text += "\n\r" + fix.ToString("#,0"); // xe cố định
+            lblSum.Text += "\n\r" + nor.ToString("#,0"); // xe vãng lai
+
             if (_dtb.Rows.Count > 0)
             {
                 cmdInvoice.Enabled = true;
-
                 lkeNumber.Properties.DataSource = _dtb;
-                lkeNumber.ItemIndex = 0;
             }
             else
             {
@@ -182,52 +188,16 @@ namespace SKG.DXF.Station.Manage
 
                 lblHalfDay.Text = "Nửa ngày:";
                 lblFullDay.Text = "Một ngày:";
-
-                lblMoney.Text = null;
-                lblNumber.Text = null;
-
-                lblDateIn.Text = null;
-                lblDateOut.Text = null;
-
-                lblSeats.Text = null;
-                lblBeds.Text = null;
-
-                lblPrice1.Text = null;
-                lblRose1.Text = null;
-
-                lblPrice2.Text = null;
-                lblRose2.Text = null;
-
-                lblDeposit.Text = null;
-                lblNote.Text = null;
-
-                lblUserIn.Text = null;
-                lblPhone.Text = null;
-
-                lkeNumber.Properties.DataSource = null;
             }
 
             base.LoadData();
         }
 
-        protected override void PerformRefresh()
+        protected override void ResetInput()
         {
-            LoadData();
-
-            var a = _bll.Tra_Detail.SumInDepotFixed;
-            var b = _bll.Tra_Detail.SumInDepotNormal;
-            var c = a + b;
-
-            lblSum.Text = c.ToString("#,0");
-            lblSum.Text += "\n\r" + a.ToString("#,0");
-            lblSum.Text += "\n\r" + b.ToString("#,0");
-
-            lblKind.Text = null;
-            lblGroup.Text = null;
-            lblHalfDay.Text = null;
-            lblFullDay.Text = null;
-
+            lblMoney.Text = null;
             lblNumber.Text = null;
+
             lblDateIn.Text = null;
             lblDateOut.Text = null;
 
@@ -240,12 +210,19 @@ namespace SKG.DXF.Station.Manage
             lblPrice2.Text = null;
             lblRose2.Text = null;
 
-            lblMoney.Text = null;
             lblDeposit.Text = null;
+            lblNote.Text = null;
 
             lblUserIn.Text = null;
             lblPhone.Text = null;
-            lblNote.Text = null;
+
+            base.ResetInput();
+        }
+
+        protected override void PerformRefresh()
+        {
+            ResetInput();
+            LoadData();
 
             base.PerformRefresh();
         }

@@ -5,14 +5,15 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 10/11/2012 16:32
+ * Update: 10/11/2012 18:07
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Fixed
 {
@@ -32,35 +33,49 @@ namespace SKG.DXF.Station.Fixed
 
         private const string STR_PAN1 = "Nhập liệu";
         private const string STR_PAN2 = "Danh sách";
+
+        private const string STR_ADD = "Thêm xe";
+        private const string STR_EDIT = "Sửa xe";
+        private const string STR_DELETE = "Xoá xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Xe này có rồi";
+
+        private const string STR_NOT_V = "Chưa nhập biển số xe!";
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
+        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         #endregion
 
-        #region Override plugin
+        #region Fields
+        #endregion
+
+        #region Properties
+        /// <summary>
+        /// Override menuz of plugin
+        /// </summary>
         public override Menuz Menuz
         {
             get
             {
-                var tmp = typeof(FrmTra_VehicleFixed);
-                var icon = tmp.Name.Split('_');
+                var type = typeof(Level1);
+                var split = type.Name.Split('_');
+                var name = split.Count() > 1 ? split[1] : type.Namespace;
 
                 var menu = new Menuz
                 {
-                    Code = tmp.FullName,
-                    Parent = typeof(Level2).FullName,
+                    Code = type.FullName,
+                    Parent = typeof(Level1).FullName,
                     Text = STR_TITLE,
                     Level = 3,
                     Order = 27,
-                    Picture = String.Format(STR_ICON, icon[1])
+                    Picture = String.Format(STR_ICON, name)
                 };
                 return menu;
             }
         }
-        #endregion
-
-        #region Fields
-        public string _num;
-        #endregion
-
-        #region Properties
         #endregion
 
         #region Methods
@@ -81,18 +96,6 @@ namespace SKG.DXF.Station.Fixed
         }
 
         #region Overrides
-        #endregion
-
-        #endregion
-
-        #region Events
-
-        #region Numbered
-        #endregion
-
-        #endregion
-
-        #region Override
         protected override void SetNullPrompt()
         {
             txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
@@ -105,7 +108,7 @@ namespace SKG.DXF.Station.Fixed
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                XtraMessageBox.Show(STR_CHOICE,
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -164,7 +167,6 @@ namespace SKG.DXF.Station.Fixed
                     }
                     break;
             }
-            if (_num + "" != "") Close();
             base.PerformSave();
         }
 
@@ -330,15 +332,9 @@ namespace SKG.DXF.Station.Fixed
             catch { return false; }
         }
 
-        public string num = "";
         protected override void LoadData()
         {
-            if (num != "")
-            {
-                _dtb = _bll.Tra_Vehicle.Select((object)num);
-                //PerformEdit();
-            }
-            else _dtb = _bll.Tra_Vehicle.SelectForFixed();
+            _dtb = _bll.Tra_Vehicle.SelectForFixed();
 
             if (_dtb != null)
             {
@@ -381,33 +377,32 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
-        private void FrmTra_Media_Load(object sender, EventArgs e)
+        #endregion
+
+        #region Events
+        /// <summary>
+        /// Numbered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
-            lueTransport.ItemIndex = 0;
-
-            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
-            lueRoute.ItemIndex = 0;
-
-            if (_num + "" != "")
+            if (e.Info.IsRowIndicator)
             {
-                PerformAdd();
-                txtCode.Text = _num;
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
             }
         }
 
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
-        private const string STR_DELETE = "Xoá xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
-
-        private const string STR_NOT_V = "Chưa nhập biển số xe!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
-        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        private void FrmTra_VehicleFixed_Load(object sender, EventArgs e)
+        {
+            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
+            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
+        }
 
         private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -424,24 +419,6 @@ namespace SKG.DXF.Station.Fixed
                 DXF.Extend.ShowRight<FrmTra_Transport>(Global.Parent);
             }
         }
-
-        #region Events
-
-        #region Numbered
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-        #endregion
-
         #endregion
     }
 }

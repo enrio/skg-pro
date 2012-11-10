@@ -25,17 +25,17 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// User's list has permission
         /// </summary>
-        public virtual ICollection<Pol_UserRight> Pol_UserRights { get; set; }
+        public virtual ICollection<Pol_UserRight> UserRights { get; set; }
 
         /// <summary>
         /// List of user belong group
         /// </summary>
-        public virtual ICollection<Pol_UserRole> Pol_UserRoles { get; set; }
+        public virtual ICollection<Pol_UserRole> UserRoles { get; set; }
 
         /// <summary>
         /// List of user's language choice
         /// </summary>
-        public virtual ICollection<Pol_Selection> Pol_Selections { get; set; }
+        public virtual ICollection<Pol_Selection> Selections { get; set; }
         #endregion
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace SKG.DAL.Entities
         {
             try
             {
-                var role = Pol_UserRoles.Where(k => k.Pol_Role.Code == roleCode);
+                var role = UserRoles.Where(k => k.Role.Code == roleCode);
                 return (role.Count() > 0);
             }
             catch { return false; }

@@ -171,9 +171,9 @@ namespace SKG.DAL
             try
             {
                 var a = from s in _db.Pol_UserRights
-                        join u in _db.Pol_Users on s.Pol_UserId equals u.Id
-                        join r in _db.Pol_Dictionarys on s.Pol_RightId equals r.Id
-                        where s.Pol_UserId == userId
+                        join u in _db.Pol_Users on s.UserId equals u.Id
+                        join r in _db.Pol_Dictionarys on s.RightId equals r.Id
+                        where s.UserId == userId
                         select new
                         {
                             RightCode = r.Code,
@@ -189,10 +189,10 @@ namespace SKG.DAL
                             s.None
                         };
                 var b = from s in _db.Pol_RoleRights
-                        join r in _db.Pol_Dictionarys on s.Pol_RightId equals r.Id
-                        join ur in _db.Pol_UserRoles on s.Pol_RoleId equals ur.Pol_RoleId
-                        join u in _db.Pol_Users on ur.Pol_UserId equals u.Id
-                        where ur.Pol_User.Id == userId
+                        join r in _db.Pol_Dictionarys on s.RightId equals r.Id
+                        join ur in _db.Pol_UserRoles on s.RoleId equals ur.RoleId
+                        join u in _db.Pol_Users on ur.UserId equals u.Id
+                        where ur.User.Id == userId
                         select new
                         {
                             RightCode = r.Code,
@@ -240,8 +240,8 @@ namespace SKG.DAL
             try
             {
                 var a = from s in _db.Pol_UserRoles
-                        join r in _db.Pol_Dictionarys on s.Pol_RoleId equals r.Id
-                        where s.Pol_UserId == userId
+                        join r in _db.Pol_Dictionarys on s.RoleId equals r.Id
+                        where s.UserId == userId
                         select r;
                 return a.ToList();
             }

@@ -228,8 +228,8 @@ namespace SKG.DXF.Home.Grant
                     {
                         var o = new Pol_RoleRight()
                         {
-                            Pol_RightId = (Guid)r["ID"],
-                            Pol_RoleId = (Guid)r["ParentID"],
+                            RightId = (Guid)r["ID"],
+                            RoleId = (Guid)r["ParentID"],
                             Add = (bool)r["Add"],
                             Edit = (bool)r["Edit"],
                             Delete = (bool)r["Delete"],

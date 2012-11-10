@@ -29,9 +29,8 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 1), ForeignKey("User")]
         public Guid? UserId { set; get; }
-
         /// <summary>
-        /// Reference to Pol_User (object)
+        /// User
         /// </summary>
         public virtual Pol_User User { get; set; }
 
@@ -40,9 +39,8 @@ namespace SKG.DAL.Entities
         /// </summary>
         [Column(Order = 2), ForeignKey("Dictionary")]
         public Guid? DictionaryId { set; get; }
-
         /// <summary>
-        /// Reference to Pol_Dictionary (object)
+        /// Dictionary
         /// </summary>
         public virtual Pol_Dictionary Dictionary { get; set; }
         #endregion

@@ -70,8 +70,8 @@ namespace SKG.DAL
                         select new
                         {
                             ID = s.Id,
-                            ParentID = s.Pol_Role.Id,
-                            RightId = s.Pol_RightId,
+                            ParentID = s.Role.Id,
+                            RightId = s.RightId,
                             Format = false,
                             s.Add,
                             s.Edit,
@@ -81,8 +81,8 @@ namespace SKG.DAL
                             s.Access,
                             s.Full,
                             s.None,
-                            Name = s.Pol_Right.Text,
-                            Descript = s.Pol_Right.Note,
+                            Name = s.Right.Text,
+                            Descript = s.Right.Note,
                         };
                 Guid? id = new Guid();
                 var b = from s in _db.Pol_Dictionarys
@@ -128,7 +128,7 @@ namespace SKG.DAL
                 var o = (Pol_RoleRight)obj;
                 o.Id = Guid.NewGuid();
                 var r = _db.Pol_Dictionarys
-                    .Where(s => s.Id == o.Pol_RightId)
+                    .Where(s => s.Id == o.RightId)
                     .FirstOrDefault();
                 o.Code = r.Code;
                 o.Note = r.Note;

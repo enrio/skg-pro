@@ -218,13 +218,28 @@ namespace SKG.DXF.Home.Catalog
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
+            grvMain.SetStandard();
         }
         #endregion
 
         #region Events
+        /// <summary>
+        /// Numbered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
+            }
+        }
         #endregion
 
         #region Properties

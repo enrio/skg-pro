@@ -362,6 +362,21 @@
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
+      <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Right.resx">
+      <DependentUpon>FrmPol_Right.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Shift.resx">
+      <DependentUpon>FrmPol_Shift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_User.resx">
+      <DependentUpon>FrmPol_User.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

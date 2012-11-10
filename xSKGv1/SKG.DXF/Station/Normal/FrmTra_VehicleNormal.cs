@@ -19,8 +19,6 @@ namespace SKG.DXF.Station.Normal
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
-
-    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     public partial class FrmTra_VehicleNormal : SKG.DXF.FrmInput
@@ -261,7 +259,7 @@ namespace SKG.DXF.Station.Normal
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetGridViewStandard();
+            grvMain.SetStandard();
         }
         #endregion
 

@@ -271,12 +271,13 @@ namespace SKG.DXF.Home.Sytem
         private const string STR_WIND = "Windows";
 
         private const string STR_SETUP = "Cài đặt";
-        private const string STR_EXISTS = "Cơ sở dữ liệu đã có!";
         private const string STR_NOCONNECT = "Không kết nối được server!";
-        private const string STR_TEMPLATE = "Đã tạo xong dữ liễu mẫu!";
-        private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
-        private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";
+
+        /*private const string STR_TEMPLATE = "Đã tạo xong dữ liễu mẫu!";
+        private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
+        private const string STR_EXISTS = "Cơ sở dữ liệu đã có!";
+        private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";*/
         #endregion
     }
 }

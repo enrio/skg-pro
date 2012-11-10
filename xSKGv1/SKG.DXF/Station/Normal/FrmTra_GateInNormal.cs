@@ -253,7 +253,7 @@ namespace SKG.DXF.Station.Normal
         /// </summary>
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.Get20LatestForNormal();
+            _dtb = _bll.Tra_Detail.GetLatestNormal;
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

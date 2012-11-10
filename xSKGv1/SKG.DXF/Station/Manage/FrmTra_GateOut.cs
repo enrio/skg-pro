@@ -195,6 +195,9 @@ namespace SKG.DXF.Station.Manage
 
         protected override void ResetInput()
         {
+            lblHalfDay.Text = null;
+            lblFullDay.Text = null;
+
             lblMoney.Text = null;
             lblNumber.Text = null;
 

@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Create: 10/11/2012 21:48
+ * Update: 10/11/2012 21:48
  * Status: OK
  */
 #endregion
@@ -23,31 +23,41 @@ namespace SKG.DXF.Help.Util
     public partial class Frm_License : SKG.DXF.FrmMenuz
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(Frm_License);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(Frm_License).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Đăng kí",
-                    Level = 3,
-                    Order = 996,
-                    Picture = @"Icons\License.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
         public Frm_License()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void cmdOk_Click(object sender, EventArgs e)
         {
             if ((txtRegister.Text + "").Length < 3)
@@ -105,7 +115,17 @@ namespace SKG.DXF.Help.Util
         {
             txtLicenseKey.Text = License.GetTrialKey();
         }
+        #endregion
 
+        #region Properties
+        #endregion
+
+        #region Fields
         LicState _license = LicState.None;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Bảng quyền";
+        #endregion
     }
 }

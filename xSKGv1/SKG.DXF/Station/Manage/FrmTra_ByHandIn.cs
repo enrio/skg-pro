@@ -28,6 +28,27 @@ namespace SKG.DXF.Station.Manage
     /// </summary>
     public partial class FrmTra_ByHandIn : SKG.DXF.FrmInput
     {
+        #region Constants
+        private const string STR_TITLE = "NHẬP XE BẰNG TAY";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "XE CỐ ĐỊNH";
+        private const string STR_PAN2 = "XE VÃNG LAI";
+
+        private const string STR_ERR_DATE = "Thời gian nhập sai";
+        private const string STR_NO_LIST = "Không có trong danh sách";
+        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
+        private const string STR_NO_TARIFF = "Loại xe này không có";
+        private const string STR_NO_ADD = "Không thêm thông tin được";
+
+        private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
+        private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
+
+        private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
+        private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
+        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        #endregion
+
         #region Override plugin
         public override Menuz Menuz
         {
@@ -60,16 +81,6 @@ namespace SKG.DXF.Station.Manage
         /// List all of vihicle normal
         /// </summary>
         private DataTable _tbNormal;
-        #endregion
-
-        #region Constants
-        private const string STR_TITLE = "NHẬP XE BẰNG TAY";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "XE CỐ ĐỊNH";
-        private const string STR_PAN2 = "XE VÃNG LAI";
-
-        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
         #endregion
 
         #region Properties
@@ -126,7 +137,7 @@ namespace SKG.DXF.Station.Manage
 
                 if (ve == null)
                 {
-                    r.RowError = "Không có trong danh sách quản lí";
+                    r.RowError = STR_NO_LIST;
                     r["Note"] = r.RowError;
                 }
                 else
@@ -135,7 +146,7 @@ namespace SKG.DXF.Station.Manage
                     {
                         if (ve.Tariff == null)
                         {
-                            r.RowError = "Không đăng kí tuyến";
+                            r.RowError = STR_NO_ROUTE;
                             r["Note"] = r.RowError;
                         }
                         else
@@ -149,7 +160,7 @@ namespace SKG.DXF.Station.Manage
                     }
                     else
                     {
-                        r.RowError = "Đây là xe vãng lai";
+                        r.RowError = STR_NORMAL;
                         r["Note"] = r.RowError;
                     }
                 }
@@ -173,7 +184,7 @@ namespace SKG.DXF.Station.Manage
 
                     if (tar == null)
                     {
-                        r.RowError = "Loại xe này không có!";
+                        r.RowError = STR_NO_TARIFF;
                         r["Note"] = r.RowError;
                     }
                     else
@@ -190,7 +201,7 @@ namespace SKG.DXF.Station.Manage
                         var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
                         if (tmp == null)
                         {
-                            r.RowError = "Không thêm thông tin xe được!";
+                            r.RowError = STR_NO_ADD;
                             r["Note"] = r.RowError;
                         }
                         else
@@ -211,7 +222,7 @@ namespace SKG.DXF.Station.Manage
                     }
                     else
                     {
-                        r.RowError = "Đây là xe cố định";
+                        r.RowError = STR_FIXED;
                         r["Note"] = r.RowError;
                     }
                 }
@@ -233,7 +244,7 @@ namespace SKG.DXF.Station.Manage
                 var dt = Global.Session.Current;
                 if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
-                    r["Note"] = "Thời gian nhập sai!";
+                    r["Note"] = STR_ERR_DATE;
                     continue;
                 }
 
@@ -241,12 +252,12 @@ namespace SKG.DXF.Station.Manage
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
-                    r["Note"] = "Xe này đã ở trong bến!";
+                    r["Note"] = STR_IN_DEPOT;
                     continue;
                 }
                 else
                 {
-                    r["Note"] = "ĐÃ CHO XE VÀO!";
+                    r["Note"] = STR_ENTERED;
                     fix++;
                 }
             }
@@ -259,7 +270,7 @@ namespace SKG.DXF.Station.Manage
                 var dt = Global.Session.Current;
                 if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
-                    r["Note"] = "Thời gian nhập sai!";
+                    r["Note"] = STR_ERR_DATE;
                     continue;
                 }
 
@@ -267,12 +278,12 @@ namespace SKG.DXF.Station.Manage
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
-                    r["Note"] = "Xe này đã ở trong bến!";
+                    r["Note"] = STR_IN_DEPOT;
                     continue;
                 }
                 else
                 {
-                    r["Note"] = "ĐÃ CHO XE VÀO!";
+                    r["Note"] = STR_ENTERED;
                     normal++;
                 }
             }

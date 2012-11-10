@@ -69,7 +69,7 @@ namespace SKG.DXF.Station.Manage
             if (ql)
             {
                 cmdInvoice.Text = "Tạm ra bến";
-                cmdInvoice.Width += 10;
+                cmdInvoice.Width += 15;
 
                 cmdOut.Visible = false;
                 cmdSumary1.Visible = false;
@@ -79,18 +79,72 @@ namespace SKG.DXF.Station.Manage
         }
 
         #region Events
+        /// <summary>
+        /// Hiện bảng đơn giá
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdTariff_Click(object sender, EventArgs e)
+        {
+            var frm = new Frm_Tariff();
+
+            frm.lblPrice1.Text = lblPrice1.Text;
+            frm.lblPrice2.Text = lblPrice2.Text;
+
+            frm.lblRose1.Text = lblRose1.Text;
+            frm.lblRose2.Text = lblRose2.Text;
+
+            if (_isFixed)
+            {
+                frm.lblHalfDay.Text = "Ghế:";
+                frm.lblFullDay.Text = "Giường";
+            }
+            else
+            {
+                frm.lblHalfDay.Text = "Nửa ngày:";
+                frm.lblFullDay.Text = "Một ngày:";
+            }
+
+            frm.ShowDialog();
+        }
+
+        /// <summary>
+        /// Ẩn toolbar nhập liệu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmTra_GateOut_Load(object sender, EventArgs e)
+        {
+            AllowBar = false;
+        }
+
+        /// <summary>
+        /// Tính tiền
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
             Invoice();
             cmdOut.Enabled = true;
         }
 
+        /// <summary>
+        /// Cho xe ra bến
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
             cmdOut.Enabled = false;
         }
 
+        /// <summary>
+        /// In bảng kê nhóm 1 - xe tải lưu đậu nhóm xe vãng lai
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal
@@ -115,6 +169,11 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// In bảng kê nhóm 2 - xe sang hàng nhóm xe vãng lai
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Normal
@@ -139,6 +198,11 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// In bảng kê xe cố định từ 13:00 hôm trước đến 13:00 hôm nay
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmdSumaryFixed_Click(object sender, EventArgs e)
         {
             var rpt = new Report.Rpt_Fixed
@@ -159,6 +223,11 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Cập nhật lại danh sách xe trong bến
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lkeNumber_Enter(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -285,13 +354,9 @@ namespace SKG.DXF.Station.Manage
 
                 if (isOut)
                 {
-                    if (_isFixed && !detail.Repair)
+                    if (_isFixed && !detail.Repair) // in phiếu thu xe cố định
                     {
-                        var rpt = new Report.Rpt_Receipt
-                        {
-                            Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_pt", Global.Session.User.Acc, Global.Session.Current)
-                        };
-
+                        var rpt = new Report.Rpt_Receipt();
                         var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                         var dtr = tbl.NewRow();
 
@@ -318,13 +383,18 @@ namespace SKG.DXF.Station.Manage
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
 
+                        // Kiểm tra máy in và in phiếu thu
                         if (Global.CheckValidPrinting())
-                            rpt.Print();
+                            try { rpt.Print(); }
+                            catch
+                            {
+                                XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!", Text,
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         else
-                            XtraMessageBox.Show("KHÔNG CÓ MÁY IN", Text,
+                            XtraMessageBox.Show("LỖI: KHÔNG CÓ MÁY IN!", Text,
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                     PerformRefresh();
                 }
             }
@@ -332,35 +402,6 @@ namespace SKG.DXF.Station.Manage
             {
                 XtraMessageBox.Show("Lỗi tính tiền;" + ex.Message, Text);
             }
-        }
-
-        private void cmdTariff_Click(object sender, EventArgs e)
-        {
-            var frm = new Frm_Tariff();
-
-            frm.lblPrice1.Text = lblPrice1.Text;
-            frm.lblPrice2.Text = lblPrice2.Text;
-
-            frm.lblRose1.Text = lblRose1.Text;
-            frm.lblRose2.Text = lblRose2.Text;
-
-            if (_isFixed)
-            {
-                frm.lblHalfDay.Text = "Ghế:";
-                frm.lblFullDay.Text = "Giường";
-            }
-            else
-            {
-                frm.lblHalfDay.Text = "Nửa ngày:";
-                frm.lblFullDay.Text = "Một ngày:";
-            }
-
-            frm.ShowDialog();
-        }
-
-        private void FrmTra_GateOut_Load(object sender, EventArgs e)
-        {
-            AllowBar = false;
         }
     }
 }

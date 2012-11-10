@@ -379,6 +379,9 @@
     <EmbeddedResource Include="Station\Fixed\FrmTra_GateInFixed.resx">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
+      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotFixed.resx">
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </EmbeddedResource>

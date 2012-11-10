@@ -30,10 +30,22 @@ namespace SKG
         /// Check valid printing
         /// </summary>
         /// <returns></returns>
-        public static bool CheckValidPrinting()
+        public static bool CheckPrinter()
         {
             var prter = new PrinterSettings();
             return prter.IsValid;
+        }
+
+        /// <summary>
+        /// Get icon name
+        /// </summary>
+        /// <param name="type">Type</param>
+        /// <returns></returns>
+        public static string GetIconName(Type type)
+        {
+            var cls = type.Name.Split('_').Last();
+            var nsp = type.Namespace.Split('.').Last();
+            return cls.Contains("Level") ? nsp : cls;
         }
 
         #region Dictionary constants

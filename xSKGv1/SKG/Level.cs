@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 30/07/2012 23:40
- * Update: 30/07/2012 23:40
+ * Update: 10/11/2012 21:40
  * Status: OK
  */
 #endregion
@@ -31,6 +31,10 @@ namespace SKG
 
         public virtual Form Form { get { return null; } }
         public virtual IHost Host { get; set; }
+
+        /// <summary>
+        /// Menuz of plugin
+        /// </summary>
         public virtual Menuz Menuz { get; set; }
 
         public void Initialize() { }

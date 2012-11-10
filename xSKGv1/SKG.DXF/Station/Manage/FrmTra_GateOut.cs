@@ -368,7 +368,7 @@ namespace SKG.DXF.Station.Manage
                         rpt.DataSource = tbl;
 
                         // Kiểm tra máy in và in phiếu thu
-                        if (Global.CheckValidPrinting())
+                        if (Global.CheckPrinter())
                             try { rpt.Print(); }
                             catch
                             {

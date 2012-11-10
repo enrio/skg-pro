@@ -21,6 +21,10 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using System.Data;
     using DAL.Entities;
+    using DevExpress.XtraEditors;
+    using DevExpress.Utils;
+    using DevExpress.XtraEditors;
+    using DevExpress.XtraEditors.Controls;
 
     public partial class FrmTra_AuditMonth : SKG.DXF.FrmInput
     {
@@ -29,52 +33,27 @@ namespace SKG.DXF.Station.Fixed
         {
             get
             {
+                var type = typeof(FrmTra_AuditMonth);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_AuditMonth).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "THEO DÕI THÁNG",
-                    Level = 3,
-                    Order = 23,
-                    Picture = @"Icons\Vehicle.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public string _num;
+        #region Implements
+        #endregion
 
-        public FrmTra_AuditMonth()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            AllowAdd = false;
-            AllowDelete = false;
-            AllowPrint = true;
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            dteMonth.DateTime = Global.Session.Current;
-        }
-
-        private void dteMonth_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                PerformRefresh();
-        }
-
-        #region Override
+        #region Overrides
         protected override void PerformEdit()
         {
             grvMain.OptionsBehavior.Editable = true;
@@ -181,6 +160,49 @@ namespace SKG.DXF.Station.Fixed
 
             base.PerformPrint();
         }
+        #endregion
+
+        #region Methods
+        public FrmTra_AuditMonth()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowAdd = false;
+            AllowDelete = false;
+            AllowPrint = true;
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.IndicatorWidth = 50;
+
+            dteMonth.DateTime = Global.Session.Current;
+        }
+        #endregion
+
+        #region Events
+        private void dteMonth_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                PerformRefresh();
+        }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        public string _num;
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Theo dõi tháng";
         #endregion
     }
 }

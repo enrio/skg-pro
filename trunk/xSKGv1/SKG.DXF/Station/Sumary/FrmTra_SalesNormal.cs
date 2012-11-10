@@ -30,74 +30,27 @@ namespace SKG.DXF.Station.Sumary
         {
             get
             {
+                var type = typeof(FrmTra_SalesNormal);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_SalesFixed).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Doanh thu xe vãng lai",
-                    Level = 3,
-                    Order = 28,
-                    Picture = @"Icons\Sales.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmTra_SalesNormal()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            AllowAdd = false;
-            AllowEdit = false;
-            //AllowDelete = false;
-            AllowSave = false;
-            AllowCancel = false;
-            AllowFind = false;
-            AllowPrint = true;
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
-            var d = Global.Session.Current;
-            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
-
-            dteFrom.DateTime = d.ToStartOfDay();
-            dteTo.DateTime = d.ToEndOfDay();
-        }
-
-        #region Events
-        private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var a = cbeQuater.SelectedIndex + 1;
-            var b = Global.Session.Current.Year;
-
-            dteFrom.DateTime = b.ToStartOfQuarter(a);
-            dteTo.DateTime = b.ToEndOfQuarter(a);
-        }
-
-        private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var a = cbeMonth.SelectedIndex + 1;
-            var b = Global.Session.Current.Year;
-            var c = b.ToStartOfMonth(a);
-
-            cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
-            dteFrom.DateTime = c;
-            dteTo.DateTime = b.ToEndOfMonth(a);
-        }
+        #region Implements
         #endregion
 
-        #region Override
+        #region Overrides
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -171,11 +124,74 @@ namespace SKG.DXF.Station.Sumary
         }
         #endregion
 
+        #region Methods
+        public FrmTra_SalesNormal()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            AllowAdd = false;
+            AllowEdit = false;
+            //AllowDelete = false;
+            AllowSave = false;
+            AllowCancel = false;
+            AllowFind = false;
+            AllowPrint = true;
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+
+            var d = Global.Session.Current;
+            cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
+
+            dteFrom.DateTime = d.ToStartOfDay();
+            dteTo.DateTime = d.ToEndOfDay();
+        }
+        #endregion
+
+        #region Events
+        private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var a = cbeQuater.SelectedIndex + 1;
+            var b = Global.Session.Current.Year;
+
+            dteFrom.DateTime = b.ToStartOfQuarter(a);
+            dteTo.DateTime = b.ToEndOfQuarter(a);
+        }
+
+        private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var a = cbeMonth.SelectedIndex + 1;
+            var b = Global.Session.Current.Year;
+            var c = b.ToStartOfMonth(a);
+
+            cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
+            dteFrom.DateTime = c;
+            dteTo.DateTime = b.ToEndOfMonth(a);
+        }
+
         private void FrmTra_Sales_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
         }
+        #endregion
 
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Doanh thu xe vãng lai";
         private const string STR_ADD = "Thêm xe";
         private const string STR_EDIT = "Sửa xe";
         private const string STR_DELETE = "Xoá xe";
@@ -188,5 +204,6 @@ namespace SKG.DXF.Station.Sumary
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        #endregion
     }
 }

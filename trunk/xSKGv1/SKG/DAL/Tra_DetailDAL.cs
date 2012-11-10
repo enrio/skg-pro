@@ -368,6 +368,22 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// List of all vihicle in depot
+        /// </summary>
+        /// <param name="fix">Number of vihicle fixed</param>
+        /// <param name="nor">Number of vihicle normal</param>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        public DataTable GetInDepot(out int fix, out int nor, string number = null)
+        {
+            var a = FindInDepot(Group.F, number);
+            var b = FindInDepot(Group.Z, number);
+            fix = a.Count();
+            nor = b.Count();
+            return a.Union(b).ToDataTable();
+        }
+
+        /// <summary>
         /// List of all vihicle out depot
         /// </summary>
         /// <param name="fr">From date time</param>

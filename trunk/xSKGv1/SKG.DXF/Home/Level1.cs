@@ -26,9 +26,7 @@ namespace SKG.DXF.Home
             get
             {
                 var type = typeof(Level1);
-                var cls = type.Name.Split('_').Last();
-                var nsp = type.Namespace.Split('.').Last();
-                var name = cls.Contains("Level") ? nsp : cls;
+                var name = Global.GetIconName(type);
 
                 var menu = new Menuz
                 {

@@ -153,7 +153,7 @@ namespace SKG.DXF.Station.Sumary
         decimal _sum = 0;
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.SumaryNormal(out _sum);
+            //_dtb = _bll.Tra_Detail.SumaryNormal(out _sum);
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT

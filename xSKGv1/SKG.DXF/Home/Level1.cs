@@ -31,7 +31,7 @@ namespace SKG.DXF.Home
                 var menu = new Menuz
                 {
                     Code = type.FullName,
-                    Parent = typeof(Level1).FullName,
+                    Parent = typeof(Level).FullName,
                     Text = STR_TITLE,
                     Level = 1,
                     Order = 0,

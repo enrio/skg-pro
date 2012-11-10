@@ -204,49 +204,6 @@ namespace SKG.DAL
         }
         #endregion
 
-
-
-        /// <summary>
-        /// Danh sách 20 xe vào bến sau cùng cố định
-        /// </summary>
-        /// <returns></returns>
-        public DataTable Get20LatestForFixed()
-        {
-            try
-            {
-                var res = from s in _db.Tra_Details
-
-                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.Pol_UserOutId == null && k.Fixed == true
-
-                          orderby s.DateIn descending
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-
-                              KindId = k.TransportId,
-                              Transport = k.Transport.Text,
-                              Route = k.Tariff.Text,
-
-                              k.Code,
-                              k.Seats,
-                              k.Beds,
-                              Descript = k.Note,
-                              k.Driver,
-                              k.Birth,
-                              k.Address,
-                              k.Phone
-                          };
-
-                return res.Take(20).ToDataTable();
-
-            }
-            catch { return null; }
-        }
-
         /// <summary>
         /// Danh sách xe vãng lai trong bến
         /// </summary>        
@@ -629,6 +586,46 @@ namespace SKG.DAL
             {
                 sum = 0;
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// List of 20 lastest vihicles normal
+        /// </summary>
+        public DataTable GetLatestFixed
+        {
+            get
+            {
+                try
+                {
+                    var res = from s in _db.Tra_Details
+                              where s.Pol_UserOutId == null
+                              && s.Tra_Vehicle.Fixed == true
+                              orderby s.DateIn descending
+                              select new
+                              {
+                                  s.Id,
+                                  UserInName = s.Pol_UserIn.Name,
+                                  UserInPhone = s.Pol_UserIn.Phone,
+                                  s.DateIn,
+
+                                  KindId = s.Tra_Vehicle.TransportId,
+                                  Transport = s.Tra_Vehicle.Transport.Text,
+                                  Route = s.Tra_Vehicle.Tariff.Text,
+
+                                  s.Tra_Vehicle.Code,
+                                  s.Tra_Vehicle.Seats,
+                                  s.Tra_Vehicle.Beds,
+
+                                  Descript = s.Tra_Vehicle.Note,
+                                  s.Tra_Vehicle.Driver,
+                                  s.Tra_Vehicle.Birth,
+                                  s.Tra_Vehicle.Address,
+                                  s.Tra_Vehicle.Phone
+                              };
+                    return res.Take(20).ToDataTable();
+                }
+                catch { return null; }
             }
         }
         #endregion

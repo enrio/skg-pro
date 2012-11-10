@@ -255,7 +255,7 @@ namespace SKG.DXF.Station.Fixed
         /// </summary>
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.Get20LatestForFixed();
+            _dtb = _bll.Tra_Detail.GetLatestFixed;
             if (_dtb == null) return;
 
             if (_dtb.Rows.Count > 0)

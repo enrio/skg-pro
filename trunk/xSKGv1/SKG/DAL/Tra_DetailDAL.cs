@@ -205,23 +205,17 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Danh sách xe trong bến
-        /// </summary>        
-        /// <param name="number">Biển số xe</param>
+        /// List of all vihicle in depot
+        /// </summary>
+        /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
         public DataTable GetInDepot(string number = null)
         {
-
             try
             {
                 var res = from s in _db.Tra_Details
-
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
                           where s.Pol_UserOutId == null
-                          orderby s.DateIn descending, v.Code
-
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
                           select new
                           {
                               s.Id,
@@ -230,56 +224,50 @@ namespace SKG.DAL
                               s.DateIn,
                               s.Guest,
 
-                              v.Code,
-                              v.Seats,
-                              v.Beds,
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
 
-                              KindName = k.Text,
-                              GroupName = k.Group.Text,
+                              KindName = s.Tra_Vehicle.Tariff.Text,
+                              GroupName = s.Tra_Vehicle.Tariff.Group.Text
                           };
-
-                if (number != null)
-                    res = res.Where(p => p.Code == number);
+                if (number != null) res = res.Where(p => p.Code == number);
                 return res.ToDataTable();
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Danh sách xe đã ra bến
+        /// List of all vihicle in depot
         /// </summary>
-        /// <param name="total">Tổng số tiền</param>
-        /// <param name="staIn">Xe trong bến</param>
-        /// <param name="number">Biển số xe</param>
+        /// <param name="total">Number of vihicles</param>
+        /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
         public DataTable GetOutDepot(out int total, string number = null)
         {
             total = 0;
-
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId != null && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.Pol_UserOutId == null)
+                          where s.Pol_UserOutId != null
+                          && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.Pol_UserOutId == null)
                           && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
                           orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Code
                           select new
                           {
                               UserInName = s.Pol_UserIn.Name,
                               UserOutName = s.Pol_UserOut.Name,
+
+                              Number = s.Code,
                               s.DateIn,
                               s.DateOut,
 
-                              Number = s.Code,
-
                               s.Price1,
                               s.Price2,
-
                               s.Rose1,
                               s.Rose2,
-
                               s.Money
                           };
-
                 var tmp = res.Sum(k => k.Money);
                 total = Convert.ToInt32(tmp);
 

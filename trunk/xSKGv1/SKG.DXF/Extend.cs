@@ -281,6 +281,56 @@ namespace SKG.DXF
         }
 
         /// <summary>
+        /// Set grid view standard
+        /// </summary>
+        /// <param name="grv">BandedGridView</param>
+        public static void SetGridViewStandard(this DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grv)
+        {
+            try
+            {
+                grv.Columns["No_"].Visible = false; // hide No_ column
+                grv.OptionsView.ShowAutoFilterRow = true;
+                grv.OptionsBehavior.Editable = false;
+                grv.Appearance.BandPanel.Options.UseTextOptions = true;
+                grv.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+                grv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.IndicatorWidth = 50;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Set grid view standard
+        /// </summary>
+        /// <param name="grv">GridView</param>
+        public static void SetGridViewStandard(this DevExpress.XtraGrid.Views.Grid.GridView grv)
+        {
+            try
+            {
+                grv.Columns["No_"].Visible = false; // hide No_ column
+                grv.OptionsView.ShowAutoFilterRow = true;
+                grv.OptionsBehavior.Editable = false;
+                grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+                grv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+                grv.IndicatorWidth = 50;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
+        }
+
+        /// <summary>
         /// Set false some properties's DockPanel
         /// </summary>
         /// <param name="dock">Dock panel</param>

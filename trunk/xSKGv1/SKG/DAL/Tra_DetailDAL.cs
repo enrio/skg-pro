@@ -730,15 +730,20 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Bảng kê xe vãng lai
+        /// Revenue of vihicle normal in a shift
         /// </summary>
-        /// <param name="nhom">Nhóm xe</param>
+        /// <param name="sum">Sum of money</param>
+        /// <param name="nhom">Group of vihicle</param>
         /// <returns></returns>
-        public DataTable SumaryNormal(out decimal sum, Group nhom = Group.Z)
+        public DataTable GetRevenueShift(out decimal sum, Group nhom = Group.Z)
         {
             try
             {
                 sum = 0;
+                DateTime shift;
+
+                int i = Global.Session.Shift(out shift);
+                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
                 var min = s1.Max(p => p.DateOut);
@@ -746,11 +751,6 @@ namespace SKG.DAL
                 var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
                 if (min == null) min = s2.Min(p => p.DateOut);
                 var max = s2.Max(p => p.DateOut);*/
-
-                // Ca làm việc
-                DateTime shift;
-                int i = Global.Session.Shift(out shift);
-                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 var res = from s in _db.Tra_Details
                           //where s.DateOut >= min && s.DateOut <= max
@@ -762,6 +762,7 @@ namespace SKG.DAL
                           {
                               s.Id,
                               No_ = s.Order,
+
                               s.More,
                               s.Text,
 
@@ -777,10 +778,10 @@ namespace SKG.DAL
                               s.FullDay,
                               s.HalfDay,
                               TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
-                              s.Money,
 
                               s.Price1,
                               s.Price2,
+                              s.Money,
 
                               GroupName = s.Tra_Vehicle.Tariff.Group.Text,
                               GroupCode = s.Tra_Vehicle.Tariff.Group.Code,

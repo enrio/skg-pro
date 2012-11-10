@@ -243,8 +243,8 @@ namespace SKG.DXF.Station.Manage
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel(Global.STR_PAN1);
-            dockPanel2.SetDockPanel(Global.STR_PAN2);
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
             grvFixed.SetStandard();
             grvNormal.SetStandard();
 
@@ -353,6 +353,9 @@ namespace SKG.DXF.Station.Manage
         private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
         private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+
+        public const string STR_PAN1 = "XE CỐ ĐỊNH";
+        public const string STR_PAN2 = "XE VÃNG LAI";
         #endregion
     }
 }

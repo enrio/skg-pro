@@ -230,23 +230,32 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.UserIn.Name,
+
                               s.UserIn.Phone,
+                              UserIn = s.UserIn.Name,
+                              //UserOut = s.UserOut.Name,
 
                               s.DateIn,
-                              s.Guest,
-
-                              s.Vehicle.Node,
-                              s.Vehicle.Fixed,
+                              //s.DateOut,
 
                               s.Vehicle.Code,
                               s.Vehicle.Seats,
                               s.Vehicle.Beds,
 
+                              s.Guest,
+                              s.Vehicle.Node,
+
                               Tariff = s.Vehicle.Tariff.Text,
                               Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
-
                               Group = s.Vehicle.Tariff.Group.Text,
+
+                              s.Price1,
+                              s.Price2,
+                              s.Rose1,
+                              s.Rose2,
+                              s.Money,
+
+                              s.Vehicle.Fixed,
                               GroupCode = s.Vehicle.Tariff.Group.Code
                           };
                 switch (group)

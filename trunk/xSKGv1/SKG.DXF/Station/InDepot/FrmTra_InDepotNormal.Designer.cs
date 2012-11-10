@@ -354,7 +354,7 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Người cho vào";
-            this.gridColumn6.FieldName = "Name";
+            this.gridColumn6.FieldName = "UserIn";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.Width = 128;

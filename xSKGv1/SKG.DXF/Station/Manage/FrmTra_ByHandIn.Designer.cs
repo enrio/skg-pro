@@ -92,7 +92,7 @@
             // 
             // panelContainer1
             // 
-            this.panelContainer1.ActiveChild = this.dockPanel2;
+            this.panelContainer1.ActiveChild = this.dockPanel1;
             this.panelContainer1.Controls.Add(this.dockPanel1);
             this.panelContainer1.Controls.Add(this.dockPanel2);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
@@ -309,7 +309,7 @@
             this.gridBand1.Columns.Add(this.gridColumn8);
             this.gridBand1.Columns.Add(this.bandedGridColumn11);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 743;
+            this.gridBand1.Width = 855;
             // 
             // gridColumn1
             // 
@@ -338,6 +338,7 @@
             this.gridColumn4.Caption = "Người cho vào";
             this.gridColumn4.FieldName = "UserIn";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
             this.gridColumn4.Width = 112;
             // 
             // gridColumn5
@@ -609,7 +610,7 @@
             this.gridBand3.Columns.Add(this.bandedGridColumn8);
             this.gridBand3.Columns.Add(this.bandedGridColumn12);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 728;
+            this.gridBand3.Width = 840;
             // 
             // bandedGridColumn1
             // 
@@ -638,6 +639,7 @@
             this.bandedGridColumn4.Caption = "Người cho vào";
             this.bandedGridColumn4.FieldName = "UserIn";
             this.bandedGridColumn4.Name = "bandedGridColumn4";
+            this.bandedGridColumn4.Visible = true;
             this.bandedGridColumn4.Width = 112;
             // 
             // bandedGridColumn5

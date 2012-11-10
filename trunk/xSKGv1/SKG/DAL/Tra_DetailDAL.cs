@@ -204,90 +204,7 @@ namespace SKG.DAL
         }
         #endregion
 
-        /// <summary>
-        /// Danh sách xe vào bến trong vòng 01 phút
-        /// </summary>
-        /// <returns>Danh sách</returns>
-        public DataTable GetDataInMinute()
-        {
-            try
-            {
-                var d = GetDate().AddMinutes(-1);
 
-                var res = from s in _db.Tra_Details
-
-                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.Pol_UserOutId == null && s.DateIn >= d
-
-                          orderby s.DateIn descending
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-
-                              //GroupId = k.Transport.GroupId,
-                              KindId = k.TransportId,
-                              GroupName = k.Tariff.Group.Text,
-                              KindName = k.Tariff.Text,
-
-                              k.Code,
-                              Chair = k.Seats,
-                              Descript = k.Note,
-                              k.Driver,
-                              k.Birth,
-                              k.Address,
-                              k.Phone
-                          };
-
-                return res.ToDataTable();
-
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Danh sách 20 xe vào bến sau cùng XE VÃNG LAI
-        /// </summary>
-        /// <returns></returns>
-        public DataTable Get20LatestForNormal()
-        {
-            try
-            {
-                var res = from s in _db.Tra_Details
-
-                          join k in _db.Tra_Vehicles on s.Tra_VehicleId equals k.Id
-                          where s.Pol_UserOutId == null && k.Fixed == false
-
-                          orderby s.DateIn descending
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-
-                              //GroupId = k.Transport.GroupId,
-                              KindId = k.TransportId,
-                              GroupName = k.Tariff.Group.Text,
-                              KindName = k.Tariff.Text,
-
-                              k.Code,
-                              k.Seats,
-                              k.Beds,
-                              Descript = k.Note,
-                              k.Driver,
-                              k.Birth,
-                              k.Address,
-                              k.Phone
-                          };
-
-                return res.Take(20).ToDataTable();
-
-            }
-            catch { return null; }
-        }
 
         /// <summary>
         /// Danh sách 20 xe vào bến sau cùng cố định
@@ -797,6 +714,47 @@ namespace SKG.DAL
             {
                 sum = 0;
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// List of 20 lastest vihicles normal
+        /// </summary>
+        public DataTable GetLatestNormal
+        {
+            get
+            {
+                try
+                {
+                    var res = from s in _db.Tra_Details
+                              where s.Pol_UserOutId == null
+                              && s.Tra_Vehicle.Fixed == false
+                              orderby s.DateIn descending
+                              select new
+                              {
+                                  s.Id,
+                                  UserInName = s.Pol_UserIn.Name,
+                                  UserInPhone = s.Pol_UserIn.Phone,
+                                  s.DateIn,
+
+                                  KindId = s.Tra_Vehicle.TransportId,
+                                  GroupName = s.Tra_Vehicle.Tariff.Group.Text,
+                                  KindName = s.Tra_Vehicle.Tariff.Text,
+
+                                  s.Tra_Vehicle.Code,
+                                  s.Tra_Vehicle.Seats,
+                                  s.Tra_Vehicle.Beds,
+
+                                  Descript = s.Tra_Vehicle.Note,
+                                  s.Tra_Vehicle.Driver,
+                                  s.Tra_Vehicle.Birth,
+                                  s.Tra_Vehicle.Address,
+                                  s.Tra_Vehicle.Phone
+                              };
+
+                    return res.Take(20).ToDataTable();
+                }
+                catch { return null; }
             }
         }
         #endregion

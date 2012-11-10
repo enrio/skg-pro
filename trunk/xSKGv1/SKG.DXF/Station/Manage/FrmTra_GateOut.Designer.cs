@@ -173,7 +173,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(756, 418);
             this.groupControl1.TabIndex = 5;
-            this.groupControl1.Text = "Cho xe ra bến";
+            this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
             // 
             // cmdSumaryFixed
             // 

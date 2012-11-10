@@ -48,9 +48,7 @@ namespace SKG.DXF.Station.Manage
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
+            dockPanel2.SetDockPanel("CỔNG RA-CHO XE RA BẾN");
             tmrMain.Enabled = true;
 
             AllowAdd = false;

@@ -354,7 +354,7 @@
             // gridColumn6
             // 
             this.gridColumn6.Caption = "Người cho vào";
-            this.gridColumn6.FieldName = "UserInName";
+            this.gridColumn6.FieldName = "Name";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.Width = 128;
@@ -370,7 +370,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Tuyến";
-            this.gridColumn8.FieldName = "Route";
+            this.gridColumn8.FieldName = "Tariff";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 128;

@@ -230,8 +230,8 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              UserInName = s.UserIn.Name,
-                              Phone = s.UserIn.Phone,
+                              s.UserIn.Name,
+                              s.UserIn.Phone,
 
                               s.DateIn,
                               s.Guest,

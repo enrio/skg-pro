@@ -388,9 +388,6 @@
     <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Manage\Frm_Tariff.resx">
-      <DependentUpon>Frm_Tariff.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>
     </EmbeddedResource>

@@ -723,10 +723,9 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-                          where s.Pol_UserOutId == null && v.Fixed == false
-                          orderby s.DateIn descending, v.Code
+                          where s.Pol_UserOutId == null
+                          && s.Tra_Vehicle.Fixed == false
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
                           select new
                           {
                               s.Id,
@@ -734,12 +733,12 @@ namespace SKG.DAL
                               Phone = s.Pol_UserIn.Phone,
                               s.DateIn,
 
-                              v.Code,
-                              v.Seats,
-                              v.Beds,
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
 
-                              KindName = k.Text,
-                              GroupName = k.Group.Text,
+                              KindName = s.Tra_Vehicle.Tariff.Text,
+                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
                           };
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res.ToDataTable();

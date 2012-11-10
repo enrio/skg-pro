@@ -380,10 +380,11 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Tính tiền và cho xe ra bến (cho xe cố định và vãng lai)
+        /// Charge money and exit vihicle out gate
         /// </summary>
-        /// <param name="number">Biển số xe</param>
-        /// <param name="isOut">Cho xe ra bến</param>
+        /// <param name="number">Number of vihicle</param>
+        /// <param name="isOut">True allow out gate else charge money</param>
+        /// <param name="dateOut">Out gate date time</param>
         /// <returns></returns>
         public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null)
         {
@@ -418,7 +419,7 @@ namespace SKG.DAL
 
                     if (a.Vehicle.Fixed)
                     {
-                        // Đánh số phiếu thu theo tháng, năm
+                        // Đánh số phiếu thu theo tháng, năm (xe cố định)
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code
                             && p.DateOut.Value.Month == m
                             && p.DateOut.Value.Year == y);

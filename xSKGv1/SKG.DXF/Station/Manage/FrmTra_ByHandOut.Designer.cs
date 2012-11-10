@@ -40,11 +40,16 @@
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn17 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcNormal = new DevExpress.XtraGrid.GridControl();
@@ -62,11 +67,6 @@
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn17 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -319,7 +319,7 @@
             this.bandedGridColumn2.FieldName = "No_";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 46;
+            this.bandedGridColumn2.Width = 35;
             // 
             // bandedGridColumn3
             // 
@@ -327,7 +327,7 @@
             this.bandedGridColumn3.FieldName = "Code";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
-            this.bandedGridColumn3.Width = 147;
+            this.bandedGridColumn3.Width = 80;
             // 
             // bandedGridColumn4
             // 
@@ -335,17 +335,17 @@
             this.bandedGridColumn4.FieldName = "UserIn";
             this.bandedGridColumn4.Name = "bandedGridColumn4";
             this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.Width = 112;
+            this.bandedGridColumn4.Width = 100;
             // 
             // bandedGridColumn5
             // 
             this.bandedGridColumn5.Caption = "Thời gian vào";
             this.bandedGridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.bandedGridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.bandedGridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.bandedGridColumn5.FieldName = "DateIn";
             this.bandedGridColumn5.Name = "bandedGridColumn5";
             this.bandedGridColumn5.Visible = true;
-            this.bandedGridColumn5.Width = 188;
+            this.bandedGridColumn5.Width = 100;
             // 
             // bandedGridColumn6
             // 
@@ -354,13 +354,23 @@
             this.bandedGridColumn6.Name = "bandedGridColumn6";
             this.bandedGridColumn6.Width = 81;
             // 
+            // bandedGridColumn13
+            // 
+            this.bandedGridColumn13.Caption = "Thời gian ra";
+            this.bandedGridColumn13.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.bandedGridColumn13.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.bandedGridColumn13.FieldName = "DateOut";
+            this.bandedGridColumn13.Name = "bandedGridColumn13";
+            this.bandedGridColumn13.Visible = true;
+            this.bandedGridColumn13.Width = 51;
+            // 
             // bandedGridColumn7
             // 
             this.bandedGridColumn7.Caption = "Tuyến";
             this.bandedGridColumn7.FieldName = "Tariff";
             this.bandedGridColumn7.Name = "bandedGridColumn7";
             this.bandedGridColumn7.Visible = true;
-            this.bandedGridColumn7.Width = 124;
+            this.bandedGridColumn7.Width = 100;
             // 
             // bandedGridColumn8
             // 
@@ -368,7 +378,7 @@
             this.bandedGridColumn8.FieldName = "Transport";
             this.bandedGridColumn8.Name = "bandedGridColumn8";
             this.bandedGridColumn8.Visible = true;
-            this.bandedGridColumn8.Width = 140;
+            this.bandedGridColumn8.Width = 100;
             // 
             // bandedGridColumn12
             // 
@@ -376,23 +386,66 @@
             this.bandedGridColumn12.FieldName = "Note";
             this.bandedGridColumn12.Name = "bandedGridColumn12";
             this.bandedGridColumn12.Visible = true;
-            this.bandedGridColumn12.Width = 83;
+            this.bandedGridColumn12.Width = 62;
             // 
             // bandedGridColumn9
             // 
             this.bandedGridColumn9.Caption = "Số ghế";
+            this.bandedGridColumn9.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn9.FieldName = "Seats";
             this.bandedGridColumn9.Name = "bandedGridColumn9";
             this.bandedGridColumn9.Visible = true;
-            this.bandedGridColumn9.Width = 105;
+            this.bandedGridColumn9.Width = 60;
             // 
             // bandedGridColumn10
             // 
             this.bandedGridColumn10.Caption = "Số giường";
+            this.bandedGridColumn10.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn10.FieldName = "Beds";
             this.bandedGridColumn10.Name = "bandedGridColumn10";
             this.bandedGridColumn10.Visible = true;
-            this.bandedGridColumn10.Width = 92;
+            this.bandedGridColumn10.Width = 60;
+            // 
+            // bandedGridColumn14
+            // 
+            this.bandedGridColumn14.Caption = "Lệ phí";
+            this.bandedGridColumn14.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn14.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn14.FieldName = "Cost";
+            this.bandedGridColumn14.Name = "bandedGridColumn14";
+            this.bandedGridColumn14.Visible = true;
+            this.bandedGridColumn14.Width = 54;
+            // 
+            // bandedGridColumn15
+            // 
+            this.bandedGridColumn15.Caption = "Hoa hồng";
+            this.bandedGridColumn15.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn15.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn15.FieldName = "Rose";
+            this.bandedGridColumn15.Name = "bandedGridColumn15";
+            this.bandedGridColumn15.Visible = true;
+            this.bandedGridColumn15.Width = 54;
+            // 
+            // bandedGridColumn16
+            // 
+            this.bandedGridColumn16.Caption = "Đậu đêm";
+            this.bandedGridColumn16.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn16.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn16.FieldName = "Parked";
+            this.bandedGridColumn16.Name = "bandedGridColumn16";
+            this.bandedGridColumn16.Visible = true;
+            this.bandedGridColumn16.Width = 69;
+            // 
+            // bandedGridColumn17
+            // 
+            this.bandedGridColumn17.Caption = "Số tiền";
+            this.bandedGridColumn17.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn17.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.bandedGridColumn17.FieldName = "Money";
+            this.bandedGridColumn17.Name = "bandedGridColumn17";
+            this.bandedGridColumn17.Visible = true;
             // 
             // dockPanel2
             // 
@@ -695,41 +748,6 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 87;
             // 
-            // bandedGridColumn13
-            // 
-            this.bandedGridColumn13.Caption = "Thời gian ra";
-            this.bandedGridColumn13.FieldName = "DateOut";
-            this.bandedGridColumn13.Name = "bandedGridColumn13";
-            this.bandedGridColumn13.Visible = true;
-            // 
-            // bandedGridColumn14
-            // 
-            this.bandedGridColumn14.Caption = "Lệ phí";
-            this.bandedGridColumn14.FieldName = "Cost";
-            this.bandedGridColumn14.Name = "bandedGridColumn14";
-            this.bandedGridColumn14.Visible = true;
-            // 
-            // bandedGridColumn15
-            // 
-            this.bandedGridColumn15.Caption = "Hoa hồng";
-            this.bandedGridColumn15.FieldName = "Rose";
-            this.bandedGridColumn15.Name = "bandedGridColumn15";
-            this.bandedGridColumn15.Visible = true;
-            // 
-            // bandedGridColumn16
-            // 
-            this.bandedGridColumn16.Caption = "Đậu đêm";
-            this.bandedGridColumn16.FieldName = "Parked";
-            this.bandedGridColumn16.Name = "bandedGridColumn16";
-            this.bandedGridColumn16.Visible = true;
-            // 
-            // bandedGridColumn17
-            // 
-            this.bandedGridColumn17.Caption = "Số tiền";
-            this.bandedGridColumn17.FieldName = "Money";
-            this.bandedGridColumn17.Name = "bandedGridColumn17";
-            this.bandedGridColumn17.Visible = true;
-            // 
             // gridBand3
             // 
             this.gridBand3.Caption = "Thông tin";
@@ -744,7 +762,7 @@
             this.gridBand3.Columns.Add(this.bandedGridColumn8);
             this.gridBand3.Columns.Add(this.bandedGridColumn12);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 915;
+            this.gridBand3.Width = 628;
             // 
             // gridBand4
             // 
@@ -752,7 +770,7 @@
             this.gridBand4.Columns.Add(this.bandedGridColumn9);
             this.gridBand4.Columns.Add(this.bandedGridColumn10);
             this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 197;
+            this.gridBand4.Width = 120;
             // 
             // gridBand5
             // 
@@ -760,8 +778,9 @@
             this.gridBand5.Columns.Add(this.bandedGridColumn14);
             this.gridBand5.Columns.Add(this.bandedGridColumn15);
             this.gridBand5.Columns.Add(this.bandedGridColumn16);
+            this.gridBand5.Columns.Add(this.bandedGridColumn17);
             this.gridBand5.Name = "gridBand5";
-            this.gridBand5.Width = 225;
+            this.gridBand5.Width = 252;
             // 
             // FrmTra_ByHandOut
             // 

@@ -92,7 +92,7 @@ namespace SKG.DXF.Station.Fixed
             grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.IndicatorWidth = 40;
+            grvMain.IndicatorWidth = 50;
         }
 
         #region Overrides

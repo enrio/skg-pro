@@ -33,6 +33,8 @@ namespace SKG.DXF.Station.Manage
             get
             {
                 var tmp = typeof(FrmTra_ByHandIn);
+                var icon = tmp.Name.Split('_');
+
                 var menu = new Menuz
                 {
                     Code = tmp.FullName,
@@ -40,7 +42,7 @@ namespace SKG.DXF.Station.Manage
                     Text = STR_TITLE,
                     Level = 3,
                     Order = 27,
-                    Picture = String.Format(STR_ICON, tmp.Name)
+                    Picture = String.Format(STR_ICON, icon[1])
                 };
                 return menu;
             }

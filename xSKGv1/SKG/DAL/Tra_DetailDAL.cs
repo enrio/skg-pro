@@ -374,49 +374,9 @@ namespace SKG.DAL
         /// <param name="to">To date time</param>
         /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
-        private DataTable FindOutDepot(DateTime fr, DateTime to, string number = null)
+        public DataTable GetOutDepot(DateTime fr, DateTime to, string number = null)
         {
             return FindOutDepot(Group.Z, fr, to, number).ToDataTable();
-        }
-
-        /// <summary>
-        /// List of all vihicle out depot
-        /// </summary>
-        /// <param name="total">Number of vihicles</param>
-        /// <param name="number">Number of vihicle</param>
-        /// <returns></returns>
-        public DataTable GetOutDepot(out int total, string number = null)
-        {
-            total = 0;
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && !_db.Tra_Details.Any(p => p.VehicleId == s.VehicleId && p.UserOutId == null)
-                          && s.DateOut == (from y in _db.Tra_Details where y.VehicleId == s.VehicleId select (DateTime?)y.DateOut).Max()
-                          orderby s.UserOut.Name, s.Vehicle.Code
-                          select new
-                          {
-                              UserInName = s.UserIn.Name,
-                              UserOutName = s.UserOut.Name,
-
-                              Number = s.Code,
-                              s.DateIn,
-                              s.DateOut,
-
-                              s.Price1,
-                              s.Price2,
-                              s.Rose1,
-                              s.Rose2,
-                              s.Money
-                          };
-                var tmp = res.Sum(k => k.Money);
-                total = Convert.ToInt32(tmp);
-
-                if (number != null) res.Where(p => p.Number == number).ToDataTable();
-                return res.ToDataTable();
-            }
-            catch { return null; }
         }
 
         /// <summary>

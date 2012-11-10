@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -212,6 +211,7 @@
             // 
             this.cmdTariff.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdTariff.Appearance.Options.UseFont = true;
+            this.cmdTariff.Enabled = false;
             this.cmdTariff.Location = new System.Drawing.Point(6, 376);
             this.cmdTariff.Name = "cmdTariff";
             this.cmdTariff.Size = new System.Drawing.Size(100, 37);

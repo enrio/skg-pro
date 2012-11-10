@@ -11,20 +11,17 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Fixed
 {
-
     using SKG.Extend;
     using SKG.Plugin;
-    using System.Data;
     using DAL.Entities;
-    using DevExpress.XtraEditors;
+
     using DevExpress.Utils;
-    using DevExpress.XtraEditors;
-    using DevExpress.XtraEditors.Controls;
 
     public partial class FrmTra_AuditMonth : SKG.DXF.FrmInput
     {

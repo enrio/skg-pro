@@ -11,15 +11,16 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Manage
 {
     using SKG.Extend;
     using SKG.Plugin;
-    using System.Data;
     using DAL.Entities;
+
     using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
@@ -257,7 +258,7 @@ namespace SKG.DXF.Station.Manage
             grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvFixed.IndicatorWidth = 40;
+            grvFixed.IndicatorWidth = 50;
 
             grvNormal.OptionsView.ShowAutoFilterRow = true;
             grvNormal.OptionsBehavior.Editable = false;
@@ -265,7 +266,7 @@ namespace SKG.DXF.Station.Manage
             grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvNormal.IndicatorWidth = 40;
+            grvNormal.IndicatorWidth = 50;
         }
 
         /// <summary>

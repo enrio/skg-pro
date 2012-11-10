@@ -25,18 +25,47 @@ namespace SKG.DXF.Help.Util
         {
             get
             {
+                var type = typeof(Level2);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(Level2).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level1).FullName,
-                    Text = "Tiện ích",
-                    Level = 2,
-                    Order = 991,
-                    Picture = @"Icons\Util.png"
+                    Text = STR_TITLE,
+                    Level = 3,
+                    Order = 27,
+                    Picture = String.Format(STR_ICON, name)
                 };
                 return menu;
             }
         }
+        #endregion
+
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Tiện ích";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "Nhập liệu";
+        private const string STR_PAN2 = "Danh sách";
         #endregion
     }
 }

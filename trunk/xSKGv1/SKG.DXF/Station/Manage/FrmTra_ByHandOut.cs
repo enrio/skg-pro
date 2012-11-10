@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 26/10/2012 23:21
+ * Update: 10/11/2012 16:32
  * Status: OK
  */
 #endregion
@@ -16,9 +16,11 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Manage
 {
+    using SKG.Extend;
     using SKG.Plugin;
     using System.Data;
     using DAL.Entities;
+    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -26,34 +28,71 @@ namespace SKG.DXF.Station.Manage
     /// </summary>
     public partial class FrmTra_ByHandOut : SKG.DXF.FrmInput
     {
+        #region Constants
+        private const string STR_TITLE = "NHẬP XE BẰNG TAY";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "XE CỐ ĐỊNH";
+        private const string STR_PAN2 = "XE VÃNG LAI";
+
+        private const string STR_ERR_DATE = "Thời gian nhập sai";
+        private const string STR_NO_LIST = "Không có trong danh sách";
+        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
+        private const string STR_NO_TARIFF = "Loại xe này không có";
+        private const string STR_NO_ADD = "Không thêm thông tin được";
+
+        private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
+        private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
+
+        private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
+        private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
+        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        #endregion
+
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
+                var tmp = typeof(FrmTra_ByHandOut);
+                var icon = tmp.Name.Split('_');
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmTra_ByHandIn).FullName,
+                    Code = tmp.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "XUẤT XE BẰNG TAY",
+                    Text = STR_TITLE,
                     Level = 3,
                     Order = 27,
-                    Picture = @"Icons\ByHand.png"
+                    Picture = String.Format(STR_ICON, icon[1])
                 };
                 return menu;
             }
         }
         #endregion
 
-        DataTable _tb_fixed;
-        DataTable _tb_normal;
+        #region Fields
+        /// <summary>
+        /// List all of vihicle fixed
+        /// </summary>
+        private DataTable _tbFixed;
 
+        /// <summary>
+        /// List all of vihicle normal
+        /// </summary>
+        private DataTable _tbNormal;
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Methods
         public FrmTra_ByHandOut()
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel("XE CỐ ĐỊNH");
-            dockPanel2.SetDockPanel("XE VÃNG LAI");
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
 
             AllowEdit = false;
             AllowDelete = false;
@@ -61,23 +100,20 @@ namespace SKG.DXF.Station.Manage
 
             grvFixed.OptionsView.ShowAutoFilterRow = true;
             grvFixed.OptionsBehavior.Editable = false;
-
             grvFixed.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
 
             grvNormal.OptionsView.ShowAutoFilterRow = true;
             grvNormal.OptionsBehavior.Editable = false;
-
             grvNormal.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
         }
 
+        #region Overrides
         protected override void PerformAdd()
         {
             var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
@@ -90,18 +126,18 @@ namespace SKG.DXF.Station.Manage
             }
 
             #region Fixed
-            _tb_fixed = ImportData(open.FileName, "Codinh");
-            _tb_fixed.Columns.Add("Route");
-            _tb_fixed.Columns.Add("Transport");
+            _tbFixed = ImportData(open.FileName, "Codinh");
+            _tbFixed.Columns.Add("Tariff");
+            _tbFixed.Columns.Add("Transport");
 
-            foreach (DataRow r in _tb_fixed.Rows)
+            foreach (DataRow r in _tbFixed.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
                 if (ve == null)
                 {
-                    r.RowError = "Xe chưa có trong danh sách quản lí";
+                    r.RowError = STR_NO_LIST;
                     r["Note"] = r.RowError;
                 }
                 else
@@ -110,87 +146,91 @@ namespace SKG.DXF.Station.Manage
                     {
                         if (ve.Tariff == null)
                         {
-                            r.RowError = "Xe chưa đăng kí tuyến";
+                            r.RowError = STR_NO_ROUTE;
                             r["Note"] = r.RowError;
                         }
                         else
                         {
-                            r["Route"] = ve.Tariff.Text;
+                            r["Tariff"] = ve.Tariff.Text;
                             r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
                             r["Seats"] = ve.Seats;
                             r["Beds"] = ve.Beds;
-                            r["CodeId"] = ve.Id;
 
-                            var dt = Global.Session.Current;
-                            if (!DateTime.TryParse(r["DateOut"] + "", out dt))
-                            {
-                                r["Note"] = "Thời gian nhập sai!";
-                                continue;
-                            }
-
-                            if (_bll.Tra_Detail.InvoiceOut(bs, false, dt) == null)
-                            {
-                                r["Note"] = "Xe này không ở trong bến!";
-                                continue;
-                            }
+                            r["Id"] = ve.Id;
+                            r["UserIn"] = Global.Session.User.Name;
                         }
                     }
                     else
                     {
-                        r.RowError = "Đây là xe vãng lai";
+                        r.RowError = STR_NORMAL;
                         r["Note"] = r.RowError;
                     }
                 }
             }
-            grcFixed.DataSource = _tb_fixed;
+            grcFixed.DataSource = _tbFixed;
             #endregion
 
             #region Normal
-            _tb_normal = ImportData(open.FileName, "Vanglai");
-            _tb_normal.Columns.Add("Kind");
-            _tb_normal.Columns.Add("Group");
+            _tbNormal = ImportData(open.FileName, "Vanglai");
+            _tbNormal.Columns.Add("Group");
 
-            foreach (DataRow r in _tb_normal.Rows)
+            foreach (DataRow r in _tbNormal.Rows)
             {
                 var bs = r["Code"] + "";
                 var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
                 if (ve == null)
                 {
-                    r.RowError = "Xe chưa có trong danh sách quản lí";
-                    r["Note"] = r.RowError;
+                    var v = new Tra_Vehicle { Code = bs };
+                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
+
+                    if (tar == null)
+                    {
+                        r.RowError = STR_NO_TARIFF;
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        r["Tariff"] = tar.Text;
+                        v.TariffId = tar.Id;
+
+                        var seats = r["Seats"] + "";
+                        var beds = r["Beds"] + "";
+
+                        v.Seats = seats.ToInt32();
+                        v.Beds = beds.ToInt32();
+
+                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
+                        if (tmp == null)
+                        {
+                            r.RowError = STR_NO_ADD;
+                            r["Note"] = r.RowError;
+                        }
+                        else r["Id"] = tmp.Id;
+                    }
                 }
                 else
                 {
                     if (!ve.Fixed)
                     {
-                        r["Kind"] = ve.Tariff.Text;
+                        r["Tariff"] = ve.Tariff.Text;
                         r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
-                        r["Seats"] = ve.Seats;
-                        r["Beds"] = ve.Beds;
-                        r["CodeId"] = ve.Id;
 
-                        var dt = Global.Session.Current;
-                        if (!DateTime.TryParse(r["DateOut"] + "", out dt))
-                        {
-                            r["Note"] = "Thời gian nhập sai!";
-                            continue;
-                        }
+                        r["Seats"] = ve.Seats ?? 0;
+                        r["Beds"] = ve.Beds ?? 0;
 
-                        if (_bll.Tra_Detail.InvoiceOut(bs, false, dt) == null)
-                        {
-                            r["Note"] = "Xe này không ở trong bến!";
-                            continue;
-                        }
+                        r["Id"] = ve.Id;
+                        r["UserIn"] = Global.Session.User.Name;
                     }
                     else
                     {
-                        r.RowError = "Đây là xe cố định";
+                        r.RowError = STR_FIXED;
                         r["Note"] = r.RowError;
                     }
                 }
             }
-            grcNormal.DataSource = _tb_normal;
+            grcNormal.DataSource = _tbNormal;
             #endregion
 
             base.PerformAdd();
@@ -200,51 +240,64 @@ namespace SKG.DXF.Station.Manage
         {
             int fix = 0, normal = 0;
 
-            // Fixed
-            var dtr = _tb_fixed.Select("[CodeId] Is Not Null ");
+            #region Fixed
+            var dtr = _tbFixed.Select("[Id] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
-                    r["Note"] = "Thời gian nhập sai!";
+                    r["Note"] = STR_ERR_DATE;
                     continue;
                 }
 
-                var bs = r["Code"] + "";
-                if (_bll.Tra_Detail.InvoiceOut(bs, true, dt) == null)
+                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+
+                if (_bll.Tra_Detail.Insert(o) == null)
                 {
-                    r["Note"] = "Xe này không ở trong bến!";
+                    r["Note"] = STR_IN_DEPOT;
                     continue;
                 }
-                else fix++;
+                else
+                {
+                    r["Note"] = STR_ENTERED;
+                    fix++;
+                }
             }
+            #endregion
 
-            // Normal
-            dtr = _tb_normal.Select("[CodeId] Is Not Null ");
+            #region Normal
+            dtr = _tbNormal.Select("[Id] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                 {
-                    r["Note"] = "Thời gian nhập sai!";
+                    r["Note"] = STR_ERR_DATE;
                     continue;
                 }
 
-                var bs = r["Code"] + "";
-                if (_bll.Tra_Detail.InvoiceOut(bs, true, dt) == null)
+                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+
+                if (_bll.Tra_Detail.Insert(o) == null)
                 {
-                    r["Note"] = "Xe này đã ở trong bến!";
+                    r["Note"] = STR_IN_DEPOT;
                     continue;
                 }
-                else normal++;
+                else
+                {
+                    r["Note"] = STR_ENTERED;
+                    normal++;
+                }
             }
+            #endregion
 
-            XtraMessageBox.Show(String.Format("XE CỐ ĐỊNH: {0}\nXE VÃNG LAI: {1}", fix, normal), Text);
+            XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
             PerformCancel();
 
             base.PerformSave();
         }
+        #endregion
 
         /// <summary>
         /// Import data from excel file (by hand)
@@ -252,17 +305,33 @@ namespace SKG.DXF.Station.Manage
         /// <param name="fileName">File excel name</param>
         /// <param name="sheetName">Sheet name</param>
         /// <returns></returns>
-        DataTable ImportData(string fileName, string sheetName)
+        private DataTable ImportData(string fileName, string sheetName)
         {
-            var tb = Data.Excel.ImportFromExcel(fileName, sheetName);
+            var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
-            tb.Columns[2].ColumnName = "DateOut";
-            tb.Columns.Add("CodeId", typeof(Guid));
-            tb.Columns.Add("Seats");
-            tb.Columns.Add("Beds");
+            tb.Columns[2].ColumnName = "DateIn";
+
+            if (sheetName.ToLower() == "vanglai")
+            {
+                tb.Columns[3].ColumnName = "Tariff";
+                tb.Columns[4].ColumnName = "Seats";
+                tb.Columns[5].ColumnName = "Beds";
+            }
+            else
+            {
+                tb.Columns.Add("Seats");
+                tb.Columns.Add("Beds");
+            }
+
+            tb.Columns.Add("Id", typeof(Guid));
+            tb.Columns.Add("UserIn");
             tb.Columns.Add("Note");
             return tb;
         }
+        #endregion
+
+        #region Events
+        #endregion
     }
 }

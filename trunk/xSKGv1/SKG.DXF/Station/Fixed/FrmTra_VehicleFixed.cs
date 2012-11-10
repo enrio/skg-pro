@@ -27,42 +27,15 @@ namespace SKG.DXF.Station.Fixed
 
     public partial class FrmTra_VehicleFixed : SKG.DXF.FrmInput
     {
-        #region Constants
-        private const string STR_TITLE = "NHẬP-SỬA XE CỐ ĐỊNH";
-        private const string STR_ICON = @"Icons\{0}.png";
-
-        private const string STR_PAN1 = "Nhập liệu";
-        private const string STR_PAN2 = "Danh sách";
-
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
-        private const string STR_DELETE = "Xoá xe";
-
-        private const string STR_SELECT = "Chọn dữ liệu!";
-        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
-
-        private const string STR_NOT_V = "Chưa nhập biển số xe!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
-        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
-        #endregion
-
-        #region Fields
-        #endregion
-
-        #region Properties
-        /// <summary>
-        /// Override menuz of plugin
-        /// </summary>
+        #region Override plugin
         public override Menuz Menuz
         {
             get
             {
                 var type = typeof(Level1);
-                var split = type.Name.Split('_');
-                var name = split.Count() > 1 ? split[1] : type.Namespace;
+                var cls = type.Name.Split('_').Last();
+                var nsp = type.Namespace.Split('.').Last();
+                var name = cls.Contains("Level") ? nsp : cls;
 
                 var menu = new Menuz
                 {
@@ -78,22 +51,8 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
-        #region Methods
-        public FrmTra_VehicleFixed()
-        {
-            InitializeComponent();
-
-            dockPanel1.SetDockPanel(STR_PAN1);
-            dockPanel2.SetDockPanel(STR_PAN2);
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.IndicatorWidth = 50;
-        }
+        #region Implements
+        #endregion
 
         #region Overrides
         protected override void SetNullPrompt()
@@ -377,6 +336,22 @@ namespace SKG.DXF.Station.Fixed
         }
         #endregion
 
+        #region Methods
+        public FrmTra_VehicleFixed()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.IndicatorWidth = 50;
+        }
         #endregion
 
         #region Events
@@ -419,6 +394,34 @@ namespace SKG.DXF.Station.Fixed
                 DXF.Extend.ShowRight<FrmTra_Transport>(Global.Parent);
             }
         }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "NHẬP-SỬA XE CỐ ĐỊNH";
+        private const string STR_ICON = @"Icons\{0}.png";
+
+        private const string STR_PAN1 = "Nhập liệu";
+        private const string STR_PAN2 = "Danh sách";
+
+        private const string STR_ADD = "Thêm xe";
+        private const string STR_EDIT = "Sửa xe";
+        private const string STR_DELETE = "Xoá xe";
+
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_DUPLICATE = "Xe này có rồi";
+
+        private const string STR_NOT_V = "Chưa nhập biển số xe!";
+        private const string STR_NOT_C = "Chưa nhập số ghế!";
+        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         #endregion
     }
 }

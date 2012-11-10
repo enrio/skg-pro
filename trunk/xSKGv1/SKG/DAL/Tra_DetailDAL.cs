@@ -205,83 +205,6 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Danh sách xe vãng lai trong bến
-        /// </summary>        
-        /// <param name="number">Biển số xe</param>
-        /// <returns></returns>
-        public DataTable GetInDepotFixed(string number = null)
-        {
-
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
-                          && s.Tra_Vehicle.Fixed == true
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-                              s.Guest,
-                              Route = s.Tra_Vehicle.Tariff.Text,
-                              s.Tra_Vehicle.Node,
-
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
-                              Transport = s.Tra_Vehicle.Transport.Text,
-                          };
-
-                if (number != null)
-                    res = res.Where(p => p.Code == number);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Danh sách xe vãng lai trong bến
-        /// </summary>        
-        /// <param name="number">Biển số xe</param>
-        /// <returns></returns>
-        public DataTable GetInDepotNormal(string number = null)
-        {
-
-            try
-            {
-                var res = from s in _db.Tra_Details
-
-                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
-                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
-
-                          where s.Pol_UserOutId == null && v.Fixed == false
-                          orderby s.DateIn descending, v.Code
-
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-
-                              v.Code,
-                              v.Seats,
-                              v.Beds,
-
-                              KindName = k.Text,
-                              GroupName = k.Group.Text,
-                          };
-
-                if (number != null)
-                    res = res.Where(p => p.Code == number);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
         /// Danh sách xe trong bến
         /// </summary>        
         /// <param name="number">Biển số xe</param>
@@ -628,6 +551,41 @@ namespace SKG.DAL
                 catch { return null; }
             }
         }
+
+        /// <summary>
+        /// List all of vihicles fixed in depot
+        /// </summary>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        public DataTable GetInDepotFixed(string number = null)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Pol_UserOutId == null
+                          && s.Tra_Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+
+                              s.DateIn,
+                              s.Guest,
+                              Route = s.Tra_Vehicle.Tariff.Text,
+                              s.Tra_Vehicle.Node,
+
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
+                              Transport = s.Tra_Vehicle.Transport.Text,
+                          };
+                if (number != null) res = res.Where(p => p.Code == number);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Vihicle normal
@@ -753,6 +711,40 @@ namespace SKG.DAL
                 }
                 catch { return null; }
             }
+        }
+
+        /// <summary>
+        /// List all of vihicles fixed in depot
+        /// </summary>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        public DataTable GetInDepotNormal(string number = null)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          join v in _db.Tra_Vehicles on s.Tra_VehicleId equals v.Id
+                          join k in _db.Tra_Tariffs on v.TariffId equals k.Id
+                          where s.Pol_UserOutId == null && v.Fixed == false
+                          orderby s.DateIn descending, v.Code
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+                              s.DateIn,
+
+                              v.Code,
+                              v.Seats,
+                              v.Beds,
+
+                              KindName = k.Text,
+                              GroupName = k.Group.Text,
+                          };
+                if (number != null) res = res.Where(p => p.Code == number);
+                return res.ToDataTable();
+            }
+            catch { return null; }
         }
         #endregion
 

@@ -65,10 +65,6 @@ namespace SKG.DXF.Home
         #endregion
 
         #region Events
-
-        #region Numbered
-        #endregion
-
         #endregion
     }
 }

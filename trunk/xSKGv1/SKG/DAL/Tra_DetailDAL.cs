@@ -377,7 +377,7 @@ namespace SKG.DAL
         public DataTable GetInDepot(out int fix, out int nor, string number = null)
         {
             var a = FindInDepot(Group.F, number);
-            var b = FindInDepot(Group.Z, number);
+            var b = FindInDepot(Group.N, number);
             fix = a.Count();
             nor = b.Count();
             return a.Union(b).ToDataTable();

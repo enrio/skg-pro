@@ -209,7 +209,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="number">Number of vihicle</param>
         /// <returns></returns>
-        public IQueryable FindInDepot(string number = null)
+        public IQueryable<dynamic> FindInDepot(string number = null)
         {
             try
             {
@@ -249,30 +249,7 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable GetInDepot(string number = null)
         {
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
-                              s.DateIn,
-                              s.Guest,
-
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
-
-                              KindName = s.Tra_Vehicle.Tariff.Text,
-                              GroupName = s.Tra_Vehicle.Tariff.Group.Text
-                          };
-                if (number != null) res = res.Where(p => p.Code == number);
-                return res.ToDataTable();
-            }
-            catch { return null; }
+            return FindInDepot(number).ToDataTable();
         }
 
         /// <summary>

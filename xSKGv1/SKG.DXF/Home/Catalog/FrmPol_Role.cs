@@ -24,38 +24,31 @@ namespace SKG.DXF.Home.Catalog
     public partial class FrmPol_Role : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_Role);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Role).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Nhóm người dùng",
-                    Level = 3,
-                    Order = 10,
-                    Picture = @"Icons\Role.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_Role()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-        }
-
-        #region Override
+        #region Overrides
         protected override void SetNullPrompt()
         {
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
@@ -218,13 +211,38 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm nhóm người dùng";
-        private const string STR_EDIT = "Sửa nhóm người dùng";
-        private const string STR_DELETE = "Xoá nhóm người dùng";
+        #region Methods
+        public FrmPol_Role()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+        }
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Nhóm người";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá nhóm '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Nhóm này có rồi";
+        #endregion
     }
 }

@@ -24,38 +24,31 @@ namespace SKG.DXF.Home.Catalog
     public partial class FrmPol_User : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_User);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_User).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Người dùng",
-                    Level = 3,
-                    Order = 9,
-                    Picture = @"Icons\User.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_User()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-        }
-
-        #region Override
+        #region Overrides
         protected override void SetNullPrompt()
         {
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
@@ -269,9 +262,33 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm người dùng";
-        private const string STR_EDIT = "Sửa người dùng";
-        private const string STR_DELETE = "Xoá người dùng";
+        #region Methods
+        public FrmPol_User()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+        }
+        #endregion
+
+        #region Events
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Người dùng";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá tài khoản '{0}' không?";
@@ -280,5 +297,6 @@ namespace SKG.DXF.Home.Catalog
 
         private const string STR_AGE = "Phải 18 tuổi trở lên!";
         private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
+        #endregion
     }
 }

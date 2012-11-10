@@ -610,17 +610,21 @@ namespace SKG.DAL
             {
                 return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == true);
             }
-        }        
+        }
 
         /// <summary>
-        /// Doanh thu xe cố định
+        /// Revenue of vihicle fixed from 13:00 yesterday ago to 13:00 today
         /// </summary>
-        /// <param name="sum"></param>
+        /// <param name="sum">Sum of money</param>
         /// <returns></returns>
-        public DataTable SumaryFixed(out decimal sum, DateTime fr, DateTime to)
+        public DataTable GetRevenueToday(out decimal sum)
         {
             try
             {
+                sum = 0;
+                var to = Global.Session.Current.Date.AddHours(13);
+                var fr = to.AddDays(-1);
+
                 var res1 = from s in _db.Tra_Details
                            where s.Pol_UserOutId != null
                            && s.Tra_Vehicle.Fixed == true
@@ -637,9 +641,7 @@ namespace SKG.DAL
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
-                               Parked = g.Sum(p => p.Parked),
-
-                               //Money = g.Sum(p => p.Money),
+                               Parked = g.Sum(p => p.Parked)
                            };
 
                 var res2 = from s in res1
@@ -652,22 +654,20 @@ namespace SKG.DAL
                                s.Seats,
                                s.Beds,
 
+                               t.Rose1,
+                               t.Rose2,
+                               t.Price1,
+                               t.Price2,
+
                                s.Cost,
                                s.Rose,
                                s.Parked,
-
-                               //s.Money,
                                Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,
                                Province = t.Group.Text,
                                Area = t.Group.Parent.Text,
-                               Region = t.Group.Parent.Parent.Text,
-
-                               t.Rose1,
-                               t.Rose2,
-                               t.Price1,
-                               t.Price2
+                               Region = t.Group.Parent.Parent.Text
                            };
 
                 var res3 = from s in res2
@@ -676,6 +676,7 @@ namespace SKG.DAL
                                s.Province,
                                s.Area,
                                s.Region,
+
                                s.Rose1,
                                s.Rose2,
                                s.Price1,
@@ -695,14 +696,15 @@ namespace SKG.DAL
                                Count = g.Sum(p => p.Count),
                                Seats = g.Sum(p => p.Seats),
                                Beds = g.Sum(p => p.Beds),
+
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
                                Totals = g.Sum(p => p.Totals),
+
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100
                            };
-                sum = 0;
                 sum = res3.Sum(k => k.Totals);
                 return res3.ToDataTable();
             }
@@ -725,7 +727,7 @@ namespace SKG.DAL
             {
                 return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == false);
             }
-        }        
+        }
 
         /// <summary>
         /// Bảng kê xe vãng lai

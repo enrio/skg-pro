@@ -148,7 +148,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.parDate.Value = shift.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
-            rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
+            //rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };

@@ -37,7 +37,7 @@ namespace SKG.DAL
                        select s.Tra_Details).FirstOrDefault();
 
             var r = (from s in res
-                     where s.Pol_UserOutId == null
+                     where s.UserOutId == null
                      select s).FirstOrDefault();
 
 

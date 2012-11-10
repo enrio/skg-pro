@@ -27,32 +27,32 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Of vehicle (refercence to Tra_Vehicle)
         /// </summary>
-        [Column(Order = 0), ForeignKey("Tra_Vehicle")]
-        public Guid? Tra_VehicleId { set; get; }
+        [Column(Order = 0), ForeignKey("Vehicle")]
+        public Guid? VehicleId { set; get; }
         /// <summary>
         /// Of vehicle
         /// </summary>
-        public virtual Tra_Vehicle Tra_Vehicle { get; set; }
+        public virtual Tra_Vehicle Vehicle { get; set; }
 
         /// <summary>
-        /// Of User ingate (refercence to Pol_User)
+        /// Of user ingate (refercence to Pol_User)
         /// </summary>
-        [Column(Order = 1), ForeignKey("Pol_UserIn")]
-        public Guid? Pol_UserInId { set; get; }
+        [Column(Order = 1), ForeignKey("UserIn")]
+        public Guid? UserInId { set; get; }
         /// <summary>
-        /// Of User ingate
+        /// Of user ingate
         /// </summary>
-        public virtual Pol_User Pol_UserIn { get; set; }
+        public virtual Pol_User UserIn { get; set; }
 
         /// <summary>
-        /// Of User outgate (refercence to Pol_User)
+        /// Of user outgate (refercence to Pol_User)
         /// </summary>
-        [Column(Order = 2), ForeignKey("Pol_UserOut")]
-        public Guid? Pol_UserOutId { set; get; }
+        [Column(Order = 2), ForeignKey("UserOut")]
+        public Guid? UserOutId { set; get; }
         /// <summary>
-        /// Of User outgate
+        /// Of user outgate
         /// </summary>
-        public virtual Pol_User Pol_UserOut { get; set; }
+        public virtual Pol_User UserOut { get; set; }
         #endregion
 
         #region In station

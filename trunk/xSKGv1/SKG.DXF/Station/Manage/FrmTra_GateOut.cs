@@ -262,24 +262,24 @@ namespace SKG.DXF.Station.Manage
             {
                 if (lkeNumber.Text == "") return;
                 var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
-                _isFixed = detail.Tra_Vehicle.Fixed;
+                _isFixed = detail.Vehicle.Fixed;
 
                 if (_isFixed)
                 {
-                    lblKind.Text = "Tuyến: " + detail.Tra_Vehicle.Tariff.Text;
-                    lblGroup.Text = "ĐVVT: " + detail.Tra_Vehicle.Transport.Text;
+                    lblKind.Text = "Tuyến: " + detail.Vehicle.Tariff.Text;
+                    lblGroup.Text = "ĐVVT: " + detail.Vehicle.Transport.Text;
                     lblHalfDay.Text = "Ghế:";
                     lblFullDay.Text = "Giường:";
                 }
                 else
                 {
-                    lblKind.Text = "Loại xe: " + detail.Tra_Vehicle.Tariff.Text;
-                    lblGroup.Text = "Nhóm xe: " + detail.Tra_Vehicle.Tariff.Group.Text;
+                    lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
+                    lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;
                     lblHalfDay.Text = "Nửa ngày:";
                     lblFullDay.Text = "Một ngày:";
                 }
 
-                lblNumber.Text = "BS " + detail.Tra_Vehicle.Code;
+                lblNumber.Text = "BS " + detail.Vehicle.Code;
 
                 lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
                 lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
@@ -299,8 +299,8 @@ namespace SKG.DXF.Station.Manage
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",
                     d.Days, d.Hours, d.Minutes, d.Seconds);
 
-                lblUserIn.Text = "Cho vào: " + detail.Pol_UserIn.Name;
-                lblPhone.Text = "Số ĐT: " + detail.Pol_UserIn.Phone;
+                lblUserIn.Text = "Cho vào: " + detail.UserIn.Name;
+                lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
                 lblNote.Text = detail.Note;
 
                 if (isOut)
@@ -317,8 +317,8 @@ namespace SKG.DXF.Station.Manage
 
                         dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
                         dtr["Date"] = Global.Session.Current;
-                        dtr["Number"] = detail.Tra_Vehicle.Code;
-                        dtr["Transport"] = detail.Tra_Vehicle.Transport.Text;
+                        dtr["Number"] = detail.Vehicle.Code;
+                        dtr["Transport"] = detail.Vehicle.Transport.Text;
 
                         dtr["Cost"] = detail.Cost;
                         dtr["Rose"] = detail.Rose;

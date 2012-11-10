@@ -587,7 +587,7 @@ namespace SKG.DXF
                 var x = (Guid)r["Tra_KindId"];
                 var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 49;
 
-                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
+                var o = new Tra_Detail() { UserInId = ui.Id, VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);
             }
             #endregion
@@ -606,7 +606,7 @@ namespace SKG.DXF
                 var x = (Guid)r["Tra_KindId"];
                 var c = (x == kj.Id || x == kk.Id || x == kl.Id) ? b % 3 : b % 49;
 
-                var o = new Tra_Detail() { Pol_UserInId = ui.Id, Tra_VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
+                var o = new Tra_Detail() { UserInId = ui.Id, VehicleId = id, DateIn = DateTime.Now.AddHours(c) };
                 Tra_Detail.Insert(o);
             }
             #endregion

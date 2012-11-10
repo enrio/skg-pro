@@ -27,7 +27,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Refercence to Pol_Role
         /// </summary>
-        [Column(Order = 0), ForeignKey("Pol_Role")]
+        [Column(Order = 0), ForeignKey("Role")]
         public Guid? RoleId { set; get; }
         /// <summary>
         /// Role
@@ -37,7 +37,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Refercence to Pol_Right
         /// </summary>
-        [Column(Order = 1), ForeignKey("Pol_Right")]
+        [Column(Order = 1), ForeignKey("Right")]
         public Guid? RightId { set; get; }
         /// <summary>
         /// Right

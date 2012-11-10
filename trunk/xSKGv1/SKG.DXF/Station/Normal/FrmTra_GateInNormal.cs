@@ -139,8 +139,8 @@ namespace SKG.DXF.Station.Normal
                 {
                     var o = new Tra_Detail()
                     {
-                        Pol_UserInId = Global.Session.User.Id,
-                        Tra_VehicleId = id,
+                        UserInId = Global.Session.User.Id,
+                        VehicleId = id,
                         DateIn = Global.Session.Current
                     };
 

@@ -25,13 +25,13 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                var type = typeof(Level2);
+                var type = typeof(Frm_Manual);
                 var name = Global.GetIconName(type);
 
                 var menu = new Menuz
                 {
                     Code = type.FullName,
-                    Parent = typeof(Level1).FullName,
+                    Parent = typeof(Level2).FullName,
                     Text = STR_TITLE,
                     Level = 1,
                     Order = 0,

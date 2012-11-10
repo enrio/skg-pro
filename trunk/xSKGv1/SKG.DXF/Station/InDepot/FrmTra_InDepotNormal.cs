@@ -11,13 +11,14 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.InDepot
 {
     using SKG.Plugin;
-    using SKG.Plugin;
+
+    using DevExpress.Utils;
     using DevExpress.XtraEditors;
 
     /// <summary>
@@ -145,24 +146,22 @@ namespace SKG.DXF.Station.InDepot
 
             AllowAdd = false;
             AllowEdit = false;
-            //AllowDelete = false;
             AllowSave = false;
             AllowCancel = false;
             AllowPrint = false;
 
             grvMain.OptionsView.ShowAutoFilterRow = true;
             grvMain.OptionsBehavior.Editable = false;
-
             grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-
+            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvMain.IndicatorWidth = 50;
         }
         #endregion
 
         #region Events
-        private void txtNumber_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) PerformFind();
         }
@@ -181,18 +180,11 @@ namespace SKG.DXF.Station.InDepot
 
         #region Constants
         private const string STR_TITLE = "Xe vãng lai trong bến";
-        private const string STR_ADD = "Thêm xe";
-        private const string STR_EDIT = "Sửa xe";
         private const string STR_DELETE = "Xoá xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
-
-        private const string STR_NOT_V = "Chưa nhập biển số xe!";
-        private const string STR_NOT_C = "Chưa nhập số ghế!";
-        private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
         #endregion
     }
 }

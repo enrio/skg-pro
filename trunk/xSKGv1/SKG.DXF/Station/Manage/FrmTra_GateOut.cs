@@ -147,17 +147,10 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            // Ca làm việc
-            DateTime shift;
-            Global.Session.Shift(out shift);
-
-            var end = shift.Date.AddHours(13);
-            var start = end.AddDays(-1);
-
-            rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueToday(out sum);
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
 
-            rpt.parDate.Value = shift.Date;
+            rpt.parDate.Value = Global.Session.Current.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };

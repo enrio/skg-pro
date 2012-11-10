@@ -205,6 +205,44 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
+        /// Find vihicle in depot
+        /// </summary>
+        /// <param name="number">Number of vihicle</param>
+        /// <returns></returns>
+        public IQueryable FindInDepot(string number = null)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Pol_UserOutId == null
+                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.Pol_UserIn.Name,
+                              Phone = s.Pol_UserIn.Phone,
+
+                              s.DateIn,
+                              s.Guest,
+
+                              s.Tra_Vehicle.Node,
+                              s.Tra_Vehicle.Fixed,
+
+                              s.Tra_Vehicle.Code,
+                              s.Tra_Vehicle.Seats,
+                              s.Tra_Vehicle.Beds,
+
+                              Tariff = s.Tra_Vehicle.Tariff.Text,
+                              Transport = s.Tra_Vehicle.Transport == null ? "" : s.Tra_Vehicle.Transport.Text,
+                              Group = s.Tra_Vehicle.Tariff.Group.Text
+                          };
+                if (number != null) res = res.Where(p => p.Code == number);
+                return res;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// List of all vihicle in depot
         /// </summary>
         /// <param name="number">Number of vihicle</param>

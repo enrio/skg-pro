@@ -79,9 +79,9 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Tra_VehicleId,
-                              s.Pol_UserInId,
-                              s.Pol_UserOutId,
+                              Tra_VehicleId = s.VehicleId,
+                              Pol_UserInId = s.UserInId,
+                              Pol_UserOutId = s.UserOutId,
                               s.DateIn,
                               s.DateOut,
 
@@ -115,15 +115,15 @@ namespace SKG.DAL
                 var o = (Tra_Detail)obj;
 
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null && s.Tra_VehicleId == o.Tra_VehicleId
+                          where s.UserOutId == null && s.VehicleId == o.VehicleId
                           select s;
                 if (res.Count() > 0) return null; // xe này còn ở trong bến
 
                 o.Id = Guid.NewGuid();
-                o.Pol_UserInId = Global.Session.User.Id;
+                o.UserInId = Global.Session.User.Id;
 
                 // Cập nhật mã nhóm xe vãng lai/mã vùng xe cố định
-                var ve = _db.Tra_Vehicles.SingleOrDefault(p => p.Id == o.Tra_VehicleId);
+                var ve = _db.Tra_Vehicles.SingleOrDefault(p => p.Id == o.VehicleId);
                 var c = ve.Tariff.Group.Code.Substring(0, 1);
                 if (c == "P") o.Code = "FIXED";
                 else o.Code = ve.Tariff.Group.Code;
@@ -214,27 +214,27 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          where s.UserOutId == null
+                          orderby s.DateIn descending, s.Vehicle.Code
                           select new
                           {
                               s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
 
                               s.DateIn,
                               s.Guest,
 
-                              s.Tra_Vehicle.Node,
-                              s.Tra_Vehicle.Fixed,
+                              s.Vehicle.Node,
+                              s.Vehicle.Fixed,
 
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
 
-                              Tariff = s.Tra_Vehicle.Tariff.Text,
-                              Transport = s.Tra_Vehicle.Transport == null ? "" : s.Tra_Vehicle.Transport.Text,
-                              Group = s.Tra_Vehicle.Tariff.Group.Text
+                              Tariff = s.Vehicle.Tariff.Text,
+                              Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
+                              Group = s.Vehicle.Tariff.Group.Text
                           };
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;
@@ -264,14 +264,14 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId != null
-                          && !_db.Tra_Details.Any(p => p.Tra_VehicleId == s.Tra_VehicleId && p.Pol_UserOutId == null)
-                          && s.DateOut == (from y in _db.Tra_Details where y.Tra_VehicleId == s.Tra_VehicleId select (DateTime?)y.DateOut).Max()
-                          orderby s.Pol_UserOut.Name, s.Tra_Vehicle.Code
+                          where s.UserOutId != null
+                          && !_db.Tra_Details.Any(p => p.VehicleId == s.VehicleId && p.UserOutId == null)
+                          && s.DateOut == (from y in _db.Tra_Details where y.VehicleId == s.VehicleId select (DateTime?)y.DateOut).Max()
+                          orderby s.UserOut.Name, s.Vehicle.Code
                           select new
                           {
-                              UserInName = s.Pol_UserIn.Name,
-                              UserOutName = s.Pol_UserOut.Name,
+                              UserInName = s.UserIn.Name,
+                              UserOutName = s.UserOut.Name,
 
                               Number = s.Code,
                               s.DateIn,
@@ -303,7 +303,7 @@ namespace SKG.DAL
             try
             {
                 int m, y;
-                var a = _db.Tra_Details.SingleOrDefault(k => k.Tra_Vehicle.Code == number && k.Pol_UserOutId == null);
+                var a = _db.Tra_Details.SingleOrDefault(k => k.Vehicle.Code == number && k.UserOutId == null);
                 if (dateOut == null)
                 {
                     a.DateOut = Global.Session.Current;
@@ -318,7 +318,7 @@ namespace SKG.DAL
                 }
 
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (ql && a.Tra_Vehicle.Fixed)
+                if (ql && a.Vehicle.Fixed)
                 {
                     a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                     a.Note = String.Format("ĐỘI ĐIỀU HÀNH TẠM CHO RA BẾN\n\r ({0})", Global.Session.User.Name);
@@ -327,9 +327,9 @@ namespace SKG.DAL
                 if (isOut && !ql) // cho ra
                 {
                     // Người cho ra
-                    a.Pol_UserOutId = Global.Session.User.Id;
+                    a.UserOutId = Global.Session.User.Id;
 
-                    if (a.Tra_Vehicle.Fixed)
+                    if (a.Vehicle.Fixed)
                     {
                         // Đánh số phiếu thu theo tháng, năm
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code
@@ -351,14 +351,14 @@ namespace SKG.DAL
                     a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                 }
 
-                a.Seats = a.Tra_Vehicle.Seats;
-                a.Beds = a.Tra_Vehicle.Beds;
+                a.Seats = a.Vehicle.Seats;
+                a.Beds = a.Vehicle.Beds;
 
-                a.Price1 = a.Tra_Vehicle.Tariff.Price1;
-                a.Rose1 = a.Tra_Vehicle.Tariff.Rose1;
+                a.Price1 = a.Vehicle.Tariff.Price1;
+                a.Rose1 = a.Vehicle.Tariff.Rose1;
 
-                a.Price2 = a.Tra_Vehicle.Tariff.Price2;
-                a.Rose2 = a.Tra_Vehicle.Tariff.Rose2;
+                a.Price2 = a.Vehicle.Tariff.Price2;
+                a.Rose2 = a.Vehicle.Tariff.Rose2;
 
                 var dateIn = a.DateIn.AddMinutes(11);
                 var t = a.DateOut.Value - dateIn;
@@ -373,10 +373,10 @@ namespace SKG.DAL
                     a.FullDay++;
                 }
 
-                a.Money = a.Tra_Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+                a.Money = a.Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
 
                 // Tính tiền lưu đậu đêm lần trước (ra do xin ra ngoài sửa xe)
-                var b = _db.Tra_Details.FirstOrDefault(k => k.Tra_Vehicle.Code == number && k.Repair == true && k.Id != a.Id);
+                var b = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.Repair == true && k.Id != a.Id);
                 if (b != null)
                 {
                     a.Parked += b.Parked;
@@ -408,7 +408,7 @@ namespace SKG.DAL
         {
             get
             {
-                return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == true);
+                return _db.Tra_Details.Count(k => k.UserOutId == null && k.Vehicle.Fixed == true);
             }
         }
 
@@ -426,18 +426,18 @@ namespace SKG.DAL
                 var fr = to.AddDays(-1);
 
                 var res1 = from s in _db.Tra_Details
-                           where s.Pol_UserOutId != null
-                           && s.Tra_Vehicle.Fixed == true
+                           where s.UserOutId != null
+                           && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
-                           group s by s.Tra_Vehicle.Tariff.Code into g
+                           group s by s.Vehicle.Tariff.Code into g
                            select new
                            {
                                g.Key,
                                Count = g.Count(),
 
-                               Seats = g.Sum(p => p.Tra_Vehicle.Seats) ?? 0,
-                               Beds = g.Sum(p => p.Tra_Vehicle.Beds) ?? 0,
+                               Seats = g.Sum(p => p.Vehicle.Seats) ?? 0,
+                               Beds = g.Sum(p => p.Vehicle.Beds) ?? 0,
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -525,29 +525,29 @@ namespace SKG.DAL
                 try
                 {
                     var res = from s in _db.Tra_Details
-                              where s.Pol_UserOutId == null
-                              && s.Tra_Vehicle.Fixed == true
+                              where s.UserOutId == null
+                              && s.Vehicle.Fixed == true
                               orderby s.DateIn descending
                               select new
                               {
                                   s.Id,
-                                  UserInName = s.Pol_UserIn.Name,
-                                  UserInPhone = s.Pol_UserIn.Phone,
+                                  UserInName = s.UserIn.Name,
+                                  UserInPhone = s.UserIn.Phone,
                                   s.DateIn,
 
-                                  KindId = s.Tra_Vehicle.TransportId,
-                                  Transport = s.Tra_Vehicle.Transport.Text,
-                                  Route = s.Tra_Vehicle.Tariff.Text,
+                                  KindId = s.Vehicle.TransportId,
+                                  Transport = s.Vehicle.Transport.Text,
+                                  Route = s.Vehicle.Tariff.Text,
 
-                                  s.Tra_Vehicle.Code,
-                                  s.Tra_Vehicle.Seats,
-                                  s.Tra_Vehicle.Beds,
+                                  s.Vehicle.Code,
+                                  s.Vehicle.Seats,
+                                  s.Vehicle.Beds,
 
-                                  Descript = s.Tra_Vehicle.Note,
-                                  s.Tra_Vehicle.Driver,
-                                  s.Tra_Vehicle.Birth,
-                                  s.Tra_Vehicle.Address,
-                                  s.Tra_Vehicle.Phone
+                                  Descript = s.Vehicle.Note,
+                                  s.Vehicle.Driver,
+                                  s.Vehicle.Birth,
+                                  s.Vehicle.Address,
+                                  s.Vehicle.Phone
                               };
                     return res.Take(20).ToDataTable();
                 }
@@ -565,24 +565,24 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
-                          && s.Tra_Vehicle.Fixed == true
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          where s.UserOutId == null
+                          && s.Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Vehicle.Code
                           select new
                           {
                               s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
 
                               s.DateIn,
                               s.Guest,
-                              Route = s.Tra_Vehicle.Tariff.Text,
-                              s.Tra_Vehicle.Node,
+                              Route = s.Vehicle.Tariff.Text,
+                              s.Vehicle.Node,
 
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
-                              Transport = s.Tra_Vehicle.Transport.Text,
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
+                              Transport = s.Vehicle.Transport.Text,
                           };
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res.ToDataTable();
@@ -600,7 +600,7 @@ namespace SKG.DAL
         {
             get
             {
-                return _db.Tra_Details.Count(k => k.Pol_UserOutId == null && k.Tra_Vehicle.Fixed == false);
+                return _db.Tra_Details.Count(k => k.UserOutId == null && k.Vehicle.Fixed == false);
             }
         }
 
@@ -630,8 +630,8 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
                           //where s.DateOut >= min && s.DateOut <= max
                           where s.More.Contains(more)
-                          && s.Tra_Vehicle.Fixed == false
-                          && s.Pol_UserOutId == Global.Session.User.Id
+                          && s.Vehicle.Fixed == false
+                          && s.UserOutId == Global.Session.User.Id
                           orderby s.Order
                           select new
                           {
@@ -641,11 +641,11 @@ namespace SKG.DAL
                               s.More,
                               s.Text,
 
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              UserInPhone = s.UserIn.Phone,
 
-                              UserOutName = s.Pol_UserOut.Name,
-                              Number = s.Tra_Vehicle.Code,
+                              UserOutName = s.UserOut.Name,
+                              Number = s.Vehicle.Code,
 
                               s.DateIn,
                               s.DateOut,
@@ -658,9 +658,9 @@ namespace SKG.DAL
                               s.Price2,
                               s.Money,
 
-                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
-                              GroupCode = s.Tra_Vehicle.Tariff.Group.Code,
-                              KindName = s.Tra_Vehicle.Tariff.Text
+                              GroupName = s.Vehicle.Tariff.Group.Text,
+                              GroupCode = s.Vehicle.Tariff.Group.Code,
+                              KindName = s.Vehicle.Tariff.Text
                           };
                 if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
@@ -685,29 +685,29 @@ namespace SKG.DAL
                 try
                 {
                     var res = from s in _db.Tra_Details
-                              where s.Pol_UserOutId == null
-                              && s.Tra_Vehicle.Fixed == false
+                              where s.UserOutId == null
+                              && s.Vehicle.Fixed == false
                               orderby s.DateIn descending
                               select new
                               {
                                   s.Id,
-                                  UserInName = s.Pol_UserIn.Name,
-                                  UserInPhone = s.Pol_UserIn.Phone,
+                                  UserInName = s.UserIn.Name,
+                                  UserInPhone = s.UserIn.Phone,
                                   s.DateIn,
 
-                                  KindId = s.Tra_Vehicle.TransportId,
-                                  GroupName = s.Tra_Vehicle.Tariff.Group.Text,
-                                  KindName = s.Tra_Vehicle.Tariff.Text,
+                                  KindId = s.Vehicle.TransportId,
+                                  GroupName = s.Vehicle.Tariff.Group.Text,
+                                  KindName = s.Vehicle.Tariff.Text,
 
-                                  s.Tra_Vehicle.Code,
-                                  s.Tra_Vehicle.Seats,
-                                  s.Tra_Vehicle.Beds,
+                                  s.Vehicle.Code,
+                                  s.Vehicle.Seats,
+                                  s.Vehicle.Beds,
 
-                                  Descript = s.Tra_Vehicle.Note,
-                                  s.Tra_Vehicle.Driver,
-                                  s.Tra_Vehicle.Birth,
-                                  s.Tra_Vehicle.Address,
-                                  s.Tra_Vehicle.Phone
+                                  Descript = s.Vehicle.Note,
+                                  s.Vehicle.Driver,
+                                  s.Vehicle.Birth,
+                                  s.Vehicle.Address,
+                                  s.Vehicle.Phone
                               };
 
                     return res.Take(20).ToDataTable();
@@ -726,22 +726,22 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Pol_UserOutId == null
-                          && s.Tra_Vehicle.Fixed == false
-                          orderby s.DateIn descending, s.Tra_Vehicle.Code
+                          where s.UserOutId == null
+                          && s.Vehicle.Fixed == false
+                          orderby s.DateIn descending, s.Vehicle.Code
                           select new
                           {
                               s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
                               s.DateIn,
 
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
 
-                              KindName = s.Tra_Vehicle.Tariff.Text,
-                              GroupName = s.Tra_Vehicle.Tariff.Group.Text,
+                              KindName = s.Vehicle.Tariff.Text,
+                              GroupName = s.Vehicle.Tariff.Group.Text,
                           };
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res.ToDataTable();
@@ -759,12 +759,12 @@ namespace SKG.DAL
             try
             {
                 var res1 = from s in _db.Tra_Details
-                           where s.Pol_UserOutId != null
-                           && s.Tra_Vehicle.Fixed == true
+                           where s.UserOutId != null
+                           && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Parked != s.Money
-                           group s by s.Tra_VehicleId into g
+                           group s by s.VehicleId into g
                            select new
                            {
                                g.Key,
@@ -817,25 +817,25 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where (s.DateOut >= fr && s.DateOut <= to || s.Pol_UserOutId == null)
-                          && s.Tra_Vehicle.Fixed == true
-                          orderby s.DateOut descending, s.DateIn descending, s.Tra_Vehicle.Code
+                          where (s.DateOut >= fr && s.DateOut <= to || s.UserOutId == null)
+                          && s.Vehicle.Fixed == true
+                          orderby s.DateOut descending, s.DateIn descending, s.Vehicle.Code
                           select new
                           {
                               s.Id,
-                              UserInName = s.Pol_UserIn.Name,
-                              Phone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
                               s.DateIn,
                               s.Guest,
-                              Route = s.Tra_Vehicle.Tariff.Text,
-                              s.Tra_Vehicle.Node,
+                              Route = s.Vehicle.Tariff.Text,
+                              s.Vehicle.Node,
 
-                              s.Tra_Vehicle.Code,
-                              s.Tra_Vehicle.Seats,
-                              s.Tra_Vehicle.Beds,
-                              Transport = s.Tra_Vehicle.Transport.Text,
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
+                              Transport = s.Vehicle.Transport.Text,
 
-                              UserOutName = s.Pol_UserOut.Name,
+                              UserOutName = s.UserOut.Name,
                               s.DateOut
                           };
                 return res.ToDataTable();
@@ -863,8 +863,8 @@ namespace SKG.DAL
 
                 var res = from s in _db.Tra_Details
                           //where s.DateOut >= min && s.DateOut <= max
-                          where s.Tra_Vehicle.Fixed == true
-                          && s.Pol_UserOutId == Global.Session.User.Id
+                          where s.Vehicle.Fixed == true
+                          && s.UserOutId == Global.Session.User.Id
                           orderby s.Order
                           select new
                           {
@@ -873,11 +873,11 @@ namespace SKG.DAL
                               s.More,
                               s.Text,
 
-                              UserInName = s.Pol_UserIn.Name,
-                              UserInPhone = s.Pol_UserIn.Phone,
+                              UserInName = s.UserIn.Name,
+                              UserInPhone = s.UserIn.Phone,
 
-                              UserOutName = s.Pol_UserOut.Name,
-                              Number = s.Tra_Vehicle.Code,
+                              UserOutName = s.UserOut.Name,
+                              Number = s.Vehicle.Code,
 
                               s.DateIn,
                               s.DateOut,
@@ -890,11 +890,11 @@ namespace SKG.DAL
                               s.Price1,
                               s.Price2,
 
-                              Region = s.Tra_Vehicle.Tariff.Group.Parent.Parent.Text,
-                              Area = s.Tra_Vehicle.Tariff.Group.Parent.Text,
-                              Province = s.Tra_Vehicle.Tariff.Group.Text,
-                              Route = s.Tra_Vehicle.Tariff.Text,
-                              Transport = s.Tra_Vehicle.Transport.Text,
+                              Region = s.Vehicle.Tariff.Group.Parent.Parent.Text,
+                              Area = s.Vehicle.Tariff.Group.Parent.Text,
+                              Province = s.Vehicle.Tariff.Group.Text,
+                              Route = s.Vehicle.Tariff.Text,
+                              Transport = s.Vehicle.Transport.Text,
 
                               s.Parked,
                               s.Cost,

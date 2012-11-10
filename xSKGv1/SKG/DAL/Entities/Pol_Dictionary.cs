@@ -30,7 +30,7 @@ namespace SKG.DAL.Entities
         [Column(Order = 0), ForeignKey("Parent")]
         public Guid? ParentId { get; set; }
         /// <summary>
-        /// Parent itself
+        /// Parent
         /// </summary>
         public virtual Pol_Dictionary Parent { get; set; }
 

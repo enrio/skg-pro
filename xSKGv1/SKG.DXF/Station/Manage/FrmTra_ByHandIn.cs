@@ -212,7 +212,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
+                var o = new Tra_Detail { VehicleId = (Guid)r["CodeId"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
@@ -237,7 +237,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail { Tra_VehicleId = (Guid)r["CodeId"], DateIn = dt };
+                var o = new Tra_Detail { VehicleId = (Guid)r["CodeId"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {

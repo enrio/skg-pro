@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Create: 10/11/2012 21:48
+ * Update: 10/11/2012 21:48
  * Status: OK
  */
 #endregion
@@ -23,26 +23,34 @@ namespace SKG.DXF.Help.Infor
     public partial class Frm_About : SKG.DXF.FrmMenuz
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(Frm_About);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(Frm_About).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Sản phẩm",
-                    Level = 3,
-                    Order = 996,
-                    Picture = @"Icons\About.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
+        #region Implements
+        #endregion
+
+        #region Overrides
+        #endregion
+
+        #region Methods
         public Frm_About()
         {
             InitializeComponent();
@@ -59,8 +67,12 @@ namespace SKG.DXF.Help.Infor
                 "Điện thoại: 01645 515 010{0}Email:nvt87x@gmail.com";
             textBoxDescription.Text = String.Format(str, Environment.NewLine);
         }
+        #endregion
 
-        #region Assembly Attribute Accessors
+        #region Events
+        #endregion
+
+        #region Properties
         public string AssemblyTitle
         {
             get
@@ -137,6 +149,13 @@ namespace SKG.DXF.Help.Infor
                 return ((AssemblyCompanyAttribute)attributes[0]).Company;
             }
         }
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Sản phẩm";
         #endregion
     }
 }

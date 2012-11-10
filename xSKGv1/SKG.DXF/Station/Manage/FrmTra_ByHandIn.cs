@@ -247,28 +247,12 @@ namespace SKG.DXF.Station.Manage
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
+            grvFixed.SetGridViewStandard();
+            grvNormal.SetGridViewStandard();
 
             AllowEdit = false;
             AllowDelete = false;
             AllowRefresh = false;
-
-            grvFixed.Columns["No_"].Visible = false; // hide No_ column
-            grvFixed.OptionsView.ShowAutoFilterRow = true;
-            grvFixed.OptionsBehavior.Editable = false;
-            grvFixed.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvFixed.IndicatorWidth = 50;
-
-            grvNormal.Columns["No_"].Visible = false; // hide No_ column
-            grvNormal.OptionsView.ShowAutoFilterRow = true;
-            grvNormal.OptionsBehavior.Editable = false;
-            grvNormal.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvNormal.IndicatorWidth = 50;
         }
 
         /// <summary>

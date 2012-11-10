@@ -131,6 +131,7 @@ namespace SKG.DXF.Station.Sumary
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
+            grvMain.SetGridViewStandard();
 
             AllowAdd = false;
             AllowEdit = false;
@@ -138,15 +139,6 @@ namespace SKG.DXF.Station.Sumary
             AllowCancel = false;
             AllowFind = false;
             AllowPrint = true;
-
-            grvMain.Columns["No_"].Visible = false; // hide No_ column
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.IndicatorWidth = 50;
 
             var d = Global.Session.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;

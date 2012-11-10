@@ -166,19 +166,11 @@ namespace SKG.DXF.Station.Fixed
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
+            grvMain.SetGridViewStandard();
 
             AllowAdd = false;
             AllowDelete = false;
             AllowPrint = true;
-
-            grvMain.Columns["No_"].Visible = false; // hide No_ column
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.IndicatorWidth = 50;
 
             dteMonth.DateTime = Global.Session.Current;
         }

@@ -143,21 +143,13 @@ namespace SKG.DXF.Station.InDepot
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
+            grvMain.SetGridViewStandard();
 
             AllowAdd = false;
             AllowEdit = false;
             AllowSave = false;
             AllowCancel = false;
             AllowPrint = false;
-
-            grvMain.Columns["No_"].Visible = false; // hide No_ column
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-            grvMain.Appearance.BandPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            grvMain.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-            grvMain.IndicatorWidth = 50;
         }
         #endregion
 

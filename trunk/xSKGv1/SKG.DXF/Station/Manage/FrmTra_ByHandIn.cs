@@ -104,6 +104,7 @@ namespace SKG.DXF.Station.Manage
             grvFixed.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvFixed.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvFixed.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvFixed.IndicatorWidth = 40;
 
             grvNormal.OptionsView.ShowAutoFilterRow = true;
             grvNormal.OptionsBehavior.Editable = false;
@@ -111,6 +112,7 @@ namespace SKG.DXF.Station.Manage
             grvNormal.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
             grvNormal.Appearance.HeaderPanel.Options.UseTextOptions = true;
             grvNormal.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+            grvNormal.IndicatorWidth = 40;
         }
 
         #region Overrides
@@ -332,6 +334,27 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Events
+
+        #region Numbered
+        private void grvFixed_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
+            }
+        }
+
+        private void grvNormal_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator)
+            {
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
+            }
+        }
+        #endregion
+
         #endregion
     }
 }

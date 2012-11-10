@@ -116,7 +116,7 @@ namespace SKG.DXF.Station.Manage
 
             #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            _tbFixed.Columns.Add("Route");
+            _tbFixed.Columns.Add("Tariff");
             _tbFixed.Columns.Add("Transport");
 
             foreach (DataRow r in _tbFixed.Rows)
@@ -126,7 +126,7 @@ namespace SKG.DXF.Station.Manage
 
                 if (ve == null)
                 {
-                    r.RowError = "Xe chưa có trong danh sách quản lí";
+                    r.RowError = "Không có trong danh sách quản lí";
                     r["Note"] = r.RowError;
                 }
                 else
@@ -135,16 +135,16 @@ namespace SKG.DXF.Station.Manage
                     {
                         if (ve.Tariff == null)
                         {
-                            r.RowError = "Xe chưa đăng kí tuyến";
+                            r.RowError = "Không đăng kí tuyến";
                             r["Note"] = r.RowError;
                         }
                         else
                         {
-                            r["Route"] = ve.Tariff.Text;
+                            r["Tariff"] = ve.Tariff.Text;
                             r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
                             r["Seats"] = ve.Seats;
                             r["Beds"] = ve.Beds;
-                            r["CodeId"] = ve.Id;
+                            r["Id"] = ve.Id;
                         }
                     }
                     else
@@ -168,9 +168,8 @@ namespace SKG.DXF.Station.Manage
 
                 if (ve == null)
                 {
-                    var ve_x = new Tra_Vehicle { Code = bs };
-                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Kind"] + "");
-                    r["Kind"] = tar.Text;
+                    var v = new Tra_Vehicle { Code = bs };
+                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
 
                     if (tar == null)
                     {
@@ -179,14 +178,16 @@ namespace SKG.DXF.Station.Manage
                     }
                     else
                     {
-                        ve_x.TariffId = tar.Id;
+                        r["Tariff"] = tar.Text;
+                        v.TariffId = tar.Id;
+
                         var seats = r["Seats"] + "";
                         var beds = r["Beds"] + "";
 
-                        ve_x.Seats = seats.ToInt32();
-                        ve_x.Beds = beds.ToInt32();
+                        v.Seats = seats.ToInt32();
+                        v.Beds = beds.ToInt32();
 
-                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(ve_x);
+                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
                         if (tmp == null)
                         {
                             r.RowError = "Không thêm thông tin xe được!";
@@ -194,7 +195,7 @@ namespace SKG.DXF.Station.Manage
                         }
                         else
                         {
-                            r["CodeId"] = tmp.Id;
+                            r["Id"] = tmp.Id;
                         }
                     }
                 }
@@ -202,11 +203,11 @@ namespace SKG.DXF.Station.Manage
                 {
                     if (!ve.Fixed)
                     {
-                        r["Kind"] = ve.Tariff.Text;
+                        r["Tariff"] = ve.Tariff.Text;
                         r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
                         r["Seats"] = ve.Seats ?? 0;
                         r["Beds"] = ve.Beds ?? 0;
-                        r["CodeId"] = ve.Id;
+                        r["Id"] = ve.Id;
                     }
                     else
                     {
@@ -226,7 +227,7 @@ namespace SKG.DXF.Station.Manage
             int fix = 0, normal = 0;
 
             #region Fixed
-            var dtr = _tbFixed.Select("[CodeId] Is Not Null ");
+            var dtr = _tbFixed.Select("[Id] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
@@ -236,7 +237,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail { VehicleId = (Guid)r["CodeId"], DateIn = dt };
+                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
@@ -252,7 +253,7 @@ namespace SKG.DXF.Station.Manage
             #endregion
 
             #region Normal
-            dtr = _tbNormal.Select("[CodeId] Is Not Null ");
+            dtr = _tbNormal.Select("[Id] Is Not Null ");
             foreach (DataRow r in dtr)
             {
                 var dt = Global.Session.Current;
@@ -262,7 +263,7 @@ namespace SKG.DXF.Station.Manage
                     continue;
                 }
 
-                var o = new Tra_Detail { VehicleId = (Guid)r["CodeId"], DateIn = dt };
+                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
 
                 if (_bll.Tra_Detail.Insert(o) == null)
                 {
@@ -299,7 +300,7 @@ namespace SKG.DXF.Station.Manage
 
             if (sheetName.ToLower() == "vanglai")
             {
-                tb.Columns[3].ColumnName = "Kind";
+                tb.Columns[3].ColumnName = "Tariff";
                 tb.Columns[4].ColumnName = "Seats";
                 tb.Columns[5].ColumnName = "Beds";
             }
@@ -309,7 +310,7 @@ namespace SKG.DXF.Station.Manage
                 tb.Columns.Add("Beds");
             }
 
-            tb.Columns.Add("CodeId", typeof(Guid));
+            tb.Columns.Add("Id", typeof(Guid));
             tb.Columns.Add("Note");
             return tb;
         }

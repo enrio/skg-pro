@@ -24,49 +24,31 @@ namespace SKG.DXF.Home.Catalog
     public partial class FrmPol_Dictionary : SKG.DXF.FrmInput
     {
         #region Override plugin
-        public override Form Form { get { return this; } }
-
         public override Menuz Menuz
         {
             get
             {
+                var type = typeof(FrmPol_Dictionary);
+                var name = Global.GetIconName(type);
+
                 var menu = new Menuz
                 {
-                    Code = typeof(FrmPol_Dictionary).FullName,
+                    Code = type.FullName,
                     Parent = typeof(Level2).FullName,
-                    Text = "Từ điển",
-                    Level = 0,
-                    Order = 12,
-                    Picture = @"Icons\Dictionary.png"
+                    Text = STR_TITLE,
+                    Level = 1,
+                    Order = 0,
+                    Picture = String.Format(Global.STR_ICON, name)
                 };
                 return menu;
             }
         }
         #endregion
 
-        public FrmPol_Dictionary()
-        {
-            InitializeComponent();
+        #region Implements
+        #endregion
 
-            dockPanel1.SetDockPanel("Nhập liệu");
-            dockPanel2.SetDockPanel("Danh sách");
-
-            grvMain.OptionsView.ShowAutoFilterRow = true;
-            grvMain.OptionsBehavior.Editable = false;
-        }
-
-        private void FrmPol_Dictionary_Load(object sender, EventArgs e)
-        {
-            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
-            lokList.ItemIndex = 0;
-        }
-
-        private void lokList_EditValueChanged(object sender, EventArgs e)
-        {
-            PerformRefresh();
-        }
-
-        #region Override
+        #region Overrides
         protected override void SetNullPrompt()
         {
             txtText.Properties.NullValuePrompt = String.Format("Nhập {0}", lblText.Text.ToBetween(null, ":", Format.Lower));
@@ -274,13 +256,48 @@ namespace SKG.DXF.Home.Catalog
         }
         #endregion
 
-        private const string STR_ADD = "Thêm ngôn ngữ";
-        private const string STR_EDIT = "Sửa ngôn ngữ";
-        private const string STR_DELETE = "Xoá ngôn ngữ";
+        #region Methods
+        public FrmPol_Dictionary()
+        {
+            InitializeComponent();
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+
+            grvMain.OptionsView.ShowAutoFilterRow = true;
+            grvMain.OptionsBehavior.Editable = false;
+        }
+        #endregion
+
+        #region Events
+        private void FrmPol_Dictionary_Load(object sender, EventArgs e)
+        {
+            lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectRoot();
+            lokList.ItemIndex = 0;
+        }
+
+        private void lokList_EditValueChanged(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
+        #endregion
+
+        #region Properties
+        #endregion
+
+        #region Fields
+        #endregion
+
+        #region Constants
+        private const string STR_TITLE = "Từ điển";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
+        #endregion
     }
 }

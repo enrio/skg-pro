@@ -250,43 +250,31 @@ namespace SKG.DXF.Station.Manage
             {
                 cmdInvoice.Enabled = true;
                 lkeNumber.Properties.DataSource = _dtb;
+                lkeNumber.ItemIndex = 0;
             }
-            else
-            {
-                cmdInvoice.Enabled = false;
-
-                lblHalfDay.Text = "Nửa ngày:";
-                lblFullDay.Text = "Một ngày:";
-            }
+            else cmdInvoice.Enabled = false;
 
             base.LoadData();
         }
 
         protected override void ResetInput()
         {
-            lblHalfDay.Text = null;
-            lblFullDay.Text = null;
-
-            lblMoney.Text = null;
-            lblNumber.Text = null;
-
-            lblDateIn.Text = null;
-            lblDateOut.Text = null;
+            lblGroup.Text = null;
+            lblKind.Text = null;
 
             lblSeats.Text = null;
             lblBeds.Text = null;
 
-            lblPrice1.Text = null;
-            lblRose1.Text = null;
-
-            lblPrice2.Text = null;
-            lblRose2.Text = null;
+            lblDateIn.Text = null;
+            lblDateOut.Text = null;
 
             lblDeposit.Text = null;
-            lblNote.Text = null;
-
             lblUserIn.Text = null;
             lblPhone.Text = null;
+
+            lblNumber.Text = null;
+            lblNote.Text = null;
+            lblMoney.Text = null;
 
             base.ResetInput();
         }

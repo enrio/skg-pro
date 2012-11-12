@@ -64,208 +64,26 @@ namespace SKG.DXF.Station.Manage
                 return;
             }
 
-            #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            foreach (DataRow r in _tbFixed.Rows)
-            {
-                var bs = r["Code"] + "";
-                var dt = Global.Session.Current;
-
-                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
-                {
-                    r.RowError = STR_ERR_DATE;
-                    r["Note"] = r.RowError;
-                    continue;
-                }
-
-                var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
-                if (det == null)
-                {
-                    r.RowError = STR_IN_DEPOT;
-                    r["Note"] = r.RowError;
-
-                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                    if (ve == null)
-                    {
-                        r.RowError = STR_NO_LIST;
-                        r["Note"] = r.RowError;
-                    }
-                    else
-                    {
-                        if (ve.Fixed)
-                        {
-                            if (ve.Tariff == null)
-                            {
-                                r.RowError = STR_NO_ROUTE;
-                                r["Note"] = r.RowError;
-                            }
-                            else
-                            {
-                                r["Tariff"] = ve.Tariff.Text;
-                                r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-
-                                r["Seats"] = ve.Seats ?? 0;
-                                r["Beds"] = ve.Beds ?? 0;
-                            }
-                        }
-                        else
-                        {
-                            r.RowError = STR_NORMAL;
-                            r["Note"] = r.RowError;
-                        }
-                    }
-                }
-                else
-                {
-                    r["Tariff"] = det.Vehicle.Tariff.Text;
-                    r["Transport"] = det.Vehicle.Transport.Text;
-
-                    r["Seats"] = det.Vehicle.Seats ?? 0;
-                    r["Beds"] = det.Vehicle.Beds ?? 0;
-
-                    r["UserOut"] = Global.Session.User.Name;
-
-                    r["UserIn"] = det.UserIn.Name;
-                    r["DateIn"] = det.DateIn;
-                    r["Phone"] = det.UserIn.Phone;
-
-                    r["Cost"] = det.Cost;
-                    r["Rose"] = det.Rose;
-                    r["Parked"] = det.Parked;
-                    r["Money"] = det.Money;
-                }
-            }
+            InvoiceOut(_tbFixed.Rows, false);
             grcFixed.DataSource = _tbFixed;
-            #endregion
 
-            #region Normal
             _tbNormal = ImportData(open.FileName, "Vanglai");
-            foreach (DataRow r in _tbNormal.Rows)
-            {
-                var bs = r["Code"] + "";
-                var dt = Global.Session.Current;
-
-                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
-                {
-                    r.RowError = STR_ERR_DATE;
-                    r["Note"] = r.RowError;
-                    continue;
-                }
-
-                var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
-                if (det == null)
-                {
-                    r.RowError = STR_IN_DEPOT;
-                    r["Note"] = r.RowError;
-
-                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                    if (ve == null)
-                    {
-                        r.RowError = STR_NO_LIST;
-                        r["Note"] = r.RowError;
-                    }
-                    else
-                    {
-                        if (!ve.Fixed)
-                        {
-                            r["Tariff"] = ve.Tariff.Text;
-                            r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-
-                            r["Seats"] = ve.Seats ?? 0;
-                            r["Beds"] = ve.Beds ?? 0;
-                        }
-                        else
-                        {
-                            r.RowError = STR_FIXED;
-                            r["Note"] = r.RowError;
-                        }
-                    }
-                }
-                else
-                {
-                    r["Tariff"] = det.Vehicle.Tariff.Text;
-                    r["Group"] = det.Vehicle.Tariff.Group.Text;
-
-                    r["Seats"] = det.Vehicle.Seats ?? 0;
-                    r["Beds"] = det.Vehicle.Beds ?? 0;
-
-                    r["UserOut"] = Global.Session.User.Name;
-
-                    r["UserIn"] = det.UserIn.Name;
-                    r["DateIn"] = det.DateIn;
-                    r["Phone"] = det.UserIn.Phone;
-
-                    r["Cost"] = det.Cost;
-                    r["Rose"] = det.Rose;
-                    r["Parked"] = det.Parked;
-                    r["Money"] = det.Money;
-                }
-            }
+            InvoiceOut(_tbNormal.Rows, false);
             grcNormal.DataSource = _tbNormal;
-            #endregion
 
             base.PerformAdd();
         }
 
         protected override void PerformSave()
         {
-            int fix = 0, normal = 0;
+            var fix = InvoiceOut(_tbFixed.Rows, true);
+            grcFixed.DataSource = _tbFixed;
 
-            #region Fixed
-            var dtr = _tbFixed.Select("[Id] Is Not Null ");
-            foreach (DataRow r in dtr)
-            {
-                var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                {
-                    r["Note"] = STR_ERR_DATE;
-                    continue;
-                }
+            var nor = InvoiceOut(_tbNormal.Rows, true);
+            grcNormal.DataSource = _tbNormal;
 
-                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
-
-                if (_bll.Tra_Detail.Insert(o) == null)
-                {
-                    r["Note"] = STR_IN_DEPOT;
-                    continue;
-                }
-                else
-                {
-                    r["Note"] = STR_ENTERED;
-                    fix++;
-                }
-            }
-            #endregion
-
-            #region Normal
-            dtr = _tbNormal.Select("[Id] Is Not Null ");
-            foreach (DataRow r in dtr)
-            {
-                var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                {
-                    r["Note"] = STR_ERR_DATE;
-                    continue;
-                }
-
-                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
-
-                if (_bll.Tra_Detail.Insert(o) == null)
-                {
-                    r["Note"] = STR_IN_DEPOT;
-                    continue;
-                }
-                else
-                {
-                    r["Note"] = STR_ENTERED;
-                    normal++;
-                }
-            }
-            #endregion
-
-            XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
+            XtraMessageBox.Show(String.Format(STR_INTO, fix, nor), Text);
             PerformCancel();
 
             base.PerformSave();
@@ -332,46 +150,45 @@ namespace SKG.DXF.Station.Manage
             int count = 0;
             foreach (DataRow r in dtr)
             {
-                var bs = r["Code"] + "";
-                var dt = Global.Session.Current;
+                var code = r["Code"] + "";
+                var date = Global.Session.Current;
 
-                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                if (!DateTime.TryParse(r["DateOut"] + "", out date))
                 {
                     r.RowError = STR_ERR_DATE;
                     r["Note"] = r.RowError;
                     continue;
                 }
 
-                var det = _bll.Tra_Detail.InvoiceOut(bs, isOut, dt);
-                if (det == null)
+                var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date);
+                if (d == null)
                 {
                     r.RowError = STR_IN_DEPOT;
                     r["Note"] = r.RowError;
 
-                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                    if (ve == null)
+                    var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(code);
+                    if (v == null)
                     {
                         r.RowError = STR_NO_LIST;
                         r["Note"] = r.RowError;
                     }
                     else
                     {
-                        if (ve.Fixed)
+                        if (v.Fixed)
                         {
-                            if (ve.Tariff == null)
+                            if (v.Tariff == null)
                             {
                                 r.RowError = STR_NO_ROUTE;
                                 r["Note"] = r.RowError;
                             }
                             else
                             {
-                                r["Tariff"] = ve.Tariff.Text;
-                                r["Group"] = ve.Tariff.Group.Text;
-                                r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                                r["Tariff"] = v.Tariff.Text;
+                                r["Group"] = v.Tariff.Group.Text;
+                                r["Transport"] = v.Transport == null ? "" : v.Transport.Text;
 
-                                r["Seats"] = ve.Seats;
-                                r["Beds"] = ve.Beds;
+                                r["Seats"] = v.Seats;
+                                r["Beds"] = v.Beds;
                             }
                         }
                         else
@@ -383,24 +200,24 @@ namespace SKG.DXF.Station.Manage
                 }
                 else
                 {
-                    r["Tariff"] = det.Vehicle.Tariff.Text;
-                    r["Group"] = det.Vehicle.Tariff.Group.Text;
-                    r["Transport"] = det.Vehicle.Transport.Text;
+                    r["Tariff"] = d.Vehicle.Tariff.Text;
+                    r["Group"] = d.Vehicle.Tariff.Group.Text;
+                    r["Transport"] = d.Vehicle.Transport == null ? "" : d.Vehicle.Transport.Text;
 
-                    r["Seats"] = det.Vehicle.Seats;
-                    r["Beds"] = det.Vehicle.Beds;
+                    r["Seats"] = d.Vehicle.Seats;
+                    r["Beds"] = d.Vehicle.Beds;
 
                     r["UserOut"] = Global.Session.User.Name;
-                    r["DateOut"] = det.DateOut;
+                    r["DateOut"] = d.DateOut;
 
-                    r["UserIn"] = det.UserIn.Name;
-                    r["DateIn"] = det.DateIn;
-                    r["Phone"] = det.UserIn.Phone;
+                    r["UserIn"] = d.UserIn.Name;
+                    r["DateIn"] = d.DateIn;
+                    r["Phone"] = d.UserIn.Phone;
 
-                    r["Cost"] = det.Cost;
-                    r["Rose"] = det.Rose;
-                    r["Parked"] = det.Parked;
-                    r["Money"] = det.Money;
+                    r["Cost"] = d.Cost;
+                    r["Rose"] = d.Rose;
+                    r["Parked"] = d.Parked;
+                    r["Money"] = d.Money;
 
                     count++;
                 }
@@ -463,7 +280,7 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Nhập xe bằng tay";
+        private const string STR_TITLE = "Xuất xe bằng tay";
 
         private const string STR_ERR_DATE = "Thời gian nhập sai";
         private const string STR_NO_LIST = "Không có trong danh sách";
@@ -476,7 +293,7 @@ namespace SKG.DXF.Station.Manage
 
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
-        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
 
         public const string STR_PAN1 = "XE CỐ ĐỊNH";
         public const string STR_PAN2 = "XE VÃNG LAI";

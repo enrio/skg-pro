@@ -139,6 +139,7 @@ namespace SKG.DXF.Station.Sumary
             AllowSave = false;
             AllowCancel = false;
             AllowFind = false;
+            AllowRefresh = false;
             AllowPrint = true;
 
             var d = Global.Session.Current;

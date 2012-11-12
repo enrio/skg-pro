@@ -134,6 +134,7 @@ namespace SKG.DXF.Station.Sumary
             AllowEdit = false;
             AllowSave = false;
             AllowCancel = false;
+            AllowRefresh = false;
             AllowFind = false;
             AllowPrint = true;
 

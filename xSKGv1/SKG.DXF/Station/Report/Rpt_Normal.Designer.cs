@@ -221,14 +221,15 @@
             // xrTableCell27
             // 
             this.xrTableCell27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Number")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Code")});
             this.xrTableCell27.Name = "xrTableCell27";
+            this.xrTableCell27.Text = "xrTableCell27";
             this.xrTableCell27.Weight = 0.34366787378911634D;
             // 
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.KindName")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Tariff")});
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Text = "xrTableCell2";
             this.xrTableCell2.Weight = 0.42474206234685441D;
@@ -531,7 +532,7 @@
             this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(373.7946F, 0F);
             this.xrLabel1.Name = "xrLabel1";
             this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(735.2053F, 51.56249F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(735.2053F, 103.125F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
             this.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE";
@@ -647,7 +648,7 @@
             // xrTableCell4
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOutName")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOut")});
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.Text = "xrTableCell4";
@@ -695,13 +696,13 @@
             this.xrTable7,
             this.xrTable6,
             this.xrTable5});
-            this.ReportFooter.HeightF = 333.1251F;
+            this.ReportFooter.HeightF = 321.6668F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(34.375F, 169.1666F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(34.90359F, 157.7082F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(109.375F, 20.83333F);
@@ -716,7 +717,7 @@
                         | DevExpress.XtraPrinting.BorderSide.Right)
                         | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable9.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(34.37504F, 190F);
+            this.xrTable9.LocationFloat = new DevExpress.Utils.PointFloat(34.90365F, 178.5417F);
             this.xrTable9.Name = "xrTable9";
             this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow18,
@@ -908,9 +909,9 @@
             // xrLabel2
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOutName")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.UserOut")});
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(784.6932F, 194.1667F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(774.6934F, 178.5417F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel2.SizeF = new System.Drawing.SizeF(324.3066F, 20.83333F);
@@ -922,7 +923,7 @@
             // xrTable7
             // 
             this.xrTable7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(784.6932F, 46.875F);
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(774.6936F, 35.41667F);
             this.xrTable7.Name = "xrTable7";
             this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow15,
@@ -965,7 +966,7 @@
             // xrTable6
             // 
             this.xrTable6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(34.375F, 46.875F);
+            this.xrTable6.LocationFloat = new DevExpress.Utils.PointFloat(34.90359F, 35.41667F);
             this.xrTable6.Name = "xrTable6";
             this.xrTable6.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow13,
@@ -1184,7 +1185,7 @@
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel1,
             this.xrTable2});
-            this.ReportHeader.HeightF = 122.9167F;
+            this.ReportHeader.HeightF = 111.4584F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // PageHeader

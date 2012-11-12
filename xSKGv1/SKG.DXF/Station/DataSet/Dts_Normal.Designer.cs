@@ -281,11 +281,11 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnNo_;
             
-            private global::System.Data.DataColumn columnUserInName;
+            private global::System.Data.DataColumn columnUserIn;
             
-            private global::System.Data.DataColumn columnUserOutName;
+            private global::System.Data.DataColumn columnUserOut;
             
-            private global::System.Data.DataColumn columnNumber;
+            private global::System.Data.DataColumn columnCode;
             
             private global::System.Data.DataColumn columnDateIn;
             
@@ -293,7 +293,7 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnMoney;
             
-            private global::System.Data.DataColumn columnKindName;
+            private global::System.Data.DataColumn columnTariff;
             
             private global::System.Data.DataColumn columnPrice1;
             
@@ -356,25 +356,25 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UserInNameColumn {
+            public global::System.Data.DataColumn UserInColumn {
                 get {
-                    return this.columnUserInName;
+                    return this.columnUserIn;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UserOutNameColumn {
+            public global::System.Data.DataColumn UserOutColumn {
                 get {
-                    return this.columnUserOutName;
+                    return this.columnUserOut;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NumberColumn {
+            public global::System.Data.DataColumn CodeColumn {
                 get {
-                    return this.columnNumber;
+                    return this.columnCode;
                 }
             }
             
@@ -404,9 +404,9 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn KindNameColumn {
+            public global::System.Data.DataColumn TariffColumn {
                 get {
-                    return this.columnKindName;
+                    return this.columnTariff;
                 }
             }
             
@@ -521,13 +521,13 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueRow AddRevenueRow(
                         string No_, 
-                        string UserInName, 
-                        string UserOutName, 
-                        string Number, 
+                        string UserIn, 
+                        string UserOut, 
+                        string Code, 
                         System.DateTime DateIn, 
                         System.DateTime DateOut, 
                         decimal Money, 
-                        string KindName, 
+                        string Tariff, 
                         long Price1, 
                         long Price2, 
                         int FullDay, 
@@ -540,13 +540,13 @@ namespace SKG.DXF.Station.DataSet {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
-                        UserInName,
-                        UserOutName,
-                        Number,
+                        UserIn,
+                        UserOut,
+                        Code,
                         DateIn,
                         DateOut,
                         Money,
-                        KindName,
+                        Tariff,
                         Price1,
                         Price2,
                         FullDay,
@@ -579,13 +579,13 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnNo_ = base.Columns["No_"];
-                this.columnUserInName = base.Columns["UserInName"];
-                this.columnUserOutName = base.Columns["UserOutName"];
-                this.columnNumber = base.Columns["Number"];
+                this.columnUserIn = base.Columns["UserIn"];
+                this.columnUserOut = base.Columns["UserOut"];
+                this.columnCode = base.Columns["Code"];
                 this.columnDateIn = base.Columns["DateIn"];
                 this.columnDateOut = base.Columns["DateOut"];
                 this.columnMoney = base.Columns["Money"];
-                this.columnKindName = base.Columns["KindName"];
+                this.columnTariff = base.Columns["Tariff"];
                 this.columnPrice1 = base.Columns["Price1"];
                 this.columnPrice2 = base.Columns["Price2"];
                 this.columnFullDay = base.Columns["FullDay"];
@@ -602,20 +602,20 @@ namespace SKG.DXF.Station.DataSet {
             private void InitClass() {
                 this.columnNo_ = new global::System.Data.DataColumn("No_", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNo_);
-                this.columnUserInName = new global::System.Data.DataColumn("UserInName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserInName);
-                this.columnUserOutName = new global::System.Data.DataColumn("UserOutName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserOutName);
-                this.columnNumber = new global::System.Data.DataColumn("Number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumber);
+                this.columnUserIn = new global::System.Data.DataColumn("UserIn", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserIn);
+                this.columnUserOut = new global::System.Data.DataColumn("UserOut", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUserOut);
+                this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCode);
                 this.columnDateIn = new global::System.Data.DataColumn("DateIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateIn);
                 this.columnDateOut = new global::System.Data.DataColumn("DateOut", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateOut);
                 this.columnMoney = new global::System.Data.DataColumn("Money", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMoney);
-                this.columnKindName = new global::System.Data.DataColumn("KindName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnKindName);
+                this.columnTariff = new global::System.Data.DataColumn("Tariff", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTariff);
                 this.columnPrice1 = new global::System.Data.DataColumn("Price1", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice1);
                 this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(long), null, global::System.Data.MappingType.Element);
@@ -792,49 +792,49 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string UserInName {
+            public string UserIn {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.UserInNameColumn]));
+                        return ((string)(this[this.tableRevenue.UserInColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserInName\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserIn\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.UserInNameColumn] = value;
+                    this[this.tableRevenue.UserInColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string UserOutName {
+            public string UserOut {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.UserOutNameColumn]));
+                        return ((string)(this[this.tableRevenue.UserOutColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserOutName\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UserOut\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.UserOutNameColumn] = value;
+                    this[this.tableRevenue.UserOutColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Number {
+            public string Code {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.NumberColumn]));
+                        return ((string)(this[this.tableRevenue.CodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Number\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Code\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.NumberColumn] = value;
+                    this[this.tableRevenue.CodeColumn] = value;
                 }
             }
             
@@ -888,17 +888,17 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string KindName {
+            public string Tariff {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.KindNameColumn]));
+                        return ((string)(this[this.tableRevenue.TariffColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'KindName\' in table \'Revenue\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tariff\' in table \'Revenue\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableRevenue.KindNameColumn] = value;
+                    this[this.tableRevenue.TariffColumn] = value;
                 }
             }
             
@@ -1060,38 +1060,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUserInNameNull() {
-                return this.IsNull(this.tableRevenue.UserInNameColumn);
+            public bool IsUserInNull() {
+                return this.IsNull(this.tableRevenue.UserInColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUserInNameNull() {
-                this[this.tableRevenue.UserInNameColumn] = global::System.Convert.DBNull;
+            public void SetUserInNull() {
+                this[this.tableRevenue.UserInColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUserOutNameNull() {
-                return this.IsNull(this.tableRevenue.UserOutNameColumn);
+            public bool IsUserOutNull() {
+                return this.IsNull(this.tableRevenue.UserOutColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUserOutNameNull() {
-                this[this.tableRevenue.UserOutNameColumn] = global::System.Convert.DBNull;
+            public void SetUserOutNull() {
+                this[this.tableRevenue.UserOutColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNumberNull() {
-                return this.IsNull(this.tableRevenue.NumberColumn);
+            public bool IsCodeNull() {
+                return this.IsNull(this.tableRevenue.CodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNumberNull() {
-                this[this.tableRevenue.NumberColumn] = global::System.Convert.DBNull;
+            public void SetCodeNull() {
+                this[this.tableRevenue.CodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1132,14 +1132,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsKindNameNull() {
-                return this.IsNull(this.tableRevenue.KindNameColumn);
+            public bool IsTariffNull() {
+                return this.IsNull(this.tableRevenue.TariffColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetKindNameNull() {
-                this[this.tableRevenue.KindNameColumn] = global::System.Convert.DBNull;
+            public void SetTariffNull() {
+                this[this.tableRevenue.TariffColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

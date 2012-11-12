@@ -67,8 +67,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            _tbFixed.Columns.Add("Transport");
-
             foreach (DataRow r in _tbFixed.Rows)
             {
                 var bs = r["Code"] + "";
@@ -112,8 +110,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Normal
             _tbNormal = ImportData(open.FileName, "Vanglai");
-            _tbNormal.Columns.Add("Group");
-
             foreach (DataRow r in _tbNormal.Rows)
             {
                 var bs = r["Code"] + "";
@@ -245,6 +241,7 @@ namespace SKG.DXF.Station.Manage
 
             dockPanel1.SetDockPanel(STR_PAN1);
             dockPanel2.SetDockPanel(STR_PAN2);
+
             grvFixed.SetStandard();
             grvNormal.SetStandard();
 
@@ -271,24 +268,22 @@ namespace SKG.DXF.Station.Manage
             if (sheetName.ToLower() == "vanglai")
             {
                 tb.Columns[3].ColumnName = "Tariff";
-
                 tb.Columns[4].ColumnName = "Seats";
-                tb.Columns[4].DataType = typeof(int?);
-
                 tb.Columns[5].ColumnName = "Beds";
-                tb.Columns[5].DataType = typeof(int?);
             }
             else
             {
                 tb.Columns.Add("Tariff");
-
-                tb.Columns.Add("Seats", typeof(int?));
-                tb.Columns.Add("Beds", typeof(int?));
+                tb.Columns.Add("Seats");
+                tb.Columns.Add("Beds");
             }
 
             tb.Columns.Add("Id", typeof(Guid));
             tb.Columns.Add("UserIn");
             tb.Columns.Add("Note");
+
+            tb.Columns.Add("Transport");
+            tb.Columns.Add("Group");
             return tb;
         }
         #endregion

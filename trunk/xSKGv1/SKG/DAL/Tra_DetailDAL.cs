@@ -216,10 +216,10 @@ namespace SKG.DAL
 
         #region Private methods
         /// <summary>
-        /// Find vihicle in depot
+        /// Find vehicle in depot
         /// </summary>
-        /// <param name="group">Group of vihicle</param>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="group">Group of vehicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         private IQueryable<dynamic> FindInDepot(Group group, string number = null)
         {
@@ -283,12 +283,12 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Find vihicle out depot
+        /// Find vehicle out depot
         /// </summary>
         /// <param name="group">Group of vihicel</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         private IQueryable<dynamic> FindOutDepot(Group group, DateTime fr, DateTime to, string number = null)
         {
@@ -358,9 +358,9 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// List of all vihicle in depot
+        /// List of all vehicle in depot
         /// </summary>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         public DataTable GetInDepot(string number = null)
         {
@@ -368,11 +368,11 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of all vihicle in depot
+        /// List of all vehicle in depot
         /// </summary>
-        /// <param name="fix">Number of vihicle fixed</param>
-        /// <param name="nor">Number of vihicle normal</param>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="fix">Number of vehicle fixed</param>
+        /// <param name="nor">Number of vehicle normal</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         public DataTable GetInDepot(out int fix, out int nor, string number = null)
         {
@@ -384,11 +384,11 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of all vihicle out depot
+        /// List of all vehicle out depot
         /// </summary>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         public DataTable GetOutDepot(DateTime fr, DateTime to, string number = null)
         {
@@ -396,9 +396,9 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Charge money and exit vihicle out gate
+        /// Charge money and exit vehicle out gate
         /// </summary>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <param name="isOut">True allow out gate else charge money</param>
         /// <param name="dateOut">Out gate date time</param>
         /// <returns></returns>
@@ -506,9 +506,9 @@ namespace SKG.DAL
             catch { return null; }
         }
 
-        #region Vihicle fixed
+        #region Vehicle fixed
         /// <summary>
-        /// Sum of vihicle fixed in depot
+        /// Sum of vehicle fixed in depot
         /// </summary>
         /// <returns></returns>
         public int SumInDepotFixed
@@ -520,7 +520,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vihicle fixed from 13:00 yesterday ago to 13:00 today
+        /// Revenue of vehicle fixed from 13:00 yesterday ago to 13:00 today
         /// </summary>
         /// <param name="sum">Sum of money</param>
         /// <returns></returns>
@@ -540,7 +540,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of 20 lastest vihicles normal
+        /// List of 20 lastest vehicles normal
         /// </summary>
         public DataTable GetLatestFixed
         {
@@ -580,9 +580,9 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List all of vihicles fixed in depot
+        /// List all of vehicles fixed in depot
         /// </summary>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         public DataTable GetInDepotFixed(string number = null)
         {
@@ -590,7 +590,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sumary vihicle fixed
+        /// Sumary vehicle fixed
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>
@@ -649,7 +649,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vihicle fixed
+        /// Revenue of vehicle fixed
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>
@@ -751,9 +751,9 @@ namespace SKG.DAL
         }
         #endregion
 
-        #region Vihicle normal
+        #region Vehicle normal
         /// <summary>
-        /// Sum of vihicle normal in depot
+        /// Sum of vehicle normal in depot
         /// </summary>
         /// <returns></returns>
         public int SumInDepotNormal
@@ -765,10 +765,10 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vihicle normal in a shift
+        /// Revenue of vehicle normal in a shift
         /// </summary>
         /// <param name="sum">Sum of money</param>
-        /// <param name="nhom">Group of vihicle</param>
+        /// <param name="nhom">Group of vehicle</param>
         /// <returns></returns>
         public DataTable GetRevenueShift(out decimal sum, Group nhom = Group.N)
         {
@@ -836,7 +836,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of 20 lastest vihicles normal
+        /// List of 20 lastest vehicles normal
         /// </summary>
         public DataTable GetLatestNormal
         {
@@ -877,9 +877,9 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List all of vihicles fixed in depot
+        /// List all of vehicles fixed in depot
         /// </summary>
-        /// <param name="number">Number of vihicle</param>
+        /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
         public DataTable GetInDepotNormal(string number = null)
         {
@@ -887,7 +887,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sumary vihicle normal
+        /// Sumary vehicle normal
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>

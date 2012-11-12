@@ -80,6 +80,7 @@ namespace SKG.DXF.Station.Normal
                     _state = State.Add
                 };
 
+                frm.ShowInTaskbar = false;
                 frm.ShowDialog();
 
                 txtNumber.Text = frm.NumOut;

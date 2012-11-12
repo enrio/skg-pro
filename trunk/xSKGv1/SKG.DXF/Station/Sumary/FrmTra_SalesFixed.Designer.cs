@@ -466,7 +466,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Miền";
-            this.gridColumn13.FieldName = "Area";
+            this.gridColumn13.FieldName = "Region";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.Width = 82;

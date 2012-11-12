@@ -289,6 +289,15 @@ namespace SKG.DXF.Station.Normal
         {
             lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
         }
+
+        private void FrmTra_VehicleNormal_Load(object sender, EventArgs e)
+        {
+            if (_num + "" != "")
+            {
+                PerformAdd();
+                txtCode.Text = _num;
+            }
+        }
         #endregion
 
         #region Properties

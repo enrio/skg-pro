@@ -206,7 +206,7 @@ namespace SKG.DXF.Station.Manage
 
                     r["Seats"] = d.Vehicle.Seats;
                     r["Beds"] = d.Vehicle.Beds;
-                    
+
                     r["DateOut"] = d.DateOut;
 
                     r["UserIn"] = d.UserIn.Name;
@@ -288,8 +288,8 @@ namespace SKG.DXF.Station.Manage
         private const string STR_NO_TARIFF = "Loại xe này không có";
         private const string STR_NO_ADD = "Không thêm thông tin được";
 
-        private const string STR_FIXED = "ĐÂY LÀ " + Global.STR_PAN1;
-        private const string STR_NORMAL = "ĐÂY LÀ " + Global.STR_PAN2;
+        private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
+        private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
 
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";

@@ -80,7 +80,7 @@ namespace SKG.DXF.Station.Fixed
                 var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE.ToUpper(), MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Vehicle.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE.ToUpper(), STR_DELETE.ToUpper(),
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

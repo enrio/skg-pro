@@ -57,7 +57,7 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
+                var open = new OpenFileDialog { Filter = "Excel file (XuatBT*.xls)|XuatBT*.xls" };
                 open.ShowDialog();
 
                 if (open.FileName == "" || !open.CheckFileExists)

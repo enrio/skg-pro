@@ -101,8 +101,8 @@
             this.dockPanel1.ID = new System.Guid("ce5af645-1cb6-4a38-b09c-a753d0da5418");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 62);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 62);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 61);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 61);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
@@ -117,7 +117,7 @@
             this.dockPanel1_Container.Controls.Add(this.lblFrom);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 35);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 34);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // labelControl4
@@ -183,23 +183,24 @@
             // dteTo
             // 
             this.dteTo.EditValue = null;
-            this.dteTo.Location = new System.Drawing.Point(494, 3);
+            this.dteTo.Location = new System.Drawing.Point(549, 3);
             this.dteTo.Name = "dteTo";
             this.dteTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteTo.Properties.Appearance.Options.UseFont = true;
-            this.dteTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dteTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTo.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTo.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.dteTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteTo.Size = new System.Drawing.Size(112, 26);
+            this.dteTo.Size = new System.Drawing.Size(168, 26);
             this.dteTo.TabIndex = 3;
             // 
             // lblTo
             // 
             this.lblTo.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(415, 6);
+            this.lblTo.Location = new System.Drawing.Point(470, 6);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(73, 19);
             this.lblTo.TabIndex = 3;
@@ -212,13 +213,14 @@
             this.dteFrom.Name = "dteFrom";
             this.dteFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteFrom.Properties.Appearance.Options.UseFont = true;
-            this.dteFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dteFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFrom.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFrom.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
             this.dteFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteFrom.Size = new System.Drawing.Size(112, 26);
+            this.dteFrom.Size = new System.Drawing.Size(168, 26);
             this.dteFrom.TabIndex = 2;
             // 
             // lblFrom
@@ -235,10 +237,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("05646b24-98a0-40ac-b748-ad2917ec208b");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 125);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 124);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 441);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 442);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -246,7 +248,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 414);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 415);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -255,7 +257,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 414);
+            this.grcMain.Size = new System.Drawing.Size(943, 415);
             this.grcMain.TabIndex = 4;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -423,7 +425,7 @@
             this.bandedGridColumn3});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng xe: {0:#,0}")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng tiền: {0:#,0}đ")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;

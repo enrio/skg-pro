@@ -174,27 +174,19 @@ namespace SKG.DXF.Station.Manage
                     }
                     else
                     {
-                        if (v.Fixed)
+                        if (v.Tariff == null)
                         {
-                            if (v.Tariff == null)
-                            {
-                                r.RowError = STR_NO_ROUTE;
-                                r["Note"] = r.RowError;
-                            }
-                            else
-                            {
-                                r["Tariff"] = v.Tariff.Text;
-                                r["Group"] = v.Tariff.Group.Text;
-                                r["Transport"] = v.Transport == null ? "" : v.Transport.Text;
-
-                                r["Seats"] = v.Seats;
-                                r["Beds"] = v.Beds;
-                            }
+                            r.RowError = STR_NO_ROUTE;
+                            r["Note"] = r.RowError;
                         }
                         else
                         {
-                            r.RowError = STR_NORMAL;
-                            r["Note"] = r.RowError;
+                            r["Tariff"] = v.Tariff.Text;
+                            r["Group"] = v.Tariff.Group.Text;
+                            r["Transport"] = v.Transport == null ? "" : v.Transport.Text;
+
+                            r["Seats"] = v.Seats;
+                            r["Beds"] = v.Beds;
                         }
                     }
                 }

@@ -327,6 +327,7 @@ namespace SKG.DXF.Station.Fixed
         {
             PerformRefresh();
             PerformAdd();
+            txtNumber.Focus();
         }
         #endregion
 

@@ -88,9 +88,9 @@
     <Compile Include="DAL\Tra_DetailDAL.cs" />
     <Compile Include="DAL\Tra_TariffDAL.cs" />
     <Compile Include="DAL\Tra_VehicleDAL.cs" />
-    <Compile Include="Data\Base.cs" />
-    <Compile Include="Data\Excel.cs" />
-    <Compile Include="Data\SqlServer.cs" />
+    <Compile Include="Datax\Base.cs" />
+    <Compile Include="Datax\Excel.cs" />
+    <Compile Include="Datax\SqlServer.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Number.cs" />

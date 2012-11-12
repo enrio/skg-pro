@@ -17,6 +17,7 @@ using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Manage
 {
+    using SKG.Datax;
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
@@ -261,7 +262,7 @@ namespace SKG.DXF.Station.Manage
         /// <returns></returns>
         private DataTable ImportData(string fileName, string sheetName)
         {
-            var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
+            var tb = Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
             tb.Columns[2].ColumnName = "DateIn";

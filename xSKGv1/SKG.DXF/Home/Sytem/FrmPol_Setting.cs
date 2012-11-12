@@ -17,7 +17,7 @@ using System.Windows.Forms;
 
 namespace SKG.DXF.Home.Sytem
 {
-    using SKG.Data;
+    using SKG.Datax;
     using SKG.Plugin;
     using SKG.Extend;
     using System.Configuration;

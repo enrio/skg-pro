@@ -523,98 +523,15 @@ namespace SKG.DAL
         /// <returns></returns>
         public DataTable GetRevenueToday(out decimal sum)
         {
+            sum = 0;
             try
             {
-                sum = 0;
                 var to = Global.Session.Current.Date.AddHours(13);
                 var fr = to.AddDays(-1);
-
-                var res1 = from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.Vehicle.Fixed == true
-                           && s.Repair == false
-                           && s.DateOut >= fr && s.DateOut <= to
-                           group s by s.Vehicle.Tariff.Code into g
-                           select new
-                           {
-                               g.Key,
-                               Count = g.Count(),
-
-                               Seats = g.Sum(p => p.Vehicle.Seats) ?? 0,
-                               Beds = g.Sum(p => p.Vehicle.Beds) ?? 0,
-
-                               Cost = g.Sum(p => p.Cost),
-                               Rose = g.Sum(p => p.Rose),
-                               Parked = g.Sum(p => p.Parked)
-                           };
-
-                var res2 = from s in res1
-                           join t in _db.Tra_Tariffs on s.Key equals t.Code
-                           select new
-                           {
-                               s.Key,
-                               s.Count,
-
-                               s.Seats,
-                               s.Beds,
-
-                               t.Rose1,
-                               t.Rose2,
-                               t.Price1,
-                               t.Price2,
-
-                               s.Cost,
-                               s.Rose,
-                               s.Parked,
-                               Totals = s.Parked + s.Cost + s.Rose,
-
-                               Station = t.Text,
-                               Province = t.Group.Text,
-                               Area = t.Group.Parent.Text,
-                               Region = t.Group.Parent.Parent.Text
-                           };
-
-                var res3 = from s in res2
-                           group s by new
-                           {
-                               s.Province,
-                               s.Area,
-                               s.Region,
-
-                               s.Rose1,
-                               s.Rose2,
-                               s.Price1,
-                               s.Price2,
-                           } into g
-                           select new
-                           {
-                               g.Key.Region,
-                               g.Key.Area,
-                               g.Key.Province,
-
-                               g.Key.Rose1,
-                               g.Key.Rose2,
-                               g.Key.Price1,
-                               g.Key.Price2,
-
-                               Count = g.Sum(p => p.Count),
-                               Seats = g.Sum(p => p.Seats),
-                               Beds = g.Sum(p => p.Beds),
-
-                               Cost = g.Sum(p => p.Cost),
-                               Rose = g.Sum(p => p.Rose),
-                               Parked = g.Sum(p => p.Parked),
-                               Totals = g.Sum(p => p.Totals),
-
-                               Vat = g.Sum(p => p.Totals) * 10 / 100,
-                               Sales = g.Sum(p => p.Totals) * 90 / 100
-                           };
-                sum = res3.Sum(k => k.Totals);
-                return res3.ToDataTable();
+                return GetRevenueFixed(out sum, fr, to);
             }
             catch
             {
-                sum = 0;
                 return null;
             }
         }
@@ -720,6 +637,107 @@ namespace SKG.DAL
                           };
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Revenue of vihicle fixed
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        public DataTable GetRevenueFixed(out decimal sum, DateTime fr, DateTime to)
+        {
+            sum = 0;
+            try
+            {
+                var res1 = from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.DateOut >= fr && s.DateOut <= to
+                           group s by s.Vehicle.Tariff.Code into g
+                           select new
+                           {
+                               g.Key,
+                               Count = g.Count(),
+
+                               Seats = g.Sum(p => p.Vehicle.Seats) ?? 0,
+                               Beds = g.Sum(p => p.Vehicle.Beds) ?? 0,
+
+                               Cost = g.Sum(p => p.Cost),
+                               Rose = g.Sum(p => p.Rose),
+                               Parked = g.Sum(p => p.Parked)
+                           };
+
+                var res2 = from s in res1
+                           join t in _db.Tra_Tariffs on s.Key equals t.Code
+                           select new
+                           {
+                               s.Key,
+                               s.Count,
+
+                               s.Seats,
+                               s.Beds,
+
+                               t.Rose1,
+                               t.Rose2,
+                               t.Price1,
+                               t.Price2,
+
+                               s.Cost,
+                               s.Rose,
+                               s.Parked,
+                               Totals = s.Parked + s.Cost + s.Rose,
+
+                               Station = t.Text,
+                               Province = t.Group.Text,
+                               Area = t.Group.Parent.Text,
+                               Region = t.Group.Parent.Parent.Text
+                           };
+
+                var res3 = from s in res2
+                           group s by new
+                           {
+                               s.Province,
+                               s.Area,
+                               s.Region,
+
+                               s.Rose1,
+                               s.Rose2,
+                               s.Price1,
+                               s.Price2,
+                           } into g
+                           select new
+                           {
+                               g.Key.Region,
+                               g.Key.Area,
+                               g.Key.Province,
+
+                               g.Key.Rose1,
+                               g.Key.Rose2,
+                               g.Key.Price1,
+                               g.Key.Price2,
+
+                               Count = g.Sum(p => p.Count),
+                               Seats = g.Sum(p => p.Seats),
+                               Beds = g.Sum(p => p.Beds),
+
+                               Cost = g.Sum(p => p.Cost),
+                               Rose = g.Sum(p => p.Rose),
+                               Parked = g.Sum(p => p.Parked),
+                               Totals = g.Sum(p => p.Totals),
+
+                               Vat = g.Sum(p => p.Totals) * 10 / 100,
+                               Sales = g.Sum(p => p.Totals) * 90 / 100
+                           };
+                sum = res3.Sum(k => k.Totals);
+                return res3.ToDataTable();
             }
             catch
             {

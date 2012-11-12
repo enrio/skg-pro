@@ -66,7 +66,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            _tbFixed.Columns.Add("Tariff");
             _tbFixed.Columns.Add("Transport");
 
             foreach (DataRow r in _tbFixed.Rows)
@@ -88,8 +87,8 @@ namespace SKG.DXF.Station.Manage
                         r["Tariff"] = det.Vehicle.Tariff.Text;
                         r["Transport"] = det.Vehicle.Transport.Text;
 
-                        r["Seats"] = det.Vehicle.Seats;
-                        r["Beds"] = det.Vehicle.Beds;
+                        r["Seats"] = det.Vehicle.Seats ?? 0;
+                        r["Beds"] = det.Vehicle.Beds ?? 0;
 
                         r["UserOut"] = Global.Session.User.Name;
 
@@ -130,8 +129,8 @@ namespace SKG.DXF.Station.Manage
                         r["Tariff"] = det.Vehicle.Tariff.Text;
                         r["Group"] = det.Vehicle.Tariff.Group.Text;
 
-                        r["Seats"] = det.Vehicle.Seats;
-                        r["Beds"] = det.Vehicle.Beds;
+                        r["Seats"] = det.Vehicle.Seats ?? 0;
+                        r["Beds"] = det.Vehicle.Beds ?? 0;
 
                         r["UserOut"] = Global.Session.User.Name;
 
@@ -241,23 +240,25 @@ namespace SKG.DXF.Station.Manage
             var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
+
             tb.Columns[2].ColumnName = "DateOut";
+            tb.Columns[2].DataType = typeof(DateTime);
 
             tb.Columns.Add("UserIn");
-            tb.Columns.Add("DateIn");
+            tb.Columns.Add("DateIn", typeof(DateTime));
             tb.Columns.Add("Phone");
 
             tb.Columns.Add("UserOut");
             tb.Columns.Add("Note");
-
             tb.Columns.Add("Tariff");
-            tb.Columns.Add("Seats");
-            tb.Columns.Add("Beds");
 
-            tb.Columns.Add("Cost");
-            tb.Columns.Add("Rose");
-            tb.Columns.Add("Parked");
-            tb.Columns.Add("Money");
+            tb.Columns.Add("Seats", typeof(int));
+            tb.Columns.Add("Beds", typeof(int));
+
+            tb.Columns.Add("Cost", typeof(decimal));
+            tb.Columns.Add("Rose", typeof(decimal));
+            tb.Columns.Add("Parked", typeof(decimal));
+            tb.Columns.Add("Money", typeof(decimal));
             return tb;
         }
         #endregion

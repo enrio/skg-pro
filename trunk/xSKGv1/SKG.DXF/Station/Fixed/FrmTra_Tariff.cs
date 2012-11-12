@@ -62,7 +62,7 @@ namespace SKG.DXF.Station.Fixed
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                XtraMessageBox.Show(STR_CHOICE,
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -79,7 +79,7 @@ namespace SKG.DXF.Station.Fixed
                 var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE.ToUpper(), MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Tariff.Delete(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE.ToUpper(), STR_DELETE.ToUpper(),
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -355,6 +355,8 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_CONFIRM = "CÓ XOÁ TUYẾN '{0}' NÀY KHÔNG?";
         private const string STR_UNDELETE = "KHÔNG XOÁ ĐƯỢC\n\rDỮ LIỆU ĐANG SỬ DỤNG";
         private const string STR_DUPLICATE = "TUYẾN NÀY CÓ RỒI";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         #endregion
     }
 }

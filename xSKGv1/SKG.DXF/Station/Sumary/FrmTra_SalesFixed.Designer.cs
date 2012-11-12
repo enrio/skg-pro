@@ -412,18 +412,18 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
+            this.gridColumn13,
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.gridColumn13,
             this.bandedGridColumn1,
             this.bandedGridColumn2,
             this.bandedGridColumn3});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "\"Tổng tiền: {0:0,0}\"")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng xe: {0:#,0}")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
@@ -457,8 +457,8 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Biển số xe";
-            this.gridColumn3.FieldName = "Number";
+            this.gridColumn3.Caption = "Biển số";
+            this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 65;
@@ -466,7 +466,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Miền";
-            this.gridColumn13.FieldName = "Region";
+            this.gridColumn13.FieldName = "Group";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.Width = 82;
@@ -474,7 +474,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "Tuyến";
-            this.gridColumn8.FieldName = "Route";
+            this.gridColumn8.FieldName = "Tariff";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 89;
@@ -498,7 +498,7 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "Ghế";
-            this.gridColumn10.DisplayFormat.FormatString = "#,#";
+            this.gridColumn10.DisplayFormat.FormatString = "#,0";
             this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn10.FieldName = "Price1";
             this.gridColumn10.Name = "gridColumn10";
@@ -508,7 +508,7 @@
             // gridColumn11
             // 
             this.gridColumn11.Caption = "Giường";
-            this.gridColumn11.DisplayFormat.FormatString = "#,#";
+            this.gridColumn11.DisplayFormat.FormatString = "#,0";
             this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn11.FieldName = "Price2";
             this.gridColumn11.Name = "gridColumn11";
@@ -528,6 +528,8 @@
             // bandedGridColumn3
             // 
             this.bandedGridColumn3.Caption = "Lệ phí";
+            this.bandedGridColumn3.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn3.FieldName = "Cost";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
@@ -536,6 +538,8 @@
             // bandedGridColumn2
             // 
             this.bandedGridColumn2.Caption = "Hoa hồng";
+            this.bandedGridColumn2.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn2.FieldName = "Rose";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
@@ -544,6 +548,8 @@
             // bandedGridColumn1
             // 
             this.bandedGridColumn1.Caption = "Đậu đêm";
+            this.bandedGridColumn1.DisplayFormat.FormatString = "#,0";
+            this.bandedGridColumn1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.bandedGridColumn1.FieldName = "Parked";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
@@ -552,7 +558,7 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Thành tiền";
-            this.gridColumn12.DisplayFormat.FormatString = "#,#";
+            this.gridColumn12.DisplayFormat.FormatString = "#,0";
             this.gridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn12.FieldName = "Money";
             this.gridColumn12.Name = "gridColumn12";
@@ -569,17 +575,17 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Người cho vào";
-            this.gridColumn4.FieldName = "UserInName";
+            this.gridColumn4.Caption = "Cho vào";
+            this.gridColumn4.FieldName = "UserIn";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.Width = 100;
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Thời gian vào";
+            this.gridColumn5.Caption = "Thời gian";
             this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -595,17 +601,17 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "Người cho ra";
-            this.gridColumn6.FieldName = "UserOutName";
+            this.gridColumn6.Caption = "Cho ra";
+            this.gridColumn6.FieldName = "UserOut";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
             this.gridColumn6.Width = 96;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.Caption = "Thời gian ra";
+            this.gridColumn7.Caption = "Thời gian";
             this.gridColumn7.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.gridColumn7.FieldName = "DateOut";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;

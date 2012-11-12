@@ -108,6 +108,7 @@ namespace SKG.DXF.Station.Normal
                 case State.Add:
                     if (InsertObject())
                     {
+                        NumOut = txtCode.Text;
                         ResetInput(); LoadData();
                     }
                     break;
@@ -120,7 +121,8 @@ namespace SKG.DXF.Station.Normal
                     }
                     break;
             }
-            if (_num + "" != "") Close();
+            if (NumIn + "" != "") Close();
+
             base.PerformSave();
         }
 
@@ -292,19 +294,27 @@ namespace SKG.DXF.Station.Normal
 
         private void FrmTra_VehicleNormal_Load(object sender, EventArgs e)
         {
-            if (_num + "" != "")
+            if (NumIn + "" != "")
             {
                 PerformAdd();
-                txtCode.Text = _num;
+                txtCode.Text = NumIn;
             }
         }
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Number input from vehicle ingate
+        /// </summary>
+        public string NumIn { set; private get; }
+
+        /// <summary>
+        /// Number outpur to vehicle ingate
+        /// </summary>
+        public string NumOut { private set; get; }
         #endregion
 
         #region Fields
-        public string _num;
         #endregion
 
         #region Constants

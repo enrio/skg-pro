@@ -33,12 +33,14 @@ namespace SKG
         /// <returns></returns>
         public static bool CheckPrinter()
         {
+            bool online;
             try
             {
                 var printDocument = new PrintDocument();
-                return printDocument.PrinterSettings.IsValid;
+                online = printDocument.PrinterSettings.IsValid;
             }
-            catch { return false; }
+            catch { online = false; }
+            return online;
         }
 
         /// <summary>

@@ -263,7 +263,6 @@ namespace SKG.DXF.Station.Manage
             tb.Columns[1].ColumnName = "Code";
 
             tb.Columns[2].ColumnName = "DateIn";
-            tb.Columns[2].DataType = typeof(DateTime);
 
             if (sheetName.ToLower() == "vanglai")
             {

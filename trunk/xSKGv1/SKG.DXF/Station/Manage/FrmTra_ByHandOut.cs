@@ -66,8 +66,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            _tbFixed.Columns.Add("Transport");
-
             foreach (DataRow r in _tbFixed.Rows)
             {
                 var bs = r["Code"] + "";
@@ -143,8 +141,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Normal
             _tbNormal = ImportData(open.FileName, "Vanglai");
-            _tbNormal.Columns.Add("Group");
-
             foreach (DataRow r in _tbNormal.Rows)
             {
                 var bs = r["Code"] + "";
@@ -302,9 +298,7 @@ namespace SKG.DXF.Station.Manage
             var tb = Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
-
             tb.Columns[2].ColumnName = "DateOut";
-            tb.Columns[2].DataType = typeof(DateTime);
 
             tb.Columns.Add("UserIn");
             tb.Columns.Add("DateIn", typeof(DateTime));
@@ -314,8 +308,11 @@ namespace SKG.DXF.Station.Manage
             tb.Columns.Add("Note");
             tb.Columns.Add("Tariff");
 
-            tb.Columns.Add("Seats", typeof(int));
-            tb.Columns.Add("Beds", typeof(int));
+            tb.Columns.Add("Transport");
+            tb.Columns.Add("Group");
+
+            tb.Columns.Add("Seats");
+            tb.Columns.Add("Beds");
 
             tb.Columns.Add("Cost", typeof(decimal));
             tb.Columns.Add("Rose", typeof(decimal));

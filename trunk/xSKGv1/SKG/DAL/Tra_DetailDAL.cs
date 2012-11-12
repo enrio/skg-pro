@@ -668,6 +668,64 @@ namespace SKG.DAL
         {
             return FindInDepot(Group.F, number).ToDataTable();
         }
+
+        /// <summary>
+        /// Sumary vihicle fixed
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        public DataTable SumaryFixed(out decimal sum, DateTime fr, DateTime to)
+        {
+            sum = 0;
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.DateOut >= fr && s.DateOut <= to
+                          where s.Vehicle.Fixed == true
+                          orderby s.DateOut descending
+                          select new
+                          {
+                              s.Id,
+                              s.More,
+                              s.Text,
+
+                              UserIn = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
+
+                              UserOut = s.UserOut.Name,
+                              s.Vehicle.Code,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.FullDay,
+                              s.HalfDay,
+                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              s.Money,
+
+                              s.Price1,
+                              s.Price2,
+
+                              Region = s.Vehicle.Tariff.Group.Parent.Parent.Text,
+                              Area = s.Vehicle.Tariff.Group.Parent.Text,
+                              Province = s.Vehicle.Tariff.Group.Text,
+                              Tariff = s.Vehicle.Tariff.Text,
+                              Transport = s.Vehicle.Transport.Text,
+
+                              s.Parked,
+                              s.Cost,
+                              s.Rose
+                          };
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         #endregion
 
         #region Vihicle normal
@@ -897,73 +955,6 @@ namespace SKG.DAL
                 return res.ToDataTable();
             }
             catch { return null; }
-        }
-
-        public DataTable SumaryCodinh(out decimal sum)
-        {
-            try
-            {
-                sum = 0;
-
-                /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
-                var min = s1.Max(p => p.DateOut);
-
-                var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
-                if (min == null) min = s2.Min(p => p.DateOut);
-                var max = s2.Max(p => p.DateOut);*/
-
-                // Ca làm việc
-                DateTime shift;
-                int i = Global.Session.Shift(out shift);
-                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-
-                var res = from s in _db.Tra_Details
-                          //where s.DateOut >= min && s.DateOut <= max
-                          where s.Vehicle.Fixed == true
-                          && s.UserOutId == Global.Session.User.Id
-                          orderby s.Order
-                          select new
-                          {
-                              s.Id,
-                              //No_ = s.Order,
-                              s.More,
-                              s.Text,
-
-                              UserIn = s.UserIn.Name,
-                              Phone = s.UserIn.Phone,
-
-                              UserOut = s.UserOut.Name,
-                              s.Vehicle.Code,
-
-                              s.DateIn,
-                              s.DateOut,
-
-                              s.FullDay,
-                              s.HalfDay,
-                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
-                              s.Money,
-
-                              s.Price1,
-                              s.Price2,
-
-                              Region = s.Vehicle.Tariff.Group.Parent.Parent.Text,
-                              Area = s.Vehicle.Tariff.Group.Parent.Text,
-                              Province = s.Vehicle.Tariff.Group.Text,
-                              Tariff = s.Vehicle.Tariff.Text,
-                              Transport = s.Vehicle.Transport.Text,
-
-                              s.Parked,
-                              s.Cost,
-                              s.Rose
-                          };
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch
-            {
-                sum = 0;
-                return null;
-            }
         }
     }
 }

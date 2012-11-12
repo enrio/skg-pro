@@ -112,7 +112,7 @@ namespace SKG.DXF.Station.Sumary
         decimal _sum = 0;
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.SumaryCodinh(out _sum);
+            _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, dteFrom.DateTime, dteTo.DateTime);
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT

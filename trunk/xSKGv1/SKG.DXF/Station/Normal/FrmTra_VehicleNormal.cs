@@ -260,6 +260,9 @@ namespace SKG.DXF.Station.Normal
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
+
+            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+            if (!ql) grvMain.Bands["badAudit"].Visible = false;
         }
         #endregion
 
@@ -282,18 +285,9 @@ namespace SKG.DXF.Station.Normal
             }
         }
 
-        private void FrmTra_Media_Load(object sender, EventArgs e)
+        private void FrmTra_VehicleNormal_Activated(object sender, EventArgs e)
         {
-            if (!Global.Session.User.CheckAdmin()) grvMain.Bands["badAudit"].Visible = false;
-
             lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
-            lueTransport.ItemIndex = 0;
-
-            if (_num + "" != "")
-            {
-                PerformAdd();
-                txtCode.Text = _num;
-            }
         }
         #endregion
 

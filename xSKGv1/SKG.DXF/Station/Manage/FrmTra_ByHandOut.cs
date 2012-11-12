@@ -241,6 +241,7 @@ namespace SKG.DXF.Station.Manage
                         r["Parked"] = d.Parked;
                         r["Money"] = d.Money;
 
+                        if (isOut) r["Note"] = STR_EXIT;
                         count++;
                     }
                     r["UserOut"] = Global.Session.User.Name;
@@ -318,6 +319,7 @@ namespace SKG.DXF.Station.Manage
         private const string STR_NO_ROUTE = "Không đăng kí tuyến";
 
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
+        private const string STR_EXIT = "ĐÃ CHO XE RA";
         private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
 
         public const string STR_PAN1 = "XE CỐ ĐỊNH";

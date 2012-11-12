@@ -103,7 +103,7 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void LoadData()
         {
-            //_dtb = _bll.Tra_Detail.SumaryNormal(out _sum);
+            _dtb = _bll.Tra_Detail.SumaryNormal(out _sum, dteFrom.DateTime, dteTo.DateTime);
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT
@@ -194,6 +194,7 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Fields
+        decimal _sum = 0;
         #endregion
 
         #region Constants

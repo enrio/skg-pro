@@ -32,46 +32,49 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.cbeMonth = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cbeQuater = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dteTo = new DevExpress.XtraEditors.DateEdit();
             this.lblTo = new DevExpress.XtraEditors.LabelControl();
             this.dteFrom = new DevExpress.XtraEditors.DateEdit();
             this.lblFrom = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.cbeMonth = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cbeQuater = new DevExpress.XtraEditors.ComboBoxEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeMonth.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeQuater.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteTo.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFrom.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFrom.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeMonth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeQuater.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -104,18 +107,70 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.labelControl4);
-            this.dockPanel1_Container.Controls.Add(this.labelControl3);
-            this.dockPanel1_Container.Controls.Add(this.cbeMonth);
-            this.dockPanel1_Container.Controls.Add(this.cbeQuater);
             this.dockPanel1_Container.Controls.Add(this.dteTo);
             this.dockPanel1_Container.Controls.Add(this.lblTo);
             this.dockPanel1_Container.Controls.Add(this.dteFrom);
             this.dockPanel1_Container.Controls.Add(this.lblFrom);
+            this.dockPanel1_Container.Controls.Add(this.labelControl4);
+            this.dockPanel1_Container.Controls.Add(this.labelControl3);
+            this.dockPanel1_Container.Controls.Add(this.cbeMonth);
+            this.dockPanel1_Container.Controls.Add(this.cbeQuater);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 35);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // dteTo
+            // 
+            this.dteTo.EditValue = null;
+            this.dteTo.Location = new System.Drawing.Point(549, 4);
+            this.dteTo.Name = "dteTo";
+            this.dteTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteTo.Properties.Appearance.Options.UseFont = true;
+            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTo.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteTo.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
+            this.dteTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteTo.Size = new System.Drawing.Size(168, 26);
+            this.dteTo.TabIndex = 6;
+            // 
+            // lblTo
+            // 
+            this.lblTo.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTo.Location = new System.Drawing.Point(470, 7);
+            this.lblTo.Name = "lblTo";
+            this.lblTo.Size = new System.Drawing.Size(73, 19);
+            this.lblTo.TabIndex = 7;
+            this.lblTo.Text = "Đến ngày:";
+            // 
+            // dteFrom
+            // 
+            this.dteFrom.EditValue = null;
+            this.dteFrom.Location = new System.Drawing.Point(297, 4);
+            this.dteFrom.Name = "dteFrom";
+            this.dteFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteFrom.Properties.Appearance.Options.UseFont = true;
+            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFrom.Properties.EditFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.dteFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteFrom.Properties.Mask.EditMask = "dd/MM/yyyy HH:mm:ss";
+            this.dteFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteFrom.Size = new System.Drawing.Size(168, 26);
+            this.dteFrom.TabIndex = 4;
+            // 
+            // lblFrom
+            // 
+            this.lblFrom.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFrom.Location = new System.Drawing.Point(226, 7);
+            this.lblFrom.Name = "lblFrom";
+            this.lblFrom.Size = new System.Drawing.Size(65, 19);
+            this.lblFrom.TabIndex = 5;
+            this.lblFrom.Text = "Từ ngày:";
             // 
             // labelControl4
             // 
@@ -176,56 +231,6 @@
             this.cbeQuater.Size = new System.Drawing.Size(56, 26);
             this.cbeQuater.TabIndex = 0;
             this.cbeQuater.SelectedIndexChanged += new System.EventHandler(this.cbeQuater_SelectedIndexChanged);
-            // 
-            // dteTo
-            // 
-            this.dteTo.EditValue = null;
-            this.dteTo.Location = new System.Drawing.Point(494, 3);
-            this.dteTo.Name = "dteTo";
-            this.dteTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteTo.Properties.Appearance.Options.UseFont = true;
-            this.dteTo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dteTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dteTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteTo.Size = new System.Drawing.Size(112, 26);
-            this.dteTo.TabIndex = 3;
-            // 
-            // lblTo
-            // 
-            this.lblTo.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(415, 6);
-            this.lblTo.Name = "lblTo";
-            this.lblTo.Size = new System.Drawing.Size(73, 19);
-            this.lblTo.TabIndex = 3;
-            this.lblTo.Text = "Đến ngày:";
-            // 
-            // dteFrom
-            // 
-            this.dteFrom.EditValue = null;
-            this.dteFrom.Location = new System.Drawing.Point(297, 3);
-            this.dteFrom.Name = "dteFrom";
-            this.dteFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteFrom.Properties.Appearance.Options.UseFont = true;
-            this.dteFrom.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.dteFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dteFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteFrom.Size = new System.Drawing.Size(112, 26);
-            this.dteFrom.TabIndex = 2;
-            // 
-            // lblFrom
-            // 
-            this.lblFrom.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFrom.Location = new System.Drawing.Point(226, 6);
-            this.lblFrom.Name = "lblFrom";
-            this.lblFrom.Size = new System.Drawing.Size(65, 19);
-            this.lblFrom.TabIndex = 2;
-            this.lblFrom.Text = "Từ ngày:";
             // 
             // dockPanel2
             // 
@@ -399,44 +404,33 @@
             this.gridBand1,
             this.gridBand2,
             this.gridBand3,
-            this.gridBand4});
+            this.gridBand5,
+            this.gridBand6,
+            this.gridBand7});
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
+            this.gridColumn13,
+            this.bandedGridColumn2,
             this.gridColumn4,
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
+            this.bandedGridColumn1,
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
             this.gridColumn11,
-            this.gridColumn12,
-            this.gridColumn13,
-            this.bandedGridColumn1});
+            this.gridColumn12});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "\"Tổng tiền: {0:0,0}\"")});
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng tiền: {0:#,0}đ")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.OptionsView.ShowFooter = true;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn13);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 561;
             // 
             // gridColumn1
             // 
@@ -450,59 +444,31 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 20;
+            this.gridColumn2.Width = 23;
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Biển số xe";
-            this.gridColumn3.FieldName = "Number";
+            this.gridColumn3.Caption = "Biển số";
+            this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 81;
+            this.gridColumn3.Width = 93;
             // 
             // gridColumn13
             // 
             this.gridColumn13.Caption = "Loại xe";
-            this.gridColumn13.FieldName = "KindName";
+            this.gridColumn13.FieldName = "Tariff";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.Width = 77;
             // 
-            // gridColumn4
+            // bandedGridColumn2
             // 
-            this.gridColumn4.Caption = "Người cho vào";
-            this.gridColumn4.FieldName = "UserInName";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 77;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Thời gian vào";
-            this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn5.FieldName = "DateIn";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 77;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Người cho ra";
-            this.gridColumn6.FieldName = "UserOutName";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.Width = 77;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Thời gian ra";
-            this.gridColumn7.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn7.FieldName = "DateOut";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.Width = 77;
+            this.bandedGridColumn2.Caption = "Nhóm xe";
+            this.bandedGridColumn2.FieldName = "Group";
+            this.bandedGridColumn2.Name = "bandedGridColumn2";
+            this.bandedGridColumn2.Visible = true;
+            this.bandedGridColumn2.Width = 86;
             // 
             // bandedGridColumn1
             // 
@@ -510,6 +476,107 @@
             this.bandedGridColumn1.FieldName = "More";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
+            this.bandedGridColumn1.Width = 89;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Nửa ngày";
+            this.gridColumn8.FieldName = "HalfDay";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "HalfDay", "{0:#,0}")});
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.Width = 103;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "Một ngày";
+            this.gridColumn9.FieldName = "FullDay";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FullDay", "{0:#,0}")});
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.Width = 103;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Nửa ngày";
+            this.gridColumn10.DisplayFormat.FormatString = "#,0";
+            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn10.FieldName = "Price1";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.Width = 103;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Một ngày";
+            this.gridColumn11.DisplayFormat.FormatString = "#,0";
+            this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn11.FieldName = "Price2";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.Width = 103;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.Caption = "Cho vào";
+            this.gridColumn4.FieldName = "UserIn";
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.Width = 90;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.Caption = "Thời gian";
+            this.gridColumn7.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.gridColumn7.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn7.FieldName = "DateOut";
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.Visible = true;
+            this.gridColumn7.Width = 90;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Cho ra";
+            this.gridColumn6.FieldName = "UserOut";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.Width = 90;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Thời gian";
+            this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.gridColumn5.FieldName = "DateIn";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.Width = 90;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Thành tiền";
+            this.gridColumn12.DisplayFormat.FormatString = "#,0";
+            this.gridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn12.FieldName = "Money";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", "{0:#,0}")});
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.Width = 112;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn13);
+            this.gridBand1.Columns.Add(this.bandedGridColumn2);
+            this.gridBand1.Columns.Add(this.bandedGridColumn1);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 368;
             // 
             // gridBand2
             // 
@@ -517,23 +584,7 @@
             this.gridBand2.Columns.Add(this.gridColumn8);
             this.gridBand2.Columns.Add(this.gridColumn9);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 176;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Nửa";
-            this.gridColumn8.FieldName = "HalfDay";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 88;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "Một ngày";
-            this.gridColumn9.FieldName = "FullDay";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.Width = 88;
+            this.gridBand2.Width = 206;
             // 
             // gridBand3
             // 
@@ -541,44 +592,30 @@
             this.gridBand3.Columns.Add(this.gridColumn10);
             this.gridBand3.Columns.Add(this.gridColumn11);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 176;
+            this.gridBand3.Width = 206;
             // 
-            // gridColumn10
+            // gridBand5
             // 
-            this.gridColumn10.Caption = "Nửa ngày";
-            this.gridColumn10.DisplayFormat.FormatString = "#,#";
-            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn10.FieldName = "Price1";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 88;
+            this.gridBand5.Caption = "Thông tin vào";
+            this.gridBand5.Columns.Add(this.gridColumn4);
+            this.gridBand5.Columns.Add(this.gridColumn7);
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.Width = 180;
             // 
-            // gridColumn11
+            // gridBand6
             // 
-            this.gridColumn11.Caption = "Một ngày";
-            this.gridColumn11.DisplayFormat.FormatString = "#,#";
-            this.gridColumn11.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn11.FieldName = "Price2";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.Width = 88;
+            this.gridBand6.Caption = "Thông tin ra";
+            this.gridBand6.Columns.Add(this.gridColumn6);
+            this.gridBand6.Columns.Add(this.gridColumn5);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.Width = 180;
             // 
-            // gridBand4
+            // gridBand7
             // 
-            this.gridBand4.Caption = "Tính tiền";
-            this.gridBand4.Columns.Add(this.gridColumn12);
-            this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 91;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "Thành tiền";
-            this.gridColumn12.DisplayFormat.FormatString = "#,#";
-            this.gridColumn12.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.gridColumn12.FieldName = "Money";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.Width = 91;
+            this.gridBand7.Caption = "Tính tiền";
+            this.gridBand7.Columns.Add(this.gridColumn12);
+            this.gridBand7.Name = "gridBand7";
+            this.gridBand7.Width = 112;
             // 
             // FrmTra_SalesNormal
             // 
@@ -596,12 +633,12 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeMonth.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbeQuater.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteTo.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteTo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFrom.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteFrom.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeMonth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbeQuater.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -618,14 +655,10 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
-        private DevExpress.XtraEditors.DateEdit dteFrom;
-        private DevExpress.XtraEditors.LabelControl lblFrom;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.ComboBoxEdit cbeMonth;
         private DevExpress.XtraEditors.ComboBoxEdit cbeQuater;
-        private DevExpress.XtraEditors.DateEdit dteTo;
-        private DevExpress.XtraEditors.LabelControl lblTo;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
@@ -641,9 +674,16 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn11;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn12;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
+        private DevExpress.XtraEditors.DateEdit dteTo;
+        private DevExpress.XtraEditors.LabelControl lblTo;
+        private DevExpress.XtraEditors.DateEdit dteFrom;
+        private DevExpress.XtraEditors.LabelControl lblFrom;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
     }
 }

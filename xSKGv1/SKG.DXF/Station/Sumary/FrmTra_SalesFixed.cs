@@ -109,7 +109,6 @@ namespace SKG.DXF.Station.Sumary
             base.PerformPrint();
         }
 
-        decimal _sum = 0;
         protected override void LoadData()
         {
             _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, dteFrom.DateTime, dteTo.DateTime);
@@ -203,6 +202,7 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Fields
+        decimal _sum = 0;
         #endregion
 
         #region Constants

@@ -67,7 +67,6 @@ namespace SKG.DXF.Station.Manage
 
             #region Fixed
             _tbFixed = ImportData(open.FileName, "Codinh");
-            _tbFixed.Columns.Add("Tariff");
             _tbFixed.Columns.Add("Transport");
 
             foreach (DataRow r in _tbFixed.Rows)
@@ -265,18 +264,26 @@ namespace SKG.DXF.Station.Manage
             var tb = Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
+
             tb.Columns[2].ColumnName = "DateIn";
+            tb.Columns[2].DataType = typeof(DateTime);
 
             if (sheetName.ToLower() == "vanglai")
             {
                 tb.Columns[3].ColumnName = "Tariff";
+
                 tb.Columns[4].ColumnName = "Seats";
+                tb.Columns[4].DataType = typeof(int?);
+
                 tb.Columns[5].ColumnName = "Beds";
+                tb.Columns[5].DataType = typeof(int?);
             }
             else
             {
-                tb.Columns.Add("Seats");
-                tb.Columns.Add("Beds");
+                tb.Columns.Add("Tariff");
+
+                tb.Columns.Add("Seats", typeof(int?));
+                tb.Columns.Add("Beds", typeof(int?));
             }
 
             tb.Columns.Add("Id", typeof(Guid));

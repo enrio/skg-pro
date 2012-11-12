@@ -190,6 +190,8 @@ namespace SKG.DXF.Station.Manage
 
                 if (isOut)
                 {
+                    PerformRefresh();
+
                     if (_isFixed && !detail.Repair) // in phiếu thu xe cố định
                     {
                         var rpt = new Report.Rpt_Receipt();
@@ -227,7 +229,6 @@ namespace SKG.DXF.Station.Manage
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    PerformRefresh();
                 }
                 cmdOut.Enabled = !isOut;
                 cmdTariff.Enabled = !isOut;

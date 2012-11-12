@@ -41,9 +41,12 @@ namespace SKG.Datax
                 oleCnn.Close();
                 return tbl;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                MessageBox.Show(e.Message); return null;
+#if DEBUG
+                MessageBox.Show(ex.Message);
+#endif
+                return null;
             }
         }
     }

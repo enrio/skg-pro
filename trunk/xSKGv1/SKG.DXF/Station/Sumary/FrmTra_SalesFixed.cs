@@ -84,24 +84,20 @@ namespace SKG.DXF.Station.Sumary
                 Global.Session.User.Acc, Global.Session.Current)
             };
 
-            // Ca làm việc
             DateTime shift;
             Global.Session.Shift(out shift);
 
-            var end = dteTo.DateTime.ToEndOfDay();
-            var start = dteFrom.DateTime.ToStartOfDay();
-
             rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
-            rpt.xrlDuration.Text += "Từ ngày " + start.ToString("dd/MM/yyyy");
-            rpt.xrlDuration.Text += " đến ngày " + end.ToString("dd/MM/yyyy");
+            rpt.xrlDuration.Text += "Từ ngày " + dteFrom.DateTime.ToString("dd/MM/yyyy");
+            rpt.xrlDuration.Text += " đến ngày " + dteTo.DateTime.ToString("dd/MM/yyyy");
 
             rpt.parDate.Value = shift.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
-            //rpt.DataSource = _bll.Tra_Detail.SumaryFixed(out sum, start, end);
-            //rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, dteFrom.DateTime, dteTo.DateTime);
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, 0) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();

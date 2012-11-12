@@ -362,12 +362,6 @@ namespace SKG.DXF.Station.Fixed
             }
         }
 
-        private void FrmTra_VehicleFixed_Load(object sender, EventArgs e)
-        {
-            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
-            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
-        }
-
         private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Kind == ButtonPredefines.Ellipsis)
@@ -382,6 +376,12 @@ namespace SKG.DXF.Station.Fixed
             {
                 DXF.Extend.ShowRight<FrmTra_Transport>(Global.Parent);
             }
+        }
+
+        private void FrmTra_VehicleFixed_Activated(object sender, EventArgs e)
+        {
+            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
+            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
         }
         #endregion
 

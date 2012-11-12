@@ -440,13 +440,15 @@ namespace SKG.DAL
                             && p.Cost != 0
                             && p.DateOut.Value.Month == m
                             && p.DateOut.Value.Year == y);
-                        a.Order = dt.Max(p => p.Order) + 1;
+                        if (dt.Count() > 0)
+                            a.Order = dt.Max(p => p.Order) + 1;
                     }
                     else
                     {
                         // Đánh số thứ tự từng nhóm xe (tải lưu đậu, sang hàng)
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
-                        a.Order = dt.Max(p => p.Order) + 1;
+                        if (dt.Count() > 0)
+                            a.Order = dt.Max(p => p.Order) + 1;
                     }
 
                     // Ca làm việc

@@ -71,6 +71,14 @@ namespace SKG.DXF.Station.Manage
                 _tbFixed = ImportData(open.FileName, "Codinh");
                 foreach (DataRow r in _tbFixed.Rows)
                 {
+                    var dt = Global.Session.Current;
+                    if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                    {
+                        r.RowError = STR_ERR_DATE;
+                        r["Note"] = r.RowError;
+                        continue;
+                    }
+
                     var bs = r["Code"] + "";
                     var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
@@ -114,6 +122,14 @@ namespace SKG.DXF.Station.Manage
                 _tbNormal = ImportData(open.FileName, "Vanglai");
                 foreach (DataRow r in _tbNormal.Rows)
                 {
+                    var dt = Global.Session.Current;
+                    if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                    {
+                        r.RowError = STR_ERR_DATE;
+                        r["Note"] = r.RowError;
+                        continue;
+                    }
+
                     var bs = r["Code"] + "";
                     var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
@@ -192,13 +208,9 @@ namespace SKG.DXF.Station.Manage
                 {
                     var dt = Global.Session.Current;
                     if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                    {
-                        r["Note"] = STR_ERR_DATE;
                         continue;
-                    }
 
                     var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
-
                     if (_bll.Tra_Detail.Insert(o) == null)
                     {
                         r["Note"] = STR_IN_DEPOT;
@@ -218,13 +230,9 @@ namespace SKG.DXF.Station.Manage
                 {
                     var dt = Global.Session.Current;
                     if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                    {
-                        r["Note"] = STR_ERR_DATE;
                         continue;
-                    }
 
                     var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
-
                     if (_bll.Tra_Detail.Insert(o) == null)
                     {
                         r["Note"] = STR_IN_DEPOT;
@@ -371,7 +379,6 @@ namespace SKG.DXF.Station.Manage
         #region Constants
         private const string STR_TITLE = "Nhập xe bằng tay";
 
-        private const string STR_ERR_DATE = "Thời gian nhập sai";
         private const string STR_NO_LIST = "Không có trong danh sách";
         private const string STR_NO_ROUTE = "Không đăng kí tuyến";
         private const string STR_NO_TARIFF = "Loại xe này không có";
@@ -380,6 +387,7 @@ namespace SKG.DXF.Station.Manage
         private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
         private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
 
+        private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
         private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";

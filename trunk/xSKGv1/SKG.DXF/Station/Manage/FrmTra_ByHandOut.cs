@@ -314,10 +314,10 @@ namespace SKG.DXF.Station.Manage
         #region Constants
         private const string STR_TITLE = "Xuất xe bằng tay";
 
-        private const string STR_ERR_DATE = "Thời gian nhập sai";
         private const string STR_NO_LIST = "Không có trong danh sách";
         private const string STR_NO_ROUTE = "Không đăng kí tuyến";
 
+        private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
         private const string STR_EXIT = "ĐÃ CHO XE RA";
         private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";

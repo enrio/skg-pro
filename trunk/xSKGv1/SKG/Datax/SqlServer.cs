@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SKG.Data
+namespace SKG.Datax
 {
     using System.IO;
     using System.Data;

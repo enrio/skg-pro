@@ -320,6 +320,93 @@ namespace SKG.DXF.Station.Manage
             tb.Columns.Add("Money", typeof(decimal));
             return tb;
         }
+
+        /// <summary>
+        /// Invoice and out gate
+        /// </summary>
+        /// <param name="dtr">Data</param>
+        /// <param name="isOut">Out gate</param>
+        /// <returns></returns>
+        private int InvoiceOut(DataRowCollection dtr, bool isOut = true)
+        {
+            int count = 0;
+            foreach (DataRow r in dtr)
+            {
+                var bs = r["Code"] + "";
+                var dt = Global.Session.Current;
+
+                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
+                {
+                    r.RowError = STR_ERR_DATE;
+                    r["Note"] = r.RowError;
+                    continue;
+                }
+
+                var det = _bll.Tra_Detail.InvoiceOut(bs, isOut, dt);
+                if (det == null)
+                {
+                    r.RowError = STR_IN_DEPOT;
+                    r["Note"] = r.RowError;
+
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null)
+                    {
+                        r.RowError = STR_NO_LIST;
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        if (ve.Fixed)
+                        {
+                            if (ve.Tariff == null)
+                            {
+                                r.RowError = STR_NO_ROUTE;
+                                r["Note"] = r.RowError;
+                            }
+                            else
+                            {
+                                r["Tariff"] = ve.Tariff.Text;
+                                r["Group"] = ve.Tariff.Group.Text;
+                                r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
+                                r["Seats"] = ve.Seats;
+                                r["Beds"] = ve.Beds;
+                            }
+                        }
+                        else
+                        {
+                            r.RowError = STR_NORMAL;
+                            r["Note"] = r.RowError;
+                        }
+                    }
+                }
+                else
+                {
+                    r["Tariff"] = det.Vehicle.Tariff.Text;
+                    r["Group"] = det.Vehicle.Tariff.Group.Text;
+                    r["Transport"] = det.Vehicle.Transport.Text;
+
+                    r["Seats"] = det.Vehicle.Seats;
+                    r["Beds"] = det.Vehicle.Beds;
+
+                    r["UserOut"] = Global.Session.User.Name;
+                    r["DateOut"] = det.DateOut;
+
+                    r["UserIn"] = det.UserIn.Name;
+                    r["DateIn"] = det.DateIn;
+                    r["Phone"] = det.UserIn.Phone;
+
+                    r["Cost"] = det.Cost;
+                    r["Rose"] = det.Rose;
+                    r["Parked"] = det.Parked;
+                    r["Money"] = det.Money;
+
+                    count++;
+                }
+            }
+            return count;
+        }
         #endregion
 
         #region Events

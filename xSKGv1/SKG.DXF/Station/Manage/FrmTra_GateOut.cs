@@ -221,9 +221,12 @@ namespace SKG.DXF.Station.Manage
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
 
-                        if (Global.CheckPrinter()) rpt.Print();
-                        else XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",
-                            Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        try { rpt.Print(); }
+                        catch
+                        {
+                            XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",
+                                Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 cmdOut.Enabled = !isOut;

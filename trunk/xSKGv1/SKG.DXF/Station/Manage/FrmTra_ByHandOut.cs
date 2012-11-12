@@ -55,36 +55,54 @@ namespace SKG.DXF.Station.Manage
         #region Overrides
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
-            open.ShowDialog();
-
-            if (open.FileName == "" || !open.CheckFileExists)
+            try
             {
-                PerformCancel();
-                return;
+                var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
+                open.ShowDialog();
+
+                if (open.FileName == "" || !open.CheckFileExists)
+                {
+                    PerformCancel();
+                    return;
+                }
+
+                _tbFixed = ImportData(open.FileName, "Codinh");
+                InvoiceOut(_tbFixed.Rows, false);
+                grcFixed.DataSource = _tbFixed;
+
+                _tbNormal = ImportData(open.FileName, "Vanglai");
+                InvoiceOut(_tbNormal.Rows, false);
+                grcNormal.DataSource = _tbNormal;
             }
-
-            _tbFixed = ImportData(open.FileName, "Codinh");
-            InvoiceOut(_tbFixed.Rows, false);
-            grcFixed.DataSource = _tbFixed;
-
-            _tbNormal = ImportData(open.FileName, "Vanglai");
-            InvoiceOut(_tbNormal.Rows, false);
-            grcNormal.DataSource = _tbNormal;
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+            }
 
             base.PerformAdd();
         }
 
         protected override void PerformSave()
         {
-            var fix = InvoiceOut(_tbFixed.Rows, true);
-            grcFixed.DataSource = _tbFixed;
+            try
+            {
+                var fix = InvoiceOut(_tbFixed.Rows, true);
+                grcFixed.DataSource = _tbFixed;
 
-            var nor = InvoiceOut(_tbNormal.Rows, true);
-            grcNormal.DataSource = _tbNormal;
+                var nor = InvoiceOut(_tbNormal.Rows, true);
+                grcNormal.DataSource = _tbNormal;
 
-            XtraMessageBox.Show(String.Format(STR_INTO, fix, nor), Text);
-            PerformCancel();
+                XtraMessageBox.Show(String.Format(STR_INTO, fix, nor), Text);
+                PerformCancel();
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+            }
 
             base.PerformSave();
         }
@@ -97,6 +115,7 @@ namespace SKG.DXF.Station.Manage
 
             dockPanel1.SetDockPanel(STR_PAN1);
             dockPanel2.SetDockPanel(STR_PAN2);
+
             grvFixed.SetStandard();
             grvNormal.SetStandard();
 
@@ -113,30 +132,40 @@ namespace SKG.DXF.Station.Manage
         /// <returns></returns>
         private DataTable ImportData(string fileName, string sheetName)
         {
-            var tb = Excel.ImportFromExcel(fileName, sheetName);
-            tb.Columns[0].ColumnName = "No_";
-            tb.Columns[1].ColumnName = "Code";
-            tb.Columns[2].ColumnName = "DateOut";
+            try
+            {
+                var tb = Excel.ImportFromExcel(fileName, sheetName);
+                tb.Columns[0].ColumnName = "No_";
+                tb.Columns[1].ColumnName = "Code";
+                tb.Columns[2].ColumnName = "DateOut";
 
-            tb.Columns.Add("UserIn");
-            tb.Columns.Add("DateIn", typeof(DateTime));
-            tb.Columns.Add("Phone");
+                tb.Columns.Add("UserIn");
+                tb.Columns.Add("DateIn", typeof(DateTime));
+                tb.Columns.Add("Phone");
 
-            tb.Columns.Add("UserOut");
-            tb.Columns.Add("Note");
-            tb.Columns.Add("Tariff");
+                tb.Columns.Add("UserOut");
+                tb.Columns.Add("Note");
+                tb.Columns.Add("Tariff");
 
-            tb.Columns.Add("Transport");
-            tb.Columns.Add("Group");
+                tb.Columns.Add("Transport");
+                tb.Columns.Add("Group");
 
-            tb.Columns.Add("Seats");
-            tb.Columns.Add("Beds");
+                tb.Columns.Add("Seats");
+                tb.Columns.Add("Beds");
 
-            tb.Columns.Add("Cost", typeof(decimal));
-            tb.Columns.Add("Rose", typeof(decimal));
-            tb.Columns.Add("Parked", typeof(decimal));
-            tb.Columns.Add("Money", typeof(decimal));
-            return tb;
+                tb.Columns.Add("Cost", typeof(decimal));
+                tb.Columns.Add("Rose", typeof(decimal));
+                tb.Columns.Add("Parked", typeof(decimal));
+                tb.Columns.Add("Money", typeof(decimal));
+                return tb;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return null;
+            }
         }
 
         /// <summary>
@@ -147,74 +176,84 @@ namespace SKG.DXF.Station.Manage
         /// <returns></returns>
         private int InvoiceOut(DataRowCollection dtr, bool isOut = true)
         {
-            int count = 0;
-            foreach (DataRow r in dtr)
+            try
             {
-                var code = r["Code"] + "";
-                var date = Global.Session.Current;
-
-                if (!DateTime.TryParse(r["DateOut"] + "", out date))
+                int count = 0;
+                foreach (DataRow r in dtr)
                 {
-                    r.RowError = STR_ERR_DATE;
-                    r["Note"] = r.RowError;
-                    continue;
-                }
+                    var code = r["Code"] + "";
+                    var date = Global.Session.Current;
 
-                var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date);
-                if (d == null)
-                {
-                    r.RowError = STR_IN_DEPOT;
-                    r["Note"] = r.RowError;
-
-                    var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(code);
-                    if (v == null)
+                    if (!DateTime.TryParse(r["DateOut"] + "", out date))
                     {
-                        r.RowError = STR_NO_LIST;
+                        r.RowError = STR_ERR_DATE;
                         r["Note"] = r.RowError;
+                        continue;
                     }
-                    else
+
+                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date);
+                    if (d == null)
                     {
-                        if (v.Tariff == null)
+                        r.RowError = STR_IN_DEPOT;
+                        r["Note"] = r.RowError;
+
+                        var v = (Tra_Vehicle)_bll.Tra_Vehicle.Select(code);
+                        if (v == null)
                         {
-                            r.RowError = STR_NO_ROUTE;
+                            r.RowError = STR_NO_LIST;
                             r["Note"] = r.RowError;
                         }
                         else
                         {
-                            r["Tariff"] = v.Tariff.Text;
-                            r["Group"] = v.Tariff.Group.Text;
-                            r["Transport"] = v.Transport == null ? "" : v.Transport.Text;
+                            if (v.Tariff == null)
+                            {
+                                r.RowError = STR_NO_ROUTE;
+                                r["Note"] = r.RowError;
+                            }
+                            else
+                            {
+                                r["Tariff"] = v.Tariff.Text;
+                                r["Group"] = v.Tariff.Group.Text;
+                                r["Transport"] = v.Transport == null ? "" : v.Transport.Text;
 
-                            r["Seats"] = v.Seats;
-                            r["Beds"] = v.Beds;
+                                r["Seats"] = v.Seats;
+                                r["Beds"] = v.Beds;
+                            }
                         }
                     }
+                    else
+                    {
+                        r["Tariff"] = d.Vehicle.Tariff.Text;
+                        r["Group"] = d.Vehicle.Tariff.Group.Text;
+                        r["Transport"] = d.Vehicle.Transport == null ? "" : d.Vehicle.Transport.Text;
+
+                        r["Seats"] = d.Vehicle.Seats;
+                        r["Beds"] = d.Vehicle.Beds;
+
+                        r["DateOut"] = d.DateOut;
+
+                        r["UserIn"] = d.UserIn.Name;
+                        r["DateIn"] = d.DateIn;
+                        r["Phone"] = d.UserIn.Phone;
+
+                        r["Cost"] = d.Cost;
+                        r["Rose"] = d.Rose;
+                        r["Parked"] = d.Parked;
+                        r["Money"] = d.Money;
+
+                        count++;
+                    }
+                    r["UserOut"] = Global.Session.User.Name;
                 }
-                else
-                {
-                    r["Tariff"] = d.Vehicle.Tariff.Text;
-                    r["Group"] = d.Vehicle.Tariff.Group.Text;
-                    r["Transport"] = d.Vehicle.Transport == null ? "" : d.Vehicle.Transport.Text;
-
-                    r["Seats"] = d.Vehicle.Seats;
-                    r["Beds"] = d.Vehicle.Beds;
-
-                    r["DateOut"] = d.DateOut;
-
-                    r["UserIn"] = d.UserIn.Name;
-                    r["DateIn"] = d.DateIn;
-                    r["Phone"] = d.UserIn.Phone;
-
-                    r["Cost"] = d.Cost;
-                    r["Rose"] = d.Rose;
-                    r["Parked"] = d.Parked;
-                    r["Money"] = d.Money;
-
-                    count++;
-                }
-                r["UserOut"] = Global.Session.User.Name;
+                return count;
             }
-            return count;
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return -1;
+            }
         }
         #endregion
 

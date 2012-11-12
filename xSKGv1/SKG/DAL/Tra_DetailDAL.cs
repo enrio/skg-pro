@@ -437,7 +437,7 @@ namespace SKG.DAL
                     {
                         // Đánh số phiếu thu theo tháng, năm (xe cố định)
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code
-                            && p.Money != p.Parked
+                            && p.Cost != 0
                             && p.DateOut.Value.Month == m
                             && p.DateOut.Value.Year == y);
                         a.Order = dt.Max(p => p.Order) + 1;

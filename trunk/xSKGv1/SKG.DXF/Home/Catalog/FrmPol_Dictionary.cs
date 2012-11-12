@@ -59,17 +59,29 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void PerformDelete()
         {
-            var id = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            var text = grvMain.GetFocusedRowCellValue("Text");
+            var id = (Guid)tmpId;
+
+            if (id == new Guid())
+                XtraMessageBox.Show(STR_SELECT.ToUpper(), STR_DELETE.ToUpper(),
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
             {
-                var cfm = String.Format(STR_CONFIRM, txtText.Text);
-                var oki = XtraMessageBox.Show(cfm, STR_DELETE, MessageBoxButtons.OKCancel);
+                var cfm = String.Format(STR_CONFIRM, text);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE.ToUpper(), MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
                     if (_bll.Pol_Dictionary.Delete(id) != null) PerformRefresh();
-                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                    else XtraMessageBox.Show(STR_UNDELETE.ToUpper(), STR_DELETE.ToUpper(),
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             base.PerformDelete();
@@ -314,6 +326,8 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_CONFIRM = "Có xoá '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_DUPLICATE = "Mã này có rồi";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         #endregion
     }
 }

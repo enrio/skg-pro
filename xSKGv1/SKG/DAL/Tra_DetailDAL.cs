@@ -929,11 +929,11 @@ namespace SKG.DAL
                               s.More,
                               s.Text,
 
-                              UserInName = s.UserIn.Name,
-                              UserInPhone = s.UserIn.Phone,
+                              UserIn = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
 
-                              UserOutName = s.UserOut.Name,
-                              Number = s.Vehicle.Code,
+                              UserOut = s.UserOut.Name,
+                              s.Vehicle.Code,
 
                               s.DateIn,
                               s.DateOut,
@@ -949,7 +949,7 @@ namespace SKG.DAL
                               Region = s.Vehicle.Tariff.Group.Parent.Parent.Text,
                               Area = s.Vehicle.Tariff.Group.Parent.Text,
                               Province = s.Vehicle.Tariff.Group.Text,
-                              Route = s.Vehicle.Tariff.Text,
+                              Tariff = s.Vehicle.Tariff.Text,
                               Transport = s.Vehicle.Transport.Text,
 
                               s.Parked,

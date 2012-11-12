@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 10/11/2012 16:32
+ * Update: 12/11/2012 14:32
  * Status: OK
  */
 #endregion
@@ -56,179 +56,197 @@ namespace SKG.DXF.Station.Manage
         #region Overrides
         protected override void PerformAdd()
         {
-            var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
-            open.ShowDialog();
-
-            if (open.FileName == "" || !open.CheckFileExists)
+            try
             {
-                PerformCancel();
-                return;
-            }
+                var open = new OpenFileDialog { Filter = "Excel file (*.xls)|*.xls" };
+                open.ShowDialog();
 
-            #region Fixed
-            _tbFixed = ImportData(open.FileName, "Codinh");
-            foreach (DataRow r in _tbFixed.Rows)
-            {
-                var bs = r["Code"] + "";
-                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                if (ve == null)
+                if (open.FileName == "" || !open.CheckFileExists)
                 {
-                    r.RowError = STR_NO_LIST;
-                    r["Note"] = r.RowError;
+                    PerformCancel();
+                    return;
                 }
-                else
+
+                #region Fixed
+                _tbFixed = ImportData(open.FileName, "Codinh");
+                foreach (DataRow r in _tbFixed.Rows)
                 {
-                    if (ve.Fixed)
+                    var bs = r["Code"] + "";
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null)
                     {
-                        if (ve.Tariff == null)
+                        r.RowError = STR_NO_LIST;
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        if (ve.Fixed)
                         {
-                            r.RowError = STR_NO_ROUTE;
+                            if (ve.Tariff == null)
+                            {
+                                r.RowError = STR_NO_ROUTE;
+                                r["Note"] = r.RowError;
+                            }
+                            else
+                            {
+                                r["Tariff"] = ve.Tariff.Text;
+                                r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
+                                r["Seats"] = ve.Seats;
+                                r["Beds"] = ve.Beds;
+
+                                r["Id"] = ve.Id;
+                                r["UserIn"] = Global.Session.User.Name;
+                            }
+                        }
+                        else
+                        {
+                            r.RowError = STR_NORMAL;
+                            r["Note"] = r.RowError;
+                        }
+                    }
+                }
+                grcFixed.DataSource = _tbFixed;
+                #endregion
+
+                #region Normal
+                _tbNormal = ImportData(open.FileName, "Vanglai");
+                foreach (DataRow r in _tbNormal.Rows)
+                {
+                    var bs = r["Code"] + "";
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null)
+                    {
+                        var v = new Tra_Vehicle { Code = bs };
+                        var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
+
+                        if (tar == null)
+                        {
+                            r.RowError = STR_NO_TARIFF;
                             r["Note"] = r.RowError;
                         }
                         else
                         {
-                            r["Tariff"] = ve.Tariff.Text;
-                            r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+                            r["Tariff"] = tar.Text;
+                            v.TariffId = tar.Id;
 
-                            r["Seats"] = ve.Seats;
-                            r["Beds"] = ve.Beds;
+                            var seats = r["Seats"] + "";
+                            var beds = r["Beds"] + "";
+
+                            v.Seats = seats.ToInt32();
+                            v.Beds = beds.ToInt32();
+
+                            var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
+                            if (tmp == null)
+                            {
+                                r.RowError = STR_NO_ADD;
+                                r["Note"] = r.RowError;
+                            }
+                            else r["Id"] = tmp.Id;
+                        }
+                    }
+                    else
+                    {
+                        if (!ve.Fixed)
+                        {
+                            r["Tariff"] = ve.Tariff.Text;
+                            r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
+
+                            r["Seats"] = ve.Seats ?? 0;
+                            r["Beds"] = ve.Beds ?? 0;
 
                             r["Id"] = ve.Id;
                             r["UserIn"] = Global.Session.User.Name;
                         }
-                    }
-                    else
-                    {
-                        r.RowError = STR_NORMAL;
-                        r["Note"] = r.RowError;
-                    }
-                }
-            }
-            grcFixed.DataSource = _tbFixed;
-            #endregion
-
-            #region Normal
-            _tbNormal = ImportData(open.FileName, "Vanglai");
-            foreach (DataRow r in _tbNormal.Rows)
-            {
-                var bs = r["Code"] + "";
-                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
-
-                if (ve == null)
-                {
-                    var v = new Tra_Vehicle { Code = bs };
-                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
-
-                    if (tar == null)
-                    {
-                        r.RowError = STR_NO_TARIFF;
-                        r["Note"] = r.RowError;
-                    }
-                    else
-                    {
-                        r["Tariff"] = tar.Text;
-                        v.TariffId = tar.Id;
-
-                        var seats = r["Seats"] + "";
-                        var beds = r["Beds"] + "";
-
-                        v.Seats = seats.ToInt32();
-                        v.Beds = beds.ToInt32();
-
-                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
-                        if (tmp == null)
+                        else
                         {
-                            r.RowError = STR_NO_ADD;
+                            r.RowError = STR_FIXED;
                             r["Note"] = r.RowError;
                         }
-                        else r["Id"] = tmp.Id;
                     }
                 }
-                else
-                {
-                    if (!ve.Fixed)
-                    {
-                        r["Tariff"] = ve.Tariff.Text;
-                        r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
-
-                        r["Seats"] = ve.Seats ?? 0;
-                        r["Beds"] = ve.Beds ?? 0;
-
-                        r["Id"] = ve.Id;
-                        r["UserIn"] = Global.Session.User.Name;
-                    }
-                    else
-                    {
-                        r.RowError = STR_FIXED;
-                        r["Note"] = r.RowError;
-                    }
-                }
+                grcNormal.DataSource = _tbNormal;
+                #endregion
             }
-            grcNormal.DataSource = _tbNormal;
-            #endregion
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+            }
 
             base.PerformAdd();
         }
 
         protected override void PerformSave()
         {
-            int fix = 0, normal = 0;
-
-            #region Fixed
-            var dtr = _tbFixed.Select("[Id] Is Not Null ");
-            foreach (DataRow r in dtr)
+            try
             {
-                var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                {
-                    r["Note"] = STR_ERR_DATE;
-                    continue;
-                }
+                int fix = 0, normal = 0;
 
-                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+                #region Fixed
+                var dtr = _tbFixed.Select("[Id] Is Not Null ");
+                foreach (DataRow r in dtr)
+                {
+                    var dt = Global.Session.Current;
+                    if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                    {
+                        r["Note"] = STR_ERR_DATE;
+                        continue;
+                    }
 
-                if (_bll.Tra_Detail.Insert(o) == null)
-                {
-                    r["Note"] = STR_IN_DEPOT;
-                    continue;
+                    var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+
+                    if (_bll.Tra_Detail.Insert(o) == null)
+                    {
+                        r["Note"] = STR_IN_DEPOT;
+                        continue;
+                    }
+                    else
+                    {
+                        r["Note"] = STR_ENTERED;
+                        fix++;
+                    }
                 }
-                else
+                #endregion
+
+                #region Normal
+                dtr = _tbNormal.Select("[Id] Is Not Null ");
+                foreach (DataRow r in dtr)
                 {
-                    r["Note"] = STR_ENTERED;
-                    fix++;
+                    var dt = Global.Session.Current;
+                    if (!DateTime.TryParse(r["DateIn"] + "", out dt))
+                    {
+                        r["Note"] = STR_ERR_DATE;
+                        continue;
+                    }
+
+                    var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+
+                    if (_bll.Tra_Detail.Insert(o) == null)
+                    {
+                        r["Note"] = STR_IN_DEPOT;
+                        continue;
+                    }
+                    else
+                    {
+                        r["Note"] = STR_ENTERED;
+                        normal++;
+                    }
                 }
+                #endregion
+
+                XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
+                PerformCancel();
             }
-            #endregion
-
-            #region Normal
-            dtr = _tbNormal.Select("[Id] Is Not Null ");
-            foreach (DataRow r in dtr)
+            catch (Exception ex)
             {
-                var dt = Global.Session.Current;
-                if (!DateTime.TryParse(r["DateIn"] + "", out dt))
-                {
-                    r["Note"] = STR_ERR_DATE;
-                    continue;
-                }
-
-                var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
-
-                if (_bll.Tra_Detail.Insert(o) == null)
-                {
-                    r["Note"] = STR_IN_DEPOT;
-                    continue;
-                }
-                else
-                {
-                    r["Note"] = STR_ENTERED;
-                    normal++;
-                }
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
             }
-            #endregion
-
-            XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
-            PerformCancel();
 
             base.PerformSave();
         }
@@ -258,32 +276,42 @@ namespace SKG.DXF.Station.Manage
         /// <returns></returns>
         private DataTable ImportData(string fileName, string sheetName)
         {
-            var tb = Excel.ImportFromExcel(fileName, sheetName);
-            tb.Columns[0].ColumnName = "No_";
-            tb.Columns[1].ColumnName = "Code";
-
-            tb.Columns[2].ColumnName = "DateIn";
-
-            if (sheetName.ToLower() == "vanglai")
+            try
             {
-                tb.Columns[3].ColumnName = "Tariff";
-                tb.Columns[4].ColumnName = "Seats";
-                tb.Columns[5].ColumnName = "Beds";
+                var tb = Excel.ImportFromExcel(fileName, sheetName);
+                tb.Columns[0].ColumnName = "No_";
+                tb.Columns[1].ColumnName = "Code";
+
+                tb.Columns[2].ColumnName = "DateIn";
+
+                if (sheetName.ToLower() == "vanglai")
+                {
+                    tb.Columns[3].ColumnName = "Tariff";
+                    tb.Columns[4].ColumnName = "Seats";
+                    tb.Columns[5].ColumnName = "Beds";
+                }
+                else
+                {
+                    tb.Columns.Add("Tariff");
+                    tb.Columns.Add("Seats");
+                    tb.Columns.Add("Beds");
+                }
+
+                tb.Columns.Add("Id", typeof(Guid));
+                tb.Columns.Add("UserIn");
+                tb.Columns.Add("Note");
+
+                tb.Columns.Add("Transport");
+                tb.Columns.Add("Group");
+                return tb;
             }
-            else
+            catch (Exception ex)
             {
-                tb.Columns.Add("Tariff");
-                tb.Columns.Add("Seats");
-                tb.Columns.Add("Beds");
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return null;
             }
-
-            tb.Columns.Add("Id", typeof(Guid));
-            tb.Columns.Add("UserIn");
-            tb.Columns.Add("Note");
-
-            tb.Columns.Add("Transport");
-            tb.Columns.Add("Group");
-            return tb;
         }
         #endregion
 

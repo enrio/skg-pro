@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 10/11/2012 16:32
+ * Update: 12/11/2012 14:32
  * Status: OK
  */
 #endregion
@@ -316,14 +316,8 @@ namespace SKG.DXF.Station.Manage
         private const string STR_ERR_DATE = "Thời gian nhập sai";
         private const string STR_NO_LIST = "Không có trong danh sách";
         private const string STR_NO_ROUTE = "Không đăng kí tuyến";
-        private const string STR_NO_TARIFF = "Loại xe này không có";
-        private const string STR_NO_ADD = "Không thêm thông tin được";
-
-        private const string STR_FIXED = "ĐÂY LÀ " + STR_PAN1;
-        private const string STR_NORMAL = "ĐÂY LÀ " + STR_PAN2;
 
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
-        private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
         private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
 
         public const string STR_PAN1 = "XE CỐ ĐỊNH";

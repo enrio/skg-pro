@@ -206,8 +206,7 @@ namespace SKG.DXF.Station.Manage
 
                     r["Seats"] = d.Vehicle.Seats;
                     r["Beds"] = d.Vehicle.Beds;
-
-                    r["UserOut"] = Global.Session.User.Name;
+                    
                     r["DateOut"] = d.DateOut;
 
                     r["UserIn"] = d.UserIn.Name;
@@ -221,6 +220,7 @@ namespace SKG.DXF.Station.Manage
 
                     count++;
                 }
+                r["UserOut"] = Global.Session.User.Name;
             }
             return count;
         }

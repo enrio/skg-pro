@@ -600,7 +600,8 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Details
                           where s.DateOut >= fr && s.DateOut <= to
-                          where s.Vehicle.Fixed == true
+                          && s.Vehicle.Fixed == true
+                          && s.Money != s.Parked
                           orderby s.DateOut descending
                           select new
                           {
@@ -661,6 +662,7 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
+                           && s.Money != s.Parked
                            group s by s.Vehicle.Tariff.Code into g
                            select new
                            {

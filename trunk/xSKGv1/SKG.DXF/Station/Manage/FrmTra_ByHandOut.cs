@@ -75,32 +75,67 @@ namespace SKG.DXF.Station.Manage
 
                 if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
-                    r["Note"] = STR_ERR_DATE;
+                    r.RowError = STR_ERR_DATE;
+                    r["Note"] = r.RowError;
                     continue;
+                }
+
+                var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
+                if (det == null)
+                {
+                    r.RowError = STR_IN_DEPOT;
+                    r["Note"] = r.RowError;
+
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null)
+                    {
+                        r.RowError = STR_NO_LIST;
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        if (ve.Fixed)
+                        {
+                            if (ve.Tariff == null)
+                            {
+                                r.RowError = STR_NO_ROUTE;
+                                r["Note"] = r.RowError;
+                            }
+                            else
+                            {
+                                r["Tariff"] = ve.Tariff.Text;
+                                r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
+                                r["Seats"] = ve.Seats ?? 0;
+                                r["Beds"] = ve.Beds ?? 0;
+                            }
+                        }
+                        else
+                        {
+                            r.RowError = STR_NORMAL;
+                            r["Note"] = r.RowError;
+                        }
+                    }
                 }
                 else
                 {
-                    var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
-                    if (det == null) r["Note"] = STR_IN_DEPOT;
-                    else
-                    {
-                        r["Tariff"] = det.Vehicle.Tariff.Text;
-                        r["Transport"] = det.Vehicle.Transport.Text;
+                    r["Tariff"] = det.Vehicle.Tariff.Text;
+                    r["Transport"] = det.Vehicle.Transport.Text;
 
-                        r["Seats"] = det.Vehicle.Seats ?? 0;
-                        r["Beds"] = det.Vehicle.Beds ?? 0;
+                    r["Seats"] = det.Vehicle.Seats ?? 0;
+                    r["Beds"] = det.Vehicle.Beds ?? 0;
 
-                        r["UserOut"] = Global.Session.User.Name;
+                    r["UserOut"] = Global.Session.User.Name;
 
-                        r["UserIn"] = det.UserIn.Name;
-                        r["DateIn"] = det.DateIn;
-                        r["Phone"] = det.UserIn.Phone;
+                    r["UserIn"] = det.UserIn.Name;
+                    r["DateIn"] = det.DateIn;
+                    r["Phone"] = det.UserIn.Phone;
 
-                        r["Cost"] = det.Cost;
-                        r["Rose"] = det.Rose;
-                        r["Parked"] = det.Parked;
-                        r["Money"] = det.Money;
-                    }
+                    r["Cost"] = det.Cost;
+                    r["Rose"] = det.Rose;
+                    r["Parked"] = det.Parked;
+                    r["Money"] = det.Money;
                 }
             }
             grcFixed.DataSource = _tbFixed;
@@ -117,32 +152,59 @@ namespace SKG.DXF.Station.Manage
 
                 if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
-                    r["Note"] = STR_ERR_DATE;
+                    r.RowError = STR_ERR_DATE;
+                    r["Note"] = r.RowError;
                     continue;
+                }
+
+                var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
+                if (det == null)
+                {
+                    r.RowError = STR_IN_DEPOT;
+                    r["Note"] = r.RowError;
+
+                    var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+
+                    if (ve == null)
+                    {
+                        r.RowError = STR_NO_LIST;
+                        r["Note"] = r.RowError;
+                    }
+                    else
+                    {
+                        if (!ve.Fixed)
+                        {
+                            r["Tariff"] = ve.Tariff.Text;
+                            r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
+
+                            r["Seats"] = ve.Seats ?? 0;
+                            r["Beds"] = ve.Beds ?? 0;
+                        }
+                        else
+                        {
+                            r.RowError = STR_FIXED;
+                            r["Note"] = r.RowError;
+                        }
+                    }
                 }
                 else
                 {
-                    var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
-                    if (det == null) r["Note"] = STR_IN_DEPOT;
-                    else
-                    {
-                        r["Tariff"] = det.Vehicle.Tariff.Text;
-                        r["Group"] = det.Vehicle.Tariff.Group.Text;
+                    r["Tariff"] = det.Vehicle.Tariff.Text;
+                    r["Group"] = det.Vehicle.Tariff.Group.Text;
 
-                        r["Seats"] = det.Vehicle.Seats ?? 0;
-                        r["Beds"] = det.Vehicle.Beds ?? 0;
+                    r["Seats"] = det.Vehicle.Seats ?? 0;
+                    r["Beds"] = det.Vehicle.Beds ?? 0;
 
-                        r["UserOut"] = Global.Session.User.Name;
+                    r["UserOut"] = Global.Session.User.Name;
 
-                        r["UserIn"] = det.UserIn.Name;
-                        r["DateIn"] = det.DateIn;
-                        r["Phone"] = det.UserIn.Phone;
+                    r["UserIn"] = det.UserIn.Name;
+                    r["DateIn"] = det.DateIn;
+                    r["Phone"] = det.UserIn.Phone;
 
-                        r["Cost"] = det.Cost;
-                        r["Rose"] = det.Rose;
-                        r["Parked"] = det.Parked;
-                        r["Money"] = det.Money;
-                    }
+                    r["Cost"] = det.Cost;
+                    r["Rose"] = det.Rose;
+                    r["Parked"] = det.Parked;
+                    r["Money"] = det.Money;
                 }
             }
             grcNormal.DataSource = _tbNormal;

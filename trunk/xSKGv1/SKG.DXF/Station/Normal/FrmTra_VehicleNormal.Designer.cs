@@ -511,7 +511,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_VehicleNormal";
             this.Activated += new System.EventHandler(this.FrmTra_VehicleNormal_Activated);
-            
+            this.Load += new System.EventHandler(this.FrmTra_VehicleNormal_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

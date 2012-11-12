@@ -74,13 +74,15 @@ namespace SKG.DXF.Station.Normal
             {
                 var frm = new Station.Normal.FrmTra_VehicleNormal
                 {
-                    _num = txtNumber.Text,
+                    NumIn = txtNumber.Text,
                     WindowState = FormWindowState.Maximized,
                     AllowCancel = false,
                     _state = State.Add
                 };
 
                 frm.ShowDialog();
+
+                txtNumber.Text = frm.NumOut;
                 o = _bll.Tra_Vehicle.Select(txtNumber.Text);
             }
 

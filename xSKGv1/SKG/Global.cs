@@ -14,6 +14,7 @@ using System;
 using System.Linq;
 using System.Data.Common;
 using System.Windows.Forms;
+using System.Drawing.Printing;
 using System.Collections.Generic;
 
 namespace SKG
@@ -26,6 +27,20 @@ namespace SKG
     public class Global
     {
         #region Methods
+        /// <summary>
+        /// Check valid printer
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckPrinter()
+        {
+            try
+            {
+                var printDocument = new PrintDocument();
+                return printDocument.PrinterSettings.IsValid;
+            }
+            catch { return false; }
+        }
+
         /// <summary>
         /// Get icon name
         /// </summary>

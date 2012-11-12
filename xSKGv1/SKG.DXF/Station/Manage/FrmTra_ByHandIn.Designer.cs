@@ -33,24 +33,6 @@
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.grcFixed = new DevExpress.XtraGrid.GridControl();
-            this.grvFixed = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.grcNormal = new DevExpress.XtraGrid.GridControl();
             this.grvNormal = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -67,17 +49,35 @@
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn21 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn22 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.grcFixed = new DevExpress.XtraGrid.GridControl();
+            this.grvFixed = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcFixed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFixed)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -126,6 +126,300 @@
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(943, 449);
             this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // grcNormal
+            // 
+            this.grcNormal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grcNormal.Location = new System.Drawing.Point(0, 0);
+            this.grcNormal.MainView = this.grvNormal;
+            this.grcNormal.Name = "grcNormal";
+            this.grcNormal.Size = new System.Drawing.Size(943, 449);
+            this.grcNormal.TabIndex = 3;
+            this.grcNormal.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.grvNormal});
+            // 
+            // grvNormal
+            // 
+            this.grvNormal.Appearance.BandPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.BandPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.BandPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.BandPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.BandPanel.Options.UseBackColor = true;
+            this.grvNormal.Appearance.BandPanel.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.BandPanel.Options.UseFont = true;
+            this.grvNormal.Appearance.BandPanel.Options.UseForeColor = true;
+            this.grvNormal.Appearance.BandPanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.BandPanelBackground.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.BandPanelBackground.Options.UseBackColor = true;
+            this.grvNormal.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.grvNormal.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.grvNormal.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.grvNormal.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.Empty.Options.UseBackColor = true;
+            this.grvNormal.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.EvenRow.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.EvenRow.Options.UseFont = true;
+            this.grvNormal.Appearance.EvenRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.grvNormal.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.FilterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.grvNormal.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(133)))), ((int)(((byte)(195)))));
+            this.grvNormal.Appearance.FixedLine.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.grvNormal.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
+            this.grvNormal.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
+            this.grvNormal.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FocusedRow.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.FocusedRow.Options.UseFont = true;
+            this.grvNormal.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Red;
+            this.grvNormal.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.grvNormal.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.FooterPanel.Options.UseFont = true;
+            this.grvNormal.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.grvNormal.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.GroupButton.Options.UseBackColor = true;
+            this.grvNormal.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.grvNormal.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.grvNormal.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.grvNormal.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.grvNormal.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.GroupRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.GroupRow.Options.UseFont = true;
+            this.grvNormal.Appearance.GroupRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvNormal.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.grvNormal.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.HeaderPanel.Options.UseFont = true;
+            this.grvNormal.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvNormal.Appearance.HeaderPanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.HeaderPanelBackground.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.HeaderPanelBackground.Options.UseBackColor = true;
+            this.grvNormal.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(225)))));
+            this.grvNormal.Appearance.HideSelectionRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNormal.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.HideSelectionRow.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.HorzLine.Options.UseBackColor = true;
+            this.grvNormal.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.OddRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.OddRow.Options.UseBorderColor = true;
+            this.grvNormal.Appearance.OddRow.Options.UseFont = true;
+            this.grvNormal.Appearance.OddRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
+            this.grvNormal.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNormal.Appearance.Preview.Options.UseFont = true;
+            this.grvNormal.Appearance.Preview.Options.UseForeColor = true;
+            this.grvNormal.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvNormal.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.grvNormal.Appearance.Row.Options.UseBackColor = true;
+            this.grvNormal.Appearance.Row.Options.UseFont = true;
+            this.grvNormal.Appearance.Row.Options.UseForeColor = true;
+            this.grvNormal.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNormal.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
+            this.grvNormal.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.grvNormal.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNormal.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grvNormal.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
+            this.grvNormal.Appearance.TopNewRow.Options.UseBackColor = true;
+            this.grvNormal.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNormal.Appearance.VertLine.Options.UseBackColor = true;
+            this.grvNormal.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.gridBand1,
+            this.gridBand2,
+            this.gridBand6});
+            this.grvNormal.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.bandedGridColumn11,
+            this.bandedGridColumn13,
+            this.bandedGridColumn14,
+            this.bandedGridColumn21,
+            this.bandedGridColumn22,
+            this.bandedGridColumn15,
+            this.bandedGridColumn16,
+            this.bandedGridColumn17,
+            this.bandedGridColumn19,
+            this.bandedGridColumn20,
+            this.bandedGridColumn18});
+            this.grvNormal.GridControl = this.grcNormal;
+            this.grvNormal.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "Tổng xe: {0:#,0}")});
+            this.grvNormal.Name = "grvNormal";
+            this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
+            this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
+            this.grvNormal.OptionsView.ShowFooter = true;
+            this.grvNormal.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvNormal_CustomDrawRowIndicator);
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin chung";
+            this.gridBand1.Columns.Add(this.bandedGridColumn11);
+            this.gridBand1.Columns.Add(this.bandedGridColumn13);
+            this.gridBand1.Columns.Add(this.bandedGridColumn14);
+            this.gridBand1.Columns.Add(this.bandedGridColumn15);
+            this.gridBand1.Columns.Add(this.bandedGridColumn16);
+            this.gridBand1.Columns.Add(this.bandedGridColumn17);
+            this.gridBand1.Columns.Add(this.bandedGridColumn18);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 540;
+            // 
+            // bandedGridColumn11
+            // 
+            this.bandedGridColumn11.Caption = "Mã";
+            this.bandedGridColumn11.FieldName = "Id";
+            this.bandedGridColumn11.Name = "bandedGridColumn11";
+            // 
+            // bandedGridColumn13
+            // 
+            this.bandedGridColumn13.Caption = "STT";
+            this.bandedGridColumn13.FieldName = "No_";
+            this.bandedGridColumn13.Name = "bandedGridColumn13";
+            this.bandedGridColumn13.Visible = true;
+            this.bandedGridColumn13.Width = 46;
+            // 
+            // bandedGridColumn14
+            // 
+            this.bandedGridColumn14.Caption = "Biển số";
+            this.bandedGridColumn14.FieldName = "Code";
+            this.bandedGridColumn14.Name = "bandedGridColumn14";
+            this.bandedGridColumn14.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} lượt")});
+            this.bandedGridColumn14.Visible = true;
+            this.bandedGridColumn14.Width = 147;
+            // 
+            // bandedGridColumn15
+            // 
+            this.bandedGridColumn15.Caption = "Điện thoại";
+            this.bandedGridColumn15.FieldName = "Phone";
+            this.bandedGridColumn15.Name = "bandedGridColumn15";
+            this.bandedGridColumn15.Width = 81;
+            // 
+            // bandedGridColumn16
+            // 
+            this.bandedGridColumn16.Caption = "Loại xe";
+            this.bandedGridColumn16.FieldName = "Tariff";
+            this.bandedGridColumn16.Name = "bandedGridColumn16";
+            this.bandedGridColumn16.Visible = true;
+            this.bandedGridColumn16.Width = 124;
+            // 
+            // bandedGridColumn17
+            // 
+            this.bandedGridColumn17.Caption = "Nhóm xe";
+            this.bandedGridColumn17.FieldName = "Group";
+            this.bandedGridColumn17.Name = "bandedGridColumn17";
+            this.bandedGridColumn17.Visible = true;
+            this.bandedGridColumn17.Width = 140;
+            // 
+            // bandedGridColumn18
+            // 
+            this.bandedGridColumn18.Caption = "Ghi chú";
+            this.bandedGridColumn18.FieldName = "Note";
+            this.bandedGridColumn18.Name = "bandedGridColumn18";
+            this.bandedGridColumn18.Visible = true;
+            this.bandedGridColumn18.Width = 83;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Tải trọng";
+            this.gridBand2.Columns.Add(this.bandedGridColumn19);
+            this.gridBand2.Columns.Add(this.bandedGridColumn20);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.Width = 197;
+            // 
+            // bandedGridColumn19
+            // 
+            this.bandedGridColumn19.Caption = "Ghế";
+            this.bandedGridColumn19.FieldName = "Seats";
+            this.bandedGridColumn19.Name = "bandedGridColumn19";
+            this.bandedGridColumn19.Visible = true;
+            this.bandedGridColumn19.Width = 105;
+            // 
+            // bandedGridColumn20
+            // 
+            this.bandedGridColumn20.Caption = "Giường";
+            this.bandedGridColumn20.FieldName = "Beds";
+            this.bandedGridColumn20.Name = "bandedGridColumn20";
+            this.bandedGridColumn20.Visible = true;
+            this.bandedGridColumn20.Width = 92;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.Caption = "Thông tin vào";
+            this.gridBand6.Columns.Add(this.bandedGridColumn21);
+            this.gridBand6.Columns.Add(this.bandedGridColumn22);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.Width = 300;
+            // 
+            // bandedGridColumn21
+            // 
+            this.bandedGridColumn21.Caption = "Cho vào";
+            this.bandedGridColumn21.FieldName = "UserIn";
+            this.bandedGridColumn21.Name = "bandedGridColumn21";
+            this.bandedGridColumn21.Visible = true;
+            this.bandedGridColumn21.Width = 112;
+            // 
+            // bandedGridColumn22
+            // 
+            this.bandedGridColumn22.Caption = "Thời gian";
+            this.bandedGridColumn22.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.bandedGridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.bandedGridColumn22.FieldName = "DateIn";
+            this.bandedGridColumn22.Name = "bandedGridColumn22";
+            this.bandedGridColumn22.Visible = true;
+            this.bandedGridColumn22.Width = 188;
             // 
             // dockPanel1
             // 
@@ -221,9 +515,11 @@
             this.grvFixed.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grvFixed.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvFixed.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvFixed.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvFixed.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvFixed.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Red;
             this.grvFixed.Appearance.FooterPanel.Options.UseBackColor = true;
             this.grvFixed.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvFixed.Appearance.FooterPanel.Options.UseFont = true;
             this.grvFixed.Appearance.FooterPanel.Options.UseForeColor = true;
             this.grvFixed.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvFixed.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -318,7 +614,21 @@
             this.grvFixed.Name = "grvFixed";
             this.grvFixed.OptionsView.EnableAppearanceEvenRow = true;
             this.grvFixed.OptionsView.EnableAppearanceOddRow = true;
+            this.grvFixed.OptionsView.ShowFooter = true;
             this.grvFixed.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvFixed_CustomDrawRowIndicator);
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Caption = "Thông tin chung";
+            this.gridBand3.Columns.Add(this.bandedGridColumn1);
+            this.gridBand3.Columns.Add(this.bandedGridColumn2);
+            this.gridBand3.Columns.Add(this.bandedGridColumn3);
+            this.gridBand3.Columns.Add(this.bandedGridColumn6);
+            this.gridBand3.Columns.Add(this.bandedGridColumn7);
+            this.gridBand3.Columns.Add(this.bandedGridColumn8);
+            this.gridBand3.Columns.Add(this.bandedGridColumn12);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.Width = 540;
             // 
             // bandedGridColumn1
             // 
@@ -339,26 +649,10 @@
             this.bandedGridColumn3.Caption = "Biển số";
             this.bandedGridColumn3.FieldName = "Code";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
+            this.bandedGridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} lượt")});
             this.bandedGridColumn3.Visible = true;
             this.bandedGridColumn3.Width = 147;
-            // 
-            // bandedGridColumn4
-            // 
-            this.bandedGridColumn4.Caption = "Cho vào";
-            this.bandedGridColumn4.FieldName = "UserIn";
-            this.bandedGridColumn4.Name = "bandedGridColumn4";
-            this.bandedGridColumn4.Visible = true;
-            this.bandedGridColumn4.Width = 112;
-            // 
-            // bandedGridColumn5
-            // 
-            this.bandedGridColumn5.Caption = "Thời gian";
-            this.bandedGridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.bandedGridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.bandedGridColumn5.FieldName = "DateIn";
-            this.bandedGridColumn5.Name = "bandedGridColumn5";
-            this.bandedGridColumn5.Visible = true;
-            this.bandedGridColumn5.Width = 188;
             // 
             // bandedGridColumn6
             // 
@@ -391,6 +685,14 @@
             this.bandedGridColumn12.Visible = true;
             this.bandedGridColumn12.Width = 83;
             // 
+            // gridBand4
+            // 
+            this.gridBand4.Caption = "Tải trọng";
+            this.gridBand4.Columns.Add(this.bandedGridColumn9);
+            this.gridBand4.Columns.Add(this.bandedGridColumn10);
+            this.gridBand4.Name = "gridBand4";
+            this.gridBand4.Width = 197;
+            // 
             // bandedGridColumn9
             // 
             this.bandedGridColumn9.Caption = "Ghế";
@@ -407,27 +709,6 @@
             this.bandedGridColumn10.Visible = true;
             this.bandedGridColumn10.Width = 92;
             // 
-            // gridBand3
-            // 
-            this.gridBand3.Caption = "Thông tin chung";
-            this.gridBand3.Columns.Add(this.bandedGridColumn1);
-            this.gridBand3.Columns.Add(this.bandedGridColumn2);
-            this.gridBand3.Columns.Add(this.bandedGridColumn3);
-            this.gridBand3.Columns.Add(this.bandedGridColumn6);
-            this.gridBand3.Columns.Add(this.bandedGridColumn7);
-            this.gridBand3.Columns.Add(this.bandedGridColumn8);
-            this.gridBand3.Columns.Add(this.bandedGridColumn12);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 540;
-            // 
-            // gridBand4
-            // 
-            this.gridBand4.Caption = "Tải trọng";
-            this.gridBand4.Columns.Add(this.bandedGridColumn9);
-            this.gridBand4.Columns.Add(this.bandedGridColumn10);
-            this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 197;
-            // 
             // gridBand5
             // 
             this.gridBand5.Caption = "Thông tin vào";
@@ -436,294 +717,23 @@
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.Width = 300;
             // 
-            // grcNormal
+            // bandedGridColumn4
             // 
-            this.grcNormal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grcNormal.Location = new System.Drawing.Point(0, 0);
-            this.grcNormal.MainView = this.grvNormal;
-            this.grcNormal.Name = "grcNormal";
-            this.grcNormal.Size = new System.Drawing.Size(943, 449);
-            this.grcNormal.TabIndex = 3;
-            this.grcNormal.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.grvNormal});
+            this.bandedGridColumn4.Caption = "Cho vào";
+            this.bandedGridColumn4.FieldName = "UserIn";
+            this.bandedGridColumn4.Name = "bandedGridColumn4";
+            this.bandedGridColumn4.Visible = true;
+            this.bandedGridColumn4.Width = 112;
             // 
-            // grvNormal
+            // bandedGridColumn5
             // 
-            this.grvNormal.Appearance.BandPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.BandPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.BandPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.BandPanel.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.BandPanel.Options.UseBackColor = true;
-            this.grvNormal.Appearance.BandPanel.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.BandPanel.Options.UseFont = true;
-            this.grvNormal.Appearance.BandPanel.Options.UseForeColor = true;
-            this.grvNormal.Appearance.BandPanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.BandPanelBackground.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.BandPanelBackground.Options.UseBackColor = true;
-            this.grvNormal.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.ColumnFilterButton.Options.UseBackColor = true;
-            this.grvNormal.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.ColumnFilterButton.Options.UseForeColor = true;
-            this.grvNormal.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
-            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
-            this.grvNormal.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.Empty.Options.UseBackColor = true;
-            this.grvNormal.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.EvenRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.EvenRow.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.EvenRow.Options.UseFont = true;
-            this.grvNormal.Appearance.EvenRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.FilterCloseButton.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FilterCloseButton.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.FilterCloseButton.Options.UseForeColor = true;
-            this.grvNormal.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.FilterPanel.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.FilterPanel.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FilterPanel.Options.UseForeColor = true;
-            this.grvNormal.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(133)))), ((int)(((byte)(195)))));
-            this.grvNormal.Appearance.FixedLine.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FocusedCell.Options.UseForeColor = true;
-            this.grvNormal.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
-            this.grvNormal.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
-            this.grvNormal.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FocusedRow.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.FocusedRow.Options.UseFont = true;
-            this.grvNormal.Appearance.FocusedRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.FooterPanel.Options.UseBackColor = true;
-            this.grvNormal.Appearance.FooterPanel.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.FooterPanel.Options.UseForeColor = true;
-            this.grvNormal.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.GroupButton.Options.UseBackColor = true;
-            this.grvNormal.Appearance.GroupButton.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.GroupFooter.Options.UseBackColor = true;
-            this.grvNormal.Appearance.GroupFooter.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.GroupFooter.Options.UseForeColor = true;
-            this.grvNormal.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.GroupPanel.Options.UseBackColor = true;
-            this.grvNormal.Appearance.GroupPanel.Options.UseForeColor = true;
-            this.grvNormal.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.GroupRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.GroupRow.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.GroupRow.Options.UseFont = true;
-            this.grvNormal.Appearance.GroupRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
-            this.grvNormal.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.grvNormal.Appearance.HeaderPanel.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.HeaderPanel.Options.UseFont = true;
-            this.grvNormal.Appearance.HeaderPanel.Options.UseForeColor = true;
-            this.grvNormal.Appearance.HeaderPanelBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.HeaderPanelBackground.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.HeaderPanelBackground.Options.UseBackColor = true;
-            this.grvNormal.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(225)))));
-            this.grvNormal.Appearance.HideSelectionRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
-            this.grvNormal.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.HideSelectionRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.HideSelectionRow.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.HideSelectionRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.HorzLine.Options.UseBackColor = true;
-            this.grvNormal.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.OddRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.OddRow.Options.UseBorderColor = true;
-            this.grvNormal.Appearance.OddRow.Options.UseFont = true;
-            this.grvNormal.Appearance.OddRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
-            this.grvNormal.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
-            this.grvNormal.Appearance.Preview.Options.UseFont = true;
-            this.grvNormal.Appearance.Preview.Options.UseForeColor = true;
-            this.grvNormal.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvNormal.Appearance.Row.ForeColor = System.Drawing.Color.Black;
-            this.grvNormal.Appearance.Row.Options.UseBackColor = true;
-            this.grvNormal.Appearance.Row.Options.UseFont = true;
-            this.grvNormal.Appearance.Row.Options.UseForeColor = true;
-            this.grvNormal.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.grvNormal.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
-            this.grvNormal.Appearance.RowSeparator.Options.UseBackColor = true;
-            this.grvNormal.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
-            this.grvNormal.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.SelectedRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.SelectedRow.Options.UseForeColor = true;
-            this.grvNormal.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
-            this.grvNormal.Appearance.TopNewRow.Options.UseBackColor = true;
-            this.grvNormal.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvNormal.Appearance.VertLine.Options.UseBackColor = true;
-            this.grvNormal.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand1,
-            this.gridBand2,
-            this.gridBand6});
-            this.grvNormal.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.bandedGridColumn11,
-            this.bandedGridColumn13,
-            this.bandedGridColumn14,
-            this.bandedGridColumn21,
-            this.bandedGridColumn22,
-            this.bandedGridColumn15,
-            this.bandedGridColumn16,
-            this.bandedGridColumn17,
-            this.bandedGridColumn19,
-            this.bandedGridColumn20,
-            this.bandedGridColumn18});
-            this.grvNormal.GridControl = this.grcNormal;
-            this.grvNormal.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "Tổng xe: {0:#,0}")});
-            this.grvNormal.Name = "grvNormal";
-            this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
-            this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
-            this.grvNormal.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvNormal_CustomDrawRowIndicator);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin chung";
-            this.gridBand1.Columns.Add(this.bandedGridColumn11);
-            this.gridBand1.Columns.Add(this.bandedGridColumn13);
-            this.gridBand1.Columns.Add(this.bandedGridColumn14);
-            this.gridBand1.Columns.Add(this.bandedGridColumn15);
-            this.gridBand1.Columns.Add(this.bandedGridColumn16);
-            this.gridBand1.Columns.Add(this.bandedGridColumn17);
-            this.gridBand1.Columns.Add(this.bandedGridColumn18);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 540;
-            // 
-            // bandedGridColumn11
-            // 
-            this.bandedGridColumn11.Caption = "Mã";
-            this.bandedGridColumn11.FieldName = "Id";
-            this.bandedGridColumn11.Name = "bandedGridColumn11";
-            // 
-            // bandedGridColumn13
-            // 
-            this.bandedGridColumn13.Caption = "STT";
-            this.bandedGridColumn13.FieldName = "No_";
-            this.bandedGridColumn13.Name = "bandedGridColumn13";
-            this.bandedGridColumn13.Visible = true;
-            this.bandedGridColumn13.Width = 46;
-            // 
-            // bandedGridColumn14
-            // 
-            this.bandedGridColumn14.Caption = "Biển số";
-            this.bandedGridColumn14.FieldName = "Code";
-            this.bandedGridColumn14.Name = "bandedGridColumn14";
-            this.bandedGridColumn14.Visible = true;
-            this.bandedGridColumn14.Width = 147;
-            // 
-            // bandedGridColumn15
-            // 
-            this.bandedGridColumn15.Caption = "Điện thoại";
-            this.bandedGridColumn15.FieldName = "Phone";
-            this.bandedGridColumn15.Name = "bandedGridColumn15";
-            this.bandedGridColumn15.Width = 81;
-            // 
-            // bandedGridColumn16
-            // 
-            this.bandedGridColumn16.Caption = "Loại xe";
-            this.bandedGridColumn16.FieldName = "Tariff";
-            this.bandedGridColumn16.Name = "bandedGridColumn16";
-            this.bandedGridColumn16.Visible = true;
-            this.bandedGridColumn16.Width = 124;
-            // 
-            // bandedGridColumn17
-            // 
-            this.bandedGridColumn17.Caption = "Nhóm xe";
-            this.bandedGridColumn17.FieldName = "Group";
-            this.bandedGridColumn17.Name = "bandedGridColumn17";
-            this.bandedGridColumn17.Visible = true;
-            this.bandedGridColumn17.Width = 140;
-            // 
-            // bandedGridColumn18
-            // 
-            this.bandedGridColumn18.Caption = "Ghi chú";
-            this.bandedGridColumn18.FieldName = "Note";
-            this.bandedGridColumn18.Name = "bandedGridColumn18";
-            this.bandedGridColumn18.Visible = true;
-            this.bandedGridColumn18.Width = 83;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Tải trọng";
-            this.gridBand2.Columns.Add(this.bandedGridColumn19);
-            this.gridBand2.Columns.Add(this.bandedGridColumn20);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 197;
-            // 
-            // bandedGridColumn19
-            // 
-            this.bandedGridColumn19.Caption = "Ghế";
-            this.bandedGridColumn19.FieldName = "Seats";
-            this.bandedGridColumn19.Name = "bandedGridColumn19";
-            this.bandedGridColumn19.Visible = true;
-            this.bandedGridColumn19.Width = 105;
-            // 
-            // bandedGridColumn20
-            // 
-            this.bandedGridColumn20.Caption = "Giường";
-            this.bandedGridColumn20.FieldName = "Beds";
-            this.bandedGridColumn20.Name = "bandedGridColumn20";
-            this.bandedGridColumn20.Visible = true;
-            this.bandedGridColumn20.Width = 92;
-            // 
-            // gridBand6
-            // 
-            this.gridBand6.Caption = "Thông tin vào";
-            this.gridBand6.Columns.Add(this.bandedGridColumn21);
-            this.gridBand6.Columns.Add(this.bandedGridColumn22);
-            this.gridBand6.Name = "gridBand6";
-            this.gridBand6.Width = 300;
-            // 
-            // bandedGridColumn21
-            // 
-            this.bandedGridColumn21.Caption = "Cho vào";
-            this.bandedGridColumn21.FieldName = "UserIn";
-            this.bandedGridColumn21.Name = "bandedGridColumn21";
-            this.bandedGridColumn21.Visible = true;
-            this.bandedGridColumn21.Width = 112;
-            // 
-            // bandedGridColumn22
-            // 
-            this.bandedGridColumn22.Caption = "Thời gian";
-            this.bandedGridColumn22.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.bandedGridColumn22.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.bandedGridColumn22.FieldName = "DateIn";
-            this.bandedGridColumn22.Name = "bandedGridColumn22";
-            this.bandedGridColumn22.Visible = true;
-            this.bandedGridColumn22.Width = 188;
+            this.bandedGridColumn5.Caption = "Thời gian";
+            this.bandedGridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
+            this.bandedGridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.bandedGridColumn5.FieldName = "DateIn";
+            this.bandedGridColumn5.Name = "bandedGridColumn5";
+            this.bandedGridColumn5.Visible = true;
+            this.bandedGridColumn5.Width = 188;
             // 
             // FrmTra_ByHandIn
             // 
@@ -738,12 +748,12 @@
             this.panelContainer1.ResumeLayout(false);
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcFixed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvFixed)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grcNormal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grvNormal)).EndInit();
             this.ResumeLayout(false);
 
         }

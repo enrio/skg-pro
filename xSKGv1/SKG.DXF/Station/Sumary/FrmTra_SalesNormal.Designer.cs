@@ -465,6 +465,8 @@
             this.gridColumn3.Caption = "Biển số";
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} lượt")});
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 93;
             // 

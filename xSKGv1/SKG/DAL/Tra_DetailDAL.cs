@@ -864,7 +864,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sumary normal fixed
+        /// Sumary vihicle normal
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>

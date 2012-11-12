@@ -72,38 +72,35 @@ namespace SKG.DXF.Station.Manage
             foreach (DataRow r in _tbFixed.Rows)
             {
                 var bs = r["Code"] + "";
-                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+                var dt = Global.Session.Current;
 
-                if (ve == null)
+                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
-                    r.RowError = STR_NO_LIST;
-                    r["Note"] = r.RowError;
+                    r["Note"] = STR_ERR_DATE;
+                    continue;
                 }
                 else
                 {
-                    if (ve.Fixed)
-                    {
-                        if (ve.Tariff == null)
-                        {
-                            r.RowError = STR_NO_ROUTE;
-                            r["Note"] = r.RowError;
-                        }
-                        else
-                        {
-                            r["Tariff"] = ve.Tariff.Text;
-                            r["Transport"] = ve.Transport == null ? "" : ve.Transport.Text;
-
-                            r["Seats"] = ve.Seats;
-                            r["Beds"] = ve.Beds;
-
-                            r["Id"] = ve.Id;
-                            r["UserIn"] = Global.Session.User.Name;
-                        }
-                    }
+                    var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
+                    if (det == null) r["Note"] = STR_IN_DEPOT;
                     else
                     {
-                        r.RowError = STR_NORMAL;
-                        r["Note"] = r.RowError;
+                        r["Tariff"] = det.Vehicle.Tariff.Text;
+                        r["Transport"] = det.Vehicle.Transport.Text;
+
+                        r["Seats"] = det.Vehicle.Seats;
+                        r["Beds"] = det.Vehicle.Beds;
+
+                        r["UserOut"] = Global.Session.User.Name;
+
+                        r["UserIn"] = det.UserIn.Name;
+                        r["DateIn"] = det.DateIn;
+                        r["Phone"] = det.UserIn.Phone;
+
+                        r["Cost"] = det.Cost;
+                        r["Rose"] = det.Rose;
+                        r["Parked"] = det.Parked;
+                        r["Money"] = det.Money;
                     }
                 }
             }
@@ -117,55 +114,35 @@ namespace SKG.DXF.Station.Manage
             foreach (DataRow r in _tbNormal.Rows)
             {
                 var bs = r["Code"] + "";
-                var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
+                var dt = Global.Session.Current;
 
-                if (ve == null)
+                if (!DateTime.TryParse(r["DateOut"] + "", out dt))
                 {
-                    var v = new Tra_Vehicle { Code = bs };
-                    var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
-
-                    if (tar == null)
-                    {
-                        r.RowError = STR_NO_TARIFF;
-                        r["Note"] = r.RowError;
-                    }
-                    else
-                    {
-                        r["Tariff"] = tar.Text;
-                        v.TariffId = tar.Id;
-
-                        var seats = r["Seats"] + "";
-                        var beds = r["Beds"] + "";
-
-                        v.Seats = seats.ToInt32();
-                        v.Beds = beds.ToInt32();
-
-                        var tmp = (Tra_Vehicle)_bll.Tra_Vehicle.Insert(v);
-                        if (tmp == null)
-                        {
-                            r.RowError = STR_NO_ADD;
-                            r["Note"] = r.RowError;
-                        }
-                        else r["Id"] = tmp.Id;
-                    }
+                    r["Note"] = STR_ERR_DATE;
+                    continue;
                 }
                 else
                 {
-                    if (!ve.Fixed)
-                    {
-                        r["Tariff"] = ve.Tariff.Text;
-                        r["Group"] = ve.Tariff == null ? "" : ve.Tariff.Group.Text;
-
-                        r["Seats"] = ve.Seats ?? 0;
-                        r["Beds"] = ve.Beds ?? 0;
-
-                        r["Id"] = ve.Id;
-                        r["UserIn"] = Global.Session.User.Name;
-                    }
+                    var det = _bll.Tra_Detail.InvoiceOut(bs, false, dt);
+                    if (det == null) r["Note"] = STR_IN_DEPOT;
                     else
                     {
-                        r.RowError = STR_FIXED;
-                        r["Note"] = r.RowError;
+                        r["Tariff"] = det.Vehicle.Tariff.Text;
+                        r["Group"] = det.Vehicle.Tariff.Group.Text;
+
+                        r["Seats"] = det.Vehicle.Seats;
+                        r["Beds"] = det.Vehicle.Beds;
+
+                        r["UserOut"] = Global.Session.User.Name;
+
+                        r["UserIn"] = det.UserIn.Name;
+                        r["DateIn"] = det.DateIn;
+                        r["Phone"] = det.UserIn.Phone;
+
+                        r["Cost"] = det.Cost;
+                        r["Rose"] = det.Rose;
+                        r["Parked"] = det.Parked;
+                        r["Money"] = det.Money;
                     }
                 }
             }
@@ -264,23 +241,23 @@ namespace SKG.DXF.Station.Manage
             var tb = SKG.Data.Excel.ImportFromExcel(fileName, sheetName);
             tb.Columns[0].ColumnName = "No_";
             tb.Columns[1].ColumnName = "Code";
-            tb.Columns[2].ColumnName = "DateIn";
+            tb.Columns[2].ColumnName = "DateOut";
 
-            if (sheetName.ToLower() == "vanglai")
-            {
-                tb.Columns[3].ColumnName = "Tariff";
-                tb.Columns[4].ColumnName = "Seats";
-                tb.Columns[5].ColumnName = "Beds";
-            }
-            else
-            {
-                tb.Columns.Add("Seats");
-                tb.Columns.Add("Beds");
-            }
-
-            tb.Columns.Add("Id", typeof(Guid));
             tb.Columns.Add("UserIn");
+            tb.Columns.Add("DateIn");
+            tb.Columns.Add("Phone");
+
+            tb.Columns.Add("UserOut");
             tb.Columns.Add("Note");
+
+            tb.Columns.Add("Tariff");
+            tb.Columns.Add("Seats");
+            tb.Columns.Add("Beds");
+
+            tb.Columns.Add("Cost");
+            tb.Columns.Add("Rose");
+            tb.Columns.Add("Parked");
+            tb.Columns.Add("Money");
             return tb;
         }
         #endregion
@@ -350,7 +327,7 @@ namespace SKG.DXF.Station.Manage
         private const string STR_FIXED = "ĐÂY LÀ " + Global.STR_PAN1;
         private const string STR_NORMAL = "ĐÂY LÀ " + Global.STR_PAN2;
 
-        private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
+        private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
         private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
 

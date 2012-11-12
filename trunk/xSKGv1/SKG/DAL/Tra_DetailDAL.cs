@@ -862,6 +862,57 @@ namespace SKG.DAL
         {
             return FindInDepot(Group.N, number).ToDataTable();
         }
+
+        /// <summary>
+        /// Sumary normal fixed
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        public DataTable SumaryNormal(out decimal sum, DateTime fr, DateTime to)
+        {
+            sum = 0;
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.DateOut >= fr && s.DateOut <= to
+                          where s.Vehicle.Fixed == false
+                          orderby s.DateOut descending
+                          select new
+                          {
+                              s.Id,
+                              s.More,
+                              s.Text,
+
+                              UserIn = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
+
+                              UserOut = s.UserOut.Name,
+                              s.Vehicle.Code,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.FullDay,
+                              s.HalfDay,
+                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              s.Money,
+
+                              s.Price1,
+                              s.Price2,
+
+                              Group = s.Vehicle.Tariff.Group.Text,
+                              Tariff = s.Vehicle.Tariff.Text
+                          };
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch
+            {
+                return null;
+            }
+        }
         #endregion
 
         /// <summary>

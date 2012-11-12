@@ -221,13 +221,9 @@ namespace SKG.DXF.Station.Manage
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
 
-                        // Kiểm tra máy in và in phiếu thu
-                        try { rpt.Print(); }
-                        catch
-                        {
-                            XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!", Text,
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        if (Global.CheckPrinter()) rpt.Print();
+                        else XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",
+                            Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 cmdOut.Enabled = !isOut;

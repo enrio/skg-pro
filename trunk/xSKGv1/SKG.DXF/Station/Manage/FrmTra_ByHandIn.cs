@@ -76,7 +76,6 @@ namespace SKG.DXF.Station.Manage
                     {
                         r.RowError = STR_ERR_DATE;
                         r["Note"] = r.RowError;
-                        continue;
                     }
 
                     var bs = r["Code"] + "";
@@ -127,7 +126,6 @@ namespace SKG.DXF.Station.Manage
                     {
                         r.RowError = STR_ERR_DATE;
                         r["Note"] = r.RowError;
-                        continue;
                     }
 
                     var bs = r["Code"] + "";

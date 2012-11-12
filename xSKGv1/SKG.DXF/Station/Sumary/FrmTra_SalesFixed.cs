@@ -173,16 +173,18 @@ namespace SKG.DXF.Station.Sumary
             PerformRefresh();
         }
 
-        private void cbeQuater_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbeQuater_Validated(object sender, EventArgs e)
         {
             var a = cbeQuater.SelectedIndex + 1;
             var b = Global.Session.Current.Year;
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
+
+            PerformRefresh();
         }
 
-        private void cbeMonth_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbeMonth_Validated(object sender, EventArgs e)
         {
             var a = cbeMonth.SelectedIndex + 1;
             var b = Global.Session.Current.Year;
@@ -191,6 +193,18 @@ namespace SKG.DXF.Station.Sumary
             cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
             dteFrom.DateTime = c;
             dteTo.DateTime = b.ToEndOfMonth(a);
+
+            PerformRefresh();
+        }
+
+        private void dteFrom_Validated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
+
+        private void dteTo_Validated(object sender, EventArgs e)
+        {
+            PerformRefresh();
         }
         #endregion
 

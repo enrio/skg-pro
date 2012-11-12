@@ -136,6 +136,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(168, 26);
             this.dteTo.TabIndex = 6;
+            this.dteTo.Validated += new System.EventHandler(this.dteTo_Validated);
             // 
             // lblTo
             // 
@@ -162,6 +163,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(168, 26);
             this.dteFrom.TabIndex = 4;
+            this.dteFrom.Validated += new System.EventHandler(this.dteFrom_Validated);
             // 
             // lblFrom
             // 
@@ -213,7 +215,7 @@
             "12"});
             this.cbeMonth.Size = new System.Drawing.Size(56, 26);
             this.cbeMonth.TabIndex = 1;
-            this.cbeMonth.SelectedIndexChanged += new System.EventHandler(this.cbeMonth_SelectedIndexChanged);
+            this.cbeMonth.Validated += new System.EventHandler(this.cbeMonth_Validated);
             // 
             // cbeQuater
             // 
@@ -230,7 +232,7 @@
             "4"});
             this.cbeQuater.Size = new System.Drawing.Size(56, 26);
             this.cbeQuater.TabIndex = 0;
-            this.cbeQuater.SelectedIndexChanged += new System.EventHandler(this.cbeQuater_SelectedIndexChanged);
+            this.cbeQuater.Validated += new System.EventHandler(this.cbeQuater_Validated);
             // 
             // dockPanel2
             // 

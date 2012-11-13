@@ -926,8 +926,8 @@ namespace SKG.DAL
 
                                Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
                                Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Cost = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Cost(11),
-                               Tr_Rose = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Rose(11),
+                               Tr_Cost = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Cost,
+                               Tr_Rose = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Rose,
                                Tr_Money = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Money
                            };
                 return res2.ToDataTable();

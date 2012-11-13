@@ -234,6 +234,7 @@ namespace SKG.DAL
 
                               s.UserIn.Phone,
                               UserIn = s.UserIn.Name,
+                              UserInId = s.UserIn.Id,
                               //UserOut = s.UserOut.Name,
 
                               s.DateIn,
@@ -276,6 +277,10 @@ namespace SKG.DAL
                     default:
                         break;
                 }
+
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (!ql) res = res.Where(p => p.UserInId == Global.Session.User.Id);
+
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;
             }
@@ -637,8 +642,12 @@ namespace SKG.DAL
 
                               s.Parked,
                               s.Cost,
-                              s.Rose
+                              s.Rose,
+                              s.UserOutId
                           };
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
+
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
@@ -968,8 +977,12 @@ namespace SKG.DAL
                               s.Price2,
 
                               Group = s.Vehicle.Tariff.Group.Text,
-                              Tariff = s.Vehicle.Tariff.Text
+                              Tariff = s.Vehicle.Tariff.Text,
+                              s.UserOutId
                           };
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
+
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }

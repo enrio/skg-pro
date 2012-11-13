@@ -484,6 +484,7 @@
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_AuditMonth";
             this.Text = "THEO DÕI THÁNG";
+            this.Activated += new System.EventHandler(this.FrmTra_AuditMonth_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

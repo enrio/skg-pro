@@ -74,6 +74,28 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="AuditDay" msprop:Generator_TableClassName="AuditDayDataTable" msprop:Generator_TableVarName="tableAuditDay" msprop:Generator_TablePropName="AuditDay" msprop:Generator_RowDeletingName="AuditDayRowDeleting" msprop:Generator_UserTableName="AuditDay" msprop:Generator_RowChangingName="AuditDayRowChanging" msprop:Generator_RowEvHandlerName="AuditDayRowChangeEventHandler" msprop:Generator_RowDeletedName="AuditDayRowDeleted" msprop:Generator_RowEvArgName="AuditDayRowChangeEvent" msprop:Generator_RowChangedName="AuditDayRowChanged" msprop:Generator_RowClassName="AuditDayRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Tariff" msprop:Generator_ColumnVarNameInTable="columnTariff" msprop:Generator_ColumnPropNameInRow="Tariff" msprop:Generator_ColumnPropNameInTable="TariffColumn" msprop:Generator_UserColumnName="Tariff" type="xs:string" minOccurs="0" />
+              <xs:element name="Transport" msprop:Generator_ColumnVarNameInTable="columnTransport" msprop:Generator_ColumnPropNameInRow="Transport" msprop:Generator_ColumnPropNameInTable="TransportColumn" msprop:Generator_UserColumnName="Transport" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="Th_Lxe" msprop:Generator_ColumnVarNameInTable="columnTh_Lxe" msprop:Generator_ColumnPropNameInRow="Th_Lxe" msprop:Generator_ColumnPropNameInTable="Th_LxeColumn" msprop:Generator_UserColumnName="Th_Lxe" type="xs:int" minOccurs="0" />
+              <xs:element name="Th_Hk" msprop:Generator_ColumnVarNameInTable="columnTh_Hk" msprop:Generator_ColumnPropNameInRow="Th_Hk" msprop:Generator_ColumnPropNameInTable="Th_HkColumn" msprop:Generator_UserColumnName="Th_Hk" type="xs:int" minOccurs="0" />
+              <xs:element name="Th_Cost" msprop:Generator_ColumnVarNameInTable="columnTh_Cost" msprop:Generator_ColumnPropNameInRow="Th_Cost" msprop:Generator_ColumnPropNameInTable="Th_CostColumn" msprop:Generator_UserColumnName="Th_Cost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Th_Rose" msprop:Generator_ColumnVarNameInTable="columnTh_Rose" msprop:Generator_ColumnPropNameInRow="Th_Rose" msprop:Generator_ColumnPropNameInTable="Th_RoseColumn" msprop:Generator_UserColumnName="Th_Rose" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Th_Parked" msprop:Generator_ColumnVarNameInTable="columnTh_Parked" msprop:Generator_ColumnPropNameInRow="Th_Parked" msprop:Generator_ColumnPropNameInTable="Th_ParkedColumn" msprop:Generator_UserColumnName="Th_Parked" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Th_Money" msprop:Generator_ColumnVarNameInTable="columnTh_Money" msprop:Generator_ColumnPropNameInRow="Th_Money" msprop:Generator_ColumnPropNameInTable="Th_MoneyColumn" msprop:Generator_UserColumnName="Th_Money" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tr_Lxe" msprop:Generator_ColumnVarNameInTable="columnTr_Lxe" msprop:Generator_ColumnPropNameInRow="Tr_Lxe" msprop:Generator_ColumnPropNameInTable="Tr_LxeColumn" msprop:Generator_UserColumnName="Tr_Lxe" type="xs:int" minOccurs="0" />
+              <xs:element name="Tr_Hk" msprop:Generator_ColumnVarNameInTable="columnTr_Hk" msprop:Generator_ColumnPropNameInRow="Tr_Hk" msprop:Generator_ColumnPropNameInTable="Tr_HkColumn" msprop:Generator_UserColumnName="Tr_Hk" type="xs:int" minOccurs="0" />
+              <xs:element name="Tr_Cost" msprop:Generator_ColumnVarNameInTable="columnTr_Cost" msprop:Generator_ColumnPropNameInRow="Tr_Cost" msprop:Generator_ColumnPropNameInTable="Tr_CostColumn" msprop:Generator_UserColumnName="Tr_Cost" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tr_Rose" msprop:Generator_ColumnVarNameInTable="columnTr_Rose" msprop:Generator_ColumnPropNameInRow="Tr_Rose" msprop:Generator_ColumnPropNameInTable="Tr_RoseColumn" msprop:Generator_UserColumnName="Tr_Rose" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tr_Money" msprop:Generator_ColumnVarNameInTable="columnTr_Money" msprop:Generator_ColumnPropNameInRow="Tr_Money" msprop:Generator_ColumnPropNameInTable="Tr_MoneyColumn" msprop:Generator_UserColumnName="Tr_Money" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Guest" msprop:Generator_ColumnVarNameInTable="columnGuest" msprop:Generator_ColumnPropNameInRow="Guest" msprop:Generator_ColumnPropNameInTable="GuestColumn" msprop:Generator_UserColumnName="Guest" type="xs:int" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

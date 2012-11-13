@@ -152,34 +152,33 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Charge cost for vehicle fixed
         /// </summary>
-        /// <param name="error">Error of time</param>
-        /// <returns></returns>
-        public decimal Cost(int error = 11)
+        public decimal Cost
         {
-            var seat = Seats ?? 0;
-            var bed = Beds ?? 0;
-            return Tariff.Price1 * seat + Tariff.Price2 * bed;
+            get
+            {
+                var seat = Seats ?? 0;
+                var bed = Beds ?? 0;
+                return Tariff.Price1 * seat + Tariff.Price2 * bed;
+            }
         }
 
         /// <summary>
         /// Charge rose for vehicle fixed
         /// </summary>
-        /// <param name="error">Error of time</param>
-        /// <returns></returns>
-        public decimal Rose(int error = 11)
+        public decimal Rose
         {
-            var seat = Seats ?? 0;
-            var bed = Beds ?? 0;
-            return Tariff.Rose1 * (seat < 1 ? 1 : seat - 1) + Tariff.Rose2 * bed;
+            get
+            {
+                var seat = Seats ?? 0;
+                var bed = Beds ?? 0;
+                return Tariff.Rose1 * (seat < 1 ? 1 : seat - 1) + Tariff.Rose2 * bed;
+            }
         }
 
         /// <summary>
         /// Total money without parked
         /// </summary>
-        public decimal Money
-        {
-            get { return Cost() + Rose(); }
-        }
+        public decimal Money { get { return Cost + Rose; } }
         #endregion
     }
 }

@@ -5,9 +5,9 @@ namespace SKG.DXF.Station.Report
     /// <summary>
     /// Theo dõi tình hình hoạt động của xe cố định theo tháng
     /// </summary>
-    public partial class Rpt_Audit : DevExpress.XtraReports.UI.XtraReport
+    public partial class Rpt_AuditMonth : DevExpress.XtraReports.UI.XtraReport
     {
-        public Rpt_Audit()
+        public Rpt_AuditMonth()
         {
             InitializeComponent();
         }

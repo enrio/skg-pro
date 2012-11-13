@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Report
 {
-    partial class Rpt_Audit
+    partial class Rpt_AuditMonth
     {
         /// <summary>
         /// Required designer variable.

@@ -309,11 +309,17 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Audit.cs">
+    <Compile Include="Station\Report\Rpt_AuditDay.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Audit.Designer.cs">
-      <DependentUpon>Rpt_Audit.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_AuditDay.Designer.cs">
+      <DependentUpon>Rpt_AuditDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_AuditMonth.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_AuditMonth.Designer.cs">
+      <DependentUpon>Rpt_AuditMonth.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_Receipt.cs">
       <SubType>Component</SubType>
@@ -442,8 +448,11 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Audit.resx">
-      <DependentUpon>Rpt_Audit.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Report\Rpt_AuditDay.resx">
+      <DependentUpon>Rpt_AuditDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_AuditMonth.resx">
+      <DependentUpon>Rpt_AuditMonth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Fixed.resx">
       <DependentUpon>Rpt_Fixed.cs</DependentUpon>

@@ -53,7 +53,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Audit" msprop:Generator_TableClassName="AuditDataTable" msprop:Generator_TableVarName="tableAudit" msprop:Generator_TablePropName="Audit" msprop:Generator_RowDeletingName="AuditRowDeleting" msprop:Generator_UserTableName="Audit" msprop:Generator_RowChangingName="AuditRowChanging" msprop:Generator_RowEvHandlerName="AuditRowChangeEventHandler" msprop:Generator_RowDeletedName="AuditRowDeleted" msprop:Generator_RowEvArgName="AuditRowChangeEvent" msprop:Generator_RowChangedName="AuditRowChanged" msprop:Generator_RowClassName="AuditRow">
+        <xs:element name="AuditMonth" msprop:Generator_TableClassName="AuditMonthDataTable" msprop:Generator_TableVarName="tableAuditMonth" msprop:Generator_TablePropName="AuditMonth" msprop:Generator_RowDeletingName="AuditMonthRowDeleting" msprop:Generator_UserTableName="AuditMonth" msprop:Generator_RowChangingName="AuditMonthRowChanging" msprop:Generator_RowEvHandlerName="AuditMonthRowChangeEventHandler" msprop:Generator_RowDeletedName="AuditMonthRowDeleted" msprop:Generator_RowEvArgName="AuditMonthRowChangeEvent" msprop:Generator_RowChangedName="AuditMonthRowChanged" msprop:Generator_RowClassName="AuditMonthRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Region" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnPropNameInTable="RegionColumn" msprop:Generator_UserColumnName="Region" type="xs:string" minOccurs="0" />
@@ -74,6 +74,7 @@
               <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
               <xs:element name="AreaCode" msprop:Generator_ColumnVarNameInTable="columnAreaCode" msprop:Generator_ColumnPropNameInRow="AreaCode" msprop:Generator_ColumnPropNameInTable="AreaCodeColumn" msprop:Generator_UserColumnName="AreaCode" type="xs:string" minOccurs="0" />
               <xs:element name="StationCode" msprop:Generator_ColumnVarNameInTable="columnStationCode" msprop:Generator_ColumnPropNameInRow="StationCode" msprop:Generator_ColumnPropNameInTable="StationCodeColumn" msprop:Generator_UserColumnName="StationCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TransportCode" msprop:Generator_ColumnVarNameInTable="columnTransportCode" msprop:Generator_ColumnPropNameInRow="TransportCode" msprop:Generator_ColumnPropNameInTable="TransportCodeColumn" msprop:Generator_UserColumnName="TransportCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -102,6 +103,7 @@
               <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
               <xs:element name="AreaCode" msprop:Generator_ColumnVarNameInTable="columnAreaCode" msprop:Generator_ColumnPropNameInRow="AreaCode" msprop:Generator_ColumnPropNameInTable="AreaCodeColumn" msprop:Generator_UserColumnName="AreaCode" type="xs:string" minOccurs="0" />
               <xs:element name="StationCode" msprop:Generator_ColumnVarNameInTable="columnStationCode" msprop:Generator_ColumnPropNameInRow="StationCode" msprop:Generator_ColumnPropNameInTable="StationCodeColumn" msprop:Generator_UserColumnName="StationCode" type="xs:string" minOccurs="0" />
+              <xs:element name="TransportCode" msprop:Generator_ColumnVarNameInTable="columnTransportCode" msprop:Generator_ColumnPropNameInRow="TransportCode" msprop:Generator_ColumnPropNameInTable="TransportCodeColumn" msprop:Generator_UserColumnName="TransportCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

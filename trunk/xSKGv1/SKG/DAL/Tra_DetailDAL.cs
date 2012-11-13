@@ -1030,8 +1030,14 @@ namespace SKG.DAL
                                Province = v.Tariff.Group.Text,
                                Station = v.Tariff.Text,
                                Transport = v.Transport.Text,
-                               Number = v.Code,
 
+                               RegionCode = v.Tariff.Group.Parent.Parent.Code,
+                               AreaCode = v.Tariff.Group.Parent.Code,
+                               ProvinceCode = v.Tariff.Group.Code,
+                               StationCode = v.Tariff.Code,
+                               TransportCode = v.Transport.Code,
+
+                               v.Code,
                                Kh_Soxe = 1,
                                Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
                                Kh_Lx_Xuatben = v.Node,

@@ -1279,7 +1279,7 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnProvince;
             
-            private global::System.Data.DataColumn columnNumber;
+            private global::System.Data.DataColumn columnCode;
             
             private global::System.Data.DataColumn columnKh_Ts_Ghe;
             
@@ -1370,9 +1370,9 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NumberColumn {
+            public global::System.Data.DataColumn CodeColumn {
                 get {
-                    return this.columnNumber;
+                    return this.columnCode;
                 }
             }
             
@@ -1537,7 +1537,7 @@ namespace SKG.DXF.Station.DataSet {
                         string Region, 
                         string Area, 
                         string Province, 
-                        string Number, 
+                        string Code, 
                         string Kh_Ts_Ghe, 
                         string Kh_Lx_Xuatben, 
                         long Th_Ts_Ghe, 
@@ -1558,7 +1558,7 @@ namespace SKG.DXF.Station.DataSet {
                         Region,
                         Area,
                         Province,
-                        Number,
+                        Code,
                         Kh_Ts_Ghe,
                         Kh_Lx_Xuatben,
                         Th_Ts_Ghe,
@@ -1599,7 +1599,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnRegion = base.Columns["Region"];
                 this.columnArea = base.Columns["Area"];
                 this.columnProvince = base.Columns["Province"];
-                this.columnNumber = base.Columns["Number"];
+                this.columnCode = base.Columns["Code"];
                 this.columnKh_Ts_Ghe = base.Columns["Kh_Ts_Ghe"];
                 this.columnKh_Lx_Xuatben = base.Columns["Kh_Lx_Xuatben"];
                 this.columnTh_Ts_Ghe = base.Columns["Th_Ts_Ghe"];
@@ -1626,8 +1626,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnArea);
                 this.columnProvince = new global::System.Data.DataColumn("Province", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProvince);
-                this.columnNumber = new global::System.Data.DataColumn("Number", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNumber);
+                this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCode);
                 this.columnKh_Ts_Ghe = new global::System.Data.DataColumn("Kh_Ts_Ghe", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKh_Ts_Ghe);
                 this.columnKh_Lx_Xuatben = new global::System.Data.DataColumn("Kh_Lx_Xuatben", typeof(string), null, global::System.Data.MappingType.Element);
@@ -3268,17 +3268,17 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Number {
+            public string Code {
                 get {
                     try {
-                        return ((string)(this[this.tableAuditMonth.NumberColumn]));
+                        return ((string)(this[this.tableAuditMonth.CodeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Number\' in table \'AuditMonth\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Code\' in table \'AuditMonth\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAuditMonth.NumberColumn] = value;
+                    this[this.tableAuditMonth.CodeColumn] = value;
                 }
             }
             
@@ -3560,14 +3560,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNumberNull() {
-                return this.IsNull(this.tableAuditMonth.NumberColumn);
+            public bool IsCodeNull() {
+                return this.IsNull(this.tableAuditMonth.CodeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNumberNull() {
-                this[this.tableAuditMonth.NumberColumn] = global::System.Convert.DBNull;
+            public void SetCodeNull() {
+                this[this.tableAuditMonth.CodeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

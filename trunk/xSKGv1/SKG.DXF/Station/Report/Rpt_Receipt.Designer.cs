@@ -403,7 +403,7 @@
             this.xrTableCell29.StylePriority.UseTextAlignment = false;
             this.xrTableCell29.Text = "Đơn vị vận tải:";
             this.xrTableCell29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell29.Weight = 0.49769785213867712D;
+            this.xrTableCell29.Weight = 0.55418722382441454D;
             // 
             // xrTableCell30
             // 
@@ -414,7 +414,7 @@
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StylePriority.UseFont = false;
             this.xrTableCell30.Text = "xrTableCell3";
-            this.xrTableCell30.Weight = 2.8687142497816467D;
+            this.xrTableCell30.Weight = 2.8122248780959094D;
             // 
             // xrTableRow20
             // 
@@ -765,7 +765,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "Đơn vị vận tải:";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell5.Weight = 0.49769785213867712D;
+            this.xrTableCell5.Weight = 0.55932320281120984D;
             // 
             // xrTableCell3
             // 
@@ -776,7 +776,7 @@
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.Text = "xrTableCell3";
-            this.xrTableCell3.Weight = 2.8687142497816467D;
+            this.xrTableCell3.Weight = 2.8070888991091141D;
             // 
             // xrTableRow8
             // 

@@ -71,6 +71,9 @@
               <xs:element name="Th_Soxe" msprop:Generator_ColumnVarNameInTable="columnTh_Soxe" msprop:Generator_ColumnPropNameInRow="Th_Soxe" msprop:Generator_ColumnPropNameInTable="Th_SoxeColumn" msprop:Generator_UserColumnName="Th_Soxe" type="xs:int" minOccurs="0" />
               <xs:element name="Transport" msprop:Generator_ColumnVarNameInTable="columnTransport" msprop:Generator_ColumnPropNameInRow="Transport" msprop:Generator_ColumnPropNameInTable="TransportColumn" msprop:Generator_UserColumnName="Transport" type="xs:string" minOccurs="0" />
               <xs:element name="Station" msprop:Generator_ColumnVarNameInTable="columnStation" msprop:Generator_ColumnPropNameInRow="Station" msprop:Generator_ColumnPropNameInTable="StationColumn" msprop:Generator_UserColumnName="Station" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
+              <xs:element name="AreaCode" msprop:Generator_ColumnVarNameInTable="columnAreaCode" msprop:Generator_ColumnPropNameInRow="AreaCode" msprop:Generator_ColumnPropNameInTable="AreaCodeColumn" msprop:Generator_UserColumnName="AreaCode" type="xs:string" minOccurs="0" />
+              <xs:element name="StationCode" msprop:Generator_ColumnVarNameInTable="columnStationCode" msprop:Generator_ColumnPropNameInRow="StationCode" msprop:Generator_ColumnPropNameInTable="StationCodeColumn" msprop:Generator_UserColumnName="StationCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -93,6 +96,12 @@
               <xs:element name="Tr_Money" msprop:Generator_ColumnVarNameInTable="columnTr_Money" msprop:Generator_ColumnPropNameInRow="Tr_Money" msprop:Generator_ColumnPropNameInTable="Tr_MoneyColumn" msprop:Generator_UserColumnName="Tr_Money" type="xs:decimal" minOccurs="0" />
               <xs:element name="Guest" msprop:Generator_ColumnVarNameInTable="columnGuest" msprop:Generator_ColumnPropNameInRow="Guest" msprop:Generator_ColumnPropNameInTable="GuestColumn" msprop:Generator_UserColumnName="Guest" type="xs:int" minOccurs="0" />
               <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+              <xs:element name="Region" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnPropNameInTable="RegionColumn" msprop:Generator_UserColumnName="Region" type="xs:string" minOccurs="0" />
+              <xs:element name="Area" msprop:Generator_ColumnVarNameInTable="columnArea" msprop:Generator_ColumnPropNameInRow="Area" msprop:Generator_ColumnPropNameInTable="AreaColumn" msprop:Generator_UserColumnName="Area" type="xs:string" minOccurs="0" />
+              <xs:element name="Station" msprop:Generator_ColumnVarNameInTable="columnStation" msprop:Generator_ColumnPropNameInRow="Station" msprop:Generator_ColumnPropNameInTable="StationColumn" msprop:Generator_UserColumnName="Station" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
+              <xs:element name="AreaCode" msprop:Generator_ColumnVarNameInTable="columnAreaCode" msprop:Generator_ColumnPropNameInRow="AreaCode" msprop:Generator_ColumnPropNameInTable="AreaCodeColumn" msprop:Generator_UserColumnName="AreaCode" type="xs:string" minOccurs="0" />
+              <xs:element name="StationCode" msprop:Generator_ColumnVarNameInTable="columnStationCode" msprop:Generator_ColumnPropNameInRow="StationCode" msprop:Generator_ColumnPropNameInTable="StationCodeColumn" msprop:Generator_UserColumnName="StationCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

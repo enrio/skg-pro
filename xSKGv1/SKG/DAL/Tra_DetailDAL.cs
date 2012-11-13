@@ -916,9 +916,6 @@ namespace SKG.DAL
                                TransportCode = v.Transport.Code,
 
                                v.Code,
-                               Kh_Soxe = 1,
-                               Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
-                               Kh_Lx_Xuatben = v.Node,
 
                                Th_Lxe = s.Th_Lxe == null ? 0 : s.Th_Lxe,
                                Th_Hk = s.Th_Hk == null ? 0 : s.Th_Hk,
@@ -929,10 +926,9 @@ namespace SKG.DAL
 
                                Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
                                Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Cost = (s.Th_Cost == null ? 0 : s.Th_Cost) * v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
-                               Tr_Rose = (s.Th_Rose == null ? 0 : s.Th_Rose) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Money = (s.Th_Cost == null ? 0 : s.Th_Cost) * v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)
-                               + (s.Th_Rose == null ? 0 : s.Th_Rose) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe))
+                               Tr_Cost = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Cost(11),
+                               Tr_Rose = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Rose(11),
+                               Tr_Money = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Money
                            };
                 return res2.ToDataTable();
             }

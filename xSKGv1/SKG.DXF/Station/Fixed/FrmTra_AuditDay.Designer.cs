@@ -103,7 +103,7 @@
             // dteDay
             // 
             this.dteDay.EditValue = null;
-            this.dteDay.Location = new System.Drawing.Point(65, 3);
+            this.dteDay.Location = new System.Drawing.Point(56, 3);
             this.dteDay.Name = "dteDay";
             this.dteDay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteDay.Properties.Appearance.Options.UseFont = true;
@@ -484,7 +484,7 @@
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_AuditDay";
-            this.Text = "THEO DÕI THÁNG";
+            this.Text = "THEO DÕI NGÀY";
             this.Activated += new System.EventHandler(this.FrmTra_AuditMonth_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);

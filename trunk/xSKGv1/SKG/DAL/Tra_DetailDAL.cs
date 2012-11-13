@@ -927,7 +927,12 @@ namespace SKG.DAL
                                Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
                                Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
 
-                               Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)
+                               Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
+                               Tr_Cost = (s.Th_Cost == null ? 0 : s.Th_Cost) * v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               Tr_Rose = (s.Th_Rose == null ? 0 : s.Th_Rose) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
+                               Tr_Money = (s.Th_Cost == null ? 0 : s.Th_Cost) * v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)
+                               + (s.Th_Rose == null ? 0 : s.Th_Rose) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe))
                            };
                 return res2.ToDataTable();
             }

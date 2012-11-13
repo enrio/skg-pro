@@ -965,9 +965,9 @@ namespace SKG.DAL
                            join r in res1 on v.Id equals r.Key into l
                            from s in l.DefaultIfEmpty()
                            where v.Fixed == true
-                           orderby v.Tariff.Group.Parent.Parent.Text,
-                           v.Tariff.Group.Parent.Text, v.Tariff.Text,
-                           v.Transport.Text, v.Code
+                           orderby v.Tariff.Group.Parent.Parent.Order,
+                           v.Tariff.Group.Parent.Order, v.Tariff.Order,
+                           v.Transport.Order, v.Code
                            select new
                            {
                                Region = v.Tariff.Group.Parent.Parent.Text,

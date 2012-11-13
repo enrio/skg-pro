@@ -168,6 +168,7 @@ namespace SKG.DXF.Station.Fixed
 
             AllowAdd = false;
             AllowDelete = false;
+            AllowRefresh = false;
             AllowPrint = true;
 
             dteMonth.DateTime = Global.Session.Current;

@@ -117,6 +117,7 @@
             this.dteMonth.Size = new System.Drawing.Size(68, 26);
             this.dteMonth.TabIndex = 24;
             this.dteMonth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dteMonth_KeyDown);
+            this.dteMonth.Validated += new System.EventHandler(this.dteMonth_Validated);
             // 
             // lblGuest
             // 

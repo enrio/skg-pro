@@ -805,7 +805,7 @@ namespace SKG.DAL
                               UserInPhone = s.UserIn.Phone,
 
                               UserOutName = s.UserOut.Name,
-                              Number = s.Vehicle.Code,
+                              s.Vehicle.Code,
 
                               s.DateIn,
                               s.DateOut,

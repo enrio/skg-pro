@@ -105,17 +105,19 @@
             // 
             // radType
             // 
-            this.radType.EditValue = true;
+            this.radType.EditValue = false;
             this.radType.Location = new System.Drawing.Point(155, 4);
             this.radType.Name = "radType";
             this.radType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radType.Properties.Appearance.Options.UseFont = true;
             this.radType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Xe trong bến"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Xe ra đã bến")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Xe trong bến"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Xe ra đã bến")});
             this.radType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radType.Size = new System.Drawing.Size(234, 26);
             this.radType.TabIndex = 26;
+            this.radType.SelectedIndexChanged += new System.EventHandler(this.radType_SelectedIndexChanged);
+            
             // 
             // dteDay
             // 

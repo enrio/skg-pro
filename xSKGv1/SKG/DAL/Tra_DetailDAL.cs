@@ -749,6 +749,48 @@ namespace SKG.DAL
                 return null;
             }
         }
+
+        /// <summary>
+        /// Audit vehicle fixed
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <param name="isOut">In depot</param>
+        /// <returns></returns>
+        public DataTable GetAuditFixed(DateTime fr, DateTime to, bool isOut = true)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Vehicle.Fixed == true
+                          orderby s.DateOut descending, s.DateIn descending, s.Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+                              UserInName = s.UserIn.Name,
+                              Phone = s.UserIn.Phone,
+                              s.DateIn,
+                              s.Guest,
+                              Route = s.Vehicle.Tariff.Text,
+                              s.Vehicle.Node,
+
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
+                              Transport = s.Vehicle.Transport.Text,
+
+                              UserOutName = s.UserOut.Name,
+                              s.DateOut,
+                              s.UserOutId
+                          };
+                if (isOut)
+                    res = res.Where(p => p.DateOut >= fr && p.DateOut <= to);
+                else
+                    res = res.Where(p => p.UserOutId == null);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Vehicle normal
@@ -990,43 +1032,6 @@ namespace SKG.DAL
                                Nottai_Hoatdong = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / 30
                            };
                 return res2.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Danh sách các xe cố định đã xuất bến để theo dõi
-        /// </summary>
-        /// <param name="fr">Từ ngày</param>
-        /// <param name="to">Đến ngày</param>
-        /// <returns></returns>
-        public DataTable GetForAuditFixed(DateTime fr, DateTime to)
-        {
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where (s.DateOut >= fr && s.DateOut <= to || s.UserOutId == null)
-                          && s.Vehicle.Fixed == true
-                          orderby s.DateOut descending, s.DateIn descending, s.Vehicle.Code
-                          select new
-                          {
-                              s.Id,
-                              UserInName = s.UserIn.Name,
-                              Phone = s.UserIn.Phone,
-                              s.DateIn,
-                              s.Guest,
-                              Route = s.Vehicle.Tariff.Text,
-                              s.Vehicle.Node,
-
-                              s.Vehicle.Code,
-                              s.Vehicle.Seats,
-                              s.Vehicle.Beds,
-                              Transport = s.Vehicle.Transport.Text,
-
-                              UserOutName = s.UserOut.Name,
-                              s.DateOut
-                          };
-                return res.ToDataTable();
             }
             catch { return null; }
         }

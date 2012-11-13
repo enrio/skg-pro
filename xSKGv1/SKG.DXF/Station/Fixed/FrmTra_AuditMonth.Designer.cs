@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.radType = new DevExpress.XtraEditors.RadioGroup();
             this.dteMonth = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -93,12 +95,29 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.radType);
             this.dockPanel1_Container.Controls.Add(this.dteMonth);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // radType
+            // 
+            this.radType.EditValue = false;
+            this.radType.Location = new System.Drawing.Point(139, 3);
+            this.radType.Name = "radType";
+            this.radType.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radType.Properties.Appearance.Options.UseFont = true;
+            this.radType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Xe trong bến"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Xe ra đã bến")});
+            this.radType.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.radType.Size = new System.Drawing.Size(234, 26);
+            this.radType.TabIndex = 27;
+            this.radType.SelectedIndexChanged += new System.EventHandler(this.radType_SelectedIndexChanged);
+            
             // 
             // dteMonth
             // 
@@ -493,6 +512,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -531,5 +551,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraEditors.RadioGroup radType;
     }
 }

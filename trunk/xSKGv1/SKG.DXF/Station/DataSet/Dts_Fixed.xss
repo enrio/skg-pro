@@ -8,8 +8,8 @@
   <Shapes>
     <Shape ID="DesignTable:Revenue" ZOrder="4" X="0" Y="0" Height="334" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="330" />
     <Shape ID="DesignTable:Receipt" ZOrder="3" X="181" Y="19" Height="231" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="227" />
-    <Shape ID="DesignTable:Audit" ZOrder="2" X="358" Y="25" Height="283" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="279" />
-    <Shape ID="DesignTable:AuditDay" ZOrder="1" X="532" Y="26" Height="300" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="296" />
+    <Shape ID="DesignTable:Audit" ZOrder="2" X="358" Y="25" Height="334" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="330" />
+    <Shape ID="DesignTable:AuditDay" ZOrder="1" X="532" Y="26" Height="402" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="398" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

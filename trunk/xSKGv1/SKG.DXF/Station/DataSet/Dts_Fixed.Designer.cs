@@ -1303,6 +1303,12 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnStation;
             
+            private global::System.Data.DataColumn columnRegionCode;
+            
+            private global::System.Data.DataColumn columnAreaCode;
+            
+            private global::System.Data.DataColumn columnStationCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AuditDataTable() {
@@ -1458,6 +1464,30 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegionCodeColumn {
+                get {
+                    return this.columnRegionCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AreaCodeColumn {
+                get {
+                    return this.columnAreaCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StationCodeColumn {
+                get {
+                    return this.columnStationCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1493,7 +1523,25 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AuditRow AddAuditRow(string Region, string Area, string Province, string Number, string Kh_Ts_Ghe, string Kh_Lx_Xuatben, long Th_Ts_Ghe, long Th_Lx_Xuatben, long Th_Lk_Di, decimal Tile_Nottai, decimal Nottai_Hoatdong, int Kh_Soxe, int Th_Soxe, string Transport, string Station) {
+            public AuditRow AddAuditRow(
+                        string Region, 
+                        string Area, 
+                        string Province, 
+                        string Number, 
+                        string Kh_Ts_Ghe, 
+                        string Kh_Lx_Xuatben, 
+                        long Th_Ts_Ghe, 
+                        long Th_Lx_Xuatben, 
+                        long Th_Lk_Di, 
+                        decimal Tile_Nottai, 
+                        decimal Nottai_Hoatdong, 
+                        int Kh_Soxe, 
+                        int Th_Soxe, 
+                        string Transport, 
+                        string Station, 
+                        string RegionCode, 
+                        string AreaCode, 
+                        string StationCode) {
                 AuditRow rowAuditRow = ((AuditRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Region,
@@ -1510,7 +1558,10 @@ namespace SKG.DXF.Station.DataSet {
                         Kh_Soxe,
                         Th_Soxe,
                         Transport,
-                        Station};
+                        Station,
+                        RegionCode,
+                        AreaCode,
+                        StationCode};
                 rowAuditRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAuditRow);
                 return rowAuditRow;
@@ -1548,6 +1599,9 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnTh_Soxe = base.Columns["Th_Soxe"];
                 this.columnTransport = base.Columns["Transport"];
                 this.columnStation = base.Columns["Station"];
+                this.columnRegionCode = base.Columns["RegionCode"];
+                this.columnAreaCode = base.Columns["AreaCode"];
+                this.columnStationCode = base.Columns["StationCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1583,6 +1637,12 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnTransport);
                 this.columnStation = new global::System.Data.DataColumn("Station", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStation);
+                this.columnRegionCode = new global::System.Data.DataColumn("RegionCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegionCode);
+                this.columnAreaCode = new global::System.Data.DataColumn("AreaCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAreaCode);
+                this.columnStationCode = new global::System.Data.DataColumn("StationCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStationCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1748,6 +1808,18 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnNote;
             
+            private global::System.Data.DataColumn columnRegion;
+            
+            private global::System.Data.DataColumn columnArea;
+            
+            private global::System.Data.DataColumn columnStation;
+            
+            private global::System.Data.DataColumn columnRegionCode;
+            
+            private global::System.Data.DataColumn columnAreaCode;
+            
+            private global::System.Data.DataColumn columnStationCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AuditDayDataTable() {
@@ -1911,6 +1983,54 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegionColumn {
+                get {
+                    return this.columnRegion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AreaColumn {
+                get {
+                    return this.columnArea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StationColumn {
+                get {
+                    return this.columnStation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegionCodeColumn {
+                get {
+                    return this.columnRegionCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AreaCodeColumn {
+                get {
+                    return this.columnAreaCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn StationCodeColumn {
+                get {
+                    return this.columnStationCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1962,7 +2082,13 @@ namespace SKG.DXF.Station.DataSet {
                         decimal Tr_Rose, 
                         decimal Tr_Money, 
                         int Guest, 
-                        string Note) {
+                        string Note, 
+                        string Region, 
+                        string Area, 
+                        string Station, 
+                        string RegionCode, 
+                        string AreaCode, 
+                        string StationCode) {
                 AuditDayRow rowAuditDayRow = ((AuditDayRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Tariff,
@@ -1980,7 +2106,13 @@ namespace SKG.DXF.Station.DataSet {
                         Tr_Rose,
                         Tr_Money,
                         Guest,
-                        Note};
+                        Note,
+                        Region,
+                        Area,
+                        Station,
+                        RegionCode,
+                        AreaCode,
+                        StationCode};
                 rowAuditDayRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAuditDayRow);
                 return rowAuditDayRow;
@@ -2019,6 +2151,12 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnTr_Money = base.Columns["Tr_Money"];
                 this.columnGuest = base.Columns["Guest"];
                 this.columnNote = base.Columns["Note"];
+                this.columnRegion = base.Columns["Region"];
+                this.columnArea = base.Columns["Area"];
+                this.columnStation = base.Columns["Station"];
+                this.columnRegionCode = base.Columns["RegionCode"];
+                this.columnAreaCode = base.Columns["AreaCode"];
+                this.columnStationCode = base.Columns["StationCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2056,6 +2194,18 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnGuest);
                 this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNote);
+                this.columnRegion = new global::System.Data.DataColumn("Region", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegion);
+                this.columnArea = new global::System.Data.DataColumn("Area", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea);
+                this.columnStation = new global::System.Data.DataColumn("Station", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStation);
+                this.columnRegionCode = new global::System.Data.DataColumn("RegionCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegionCode);
+                this.columnAreaCode = new global::System.Data.DataColumn("AreaCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAreaCode);
+                this.columnStationCode = new global::System.Data.DataColumn("StationCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStationCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3280,6 +3430,54 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RegionCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAudit.RegionCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegionCode\' in table \'Audit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAudit.RegionCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AreaCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAudit.AreaCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AreaCode\' in table \'Audit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAudit.AreaCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StationCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAudit.StationCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StationCode\' in table \'Audit\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAudit.StationCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRegionNull() {
                 return this.IsNull(this.tableAudit.RegionColumn);
             }
@@ -3456,6 +3654,42 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetStationNull() {
                 this[this.tableAudit.StationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegionCodeNull() {
+                return this.IsNull(this.tableAudit.RegionCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegionCodeNull() {
+                this[this.tableAudit.RegionCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAreaCodeNull() {
+                return this.IsNull(this.tableAudit.AreaCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAreaCodeNull() {
+                this[this.tableAudit.AreaCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStationCodeNull() {
+                return this.IsNull(this.tableAudit.StationCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStationCodeNull() {
+                this[this.tableAudit.StationCodeColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3731,6 +3965,102 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Region {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.RegionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Region\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.RegionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Area {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.AreaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Area\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.AreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Station {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.StationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Station\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.StationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RegionCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.RegionCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegionCode\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.RegionCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AreaCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.AreaCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AreaCode\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.AreaCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string StationCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableAuditDay.StationCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'StationCode\' in table \'AuditDay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditDay.StationCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTariffNull() {
                 return this.IsNull(this.tableAuditDay.TariffColumn);
             }
@@ -3919,6 +4249,78 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNoteNull() {
                 this[this.tableAuditDay.NoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegionNull() {
+                return this.IsNull(this.tableAuditDay.RegionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegionNull() {
+                this[this.tableAuditDay.RegionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAreaNull() {
+                return this.IsNull(this.tableAuditDay.AreaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAreaNull() {
+                this[this.tableAuditDay.AreaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStationNull() {
+                return this.IsNull(this.tableAuditDay.StationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStationNull() {
+                this[this.tableAuditDay.StationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegionCodeNull() {
+                return this.IsNull(this.tableAuditDay.RegionCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegionCodeNull() {
+                this[this.tableAuditDay.RegionCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAreaCodeNull() {
+                return this.IsNull(this.tableAuditDay.AreaCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAreaCodeNull() {
+                this[this.tableAuditDay.AreaCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsStationCodeNull() {
+                return this.IsNull(this.tableAuditDay.StationCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetStationCodeNull() {
+                this[this.tableAuditDay.StationCodeColumn] = global::System.Convert.DBNull;
             }
         }
         

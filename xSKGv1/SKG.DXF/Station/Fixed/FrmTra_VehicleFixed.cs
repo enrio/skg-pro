@@ -134,6 +134,9 @@ namespace SKG.DXF.Station.Fixed
             txtBeds.Text = "0";
             txtNode.Text = "0";
 
+            txtDriver.Text = null;
+            txtPhone.Text = null;
+
             base.ResetInput();
         }
 
@@ -154,6 +157,9 @@ namespace SKG.DXF.Station.Fixed
             cheHigh.DataBindings.Clear();
             cheCity.DataBindings.Clear();
             txtNode.DataBindings.Clear();
+
+            txtDriver.DataBindings.Clear();
+            txtPhone.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -176,6 +182,9 @@ namespace SKG.DXF.Station.Fixed
             cheCity.DataBindings.Add("EditValue", _dtb, ".City");
             txtNode.DataBindings.Add("EditValue", _dtb, ".Node");
 
+            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+
             base.DataBindingControl();
         }
 
@@ -196,6 +205,9 @@ namespace SKG.DXF.Station.Fixed
             cheHigh.Properties.ReadOnly = isReadOnly;
             cheCity.Properties.ReadOnly = isReadOnly;
             txtNode.Properties.ReadOnly = isReadOnly;
+
+            txtDriver.Properties.ReadOnly = isReadOnly;
+            txtPhone.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -223,7 +235,10 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    Node = txtNode.Text.ToInt32()
+                    Node = txtNode.Text.ToInt32(),
+
+                    Driver = txtDriver.Text,
+                    Phone = txtPhone.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")
@@ -264,7 +279,10 @@ namespace SKG.DXF.Station.Fixed
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    Node = txtNode.Text.ToInt32()
+                    Node = txtNode.Text.ToInt32(),
+
+                    Driver = txtDriver.Text,
+                    Phone = txtPhone.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")

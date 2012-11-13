@@ -818,9 +818,9 @@ namespace SKG.DAL
                               s.Price2,
                               s.Money,
 
-                              GroupName = s.Vehicle.Tariff.Group.Text,
+                              Group = s.Vehicle.Tariff.Group.Text,
                               GroupCode = s.Vehicle.Tariff.Group.Code,
-                              KindName = s.Vehicle.Tariff.Text
+                              Tariff = s.Vehicle.Tariff.Text
                           };
                 if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");

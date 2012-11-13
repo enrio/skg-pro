@@ -920,12 +920,14 @@ namespace SKG.DAL
                                Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
                                Kh_Lx_Xuatben = v.Node,
 
-                               //s.Th_Lxe,
-                               //s.Th_Hk,
-                               //s.Th_Cost,
-                               //s.Th_Rose,
-                               //s.Th_Parked,
-                               //s.Th_Money,
+                               Th_Lxe = s.Th_Lxe == null ? 0 : s.Th_Lxe,
+                               Th_Hk = s.Th_Hk == null ? 0 : s.Th_Hk,
+                               Th_Cost = s.Th_Cost == null ? 0 : s.Th_Cost,
+                               Th_Rose = s.Th_Rose == null ? 0 : s.Th_Rose,
+                               Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
+                               Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
+
+                               Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)
                            };
                 return res2.ToDataTable();
             }

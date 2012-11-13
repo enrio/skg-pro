@@ -144,7 +144,7 @@ namespace SKG.DXF.Station.Fixed
 
             var fr = dteDay.DateTime.ToStartOfMonth();
             var to = dteDay.DateTime.ToEndOfMonth();
-            rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to);
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to);
 
             rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" MM/yyyy");

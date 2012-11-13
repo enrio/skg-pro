@@ -198,6 +198,11 @@ namespace SKG.DXF.Station.Fixed
             if (e.KeyCode == Keys.Enter)
                 PerformRefresh();
         }
+
+        private void FrmTra_AuditMonth_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
         #endregion
 
         #region Properties

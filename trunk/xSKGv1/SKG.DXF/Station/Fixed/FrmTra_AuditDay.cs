@@ -121,8 +121,8 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            var fr = dteMonth.DateTime.ToStartOfMonth();
-            var to = dteMonth.DateTime.ToEndOfMonth();
+            var fr = dteDay.DateTime.ToStartOfDay();
+            var to = dteDay.DateTime.ToEndOfDay();
             _dtb = _bll.Tra_Detail.GetForAuditFixed(fr, to);
 
             if (_dtb != null)
@@ -141,12 +141,12 @@ namespace SKG.DXF.Station.Fixed
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_td", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            var fr = dteMonth.DateTime.ToStartOfMonth();
-            var to = dteMonth.DateTime.ToEndOfMonth();
+            var fr = dteDay.DateTime.ToStartOfMonth();
+            var to = dteDay.DateTime.ToEndOfMonth();
             rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to);
 
             rpt.parDate.Value = Global.Session.Current;
-            rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
+            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" MM/yyyy");
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);
@@ -171,7 +171,7 @@ namespace SKG.DXF.Station.Fixed
             AllowRefresh = false;
             AllowPrint = true;
 
-            dteMonth.DateTime = Global.Session.Current;
+            dteDay.DateTime = Global.Session.Current;
         }
         #endregion
 
@@ -195,6 +195,17 @@ namespace SKG.DXF.Station.Fixed
         }
 
         private void dteMonth_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                PerformRefresh();
+        }
+
+        private void dteDay_Validated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
+
+        private void dteDay_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 PerformRefresh();

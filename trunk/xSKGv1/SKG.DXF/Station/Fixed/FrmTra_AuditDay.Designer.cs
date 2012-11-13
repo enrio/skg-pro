@@ -32,7 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.dteMonth = new DevExpress.XtraEditors.DateEdit();
+            this.dteDay = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -59,8 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -93,39 +93,40 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.dteMonth);
+            this.dockPanel1_Container.Controls.Add(this.dteDay);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // dteMonth
+            // dteDay
             // 
-            this.dteMonth.EditValue = null;
-            this.dteMonth.Location = new System.Drawing.Point(65, 3);
-            this.dteMonth.Name = "dteMonth";
-            this.dteMonth.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dteMonth.Properties.Appearance.Options.UseFont = true;
-            this.dteMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
-            this.dteMonth.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteMonth.Properties.EditFormat.FormatString = "MM/yyyy";
-            this.dteMonth.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteMonth.Properties.Mask.EditMask = "MM/yyyy";
-            this.dteMonth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteDay.EditValue = null;
+            this.dteDay.Location = new System.Drawing.Point(65, 3);
+            this.dteDay.Name = "dteDay";
+            this.dteDay.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dteDay.Properties.Appearance.Options.UseFont = true;
+            this.dteDay.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteDay.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDay.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteDay.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDay.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteMonth.Size = new System.Drawing.Size(68, 26);
-            this.dteMonth.TabIndex = 24;
-            this.dteMonth.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dteMonth_KeyDown);
+            this.dteDay.Size = new System.Drawing.Size(93, 26);
+            this.dteDay.TabIndex = 24;
+            this.dteDay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dteDay_KeyDown);
+            this.dteDay.Validated += new System.EventHandler(this.dteDay_Validated);
             // 
             // lblGuest
             // 
             this.lblGuest.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGuest.Location = new System.Drawing.Point(8, 6);
             this.lblGuest.Name = "lblGuest";
-            this.lblGuest.Size = new System.Drawing.Size(51, 19);
+            this.lblGuest.Size = new System.Drawing.Size(42, 19);
             this.lblGuest.TabIndex = 23;
-            this.lblGuest.Text = "Tháng:";
+            this.lblGuest.Text = "Ngày:";
             // 
             // dockPanel2
             // 
@@ -476,13 +477,13 @@
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.Width = 71;
             // 
-            // FrmTra_AuditMonth
+            // FrmTra_AuditDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_AuditMonth";
+            this.Name = "FrmTra_AuditDay";
             this.Text = "THEO DÕI THÁNG";
             this.Activated += new System.EventHandler(this.FrmTra_AuditMonth_Activated);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
@@ -492,8 +493,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -523,7 +524,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;
-        private DevExpress.XtraEditors.DateEdit dteMonth;
+        private DevExpress.XtraEditors.DateEdit dteDay;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn7;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;

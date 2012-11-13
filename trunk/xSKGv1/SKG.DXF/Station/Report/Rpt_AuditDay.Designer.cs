@@ -168,7 +168,7 @@
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Number", "+ {0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tariff")});
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(9, 0, 0, 0, 100F);
             this.xrTableCell2.StylePriority.UsePadding = false;
@@ -178,7 +178,7 @@
             // xrTableCell4
             // 
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Kh_Soxe", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Transport")});
             this.xrTableCell4.Name = "xrTableCell4";
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.Text = "xrTableCell4";
@@ -188,7 +188,7 @@
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Kh_Ts_Ghe", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Code")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "xrTableCell9";
@@ -198,7 +198,7 @@
             // xrTableCell10
             // 
             this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Kh_Lx_Xuatben", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Lxe", "{0:#,0}")});
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.Text = "xrTableCell10";
@@ -208,7 +208,7 @@
             // xrTableCell11
             // 
             this.xrTableCell11.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Th_Soxe", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Hk", "{0:#,0}")});
             this.xrTableCell11.Name = "xrTableCell11";
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
             this.xrTableCell11.Text = "xrTableCell11";
@@ -218,7 +218,7 @@
             // xrTableCell12
             // 
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Th_Ts_Ghe", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Cost", "{0:#,0}")});
             this.xrTableCell12.Name = "xrTableCell12";
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
             this.xrTableCell12.Text = "xrTableCell12";
@@ -228,7 +228,7 @@
             // xrTableCell13
             // 
             this.xrTableCell13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Th_Lx_Xuatben", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Rose", "{0:#,0}")});
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.StylePriority.UseTextAlignment = false;
             this.xrTableCell13.Text = "xrTableCell13";
@@ -238,7 +238,7 @@
             // xrTableCell14
             // 
             this.xrTableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Th_Lk_Di", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Parked", "{0:#,0}")});
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.StylePriority.UseTextAlignment = false;
             this.xrTableCell14.Text = "xrTableCell14";
@@ -248,7 +248,7 @@
             // xrTableCell15
             // 
             this.xrTableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Tile_Nottai", "{0:#,0.00}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Th_Money", "{0:#,0}")});
             this.xrTableCell15.Name = "xrTableCell15";
             this.xrTableCell15.StylePriority.UseTextAlignment = false;
             this.xrTableCell15.Text = "xrTableCell15";
@@ -258,7 +258,7 @@
             // xrTableCell18
             // 
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Audit.Nottai_Hoatdong", "{0:#,0.00}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tr_Lxe", "{0:#,0}")});
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
             this.xrTableCell18.Text = "xrTableCell18";
@@ -267,36 +267,48 @@
             // 
             // xrTableCell82
             // 
+            this.xrTableCell82.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tr_Hk", "{0:#,0}")});
             this.xrTableCell82.Name = "xrTableCell82";
             this.xrTableCell82.Text = "xrTableCell82";
             this.xrTableCell82.Weight = 0.37320381380022916D;
             // 
             // xrTableCell80
             // 
+            this.xrTableCell80.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tr_Cost", "{0:#,0}")});
             this.xrTableCell80.Name = "xrTableCell80";
             this.xrTableCell80.Text = "xrTableCell80";
             this.xrTableCell80.Weight = 0.4299222366181602D;
             // 
             // xrTableCell83
             // 
+            this.xrTableCell83.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tr_Rose", "{0:#,0}")});
             this.xrTableCell83.Name = "xrTableCell83";
             this.xrTableCell83.Text = "xrTableCell83";
             this.xrTableCell83.Weight = 0.44439183737949806D;
             // 
             // xrTableCell85
             // 
+            this.xrTableCell85.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Tr_Money", "{0:#,0}")});
             this.xrTableCell85.Name = "xrTableCell85";
             this.xrTableCell85.Text = "xrTableCell85";
             this.xrTableCell85.Weight = 0.68739719929424081D;
             // 
             // xrTableCell86
             // 
+            this.xrTableCell86.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Guest", "{0:#,0}")});
             this.xrTableCell86.Name = "xrTableCell86";
             this.xrTableCell86.Text = "xrTableCell86";
             this.xrTableCell86.Weight = 0.46602951587985847D;
             // 
             // xrTableCell84
             // 
+            this.xrTableCell84.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditDay.Note")});
             this.xrTableCell84.Name = "xrTableCell84";
             this.xrTableCell84.Text = "xrTableCell84";
             this.xrTableCell84.Weight = 0.37149087879779935D;

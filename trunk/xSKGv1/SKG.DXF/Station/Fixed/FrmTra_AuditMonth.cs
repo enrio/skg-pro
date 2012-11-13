@@ -200,6 +200,11 @@ namespace SKG.DXF.Station.Fixed
                 PerformRefresh();
         }
 
+        private void dteMonth_Validated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
+
         private void FrmTra_AuditMonth_Activated(object sender, EventArgs e)
         {
             PerformRefresh();

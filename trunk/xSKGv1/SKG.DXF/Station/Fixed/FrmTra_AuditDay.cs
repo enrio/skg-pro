@@ -123,7 +123,8 @@ namespace SKG.DXF.Station.Fixed
         {
             var fr = dteDay.DateTime.ToStartOfDay();
             var to = dteDay.DateTime.ToEndOfDay();
-            _dtb = _bll.Tra_Detail.GetForAuditFixed(fr, to);
+            var isOut = (bool)radType.Properties.Items[radType.SelectedIndex].Value;
+            _dtb = _bll.Tra_Detail.GetAuditFixed(fr, to, isOut);
 
             if (_dtb != null)
             {
@@ -212,6 +213,11 @@ namespace SKG.DXF.Station.Fixed
         }
 
         private void FrmTra_AuditMonth_Activated(object sender, EventArgs e)
+        {
+            PerformRefresh();
+        }
+
+        private void radType_SelectedIndexChanged(object sender, EventArgs e)
         {
             PerformRefresh();
         }

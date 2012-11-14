@@ -5,6 +5,7 @@ using System.Linq;
 namespace SKG
 {
     using BLL;
+    using Extend;
     using DAL.Entities;
 
     public sealed class Session : IDisposable
@@ -23,38 +24,6 @@ namespace SKG
         /// End of shift
         /// </summary>
         public DateTime End { set; get; }
-        #endregion
-
-        public List<Zaction> ZActions
-        {
-            get { return _bll.GetRights(User.Id); }
-        }
-
-        public List<Zaction> Default
-        {
-            get
-            {
-                var res = ZActions.Where(s => s.Default);
-                return res.ToList();
-            }
-        }
-
-        public Zaction GetZAction(string c)
-        {
-            var res = from s in ZActions
-                      where s.Code == c
-                      select s;
-            return res.FirstOrDefault();
-        }
-
-        public Pol_Dictionary GetUserRole(string c)
-        {
-            var tmp = _bll.GetRoles(User.Id);
-            var res = from s in tmp
-                      where s.Code == c
-                      select s;
-            return res.FirstOrDefault();
-        }
 
         /// <summary>
         /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 1]; 16:00 - 07:00 tomorrow [shift 2])
@@ -90,6 +59,80 @@ namespace SKG
                 else dt = shift.Date;
                 return 2;
             }
+        }
+
+        /// <summary>
+        /// Cut shift day: from 13:00:01 the day before to 13:00:00 today
+        /// </summary>
+        /// <param name="date">Date</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        public void ToCutShiftDay(DateTime date, out DateTime fr, out DateTime to)
+        {
+            fr = date.Date.AddDays(-1).AddHours(13).AddSeconds(1);
+            to = date.Date.AddHours(13);
+        }
+
+        /// <summary>
+        /// Cut shift month: from 13:00:01 end of month before to 13:00:00 end of month current
+        /// </summary>
+        /// <param name="date">Date</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        public void ToCutShiftMonth(DateTime date, out DateTime fr, out DateTime to)
+        {
+            var start = date.ToStartOfMonth();
+            var end = date.ToEndOfMonth().Date;
+
+            fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
+            to = end.AddHours(13);
+        }
+
+        /// <summary>
+        /// Cut shift january: from 31/12 at 13:00:01 of year before to 13:00:00 end of month current
+        /// </summary>
+        /// <param name="date">Date</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        public void ToCutShiftJanuary(DateTime date, out DateTime fr, out DateTime to)
+        {
+            var start = date.ToStartOfYear();
+            var end = date.ToEndOfMonth().Date;
+
+            fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
+            to = end.AddHours(13);
+        }
+        #endregion
+
+        public List<Zaction> ZActions
+        {
+            get { return _bll.GetRights(User.Id); }
+        }
+
+        public List<Zaction> Default
+        {
+            get
+            {
+                var res = ZActions.Where(s => s.Default);
+                return res.ToList();
+            }
+        }
+
+        public Zaction GetZAction(string c)
+        {
+            var res = from s in ZActions
+                      where s.Code == c
+                      select s;
+            return res.FirstOrDefault();
+        }
+
+        public Pol_Dictionary GetUserRole(string c)
+        {
+            var tmp = _bll.GetRoles(User.Id);
+            var res = from s in tmp
+                      where s.Code == c
+                      select s;
+            return res.FirstOrDefault();
         }
 
         public Session()

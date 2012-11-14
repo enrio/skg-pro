@@ -54,7 +54,7 @@ namespace SKG.DXF.Station.Manage
         protected override void LoadData()
         {
             int fix, nor;
-            _dtb = _bll.Tra_Detail.GetInDepot(out fix, out nor);
+            _dtb = _bll.Tra_Detail.GetInDepotOutGate(out fix, out nor);
             var all = fix + nor;
 
             // Số lượng xe trong bến

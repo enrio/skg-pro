@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cmdView = new DevExpress.XtraEditors.SimpleButton();
             this.dteTo = new DevExpress.XtraEditors.DateEdit();
             this.lblTo = new DevExpress.XtraEditors.LabelControl();
             this.dteFrom = new DevExpress.XtraEditors.DateEdit();
@@ -107,6 +108,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.cmdView);
             this.dockPanel1_Container.Controls.Add(this.dteTo);
             this.dockPanel1_Container.Controls.Add(this.lblTo);
             this.dockPanel1_Container.Controls.Add(this.dteFrom);
@@ -119,6 +121,17 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 35);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // cmdView
+            // 
+            this.cmdView.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdView.Appearance.Options.UseFont = true;
+            this.cmdView.Location = new System.Drawing.Point(723, 3);
+            this.cmdView.Name = "cmdView";
+            this.cmdView.Size = new System.Drawing.Size(69, 26);
+            this.cmdView.TabIndex = 8;
+            this.cmdView.Text = "&Xem";
+            this.cmdView.Click += new System.EventHandler(this.cmdView_Click);
             // 
             // dteTo
             // 
@@ -136,7 +149,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(168, 26);
             this.dteTo.TabIndex = 6;
-            this.dteTo.Validated += new System.EventHandler(this.dteTo_Validated);
+            
             // 
             // lblTo
             // 
@@ -163,7 +176,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(168, 26);
             this.dteFrom.TabIndex = 4;
-            this.dteFrom.Validated += new System.EventHandler(this.dteFrom_Validated);
+            
             // 
             // lblFrom
             // 
@@ -691,5 +704,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private DevExpress.XtraEditors.SimpleButton cmdView;
     }
 }

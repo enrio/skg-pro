@@ -181,8 +181,6 @@ namespace SKG.DXF.Station.Sumary
 
             dteFrom.DateTime = b.ToStartOfQuarter(a);
             dteTo.DateTime = b.ToEndOfQuarter(a);
-
-            PerformRefresh();
         }
 
         private void cbeMonth_Validated(object sender, EventArgs e)
@@ -194,16 +192,9 @@ namespace SKG.DXF.Station.Sumary
             cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
             dteFrom.DateTime = c;
             dteTo.DateTime = b.ToEndOfMonth(a);
-
-            PerformRefresh();
         }
 
-        private void dteFrom_Validated(object sender, EventArgs e)
-        {
-            PerformRefresh();
-        }
-
-        private void dteTo_Validated(object sender, EventArgs e)
+        private void cmdView_Click(object sender, EventArgs e)
         {
             PerformRefresh();
         }

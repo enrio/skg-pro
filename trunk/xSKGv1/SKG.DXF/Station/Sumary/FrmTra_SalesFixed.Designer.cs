@@ -65,6 +65,7 @@
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.cmdView = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -107,6 +108,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.cmdView);
             this.dockPanel1_Container.Controls.Add(this.labelControl4);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Controls.Add(this.cbeMonth);
@@ -196,7 +198,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(168, 26);
             this.dteTo.TabIndex = 3;
-            this.dteTo.Validated += new System.EventHandler(this.dteTo_Validated);
+            
             // 
             // lblTo
             // 
@@ -223,7 +225,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(168, 26);
             this.dteFrom.TabIndex = 2;
-            this.dteFrom.Validated += new System.EventHandler(this.dteFrom_Validated);
+            
             // 
             // lblFrom
             // 
@@ -634,6 +636,17 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.Width = 96;
             // 
+            // cmdView
+            // 
+            this.cmdView.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdView.Appearance.Options.UseFont = true;
+            this.cmdView.Location = new System.Drawing.Point(723, 3);
+            this.cmdView.Name = "cmdView";
+            this.cmdView.Size = new System.Drawing.Size(69, 26);
+            this.cmdView.TabIndex = 9;
+            this.cmdView.Text = "&Xem";
+            this.cmdView.Click += new System.EventHandler(this.cmdView_Click);
+            // 
             // FrmTra_SalesFixed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,5 +715,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraEditors.SimpleButton cmdView;
     }
 }

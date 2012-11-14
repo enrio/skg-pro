@@ -234,7 +234,7 @@ namespace SKG.DAL
 
                               s.UserIn.Phone,
                               UserIn = s.UserIn.Name,
-                              UserInId = s.UserIn.Id,
+                              s.UserInId,
                               //UserOut = s.UserOut.Name,
 
                               s.DateIn,
@@ -277,9 +277,8 @@ namespace SKG.DAL
                     default:
                         break;
                 }
-
-                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                //if (!ql) res = res.Where(p => p.UserInId == Global.Session.User.Id);
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (!ql) res = res.Where(p => p.UserInId == Global.Session.User.Id);
 
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;
@@ -310,6 +309,7 @@ namespace SKG.DAL
                               s.UserIn.Phone,
                               UserIn = s.UserIn.Name,
                               UserOut = s.UserOut.Name,
+                              s.UserOutId,
 
                               s.DateIn,
                               s.DateOut,
@@ -355,6 +355,9 @@ namespace SKG.DAL
                     default:
                         break;
                 }
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
+
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;
             }
@@ -373,28 +376,12 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// List of all vehicle in depot
-        /// </summary>
-        /// <param name="fix">Number of vehicle fixed</param>
-        /// <param name="nor">Number of vehicle normal</param>
-        /// <param name="number">Number of vehicle</param>
-        /// <returns></returns>
-        public DataTable GetInDepot(out int fix, out int nor, string number = null)
-        {
-            var a = FindInDepot(Group.F, number);
-            var b = FindInDepot(Group.N, number);
-            fix = a.Count();
-            nor = b.Count();
-            return a.Union(b).ToDataTable();
-        }
-
-        /// <summary>
         /// List of all vehicle in depot for out gate
         /// </summary>
         /// <param name="fix">Sum of vehicle fixed</param>
         /// <param name="nor">Sum of vehicle normal</param>
         /// <returns></returns>
-        public List<string> GetInDepotForOutGate(out int fix, out int nor)
+        public DataTable GetInDepotOutGate(out int fix, out int nor)
         {
             fix = nor = 0;
             try
@@ -402,10 +389,14 @@ namespace SKG.DAL
                 var res = from s in _db.Tra_Details
                           where s.UserOutId == null
                           orderby s.DateIn descending, s.Vehicle.Code
-                          select s.Vehicle.Code;
+                          select new
+                          {
+                              s.Id,
+                              s.Vehicle.Code
+                          };
                 fix = SumInDepotFixed;
                 nor = SumInDepotNormal;
-                return res.ToList();
+                return res.ToDataTable();
             }
             catch { return null; }
         }

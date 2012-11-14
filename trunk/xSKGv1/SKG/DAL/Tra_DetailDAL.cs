@@ -876,6 +876,25 @@ namespace SKG.DAL
         {
             try
             {
+                #region Cumulative
+                var start = Global.Session.Current.ToStartOfYear().Date;
+                var frx = start.AddDays(-1).AddHours(13).AddSeconds(1);
+
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.Vehicle.Fixed == true
+                          && s.Repair == false
+                          && s.DateOut >= frx && s.DateOut <= to
+                          && s.Parked != s.Money
+                          group s by s.VehicleId into g
+                          select new
+                          {
+                              g.Key,
+                              Th = g.Count(),
+                              Mg = g.Sum(p => p.Discount)
+                          };
+                #endregion
+
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.Vehicle.Fixed == true

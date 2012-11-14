@@ -525,7 +525,7 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vehicle fixed from 13:00 yesterday ago to 13:00 today
+        /// Revenue of vehicle fixed from 13:00:01 yesterday ago to 13:00:00 today
         /// </summary>
         /// <param name="sum">Sum of money</param>
         /// <returns></returns>
@@ -535,7 +535,7 @@ namespace SKG.DAL
             try
             {
                 var to = Global.Session.Current.Date.AddHours(13);
-                var fr = to.AddDays(-1);
+                var fr = to.AddDays(-1).AddSeconds(1);
                 return GetRevenueFixed(out sum, fr, to);
             }
             catch

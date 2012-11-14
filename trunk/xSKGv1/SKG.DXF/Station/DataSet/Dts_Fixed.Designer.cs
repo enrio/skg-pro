@@ -2428,6 +2428,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnNote;
             
+            private global::System.Data.DataColumn columnTransportCode;
+            
+            private global::System.Data.DataColumn columnTariffCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DebtMonthDataTable() {
@@ -2559,6 +2563,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransportCodeColumn {
+                get {
+                    return this.columnTransportCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TariffCodeColumn {
+                get {
+                    return this.columnTariffCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2594,7 +2614,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DebtMonthRow AddDebtMonthRow(string Transport, string Tariff, string Code, decimal Th, decimal Tt, decimal Nn, decimal Dt, decimal Lk_Th, decimal Lk_Tt, decimal Lk_Nn, decimal Lk_Dt, string Note) {
+            public DebtMonthRow AddDebtMonthRow(string Transport, string Tariff, string Code, decimal Th, decimal Tt, decimal Nn, decimal Dt, decimal Lk_Th, decimal Lk_Tt, decimal Lk_Nn, decimal Lk_Dt, string Note, string TransportCode, string TariffCode) {
                 DebtMonthRow rowDebtMonthRow = ((DebtMonthRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Transport,
@@ -2608,7 +2628,9 @@ namespace SKG.DXF.Station.DataSet {
                         Lk_Tt,
                         Lk_Nn,
                         Lk_Dt,
-                        Note};
+                        Note,
+                        TransportCode,
+                        TariffCode};
                 rowDebtMonthRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDebtMonthRow);
                 return rowDebtMonthRow;
@@ -2643,6 +2665,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnLk_Nn = base.Columns["Lk_Nn"];
                 this.columnLk_Dt = base.Columns["Lk_Dt"];
                 this.columnNote = base.Columns["Note"];
+                this.columnTransportCode = base.Columns["TransportCode"];
+                this.columnTariffCode = base.Columns["TariffCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2672,6 +2696,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnLk_Dt);
                 this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNote);
+                this.columnTransportCode = new global::System.Data.DataColumn("TransportCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransportCode);
+                this.columnTariffCode = new global::System.Data.DataColumn("TariffCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTariffCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5054,6 +5082,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TransportCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableDebtMonth.TransportCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransportCode\' in table \'DebtMonth\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDebtMonth.TransportCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TariffCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableDebtMonth.TariffCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TariffCode\' in table \'DebtMonth\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDebtMonth.TariffCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTransportNull() {
                 return this.IsNull(this.tableDebtMonth.TransportColumn);
             }
@@ -5194,6 +5254,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNoteNull() {
                 this[this.tableDebtMonth.NoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTransportCodeNull() {
+                return this.IsNull(this.tableDebtMonth.TransportCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransportCodeNull() {
+                this[this.tableDebtMonth.TransportCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTariffCodeNull() {
+                return this.IsNull(this.tableDebtMonth.TariffCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTariffCodeNull() {
+                this[this.tableDebtMonth.TariffCodeColumn] = global::System.Convert.DBNull;
             }
         }
         

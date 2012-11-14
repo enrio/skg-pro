@@ -789,7 +789,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              UserInName = s.UserIn.Name,
+                              UserIn = s.UserIn.Name,
                               Phone = s.UserIn.Phone,
                               s.DateIn,
                               s.Guest,
@@ -801,7 +801,7 @@ namespace SKG.DAL
                               s.Vehicle.Beds,
                               Transport = s.Vehicle.Transport.Text,
 
-                              UserOutName = s.UserOut.Name,
+                              UserOut = s.UserOut.Name,
                               s.DateOut,
                               s.UserOutId
                           };

@@ -108,6 +108,7 @@
             // 
             // chkHideActive
             // 
+            this.chkHideActive.EditValue = true;
             this.chkHideActive.Location = new System.Drawing.Point(395, 5);
             this.chkHideActive.Name = "chkHideActive";
             this.chkHideActive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

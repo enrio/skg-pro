@@ -838,7 +838,7 @@
             this.xrcCode.StylePriority.UseFont = false;
             this.xrcCode.StylePriority.UsePadding = false;
             this.xrcCode.StylePriority.UseTextAlignment = false;
-            this.xrcCode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrcCode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcCode.Weight = 0.28156367113446562D;
             this.xrcCode.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcCode_BeforePrint);
             // 

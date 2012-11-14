@@ -68,28 +68,28 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -749,6 +749,18 @@
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin xe";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn4);
+            this.gridBand1.Columns.Add(this.bandedGridColumn1);
+            this.gridBand1.Columns.Add(this.bandedGridColumn2);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 349;
+            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Id";
@@ -761,7 +773,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 42;
+            this.gridColumn2.Width = 30;
             // 
             // gridColumn3
             // 
@@ -769,7 +781,7 @@
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 61;
+            this.gridColumn3.Width = 71;
             // 
             // gridColumn4
             // 
@@ -777,7 +789,7 @@
             this.gridColumn4.FieldName = "Transport";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 156;
+            this.gridColumn4.Width = 114;
             // 
             // bandedGridColumn1
             // 
@@ -785,7 +797,7 @@
             this.bandedGridColumn1.FieldName = "Tariff";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 77;
+            this.bandedGridColumn1.Width = 56;
             // 
             // bandedGridColumn2
             // 
@@ -793,105 +805,7 @@
             this.bandedGridColumn2.FieldName = "Node";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 102;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Ghế";
-            this.gridColumn5.FieldName = "Seats";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 64;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Giường";
-            this.gridColumn6.FieldName = "Beds";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.Width = 70;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "CLC";
-            this.gridColumn8.FieldName = "High";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 64;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "TP";
-            this.gridColumn9.FieldName = "City";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.Width = 66;
-            // 
-            // gridColumn12
-            // 
-            this.gridColumn12.Caption = "Năm SX";
-            this.gridColumn12.FieldName = "YearProduction";
-            this.gridColumn12.Name = "gridColumn12";
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.Width = 68;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.Caption = "Hạn Đ.kiểm";
-            this.gridColumn13.FieldName = "LimitedRegistration";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.Width = 91;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "Hạn B.hiểm";
-            this.gridColumn14.FieldName = "TermInsurance";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.Width = 90;
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "Hạn TCĐ";
-            this.gridColumn15.FieldName = "TermFixedRoutes";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.Width = 72;
-            // 
-            // gridColumn16
-            // 
-            this.gridColumn16.Caption = "Hạn GPLX";
-            this.gridColumn16.FieldName = "TermDriverLicense";
-            this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.Width = 83;
-            // 
-            // bandedGridColumn3
-            // 
-            this.bandedGridColumn3.Caption = "Tên nhà xe";
-            this.bandedGridColumn3.FieldName = "Driver";
-            this.bandedGridColumn3.Name = "bandedGridColumn3";
-            this.bandedGridColumn3.Visible = true;
-            // 
-            // bandedGridColumn4
-            // 
-            this.bandedGridColumn4.Caption = "Điện thoại";
-            this.bandedGridColumn4.FieldName = "Phone";
-            this.bandedGridColumn4.Name = "bandedGridColumn4";
-            this.bandedGridColumn4.Visible = true;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin xe";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Columns.Add(this.bandedGridColumn2);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 438;
+            this.bandedGridColumn2.Width = 78;
             // 
             // gridBand2
             // 
@@ -899,7 +813,23 @@
             this.gridBand2.Columns.Add(this.gridColumn5);
             this.gridBand2.Columns.Add(this.gridColumn6);
             this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 134;
+            this.gridBand2.Width = 93;
+            // 
+            // gridColumn5
+            // 
+            this.gridColumn5.Caption = "Ghế";
+            this.gridColumn5.FieldName = "Seats";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.Width = 43;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Giường";
+            this.gridColumn6.FieldName = "Beds";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.Width = 50;
             // 
             // gridBand3
             // 
@@ -907,7 +837,23 @@
             this.gridBand3.Columns.Add(this.gridColumn8);
             this.gridBand3.Columns.Add(this.gridColumn9);
             this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 130;
+            this.gridBand3.Width = 90;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "CLC";
+            this.gridColumn8.FieldName = "High";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.Width = 43;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "TP";
+            this.gridColumn9.FieldName = "City";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.Width = 47;
             // 
             // gridBand4
             // 
@@ -918,7 +864,47 @@
             this.gridBand4.Columns.Add(this.gridColumn15);
             this.gridBand4.Columns.Add(this.gridColumn16);
             this.gridBand4.Name = "gridBand4";
-            this.gridBand4.Width = 404;
+            this.gridBand4.Width = 283;
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.Caption = "Năm SX";
+            this.gridColumn12.FieldName = "YearProduction";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.Width = 46;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.Caption = "Hạn Đ.kiểm";
+            this.gridColumn13.FieldName = "LimitedRegistration";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.Width = 62;
+            // 
+            // gridColumn14
+            // 
+            this.gridColumn14.Caption = "Hạn B.hiểm";
+            this.gridColumn14.FieldName = "TermInsurance";
+            this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.Visible = true;
+            this.gridColumn14.Width = 62;
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "Hạn TCĐ";
+            this.gridColumn15.FieldName = "TermFixedRoutes";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.Width = 49;
+            // 
+            // gridColumn16
+            // 
+            this.gridColumn16.Caption = "Hạn GPLX";
+            this.gridColumn16.FieldName = "TermDriverLicense";
+            this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.Width = 64;
             // 
             // gridBand5
             // 
@@ -926,7 +912,23 @@
             this.gridBand5.Columns.Add(this.bandedGridColumn3);
             this.gridBand5.Columns.Add(this.bandedGridColumn4);
             this.gridBand5.Name = "gridBand5";
-            this.gridBand5.Width = 150;
+            this.gridBand5.Width = 110;
+            // 
+            // bandedGridColumn3
+            // 
+            this.bandedGridColumn3.Caption = "Tên nhà xe";
+            this.bandedGridColumn3.FieldName = "Driver";
+            this.bandedGridColumn3.Name = "bandedGridColumn3";
+            this.bandedGridColumn3.Visible = true;
+            this.bandedGridColumn3.Width = 54;
+            // 
+            // bandedGridColumn4
+            // 
+            this.bandedGridColumn4.Caption = "Điện thoại";
+            this.bandedGridColumn4.FieldName = "Phone";
+            this.bandedGridColumn4.Name = "bandedGridColumn4";
+            this.bandedGridColumn4.Visible = true;
+            this.bandedGridColumn4.Width = 56;
             // 
             // FrmTra_VehicleFixed
             // 

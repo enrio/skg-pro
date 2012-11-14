@@ -45,27 +45,27 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand3 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -149,7 +149,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTo.Size = new System.Drawing.Size(168, 26);
             this.dteTo.TabIndex = 6;
-            
             // 
             // lblTo
             // 
@@ -176,7 +175,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteFrom.Size = new System.Drawing.Size(168, 26);
             this.dteFrom.TabIndex = 4;
-            
             // 
             // lblFrom
             // 
@@ -449,18 +447,6 @@
             this.grvMain.OptionsView.ShowFooter = true;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn13);
-            this.gridBand1.Columns.Add(this.bandedGridColumn2);
-            this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 368;
-            // 
             // gridColumn1
             // 
             this.gridColumn1.Caption = "Mã";
@@ -473,7 +459,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 23;
+            this.gridColumn2.Width = 25;
             // 
             // gridColumn3
             // 
@@ -483,7 +469,7 @@
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} lượt")});
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 93;
+            this.gridColumn3.Width = 71;
             // 
             // gridColumn13
             // 
@@ -491,7 +477,7 @@
             this.gridColumn13.FieldName = "Tariff";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.Width = 77;
+            this.gridColumn13.Width = 70;
             // 
             // bandedGridColumn2
             // 
@@ -499,7 +485,7 @@
             this.bandedGridColumn2.FieldName = "Group";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 86;
+            this.bandedGridColumn2.Width = 79;
             // 
             // bandedGridColumn1
             // 
@@ -507,15 +493,7 @@
             this.bandedGridColumn1.FieldName = "More";
             this.bandedGridColumn1.Name = "bandedGridColumn1";
             this.bandedGridColumn1.Visible = true;
-            this.bandedGridColumn1.Width = 89;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Lượt xe";
-            this.gridBand2.Columns.Add(this.gridColumn8);
-            this.gridBand2.Columns.Add(this.gridColumn9);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 206;
+            this.bandedGridColumn1.Width = 84;
             // 
             // gridColumn8
             // 
@@ -525,7 +503,7 @@
             this.gridColumn8.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "HalfDay", "{0:#,0}")});
             this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 103;
+            this.gridColumn8.Width = 95;
             // 
             // gridColumn9
             // 
@@ -535,15 +513,7 @@
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "FullDay", "{0:#,0}")});
             this.gridColumn9.Visible = true;
-            this.gridColumn9.Width = 103;
-            // 
-            // gridBand3
-            // 
-            this.gridBand3.Caption = "Đơn giá";
-            this.gridBand3.Columns.Add(this.gridColumn10);
-            this.gridBand3.Columns.Add(this.gridColumn11);
-            this.gridBand3.Name = "gridBand3";
-            this.gridBand3.Width = 206;
+            this.gridColumn9.Width = 100;
             // 
             // gridColumn10
             // 
@@ -553,7 +523,7 @@
             this.gridColumn10.FieldName = "Price1";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 103;
+            this.gridColumn10.Width = 95;
             // 
             // gridColumn11
             // 
@@ -563,15 +533,7 @@
             this.gridColumn11.FieldName = "Price2";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.Width = 103;
-            // 
-            // gridBand5
-            // 
-            this.gridBand5.Caption = "Thông tin vào";
-            this.gridBand5.Columns.Add(this.gridColumn4);
-            this.gridBand5.Columns.Add(this.gridColumn7);
-            this.gridBand5.Name = "gridBand5";
-            this.gridBand5.Width = 180;
+            this.gridColumn11.Width = 100;
             // 
             // gridColumn4
             // 
@@ -579,7 +541,7 @@
             this.gridColumn4.FieldName = "UserIn";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 90;
+            this.gridColumn4.Width = 82;
             // 
             // gridColumn7
             // 
@@ -589,15 +551,7 @@
             this.gridColumn7.FieldName = "DateOut";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
-            this.gridColumn7.Width = 90;
-            // 
-            // gridBand6
-            // 
-            this.gridBand6.Caption = "Thông tin ra";
-            this.gridBand6.Columns.Add(this.gridColumn6);
-            this.gridBand6.Columns.Add(this.gridColumn5);
-            this.gridBand6.Name = "gridBand6";
-            this.gridBand6.Width = 180;
+            this.gridColumn7.Width = 86;
             // 
             // gridColumn6
             // 
@@ -605,7 +559,7 @@
             this.gridColumn6.FieldName = "UserOut";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.Width = 90;
+            this.gridColumn6.Width = 82;
             // 
             // gridColumn5
             // 
@@ -615,14 +569,7 @@
             this.gridColumn5.FieldName = "DateIn";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 90;
-            // 
-            // gridBand7
-            // 
-            this.gridBand7.Caption = "Tính tiền";
-            this.gridBand7.Columns.Add(this.gridColumn12);
-            this.gridBand7.Name = "gridBand7";
-            this.gridBand7.Width = 112;
+            this.gridColumn5.Width = 86;
             // 
             // gridColumn12
             // 
@@ -634,7 +581,58 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", "{0:#,0}")});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.Width = 112;
+            this.gridColumn12.Width = 117;
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn13);
+            this.gridBand1.Columns.Add(this.bandedGridColumn2);
+            this.gridBand1.Columns.Add(this.bandedGridColumn1);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 329;
+            // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Lượt xe";
+            this.gridBand2.Columns.Add(this.gridColumn8);
+            this.gridBand2.Columns.Add(this.gridColumn9);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.Width = 195;
+            // 
+            // gridBand3
+            // 
+            this.gridBand3.Caption = "Đơn giá";
+            this.gridBand3.Columns.Add(this.gridColumn10);
+            this.gridBand3.Columns.Add(this.gridColumn11);
+            this.gridBand3.Name = "gridBand3";
+            this.gridBand3.Width = 195;
+            // 
+            // gridBand5
+            // 
+            this.gridBand5.Caption = "Thông tin vào";
+            this.gridBand5.Columns.Add(this.gridColumn4);
+            this.gridBand5.Columns.Add(this.gridColumn7);
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.Width = 168;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.Caption = "Thông tin ra";
+            this.gridBand6.Columns.Add(this.gridColumn6);
+            this.gridBand6.Columns.Add(this.gridColumn5);
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.Width = 168;
+            // 
+            // gridBand7
+            // 
+            this.gridBand7.Caption = "Tính tiền";
+            this.gridBand7.Columns.Add(this.gridColumn12);
+            this.gridBand7.Name = "gridBand7";
+            this.gridBand7.Width = 117;
             // 
             // FrmTra_SalesNormal
             // 
@@ -698,12 +696,12 @@
         private DevExpress.XtraEditors.DateEdit dteFrom;
         private DevExpress.XtraEditors.LabelControl lblFrom;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
+        private DevExpress.XtraEditors.SimpleButton cmdView;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
-        private DevExpress.XtraEditors.SimpleButton cmdView;
     }
 }

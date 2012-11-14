@@ -135,6 +135,7 @@ namespace SKG.DAL.Entities
         public decimal Money { set; get; }
         #endregion
 
+        #region More
         /// <summary>
         /// Allow out gate to repair not make money
         /// </summary>
@@ -145,6 +146,13 @@ namespace SKG.DAL.Entities
         /// </summary>
         public int? Guest { set; get; }
 
+        /// <summary>
+        /// Discount
+        /// </summary>
+        public int? Discount { set; get; }
+        #endregion
+
+        #region Charge
         /// <summary>
         /// Charge for vehicle normal
         /// </summary>
@@ -193,5 +201,6 @@ namespace SKG.DAL.Entities
             Money = Parked + Cost + Rose;
             return Money;
         }
+        #endregion
     }
 }

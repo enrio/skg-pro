@@ -1038,7 +1038,6 @@
             this.xrcTariff.StylePriority.UseTextAlignment = false;
             this.xrcTariff.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcTariff.Weight = 0.28156367113446562D;
-            
             // 
             // xrTableCell4
             // 
@@ -1185,14 +1184,10 @@
             // 
             // xrTableCell33
             // 
-            this.xrTableCell33.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "DebtMonth.Note")});
             this.xrTableCell33.Name = "xrTableCell33";
             xrSummary35.FormatString = "{0:#,0}";
             xrSummary35.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary35.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell33.Summary = xrSummary35;
-            this.xrTableCell33.Text = "xrTableCell33";
             this.xrTableCell33.Weight = 0.59487022628171715D;
             // 
             // GroupHeader2
@@ -1249,7 +1244,6 @@
             this.xrcRegion.StylePriority.UseTextAlignment = false;
             this.xrcRegion.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcRegion.Weight = 0.28156367113446562D;
-            
             // 
             // xrTableCell90
             // 
@@ -1396,14 +1390,10 @@
             // 
             // xrTableCell28
             // 
-            this.xrTableCell28.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "DebtMonth.Note")});
             this.xrTableCell28.Name = "xrTableCell28";
             xrSummary47.FormatString = "{0:#,0}";
             xrSummary47.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary47.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell28.Summary = xrSummary47;
-            this.xrTableCell28.Text = "xrTableCell28";
             this.xrTableCell28.Weight = 0.59487022628171715D;
             // 
             // dts_Fixed

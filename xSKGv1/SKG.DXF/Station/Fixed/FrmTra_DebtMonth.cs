@@ -21,14 +21,14 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using DAL.Entities;
 
-    public partial class FrmTra_AuditDay : SKG.DXF.FrmInput
+    public partial class FrmTra_DebtMonth : SKG.DXF.FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var type = typeof(FrmTra_AuditDay);
+                var type = typeof(FrmTra_DebtMonth);
                 var name = Global.GetIconName(type);
 
                 var menu = new Menuz
@@ -130,8 +130,11 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            var to = dteDay.DateTime.Date.AddHours(13);
-            var fr = to.AddDays(-1).AddSeconds(1);
+            var start = dteMonth.DateTime.ToStartOfMonth().Date;
+            var end = dteMonth.DateTime.ToEndOfMonth().Date;
+
+            var to = end.AddDays(1).AddHours(13);
+            var fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
 
             var isOut = (bool)radType.Properties.Items[radType.SelectedIndex].Value;
             _dtb = _bll.Tra_Detail.GetAuditFixed(fr, to, isOut);
@@ -147,18 +150,17 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_AuditDay
+            var rpt = new Report.Rpt_AuditMonth
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_td", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            var fr = dteDay.DateTime.ToStartOfMonth();
-            var to = dteDay.DateTime.ToEndOfMonth();
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
+            var fr = dteMonth.DateTime.ToStartOfMonth();
+            var to = dteMonth.DateTime.ToEndOfMonth();
+            rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to, chkHideActive.Checked);
 
-            rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.parDate.Value = Global.Session.Current;
-            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
+            rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);
@@ -170,7 +172,7 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Methods
-        public FrmTra_AuditDay()
+        public FrmTra_DebtMonth()
         {
             InitializeComponent();
 
@@ -183,7 +185,7 @@ namespace SKG.DXF.Station.Fixed
             AllowRefresh = false;
             AllowPrint = true;
 
-            dteDay.DateTime = Global.Session.Current;
+            dteMonth.DateTime = Global.Session.Current;
         }
         #endregion
 
@@ -206,15 +208,15 @@ namespace SKG.DXF.Station.Fixed
             }
         }
 
-        private void dteDay_Validated(object sender, EventArgs e)
-        {
-            PerformRefresh();
-        }
-
-        private void dteDay_KeyDown(object sender, KeyEventArgs e)
+        private void dteMonth_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 PerformRefresh();
+        }
+
+        private void dteMonth_Validated(object sender, EventArgs e)
+        {
+            PerformRefresh();
         }
 
         private void FrmTra_AuditMonth_Activated(object sender, EventArgs e)
@@ -236,7 +238,7 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Theo dõi ngày";
+        private const string STR_TITLE = "Theo dõi tháng";
         #endregion
     }
 }

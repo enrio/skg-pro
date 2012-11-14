@@ -130,8 +130,8 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            var to = dteDay.DateTime.Date.AddHours(13);
-            var fr = to.AddDays(-1).AddSeconds(1);
+            DateTime fr, to;
+            Global.Session.ToCutShiftDay(dteDay.DateTime, out fr, out to);
 
             var isOut = (bool)radType.Properties.Items[radType.SelectedIndex].Value;
             _dtb = _bll.Tra_Detail.GetAuditFixed(fr, to, isOut);
@@ -152,11 +152,8 @@ namespace SKG.DXF.Station.Fixed
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            var start = dteDay.DateTime.ToStartOfMonth().Date;
-            var end = dteDay.DateTime.ToEndOfMonth().Date;
-
-            var to = end.AddDays(1).AddHours(13);
-            var fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
+            DateTime fr, to;
+            Global.Session.ToCutShiftMonth(dteDay.DateTime, out fr, out to);
 
             rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
             rpt.xrlCashier.Text = Global.Session.User.Name;

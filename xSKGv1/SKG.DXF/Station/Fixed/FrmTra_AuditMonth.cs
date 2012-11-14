@@ -121,8 +121,12 @@ namespace SKG.DXF.Station.Fixed
         public string num = "";
         protected override void LoadData()
         {
-            var fr = dteMonth.DateTime.ToStartOfMonth();
-            var to = dteMonth.DateTime.ToEndOfMonth();
+            var start = dteMonth.DateTime.ToStartOfMonth().Date;
+            var end = dteMonth.DateTime.ToEndOfMonth().Date;
+
+            var to = end.AddDays(1).AddHours(13);
+            var fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
+
             var isOut = (bool)radType.Properties.Items[radType.SelectedIndex].Value;
             _dtb = _bll.Tra_Detail.GetAuditFixed(fr, to, isOut);
 

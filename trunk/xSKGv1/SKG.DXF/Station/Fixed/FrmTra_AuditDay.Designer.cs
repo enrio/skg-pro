@@ -346,10 +346,10 @@
             this.bandedGridColumn2,
             this.bandedGridColumn3,
             this.bandedGridColumn8,
-            this.bandedGridColumn4,
             this.bandedGridColumn5,
-            this.bandedGridColumn6,
-            this.bandedGridColumn7});
+            this.bandedGridColumn4,
+            this.bandedGridColumn7,
+            this.bandedGridColumn6});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "Transport", null, "- Số xe: {0:0,0}")});
@@ -438,8 +438,8 @@
             // 
             // bandedGridColumn5
             // 
-            this.bandedGridColumn5.Caption = "Người cho vào";
-            this.bandedGridColumn5.FieldName = "UserInName";
+            this.bandedGridColumn5.Caption = "Cho vào";
+            this.bandedGridColumn5.FieldName = "UserIn";
             this.bandedGridColumn5.Name = "bandedGridColumn5";
             this.bandedGridColumn5.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn5.Visible = true;
@@ -447,7 +447,7 @@
             // 
             // bandedGridColumn4
             // 
-            this.bandedGridColumn4.Caption = "T.gian vào";
+            this.bandedGridColumn4.Caption = "Thời gian";
             this.bandedGridColumn4.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.bandedGridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.bandedGridColumn4.FieldName = "DateIn";
@@ -458,8 +458,8 @@
             // 
             // bandedGridColumn7
             // 
-            this.bandedGridColumn7.Caption = "Người cho ra";
-            this.bandedGridColumn7.FieldName = "UserOutName";
+            this.bandedGridColumn7.Caption = "Cho ra";
+            this.bandedGridColumn7.FieldName = "UserOut";
             this.bandedGridColumn7.Name = "bandedGridColumn7";
             this.bandedGridColumn7.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn7.Visible = true;
@@ -467,7 +467,7 @@
             // 
             // bandedGridColumn6
             // 
-            this.bandedGridColumn6.Caption = "T.gian ra";
+            this.bandedGridColumn6.Caption = "Thời gian";
             this.bandedGridColumn6.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
             this.bandedGridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.bandedGridColumn6.FieldName = "DateOut";

@@ -244,7 +244,7 @@
             this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(299.8683F, 25.78125F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(431.6574F, 26.04166F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(467.1315F, 26.04166F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
             this.xrLabel5.Text = "Độc lập - Tự do - Hạnh phúc";
@@ -281,7 +281,7 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(299.8683F, 0F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(431.6574F, 25.78125F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(467.1315F, 25.78125F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM";
@@ -295,7 +295,7 @@
             this.xrlDuration.LocationFloat = new DevExpress.Utils.PointFloat(379.5333F, 51.82292F);
             this.xrlDuration.Name = "xrlDuration";
             this.xrlDuration.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlDuration.SizeF = new System.Drawing.SizeF(351.9924F, 26.04166F);
+            this.xrlDuration.SizeF = new System.Drawing.SizeF(387.4665F, 26.04165F);
             this.xrlDuration.StylePriority.UseFont = false;
             this.xrlDuration.StylePriority.UseTextAlignment = false;
             this.xrlDuration.Text = "xrlDuration";

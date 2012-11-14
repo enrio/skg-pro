@@ -175,24 +175,6 @@ namespace SKG.DAL
             catch { return null; }
         }
 
-        /// <summary>
-        /// Cập nhật số hành khách đi xe
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        public object UpdateGuest(object obj)
-        {
-            try
-            {
-                var o = (Tra_Detail)obj;
-                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
-
-                res.Guest = o.Guest;
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
-
         public object Delete(Guid id = new Guid())
         {
             try
@@ -792,7 +774,10 @@ namespace SKG.DAL
                               UserIn = s.UserIn.Name,
                               Phone = s.UserIn.Phone,
                               s.DateIn,
+
                               s.Guest,
+                              s.Discount,
+
                               Route = s.Vehicle.Tariff.Text,
                               s.Vehicle.Node,
 
@@ -1145,5 +1130,25 @@ namespace SKG.DAL
             }
         }
         #endregion
+
+        /// <summary>
+        /// Cập nhật số hành khách đi xe, lượt miễn giảm
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public object UpdateGuestDiscount(object obj)
+        {
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Guest = o.Guest;
+                res.Discount = o.Discount;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
     }
 }

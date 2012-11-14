@@ -113,7 +113,7 @@ namespace SKG.DXF.Station.Fixed
                         Discount = discount.ToInt32()
                     };
 
-                    _bll.Tra_Detail.UpdateGuest(o);
+                    _bll.Tra_Detail.UpdateGuestDiscount(o);
                 }
                 return true;
             }
@@ -197,12 +197,6 @@ namespace SKG.DXF.Station.Fixed
                 e.Info.DisplayText = "" + (e.RowHandle + 1);
                 e.Handled = false;
             }
-        }
-
-        private void dteMonth_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                PerformRefresh();
         }
 
         private void dteDay_Validated(object sender, EventArgs e)

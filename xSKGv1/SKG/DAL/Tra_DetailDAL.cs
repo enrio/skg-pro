@@ -381,14 +381,14 @@ namespace SKG.DAL
         /// <param name="fix">Sum of vehicle fixed</param>
         /// <param name="nor">Sum of vehicle normal</param>
         /// <returns></returns>
-        public DataTable GetInDepotOutGate(out int fix, out int nor)
+        public DataTable GetInDepot(out int fix, out int nor)
         {
             fix = nor = 0;
             try
             {
                 var res = from s in _db.Tra_Details
                           where s.UserOutId == null
-                          orderby s.DateIn descending, s.Vehicle.Code
+                          orderby s.Vehicle.Code
                           select new
                           {
                               s.Id,

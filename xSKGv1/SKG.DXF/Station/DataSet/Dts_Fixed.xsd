@@ -124,6 +124,8 @@
               <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
               <xs:element name="TransportCode" msprop:Generator_ColumnVarNameInTable="columnTransportCode" msprop:Generator_ColumnPropNameInRow="TransportCode" msprop:Generator_ColumnPropNameInTable="TransportCodeColumn" msprop:Generator_UserColumnName="TransportCode" type="xs:string" minOccurs="0" />
               <xs:element name="TariffCode" msprop:Generator_ColumnVarNameInTable="columnTariffCode" msprop:Generator_ColumnPropNameInRow="TariffCode" msprop:Generator_ColumnPropNameInTable="TariffCodeColumn" msprop:Generator_UserColumnName="TariffCode" type="xs:string" minOccurs="0" />
+              <xs:element name="Mg" msprop:Generator_ColumnVarNameInTable="columnMg" msprop:Generator_ColumnPropNameInRow="Mg" msprop:Generator_ColumnPropNameInTable="MgColumn" msprop:Generator_UserColumnName="Mg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Lk_Mg" msprop:Generator_ColumnVarNameInTable="columnLk_Mg" msprop:Generator_ColumnPropNameInRow="Lk_Mg" msprop:Generator_ColumnPropNameInTable="Lk_MgColumn" msprop:Generator_UserColumnName="Lk_Mg" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

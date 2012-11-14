@@ -152,10 +152,13 @@ namespace SKG.DXF.Station.Fixed
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            var fr = dteDay.DateTime.ToStartOfMonth();
-            var to = dteDay.DateTime.ToEndOfMonth();
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
+            var start = dteDay.DateTime.ToStartOfMonth().Date;
+            var end = dteDay.DateTime.ToEndOfMonth().Date;
 
+            var to = end.AddDays(1).AddHours(13);
+            var fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
+
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
             rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");

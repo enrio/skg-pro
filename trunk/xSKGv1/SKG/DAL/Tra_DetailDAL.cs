@@ -866,6 +866,80 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Report for debt month vehicle fixed
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <param name="hideActive">Hide vehicle active</param>
+        /// <returns></returns>
+        public DataTable DebtMonthFixed(DateTime fr, DateTime to, bool hideActive)
+        {
+            try
+            {
+                var res1 = from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && s.Parked != s.Money
+                           group s by s.VehicleId into g
+                           select new
+                           {
+                               g.Key,
+                               Th_Lxe = g.Count(),
+                               Th_Hk = g.Sum(p => p.Guest) ?? 0,
+                               Th_Cost = g.Sum(p => p.Cost),
+                               Th_Rose = g.Sum(p => p.Rose),
+                               Th_Parked = g.Sum(p => p.Parked),
+                               Th_Money = g.Sum(p => p.Money)
+                           };
+
+                var res2 =
+                           from v in _db.Tra_Vehicles
+                           join r in res1 on v.Id equals r.Key into l
+                           from s in l.DefaultIfEmpty()
+                           where v.Fixed == true
+                           orderby v.Tariff.Group.Parent.Parent.Code descending,
+                           v.Tariff.Group.Parent.Code descending, v.Tariff.Group.Code,
+                           v.Tariff.Code, v.Transport.Code, v.Code
+                           select new
+                           {
+                               Region = v.Tariff.Group.Parent.Parent.Text,
+                               Area = v.Tariff.Group.Parent.Text,
+                               Province = v.Tariff.Group.Text,
+                               Station = v.Tariff.Text,
+                               Transport = v.Transport.Text,
+
+                               RegionCode = v.Tariff.Group.Parent.Parent.Code,
+                               AreaCode = v.Tariff.Group.Parent.Code,
+                               ProvinceCode = v.Tariff.Group.Code,
+                               StationCode = v.Tariff.Code,
+                               TransportCode = v.Transport.Code,
+
+                               v.Code,
+
+                               Th_Lxe = s.Th_Lxe == null ? 0 : s.Th_Lxe,
+                               Th_Hk = s.Th_Hk == null ? 0 : s.Th_Hk,
+                               Th_Cost = s.Th_Cost == null ? 0 : s.Th_Cost,
+                               Th_Rose = s.Th_Rose == null ? 0 : s.Th_Rose,
+                               Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
+                               Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
+
+                               Tr_Lxe = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
+                               Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0),
+                               Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
+                               Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0)
+                               + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
+                               Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
+                           };
+                if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0);
+                return res2.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Audit day vehicle fixed
         /// </summary>
         /// <param name="fr">From date time</param>

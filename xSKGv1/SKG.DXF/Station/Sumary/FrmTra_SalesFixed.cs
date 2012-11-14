@@ -85,7 +85,7 @@ namespace SKG.DXF.Station.Sumary
             };
 
             DateTime shift;
-            Global.Session.Shift(out shift);
+            Session.Shift(out shift);
 
             rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
             rpt.xrlDuration.Text += "Từ ngày " + dteFrom.DateTime.ToString("dd/MM/yyyy");

@@ -453,7 +453,7 @@ namespace SKG.DAL
 
                     // Ca làm việc
                     DateTime shift;
-                    int i = Global.Session.Shift(out shift, dateOut);
+                    int i = Session.Shift(out shift, dateOut);
                     a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
                     a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
                 }
@@ -878,7 +878,7 @@ namespace SKG.DAL
             {
                 #region Cumulative
                 DateTime frx, tox;
-                Global.Session.ToCutShiftJanuary(to, out frx, out tox);
+                Session.CutShiftJanuary(to, out frx, out tox);
                 var m = to.Month;
 
                 var res = from s in _db.Tra_Details
@@ -1060,7 +1060,7 @@ namespace SKG.DAL
                 sum = 0;
                 DateTime shift;
 
-                int i = Global.Session.Shift(out shift);
+                int i = Session.Shift(out shift);
                 var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
 
                 /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);

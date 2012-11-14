@@ -51,7 +51,7 @@ namespace SKG.DXF.Station.Fixed
         #region Overrides
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            grcMain.Enabled = isReadOnly;
+            grvMain.OptionsBehavior.Editable = !isReadOnly;
 
             base.ReadOnlyControl(isReadOnly);
         }

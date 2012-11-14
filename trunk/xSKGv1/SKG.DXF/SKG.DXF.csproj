@@ -215,6 +215,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dts_Normal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Station\Fixed\FrmTra_DebtMonth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_DebtMonth.Designer.cs">
+      <DependentUpon>FrmTra_DebtMonth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Fixed\FrmTra_AuditDay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +412,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_DebtMonth.resx">
+      <DependentUpon>FrmTra_DebtMonth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_AuditDay.resx">
       <DependentUpon>FrmTra_AuditDay.cs</DependentUpon>
     </EmbeddedResource>

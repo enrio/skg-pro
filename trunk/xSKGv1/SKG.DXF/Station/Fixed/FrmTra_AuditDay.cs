@@ -149,7 +149,7 @@ namespace SKG.DXF.Station.Fixed
         {
             var rpt = new Report.Rpt_AuditDay
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_td", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
             };
 
             var fr = dteDay.DateTime.ToStartOfMonth();

@@ -150,9 +150,9 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_AuditMonth
+            var rpt = new Report.Rpt_DebtMonth
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_td", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cnt", Global.Session.User.Acc, Global.Session.Current)
             };
 
             var fr = dteMonth.DateTime.ToStartOfMonth();

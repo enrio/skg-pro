@@ -937,12 +937,12 @@ namespace SKG.DAL
                                Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
                                Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
 
-                               Tr_Lxe = v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
-                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Cost = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0),
-                               Tr_Rose = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
-                               Tr_Money = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0)
-                               + (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
+                               Tr_Lxe = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
+                               Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0),
+                               Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
+                               Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0)
+                               + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
                                Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
                            };
                 return res2.ToDataTable();

@@ -17,20 +17,20 @@ namespace SKG.DXF.Station.Report
         {
             var x = 'A' + _region++;
             xrcRegion.Text = (char)x + "";
-            _area = 0;
+            //_area = 0;
         }
 
         int _area = 0;
-        private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrcTariff_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xrcArea.Text = "" + ++_area;
-            _sation = 0;
+            xrcTariff.Text = "" + ++_area;
+            //_sation = 0;
         }
 
         int _sation = 0;
-        private void xrcStation_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrcCode_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xrcStation.Text = "" + ++_sation;
+            xrcCode.Text = "" + ++_sation;
         }
     }
 }

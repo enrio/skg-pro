@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
             this.radType = new DevExpress.XtraEditors.RadioGroup();
             this.dteDay = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
@@ -60,6 +61,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
@@ -95,6 +97,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.chkHideActive);
             this.dockPanel1_Container.Controls.Add(this.radType);
             this.dockPanel1_Container.Controls.Add(this.dteDay);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
@@ -102,6 +105,16 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // chkHideActive
+            // 
+            this.chkHideActive.Location = new System.Drawing.Point(395, 5);
+            this.chkHideActive.Name = "chkHideActive";
+            this.chkHideActive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkHideActive.Properties.Appearance.Options.UseFont = true;
+            this.chkHideActive.Properties.Caption = "Ẩn xe không hoạt động";
+            this.chkHideActive.Size = new System.Drawing.Size(198, 24);
+            this.chkHideActive.TabIndex = 27;
             // 
             // radType
             // 
@@ -117,7 +130,6 @@
             this.radType.Size = new System.Drawing.Size(234, 26);
             this.radType.TabIndex = 26;
             this.radType.SelectedIndexChanged += new System.EventHandler(this.radType_SelectedIndexChanged);
-            
             // 
             // dteDay
             // 
@@ -512,6 +524,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
@@ -552,5 +565,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraEditors.RadioGroup radType;
+        private DevExpress.XtraEditors.CheckEdit chkHideActive;
     }
 }

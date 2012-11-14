@@ -56,6 +56,7 @@
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -67,6 +68,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -95,6 +97,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.chkHideActive);
             this.dockPanel1_Container.Controls.Add(this.radType);
             this.dockPanel1_Container.Controls.Add(this.dteMonth);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
@@ -117,7 +120,6 @@
             this.radType.Size = new System.Drawing.Size(234, 26);
             this.radType.TabIndex = 27;
             this.radType.SelectedIndexChanged += new System.EventHandler(this.radType_SelectedIndexChanged);
-            
             // 
             // dteMonth
             // 
@@ -496,6 +498,16 @@
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.Width = 71;
             // 
+            // chkHideActive
+            // 
+            this.chkHideActive.Location = new System.Drawing.Point(379, 4);
+            this.chkHideActive.Name = "chkHideActive";
+            this.chkHideActive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkHideActive.Properties.Appearance.Options.UseFont = true;
+            this.chkHideActive.Properties.Caption = "Ẩn xe không hoạt động";
+            this.chkHideActive.Size = new System.Drawing.Size(198, 24);
+            this.chkHideActive.TabIndex = 28;
+            // 
             // FrmTra_AuditMonth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +531,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,5 +565,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraEditors.RadioGroup radType;
+        private DevExpress.XtraEditors.CheckEdit chkHideActive;
     }
 }

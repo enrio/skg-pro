@@ -147,38 +147,5 @@ namespace SKG.DAL.Entities
         /// </summary>
         public string Phone { set; get; }
         #endregion
-
-        #region Charge parked for vehicle fixed
-        /// <summary>
-        /// Charge cost for vehicle fixed
-        /// </summary>
-        public decimal Cost
-        {
-            get
-            {
-                var seat = Seats ?? 0;
-                var bed = Beds ?? 0;
-                return Tariff.Price1 * seat + Tariff.Price2 * bed;
-            }
-        }
-
-        /// <summary>
-        /// Charge rose for vehicle fixed
-        /// </summary>
-        public decimal Rose
-        {
-            get
-            {
-                var seat = Seats ?? 0;
-                var bed = Beds ?? 0;
-                return Tariff.Rose1 * (seat < 1 ? 1 : seat - 1) + Tariff.Rose2 * bed;
-            }
-        }
-
-        /// <summary>
-        /// Total money without parked
-        /// </summary>
-        public decimal Money { get { return Cost + Rose; } }
-        #endregion
     }
 }

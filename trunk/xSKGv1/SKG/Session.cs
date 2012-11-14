@@ -30,7 +30,7 @@ namespace SKG
         /// </summary>
         /// <param name="dt">Date of shift</param>
         /// <returns></returns>
-        public int Shift(out DateTime dt, DateTime? date = null)
+        public static int Shift(out DateTime dt, DateTime? date = null)
         {
             DateTime cur, log;
             if (date == null)
@@ -67,7 +67,7 @@ namespace SKG
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
-        public void ToCutShiftDay(DateTime date, out DateTime fr, out DateTime to)
+        public static void CutShiftDay(DateTime date, out DateTime fr, out DateTime to)
         {
             fr = date.Date.AddDays(-1).AddHours(13).AddSeconds(1);
             to = date.Date.AddHours(13);
@@ -79,7 +79,7 @@ namespace SKG
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
-        public void ToCutShiftMonth(DateTime date, out DateTime fr, out DateTime to)
+        public static void CutShiftMonth(DateTime date, out DateTime fr, out DateTime to)
         {
             var start = date.ToStartOfMonth();
             var end = date.ToEndOfMonth().Date;
@@ -94,7 +94,7 @@ namespace SKG
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
-        public void ToCutShiftJanuary(DateTime date, out DateTime fr, out DateTime to)
+        public static void CutShiftJanuary(DateTime date, out DateTime fr, out DateTime to)
         {
             var start = date.ToStartOfYear();
             var end = date.ToEndOfMonth().Date;

@@ -131,7 +131,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void LoadData()
         {
             DateTime fr, to;
-            Global.Session.ToCutShiftDay(dteDay.DateTime, out fr, out to);
+            Session.CutShiftDay(dteDay.DateTime, out fr, out to);
 
             var isOut = (bool)radType.Properties.Items[radType.SelectedIndex].Value;
             _dtb = _bll.Tra_Detail.GetAuditFixed(fr, to, isOut);
@@ -153,7 +153,7 @@ namespace SKG.DXF.Station.Fixed
             };
 
             DateTime fr, to;
-            Global.Session.ToCutShiftMonth(dteDay.DateTime, out fr, out to);
+            Session.CutShiftMonth(dteDay.DateTime, out fr, out to);
 
             rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
             rpt.xrlCashier.Text = Global.Session.User.Name;

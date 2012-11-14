@@ -17,12 +17,14 @@ namespace SKG.DXF.Station.Report
         {
             var x = 'A' + _region++;
             xrcRegion.Text = (char)x + "";
+            _area = 0;
         }
 
         int _area = 0;
         private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrcArea.Text = "" + ++_area;
+            _sation = 0;
         }
 
         int _sation = 0;

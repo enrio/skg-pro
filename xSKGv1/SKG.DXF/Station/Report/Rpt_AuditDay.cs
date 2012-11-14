@@ -3,7 +3,7 @@
 namespace SKG.DXF.Station.Report
 {
     /// <summary>
-    /// Theo dõi tình hình hoạt động của xe cố định theo tháng
+    /// Theo dõi tình hình hoạt động của xe cố định theo ngày
     /// </summary>
     public partial class Rpt_AuditDay : DevExpress.XtraReports.UI.XtraReport
     {
@@ -17,12 +17,14 @@ namespace SKG.DXF.Station.Report
         {
             var x = 'A' + _region++;
             xrcRegion.Text = (char)x + "";
+            _area = 0;
         }
 
         int _area = 0;
         private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             xrcArea.Text = "" + ++_area;
+            _sation = 0;
         }
 
         int _sation = 0;

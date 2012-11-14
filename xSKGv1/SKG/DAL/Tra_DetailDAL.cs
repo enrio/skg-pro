@@ -878,7 +878,7 @@ namespace SKG.DAL
             {
                 #region Cumulative
                 DateTime frx, tox;
-                Global.Session.ToCutShiftMonth(to, out frx, out tox);
+                Global.Session.ToCutShiftJanuary(to, out frx, out tox);
                 var m = to.Month;
 
                 var res = from s in _db.Tra_Details

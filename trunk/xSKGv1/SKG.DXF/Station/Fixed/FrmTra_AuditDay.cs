@@ -148,7 +148,7 @@ namespace SKG.DXF.Station.Fixed
             rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to);
 
             rpt.parDate.Value = Global.Session.Current;
-            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" MM/yyyy");
+            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

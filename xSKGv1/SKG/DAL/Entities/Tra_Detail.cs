@@ -164,8 +164,9 @@ namespace SKG.DAL.Entities
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 
-            Money += odd < 0.5 ? Price1 : Price2;
-            Money += Price1 * seat + Price2 * bed;
+            if (Vehicle.Tariff.Code == "A")
+                Money = Price1 * seat + Price2 * bed;
+            else Money += odd < 0.5 ? Price1 : Price2;
             return Money;
         }
 

@@ -819,8 +819,9 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
+        /// <param name="hideActive">Hide vehicle active</param>
         /// <returns></returns>
-        public DataTable AuditMonthFixed(DateTime fr, DateTime to)
+        public DataTable AuditMonthFixed(DateTime fr, DateTime to, bool hideActive)
         {
             try
             {
@@ -873,6 +874,7 @@ namespace SKG.DAL
                                Tile_Nottai = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / v.Node * 100,
                                Nottai_Hoatdong = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / 30
                            };
+                if (hideActive) res2 = res2.Where(p => p.Th_Soxe > 0);
                 return res2.ToDataTable();
             }
             catch { return null; }
@@ -883,8 +885,9 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
+        /// <param name="hideActive">Hide vehicle active</param>
         /// <returns></returns>
-        public DataTable AuditDayFixed(DateTime fr, DateTime to)
+        public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive)
         {
             try
             {
@@ -945,6 +948,7 @@ namespace SKG.DAL
                                + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
                                Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
                            };
+                if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0);
                 return res2.ToDataTable();
             }
             catch { return null; }

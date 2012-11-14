@@ -145,7 +145,7 @@ namespace SKG.DXF.Station.Fixed
 
             var fr = dteDay.DateTime.ToStartOfMonth();
             var to = dteDay.DateTime.ToEndOfMonth();
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to);
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
 
             rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.parDate.Value = Global.Session.Current;

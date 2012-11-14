@@ -131,9 +131,9 @@ namespace SKG.DXF.Station.Manage
                 cmdInvoice.Width += 15;
 
                 cmdOut.Visible = false;
-                cmdSumary1.Visible = false;
-                cmdSumary2.Visible = false;
-                cmdSumaryFixed.Visible = false;
+                //cmdSumary1.Visible = false;
+                //cmdSumary2.Visible = false;
+                //cmdSumaryFixed.Visible = false;
             }
         }
 

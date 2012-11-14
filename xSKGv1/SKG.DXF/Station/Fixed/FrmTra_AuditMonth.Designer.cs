@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
             this.radType = new DevExpress.XtraEditors.RadioGroup();
             this.dteMonth = new DevExpress.XtraEditors.DateEdit();
             this.lblGuest = new DevExpress.XtraEditors.LabelControl();
@@ -56,11 +57,11 @@
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).BeginInit();
@@ -68,7 +69,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -105,6 +105,17 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // chkHideActive
+            // 
+            this.chkHideActive.EditValue = true;
+            this.chkHideActive.Location = new System.Drawing.Point(379, 4);
+            this.chkHideActive.Name = "chkHideActive";
+            this.chkHideActive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkHideActive.Properties.Appearance.Options.UseFont = true;
+            this.chkHideActive.Properties.Caption = "Ẩn xe không hoạt động";
+            this.chkHideActive.Size = new System.Drawing.Size(198, 24);
+            this.chkHideActive.TabIndex = 28;
             // 
             // radType
             // 
@@ -498,16 +509,6 @@
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.Width = 71;
             // 
-            // chkHideActive
-            // 
-            this.chkHideActive.Location = new System.Drawing.Point(379, 4);
-            this.chkHideActive.Name = "chkHideActive";
-            this.chkHideActive.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkHideActive.Properties.Appearance.Options.UseFont = true;
-            this.chkHideActive.Properties.Caption = "Ẩn xe không hoạt động";
-            this.chkHideActive.Size = new System.Drawing.Size(198, 24);
-            this.chkHideActive.TabIndex = 28;
-            // 
             // FrmTra_AuditMonth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -524,6 +525,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteMonth.Properties)).EndInit();
@@ -531,7 +533,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

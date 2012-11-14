@@ -12,25 +12,10 @@ namespace SKG.DXF.Station.Report
             InitializeComponent();
         }
 
-        int _region = 0;
-        private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var x = 'A' + _region++;
-            xrcRegion.Text = (char)x + "";
-            //_area = 0;
-        }
-
-        int _area = 0;
-        private void xrcTariff_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            xrcTariff.Text = "" + ++_area;
-            //_sation = 0;
-        }
-
-        int _sation = 0;
+        int _code = 0;
         private void xrcCode_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xrcCode.Text = "" + ++_sation;
+            xrcCode.Text = "" + ++_code;
         }
     }
 }

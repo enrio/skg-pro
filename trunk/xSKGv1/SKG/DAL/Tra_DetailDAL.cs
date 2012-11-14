@@ -389,6 +389,28 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// List of all vehicle in depot for out gate
+        /// </summary>
+        /// <param name="fix">Sum of vehicle fixed</param>
+        /// <param name="nor">Sum of vehicle normal</param>
+        /// <returns></returns>
+        public List<string> GetInDepotForOutGate(out int fix, out int nor)
+        {
+            fix = nor = 0;
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId == null
+                          orderby s.DateIn descending, s.Vehicle.Code
+                          select s.Vehicle.Code;
+                fix = SumInDepotFixed;
+                nor = SumInDepotNormal;
+                return res.ToList();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// List of all vehicle out depot
         /// </summary>
         /// <param name="fr">From date time</param>

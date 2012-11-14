@@ -812,8 +812,10 @@
             // 
             // xrTableCell32
             // 
+            this.xrTableCell32.Borders = DevExpress.XtraPrinting.BorderSide.Right;
             this.xrTableCell32.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell32.Name = "xrTableCell32";
+            this.xrTableCell32.StylePriority.UseBorders = false;
             this.xrTableCell32.StylePriority.UseFont = false;
             this.xrTableCell32.Text = "Tổng số xe (xe)";
             this.xrTableCell32.Weight = 0.52391650354069685D;
@@ -884,8 +886,10 @@
             // 
             // xrTableCell5
             // 
+            this.xrTableCell5.Borders = DevExpress.XtraPrinting.BorderSide.Right;
             this.xrTableCell5.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell5.Name = "xrTableCell5";
+            this.xrTableCell5.StylePriority.UseBorders = false;
             this.xrTableCell5.StylePriority.UseFont = false;
             this.xrTableCell5.Text = "Tổng số xe (xe)";
             this.xrTableCell5.Weight = 0.31317024328969967D;

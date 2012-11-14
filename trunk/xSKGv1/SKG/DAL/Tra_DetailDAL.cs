@@ -1132,9 +1132,9 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Cập nhật số hành khách đi xe, lượt miễn giảm
+        /// Update guest discount
         /// </summary>
-        /// <param name="obj"></param>
+        /// <param name="obj">Detail</param>
         /// <returns></returns>
         public object UpdateGuestDiscount(object obj)
         {

@@ -879,6 +879,7 @@ namespace SKG.DAL
                 #region Cumulative
                 var start = Global.Session.Current.ToStartOfYear().Date;
                 var frx = start.AddDays(-1).AddHours(13).AddSeconds(1);
+                var m = Global.Session.Current.Month;
 
                 var res = from s in _db.Tra_Details
                           where s.UserOutId != null
@@ -913,6 +914,8 @@ namespace SKG.DAL
                            from v in _db.Tra_Vehicles
                            join r in res1 on v.Id equals r.Key into l
                            from s in l.DefaultIfEmpty()
+                           join rx in res on v.Id equals rx.Key into lx
+                           from sx in lx.DefaultIfEmpty()
                            where v.Fixed == true
                            orderby v.Tariff.Group.Parent.Parent.Code descending,
                            v.Tariff.Group.Parent.Code descending, v.Tariff.Group.Code,
@@ -940,14 +943,16 @@ namespace SKG.DAL
                                Dt = ((v.Node - (s.Th == null ? 0 : s.Th)) < 0 ? 0 : v.Node - (s.Th == null ? 0 : s.Th)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0)
                                + ((v.Node - (s.Th == null ? 0 : s.Th)) < 0 ? 0 : v.Node - (s.Th == null ? 0 : s.Th)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
 
-                               Lk_Th = 0,
-                               Lk_Tt = 0,
-                               Lk_Mg = 0,
-                               Lk_Nn = 0,
-                               Lk_Dt = 0,
+                               Lk_Th = sx.Th == null ? 0 : sx.Th,
+                               Lk_Tt = m * v.Node - (sx.Th == null ? 0 : sx.Th),
+                               Lk_Mg = sx.Mg == null ? 0 : sx.Mg,
+                               Lk_Nn = (sx.Th == null ? 0 : sx.Th) < m * v.Node ? m * v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Mg == null ? 0 : sx.Mg) : 0,
+                               Lk_Dt = ((m * v.Node - (sx.Th == null ? 0 : sx.Th)) < 0 ? 0 : m * v.Node - (sx.Th == null ? 0 : sx.Th)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
+                               + ((m * v.Node - (sx.Th == null ? 0 : sx.Th)) < 0 ? 0 : m * v.Node - (sx.Th == null ? 0 : sx.Th)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+
                                v.Note
                            };
-                if (hideActive) res2 = res2.Where(p => p.Th > 0);
+                if (hideActive) res2 = res2.Where(p => p.Lk_Th > 0);
                 return res2.ToDataTable();
             }
             catch { return null; }
@@ -1015,10 +1020,11 @@ namespace SKG.DAL
 
                                Tr_Lxe = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
                                Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0),
-                               Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
-                               Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * v.Seats ?? 0 + v.Tariff.Price2 * v.Beds ?? 0)
-                               + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : v.Seats ?? 0 - 1) + v.Tariff.Rose2 * v.Beds ?? 0,
+                               Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
+                               Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
+                               + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+
                                Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
                            };
                 if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0);

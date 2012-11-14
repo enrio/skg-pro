@@ -1038,7 +1038,7 @@
             this.xrcTariff.StylePriority.UseTextAlignment = false;
             this.xrcTariff.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcTariff.Weight = 0.28156367113446562D;
-            this.xrcTariff.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcTariff_BeforePrint);
+            
             // 
             // xrTableCell4
             // 
@@ -1249,7 +1249,7 @@
             this.xrcRegion.StylePriority.UseTextAlignment = false;
             this.xrcRegion.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrcRegion.Weight = 0.28156367113446562D;
-            this.xrcRegion.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcRegion_BeforePrint);
+            
             // 
             // xrTableCell90
             // 

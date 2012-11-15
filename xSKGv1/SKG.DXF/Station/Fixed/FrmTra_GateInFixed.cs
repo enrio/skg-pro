@@ -72,29 +72,23 @@ namespace SKG.DXF.Station.Fixed
 
             if (o == null)
             {
-                XtraMessageBox.Show(String.Format(STR_NO_HAVE, txtNumber.Text),
-                    STR_MANAG,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Stop);
+                XtraMessageBox.Show(String.Format(STR_NO_HAVE, txtNumber.Text), STR_MANAG,
+                    MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
             var ve = (Tra_Vehicle)o;
             if (!ve.Fixed)
             {
-                XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
-                    STR_KIND,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text), STR_NORMAL,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (ve.TariffId == null)
             {
-                XtraMessageBox.Show(String.Format(STR_WARNING_ROUTE, txtNumber.Text),
-                    STR_KIND,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                XtraMessageBox.Show(String.Format(STR_WARNING_ROUTE, txtNumber.Text), STR_NORMAL,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -103,7 +97,8 @@ namespace SKG.DXF.Station.Fixed
                 case State.Add:
                     if (InsertObject())
                     {
-                        XtraMessageBox.Show("CHO XE VÀO", "XE CỐ ĐỊNH", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show(STR_INTO, STR_FIXED,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
                     }
                     break;
@@ -138,10 +133,8 @@ namespace SKG.DXF.Station.Fixed
                     if (_bll.Tra_Detail.Insert(o) != null) return true;
                     else
                     {
-                        XtraMessageBox.Show(STR_IN_GATE,
-                            STR_ADD,
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Information);
+                        XtraMessageBox.Show(STR_IN_GATE, STR_ADD,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return false;
                     }
                 }
@@ -186,10 +179,8 @@ namespace SKG.DXF.Station.Fixed
                 tg = tg.Replace("PM", "CHIỀU");
 
                 var cfm = String.Format(STR_CONFIRM, txtNumber.Text, tg);
-                var oki = XtraMessageBox.Show(cfm,
-                              STR_DELETE,
-                              MessageBoxButtons.YesNo,
-                              MessageBoxIcon.Question);
+                var oki = XtraMessageBox.Show(cfm, STR_DELETE,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (oki == DialogResult.Yes)
                     if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
@@ -351,8 +342,11 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÝ TUYẾN";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
-        private const string STR_KIND = "XE VÃNG LAI";
         private const string STR_MANAG = "CHƯA QUẢN LÝ";
+
+        private const string STR_INTO = "CHO XE VÀO";
+        private const string STR_NORMAL = "XE VÃNG LAI";
+        private const string STR_FIXED = "XE CỐ ĐỊNH";
         #endregion
     }
 }

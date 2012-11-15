@@ -23,7 +23,7 @@ namespace SKG.Update
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string url = @"https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1" + file;
+            string url = @"https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/" + file;
             WebClient webClient = new WebClient();
             webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
             webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);

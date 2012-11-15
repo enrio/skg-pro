@@ -2436,6 +2436,8 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnLk_Mg;
             
+            private global::System.Data.DataColumn columnNode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DebtMonthDataTable() {
@@ -2599,6 +2601,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NodeColumn {
+                get {
+                    return this.columnNode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2650,7 +2660,8 @@ namespace SKG.DXF.Station.DataSet {
                         string TransportCode, 
                         string TariffCode, 
                         decimal Mg, 
-                        decimal Lk_Mg) {
+                        decimal Lk_Mg, 
+                        int Node) {
                 DebtMonthRow rowDebtMonthRow = ((DebtMonthRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Transport,
@@ -2668,7 +2679,8 @@ namespace SKG.DXF.Station.DataSet {
                         TransportCode,
                         TariffCode,
                         Mg,
-                        Lk_Mg};
+                        Lk_Mg,
+                        Node};
                 rowDebtMonthRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDebtMonthRow);
                 return rowDebtMonthRow;
@@ -2707,6 +2719,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnTariffCode = base.Columns["TariffCode"];
                 this.columnMg = base.Columns["Mg"];
                 this.columnLk_Mg = base.Columns["Lk_Mg"];
+                this.columnNode = base.Columns["Node"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2744,6 +2757,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnMg);
                 this.columnLk_Mg = new global::System.Data.DataColumn("Lk_Mg", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLk_Mg);
+                this.columnNode = new global::System.Data.DataColumn("Node", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5190,6 +5205,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Node {
+                get {
+                    try {
+                        return ((int)(this[this.tableDebtMonth.NodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Node\' in table \'DebtMonth\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDebtMonth.NodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTransportNull() {
                 return this.IsNull(this.tableDebtMonth.TransportColumn);
             }
@@ -5378,6 +5409,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLk_MgNull() {
                 this[this.tableDebtMonth.Lk_MgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNodeNull() {
+                return this.IsNull(this.tableDebtMonth.NodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNodeNull() {
+                this[this.tableDebtMonth.NodeColumn] = global::System.Convert.DBNull;
             }
         }
         

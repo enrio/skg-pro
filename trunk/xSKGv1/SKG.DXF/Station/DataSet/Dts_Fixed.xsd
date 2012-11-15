@@ -126,6 +126,7 @@
               <xs:element name="TariffCode" msprop:Generator_ColumnVarNameInTable="columnTariffCode" msprop:Generator_ColumnPropNameInRow="TariffCode" msprop:Generator_ColumnPropNameInTable="TariffCodeColumn" msprop:Generator_UserColumnName="TariffCode" type="xs:string" minOccurs="0" />
               <xs:element name="Mg" msprop:Generator_ColumnVarNameInTable="columnMg" msprop:Generator_ColumnPropNameInRow="Mg" msprop:Generator_ColumnPropNameInTable="MgColumn" msprop:Generator_UserColumnName="Mg" type="xs:decimal" minOccurs="0" />
               <xs:element name="Lk_Mg" msprop:Generator_ColumnVarNameInTable="columnLk_Mg" msprop:Generator_ColumnPropNameInRow="Lk_Mg" msprop:Generator_ColumnPropNameInTable="Lk_MgColumn" msprop:Generator_UserColumnName="Lk_Mg" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Node" msprop:Generator_ColumnVarNameInTable="columnNode" msprop:Generator_ColumnPropNameInRow="Node" msprop:Generator_ColumnPropNameInTable="NodeColumn" msprop:Generator_UserColumnName="Node" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

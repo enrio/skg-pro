@@ -112,6 +112,15 @@ namespace SKG.DAL
                 var gui = new Guid();
                 var ok = Guid.TryParse(code, out gui);
                 if (ok) return _db.Tra_Vehicles.SingleOrDefault(s => s.Id == gui);
+                if (code.ToUpper().Contains("BG"))
+                {
+                    var res = from s in _db.Tra_Vehicles
+                              where !_db.Tra_Details.Any(p => p.VehicleId == s.Id && p.UserOutId == null)
+                              && s.Tariff.Code == "J"
+                              orderby s.Code
+                              select s;
+                    return res.FirstOrDefault();
+                }
                 return _db.Tra_Vehicles.SingleOrDefault(s => s.Code == code);
             }
             catch { return null; }

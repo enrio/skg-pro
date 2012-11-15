@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckForUpdate.cs" />
     <Compile Include="Frm_Update.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +88,12 @@
   <ItemGroup>
     <None Include="Resources\Update.png" />
     <Content Include="Update.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SKG.Client\SKG.Client.csproj">
+      <Project>{F2DCF0B3-C179-4081-8AFA-93B0F422FEFB}</Project>
+      <Name>SKG.Client</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

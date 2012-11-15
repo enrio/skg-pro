@@ -101,6 +101,7 @@
             this.Name = "Frm_Update";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CẬP NHẬT PHẦN MỀM";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Update_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

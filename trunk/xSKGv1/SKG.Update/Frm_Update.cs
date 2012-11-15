@@ -23,9 +23,11 @@ namespace SKG.Update
 
             var file = String.Format(@"{0}\{1}", path, "SKG.Client.exe");
             var inf = new FileInfo(file);
+            lblNewVersion.Text = inf.LastWriteTime.ToString("dd/MM/yyyy HH:mm:ss");
 
             var asm = Assembly.LoadFrom(file);
             var ver = asm.GetName().Version;
+            lblCurrVersion.Text = ver.ToString();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)

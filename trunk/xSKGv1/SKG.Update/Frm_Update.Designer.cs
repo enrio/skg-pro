@@ -50,7 +50,7 @@
             this.btnCheck.TabIndex = 1;
             this.btnCheck.Text = "Kiểm tra phiên bản";
             this.btnCheck.UseVisualStyleBackColor = true;
-            
+            this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnUpdate
             // 

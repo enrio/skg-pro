@@ -8,6 +8,7 @@ namespace SKG.Update
 {
     using System.IO;
     using System.Net;
+    using System.Reflection;
     using System.Diagnostics;
     using ICSharpCode.SharpZipLib.Zip;
 
@@ -82,7 +83,11 @@ namespace SKG.Update
 
         private void btnCheck_Click(object sender, EventArgs e)
         {
+            var file = String.Format(@"{0}\{1}", path, "SKG.Client.exe");
+            var inf = new FileInfo(file);
 
+            var asm = Assembly.LoadFrom(file);
+            var ver = asm.GetName().Version;
         }
     }
 }

@@ -115,8 +115,8 @@
             this.xrTable3 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcCode = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell39 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrcTransport = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrcTariff = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell43 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -799,8 +799,8 @@
             // 
             this.xrTableRow3.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrcCode,
-            this.xrTableCell39,
-            this.xrTableCell6,
+            this.xrcTransport,
+            this.xrcTariff,
             this.xrTableCell4,
             this.xrTableCell16,
             this.xrTableCell43,
@@ -829,30 +829,32 @@
             this.xrcCode.Weight = 0.30579815799352161D;
             this.xrcCode.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcCode_BeforePrint);
             // 
-            // xrTableCell39
+            // xrcTransport
             // 
-            this.xrTableCell39.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.xrcTransport.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "DebtMonth.Transport")});
-            this.xrTableCell39.Name = "xrTableCell39";
-            this.xrTableCell39.Padding = new DevExpress.XtraPrinting.PaddingInfo(1, 0, 0, 0, 100F);
-            this.xrTableCell39.StylePriority.UsePadding = false;
-            this.xrTableCell39.StylePriority.UseTextAlignment = false;
+            this.xrcTransport.Name = "xrcTransport";
+            this.xrcTransport.Padding = new DevExpress.XtraPrinting.PaddingInfo(1, 0, 0, 0, 100F);
+            this.xrcTransport.StylePriority.UsePadding = false;
+            this.xrcTransport.StylePriority.UseTextAlignment = false;
             xrSummary14.FormatString = "{0:#,0}";
             xrSummary14.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            this.xrTableCell39.Summary = xrSummary14;
-            this.xrTableCell39.Text = "xrTableCell39";
-            this.xrTableCell39.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell39.Weight = 1.3760916369584986D;
+            this.xrcTransport.Summary = xrSummary14;
+            this.xrcTransport.Text = "xrcTransport";
+            this.xrcTransport.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            this.xrcTransport.Weight = 1.3760916369584986D;
+            this.xrcTransport.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcTransport_BeforePrint);
             // 
-            // xrTableCell6
+            // xrcTariff
             // 
-            this.xrTableCell6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            this.xrcTariff.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "DebtMonth.Tariff")});
-            this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Padding = new DevExpress.XtraPrinting.PaddingInfo(1, 0, 0, 0, 100F);
-            this.xrTableCell6.StylePriority.UsePadding = false;
-            this.xrTableCell6.Text = "xrTableCell6";
-            this.xrTableCell6.Weight = 1.4143165183705029D;
+            this.xrcTariff.Name = "xrcTariff";
+            this.xrcTariff.Padding = new DevExpress.XtraPrinting.PaddingInfo(1, 0, 0, 0, 100F);
+            this.xrcTariff.StylePriority.UsePadding = false;
+            this.xrcTariff.Text = "xrcTariff";
+            this.xrcTariff.Weight = 1.4143165183705029D;
+            this.xrcTariff.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcTariff_BeforePrint);
             // 
             // xrTableCell4
             // 
@@ -1107,7 +1109,7 @@
         private DevExpress.XtraReports.UI.XRTable xrTable3;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow3;
         private DevExpress.XtraReports.UI.XRTableCell xrcCode;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell39;
+        private DevExpress.XtraReports.UI.XRTableCell xrcTransport;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell43;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell44;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell45;
@@ -1135,7 +1137,7 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell37;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell38;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
+        private DevExpress.XtraReports.UI.XRTableCell xrcTariff;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;

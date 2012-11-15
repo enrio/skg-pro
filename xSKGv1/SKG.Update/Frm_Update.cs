@@ -49,10 +49,10 @@ namespace SKG.Update
             var inf = new FileInfo(tmp);
             _new = inf.LastWriteTime;
 
-            var asm = Assembly.LoadFrom(tmp);
-            var ver = asm.GetName().Version;
-            lblCurrVersion.Text = ver.ToString();
-            _newVer = ver;
+            //var asm = Assembly.LoadFrom(tmp);
+            //var ver = asm.GetName().Version;
+            //lblCurrVersion.Text = ver.ToString();
+            //_newVer = ver;
             #endregion
 
             // Perform update software

@@ -20,6 +20,12 @@ namespace SKG.Update
         public Frm_Update()
         {
             InitializeComponent();
+
+            var file = String.Format(@"{0}\{1}", path, "SKG.Client.exe");
+            var inf = new FileInfo(file);
+
+            var asm = Assembly.LoadFrom(file);
+            var ver = asm.GetName().Version;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -79,15 +85,6 @@ namespace SKG.Update
                 MessageBox.Show("Không cập nhật được!", "Update",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
-        }
-
-        private void btnCheck_Click(object sender, EventArgs e)
-        {
-            var file = String.Format(@"{0}\{1}", path, "SKG.Client.exe");
-            var inf = new FileInfo(file);
-
-            var asm = Assembly.LoadFrom(file);
-            var ver = asm.GetName().Version;
         }
     }
 }

@@ -935,6 +935,7 @@ namespace SKG.DAL
                                TransportCode = v.Transport.Code,
 
                                v.Code,
+                               v.Node,
 
                                Th = s.Th == null ? 0 : s.Th,
                                Tt = v.Node - (s.Th == null ? 0 : s.Th),

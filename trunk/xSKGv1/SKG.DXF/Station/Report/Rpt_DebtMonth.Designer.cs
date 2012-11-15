@@ -291,7 +291,7 @@
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(1109F, 25F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(1108.191F, 25F);
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseFont = false;
             this.xrTable1.StylePriority.UseTextAlignment = false;
@@ -478,7 +478,7 @@
             xrSummary13.FormatString = "{0:#,0}";
             xrSummary13.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
             this.xrTableCell37.Summary = xrSummary13;
-            this.xrTableCell37.Weight = 0.67129362559009353D;
+            this.xrTableCell37.Weight = 0.66511009933185872D;
             // 
             // xrLabel9
             // 
@@ -532,7 +532,7 @@
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow4});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(1109F, 72.08333F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(1108.191F, 72.08333F);
             this.xrTable4.StylePriority.UseBorders = false;
             this.xrTable4.StylePriority.UseFont = false;
             this.xrTable4.StylePriority.UseTextAlignment = false;
@@ -763,7 +763,7 @@
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.StylePriority.UseFont = false;
             this.xrTableCell25.Text = "GHI CHÚ\r\n(XE CÓ THỂ NGHỈ LUÔN)";
-            this.xrTableCell25.Weight = 0.45909399357177388D;
+            this.xrTableCell25.Weight = 0.45486511931759044D;
             // 
             // DetailReport
             // 
@@ -789,7 +789,7 @@
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow3});
-            this.xrTable3.SizeF = new System.Drawing.SizeF(1109F, 25F);
+            this.xrTable3.SizeF = new System.Drawing.SizeF(1108.191F, 25F);
             this.xrTable3.StylePriority.UseBorders = false;
             this.xrTable3.StylePriority.UseFont = false;
             this.xrTable3.StylePriority.UseTextAlignment = false;
@@ -1000,7 +1000,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "DebtMonth.Note")});
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.Text = "xrTableCell53";
-            this.xrTableCell53.Weight = 0.67129362558999084D;
+            this.xrTableCell53.Weight = 0.66511056526196677D;
             // 
             // dts_Fixed
             // 

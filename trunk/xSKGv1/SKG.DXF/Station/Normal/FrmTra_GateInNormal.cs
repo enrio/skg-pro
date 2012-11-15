@@ -96,7 +96,7 @@ namespace SKG.DXF.Station.Normal
                 if (ve.Fixed)
                 {
                     XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
-                        STR_KIND,
+                        STR_FIXED,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                     return;
@@ -108,9 +108,12 @@ namespace SKG.DXF.Station.Normal
                 case State.Add:
                     if (InsertObject())
                     {
-                        XtraMessageBox.Show("CHO XE VÀO", "XE VÃNG LAI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        XtraMessageBox.Show(STR_INTO, STR_NORMAL,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
                     }
+                    else XtraMessageBox.Show(STR_BG, STR_NORMAL,
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
 
                 case State.Edit:
@@ -269,12 +272,9 @@ namespace SKG.DXF.Station.Normal
         protected override bool ValidInput()
         {
             var oki = txtNumber.Text.Length == 0 ? false : true;
-            if (!oki) XtraMessageBox.Show(STR_NOT_INP,
-                          STR_ADD,
-                          MessageBoxButtons.OK,
-                          MessageBoxIcon.Warning);
-            else
-                txtNumber.Text = txtNumber.Text.Replace(" ", "");
+            if (!oki) XtraMessageBox.Show(STR_NOT_INP, STR_ADD,
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else txtNumber.Text = txtNumber.Text.Replace(" ", "");
             return oki;
         }
 
@@ -354,7 +354,11 @@ namespace SKG.DXF.Station.Normal
         private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE CỐ ĐỊNH\nXIN HÃY NHẬP BÊN CỔNG VÀO CỐ ĐỊNH";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
-        private const string STR_KIND = "XE CỐ ĐỊNH";
+
+        private const string STR_INTO = "CHO XE VÀO";
+        private const string STR_NORMAL = "XE VÃNG LAI";
+        private const string STR_FIXED = "XE CỐ ĐỊNH";
+        private const string STR_BG = "NHẬP THÊM XE BA BÁNH";
         #endregion
     }
 }

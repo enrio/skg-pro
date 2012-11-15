@@ -127,8 +127,6 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            lueTransport.ItemIndex = 0;
-            lueRoute.ItemIndex = 0;
             txtCode.Text = null;
             txtSeats.Text = "0";
             txtBeds.Text = "0";

@@ -39,26 +39,30 @@ namespace SKG.Update
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-
             #region Check new version
             var file = STR_URL + STR_CLIENT;
             var tmp = String.Format(@"{0}\_{1}", STR_PATH, STR_CLIENT);
+
+            WebClient webClient = new WebClient();
             webClient.DownloadFileAsync(new Uri(file), tmp);
+
             var inf = new FileInfo(tmp);
             _new = inf.LastWriteTime;
 
-            //var asm = Assembly.LoadFrom(tmp);
-            //var ver = asm.GetName().Version;
-            //lblCurrVersion.Text = ver.ToString();
-            //_newVer = ver;
+            var asm = Assembly.LoadFrom(tmp);
+            var ver = asm.GetName().Version;
+            lblCurrVersion.Text = ver.ToString();
+            _newVer = ver;
             #endregion
 
             // Perform update software
-            if (_new > _curr)
+            if (_new > _curr && _newVer > _currVer)
+            {
+                webClient = new WebClient();
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
                 webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
+            }
             else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

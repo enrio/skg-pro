@@ -32,8 +32,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCurrVersion = new System.Windows.Forms.Label();
+            this.lblNewVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,35 +64,35 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
+            // lblCurrVersion
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(46, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 25);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "1.0.0.0";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCurrVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrVersion.ForeColor = System.Drawing.Color.Red;
+            this.lblCurrVersion.Location = new System.Drawing.Point(46, 12);
+            this.lblCurrVersion.Name = "lblCurrVersion";
+            this.lblCurrVersion.Size = new System.Drawing.Size(82, 25);
+            this.lblCurrVersion.TabIndex = 7;
+            this.lblCurrVersion.Text = "1.0.0.0";
+            this.lblCurrVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblNewVersion
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(12, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(238, 31);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Mới nhất 1.0.0.0 ngày 09/09/2012";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNewVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewVersion.ForeColor = System.Drawing.Color.Blue;
+            this.lblNewVersion.Location = new System.Drawing.Point(12, 40);
+            this.lblNewVersion.Name = "lblNewVersion";
+            this.lblNewVersion.Size = new System.Drawing.Size(238, 31);
+            this.lblNewVersion.TabIndex = 8;
+            this.lblNewVersion.Text = "Mới nhất 1.0.0.0 ngày 09/09/2012";
+            this.lblNewVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm_Update
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(260, 100);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblNewVersion);
+            this.Controls.Add(this.lblCurrVersion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.progressBar1);
@@ -111,7 +111,7 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCurrVersion;
+        private System.Windows.Forms.Label lblNewVersion;
     }
 }

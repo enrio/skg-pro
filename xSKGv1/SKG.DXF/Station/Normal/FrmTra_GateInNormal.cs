@@ -68,35 +68,39 @@ namespace SKG.DXF.Station.Normal
         protected override void PerformSave()
         {
             if (!ValidInput()) return;
-            var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
 
-            if (o == null)
+            // Xử lí khi không phải là xe ba gác (xe biển số bắt đầu là BG là xe ba gác)
+            if (!txtNumber.Text.ToUpper().Contains("BG"))
             {
-                var frm = new Station.Normal.FrmTra_VehicleNormal
+                var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+
+                if (o == null)
                 {
-                    NumIn = txtNumber.Text,
-                    WindowState = FormWindowState.Maximized,
-                    AllowCancel = false,
-                    _state = State.Add
-                };
+                    var frm = new Station.Normal.FrmTra_VehicleNormal
+                    {
+                        NumIn = txtNumber.Text,
+                        WindowState = FormWindowState.Maximized,
+                        AllowCancel = false,
+                        _state = State.Add,
+                        ShowInTaskbar = false
+                    };
+                    frm.ShowDialog();
 
-                frm.ShowInTaskbar = false;
-                frm.ShowDialog();
+                    txtNumber.Text = frm.NumOut;
+                    o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+                }
 
-                txtNumber.Text = frm.NumOut;
-                o = _bll.Tra_Vehicle.Select(txtNumber.Text);
-            }
+                if (o == null) return;
+                var ve = (Tra_Vehicle)o;
 
-            if (o == null) return;
-            var ve = (Tra_Vehicle)o;
-
-            if (ve.Fixed)
-            {
-                XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
-                    STR_KIND,
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-                return;
+                if (ve.Fixed)
+                {
+                    XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text),
+                        STR_KIND,
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             switch (_state)

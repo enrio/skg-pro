@@ -56,7 +56,7 @@ namespace SKG.Update
             #endregion
 
             // Perform update software
-            if (_new > _curr && _newVer > _currVer)
+            if (_new > _curr)
             {
                 webClient = new WebClient();
                 webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);

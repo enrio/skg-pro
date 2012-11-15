@@ -14,29 +14,49 @@ namespace SKG.Update
 
     public partial class Frm_Update : Form
     {
-        const string file = "Update.zip";
-        string path = Application.StartupPath;
+        private const string STR_ZIP = "Update.zip";
+        private const string STR_CLIENT = "SKG.Client.exe";
+        private string STR_PATH = Application.StartupPath;
+        private const string STR_URL = @"https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/";
+
+        DateTime _curr, _new;
+        Version _currVer, _newVer;
 
         public Frm_Update()
         {
             InitializeComponent();
 
-            var file = String.Format(@"{0}\{1}", path, "SKG.Client.exe");
+            var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
             var inf = new FileInfo(file);
             lblNewVersion.Text = inf.LastWriteTime.ToString("dd/MM/yyyy HH:mm:ss");
+            _curr = inf.LastWriteTime;
 
             var asm = Assembly.LoadFrom(file);
             var ver = asm.GetName().Version;
             lblCurrVersion.Text = ver.ToString();
+            _currVer = ver;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string url = @"https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/" + file;
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            webClient.DownloadFileAsync(new Uri(url), String.Format(@"{0}\{1}", path, file));
+            var file = STR_URL + STR_CLIENT;
+            var inf = new FileInfo(file);
+            _new = inf.LastWriteTime;
+
+            var asm = Assembly.LoadFrom(file);
+            var ver = asm.GetName().Version;
+            lblCurrVersion.Text = ver.ToString();
+            _newVer = ver;
+
+            if (_new > _curr)
+            {
+                WebClient webClient = new WebClient();
+                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+                webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
+            }
+            else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -48,7 +68,7 @@ namespace SKG.Update
         {
             try
             {
-                using (ZipInputStream s = new ZipInputStream(File.OpenRead(String.Format(@"{0}\{1}", path, file))))
+                using (ZipInputStream s = new ZipInputStream(File.OpenRead(String.Format(@"{0}\{1}", STR_PATH, STR_ZIP))))
                 {
                     ZipEntry theEntry;
                     while ((theEntry = s.GetNextEntry()) != null)
@@ -78,7 +98,7 @@ namespace SKG.Update
                     }
                 }
 
-                Process.Start("SKG.Client.exe");
+                Process.Start(STR_CLIENT);
                 Application.ExitThread();
                 Application.Exit();
             }

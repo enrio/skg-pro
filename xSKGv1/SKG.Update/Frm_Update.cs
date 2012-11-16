@@ -30,6 +30,9 @@ namespace SKG.Update
             // create an objects that will manage our check for update process
             checkForUpdate = new CheckForUpdate(this);
 
+            var curVer = Assembly.GetExecutingAssembly().GetName().Version;
+            lblCurrVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
+
             //var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
             //var inf = new FileInfo(file);
             //lblNewVersion.Text = inf.LastWriteTime.ToString("dd/MM/yyyy HH:mm:ss");

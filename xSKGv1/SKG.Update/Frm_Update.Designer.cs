@@ -38,14 +38,14 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(12, 74);
+            this.progressBar1.Location = new System.Drawing.Point(12, 98);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(150, 15);
+            this.progressBar1.Size = new System.Drawing.Size(172, 15);
             this.progressBar1.TabIndex = 0;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(46, 12);
+            this.btnUpdate.Location = new System.Drawing.Point(68, 12);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(116, 25);
             this.btnUpdate.TabIndex = 2;
@@ -69,7 +69,7 @@
             this.lblCurrVersion.ForeColor = System.Drawing.Color.Red;
             this.lblCurrVersion.Location = new System.Drawing.Point(12, 40);
             this.lblCurrVersion.Name = "lblCurrVersion";
-            this.lblCurrVersion.Size = new System.Drawing.Size(150, 31);
+            this.lblCurrVersion.Size = new System.Drawing.Size(172, 55);
             this.lblCurrVersion.TabIndex = 7;
             this.lblCurrVersion.Text = "0.0.0.0";
             this.lblCurrVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(173, 100);
+            this.ClientSize = new System.Drawing.Size(195, 122);
             this.Controls.Add(this.lblCurrVersion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnUpdate);

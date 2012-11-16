@@ -60,7 +60,7 @@ namespace SKG.DXF.Help.Util
             InitializeComponent();
 
             var curVer = Assembly.GetExecutingAssembly().GetName().Version;
-            lblVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
+            lblVersion.Text = String.Format("Phiên bản hiện tại: {0}", curVer);
         }
 
         private VersionInfo DownloadVersion()

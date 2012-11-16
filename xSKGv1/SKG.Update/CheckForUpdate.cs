@@ -47,7 +47,7 @@ namespace SKG.Update
 
     class CheckForUpdate
     {
-        private static string xmlFileUrl = "http://themech.net/downloads/update_example.xml";
+        private static string xmlFileUrl = "https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/app_version.xml";
 
         private readonly Frm_Update mainApp;
 
@@ -104,7 +104,7 @@ namespace SKG.Update
                 return true;
             }
             return false;
-        }        
+        }
 
         /// <summary>
         /// This is run in a thread. do the whole updating process:
@@ -114,9 +114,12 @@ namespace SKG.Update
         /// </summary>
         private void CheckForUpdateFunction()
         {
-            DownloadedVersionInfo i = new DownloadedVersionInfo { error = true,
-            installerUrl = "",
-            homeUrl = "" };
+            DownloadedVersionInfo i = new DownloadedVersionInfo
+            {
+                error = true,
+                installerUrl = "",
+                homeUrl = ""
+            };
 
             try
             {
@@ -164,7 +167,7 @@ namespace SKG.Update
                 i.homeUrl = url;
                 i.installerUrl = msiUrl;
             }
-            catch (Exception)            {            }
+            catch (Exception) { }
 
             if (StopWorkerThread()) return;
             bool download = (bool)this.mainApp.Invoke(new DelegateCheckForUpdateFinished(mainApp.OnCheckForUpdateFinished), new Object[] { i });

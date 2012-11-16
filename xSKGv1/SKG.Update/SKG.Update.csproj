@@ -87,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Update.png" />
+    <Content Include="app_version.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Update.ico" />
   </ItemGroup>
   <ItemGroup>

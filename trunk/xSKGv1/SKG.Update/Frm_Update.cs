@@ -135,7 +135,7 @@ namespace SKG.Update
         {
             if ((versionInfo.error) || (versionInfo.installerUrl.Length == 0) || (versionInfo.latestVersion == null))
             {
-                MessageBox.Show(this, "Error while looking for the newest version", "Check for updates",
+                MessageBox.Show(this, "Lỗi khi tìm bản mới nhất!", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -145,13 +145,13 @@ namespace SKG.Update
             if (curVer.CompareTo(versionInfo.latestVersion) >= 0)
             {
                 // no new version
-                MessageBox.Show(this, "No new version detected", "Check for updates",
+                MessageBox.Show(this, "Không có bản cập nhật mới nhất", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return false;
             }
 
             // new version found, ask the user if he wants to download the installer
-            string str = String.Format("New version found!\nYour version: {0}.\nNewest version: {1}.",
+            string str = String.Format("Phiên bản mới nhất!\nBản hiện tại: {0}.\nBản mới nhất: {1}.",
                 curVer, versionInfo.latestVersion);
             return DialogResult.Yes == MessageBox.Show(this, str, "Check for updates",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -165,13 +165,13 @@ namespace SKG.Update
         {
             if (info.error)
             {
-                MessageBox.Show(this, "Error while downloading the installer", "Check for updates",
+                MessageBox.Show(this, "Lỗi khi tải bản cập nhật mới nhất!", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // ask the user if he want to start the installer
-            if (DialogResult.Yes != MessageBox.Show(this, "Do you know to install the newest version?", "Check for updates",
+            if (DialogResult.Yes != MessageBox.Show(this, "Có muốn cập nhật phiên bản mới nhất không?", "Check for updates",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 // it not - remove the downloaded file
@@ -183,11 +183,9 @@ namespace SKG.Update
                 return;
             }
 
-            // run the installer and exit the app
+            // unzip, exit the app and run new app
             try
             {
-                //Process.Start(info.path);
-
                 using (ZipInputStream s = new ZipInputStream(File.OpenRead(info.path)))
                 {
                     ZipEntry theEntry;
@@ -218,11 +216,13 @@ namespace SKG.Update
                     }
                 }
 
-                //Close();
+                Process.Start(STR_CLIENT);
+                Application.ExitThread();
+                Application.Exit();
             }
             catch (Exception)
             {
-                MessageBox.Show(this, "Error while running the installer.", "Check for updates",
+                MessageBox.Show(this, "Lỗi khi cập nhật mới!", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 try
                 {

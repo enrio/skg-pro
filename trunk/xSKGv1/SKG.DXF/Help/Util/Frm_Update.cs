@@ -63,7 +63,7 @@ namespace SKG.DXF.Help.Util
             checkForUpdate = new CheckForUpdate(this);
 
             var curVer = Assembly.GetExecutingAssembly().GetName().Version;
-            //lblCurrVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
+            lblVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
 
             //var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
             //var inf = new FileInfo(file);
@@ -195,39 +195,6 @@ namespace SKG.DXF.Help.Util
             this.checkForUpdate.StopThread();
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            // start the check for update process
-            checkForUpdate.OnCheckForUpdate();
-
-            //#region Check new version
-            //var file = STR_URL + STR_CLIENT;
-            //var tmp = String.Format(@"{0}\_{1}", STR_PATH, STR_CLIENT);
-
-            //WebClient webClient = new WebClient();
-            //webClient.DownloadFileAsync(new Uri(file), tmp);
-
-            //var inf = new FileInfo(tmp);
-            //_new = inf.LastWriteTime;
-
-            ////var asm = Assembly.LoadFrom(tmp);
-            ////var ver = asm.GetName().Version;
-            ////lblCurrVersion.Text = ver.ToString();
-            ////_newVer = ver;
-            //#endregion
-
-            //// Perform update software
-            //if (_new > _curr)
-            //{
-            //    webClient = new WebClient();
-            //    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-            //    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-            //    webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
-            //}
-            //else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
-            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             //progressBar1.Value = e.ProgressPercentage;
@@ -276,6 +243,39 @@ namespace SKG.DXF.Help.Util
                 MessageBox.Show("Không cập nhật được!", "Update",
                     MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+
+        private void cmdUpdate_Click(object sender, EventArgs e)
+        {
+            // start the check for update process
+            checkForUpdate.OnCheckForUpdate();
+
+            //#region Check new version
+            //var file = STR_URL + STR_CLIENT;
+            //var tmp = String.Format(@"{0}\_{1}", STR_PATH, STR_CLIENT);
+
+            //WebClient webClient = new WebClient();
+            //webClient.DownloadFileAsync(new Uri(file), tmp);
+
+            //var inf = new FileInfo(tmp);
+            //_new = inf.LastWriteTime;
+
+            ////var asm = Assembly.LoadFrom(tmp);
+            ////var ver = asm.GetName().Version;
+            ////lblCurrVersion.Text = ver.ToString();
+            ////_newVer = ver;
+            //#endregion
+
+            //// Perform update software
+            //if (_new > _curr)
+            //{
+            //    webClient = new WebClient();
+            //    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+            //    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+            //    webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
+            //}
+            //else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 

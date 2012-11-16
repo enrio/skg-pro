@@ -260,7 +260,7 @@ namespace SKG.Update
                     {
                         string rname = Path.GetRandomFileName();
                         rname.Replace('.', '_');
-                        rname += ".msi";
+                        rname += ".zip";
                         filepath = Path.Combine(Path.GetTempPath(), rname);
                     }
                 }

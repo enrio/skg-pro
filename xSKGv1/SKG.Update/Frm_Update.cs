@@ -28,17 +28,17 @@ namespace SKG.Update
             InitializeComponent();
 
             // create an objects that will manage our check for update process
-            this.checkForUpdate = new CheckForUpdate(this);
+            checkForUpdate = new CheckForUpdate(this);
 
-            var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
-            var inf = new FileInfo(file);
-            lblNewVersion.Text = inf.LastWriteTime.ToString("dd/MM/yyyy HH:mm:ss");
-            _curr = inf.LastWriteTime;
+            //var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
+            //var inf = new FileInfo(file);
+            //lblNewVersion.Text = inf.LastWriteTime.ToString("dd/MM/yyyy HH:mm:ss");
+            //_curr = inf.LastWriteTime;
 
-            var asm = Assembly.LoadFrom(file);
-            var ver = asm.GetName().Version;
-            lblCurrVersion.Text = ver.ToString();
-            _currVer = ver;
+            //var asm = Assembly.LoadFrom(file);
+            //var ver = asm.GetName().Version;
+            //lblCurrVersion.Text = ver.ToString();
+            //_currVer = ver;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -46,32 +46,32 @@ namespace SKG.Update
             // start the check for update process
             this.checkForUpdate.OnCheckForUpdate();
 
-            #region Check new version
-            var file = STR_URL + STR_CLIENT;
-            var tmp = String.Format(@"{0}\_{1}", STR_PATH, STR_CLIENT);
+            //#region Check new version
+            //var file = STR_URL + STR_CLIENT;
+            //var tmp = String.Format(@"{0}\_{1}", STR_PATH, STR_CLIENT);
 
-            WebClient webClient = new WebClient();
-            webClient.DownloadFileAsync(new Uri(file), tmp);
+            //WebClient webClient = new WebClient();
+            //webClient.DownloadFileAsync(new Uri(file), tmp);
 
-            var inf = new FileInfo(tmp);
-            _new = inf.LastWriteTime;
+            //var inf = new FileInfo(tmp);
+            //_new = inf.LastWriteTime;
 
-            //var asm = Assembly.LoadFrom(tmp);
-            //var ver = asm.GetName().Version;
-            //lblCurrVersion.Text = ver.ToString();
-            //_newVer = ver;
-            #endregion
+            ////var asm = Assembly.LoadFrom(tmp);
+            ////var ver = asm.GetName().Version;
+            ////lblCurrVersion.Text = ver.ToString();
+            ////_newVer = ver;
+            //#endregion
 
-            // Perform update software
-            if (_new > _curr)
-            {
-                webClient = new WebClient();
-                webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
-                webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
-                webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
-            }
-            else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //// Perform update software
+            //if (_new > _curr)
+            //{
+            //    webClient = new WebClient();
+            //    webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+            //    webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+            //    webClient.DownloadFileAsync(new Uri(STR_URL + STR_ZIP), String.Format(@"{0}\{1}", STR_PATH, STR_ZIP));
+            //}
+            //else MessageBox.Show("Đây là phiên bản mới nhất!", "Update",
+            //    MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -124,40 +124,55 @@ namespace SKG.Update
             }
         }
 
-        // this method is called when the checkForUpdate finishes checking
-        // for the new version. If this method returns true, our checkForUpdate
-        // object will download the installer
+        /// <summary>
+        /// this method is called when the checkForUpdate finishes checking
+        /// for the new version. If this method returns true, our checkForUpdate
+        /// object will download the installer
+        /// </summary>
+        /// <param name="versionInfo"></param>
+        /// <returns></returns>
         public bool OnCheckForUpdateFinished(DownloadedVersionInfo versionInfo)
         {
             if ((versionInfo.error) || (versionInfo.installerUrl.Length == 0) || (versionInfo.latestVersion == null))
             {
-                MessageBox.Show(this, "Error while looking for the newest version", "Check for updates", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Error while looking for the newest version", "Check for updates",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
             // compare the current version with the downloaded version number
             Version curVer = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             if (curVer.CompareTo(versionInfo.latestVersion) >= 0)
             {
                 // no new version
-                MessageBox.Show(this, "No new version detected", "Check for updates", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(this, "No new version detected", "Check for updates",
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return false;
             }
 
             // new version found, ask the user if he wants to download the installer
-            string str = String.Format("New version found!\nYour version: {0}.\nNewest version: {1}.", curVer, versionInfo.latestVersion);
-            return DialogResult.Yes == MessageBox.Show(this, str, "Check for updates", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            string str = String.Format("New version found!\nYour version: {0}.\nNewest version: {1}.",
+                curVer, versionInfo.latestVersion);
+            return DialogResult.Yes == MessageBox.Show(this, str, "Check for updates",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
         }
 
-        // called after the checkForUpdate object downloaded the installer
+        /// <summary>
+        /// Called after the checkForUpdate object downloaded the installer
+        /// </summary>
+        /// <param name="info"></param>
         public void OnDownloadInstallerinished(DownloadInstallerInfo info)
         {
             if (info.error)
             {
-                MessageBox.Show(this, "Error while downloading the installer", "Check for updates", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Error while downloading the installer", "Check for updates",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             // ask the user if he want to start the installer
-            if (DialogResult.Yes != MessageBox.Show(this, "Do you know to install the newest version?", "Check for updates", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (DialogResult.Yes != MessageBox.Show(this, "Do you know to install the newest version?", "Check for updates",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 // it not - remove the downloaded file
                 try
@@ -167,6 +182,7 @@ namespace SKG.Update
                 catch { }
                 return;
             }
+
             // run the installer and exit the app
             try
             {
@@ -175,7 +191,8 @@ namespace SKG.Update
             }
             catch (Exception)
             {
-                MessageBox.Show(this, "Error while running the installer.", "Check for updates", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(this, "Error while running the installer.", "Check for updates",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 try
                 {
                     File.Delete(info.path);

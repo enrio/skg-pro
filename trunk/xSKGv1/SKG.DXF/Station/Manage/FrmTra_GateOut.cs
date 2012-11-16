@@ -143,7 +143,7 @@ namespace SKG.DXF.Station.Manage
             try
             {
                 if (lkeNumber.Text == "") return;
-                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut);
+                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, txtNote.Text);
                 _isFixed = detail.Vehicle.Fixed;
 
                 if (_isFixed)
@@ -183,7 +183,11 @@ namespace SKG.DXF.Station.Manage
 
                 lblUserIn.Text = "Cho vào: " + detail.UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
-                lblNote.Text = detail.Note;
+
+                detail.Note += "";
+                var split = detail.Note.Split(new string[] { ";!;" }, StringSplitOptions.None);
+                lblNote.Text = split.Length > 0 ? split[0] : "";
+                txtNote.Text = split.Length > 1 ? split[1] : "";
 
                 if (isOut)
                 {

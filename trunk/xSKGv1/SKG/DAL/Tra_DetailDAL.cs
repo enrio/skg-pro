@@ -402,7 +402,7 @@ namespace SKG.DAL
         /// <param name="isOut">True allow out gate else charge money</param>
         /// <param name="dateOut">Out gate date time</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null)
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, string note = "")
         {
             try
             {
@@ -426,6 +426,7 @@ namespace SKG.DAL
                 {
                     a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
                     a.Note = String.Format("ĐỘI ĐIỀU HÀNH TẠM CHO RA BẾN\n\r ({0})", Global.Session.User.Name);
+                    a.Note += ";!;" + note;
                 }
 
                 if (isOut && !ql) // cho ra

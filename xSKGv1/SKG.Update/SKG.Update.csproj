@@ -53,18 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckForUpdate.cs" />
-    <Compile Include="Frm_Update.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Frm_Update.Designer.cs">
-      <DependentUpon>Frm_Update.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_Update.resx">
-      <DependentUpon>Frm_Update.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,10 +76,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Update.png" />
-    <Content Include="app_version.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Update.ico" />
   </ItemGroup>
   <ItemGroup>

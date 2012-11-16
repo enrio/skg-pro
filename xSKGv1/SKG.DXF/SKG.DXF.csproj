@@ -395,6 +395,9 @@
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Help\Util\Frm_Update.resx">
+      <DependentUpon>Frm_Update.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>
     </EmbeddedResource>

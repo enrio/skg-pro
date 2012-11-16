@@ -259,8 +259,8 @@ namespace SKG.DAL
                     default:
                         break;
                 }
-                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (!ql) res = res.Where(p => p.UserInId == Global.Session.User.Id);
+                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                //if (!ql) res = res.Where(p => p.UserInId == Global.Session.User.Id);
 
                 if (number != null) res = res.Where(p => p.Code == number);
                 return res;

@@ -218,7 +218,7 @@ namespace SKG.Update
                     }
                 }
 
-                Close();
+                //Close();
             }
             catch (Exception)
             {

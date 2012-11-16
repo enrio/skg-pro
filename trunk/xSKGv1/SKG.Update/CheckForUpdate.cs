@@ -10,6 +10,7 @@ namespace SKG.Update
     using System.Threading;
     using System.Windows.Forms;
 
+    #region Structs
     /// <summary>
     /// This struct will contain the info from the xml file
     /// </summary>
@@ -29,7 +30,9 @@ namespace SKG.Update
         public bool error;
         public string path;
     }
+    #endregion
 
+    #region Delegates
     /// <summary>
     /// Delegates (will forward the request to our Frm_Update)
     /// this of course could be done in a better (more flexible) way
@@ -44,8 +47,12 @@ namespace SKG.Update
     /// </summary>
     /// <param name="info">Information</param>
     public delegate void DelegateDownloadInstallerFinished(DownloadInstallerInfo info);
+    #endregion
 
-    class CheckForUpdate
+    /// <summary>
+    /// Check for update new version of software
+    /// </summary>
+    class CheckForUpdate : IDisposable
     {
         private static string xmlFileUrl = "https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/app_version.xml";
 
@@ -55,6 +62,30 @@ namespace SKG.Update
         // events used to stop worker thread
         readonly ManualResetEvent m_EventStopThread;
         readonly ManualResetEvent m_EventThreadStopped;
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (mainApp != null)
+                    mainApp.Dispose();
+                if (m_EventStopThread != null)
+                    m_EventStopThread.Dispose();
+                if (m_EventThreadStopped != null)
+                    m_EventThreadStopped.Dispose();
+            }
+        }
+
+        ~CheckForUpdate()
+        {
+            Dispose(false);
+        }
 
         public CheckForUpdate(Frm_Update mainApp)
         {
@@ -128,6 +159,7 @@ namespace SKG.Update
                 reader.MoveToContent();
                 string elementName = "";
                 Version newVer = null;
+
                 string url = "";
                 string msiUrl = "";
                 if (StopWorkerThread()) return;
@@ -174,8 +206,7 @@ namespace SKG.Update
             if (!download) return;
 
             // download and let the main thread know
-            DownloadInstallerInfo i2 = new DownloadInstallerInfo();
-            i2.error = true;
+            DownloadInstallerInfo i2 = new DownloadInstallerInfo { error = true };
             string filepath = "";
             try
             {
@@ -223,9 +254,8 @@ namespace SKG.Update
                     {
                         File.Delete(filepath);
                     }
-                    catch
-                    {
-                    }
+                    catch { }
+
                     if (File.Exists(filepath))
                     {
                         string rname = Path.GetRandomFileName();
@@ -262,9 +292,7 @@ namespace SKG.Update
                     {
                         File.Delete(filepath);
                     }
-                    catch
-                    {
-                    }
+                    catch { }
                 }
             }
             if (StopWorkerThread()) return;

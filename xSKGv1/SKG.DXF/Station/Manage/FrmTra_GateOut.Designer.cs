@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
@@ -73,6 +74,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -85,6 +88,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -148,6 +152,8 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.label2);
+            this.groupControl1.Controls.Add(this.txtNote);
             this.groupControl1.Controls.Add(this.cmdSumaryFixed);
             this.groupControl1.Controls.Add(this.lblSum);
             this.groupControl1.Controls.Add(this.lblCaption);
@@ -169,9 +175,9 @@
             this.groupControl1.Controls.Add(this.cmdSumary1);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
-            this.groupControl1.Location = new System.Drawing.Point(88, 27);
+            this.groupControl1.Location = new System.Drawing.Point(18, 14);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(756, 418);
+            this.groupControl1.Size = new System.Drawing.Size(756, 454);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
             // 
@@ -179,7 +185,7 @@
             // 
             this.cmdSumaryFixed.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumaryFixed.Appearance.Options.UseFont = true;
-            this.cmdSumaryFixed.Location = new System.Drawing.Point(430, 333);
+            this.cmdSumaryFixed.Location = new System.Drawing.Point(430, 366);
             this.cmdSumaryFixed.Name = "cmdSumaryFixed";
             this.cmdSumaryFixed.Size = new System.Drawing.Size(100, 37);
             this.cmdSumaryFixed.TabIndex = 70;
@@ -191,7 +197,7 @@
             this.lblSum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSum.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSum.ForeColor = System.Drawing.Color.Red;
-            this.lblSum.Location = new System.Drawing.Point(686, 330);
+            this.lblSum.Location = new System.Drawing.Point(686, 366);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(65, 83);
             this.lblSum.TabIndex = 69;
@@ -201,7 +207,7 @@
             // 
             this.lblCaption.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaption.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblCaption.Location = new System.Drawing.Point(536, 330);
+            this.lblCaption.Location = new System.Drawing.Point(536, 366);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(150, 83);
             this.lblCaption.TabIndex = 68;
@@ -212,7 +218,7 @@
             this.cmdTariff.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdTariff.Appearance.Options.UseFont = true;
             this.cmdTariff.Enabled = false;
-            this.cmdTariff.Location = new System.Drawing.Point(6, 376);
+            this.cmdTariff.Location = new System.Drawing.Point(6, 412);
             this.cmdTariff.Name = "cmdTariff";
             this.cmdTariff.Size = new System.Drawing.Size(100, 37);
             this.cmdTariff.TabIndex = 67;
@@ -255,11 +261,11 @@
             // 
             this.lblNumber.BackColor = System.Drawing.Color.White;
             this.lblNumber.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNumber.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumber.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblNumber.Location = new System.Drawing.Point(6, 272);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(282, 58);
+            this.lblNumber.Size = new System.Drawing.Size(282, 91);
             this.lblNumber.TabIndex = 64;
             this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -420,7 +426,7 @@
             this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblMoney.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblMoney.Location = new System.Drawing.Point(6, 330);
+            this.lblMoney.Location = new System.Drawing.Point(6, 366);
             this.lblMoney.Name = "lblMoney";
             this.lblMoney.Size = new System.Drawing.Size(418, 43);
             this.lblMoney.TabIndex = 57;
@@ -475,7 +481,7 @@
             // 
             this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(430, 376);
+            this.cmdSumary2.Location = new System.Drawing.Point(430, 412);
             this.cmdSumary2.Name = "cmdSumary2";
             this.cmdSumary2.Size = new System.Drawing.Size(100, 37);
             this.cmdSumary2.TabIndex = 17;
@@ -486,7 +492,7 @@
             // 
             this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(324, 376);
+            this.cmdSumary1.Location = new System.Drawing.Point(324, 412);
             this.cmdSumary1.Name = "cmdSumary1";
             this.cmdSumary1.Size = new System.Drawing.Size(100, 37);
             this.cmdSumary1.TabIndex = 16;
@@ -498,7 +504,7 @@
             this.cmdOut.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdOut.Appearance.Options.UseFont = true;
             this.cmdOut.Enabled = false;
-            this.cmdOut.Location = new System.Drawing.Point(218, 376);
+            this.cmdOut.Location = new System.Drawing.Point(218, 412);
             this.cmdOut.Name = "cmdOut";
             this.cmdOut.Size = new System.Drawing.Size(100, 37);
             this.cmdOut.TabIndex = 13;
@@ -509,7 +515,7 @@
             // 
             this.cmdInvoice.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdInvoice.Appearance.Options.UseFont = true;
-            this.cmdInvoice.Location = new System.Drawing.Point(112, 376);
+            this.cmdInvoice.Location = new System.Drawing.Point(112, 412);
             this.cmdInvoice.Name = "cmdInvoice";
             this.cmdInvoice.Size = new System.Drawing.Size(100, 37);
             this.cmdInvoice.TabIndex = 12;
@@ -630,6 +636,25 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(361, 333);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(390, 30);
+            this.txtNote.TabIndex = 71;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(290, 332);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 31);
+            this.label2.TabIndex = 72;
+            this.label2.Text = "Lý do:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -652,6 +677,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -703,5 +729,7 @@
         private System.Windows.Forms.Label lblCaption;
         private System.Windows.Forms.Label lblSum;
         private DevExpress.XtraEditors.SimpleButton cmdSumaryFixed;
+        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.TextEdit txtNote;
     }
 }

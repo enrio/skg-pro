@@ -18,6 +18,7 @@ using System.Collections.Generic;
 namespace SKG.Update
 {
     using System.IO;
+    using System.Threading;
     using System.Diagnostics;
     using ICSharpCode.SharpZipLib.Zip;
 
@@ -31,6 +32,7 @@ namespace SKG.Update
         {
             try
             {
+                Thread.Sleep(2000);
                 const string STR_ZIP = "Update.zip";
                 const string STR_CLIENT = "SKG.Client.exe";
                 string STR_PATH = Application.StartupPath;

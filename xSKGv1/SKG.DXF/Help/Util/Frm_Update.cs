@@ -121,7 +121,7 @@ namespace SKG.DXF.Help.Util
         #region Events
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            //progressBar1.Value = e.ProgressPercentage;
+            progressBarControl1.Text = "" + e.ProgressPercentage;
         }
 
         private void Completed(object sender, AsyncCompletedEventArgs e)

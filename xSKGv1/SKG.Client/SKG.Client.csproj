@@ -128,6 +128,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app_version.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Icons\128\Add.png" />
     <Content Include="Icons\128\Check.png" />
     <Content Include="Icons\128\Community.png" />

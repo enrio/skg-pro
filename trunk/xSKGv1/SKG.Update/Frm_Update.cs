@@ -44,7 +44,7 @@ namespace SKG.Update
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             // start the check for update process
-            this.checkForUpdate.OnCheckForUpdate();
+            checkForUpdate.OnCheckForUpdate();
 
             //#region Check new version
             //var file = STR_URL + STR_CLIENT;

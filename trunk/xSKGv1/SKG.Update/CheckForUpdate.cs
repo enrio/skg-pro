@@ -245,7 +245,7 @@ namespace SKG.Update
                     catch (Exception) { };
                 }
                 if (StopWorkerThread()) return;
-                if (filename.Length == 0) filename = "installer.msi";
+                if (filename.Length == 0) filename = "Update.zip";
                 filepath = Path.Combine(Path.GetTempPath(), filename);
 
                 if (File.Exists(filepath))

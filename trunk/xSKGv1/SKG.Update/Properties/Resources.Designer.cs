@@ -59,12 +59,5 @@ namespace SKG.Update.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap Update {
-            get {
-                object obj = ResourceManager.GetObject("Update", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

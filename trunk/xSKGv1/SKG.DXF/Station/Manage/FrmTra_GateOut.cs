@@ -129,12 +129,9 @@ namespace SKG.DXF.Station.Manage
             {
                 cmdInvoice.Text = "Tạm ra bến";
                 cmdInvoice.Width += 15;
-
                 cmdOut.Visible = false;
-                //cmdSumary1.Visible = false;
-                //cmdSumary2.Visible = false;
-                //cmdSumaryFixed.Visible = false;
             }
+            else txtNote.Properties.ReadOnly = true;
         }
 
         /// <summary>

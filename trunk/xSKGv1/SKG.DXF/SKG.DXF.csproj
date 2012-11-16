@@ -68,7 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckForUpdate.cs" />
     <Compile Include="Extend.cs" />
     <Compile Include="FrmInput.cs">
       <SubType>Form</SubType>

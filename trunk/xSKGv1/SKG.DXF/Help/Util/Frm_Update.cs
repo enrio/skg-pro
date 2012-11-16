@@ -175,7 +175,7 @@ namespace SKG.DXF.Help.Util
         #region Constants
         private const string STR_TITLE = "Cập nhật";
 
-        private const string STR_XML = "app_version.xml";
+        private const string STR_XML = "version.xml";
         private const string STR_ZIP = "Update.zip";
         private const string STR_UPDATE = "SKG.Update.exe";
 

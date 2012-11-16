@@ -461,6 +461,13 @@ namespace SKG.DXF
                             code = r3["Code"] + "";
                             icon = String.Format("{0}{1}", path, r3["More"]);
 
+                            // Change name menu out gate for admin or operator
+                            if (code == typeof(Station.Manage.FrmTra_GateOut).FullName)
+                            {
+                                var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
+                                if (ql) text = "Tạm ra bến";
+                            }
+
                             var m3 = new BarButtonItem() { Caption = text.ToUpper() };
 
                             if (code != typeof(FrmPol_Login).FullName)

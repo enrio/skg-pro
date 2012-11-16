@@ -138,6 +138,8 @@ namespace SKG.DXF.Help.Util
             // unzip, exit the app and run new app
             try
             {
+                Application.Restart();
+
                 using (ZipInputStream s = new ZipInputStream(File.OpenRead(info.path)))
                 {
                     ZipEntry theEntry;
@@ -167,10 +169,6 @@ namespace SKG.DXF.Help.Util
                         }
                     }
                 }
-
-                Process.Start(STR_CLIENT);
-                Application.ExitThread();
-                Application.Exit();
             }
             catch (Exception)
             {

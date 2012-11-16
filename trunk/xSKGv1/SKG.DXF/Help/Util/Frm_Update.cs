@@ -13,7 +13,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Help.Util
@@ -64,7 +63,7 @@ namespace SKG.DXF.Help.Util
             checkForUpdate = new CheckForUpdate(this);
 
             var curVer = Assembly.GetExecutingAssembly().GetName().Version;
-            lblCurrVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
+            //lblCurrVersion.Text = String.Format("Phiên bản hiện tại: {0}\nCopyright © SKG 2012", curVer);
 
             //var file = String.Format(@"{0}\{1}", STR_PATH, STR_CLIENT);
             //var inf = new FileInfo(file);
@@ -231,7 +230,7 @@ namespace SKG.DXF.Help.Util
 
         private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            progressBar1.Value = e.ProgressPercentage;
+            //progressBar1.Value = e.ProgressPercentage;
         }
 
         private void Completed(object sender, AsyncCompletedEventArgs e)

@@ -597,34 +597,34 @@ namespace SKG.DXF
                     frm.ShowDialog();
                     return;
                 }
-                else if (n == typeof(Help.Util.Frm_Update).FullName)
-                {
-                    Process.Start("SKG.Update.exe");
-                    Application.ExitThread();
-                    Application.Exit();
+                //else if (n == typeof(Help.Util.Frm_Update).FullName)
+                //{
+                //    Process.Start("SKG.Update.exe");
+                //    Application.ExitThread();
+                //    Application.Exit();
 
-                    //// Prepare the process to run
-                    //ProcessStartInfo start = new ProcessStartInfo();
+                //    //// Prepare the process to run
+                //    //ProcessStartInfo start = new ProcessStartInfo();
 
-                    //// Enter in the command line arguments, everything you would enter after the executable name itself
-                    //start.Arguments = "";
+                //    //// Enter in the command line arguments, everything you would enter after the executable name itself
+                //    //start.Arguments = "";
 
-                    //// Enter the executable to run, including the complete path
-                    //start.FileName = "";
+                //    //// Enter the executable to run, including the complete path
+                //    //start.FileName = "";
 
-                    //// Do you want to show a console window?
-                    //start.WindowStyle = ProcessWindowStyle.Hidden;
-                    //start.CreateNoWindow = true;
+                //    //// Do you want to show a console window?
+                //    //start.WindowStyle = ProcessWindowStyle.Hidden;
+                //    //start.CreateNoWindow = true;
 
-                    //// Run the external process & wait for it to finish
-                    //using (Process proc = Process.Start(start))
-                    //{
-                    //    proc.WaitForExit();
+                //    //// Run the external process & wait for it to finish
+                //    //using (Process proc = Process.Start(start))
+                //    //{
+                //    //    proc.WaitForExit();
 
-                    //    // Retrieve the app's exit code
-                    //    var exitCode = proc.ExitCode;
-                    //}
-                }
+                //    //    // Retrieve the app's exit code
+                //    //    var exitCode = proc.ExitCode;
+                //    //}
+                //}
 
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))

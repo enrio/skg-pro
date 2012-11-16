@@ -186,8 +186,39 @@ namespace SKG.Update
             // run the installer and exit the app
             try
             {
-                Process.Start(info.path);
-                this.Close();
+                //Process.Start(info.path);
+
+                using (ZipInputStream s = new ZipInputStream(File.OpenRead(info.path)))
+                {
+                    ZipEntry theEntry;
+                    while ((theEntry = s.GetNextEntry()) != null)
+                    {
+                        string directoryName = Path.GetDirectoryName(theEntry.Name);
+                        string fileName = Path.GetFileName(theEntry.Name);
+
+                        // Create directory
+                        if (directoryName.Length > 0)
+                            Directory.CreateDirectory(directoryName);
+
+                        if (fileName != String.Empty)
+                        {
+                            using (FileStream streamWriter = File.Create(theEntry.Name))
+                            {
+                                int size = 2048;
+                                byte[] data = new byte[2048];
+                                while (true)
+                                {
+                                    size = s.Read(data, 0, data.Length);
+                                    if (size > 0)
+                                        streamWriter.Write(data, 0, size);
+                                    else break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Close();
             }
             catch (Exception)
             {

@@ -11,18 +11,18 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Help.Util
 {
-    using System.IO;
     using System.Net;
+    using System.Xml;
     using SKG.Plugin;
     using System.Reflection;
     using System.Diagnostics;
-    using System.Xml;
+    using DevExpress.XtraEditors;
 
     public partial class Frm_Update : SKG.DXF.FrmMenuz
     {
@@ -127,7 +127,6 @@ namespace SKG.DXF.Help.Util
         private void Completed(object sender, AsyncCompletedEventArgs e)
         {
             Process.Start(STR_UPDATE);
-            Application.ExitThread();
             Application.Exit();
         }
 
@@ -137,8 +136,8 @@ namespace SKG.DXF.Help.Util
 
             if ((i.error) || (i.installerUrl.Length == 0) || (i.latestVersion == null))
             {
-                MessageBox.Show(this, "Lỗi khi tìm bản mới nhất!", "Check for updates",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(this, "Lỗi khi tìm bản mới nhất!", "Check for updates",
+                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -147,7 +146,7 @@ namespace SKG.DXF.Help.Util
             if (curVer.CompareTo(i.latestVersion) >= 0)
             {
                 // No new version
-                MessageBox.Show(this, "Không có bản cập nhật mới nhất", "Check for updates",
+                XtraMessageBox.Show(this, "Không có bản cập nhật mới nhất", "Check for updates",
                     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
@@ -155,7 +154,7 @@ namespace SKG.DXF.Help.Util
             // New version found, ask the user if he wants to download the update
             string str = String.Format("Phiên bản mới nhất!\nBản hiện tại: {0}.\nBản mới nhất: {1}.",
                 curVer, i.latestVersion);
-            if (DialogResult.Yes == MessageBox.Show(this, str, "Check for updates",
+            if (DialogResult.Yes == XtraMessageBox.Show(this, str, "Check for updates",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 var webClient = new WebClient();

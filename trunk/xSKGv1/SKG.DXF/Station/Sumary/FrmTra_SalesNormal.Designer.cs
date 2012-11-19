@@ -615,7 +615,7 @@
             // 
             this.gridBand5.Caption = "Thông tin vào";
             this.gridBand5.Columns.Add(this.gridColumn4);
-            this.gridBand5.Columns.Add(this.gridColumn7);
+            this.gridBand5.Columns.Add(this.gridColumn5);
             this.gridBand5.Name = "gridBand5";
             this.gridBand5.Width = 168;
             // 
@@ -623,7 +623,7 @@
             // 
             this.gridBand6.Caption = "Thông tin ra";
             this.gridBand6.Columns.Add(this.gridColumn6);
-            this.gridBand6.Columns.Add(this.gridColumn5);
+            this.gridBand6.Columns.Add(this.gridColumn7);
             this.gridBand6.Name = "gridBand6";
             this.gridBand6.Width = 168;
             // 

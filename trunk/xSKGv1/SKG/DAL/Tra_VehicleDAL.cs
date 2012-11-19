@@ -215,8 +215,9 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Vehicle)obj;
-                var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
+                if (Select(o.Code) != null) return null; // number already exists
 
+                var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
                 res.Code = o.Code.ToUpper();
                 res.TransportId = o.TransportId;
                 res.TariffId = o.TariffId;

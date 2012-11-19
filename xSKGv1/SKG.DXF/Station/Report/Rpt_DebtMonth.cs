@@ -33,5 +33,12 @@ namespace SKG.DXF.Station.Report
                 _tariff = xrcTariff.Text;
             else xrcTariff.Text = "";
         }
+
+        int _region = 0;
+        private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var x = 'A' + _region++;
+            xrcRegion.Text = (char)x + "";
+        }
     }
 }

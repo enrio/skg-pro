@@ -416,12 +416,12 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
-        private const string STR_DUPLICATE = "Xe này có rồi";
 
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_DUPLICATE = "XE NÀY CÓ RỒI";
         #endregion
     }
 }

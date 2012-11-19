@@ -58,17 +58,19 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var open = new OpenFileDialog { Filter = "Excel file (NhapBT*.xls)|NhapBT*.xls" };
-                open.ShowDialog();
+                //var open = new OpenFileDialog { Filter = "Excel file (NhapBT*.xls)|NhapBT*.xls" };
+                //open.ShowDialog();
 
-                if (open.FileName == "" || !open.CheckFileExists)
-                {
-                    PerformCancel();
-                    return;
-                }
+                //if (open.FileName == "" || !open.CheckFileExists)
+                //{
+                //    PerformCancel();
+                //    return;
+                //}
+
+                var file = Application.StartupPath + @"\Import\NhapBT.xls";
 
                 #region Fixed
-                _tbFixed = ImportData(open.FileName, "Codinh");
+                _tbFixed = ImportData(file, "Codinh");
                 foreach (DataRow r in _tbFixed.Rows)
                 {
                     var dt = Global.Session.Current;
@@ -118,7 +120,7 @@ namespace SKG.DXF.Station.Manage
                 #endregion
 
                 #region Normal
-                _tbNormal = ImportData(open.FileName, "Vanglai");
+                _tbNormal = ImportData(file, "Vanglai");
                 foreach (DataRow r in _tbNormal.Rows)
                 {
                     var dt = Global.Session.Current;
@@ -269,9 +271,11 @@ namespace SKG.DXF.Station.Manage
             grvFixed.SetStandard();
             grvNormal.SetStandard();
 
+            AllowAdd = false;
             AllowEdit = false;
             AllowDelete = false;
             AllowRefresh = false;
+            AllowCancel = false;
         }
 
         /// <summary>
@@ -356,6 +360,11 @@ namespace SKG.DXF.Station.Manage
                 e.Info.DisplayText = "" + (e.RowHandle + 1);
                 e.Handled = false;
             }
+        }
+
+        private void FrmTra_ByHandIn_Load(object sender, EventArgs e)
+        {
+            PerformAdd();
         }
         #endregion
 

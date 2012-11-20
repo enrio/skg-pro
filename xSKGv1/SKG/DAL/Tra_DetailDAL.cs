@@ -778,6 +778,7 @@ namespace SKG.DAL
 
                               s.Guest,
                               s.Discount,
+                              s.Arrears,
 
                               Route = s.Vehicle.Tariff.Text,
                               s.Vehicle.Node,

@@ -139,12 +139,6 @@
     <EmbeddedResource Include="Reader\FrmTransfer.resx">
       <DependentUpon>FrmTransfer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Import\XuatBT1.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Import\NhapBT1.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Import\NhapBT.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

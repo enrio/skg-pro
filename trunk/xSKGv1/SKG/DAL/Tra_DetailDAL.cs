@@ -1242,6 +1242,7 @@ namespace SKG.DAL
 
                 res.Guest = o.Guest;
                 res.Discount = o.Discount;
+                res.Arrears = o.Arrears;
 
                 return _db.SaveChanges();
             }

@@ -91,6 +91,7 @@ namespace SKG.DXF.Station.Manage
             lblNumber.Text = null;
             lblNote.Text = null;
             lblMoney.Text = null;
+            lblArrears.Text = null;
 
             base.ResetInput();
         }
@@ -176,6 +177,9 @@ namespace SKG.DXF.Station.Manage
                 lblRose2.Text = detail.Rose2.ToString("#,#");
                 lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
                     + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
+
+                var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                lblArrears.Text = arrears.ToString("TRUY THU #,0đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",

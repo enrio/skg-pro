@@ -76,6 +76,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -152,6 +153,7 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.label2);
             this.groupControl1.Controls.Add(this.txtNote);
             this.groupControl1.Controls.Add(this.cmdSumaryFixed);
@@ -184,7 +186,7 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(290, 332);
+            this.label2.Location = new System.Drawing.Point(361, 332);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 31);
             this.label2.TabIndex = 72;
@@ -193,11 +195,11 @@
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(361, 333);
+            this.txtNote.Location = new System.Drawing.Point(430, 333);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Properties.Appearance.Options.UseFont = true;
-            this.txtNote.Size = new System.Drawing.Size(390, 30);
+            this.txtNote.Size = new System.Drawing.Size(321, 30);
             this.txtNote.TabIndex = 71;
             // 
             // cmdSumaryFixed
@@ -284,7 +286,7 @@
             this.lblNumber.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblNumber.Location = new System.Drawing.Point(6, 272);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(282, 91);
+            this.lblNumber.Size = new System.Drawing.Size(282, 58);
             this.lblNumber.TabIndex = 64;
             this.lblNumber.Text = "BS: 50K0045";
             this.lblNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -655,6 +657,19 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label3.Location = new System.Drawing.Point(6, 332);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(349, 34);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "TRUY THU: 789.000đ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -731,5 +746,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdSumaryFixed;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtNote;
+        private System.Windows.Forms.Label label3;
     }
 }

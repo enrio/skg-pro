@@ -112,12 +112,14 @@ namespace SKG.DXF.Station.Fixed
                     var id = (Guid)r["Id"];
                     var guest = "" + r["Guest"];
                     var discount = "" + r["Discount"];
+                    var arrears = "" + r["Arrears"];
 
                     var o = new Tra_Detail()
                     {
                         Id = id,
                         Guest = guest.ToInt32(),
-                        Discount = discount.ToInt32()
+                        Discount = discount.ToInt32(),
+                        Arrears = arrears.ToInt32()
                     };
 
                     _bll.Tra_Detail.UpdateGuestDiscount(o);

@@ -35,6 +35,7 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.lblArrears = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.cmdSumaryFixed = new DevExpress.XtraEditors.SimpleButton();
@@ -76,7 +77,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -153,7 +153,7 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.label3);
+            this.groupControl1.Controls.Add(this.lblArrears);
             this.groupControl1.Controls.Add(this.label2);
             this.groupControl1.Controls.Add(this.txtNote);
             this.groupControl1.Controls.Add(this.cmdSumaryFixed);
@@ -182,6 +182,19 @@
             this.groupControl1.Size = new System.Drawing.Size(756, 454);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
+            // 
+            // lblArrears
+            // 
+            this.lblArrears.BackColor = System.Drawing.Color.White;
+            this.lblArrears.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblArrears.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArrears.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblArrears.Location = new System.Drawing.Point(6, 332);
+            this.lblArrears.Name = "lblArrears";
+            this.lblArrears.Size = new System.Drawing.Size(349, 34);
+            this.lblArrears.TabIndex = 73;
+            this.lblArrears.Text = "TRUY THU: 789.000đ";
+            this.lblArrears.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -657,19 +670,6 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(6, 332);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(349, 34);
-            this.label3.TabIndex = 73;
-            this.label3.Text = "TRUY THU: 789.000đ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -746,6 +746,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdSumaryFixed;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtNote;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblArrears;
     }
 }

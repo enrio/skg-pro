@@ -147,9 +147,14 @@ namespace SKG.DAL.Entities
         public int? Guest { set; get; }
 
         /// <summary>
-        /// Discount
+        /// Number of discount
         /// </summary>
         public int? Discount { set; get; }
+
+        /// <summary>
+        /// Number of arrears
+        /// </summary>
+        public int? Arrears { set; get; }
         #endregion
 
         #region Charge

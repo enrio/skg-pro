@@ -156,8 +156,14 @@ namespace SKG.DXF.Station.Manage
                     lblHalfDay.Text = "Ghế:";
                     lblFullDay.Text = "Giường:";
 
-                    var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
-                    lblArrears.Text = String.Format("TRUY THU {0}L = {1:#,0đ}", detail.Arrears, arrears);
+                    if (detail.Arrears != null)
+                    {
+                        if (detail.Arrears > 0)
+                        {
+                            var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                            lblArrears.Text = String.Format("TRUY THU {0:#,0}L = {1:#,0đ}", detail.Arrears, arrears);
+                        }
+                    }
                 }
                 else
                 {

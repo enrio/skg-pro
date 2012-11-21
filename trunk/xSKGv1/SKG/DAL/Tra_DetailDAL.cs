@@ -407,6 +407,7 @@ namespace SKG.DAL
             try
             {
                 int m, y;
+                _db = new Context();
                 var a = _db.Tra_Details.SingleOrDefault(k => k.Vehicle.Code == number && k.UserOutId == null);
                 if (dateOut == null)
                 {

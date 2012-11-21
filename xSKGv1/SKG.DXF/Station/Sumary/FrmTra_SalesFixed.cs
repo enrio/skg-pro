@@ -107,7 +107,9 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, dteFrom.DateTime, dteTo.DateTime);
+            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddHours(13);
+            _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, fr, to);
 
             grcMain.DataSource = _dtb;
             gridColumn2.BestFit(); // fit column STT
@@ -145,8 +147,8 @@ namespace SKG.DXF.Station.Sumary
             var d = Global.Session.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
-            dteFrom.DateTime = d.ToStartOfDay();
-            dteTo.DateTime = d.ToEndOfDay();
+            dteFrom.DateTime = d.AddDays(-1);
+            dteTo.DateTime = d;
         }
         #endregion
 

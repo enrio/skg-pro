@@ -171,8 +171,8 @@ namespace SKG.DXF.Station.Manage
 
                 lblNumber.Text = "BS " + detail.Vehicle.Code;
 
-                lblDateIn.Text = detail.DateIn.ToString("dd/MM/yy HH:mm:ss");
-                lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yy HH:mm:ss");
+                lblDateIn.Text = detail.DateIn.ToString("dd/MM/yyyy HH:mm:ss");
+                lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yyyy HH:mm:ss");
 
                 lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,#");
                 lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,#");

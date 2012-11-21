@@ -1042,6 +1042,27 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Update number of guest, discount and arrears
+        /// </summary>
+        /// <param name="obj">Detail</param>
+        /// <returns></returns>
+        public object UpdateMore(object obj)
+        {
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Guest = o.Guest;
+                res.Discount = o.Discount;
+                res.Arrears = o.Arrears;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Vehicle normal
@@ -1234,26 +1255,5 @@ namespace SKG.DAL
             }
         }
         #endregion
-
-        /// <summary>
-        /// Update guest discount
-        /// </summary>
-        /// <param name="obj">Detail</param>
-        /// <returns></returns>
-        public object UpdateGuestDiscount(object obj)
-        {
-            try
-            {
-                var o = (Tra_Detail)obj;
-                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
-
-                res.Guest = o.Guest;
-                res.Discount = o.Discount;
-                res.Arrears = o.Arrears;
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
     }
 }

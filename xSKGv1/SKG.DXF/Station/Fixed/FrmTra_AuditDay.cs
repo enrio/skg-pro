@@ -122,7 +122,7 @@ namespace SKG.DXF.Station.Fixed
                         Arrears = arrears.ToInt32()
                     };
 
-                    _bll.Tra_Detail.UpdateGuestDiscount(o);
+                    _bll.Tra_Detail.UpdateMore(o);
                 }
                 return true;
             }

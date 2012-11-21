@@ -36,6 +36,7 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.lblArrears = new System.Windows.Forms.Label();
+            this.lblMoney = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.cmdSumaryFixed = new DevExpress.XtraEditors.SimpleButton();
@@ -58,7 +59,7 @@
             this.lblSeats = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblMoney = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.lblUserIn = new System.Windows.Forms.Label();
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblKind = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -154,8 +154,8 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.label3);
             this.groupControl1.Controls.Add(this.lblArrears);
+            this.groupControl1.Controls.Add(this.lblMoney);
             this.groupControl1.Controls.Add(this.label2);
             this.groupControl1.Controls.Add(this.txtNote);
             this.groupControl1.Controls.Add(this.cmdSumaryFixed);
@@ -170,7 +170,7 @@
             this.groupControl1.Controls.Add(this.groupBox4);
             this.groupControl1.Controls.Add(this.groupBox3);
             this.groupControl1.Controls.Add(this.label1);
-            this.groupControl1.Controls.Add(this.lblMoney);
+            this.groupControl1.Controls.Add(this.lblTotal);
             this.groupControl1.Controls.Add(this.lblUserIn);
             this.groupControl1.Controls.Add(this.lblDeposit);
             this.groupControl1.Controls.Add(this.lblKind);
@@ -191,12 +191,25 @@
             this.lblArrears.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblArrears.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArrears.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblArrears.Location = new System.Drawing.Point(6, 332);
+            this.lblArrears.Location = new System.Drawing.Point(6, 365);
             this.lblArrears.Name = "lblArrears";
-            this.lblArrears.Size = new System.Drawing.Size(349, 34);
-            this.lblArrears.TabIndex = 73;
+            this.lblArrears.Size = new System.Drawing.Size(418, 34);
+            this.lblArrears.TabIndex = 74;
             this.lblArrears.Text = "TRUY THU: 789.000đ";
             this.lblArrears.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblMoney
+            // 
+            this.lblMoney.BackColor = System.Drawing.Color.White;
+            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblMoney.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblMoney.Location = new System.Drawing.Point(6, 332);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(349, 34);
+            this.lblMoney.TabIndex = 73;
+            this.lblMoney.Text = "LỆ PHÍ: 789.000đ";
+            this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -456,18 +469,18 @@
             this.label1.Text = "TÌM:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblMoney
+            // lblTotal
             // 
-            this.lblMoney.BackColor = System.Drawing.Color.White;
-            this.lblMoney.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblMoney.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMoney.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblMoney.Location = new System.Drawing.Point(6, 399);
-            this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(418, 40);
-            this.lblMoney.TabIndex = 57;
-            this.lblMoney.Text = "LỆ PHÍ: 23.456.789đ";
-            this.lblMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTotal.BackColor = System.Drawing.Color.White;
+            this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTotal.Font = new System.Drawing.Font("Tahoma", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblTotal.Location = new System.Drawing.Point(6, 399);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(418, 40);
+            this.lblTotal.TabIndex = 57;
+            this.lblTotal.Text = "PHẢI THU: 23.456.789đ";
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblUserIn
             // 
@@ -672,19 +685,6 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(6, 365);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(418, 34);
-            this.label3.TabIndex = 74;
-            this.label3.Text = "TRUY THU: 789.000đ";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,7 +725,7 @@
         private DevExpress.XtraEditors.SimpleButton cmdOut;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblMoney;
+        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label lblUserIn;
         private System.Windows.Forms.Label lblDeposit;
         private System.Windows.Forms.Label lblKind;
@@ -761,7 +761,7 @@
         private DevExpress.XtraEditors.SimpleButton cmdSumaryFixed;
         private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.TextEdit txtNote;
+        private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label lblArrears;
-        private System.Windows.Forms.Label label3;
     }
 }

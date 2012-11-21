@@ -706,7 +706,7 @@ namespace SKG.DAL
                                s.Rose,
                                s.Parked,
                                s.Arrears,
-                               ArrearsMoney=s.Arrears*(s.Cost + s.Rose),
+                               ArrearsMoney = s.Arrears * (s.Cost + s.Rose),
                                Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,
@@ -746,6 +746,9 @@ namespace SKG.DAL
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
                                Totals = g.Sum(p => p.Totals),
+
+                               Arrears = g.Sum(p => p.Arrears),
+                               ArrearsMoney = g.Sum(p => p.ArrearsMoney),
 
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100

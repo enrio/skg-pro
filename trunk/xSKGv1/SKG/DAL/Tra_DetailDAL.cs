@@ -1039,12 +1039,12 @@ namespace SKG.DAL
                                //Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
                                //+ ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
 
-                               Tr_Lxe = s.Th_Arrears,
-                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * (s.Th_Arrears),
-                               Tr_Cost = (s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
-                               Tr_Rose = (s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
-                               Tr_Money = (s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
-                               + (s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               Tr_Lxe = s.Th_Arrears == null ? 0 : s.Th_Arrears,
+                               Tr_Hk = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (s.Th_Hk == null ? 0 : s.Th_Hk),
+                               Tr_Cost = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
+                               Tr_Rose = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               Tr_Money = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
+                               + (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
 
                                Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
                            };

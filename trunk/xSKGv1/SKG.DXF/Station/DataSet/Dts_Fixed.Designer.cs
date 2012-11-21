@@ -931,6 +931,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnRoseDescript;
             
+            private global::System.Data.DataColumn columnArrears;
+            
+            private global::System.Data.DataColumn columnArrearsDescript;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReceiptDataTable() {
@@ -1062,6 +1066,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ArrearsColumn {
+                get {
+                    return this.columnArrears;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ArrearsDescriptColumn {
+                get {
+                    return this.columnArrearsDescript;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1097,7 +1117,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator, string CostDescript, string RoseDescript) {
+            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator, string CostDescript, string RoseDescript, string Arrears, string ArrearsDescript) {
                 ReceiptRow rowReceiptRow = ((ReceiptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Seri,
@@ -1111,7 +1131,9 @@ namespace SKG.DXF.Station.DataSet {
                         ByChar,
                         Creator,
                         CostDescript,
-                        RoseDescript};
+                        RoseDescript,
+                        Arrears,
+                        ArrearsDescript};
                 rowReceiptRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowReceiptRow);
                 return rowReceiptRow;
@@ -1146,6 +1168,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnCreator = base.Columns["Creator"];
                 this.columnCostDescript = base.Columns["CostDescript"];
                 this.columnRoseDescript = base.Columns["RoseDescript"];
+                this.columnArrears = base.Columns["Arrears"];
+                this.columnArrearsDescript = base.Columns["ArrearsDescript"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1175,6 +1199,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnCostDescript);
                 this.columnRoseDescript = new global::System.Data.DataColumn("RoseDescript", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoseDescript);
+                this.columnArrears = new global::System.Data.DataColumn("Arrears", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArrears);
+                this.columnArrearsDescript = new global::System.Data.DataColumn("ArrearsDescript", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArrearsDescript);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3584,6 +3612,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Arrears {
+                get {
+                    try {
+                        return ((string)(this[this.tableReceipt.ArrearsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Arrears\' in table \'Receipt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReceipt.ArrearsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ArrearsDescript {
+                get {
+                    try {
+                        return ((string)(this[this.tableReceipt.ArrearsDescriptColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ArrearsDescript\' in table \'Receipt\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableReceipt.ArrearsDescriptColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeriNull() {
                 return this.IsNull(this.tableReceipt.SeriColumn);
             }
@@ -3724,6 +3784,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRoseDescriptNull() {
                 this[this.tableReceipt.RoseDescriptColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsArrearsNull() {
+                return this.IsNull(this.tableReceipt.ArrearsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetArrearsNull() {
+                this[this.tableReceipt.ArrearsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsArrearsDescriptNull() {
+                return this.IsNull(this.tableReceipt.ArrearsDescriptColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetArrearsDescriptNull() {
+                this[this.tableReceipt.ArrearsDescriptColumn] = global::System.Convert.DBNull;
             }
         }
         

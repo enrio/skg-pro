@@ -990,6 +990,8 @@ namespace SKG.DAL
                            {
                                g.Key,
                                Th_Lxe = g.Count(),
+                               Th_Arrears = g.Sum(p => p.Arrears) ?? 0,
+                               Th_Discount = g.Sum(p => p.Discount) ?? 0,
                                Th_Hk = g.Sum(p => p.Guest) ?? 0,
                                Th_Cost = g.Sum(p => p.Cost),
                                Th_Rose = g.Sum(p => p.Rose),
@@ -1028,12 +1030,19 @@ namespace SKG.DAL
                                Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
                                Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
 
-                               Tr_Lxe = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
-                               Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
-                               Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
-                               Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
-                               Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
-                               + ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               //Tr_Lxe = (v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               //Tr_Hk = (s.Th_Hk == null ? 0 : s.Th_Hk) * ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)),
+                               //Tr_Cost = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
+                               //Tr_Rose = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               //Tr_Money = ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
+                               //+ ((v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) < 0 ? 0 : v.Node - (s.Th_Lxe == null ? 0 : s.Th_Lxe)) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),                               
+
+                               Tr_Lxe = s.Th_Arrears,
+                               Tr_Hk = s.Th_Arrears * (s.Th_Hk == null ? 0 : s.Th_Hk),
+                               Tr_Cost = s.Th_Arrears * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
+                               Tr_Rose = s.Th_Arrears * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+                               Tr_Money = s.Th_Arrears * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
+                               + s.Th_Arrears * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
 
                                Guest = (s.Th_Lxe == null ? 0 : s.Th_Lxe) * (s.Th_Hk == null ? 0 : s.Th_Hk)
                            };

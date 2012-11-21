@@ -1117,7 +1117,7 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator, string CostDescript, string RoseDescript, string Arrears, string ArrearsDescript) {
+            public ReceiptRow AddReceiptRow(string Seri, System.DateTime Date, string Number, string Transport, decimal Cost, decimal Rose, decimal Parked, decimal Money, string ByChar, string Creator, string CostDescript, string RoseDescript, decimal Arrears, string ArrearsDescript) {
                 ReceiptRow rowReceiptRow = ((ReceiptRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Seri,
@@ -1199,7 +1199,7 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnCostDescript);
                 this.columnRoseDescript = new global::System.Data.DataColumn("RoseDescript", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRoseDescript);
-                this.columnArrears = new global::System.Data.DataColumn("Arrears", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnArrears = new global::System.Data.DataColumn("Arrears", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrears);
                 this.columnArrearsDescript = new global::System.Data.DataColumn("ArrearsDescript", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrearsDescript);
@@ -3612,10 +3612,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Arrears {
+            public decimal Arrears {
                 get {
                     try {
-                        return ((string)(this[this.tableReceipt.ArrearsColumn]));
+                        return ((decimal)(this[this.tableReceipt.ArrearsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Arrears\' in table \'Receipt\' is DBNull.", e);

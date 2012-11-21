@@ -232,8 +232,7 @@ namespace SKG.DXF.Station.Manage
                         dtr["Money"] = total;
 
                         dtr["Parked"] = detail.Parked;
-                        //dtr["Money"] = detail.Money;
-                        dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
+                        dtr["ByChar"] = total.ToVietnamese("đồng");
                         dtr["Creator"] = Global.Session.User.Name;
 
                         tbl.Rows.Add(dtr);

@@ -153,6 +153,9 @@ namespace SKG.DXF.Station.Manage
                     lblGroup.Text = "ĐVVT: " + detail.Vehicle.Transport.Text;
                     lblHalfDay.Text = "Ghế:";
                     lblFullDay.Text = "Giường:";
+
+                    var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                    lblArrears.Text = arrears.ToString("TRUY THU #,0đ");
                 }
                 else
                 {
@@ -160,6 +163,8 @@ namespace SKG.DXF.Station.Manage
                     lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;
                     lblHalfDay.Text = "Nửa ngày:";
                     lblFullDay.Text = "Một ngày:";
+
+                    lblArrears.Text = null;
                 }
 
                 lblNumber.Text = "BS " + detail.Vehicle.Code;
@@ -176,10 +181,7 @@ namespace SKG.DXF.Station.Manage
                 lblPrice2.Text = detail.Price2.ToString("#,#");
                 lblRose2.Text = detail.Rose2.ToString("#,#");
                 lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
-                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
-
-                var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
-                lblArrears.Text = arrears.ToString("TRUY THU #,0đ");
+                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));                
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",

@@ -225,8 +225,14 @@ namespace SKG.DXF.Station.Manage
                         dtr["RoseDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
                             detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
 
+                        dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
+                            detail.Cost, detail.Rose, detail.Arrears);
+                        var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                        dtr["Arrears"] = arrears;
+                        dtr["Money"] = total;
+
                         dtr["Parked"] = detail.Parked;
-                        dtr["Money"] = detail.Money;
+                        //dtr["Money"] = detail.Money;
                         dtr["ByChar"] = detail.Money.ToVietnamese("đồng");
                         dtr["Creator"] = Global.Session.User.Name;
 

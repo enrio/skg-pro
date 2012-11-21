@@ -869,7 +869,7 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "Năm SX";
-            this.gridColumn12.FieldName = "YearProduction";
+            this.gridColumn12.FieldName = "ProductionYear";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.Width = 46;

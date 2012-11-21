@@ -32,6 +32,8 @@
               <xs:element name="Sales" msprop:Generator_ColumnVarNameInTable="columnSales" msprop:Generator_ColumnPropNameInRow="Sales" msprop:Generator_ColumnPropNameInTable="SalesColumn" msprop:Generator_UserColumnName="Sales" type="xs:long" minOccurs="0" />
               <xs:element name="Vat" msprop:Generator_ColumnVarNameInTable="columnVat" msprop:Generator_ColumnPropNameInRow="Vat" msprop:Generator_ColumnPropNameInTable="VatColumn" msprop:Generator_UserColumnName="Vat" type="xs:long" minOccurs="0" />
               <xs:element name="No_" msprop:Generator_ColumnVarNameInTable="columnNo_" msprop:Generator_ColumnPropNameInRow="No_" msprop:Generator_ColumnPropNameInTable="No_Column" msprop:Generator_UserColumnName="No_" type="xs:long" minOccurs="0" />
+              <xs:element name="ArrearsMoney" msprop:Generator_ColumnVarNameInTable="columnArrearsMoney" msprop:Generator_ColumnPropNameInRow="ArrearsMoney" msprop:Generator_ColumnPropNameInTable="ArrearsMoneyColumn" msprop:Generator_UserColumnName="ArrearsMoney" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Arrears" msprop:Generator_ColumnVarNameInTable="columnArrears" msprop:Generator_ColumnPropNameInRow="Arrears" msprop:Generator_ColumnPropNameInTable="ArrearsColumn" msprop:Generator_UserColumnName="Arrears" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

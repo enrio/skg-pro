@@ -90,6 +90,8 @@ namespace SKG.DXF.Station.Manage
 
             lblNumber.Text = null;
             lblNote.Text = null;
+
+            lblTotal.Text = null;
             lblMoney.Text = null;
             lblArrears.Text = null;
 
@@ -155,7 +157,7 @@ namespace SKG.DXF.Station.Manage
                     lblFullDay.Text = "Giường:";
 
                     var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
-                    lblArrears.Text = arrears.ToString("TRUY THU #,0đ");
+                    lblArrears.Text = String.Format("TRUY THU {0}L = {1:#,0đ}", detail.Arrears, arrears);
                 }
                 else
                 {
@@ -181,7 +183,10 @@ namespace SKG.DXF.Station.Manage
                 lblPrice2.Text = detail.Price2.ToString("#,#");
                 lblRose2.Text = detail.Rose2.ToString("#,#");
                 lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
-                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));                
+                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
+
+                var total = detail.Money + ((detail.Cost + detail.Rose) * detail.Arrears ?? 0);
+                lblTotal.Text = total.ToString("PHẢI THU #,0đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
                 lblDeposit.Text = String.Format("Lưu đậu tại bến: {0}ngày {1}giờ {2}phút {3}giây",

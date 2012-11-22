@@ -604,7 +604,8 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.DateOut >= fr && s.DateOut <= to
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
                           && s.Vehicle.Fixed == true
                           && s.Money != s.Parked
                           orderby s.DateOut descending
@@ -1224,8 +1225,9 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.DateOut >= fr && s.DateOut <= to
-                          where s.Vehicle.Fixed == false
+                          where  s.UserOutId!=null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == false
                           orderby s.Vehicle.Tariff.Group.Code, s.DateOut descending
                           select new
                           {

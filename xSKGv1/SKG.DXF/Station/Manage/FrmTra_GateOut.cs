@@ -335,7 +335,7 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueShift(out sum, DAL.Tra_DetailDAL.Group.A);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.A);
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
@@ -364,7 +364,7 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueShift(out sum, DAL.Tra_DetailDAL.Group.B);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.B);
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 

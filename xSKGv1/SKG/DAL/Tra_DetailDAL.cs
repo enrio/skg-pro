@@ -670,9 +670,9 @@ namespace SKG.DAL
             {
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
+                           && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
-                           && s.DateOut >= fr && s.DateOut <= to
                            && s.Money != s.Parked
                            group s by s.Vehicle.Tariff.Code into g
                            select new
@@ -1092,33 +1092,23 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vehicle normal in a shift
+        /// Revenue of vehicle normal
         /// </summary>
         /// <param name="sum">Sum of money</param>
         /// <param name="nhom">Group of vehicle</param>
         /// <returns></returns>
-        public DataTable GetRevenueShift(out decimal sum, Group nhom = Group.N)
+        public DataTable GetRevenueNormal(out decimal sum, Group nhom = Group.N)
         {
+            sum = 0;
             try
             {
-                sum = 0;
-                DateTime shift;
-
-                int i = Session.Shift(out shift);
-                var more = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-
-                /*var s1 = _db.Tra_Details.Where(p => p.Pol_UserOutId != Global.Session.User.Id);
-                var min = s1.Max(p => p.DateOut);
-
-                var s2 = _db.Tra_Details.Where(p => p.Pol_UserOutId == Global.Session.User.Id);
-                if (min == null) min = s2.Min(p => p.DateOut);
-                var max = s2.Max(p => p.DateOut);*/
+                var to = Global.Session.Current.Date.AddHours(14);
+                var fr = to.AddDays(-1).AddSeconds(1);
 
                 var res = from s in _db.Tra_Details
-                          //where s.DateOut >= min && s.DateOut <= max
-                          where s.More.Contains(more)
+                          where s.UserOutId != null
+                           && s.DateOut >= fr && s.DateOut <= to
                           && s.Vehicle.Fixed == false
-                          && s.UserOutId == Global.Session.User.Id
                           orderby s.Order
                           select new
                           {

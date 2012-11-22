@@ -1127,10 +1127,10 @@ namespace SKG.DAL
                               s.More,
                               s.Text,
 
-                              UserInName = s.UserIn.Name,
-                              UserInPhone = s.UserIn.Phone,
+                              UserIn = s.UserIn.Name,
+                              s.UserIn.Phone,
 
-                              UserOutName = s.UserOut.Name,
+                              UserOut = s.UserOut.Name,
                               s.Vehicle.Code,
 
                               s.DateIn,
@@ -1225,7 +1225,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where  s.UserOutId!=null
+                          where s.UserOutId != null
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.Vehicle.Fixed == false
                           orderby s.Vehicle.Tariff.Group.Code, s.DateOut descending

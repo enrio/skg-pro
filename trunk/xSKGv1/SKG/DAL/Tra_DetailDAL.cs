@@ -641,6 +641,7 @@ namespace SKG.DAL
                               s.Parked,
                               s.Cost,
                               s.Rose,
+                              Arrears = (s.Arrears ?? 0) * (s.Cost + s.Rose),
                               s.UserOutId
                           };
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();

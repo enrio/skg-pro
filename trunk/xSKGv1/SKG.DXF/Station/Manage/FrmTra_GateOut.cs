@@ -127,8 +127,7 @@ namespace SKG.DXF.Station.Manage
             lblCaption.Text += "\n\r - Cố định:";
             lblCaption.Text += "\n\r - Vãng lai:";
 
-            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-            if (ql)
+            if (_ql)
             {
                 cmdInvoice.Text = "Tạm ra bến";
                 cmdInvoice.Width += 15;
@@ -309,6 +308,13 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
+            if (_ql)
+            {
+                var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (ok == System.Windows.Forms.DialogResult.No) return;
+            }
+
             Invoice();
         }
 
@@ -429,6 +435,7 @@ namespace SKG.DXF.Station.Manage
 
         #region Fields
         bool _isFixed;
+        bool _ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
         #endregion
 
         #region Constants

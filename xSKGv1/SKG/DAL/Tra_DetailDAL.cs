@@ -374,10 +374,14 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
-                              s.Vehicle.Code
+                              s.Vehicle.Code,
+                              s.Vehicle.Fixed
                           };
                 fix = SumInDepotFixed;
                 nor = SumInDepotNormal;
+
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                if (ql) res = res.Where(p => p.Fixed == true);
                 return res.ToDataTable();
             }
             catch { return null; }

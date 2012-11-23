@@ -668,12 +668,14 @@ namespace SKG.DAL
             sum = 0;
             try
             {
+                #region Without order
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.Money != s.Parked
+                           && s.Vehicle.Transport.Note == null
                            group s by s.Vehicle.Tariff.Code into g
                            select new
                            {
@@ -755,6 +757,11 @@ namespace SKG.DAL
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100
                            };
+                #endregion
+
+                #region With order
+                #endregion
+
                 sum = res3.Sum(k => k.Totals);
                 return res3.ToDataTable();
             }

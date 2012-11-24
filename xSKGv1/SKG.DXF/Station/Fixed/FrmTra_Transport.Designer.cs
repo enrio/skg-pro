@@ -210,9 +210,11 @@
             this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Red;
             this.grvMain.Appearance.FooterPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseFont = true;
             this.grvMain.Appearance.FooterPanel.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -294,6 +296,7 @@
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.OptionsView.ShowFooter = true;
             this.grvMain.OptionsView.ShowGroupPanel = false;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
@@ -310,6 +313,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 50;
             // 
             // gridColumn3
             // 
@@ -322,8 +326,11 @@
             this.gridColumn4.Caption = "Tên ĐVVT";
             this.gridColumn4.FieldName = "Text";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Text", "{0:#,0} đơn vị")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 150;
             // 
             // gridColumn5
             // 
@@ -332,6 +339,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
+            this.gridColumn5.Width = 725;
             // 
             // FrmTra_Transport
             // 

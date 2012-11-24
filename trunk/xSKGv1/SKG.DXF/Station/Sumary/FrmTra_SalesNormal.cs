@@ -78,23 +78,19 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
-            var a = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_Normal
             {
                 DataSource = _dtb,
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl",
                 Global.Session.User.Acc, Global.Session.Current)
             };
 
-            /*a.xrlInfo.Text = String.Format("Từ ngày {0} đến ngày {1}",
-                dteFrom.DateTime.ToString("dd/MM/yyyy"), dteTo.DateTime.ToString("dd/MM/yyyy"));*/
-            a.xrcMoney.Text = _sum.ToVietnamese("đồng");
-
-            /*var d = Global.Session.Current;
-            a.xrcDate.Text = String.Format("Ngày {0:0#} tháng {1:0#} năm {2}", d.Day, d.Month, d.Year);
-            a.xrcAccount.Text = Global.Session.User.Name;*/
+            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(a);
+            frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 

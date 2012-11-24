@@ -239,7 +239,7 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Theo dõi tháng";
+        private const string STR_TITLE = "Bc công nợ tháng";
         #endregion
     }
 }

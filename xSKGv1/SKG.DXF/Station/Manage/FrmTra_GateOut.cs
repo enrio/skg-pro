@@ -341,7 +341,10 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.A);
+            var to = Global.Session.Current.Date.AddHours(14);
+            var fr = to.AddDays(-1).AddSeconds(1);
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum,fr,to, DAL.Tra_DetailDAL.Group.A);
+
             rpt.DataSource = _dtb;
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
@@ -374,7 +377,10 @@ namespace SKG.DXF.Station.Manage
             };
             decimal sum = 0;
 
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.B);
+            var to = Global.Session.Current.Date.AddHours(14);
+            var fr = to.AddDays(-1).AddSeconds(1);
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
+
             rpt.DataSource = _dtb;
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;

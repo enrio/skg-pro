@@ -89,6 +89,9 @@ namespace SKG.DXF.Station.Sumary
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 
+            rpt.xrlSove.Visible = false;
+            rpt.xrtSove.Visible = false;
+
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;

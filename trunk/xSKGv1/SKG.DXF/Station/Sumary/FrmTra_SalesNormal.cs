@@ -192,6 +192,72 @@ namespace SKG.DXF.Station.Sumary
         {
             PerformRefresh();
         }
+
+        /// <summary>
+        /// In bảng kê nhóm 1 - xe tải lưu đậu nhóm xe vãng lai
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdSumary1_Click(object sender, EventArgs e)
+        {
+            var rpt = new Report.Rpt_Normal
+            {
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
+            };
+            decimal sum = 0;
+
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.A);
+            rpt.DataSource = _dtb;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
+
+            rpt.xrcLve1.Text = "15.000";
+            rpt.xrcLve2.Text = "20.000";
+            rpt.xrcLve3.Text = "25.000";
+            rpt.xrcLve4.Text = "30.000";
+            rpt.xrcLve5.Text = "35.000";
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+        }
+
+        /// <summary>
+        /// In bảng kê nhóm 2 - xe sang hàng nhóm xe vãng lai
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdSumary2_Click(object sender, EventArgs e)
+        {
+            var rpt = new Report.Rpt_Normal
+            {
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
+            };
+            decimal sum = 0;
+
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.B);
+            rpt.DataSource = _dtb;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
+
+            rpt.xrcLve1.Text = "5.000";
+            rpt.xrcLve2.Text = "8.000";
+            rpt.xrcLve3.Text = "10.000";
+            rpt.xrcLve4.Text = "15.000";
+            rpt.xrcLve5.Text = "";
+
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+        }
         #endregion
 
         #region Properties

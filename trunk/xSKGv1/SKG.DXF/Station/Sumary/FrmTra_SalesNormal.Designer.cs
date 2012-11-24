@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.cmdView = new DevExpress.XtraEditors.SimpleButton();
@@ -66,6 +65,8 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -108,6 +109,8 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.cmdSumary2);
+            this.dockPanel1_Container.Controls.Add(this.cmdSumary1);
             this.dockPanel1_Container.Controls.Add(this.cmdView);
             this.dockPanel1_Container.Controls.Add(this.dteTo);
             this.dockPanel1_Container.Controls.Add(this.lblTo);
@@ -634,6 +637,28 @@
             this.gridColumn12.Visible = true;
             this.gridColumn12.Width = 129;
             // 
+            // cmdSumary2
+            // 
+            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary2.Appearance.Options.UseFont = true;
+            this.cmdSumary2.Location = new System.Drawing.Point(741, 3);
+            this.cmdSumary2.Name = "cmdSumary2";
+            this.cmdSumary2.Size = new System.Drawing.Size(86, 26);
+            this.cmdSumary2.TabIndex = 19;
+            this.cmdSumary2.Text = "In nhó&m 2";
+            this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
+            // 
+            // cmdSumary1
+            // 
+            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumary1.Appearance.Options.UseFont = true;
+            this.cmdSumary1.Location = new System.Drawing.Point(649, 3);
+            this.cmdSumary1.Name = "cmdSumary1";
+            this.cmdSumary1.Size = new System.Drawing.Size(86, 26);
+            this.cmdSumary1.TabIndex = 18;
+            this.cmdSumary1.Text = "In &nhóm 1";
+            this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
+            // 
             // FrmTra_SalesNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,5 +728,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand7;
+        private DevExpress.XtraEditors.SimpleButton cmdSumary2;
+        private DevExpress.XtraEditors.SimpleButton cmdSumary1;
     }
 }

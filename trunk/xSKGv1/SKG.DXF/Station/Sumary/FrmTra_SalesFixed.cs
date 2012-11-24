@@ -96,8 +96,11 @@ namespace SKG.DXF.Station.Sumary
 
             var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
             var to = dteTo.DateTime.Date.AddHours(13);
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, fr, to);
+            string receipt = "";
+
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
             rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);

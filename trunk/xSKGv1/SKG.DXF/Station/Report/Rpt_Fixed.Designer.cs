@@ -830,7 +830,7 @@
             this.xrlSophieu.SizeF = new System.Drawing.SizeF(402.2832F, 20.83333F);
             this.xrlSophieu.StylePriority.UseFont = false;
             this.xrlSophieu.StylePriority.UseTextAlignment = false;
-            this.xrlSophieu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrlSophieu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrlCashier
             // 

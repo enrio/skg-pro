@@ -260,6 +260,12 @@
     <Compile Include="Station\Fixed\FrmTra_GateInFixed.Designer.cs">
       <DependentUpon>FrmTra_GateInFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Manage\FrmTra_TempOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmTra_TempOut.Designer.cs">
+      <DependentUpon>FrmTra_TempOut.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Manage\Frm_Tariff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -449,6 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_GateOut.resx">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Manage\FrmTra_TempOut.resx">
+      <DependentUpon>FrmTra_TempOut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_GateInNormal.resx">
       <DependentUpon>FrmTra_GateInNormal.cs</DependentUpon>

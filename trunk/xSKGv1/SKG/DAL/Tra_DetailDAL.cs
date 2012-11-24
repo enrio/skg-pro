@@ -1108,14 +1108,11 @@ namespace SKG.DAL
         /// <param name="sum">Sum of money</param>
         /// <param name="nhom">Group of vehicle</param>
         /// <returns></returns>
-        public DataTable GetRevenueNormal(out decimal sum, Group nhom = Group.N)
+        public DataTable GetRevenueNormal(out decimal sum, DateTime fr, DateTime to, Group nhom = Group.N)
         {
             sum = 0;
             try
             {
-                var to = Global.Session.Current.Date.AddHours(14);
-                var fr = to.AddDays(-1).AddSeconds(1);
-
                 var res = from s in _db.Tra_Details
                           where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to

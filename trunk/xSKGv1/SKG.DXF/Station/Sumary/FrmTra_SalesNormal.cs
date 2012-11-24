@@ -206,11 +206,12 @@ namespace SKG.DXF.Station.Sumary
             };
             decimal sum = 0;
 
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.A);
-            rpt.DataSource = _dtb;
+            var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddHours(14);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
+
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
-
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
@@ -239,11 +240,12 @@ namespace SKG.DXF.Station.Sumary
             };
             decimal sum = 0;
 
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, DAL.Tra_DetailDAL.Group.B);
-            rpt.DataSource = _dtb;
+            var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddHours(14);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
+
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
-
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 

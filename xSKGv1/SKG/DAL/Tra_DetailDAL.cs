@@ -194,6 +194,25 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Delete temp out gate
+        /// </summary>
+        /// <param name="obj">Detail</param>
+        /// <returns></returns>
+        public object DeleteTempOut(Guid id)
+        {
+            try
+            {
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == id);
+
+                res.Repair = false;
+                res.Note = null;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Private methods

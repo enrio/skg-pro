@@ -102,7 +102,7 @@ namespace SKG.DXF.Station.Manage
                 var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
 
                 if (oki == DialogResult.OK)
-                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    if (_bll.Tra_Detail.DeleteTempOut(id) != null) PerformRefresh();
                     else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
             }
 

@@ -327,7 +327,7 @@
             // 
             // gridColumn5
             // 
-            this.gridColumn5.Caption = "Mô tả";
+            this.gridColumn5.Caption = "Ghi chú";
             this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;

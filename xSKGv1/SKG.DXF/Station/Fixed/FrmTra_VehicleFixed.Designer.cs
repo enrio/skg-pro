@@ -645,9 +645,11 @@
             this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Red;
             this.grvMain.Appearance.FooterPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseFont = true;
             this.grvMain.Appearance.FooterPanel.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -753,6 +755,7 @@
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.OptionsView.ShowFooter = true;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // gridBand1
@@ -786,6 +789,8 @@
             this.gridColumn3.Caption = "Biển số";
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} xe")});
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 71;
             // 

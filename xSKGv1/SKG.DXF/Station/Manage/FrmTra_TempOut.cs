@@ -115,7 +115,7 @@ namespace SKG.DXF.Station.Manage
             var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
             _dtb = _bll.Tra_Detail.GetTempOut(n);
 
-            Text = String.Format("Tổng số xe cố định trong bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
+            Text = String.Format("Tổng số xe tạm ra bến bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
             lblSum.Text = Text;
 
             grcMain.DataSource = _dtb;

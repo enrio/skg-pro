@@ -530,14 +530,15 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="sum">Sum of money</param>
         /// <returns></returns>
-        public DataTable GetRevenueToday(out decimal sum)
+        public DataTable GetRevenueToday(out decimal sum, out string receipt)
         {
             sum = 0;
+            receipt = "";
             try
             {
                 var to = Global.Session.Current.Date.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return GetRevenueFixed(out sum, fr, to);
+                return GetRevenueFixed(out sum, out receipt, fr, to);
             }
             catch
             {
@@ -663,15 +664,35 @@ namespace SKG.DAL
         /// <summary>
         /// Revenue of vehicle fixed
         /// </summary>
-        /// <param name="sum">Total money</param>
+        /// <param name="sum">Totals money</param>
+        /// <param name="receipt">Range of receipt</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        public DataTable GetRevenueFixed(out decimal sum, DateTime fr, DateTime to)
+        public DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
         {
             sum = 0;
+            receipt = "";
             try
             {
+                #region Max, min number of receipt
+                var max = (from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.Money != s.Parked
+                           select s.Order).Max();
+                var min = (from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.Money != s.Parked
+                           select s.Order).Min();
+                receipt = String.Format("{0}/{1} - {2}/{1}", min, to.Month, max);
+                #endregion
+
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to

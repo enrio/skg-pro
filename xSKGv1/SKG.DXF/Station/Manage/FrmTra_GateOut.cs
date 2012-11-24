@@ -343,7 +343,7 @@ namespace SKG.DXF.Station.Manage
 
             var to = Global.Session.Current.Date.AddHours(14);
             var fr = to.AddDays(-1).AddSeconds(1);
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum,fr,to, DAL.Tra_DetailDAL.Group.A);
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
 
             rpt.DataSource = _dtb;
             rpt.parDate.Value = Global.Session.Current;
@@ -412,12 +412,14 @@ namespace SKG.DXF.Station.Manage
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd", Global.Session.User.Acc, Global.Session.Current)
             };
             decimal sum = 0;
+            string receipt = "";
 
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueToday(out sum);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueToday(out sum, out  receipt);
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
 
             rpt.parDate.Value = Global.Session.Current.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
+            rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
             frm.SetReport(rpt);

@@ -457,6 +457,8 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnArrears;
             
+            private global::System.Data.DataColumn columnHoadon;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -644,6 +646,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HoadonColumn {
+                get {
+                    return this.columnHoadon;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -698,7 +708,8 @@ namespace SKG.DXF.Station.DataSet {
                         long Vat, 
                         long No_, 
                         decimal ArrearsMoney, 
-                        int Arrears) {
+                        int Arrears, 
+                        string Hoadon) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Province,
@@ -719,7 +730,8 @@ namespace SKG.DXF.Station.DataSet {
                         Vat,
                         No_,
                         ArrearsMoney,
-                        Arrears};
+                        Arrears,
+                        Hoadon};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -761,6 +773,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnNo_ = base.Columns["No_"];
                 this.columnArrearsMoney = base.Columns["ArrearsMoney"];
                 this.columnArrears = base.Columns["Arrears"];
+                this.columnHoadon = base.Columns["Hoadon"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -804,6 +817,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnArrearsMoney);
                 this.columnArrears = new global::System.Data.DataColumn("Arrears", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrears);
+                this.columnHoadon = new global::System.Data.DataColumn("Hoadon", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHoadon);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3263,6 +3278,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Hoadon {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.HoadonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Hoadon\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.HoadonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProvinceNull() {
                 return this.IsNull(this.tableRevenue.ProvinceColumn);
             }
@@ -3487,6 +3518,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetArrearsNull() {
                 this[this.tableRevenue.ArrearsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHoadonNull() {
+                return this.IsNull(this.tableRevenue.HoadonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHoadonNull() {
+                this[this.tableRevenue.HoadonColumn] = global::System.Convert.DBNull;
             }
         }
         

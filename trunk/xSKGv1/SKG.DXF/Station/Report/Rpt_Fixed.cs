@@ -12,11 +12,17 @@ namespace SKG.DXF.Station.Report
             InitializeComponent();
         }
 
+        private void xrcHoadon_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            _region = 0;
+        }
+
         int _region = 0;
         private void xrcRegion_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var x = 'A' + _region++;
             xrcRegion.Text = (char)x + "";
+            _area = 0;
         }
 
         int _area = 0;

@@ -224,10 +224,10 @@
             // xrLabel5
             // 
             this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(299.8683F, 25.78125F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(524.9999F, 25.78125F);
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(809.1316F, 26.04166F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(583.9999F, 26.04166F);
             this.xrLabel5.StylePriority.UseFont = false;
             this.xrLabel5.StylePriority.UseTextAlignment = false;
             this.xrLabel5.Text = "Độc lập - Tự do - Hạnh phúc";
@@ -261,10 +261,10 @@
             // xrLabel2
             // 
             this.xrLabel2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(299.8683F, 0F);
+            this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(524.9999F, 0F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(809.1316F, 25.78125F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(583.9999F, 25.78125F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM";
@@ -275,10 +275,10 @@
             this.xrlDuration.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:\"Thành phố Hồ Chí Minh, ngày\" dd \"tháng\" MM \"năm\" yyyy}")});
             this.xrlDuration.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrlDuration.LocationFloat = new DevExpress.Utils.PointFloat(379.5333F, 51.82292F);
+            this.xrlDuration.LocationFloat = new DevExpress.Utils.PointFloat(766.8531F, 51.82292F);
             this.xrlDuration.Name = "xrlDuration";
             this.xrlDuration.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlDuration.SizeF = new System.Drawing.SizeF(729.4666F, 26.04165F);
+            this.xrlDuration.SizeF = new System.Drawing.SizeF(342.1468F, 26.04165F);
             this.xrlDuration.StylePriority.UseFont = false;
             this.xrlDuration.StylePriority.UseTextAlignment = false;
             this.xrlDuration.Text = "xrlDuration";

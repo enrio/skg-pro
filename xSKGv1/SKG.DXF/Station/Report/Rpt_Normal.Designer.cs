@@ -85,9 +85,11 @@
             this.xrcWatch = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrTableRow3 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.parUserOut = new DevExpress.XtraReports.Parameters.Parameter();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
@@ -153,8 +155,6 @@
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.dts_Normal = new SKG.DXF.Station.DataSet.Dts_Normal();
-            this.parUserOut = new DevExpress.XtraReports.Parameters.Parameter();
-            this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -629,6 +629,14 @@
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell5.Weight = 1.150483362338858D;
             // 
+            // parDate
+            // 
+            this.parDate.Description = "Ngày in";
+            this.parDate.Name = "parDate";
+            this.parDate.Type = typeof(System.DateTime);
+            this.parDate.Value = new System.DateTime(2012, 11, 22, 15, 32, 8, 343);
+            this.parDate.Visible = false;
+            // 
             // xrTableRow3
             // 
             this.xrTableRow3.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
@@ -654,6 +662,13 @@
             this.xrTableCell4.Text = "xrTableCell4";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell4.Weight = 1.8805689135617045D;
+            // 
+            // parUserOut
+            // 
+            this.parUserOut.Description = "Thu ngân cho xe ra";
+            this.parUserOut.Name = "parUserOut";
+            this.parUserOut.Value = "";
+            this.parUserOut.Visible = false;
             // 
             // TopMargin
             // 
@@ -1214,19 +1229,6 @@
             // 
             this.dts_Normal.DataSetName = "Dts_Normal";
             this.dts_Normal.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // parUserOut
-            // 
-            this.parUserOut.Description = "Thu ngân cho xe ra";
-            this.parUserOut.Name = "parUserOut";
-            this.parUserOut.Value = "";
-            // 
-            // parDate
-            // 
-            this.parDate.Description = "Ngày in";
-            this.parDate.Name = "parDate";
-            this.parDate.Type = typeof(System.DateTime);
-            this.parDate.Value = new System.DateTime(2012, 11, 22, 15, 32, 8, 343);
             // 
             // Rpt_Normal
             // 

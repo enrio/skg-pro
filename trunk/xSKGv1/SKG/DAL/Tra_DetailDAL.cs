@@ -672,18 +672,22 @@ namespace SKG.DAL
             sum = 0;
             try
             {
-                #region Without order
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.Money != s.Parked
-                           && s.Vehicle.Transport.Note == null
-                           group s by s.Vehicle.Tariff.Code into g
+                           group s by new
+                           {
+                               s.Vehicle.Tariff.Code,
+                               Hoadon = s.Vehicle.Transport.Note == null ? "A" : "B"
+                           } into g
                            select new
                            {
-                               g.Key,
+                               g.Key.Code,
+                               g.Key.Hoadon,
+
                                Count = g.Count(),
                                Arrears = g.Sum(p => p.Arrears),
 
@@ -696,10 +700,11 @@ namespace SKG.DAL
                            };
 
                 var res2 = from s in res1
-                           join t in _db.Tra_Tariffs on s.Key equals t.Code
+                           join t in _db.Tra_Tariffs on s.Code equals t.Code
                            select new
                            {
-                               s.Key,
+                               s.Code,
+                               s.Hoadon,
                                s.Count,
 
                                s.Seats,
@@ -726,6 +731,7 @@ namespace SKG.DAL
                 var res3 = from s in res2
                            group s by new
                            {
+                               s.Hoadon,
                                s.Province,
                                s.Area,
                                s.Region,
@@ -737,6 +743,7 @@ namespace SKG.DAL
                            } into g
                            select new
                            {
+                               g.Key.Hoadon,
                                g.Key.Region,
                                g.Key.Area,
                                g.Key.Province,
@@ -761,11 +768,6 @@ namespace SKG.DAL
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100
                            };
-                #endregion
-
-                #region With order
-                #endregion
-
                 sum = res3.Sum(k => k.Totals);
                 return res3.ToDataTable();
             }

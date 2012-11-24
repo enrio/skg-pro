@@ -20,7 +20,7 @@ namespace SKG.DXF.Station.Manage
     using DevExpress.XtraEditors;
 
     /// <summary>
-    /// Danh sách xe trong bến
+    /// Danh sách xe tạm ra bến
     /// </summary>
     public partial class FrmTra_TempOut : SKG.DXF.FrmInput
     {

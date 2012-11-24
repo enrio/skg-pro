@@ -225,7 +225,7 @@
             this.xrTableCell112 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell113 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell114 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrlSophieu = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -813,7 +813,7 @@
             // ReportFooter
             // 
             this.ReportFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel1,
+            this.xrlSophieu,
             this.xrlCashier,
             this.xrTable12,
             this.xrTable11,
@@ -883,7 +883,7 @@
             this.xrTable11.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow16,
             this.xrTableRow17});
-            this.xrTable11.SizeF = new System.Drawing.SizeF(619.0831F, 55.72915F);
+            this.xrTable11.SizeF = new System.Drawing.SizeF(695.1923F, 55.72916F);
             this.xrTable11.StylePriority.UseFont = false;
             this.xrTable11.StylePriority.UseTextAlignment = false;
             this.xrTable11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
@@ -900,7 +900,7 @@
             // 
             this.xrTableCell87.Name = "xrTableCell87";
             this.xrTableCell87.Text = "TỔNG SỐ TIỀN:";
-            this.xrTableCell87.Weight = 0.75356317441791643D;
+            this.xrTableCell87.Weight = 0.66401753092902271D;
             // 
             // xrTableCell88
             // 
@@ -913,7 +913,7 @@
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell88.Summary = xrSummary1;
             this.xrTableCell88.Text = "xrTableCell88";
-            this.xrTableCell88.Weight = 2.7618104561812644D;
+            this.xrTableCell88.Weight = 2.8513560996701579D;
             // 
             // xrTableRow17
             // 
@@ -927,14 +927,14 @@
             // 
             this.xrTableCell89.Name = "xrTableCell89";
             this.xrTableCell89.Text = "BẰNG CHỮ:";
-            this.xrTableCell89.Weight = 0.603085508124127D;
+            this.xrTableCell89.Weight = 0.53460951858438532D;
             // 
             // xrcMoney
             // 
             this.xrcMoney.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrcMoney.Name = "xrcMoney";
             this.xrcMoney.StylePriority.UseFont = false;
-            this.xrcMoney.Weight = 2.9122881224750548D;
+            this.xrcMoney.Weight = 2.9807641120147963D;
             // 
             // xrTable3
             // 
@@ -1858,16 +1858,16 @@
             this.xrTableCell114.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell114.Weight = 0.64789766949291572D;
             // 
-            // xrLabel1
+            // xrlSophieu
             // 
-            this.xrLabel1.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(26.266F, 44.58332F);
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(619.0831F, 20.83333F);
-            this.xrLabel1.StylePriority.UseFont = false;
-            this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrlSophieu.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrlSophieu.LocationFloat = new DevExpress.Utils.PointFloat(26.266F, 44.58332F);
+            this.xrlSophieu.Name = "xrlSophieu";
+            this.xrlSophieu.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrlSophieu.SizeF = new System.Drawing.SizeF(402.2832F, 20.83333F);
+            this.xrlSophieu.StylePriority.UseFont = false;
+            this.xrlSophieu.StylePriority.UseTextAlignment = false;
+            this.xrlSophieu.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // Rpt_Fixed
             // 
@@ -2086,6 +2086,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell112;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell113;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell114;
-        public DevExpress.XtraReports.UI.XRLabel xrLabel1;
+        public DevExpress.XtraReports.UI.XRLabel xrlSophieu;
     }
 }

@@ -672,6 +672,13 @@ namespace SKG.DXF
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("CreatorId", typeof(Guid));
             SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+
+            tbl = new DataTable(typeof(Tra_Detail).Name);
+            tbl.Columns.Add("Id", typeof(Guid));
+            tbl.Columns.Add("VehicleId", typeof(Guid));
+            tbl.Columns.Add("UserInId", typeof(Guid));
+            tbl.Columns.Add("UserOutId", typeof(Guid));
+            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
             #endregion
         }
     }

@@ -129,9 +129,14 @@ namespace SKG.DXF.Station.Manage
 
             if (_ql)
             {
-                cmdInvoice.Text = "Tạm ra bến";
-                cmdInvoice.Width += 15;
+                cmdInvoice.Visible = false;
                 cmdOut.Visible = false;
+                cmdSumary1.Visible = false;
+                cmdSumary2.Visible = false;
+                cmdSumaryFixed.Visible = false;
+
+                cmdTempOut.Visible = true;
+                cmdNotEnough.Visible = true;
             }
             else txtNote.Properties.ReadOnly = true;
         }
@@ -308,13 +313,6 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
-            if (_ql)
-            {
-                var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (ok == System.Windows.Forms.DialogResult.No) return;
-            }
-
             Invoice();
         }
 
@@ -435,6 +433,20 @@ namespace SKG.DXF.Station.Manage
         private void lkeNumber_Enter(object sender, EventArgs e)
         {
             PerformRefresh();
+        }
+
+        private void cmdTempOut_Click(object sender, EventArgs e)
+        {
+            var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (ok == DialogResult.No) return;
+        }
+
+        private void cmdNotEnough_Click(object sender, EventArgs e)
+        {
+            var ok = XtraMessageBox.Show("XÁC NHẬN KHÔNG ĐỦ ĐIỀU KIỆN?", Text,
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (ok == DialogResult.No) return;
         }
         #endregion
 

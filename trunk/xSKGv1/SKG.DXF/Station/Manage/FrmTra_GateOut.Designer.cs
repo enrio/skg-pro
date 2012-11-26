@@ -193,7 +193,6 @@
             // 
             this.cmdNotEnough.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdNotEnough.Appearance.Options.UseFont = true;
-            this.cmdNotEnough.Enabled = false;
             this.cmdNotEnough.Location = new System.Drawing.Point(238, 442);
             this.cmdNotEnough.Name = "cmdNotEnough";
             this.cmdNotEnough.Size = new System.Drawing.Size(186, 37);

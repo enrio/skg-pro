@@ -440,6 +440,8 @@ namespace SKG.DXF.Station.Manage
             var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (ok == DialogResult.No) return;
+
+            Invoice();
         }
 
         private void cmdNotEnough_Click(object sender, EventArgs e)

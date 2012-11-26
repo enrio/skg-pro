@@ -35,6 +35,8 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmdNotEnough = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdTempOut = new DevExpress.XtraEditors.SimpleButton();
             this.lblArrears = new System.Windows.Forms.Label();
             this.lblMoney = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -78,8 +80,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.cmdNotEnough = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdTempOut = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -188,6 +188,30 @@
             this.groupControl1.Size = new System.Drawing.Size(756, 484);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
+            // 
+            // cmdNotEnough
+            // 
+            this.cmdNotEnough.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdNotEnough.Appearance.Options.UseFont = true;
+            this.cmdNotEnough.Enabled = false;
+            this.cmdNotEnough.Location = new System.Drawing.Point(238, 442);
+            this.cmdNotEnough.Name = "cmdNotEnough";
+            this.cmdNotEnough.Size = new System.Drawing.Size(186, 37);
+            this.cmdNotEnough.TabIndex = 76;
+            this.cmdNotEnough.Text = "&Không đủ điều kiện";
+            this.cmdNotEnough.Click += new System.EventHandler(this.cmdNotEnough_Click);
+            // 
+            // cmdTempOut
+            // 
+            this.cmdTempOut.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdTempOut.Appearance.Options.UseFont = true;
+            this.cmdTempOut.Location = new System.Drawing.Point(111, 442);
+            this.cmdTempOut.Name = "cmdTempOut";
+            this.cmdTempOut.Size = new System.Drawing.Size(121, 37);
+            this.cmdTempOut.TabIndex = 75;
+            this.cmdTempOut.Text = "&Tạm ra bến";
+            this.cmdTempOut.Visible = false;
+            this.cmdTempOut.Click += new System.EventHandler(this.cmdTempOut_Click);
             // 
             // lblArrears
             // 
@@ -688,31 +712,6 @@
             this.label12.TabIndex = 56;
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmdNotEnough
-            // 
-            this.cmdNotEnough.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdNotEnough.Appearance.Options.UseFont = true;
-            this.cmdNotEnough.Enabled = false;
-            this.cmdNotEnough.Location = new System.Drawing.Point(238, 442);
-            this.cmdNotEnough.Name = "cmdNotEnough";
-            this.cmdNotEnough.Size = new System.Drawing.Size(186, 37);
-            this.cmdNotEnough.TabIndex = 76;
-            this.cmdNotEnough.Text = "&Không đủ điều kiện";
-            this.cmdNotEnough.Visible = false;
-            this.cmdNotEnough.Click += new System.EventHandler(this.cmdNotEnough_Click);
-            // 
-            // cmdTempOut
-            // 
-            this.cmdTempOut.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdTempOut.Appearance.Options.UseFont = true;
-            this.cmdTempOut.Location = new System.Drawing.Point(111, 442);
-            this.cmdTempOut.Name = "cmdTempOut";
-            this.cmdTempOut.Size = new System.Drawing.Size(121, 37);
-            this.cmdTempOut.TabIndex = 75;
-            this.cmdTempOut.Text = "&Tạm ra bến";
-            this.cmdTempOut.Visible = false;
-            this.cmdTempOut.Click += new System.EventHandler(this.cmdTempOut_Click);
             // 
             // FrmTra_GateOut
             // 

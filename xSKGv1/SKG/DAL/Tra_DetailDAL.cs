@@ -748,15 +748,27 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.Money != s.Parked
-                           select s.Order).Max();
+                           group s by s.Code into g
+                           select new
+                           {
+                               Order = g.Max(p => p.Order),
+                               DateOut = g.Max(p => p.DateOut)
+                           }).FirstOrDefault();
                 var min = (from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.Money != s.Parked
-                           select s.Order).Min();
-                receipt = String.Format("{0}/{1} - {2}/{1}", min, to.Month, max);
+                           group s by s.Code into g
+                           select new
+                           {
+                               Order = g.Min(p => p.Order),
+                               DateOut = g.Min(p => p.DateOut)
+                           }).FirstOrDefault();
+                receipt = String.Format("{0}/{1} - {2}/{3}",
+                    min.Order, min.DateOut.Value.Month,
+                    max.Order, max.DateOut.Value.Month);
                 #endregion
 
                 var res1 = from s in _db.Tra_Details

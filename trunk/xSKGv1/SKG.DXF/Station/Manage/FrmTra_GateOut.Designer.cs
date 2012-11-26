@@ -199,6 +199,7 @@
             this.cmdNotEnough.Size = new System.Drawing.Size(186, 37);
             this.cmdNotEnough.TabIndex = 76;
             this.cmdNotEnough.Text = "&Không đủ điều kiện";
+            this.cmdNotEnough.Visible = false;
             this.cmdNotEnough.Click += new System.EventHandler(this.cmdNotEnough_Click);
             // 
             // cmdTempOut

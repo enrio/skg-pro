@@ -144,6 +144,13 @@ namespace SKG.DXF.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap Lorry {
+            get {
+                object obj = ResourceManager.GetObject("Lorry", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap no {
             get {
                 object obj = ResourceManager.GetObject("no", resourceCulture);

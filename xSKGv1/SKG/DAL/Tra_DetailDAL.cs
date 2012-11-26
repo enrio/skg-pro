@@ -967,7 +967,7 @@ namespace SKG.DAL
                                Th_Lx_Xuatben = s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben,
                                Th_Lk_Di = s.Th_Lk_Di == null ? 0 : s.Th_Lk_Di,
 
-                               Tile_Nottai = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / v.Node * 100,
+                               Tile_Nottai = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / (v.Node < 1 ? 1 : v.Node) * 100,
                                Nottai_Hoatdong = (decimal)(s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben) / 30
                            };
                 if (hideActive) res2 = res2.Where(p => p.Th_Soxe > 0);
@@ -1002,8 +1002,8 @@ namespace SKG.DAL
                           select new
                           {
                               g.Key,
-                              Th = g.Count(),
-                              Mg = g.Sum(p => p.Discount)
+                              Th = g.Count() - g.Sum(p => p.Arrears ?? 0),
+                              Mg = g.Sum(p => p.Discount ?? 0)
                           };
                 #endregion
 
@@ -1017,8 +1017,8 @@ namespace SKG.DAL
                            select new
                            {
                                g.Key,
-                               Th = g.Count(),
-                               Mg = g.Sum(p => p.Discount)
+                               Th = g.Count() - g.Sum(p => p.Arrears ?? 0),
+                               Mg = g.Sum(p => p.Discount ?? 0)
                            };
 
                 var res2 =

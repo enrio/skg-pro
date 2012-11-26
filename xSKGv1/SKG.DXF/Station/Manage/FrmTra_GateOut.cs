@@ -126,19 +126,6 @@ namespace SKG.DXF.Station.Manage
             lblCaption.Text = "Xe trong bến:";
             lblCaption.Text += "\n\r - Cố định:";
             lblCaption.Text += "\n\r - Vãng lai:";
-
-            if (_ql)
-            {
-                cmdInvoice.Visible = false;
-                cmdOut.Visible = false;
-                cmdSumary1.Visible = false;
-                cmdSumary2.Visible = false;
-                cmdSumaryFixed.Visible = false;
-
-                cmdTempOut.Visible = true;
-                cmdNotEnough.Visible = true;
-            }
-            else txtNote.Properties.ReadOnly = true;
         }
 
         /// <summary>
@@ -304,6 +291,19 @@ namespace SKG.DXF.Station.Manage
         private void FrmTra_GateOut_Load(object sender, EventArgs e)
         {
             AllowBar = false;
+
+            if (_ql)
+            {
+                cmdInvoice.Visible = false;
+                cmdOut.Visible = false;
+                cmdSumary1.Visible = false;
+                cmdSumary2.Visible = false;
+                cmdSumaryFixed.Visible = false;
+
+                cmdTempOut.Visible = true;
+                cmdNotEnough.Visible = true;
+            }
+            else txtNote.Properties.ReadOnly = true;
         }
 
         /// <summary>

@@ -1500,21 +1500,11 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
-                    {
-                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.0"
-                    }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
-                    {
-                    "Name" = "8:Windows Installer 3.1"
-                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
-                    }
                 }
             }
         }
@@ -1783,7 +1773,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.0.7, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.1.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_11024D86606E1268E8C84C3F57791CA0"
@@ -3685,7 +3675,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.0.7, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.1.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_F3D47857E71FEB5DD4D8E045FA7D90FB"
@@ -3902,7 +3892,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xSKGv1"
         "ProductCode" = "8:{82BE7F9E-996D-4CCC-BAC5-8D7E457AD372}"
-        "PackageCode" = "8:{A87C6A1D-DD2F-467F-884B-6772EF204804}"
+        "PackageCode" = "8:{4A7E0ABA-96B9-4C40-B330-155ECD63757C}"
         "UpgradeCode" = "8:{26FC14C3-5AE5-4E2C-8F69-B266203FD334}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -4451,7 +4441,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A1426DA001DF424D81D9FB088F4BFEC0"
             {
-            "SourcePath" = "8:..\\SKG.Update\\obj\\x86\\Debug\\SKG.Update.exe"
+            "SourcePath" = "8:..\\SKG.Update\\obj\\x86\\Release\\SKG.Update.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_19371B7522A24692A648AFA1A4E3611C"
@@ -4479,7 +4469,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A321CC92468E428EA9B72A76CA2DEC17"
             {
-            "SourcePath" = "8:..\\SKG.Client\\obj\\Debug\\SKG.Client.exe"
+            "SourcePath" = "8:..\\SKG.Client\\obj\\Release\\SKG.Client.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_19371B7522A24692A648AFA1A4E3611C"

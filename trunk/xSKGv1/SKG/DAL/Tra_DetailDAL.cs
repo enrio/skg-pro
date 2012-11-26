@@ -932,7 +932,7 @@ namespace SKG.DAL
                            {
                                g.Key,
                                Th_Lx_Xuatben = g.Count(),
-                               Th_Lk_Di = g.Sum(p => p.Guest) ?? 0
+                               Th_Lk_Di = g.Sum(p => p.Guest ?? 0)
                            };
 
                 var res2 =
@@ -1093,9 +1093,9 @@ namespace SKG.DAL
                                g.Key,
                                Th_Lxe = g.Count(),
 
-                               Th_Arrears = g.Sum(p => p.Arrears) ?? 0,
-                               Th_Discount = g.Sum(p => p.Discount) ?? 0,
-                               Th_Hk = g.Sum(p => p.Guest) ?? 0,
+                               Th_Arrears = g.Sum(p => p.Arrears ?? 0),
+                               Th_Discount = g.Sum(p => p.Discount ?? 0),
+                               Th_Hk = g.Sum(p => p.Guest ?? 0),
 
                                Th_Cost = g.Sum(p => p.Cost),
                                Th_Rose = g.Sum(p => p.Rose),

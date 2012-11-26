@@ -449,7 +449,7 @@ namespace SKG.DAL
                 if (ql && a.Vehicle.Fixed)
                 {
                     a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
-                    a.Note = String.Format("{0}\n\r ({1})",note1, Global.Session.User.Name);
+                    a.Note = String.Format("{0}\n\r ({1})", note1, Global.Session.User.Name);
                     a.Note += ";!;" + note2;
                 }
 
@@ -474,7 +474,7 @@ namespace SKG.DAL
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
                         if (dt.Count() > 0)
                             a.Order = dt.Max(p => p.Order) + 1;
-                    }                    
+                    }
                 }
 
                 a.Seats = a.Vehicle.Seats;
@@ -902,7 +902,7 @@ namespace SKG.DAL
                               s.UserOutId
                           };
                 if (isOut)
-                    res = res.Where(p => p.DateOut >= fr && p.DateOut <= to);
+                    res = res.Where(p => p.DateOut >= fr && p.DateOut <= to && p.UserOutId != null);
                 else
                     res = res.Where(p => p.UserOutId == null);
                 return res.ToDataTable();

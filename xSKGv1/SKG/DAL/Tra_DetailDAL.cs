@@ -625,6 +625,7 @@ namespace SKG.DAL
                           select new
                           {
                               s.Id,
+                              s.Note,
 
                               s.UserIn.Phone,
                               UserIn = s.UserIn.Name,
@@ -650,6 +651,7 @@ namespace SKG.DAL
                               s.Rose1,
                               s.Rose2,
                               //s.Money,
+                              s.Parked,
 
                               s.Vehicle.Fixed,
                               GroupCode = s.Vehicle.Tariff.Group.Code

@@ -94,6 +94,8 @@ namespace SKG.DXF.Station.Manage
             lblTotal.Text = null;
             lblMoney.Text = null;
             lblArrears.Text = null;
+            
+            txtNote.Text = null;
 
             base.ResetInput();
         }

@@ -474,13 +474,7 @@ namespace SKG.DAL
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
                         if (dt.Count() > 0)
                             a.Order = dt.Max(p => p.Order) + 1;
-                    }
-
-                    // Ca làm việc
-                    DateTime shift;
-                    int i = Session.Shift(out shift, dateOut);
-                    a.More = String.Format("Ca {0} {1:dd/MM/yyyy}", i, shift);
-                    a.Text = i == 1 ? "07:00-16:00" : "16:00-07:00";
+                    }                    
                 }
 
                 a.Seats = a.Vehicle.Seats;

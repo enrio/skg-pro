@@ -971,8 +971,10 @@ namespace SKG.DAL
 
                                v.Code,
                                Kh_Soxe = 1,
-                               Kh_Ts_Ghe = (v.Seats + v.Beds) - 1,
                                Kh_Lx_Xuatben = v.Node,
+
+                               Kh_So_Ghe = (v.Seats + v.Beds) - 1,
+                               Kh_Ts_Ghe = ((v.Seats + v.Beds) - 1) * (v.Node ?? 0),
 
                                Th_Soxe = s.Key == null ? 0 : 1,
                                Th_Ts_Ghe = ((v.Seats + v.Beds) - 1) * (s.Th_Lx_Xuatben == null ? 0 : s.Th_Lx_Xuatben),

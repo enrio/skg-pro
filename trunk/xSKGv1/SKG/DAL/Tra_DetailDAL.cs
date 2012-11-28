@@ -808,6 +808,7 @@ namespace SKG.DAL
 
                                s.Seats,
                                s.Beds,
+                               s.Arrears,
 
                                t.Rose1,
                                t.Rose2,
@@ -817,9 +818,9 @@ namespace SKG.DAL
                                s.Cost,
                                s.Rose,
                                s.Parked,
-                               s.Arrears,
-                               ArrearsMoney = s.Arrears * (s.Cost + s.Rose),
-                               Totals = s.Parked + s.Cost + s.Rose,
+
+                               ArrearsMoney = (s.Arrears ?? 0) * (s.Cost + s.Rose),
+                               Totals = (decimal)(s.Parked + s.Cost + s.Rose + ((s.Arrears ?? 0) * (s.Cost + s.Rose))),
 
                                Station = t.Text,
                                Province = t.Group.Text,

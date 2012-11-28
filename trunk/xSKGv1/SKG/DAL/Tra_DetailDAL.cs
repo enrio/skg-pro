@@ -1004,7 +1004,6 @@ namespace SKG.DAL
                 #region Cumulative
                 DateTime frx, tox;
                 Session.CutShiftJanuary(to, out frx, out tox);
-                var m = to.Month;
 
                 var res = from s in _db.Tra_Details
                           where s.UserOutId != null
@@ -1016,7 +1015,8 @@ namespace SKG.DAL
                           select new
                           {
                               g.Key,
-                              Th = g.Count() - g.Sum(p => p.Arrears ?? 0),
+                              Th = g.Count(),
+                              Tt = g.Sum(p => p.Arrears ?? 0),
                               Mg = g.Sum(p => p.Discount ?? 0)
                           };
                 #endregion
@@ -1072,11 +1072,12 @@ namespace SKG.DAL
                                * ((v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)) + (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0))),
 
                                Lk_Th = sx.Th == null ? 0 : sx.Th,
-                               Lk_Tt = m * v.Node - (sx.Th == null ? 0 : sx.Th),
+                               Lk_Tt = sx.Tt == null ? 0 : sx.Tt,
                                Lk_Mg = sx.Mg == null ? 0 : sx.Mg,
-                               Lk_Nn = (sx.Th == null ? 0 : sx.Th) < m * v.Node ? m * v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Mg == null ? 0 : sx.Mg) : 0,
-                               Lk_Dt = ((sx.Th == null ? 0 : sx.Th) < m * v.Node ? m * v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Mg == null ? 0 : sx.Mg) : 0) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
-                               + ((sx.Th == null ? 0 : sx.Th) < m * v.Node ? m * v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Mg == null ? 0 : sx.Mg) : 0) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+
+                               Lk_Nn = ((sx.Th == null ? 0 : sx.Th) < v.Node) ? (v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Tt == null ? 0 : sx.Tt) - (sx.Mg == null ? 0 : sx.Mg)) : 0,
+                               Lk_Dt = (((sx.Th == null ? 0 : sx.Th) < v.Node) ? (v.Node - (sx.Th == null ? 0 : sx.Th) - (sx.Tt == null ? 0 : sx.Tt) - (sx.Mg == null ? 0 : sx.Mg)) : 0)
+                               * ((v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)) + (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0))),
 
                                v.Note
                            };

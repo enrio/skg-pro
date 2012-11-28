@@ -1064,11 +1064,12 @@ namespace SKG.DAL
                                v.Node,
 
                                Th = s.Th == null ? 0 : s.Th,
-                               Tt = v.Node - (s.Th == null ? 0 : s.Th),
+                               Tt = s.Tt == null ? 0 : s.Tt,
                                Mg = s.Mg == null ? 0 : s.Mg,
-                               Nn = (s.Th == null ? 0 : s.Th) < v.Node ? v.Node - (s.Th == null ? 0 : s.Th) - (s.Mg == null ? 0 : s.Mg) : 0,
-                               Dt = ((s.Th == null ? 0 : s.Th) < v.Node ? v.Node - (s.Th == null ? 0 : s.Th) - (s.Mg == null ? 0 : s.Mg) : 0) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))
-                               + ((s.Th == null ? 0 : s.Th) < v.Node ? v.Node - (s.Th == null ? 0 : s.Th) - (s.Mg == null ? 0 : s.Mg) : 0) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
+
+                               Nn = ((s.Th == null ? 0 : s.Th) < v.Node) ? (v.Node - (s.Th == null ? 0 : s.Th) - (s.Tt == null ? 0 : s.Tt) - (s.Mg == null ? 0 : s.Mg)) : 0,
+                               Dt = (((s.Th == null ? 0 : s.Th) < v.Node) ? (v.Node - (s.Th == null ? 0 : s.Th) - (s.Tt == null ? 0 : s.Tt) - (s.Mg == null ? 0 : s.Mg)) : 0)
+                               * ((v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)) + (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0))),
 
                                Lk_Th = sx.Th == null ? 0 : sx.Th,
                                Lk_Tt = m * v.Node - (sx.Th == null ? 0 : sx.Th),

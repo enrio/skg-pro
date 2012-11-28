@@ -95,7 +95,6 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.ContentImage = global::SKG.DXF.Properties.Resources.Lorry;
             this.groupControl1.Controls.Add(this.progressBarControl1);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.lblVersion);

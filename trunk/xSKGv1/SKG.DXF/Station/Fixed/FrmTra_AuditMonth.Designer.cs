@@ -32,6 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
             this.radType = new DevExpress.XtraEditors.RadioGroup();
             this.dteMonth = new DevExpress.XtraEditors.DateEdit();
@@ -93,20 +95,42 @@
             this.dockPanel1.ID = new System.Guid("10b3cfe1-e785-4df6-b3c7-5ee3233ad318");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 60);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 60);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 91);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 91);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.labelControl2);
+            this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.chkHideActive);
             this.dockPanel1_Container.Controls.Add(this.radType);
             this.dockPanel1_Container.Controls.Add(this.dteMonth);
             this.dockPanel1_Container.Controls.Add(this.lblGuest);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 33);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 64);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl2.Location = new System.Drawing.Point(8, 35);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(66, 22);
+            this.labelControl2.TabIndex = 33;
+            this.labelControl2.Text = "Ghi chú:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl1.Location = new System.Drawing.Point(80, 35);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(513, 22);
+            this.labelControl1.TabIndex = 32;
+            this.labelControl1.Text = "V.B: Vé bán thực tế, M.G: Miễn giảm, T.T: Truy thu, NT/T: Nốt tài/tháng";
             // 
             // chkHideActive
             // 
@@ -167,10 +191,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("d59a7d3a-6cea-460f-9e5e-a1f9105d471d");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 123);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 154);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 443);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 412);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -178,7 +202,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 416);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 385);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -188,7 +212,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 416);
+            this.grcMain.Size = new System.Drawing.Size(943, 385);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -256,9 +280,11 @@
             this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
-            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvMain.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grvMain.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Red;
             this.grvMain.Appearance.FooterPanel.Options.UseBackColor = true;
             this.grvMain.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvMain.Appearance.FooterPanel.Options.UseFont = true;
             this.grvMain.Appearance.FooterPanel.Options.UseForeColor = true;
             this.grvMain.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -358,6 +384,7 @@
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
+            this.grvMain.OptionsView.ShowFooter = true;
             this.grvMain.OptionsView.ShowGroupPanel = false;
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
@@ -397,12 +424,14 @@
             this.gridColumn3.FieldName = "Code";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.ReadOnly = true;
+            this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} lượt")});
             this.gridColumn3.Visible = true;
             this.gridColumn3.Width = 66;
             // 
             // bandedGridColumn3
             // 
-            this.bandedGridColumn3.Caption = "LKĐ";
+            this.bandedGridColumn3.Caption = "V.B";
             this.bandedGridColumn3.FieldName = "Guest";
             this.bandedGridColumn3.Name = "bandedGridColumn3";
             this.bandedGridColumn3.Visible = true;
@@ -444,7 +473,7 @@
             // 
             // bandedGridColumn2
             // 
-            this.bandedGridColumn2.Caption = "Nốt tài/tháng";
+            this.bandedGridColumn2.Caption = "NT/T";
             this.bandedGridColumn2.FieldName = "Node";
             this.bandedGridColumn2.Name = "bandedGridColumn2";
             this.bandedGridColumn2.OptionsColumn.ReadOnly = true;
@@ -572,6 +601,8 @@
         private DevExpress.XtraEditors.DateEdit dteMonth;
         private DevExpress.XtraEditors.RadioGroup radType;
         private DevExpress.XtraEditors.CheckEdit chkHideActive;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.GridControl grcMain;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;

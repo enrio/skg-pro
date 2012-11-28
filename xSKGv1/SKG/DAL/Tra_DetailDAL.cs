@@ -698,7 +698,7 @@ namespace SKG.DAL
                               s.FullDay,
                               s.HalfDay,
                               TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
-                              s.Money,
+                              Money = s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose),
 
                               s.Price1,
                               s.Price2,

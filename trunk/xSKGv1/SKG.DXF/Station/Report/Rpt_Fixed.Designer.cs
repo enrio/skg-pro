@@ -1265,7 +1265,7 @@
             // xrTableCell48
             // 
             this.xrTableCell48.Name = "xrTableCell48";
-            this.xrTableCell48.Text = "13";
+            this.xrTableCell48.Text = "13=8+9+10+12";
             this.xrTableCell48.Weight = 0.973068526260143D;
             // 
             // xrTableCell49

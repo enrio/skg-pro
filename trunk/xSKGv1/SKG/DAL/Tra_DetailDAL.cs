@@ -1031,7 +1031,8 @@ namespace SKG.DAL
                            select new
                            {
                                g.Key,
-                               Th = g.Count() - g.Sum(p => p.Arrears ?? 0),
+                               Th = g.Count(),
+                               Tt = g.Sum(p => p.Arrears ?? 0),
                                Mg = g.Sum(p => p.Discount ?? 0)
                            };
 

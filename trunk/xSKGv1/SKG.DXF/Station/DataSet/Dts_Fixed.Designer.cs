@@ -1419,6 +1419,8 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnTransportCode;
             
+            private global::System.Data.DataColumn columnKh_So_Ghe;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AuditMonthDataTable() {
@@ -1606,6 +1608,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Kh_So_GheColumn {
+                get {
+                    return this.columnKh_So_Ghe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1646,11 +1656,11 @@ namespace SKG.DXF.Station.DataSet {
                         string Area, 
                         string Province, 
                         string Code, 
-                        string Kh_Ts_Ghe, 
-                        string Kh_Lx_Xuatben, 
-                        long Th_Ts_Ghe, 
-                        long Th_Lx_Xuatben, 
-                        long Th_Lk_Di, 
+                        int Kh_Ts_Ghe, 
+                        int Kh_Lx_Xuatben, 
+                        int Th_Ts_Ghe, 
+                        int Th_Lx_Xuatben, 
+                        int Th_Lk_Di, 
                         decimal Tile_Nottai, 
                         decimal Nottai_Hoatdong, 
                         int Kh_Soxe, 
@@ -1660,7 +1670,8 @@ namespace SKG.DXF.Station.DataSet {
                         string RegionCode, 
                         string AreaCode, 
                         string StationCode, 
-                        string TransportCode) {
+                        string TransportCode, 
+                        int Kh_So_Ghe) {
                 AuditMonthRow rowAuditMonthRow = ((AuditMonthRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Region,
@@ -1681,7 +1692,8 @@ namespace SKG.DXF.Station.DataSet {
                         RegionCode,
                         AreaCode,
                         StationCode,
-                        TransportCode};
+                        TransportCode,
+                        Kh_So_Ghe};
                 rowAuditMonthRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAuditMonthRow);
                 return rowAuditMonthRow;
@@ -1723,6 +1735,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnAreaCode = base.Columns["AreaCode"];
                 this.columnStationCode = base.Columns["StationCode"];
                 this.columnTransportCode = base.Columns["TransportCode"];
+                this.columnKh_So_Ghe = base.Columns["Kh_So_Ghe"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1736,15 +1749,15 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnProvince);
                 this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCode);
-                this.columnKh_Ts_Ghe = new global::System.Data.DataColumn("Kh_Ts_Ghe", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnKh_Ts_Ghe = new global::System.Data.DataColumn("Kh_Ts_Ghe", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKh_Ts_Ghe);
-                this.columnKh_Lx_Xuatben = new global::System.Data.DataColumn("Kh_Lx_Xuatben", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnKh_Lx_Xuatben = new global::System.Data.DataColumn("Kh_Lx_Xuatben", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKh_Lx_Xuatben);
-                this.columnTh_Ts_Ghe = new global::System.Data.DataColumn("Th_Ts_Ghe", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnTh_Ts_Ghe = new global::System.Data.DataColumn("Th_Ts_Ghe", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTh_Ts_Ghe);
-                this.columnTh_Lx_Xuatben = new global::System.Data.DataColumn("Th_Lx_Xuatben", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnTh_Lx_Xuatben = new global::System.Data.DataColumn("Th_Lx_Xuatben", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTh_Lx_Xuatben);
-                this.columnTh_Lk_Di = new global::System.Data.DataColumn("Th_Lk_Di", typeof(long), null, global::System.Data.MappingType.Element);
+                this.columnTh_Lk_Di = new global::System.Data.DataColumn("Th_Lk_Di", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTh_Lk_Di);
                 this.columnTile_Nottai = new global::System.Data.DataColumn("Tile_Nottai", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTile_Nottai);
@@ -1766,6 +1779,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnStationCode);
                 this.columnTransportCode = new global::System.Data.DataColumn("TransportCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransportCode);
+                this.columnKh_So_Ghe = new global::System.Data.DataColumn("Kh_So_Ghe", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKh_So_Ghe);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4020,10 +4035,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Kh_Ts_Ghe {
+            public int Kh_Ts_Ghe {
                 get {
                     try {
-                        return ((string)(this[this.tableAuditMonth.Kh_Ts_GheColumn]));
+                        return ((int)(this[this.tableAuditMonth.Kh_Ts_GheColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Kh_Ts_Ghe\' in table \'AuditMonth\' is DBNull.", e);
@@ -4036,10 +4051,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Kh_Lx_Xuatben {
+            public int Kh_Lx_Xuatben {
                 get {
                     try {
-                        return ((string)(this[this.tableAuditMonth.Kh_Lx_XuatbenColumn]));
+                        return ((int)(this[this.tableAuditMonth.Kh_Lx_XuatbenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Kh_Lx_Xuatben\' in table \'AuditMonth\' is DBNull.", e);
@@ -4052,10 +4067,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long Th_Ts_Ghe {
+            public int Th_Ts_Ghe {
                 get {
                     try {
-                        return ((long)(this[this.tableAuditMonth.Th_Ts_GheColumn]));
+                        return ((int)(this[this.tableAuditMonth.Th_Ts_GheColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Th_Ts_Ghe\' in table \'AuditMonth\' is DBNull.", e);
@@ -4068,10 +4083,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long Th_Lx_Xuatben {
+            public int Th_Lx_Xuatben {
                 get {
                     try {
-                        return ((long)(this[this.tableAuditMonth.Th_Lx_XuatbenColumn]));
+                        return ((int)(this[this.tableAuditMonth.Th_Lx_XuatbenColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Th_Lx_Xuatben\' in table \'AuditMonth\' is DBNull.", e);
@@ -4084,10 +4099,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long Th_Lk_Di {
+            public int Th_Lk_Di {
                 get {
                     try {
-                        return ((long)(this[this.tableAuditMonth.Th_Lk_DiColumn]));
+                        return ((int)(this[this.tableAuditMonth.Th_Lk_DiColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Th_Lk_Di\' in table \'AuditMonth\' is DBNull.", e);
@@ -4255,6 +4270,22 @@ namespace SKG.DXF.Station.DataSet {
                 }
                 set {
                     this[this.tableAuditMonth.TransportCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Kh_So_Ghe {
+                get {
+                    try {
+                        return ((int)(this[this.tableAuditMonth.Kh_So_GheColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kh_So_Ghe\' in table \'AuditMonth\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAuditMonth.Kh_So_GheColumn] = value;
                 }
             }
             
@@ -4484,6 +4515,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTransportCodeNull() {
                 this[this.tableAuditMonth.TransportCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKh_So_GheNull() {
+                return this.IsNull(this.tableAuditMonth.Kh_So_GheColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKh_So_GheNull() {
+                this[this.tableAuditMonth.Kh_So_GheColumn] = global::System.Convert.DBNull;
             }
         }
         

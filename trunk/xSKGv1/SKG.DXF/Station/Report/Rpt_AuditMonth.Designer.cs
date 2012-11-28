@@ -285,7 +285,7 @@
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Ts_Ghe", "{0:#,0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_So_Ghe", "{0:#,0}")});
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "xrTableCell9";

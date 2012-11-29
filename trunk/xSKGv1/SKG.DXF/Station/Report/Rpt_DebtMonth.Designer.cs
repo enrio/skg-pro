@@ -874,7 +874,7 @@
             this.xrcTransport.Summary = xrSummary14;
             this.xrcTransport.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrcTransport.Weight = 1.3760916369584986D;
-            this.xrcTransport.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcTransport_BeforePrint);
+            
             // 
             // xrcTariff
             // 

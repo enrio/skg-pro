@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Normal
                     Code = txtCode.Text,
 
                     Text = txtName.Text,
-                    Note = txtCode.Text,
+                    Note = txtDescript.Text,
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value

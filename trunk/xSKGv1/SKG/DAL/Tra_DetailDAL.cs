@@ -861,10 +861,10 @@ namespace SKG.DAL
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
                                Parked = g.Sum(p => p.Parked),
-                               Totals = g.Sum(p => p.Totals),
 
                                Arrears = g.Sum(p => p.Arrears),
                                ArrearsMoney = g.Sum(p => p.ArrearsMoney),
+                               Totals = g.Sum(p => p.Totals) + g.Sum(p => p.ArrearsMoney),
 
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100

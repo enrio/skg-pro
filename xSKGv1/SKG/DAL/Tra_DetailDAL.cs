@@ -788,10 +788,10 @@ namespace SKG.DAL
                                g.Key.Hoadon,
 
                                Count = g.Count(),
-                               Arrears = g.Sum(p => p.Arrears),
+                               Arrears = g.Sum(p => p.Arrears ?? 0),
 
-                               Seats = g.Sum(p => p.Vehicle.Seats) ?? 0,
-                               Beds = g.Sum(p => p.Vehicle.Beds) ?? 0,
+                               Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
+                               Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -819,8 +819,8 @@ namespace SKG.DAL
                                s.Rose,
                                s.Parked,
 
-                               ArrearsMoney = (s.Arrears ?? 0) * (s.Cost + s.Rose),
-                               Totals = (decimal)(s.Parked + s.Cost + s.Rose + ((s.Arrears ?? 0) * (s.Cost + s.Rose))),
+                               ArrearsMoney = s.Arrears * (s.Cost + s.Rose),
+                               Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,
                                Province = t.Group.Text,

@@ -18,6 +18,7 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Plugin;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraBars.Docking;
 
     /// <summary>
     /// Danh sách xe tạm ra bến
@@ -139,7 +140,7 @@ namespace SKG.DXF.Station.Manage
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel1.Visibility = DockVisibility.Hidden;
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 

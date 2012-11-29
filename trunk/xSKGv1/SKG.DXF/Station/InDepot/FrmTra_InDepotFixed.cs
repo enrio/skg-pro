@@ -18,6 +18,7 @@ namespace SKG.DXF.Station.InDepot
 {
     using SKG.Plugin;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraBars.Docking;
 
     /// <summary>
     /// Danh sách xe trong bến
@@ -139,7 +140,7 @@ namespace SKG.DXF.Station.InDepot
         {
             InitializeComponent();
 
-            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel1.Visibility = DockVisibility.Hidden;
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 

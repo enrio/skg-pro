@@ -1259,7 +1259,7 @@
             // xrTableCell5
             // 
             this.xrTableCell5.Name = "xrTableCell5";
-            this.xrTableCell5.Text = "12=(8+9)x11";
+            this.xrTableCell5.Text = "12";
             this.xrTableCell5.Weight = 0.78369915948368041D;
             // 
             // xrTableCell48

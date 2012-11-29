@@ -789,6 +789,7 @@ namespace SKG.DAL
 
                                Count = g.Count(),
                                Arrears = g.Sum(p => p.Arrears ?? 0),
+                               ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),
 
                                Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
@@ -818,8 +819,8 @@ namespace SKG.DAL
                                s.Cost,
                                s.Rose,
                                s.Parked,
+                               s.ArrearsMoney,
 
-                               ArrearsMoney = s.Arrears * (s.Cost + s.Rose),
                                Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,

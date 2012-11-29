@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <appinfo>
-  <version>1.0.1.2</version>
+  <version>1.0.1.3</version>
   <url>https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/</url>
   <installer>https://skg-pro.googlecode.com/svn/trunk/Update/xSKGv1/Update.zip</installer>
-  <date>28/11/2012</date>
+  <date>29/11/2012</date>
 </appinfo>

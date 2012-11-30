@@ -655,7 +655,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where s.Repair == true
+                          where (s.Repair == true || s.Show == false)
                           && s.Vehicle.Fixed == true
                           orderby s.DateIn descending, s.Vehicle.Code
                           select new

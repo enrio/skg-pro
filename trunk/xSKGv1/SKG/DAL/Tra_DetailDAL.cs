@@ -422,10 +422,12 @@ namespace SKG.DAL
         /// Charge money and exit vehicle out gate
         /// </summary>
         /// <param name="number">Number of vehicle</param>
-        /// <param name="isOut">True allow out gate else charge money</param>
-        /// <param name="dateOut">Out gate date time</param>
+        /// <param name="isOut">For out gate</param>
+        /// <param name="dateOut">Date out</param>
+        /// <param name="isRepair">Out gate to repair</param>
+        /// <param name="note">Note</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, string note1 = "", string note2 = "")
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool isRepair = true, string note = "")
         {
             try
             {
@@ -448,9 +450,18 @@ namespace SKG.DAL
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
                 if (ql && a.Vehicle.Fixed)
                 {
-                    a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
-                    a.Note = String.Format("{0}\n\r ({1})", note1, Global.Session.User.Name);
-                    a.Note += ";!;" + note2;
+                    a.Note = "ĐỘI ĐIỀU HÀNH: ";
+                    if (isRepair)
+                    {
+                        a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                        a.Note += "TẠM CHO XE RA BẾN";
+                    }
+                    else
+                    {
+                        a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
+                        a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
+                    }
+                    a.Note += String.Format("\n\r{0};!;{1}", Global.Session.User.Name, note);
                 }
 
                 if (isOut && !ql) // cho ra

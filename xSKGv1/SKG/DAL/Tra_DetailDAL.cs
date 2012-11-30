@@ -213,6 +213,25 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Delete not enough
+        /// </summary>
+        /// <param name="obj">Detail</param>
+        /// <returns></returns>
+        public object DeleteNotEnough(Guid id)
+        {
+            try
+            {
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == id);
+
+                res.Show = true;
+                res.Note = null;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Private methods

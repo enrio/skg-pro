@@ -18,7 +18,6 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Plugin;
     using DevExpress.XtraEditors;
-    using DevExpress.XtraBars.Docking;
 
     /// <summary>
     /// Danh sách xe tạm ra bến
@@ -82,29 +81,59 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformDelete()
         {
-            var tmpId = grvMainNotEnough.GetFocusedRowCellValue("Id");
-            if (tmpId == null)
+            if (dockManager1.ActivePanel == dockPanel1) // ds xe tạm ra bến
             {
-                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
-                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                var tmpId = grvMainTempOut.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var code = grvMainTempOut.GetFocusedRowCellValue("Code");
+                var dateIn = grvMainTempOut.GetFocusedRowCellValue("DateIn") + "";
+                dateIn = dateIn.Replace("AM", "SÁNG");
+                dateIn = dateIn.Replace("PM", "CHIỀU");
+                var id = (Guid)tmpId;
+
+                if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+                else
+                {
+                    var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
+                    var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
+
+                    if (oki == DialogResult.OK)
+                        if (_bll.Tra_Detail.DeleteTempOut(id) != null) PerformRefresh();
+                        else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                }
             }
-
-            var code = grvMainNotEnough.GetFocusedRowCellValue("Code");
-            var dateIn = grvMainNotEnough.GetFocusedRowCellValue("DateIn") + "";
-            dateIn = dateIn.Replace("AM", "SÁNG");
-            dateIn = dateIn.Replace("PM", "CHIỀU");
-            var id = (Guid)tmpId;
-
-            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
-            else
+            else // ds xe không đủ điều kiện
             {
-                var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
-                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
+                var tmpId = grvMainNotEnough.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                if (oki == DialogResult.OK)
-                    if (_bll.Tra_Detail.DeleteTempOut(id) != null) PerformRefresh();
-                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                var code = grvMainNotEnough.GetFocusedRowCellValue("Code");
+                var dateIn = grvMainNotEnough.GetFocusedRowCellValue("DateIn") + "";
+                dateIn = dateIn.Replace("AM", "SÁNG");
+                dateIn = dateIn.Replace("PM", "CHIỀU");
+                var id = (Guid)tmpId;
+
+                if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+                else
+                {
+                    var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
+                    var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
+
+                    if (oki == DialogResult.OK)
+                        if (_bll.Tra_Detail.DeleteNotEnough(id) != null) PerformRefresh();
+                        else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+                }
             }
 
             base.PerformDelete();
@@ -126,6 +155,7 @@ namespace SKG.DXF.Station.Manage
 
             dockPanel1.SetDockPanel(STR_PAN1);
             dockPanel2.SetDockPanel(STR_PAN2);
+
             grvMainNotEnough.SetStandard();
             grvMainTempOut.SetStandard();
 

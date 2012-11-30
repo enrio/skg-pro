@@ -112,8 +112,8 @@ namespace SKG.DXF.Station.Normal
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
                     }
-                    else XtraMessageBox.Show(STR_BG, STR_NORMAL,
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //else XtraMessageBox.Show(STR_BG, STR_NORMAL,
+                    //    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
 
                 case State.Edit:

@@ -1272,7 +1272,7 @@ namespace SKG.DAL
                                + (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
 
                                v.Code,
-                               Guest = s.Th_Guest
+                               Guest = s.Th_Guest == null ? 0 : s.Th_Guest
                            };
                 if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0);
                 return res2.ToDataTable();

@@ -508,6 +508,16 @@ namespace SKG.DAL
                     if (isOut) b.Repair = false;
                 }
 
+                // Tính tiền lưu đậu đêm lần trước (ra do xin ra ngoài sửa xe)
+                var c = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.Show == false && k.Id != a.Id);
+                if (c != null)
+                {
+                    a.Cost = 0;
+                    a.Rose = 0;
+                    a.Money = 0;
+                    if (isOut) b.Show = true;
+                }
+
                 if (ql && a.Vehicle.Fixed)
                 {
                     a.Note = "ĐỘI ĐIỀU HÀNH: ";

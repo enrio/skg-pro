@@ -813,6 +813,8 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.Money != s.Parked
+                           && s.Show == true
+                           && s.Money != 0
                            group s by new
                            {
                                s.Vehicle.Tariff.Code,

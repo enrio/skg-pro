@@ -432,8 +432,11 @@ namespace SKG.DAL
             try
             {
                 int m, y;
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+
                 _db = new Context();
                 var a = _db.Tra_Details.SingleOrDefault(k => k.Vehicle.Code == number && k.UserOutId == null);
+
                 if (dateOut == null)
                 {
                     a.DateOut = Global.Session.Current;
@@ -445,23 +448,6 @@ namespace SKG.DAL
                     a.DateOut = dateOut;
                     m = dateOut.Value.Month;
                     y = dateOut.Value.Year;
-                }
-
-                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (ql && a.Vehicle.Fixed)
-                {
-                    a.Note = "ĐỘI ĐIỀU HÀNH: ";
-                    if (isRepair)
-                    {
-                        a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
-                        a.Note += "TẠM CHO XE RA BẾN";
-                    }
-                    else
-                    {
-                        a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
-                        a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
-                    }
-                    a.Note += String.Format("\n\r({0});!;{1}", Global.Session.User.Name, note);
                 }
 
                 if (isOut && !ql) // cho ra
@@ -522,20 +508,28 @@ namespace SKG.DAL
                     if (isOut) b.Repair = false;
                 }
 
-                // Xe ra ngoài sửa không tính tiền phí, hoa hồng; chỉ tính tiền lưu đậu đêm
-                if (a.Repair)
+                if (ql && a.Vehicle.Fixed)
                 {
-                    a.Cost = 0;
-                    a.Rose = 0;
-                    a.Money = a.Parked;
-                }
+                    a.Note = "ĐỘI ĐIỀU HÀNH: ";
+                    if (isRepair)
+                    {
+                        a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                        a.Note += "TẠM CHO XE RA BẾN";
 
-                // Xe không đủ điều kiện, cho ra bến - không thu tiền
-                if (!a.Show)
-                {
-                    a.Cost = 0;
-                    a.Rose = 0;
-                    a.Money = 0;
+                        a.Cost = 0;
+                        a.Rose = 0;
+                        a.Money = a.Parked;
+                    }
+                    else
+                    {
+                        a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
+                        a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
+
+                        a.Cost = 0;
+                        a.Rose = 0;
+                        a.Money = 0;
+                    }
+                    a.Note += String.Format("\n\r({0});!;{1}", Global.Session.User.Name, note);
                 }
 
                 _db.SaveChanges();

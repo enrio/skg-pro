@@ -203,7 +203,8 @@ namespace SKG.DXF.Station.Manage
                 {
                     PerformRefresh();
 
-                    if (_isFixed && !detail.Repair) // in phiếu thu xe cố định
+                    // Xe cố định, không đi sửa, xe đủ điều kiện
+                    if (_isFixed && !detail.Repair && detail.Show) // in phiếu thu xe cố định
                     {
                         var rpt = new Report.Rpt_Receipt();
                         var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();

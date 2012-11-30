@@ -94,7 +94,7 @@ namespace SKG.DXF.Station.Manage
             lblTotal.Text = null;
             lblMoney.Text = null;
             lblArrears.Text = null;
-            
+
             txtNote.Text = null;
 
             base.ResetInput();
@@ -134,12 +134,12 @@ namespace SKG.DXF.Station.Manage
         /// Tính tiền và cho xe ra bến
         /// </summary>
         /// <param name="isOut">Cho xe ra</param>
-        private void Invoice(bool isOut = false, string note = "")
+        private void Invoice(bool isOut = false, bool isRepair = true)
         {
             try
             {
                 if (lkeNumber.Text == "") return;
-                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, note, txtNote.Text);
+                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, isRepair, txtNote.Text);
                 _isFixed = detail.Vehicle.Fixed;
 
                 if (_isFixed)
@@ -443,7 +443,7 @@ namespace SKG.DXF.Station.Manage
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (ok == DialogResult.No) return;
 
-            Invoice(false, "ĐỘI ĐIỀU HÀNH: TẠM CHO XE RA BẾN");
+            Invoice(false, true);
         }
 
         private void cmdNotEnough_Click(object sender, EventArgs e)
@@ -452,7 +452,7 @@ namespace SKG.DXF.Station.Manage
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (ok == DialogResult.No) return;
 
-            Invoice(false, "ĐỘI ĐIỀU HÀNH: XE KHÔNG ĐỦ ĐIỀU KIỆN");
+            Invoice(false, false);
         }
         #endregion
 

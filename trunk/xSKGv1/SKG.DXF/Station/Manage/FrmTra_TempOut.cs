@@ -83,7 +83,7 @@ namespace SKG.DXF.Station.Manage
         {
             if (dockManager1.ActivePanel == dockPanel1) // ds xe tạm ra bến
             {
-                var tmpId = grvMainTempOut.GetFocusedRowCellValue("Id");
+                var tmpId = grvTempOut.GetFocusedRowCellValue("Id");
                 if (tmpId == null)
                 {
                     XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
@@ -91,8 +91,8 @@ namespace SKG.DXF.Station.Manage
                     return;
                 }
 
-                var code = grvMainTempOut.GetFocusedRowCellValue("Code");
-                var dateIn = grvMainTempOut.GetFocusedRowCellValue("DateIn") + "";
+                var code = grvTempOut.GetFocusedRowCellValue("Code");
+                var dateIn = grvTempOut.GetFocusedRowCellValue("DateIn") + "";
                 dateIn = dateIn.Replace("AM", "SÁNG");
                 dateIn = dateIn.Replace("PM", "CHIỀU");
                 var id = (Guid)tmpId;
@@ -110,7 +110,7 @@ namespace SKG.DXF.Station.Manage
             }
             else // ds xe không đủ điều kiện
             {
-                var tmpId = grvMainNotEnough.GetFocusedRowCellValue("Id");
+                var tmpId = grvNotEnough.GetFocusedRowCellValue("Id");
                 if (tmpId == null)
                 {
                     XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
@@ -118,8 +118,8 @@ namespace SKG.DXF.Station.Manage
                     return;
                 }
 
-                var code = grvMainNotEnough.GetFocusedRowCellValue("Code");
-                var dateIn = grvMainNotEnough.GetFocusedRowCellValue("DateIn") + "";
+                var code = grvNotEnough.GetFocusedRowCellValue("Code");
+                var dateIn = grvNotEnough.GetFocusedRowCellValue("DateIn") + "";
                 dateIn = dateIn.Replace("AM", "SÁNG");
                 dateIn = dateIn.Replace("PM", "CHIỀU");
                 var id = (Guid)tmpId;
@@ -141,8 +141,8 @@ namespace SKG.DXF.Station.Manage
 
         protected override void LoadData()
         {
-            grcMainNotEnough.DataSource = _bll.Tra_Detail.GetNotEnought();
-            grcMainTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
+            grcNotEnough.DataSource = _bll.Tra_Detail.GetNotEnought();
+            grcTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
 
             base.LoadData();
         }
@@ -156,8 +156,8 @@ namespace SKG.DXF.Station.Manage
             dockPanel1.SetDockPanel(STR_PAN1);
             dockPanel2.SetDockPanel(STR_PAN2);
 
-            grvMainNotEnough.SetStandard();
-            grvMainTempOut.SetStandard();
+            grvNotEnough.SetStandard();
+            grvTempOut.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;
@@ -173,25 +173,7 @@ namespace SKG.DXF.Station.Manage
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void grvMainTempOut_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMainNotEnough_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator)
             {

@@ -530,6 +530,14 @@ namespace SKG.DAL
                     a.Money = a.Parked;
                 }
 
+                // Xe không đủ điều kiện, cho ra bến - không thu tiền
+                if (!a.Show)
+                {
+                    a.Cost = 0;
+                    a.Rose = 0;
+                    a.Money = 0;
+                }
+
                 _db.SaveChanges();
                 return a;
             }

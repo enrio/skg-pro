@@ -461,7 +461,7 @@ namespace SKG.DAL
                         a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
                         a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
                     }
-                    a.Note += String.Format("\n\r{0};!;{1}", Global.Session.User.Name, note);
+                    a.Note += String.Format("\n\r({0});!;{1}", Global.Session.User.Name, note);
                 }
 
                 if (isOut && !ql) // cho ra

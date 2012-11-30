@@ -457,11 +457,13 @@ namespace SKG.DAL
                     if (isRepair)
                     {
                         a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                        a.Show = true;
                         a.Note += "TẠM CHO XE RA BẾN";
                     }
                     else
                     {
                         a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
+                        a.Repair = false;
                         a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
                     }
                     a.Note += String.Format("\n\r({0});!;{1}", Global.Session.User.Name, note);

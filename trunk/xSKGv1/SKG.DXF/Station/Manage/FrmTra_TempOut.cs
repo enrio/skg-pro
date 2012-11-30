@@ -82,7 +82,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void PerformDelete()
         {
-            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMainNotEnough.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
                 XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
@@ -90,8 +90,8 @@ namespace SKG.DXF.Station.Manage
                 return;
             }
 
-            var code = grvMain.GetFocusedRowCellValue("Code");
-            var dateIn = grvMain.GetFocusedRowCellValue("DateIn") + "";
+            var code = grvMainNotEnough.GetFocusedRowCellValue("Code");
+            var dateIn = grvMainNotEnough.GetFocusedRowCellValue("DateIn") + "";
             dateIn = dateIn.Replace("AM", "SÁNG");
             dateIn = dateIn.Replace("PM", "CHIỀU");
             var id = (Guid)tmpId;
@@ -112,26 +112,10 @@ namespace SKG.DXF.Station.Manage
 
         protected override void LoadData()
         {
-
-            var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
-            _dtb = _bll.Tra_Detail.GetTempOut(n);
-
-            Text = String.Format("Tổng số xe tạm ra bến bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
-            lblSum.Text = Text;
-
-            grcMain.DataSource = _dtb;
-            gridColumn2.BestFit(); // fit column STT
-            gridColumn3.BestFit(); // fit column BSX
-            gridColumn4.BestFit(); // fit column Chairs
+            grcMainNotEnough.DataSource = _bll.Tra_Detail.GetNotEnought();
+            grcMainTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
 
             base.LoadData();
-        }
-
-        protected override void PerformFind()
-        {
-            LoadData();
-
-            base.PerformFind();
         }
         #endregion
 
@@ -140,9 +124,9 @@ namespace SKG.DXF.Station.Manage
         {
             InitializeComponent();
 
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetStandard();
+            dockPanel1.SetDockPanel(STR_PAN1);
+            dockPanel2.SetDockPanel(STR_PAN2);
+            grvMainNotEnough.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;
@@ -158,7 +142,7 @@ namespace SKG.DXF.Station.Manage
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        private void grvMainTempOut_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
             if (e.Info.IsRowIndicator)
             {
@@ -171,9 +155,22 @@ namespace SKG.DXF.Station.Manage
             }
         }
 
-        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
+        /// <summary>
+        /// Numbered
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void grvMainNotEnough_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) PerformFind();
+            if (e.Info.IsRowIndicator)
+            {
+                if (e.RowHandle < 0)
+                {
+                    return;
+                }
+                e.Info.DisplayText = "" + (e.RowHandle + 1);
+                e.Handled = false;
+            }
         }
 
         private void FrmTra_InDepot_Activated(object sender, EventArgs e)
@@ -189,6 +186,9 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Constants
+        private const string STR_PAN1 = "XE TẠM RA BẾN";
+        private const string STR_PAN2 = "XE K.ĐỦ Đ.KIỆN";
+
         private const string STR_TITLE = "Ds xe tạm ra bến";
         private const string STR_DELETE = "Xoá xe";
 

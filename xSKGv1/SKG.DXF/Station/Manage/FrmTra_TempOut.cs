@@ -127,6 +127,7 @@ namespace SKG.DXF.Station.Manage
             dockPanel1.SetDockPanel(STR_PAN1);
             dockPanel2.SetDockPanel(STR_PAN2);
             grvMainNotEnough.SetStandard();
+            grvMainTempOut.SetStandard();
 
             AllowAdd = false;
             AllowEdit = false;

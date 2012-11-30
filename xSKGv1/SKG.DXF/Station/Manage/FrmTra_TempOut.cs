@@ -141,7 +141,7 @@ namespace SKG.DXF.Station.Manage
 
         protected override void LoadData()
         {
-            grcNotEnough.DataSource = _bll.Tra_Detail.GetNotEnought();
+            grcNotEnough.DataSource = _bll.Tra_Detail.GetNotEnough();
             grcTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
 
             base.LoadData();

@@ -669,12 +669,13 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="number">Number of vehicle</param>
         /// <returns></returns>
-        public DataTable GetNotEnought(string number = null)
+        public DataTable GetNotEnough(string number = null)
         {
             try
             {
                 var res = from s in _db.Tra_Details
                           where s.Show == false
+                          && s.UserOutId == null
                           && s.Vehicle.Fixed == true
                           orderby s.DateIn descending, s.Vehicle.Code
                           select new
@@ -728,6 +729,7 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Details
                           where s.Repair == true
+                          && s.UserOutId == null
                           && s.Vehicle.Fixed == true
                           orderby s.DateIn descending, s.Vehicle.Code
                           select new

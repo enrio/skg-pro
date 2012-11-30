@@ -646,6 +646,59 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// List all of vehicle fixed not enough
+        /// </summary>
+        /// <param name="number">Number of vehicle</param>
+        /// <returns></returns>
+        public DataTable GetNotEnought(string number = null)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.Show == false
+                          && s.Vehicle.Fixed == true
+                          orderby s.DateIn descending, s.Vehicle.Code
+                          select new
+                          {
+                              s.Id,
+                              s.Note,
+
+                              s.UserIn.Phone,
+                              UserIn = s.UserIn.Name,
+                              s.UserInId,
+                              UserOut = s.UserOut.Name,
+
+                              s.DateIn,
+                              s.DateOut,
+
+                              s.Vehicle.Code,
+                              s.Vehicle.Seats,
+                              s.Vehicle.Beds,
+
+                              s.Guest,
+                              s.Vehicle.Node,
+
+                              Tariff = s.Vehicle.Tariff.Text,
+                              Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
+                              Group = s.Vehicle.Tariff.Group.Text,
+
+                              s.Price1,
+                              s.Price2,
+                              s.Rose1,
+                              s.Rose2,
+                              //s.Money,
+                              s.Parked,
+
+                              s.Vehicle.Fixed,
+                              GroupCode = s.Vehicle.Tariff.Group.Code
+                          };
+                if (number != null) res = res.Where(p => p.Code == number);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// List all of vehicle fixed temp out gate
         /// </summary>
         /// <param name="number">Number of vehicle</param>
@@ -655,7 +708,7 @@ namespace SKG.DAL
             try
             {
                 var res = from s in _db.Tra_Details
-                          where (s.Repair == true || s.Show == false)
+                          where s.Repair == true
                           && s.Vehicle.Fixed == true
                           orderby s.DateIn descending, s.Vehicle.Code
                           select new

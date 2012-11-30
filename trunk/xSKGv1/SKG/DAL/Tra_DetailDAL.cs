@@ -533,6 +533,7 @@ namespace SKG.DAL
                 {
                     a.Cost = 0;
                     a.Rose = 0;
+                    a.Parked = 0;
                     a.Money = 0;
                     if (isOut) b.Show = true;
                 }
@@ -550,6 +551,7 @@ namespace SKG.DAL
                 {
                     a.Cost = 0;
                     a.Rose = 0;
+                    a.Parked = 0;
                     a.Money = 0;
                 }
 

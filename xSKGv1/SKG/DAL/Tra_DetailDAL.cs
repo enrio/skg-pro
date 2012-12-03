@@ -881,6 +881,7 @@ namespace SKG.DAL
                     max.Order, max.DateOut.Value.Month);
                 #endregion
 
+                #region Without order
                 var res1 = from s in _db.Tra_Details
                            where s.UserOutId != null
                            && s.DateOut >= fr && s.DateOut <= to
@@ -889,17 +890,13 @@ namespace SKG.DAL
                            && s.Money != s.Parked
                            && s.Show == true
                            && s.Money != 0
-                           group s by new
-                           {
-                               s.Vehicle.Tariff.Code,
-                               Hoadon = s.Vehicle.Transport.Note == null ? "A" : "B"
-                           } into g
+                           && s.Vehicle.Transport.Note == null
+                           group s by s.Vehicle.Tariff.Code into g
                            select new
                            {
-                               g.Key.Code,
-                               g.Key.Hoadon,
-
+                               g.Key,
                                Count = g.Count(),
+
                                Arrears = g.Sum(p => p.Arrears ?? 0),
                                ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),
 
@@ -912,11 +909,10 @@ namespace SKG.DAL
                            };
 
                 var res2 = from s in res1
-                           join t in _db.Tra_Tariffs on s.Code equals t.Code
+                           join t in _db.Tra_Tariffs on s.Key equals t.Code
                            select new
                            {
-                               s.Code,
-                               s.Hoadon,
+                               s.Key,
                                s.Count,
 
                                s.Seats,
@@ -944,7 +940,6 @@ namespace SKG.DAL
                 var res3 = from s in res2
                            group s by new
                            {
-                               s.Hoadon,
                                s.Province,
                                s.Area,
                                s.Region,
@@ -956,7 +951,7 @@ namespace SKG.DAL
                            } into g
                            select new
                            {
-                               g.Key.Hoadon,
+                               Hoadon = "A",
                                g.Key.Region,
                                g.Key.Area,
                                g.Key.Province,
@@ -981,6 +976,105 @@ namespace SKG.DAL
                                Vat = g.Sum(p => p.Totals) * 10 / 100,
                                Sales = g.Sum(p => p.Totals) * 90 / 100
                            };
+                #endregion
+
+                #region With order
+                var ares1 = from s in _db.Tra_Details
+                            where s.UserOutId != null
+                            && s.DateOut >= fr && s.DateOut <= to
+                            && s.Vehicle.Fixed == true
+                            && s.Repair == false
+                            && s.Money != s.Parked
+                            && s.Show == true
+                            && s.Money != 0
+                            && s.Vehicle.Transport.Note == null
+                            group s by s.Vehicle.Tariff.Code into g
+                            select new
+                            {
+                                g.Key,
+                                Count = g.Count(),
+
+                                Arrears = g.Sum(p => p.Arrears ?? 0),
+                                ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),
+
+                                Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
+                                Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
+
+                                Cost = g.Sum(p => p.Cost),
+                                Rose = g.Sum(p => p.Rose),
+                                Parked = g.Sum(p => p.Parked)
+                            };
+
+                var ares2 = from s in ares1
+                            join t in _db.Tra_Tariffs on s.Key equals t.Code
+                            select new
+                            {
+                                s.Key,
+                                s.Count,
+
+                                s.Seats,
+                                s.Beds,
+                                s.Arrears,
+
+                                t.Rose1,
+                                t.Rose2,
+                                t.Price1,
+                                t.Price2,
+
+                                s.Cost,
+                                s.Rose,
+                                s.Parked,
+                                s.ArrearsMoney,
+
+                                Totals = s.Parked + s.Cost + s.Rose,
+
+                                Station = t.Text,
+                                Province = t.Group.Text,
+                                Area = t.Group.Parent.Text,
+                                Region = t.Group.Parent.Parent.Text
+                            };
+
+                var ares3 = from s in ares2
+                            group s by new
+                            {
+                                s.Province,
+                                s.Area,
+                                s.Region,
+
+                                s.Rose1,
+                                s.Rose2,
+                                s.Price1,
+                                s.Price2,
+                            } into g
+                            select new
+                            {
+                                Hoadon = "B",
+                                g.Key.Region,
+                                g.Key.Area,
+                                g.Key.Province,
+
+                                g.Key.Rose1,
+                                g.Key.Rose2,
+                                g.Key.Price1,
+                                g.Key.Price2,
+
+                                Count = g.Sum(p => p.Count),
+                                Seats = g.Sum(p => p.Seats),
+                                Beds = g.Sum(p => p.Beds),
+
+                                Cost = g.Sum(p => p.Cost),
+                                Rose = g.Sum(p => p.Rose),
+                                Parked = g.Sum(p => p.Parked),
+
+                                Arrears = g.Sum(p => p.Arrears),
+                                ArrearsMoney = g.Sum(p => p.ArrearsMoney),
+                                Totals = g.Sum(p => p.Totals) + g.Sum(p => p.ArrearsMoney),
+
+                                Vat = g.Sum(p => p.Totals) * 10 / 100,
+                                Sales = g.Sum(p => p.Totals) * 90 / 100
+                            };
+                #endregion
+
                 sum = res3.Sum(k => k.Totals);
                 return res3.ToDataTable();
             }

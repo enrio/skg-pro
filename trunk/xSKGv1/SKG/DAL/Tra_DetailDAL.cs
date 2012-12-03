@@ -987,8 +987,12 @@ namespace SKG.DAL
                             && s.Money != s.Parked
                             && s.Show == true
                             && s.Money != 0
-                            && s.Vehicle.Transport.Note == null
-                            group s by s.Vehicle.Tariff.Code into g
+                            && s.Vehicle.Transport.Note != null
+                            group s by new
+                            {
+                                s.Vehicle.Tariff.Code,
+                                s.Vehicle.Transport.Text
+                            } into g
                             select new
                             {
                                 g.Key,
@@ -1006,10 +1010,10 @@ namespace SKG.DAL
                             };
 
                 var ares2 = from s in ares1
-                            join t in _db.Tra_Tariffs on s.Key equals t.Code
+                            join t in _db.Tra_Tariffs on s.Key.Code equals t.Code
                             select new
                             {
-                                s.Key,
+                                s.Key.Code,
                                 s.Count,
 
                                 s.Seats,
@@ -1029,7 +1033,7 @@ namespace SKG.DAL
                                 Totals = s.Parked + s.Cost + s.Rose,
 
                                 Station = t.Text,
-                                Province = t.Group.Text,
+                                Province = s.Key.Text,
                                 Area = t.Group.Parent.Text,
                                 Region = t.Group.Parent.Parent.Text
                             };
@@ -1075,8 +1079,9 @@ namespace SKG.DAL
                             };
                 #endregion
 
-                sum = res3.Sum(k => k.Totals);
-                return res3.ToDataTable();
+                var res = res3.Union(ares3);
+                sum = res.Sum(k => k.Totals);
+                return res.ToDataTable();
             }
             catch
             {

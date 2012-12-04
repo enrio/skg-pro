@@ -227,6 +227,7 @@ namespace SKG.DAL
 
                 res.Show = true;
                 res.Note = null;
+                res.UserOutId = null;
 
                 return _db.SaveChanges();
             }
@@ -484,6 +485,9 @@ namespace SKG.DAL
                         a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
                         a.Repair = false;
                         a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
+
+                        // Người cho ra
+                        a.UserOutId = Global.Session.User.Id;
                     }
                     a.Note += String.Format("\n\r({0});!;{1}", Global.Session.User.Name, note);
                 }
@@ -673,9 +677,11 @@ namespace SKG.DAL
         {
             try
             {
+                _db = new Context();
+
                 var res = from s in _db.Tra_Details
                           where s.Show == false
-                          && s.UserOutId == null
+                          && s.UserOutId != null
                           && s.Vehicle.Fixed == true
                           orderby s.DateIn descending, s.Vehicle.Code
                           select new
@@ -699,14 +705,13 @@ namespace SKG.DAL
                               s.Vehicle.Node,
 
                               Tariff = s.Vehicle.Tariff.Text,
-                              Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
+                              Transport = s.Vehicle.Transport.Text,
                               Group = s.Vehicle.Tariff.Group.Text,
 
                               s.Price1,
                               s.Price2,
                               s.Rose1,
                               s.Rose2,
-                              //s.Money,
                               s.Parked,
 
                               s.Vehicle.Fixed,
@@ -727,6 +732,8 @@ namespace SKG.DAL
         {
             try
             {
+                _db = new Context();
+
                 var res = from s in _db.Tra_Details
                           where s.Repair == true
                           && s.UserOutId == null
@@ -753,14 +760,13 @@ namespace SKG.DAL
                               s.Vehicle.Node,
 
                               Tariff = s.Vehicle.Tariff.Text,
-                              Transport = s.Vehicle.Transport == null ? "" : s.Vehicle.Transport.Text,
+                              Transport = s.Vehicle.Transport.Text,
                               Group = s.Vehicle.Tariff.Group.Text,
 
                               s.Price1,
                               s.Price2,
                               s.Rose1,
                               s.Rose2,
-                              //s.Money,
                               s.Parked,
 
                               s.Vehicle.Fixed,

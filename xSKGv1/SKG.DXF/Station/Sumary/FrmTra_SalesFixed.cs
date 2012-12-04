@@ -117,9 +117,7 @@ namespace SKG.DXF.Station.Sumary
             _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, fr, to);
 
             grcMain.DataSource = _dtb;
-            gridColumn2.BestFit(); // fit column STT
-            gridColumn3.BestFit(); // fit column BSX
-            gridColumn13.BestFit(); // fit column Kind
+            grvMain.BestFitColumns();
 
             base.LoadData();
         }

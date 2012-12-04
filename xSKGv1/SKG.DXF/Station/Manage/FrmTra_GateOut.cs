@@ -226,7 +226,7 @@ namespace SKG.DXF.Station.Manage
                             detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
 
                         dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
-                            detail.Cost, detail.Rose, detail.Arrears);
+                            detail.Cost, detail.Rose, detail.Arrears ?? 0);
                         var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
                         dtr["Arrears"] = arrears;
                         dtr["Money"] = total;

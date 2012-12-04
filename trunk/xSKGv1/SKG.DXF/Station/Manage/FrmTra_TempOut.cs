@@ -144,6 +144,9 @@ namespace SKG.DXF.Station.Manage
             grcNotEnough.DataSource = _bll.Tra_Detail.GetNotEnough();
             grcTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
 
+            grvNotEnough.BestFitColumns();
+            grvTempOut.BestFitColumns();
+
             base.LoadData();
         }
         #endregion

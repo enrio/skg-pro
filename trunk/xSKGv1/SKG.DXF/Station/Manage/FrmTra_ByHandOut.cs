@@ -73,6 +73,9 @@ namespace SKG.DXF.Station.Manage
                 _tbNormal = ImportData(open.FileName, "Vanglai");
                 InvoiceOut(_tbNormal.Rows, false);
                 grcNormal.DataSource = _tbNormal;
+
+                grvFixed.BestFitColumns();
+                grvNormal.BestFitColumns();
             }
             catch (Exception ex)
             {

@@ -117,6 +117,7 @@ namespace SKG.DXF.Station.Manage
                     }
                 }
                 grcFixed.DataSource = _tbFixed;
+
                 #endregion
 
                 #region Normal
@@ -185,6 +186,9 @@ namespace SKG.DXF.Station.Manage
                 }
                 grcNormal.DataSource = _tbNormal;
                 #endregion
+
+                grvFixed.BestFitColumns();
+                grvNormal.BestFitColumns();
             }
             catch (Exception ex)
             {

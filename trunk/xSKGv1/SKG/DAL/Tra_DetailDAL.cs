@@ -831,8 +831,8 @@ namespace SKG.DAL
                               Arrears = (s.Arrears ?? 0) * (s.Cost + s.Rose),
                               s.UserOutId
                           };
-                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
+                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                //if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
@@ -1573,8 +1573,8 @@ namespace SKG.DAL
                               Tariff = s.Vehicle.Tariff.Text,
                               s.UserOutId
                           };
-                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
+                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+                //if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();

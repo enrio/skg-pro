@@ -173,16 +173,16 @@ namespace SKG.DXF.Station.Manage
                 lblDateIn.Text = detail.DateIn.ToString("dd/MM/yyyy HH:mm:ss");
                 lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yyyy HH:mm:ss");
 
-                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,#");
-                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,#");
+                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,0");
+                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,0");
 
-                lblPrice1.Text = detail.Price1.ToString("#,#");
-                lblRose1.Text = detail.Rose1.ToString("#,#");
+                lblPrice1.Text = detail.Price1.ToString("#,0");
+                lblRose1.Text = detail.Rose1.ToString("#,0");
 
-                lblPrice2.Text = detail.Price2.ToString("#,#");
-                lblRose2.Text = detail.Rose2.ToString("#,#");
+                lblPrice2.Text = detail.Price2.ToString("#,0");
+                lblRose2.Text = detail.Rose2.ToString("#,0");
                 lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
-                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,#đ"));
+                    + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,0đ"));
 
                 var total = detail.Money + ((detail.Cost + detail.Rose) * detail.Arrears ?? 0);
                 lblTotal.Text = total.ToString("PHẢI THU #,0đ");
@@ -220,9 +220,9 @@ namespace SKG.DXF.Station.Manage
 
                         var seat = detail.Seats ?? 0;
                         var bed = detail.Beds ?? 0;
-                        dtr["CostDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
+                        dtr["CostDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                             detail.Price1, seat, detail.Price2, bed);
-                        dtr["RoseDescript"] = String.Format("{0:#,#} x {1} + {2:#,#} x {3} = ",
+                        dtr["RoseDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                             detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
 
                         dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
@@ -359,7 +359,7 @@ namespace SKG.DXF.Station.Manage
             rpt.xrcLve4.Text = "30.000";
             rpt.xrcLve5.Text = "35.000";
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -395,7 +395,7 @@ namespace SKG.DXF.Station.Manage
             rpt.xrcLve4.Text = "15.000";
             rpt.xrcLve5.Text = "";
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -422,7 +422,7 @@ namespace SKG.DXF.Station.Manage
             rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum) };
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -454,6 +454,7 @@ namespace SKG.DXF.Station.Manage
             if (ok == DialogResult.No) return;
 
             Invoice(false, false);
+            PerformRefresh();
         }
         #endregion
 

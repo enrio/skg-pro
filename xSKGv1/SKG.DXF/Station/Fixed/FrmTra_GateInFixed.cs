@@ -249,6 +249,7 @@ namespace SKG.DXF.Station.Fixed
                 bbiDelete.Enabled = false;
             }
 
+            grvMain.BestFitColumns();
             base.LoadData();
         }
 

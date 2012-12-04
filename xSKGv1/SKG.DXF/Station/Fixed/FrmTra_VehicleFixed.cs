@@ -313,6 +313,7 @@ namespace SKG.DXF.Station.Fixed
                 gridColumn2.BestFit(); // fit column STT
             }
 
+            grvMain.BestFitColumns();
             base.LoadData();
         }
 

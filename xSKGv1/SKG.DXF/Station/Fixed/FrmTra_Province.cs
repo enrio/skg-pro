@@ -250,7 +250,7 @@ namespace SKG.DXF.Station.Fixed
             if (_dtb != null)
             {
                 grcMain.DataSource = _dtb;
-                gridColumn2.BestFit(); // fit column STT
+                grvMain.BestFitColumns();
             }
 
             base.LoadData();

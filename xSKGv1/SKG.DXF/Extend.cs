@@ -293,6 +293,8 @@ namespace SKG.DXF
             {
                 grv.Columns["No_"].Visible = false; // hide No_ column
                 grv.OptionsView.ShowAutoFilterRow = true;
+                grv.OptionsView.ColumnAutoWidth = false;
+
                 grv.OptionsBehavior.Editable = false;
                 grv.Appearance.BandPanel.Options.UseTextOptions = true;
                 grv.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
@@ -320,6 +322,8 @@ namespace SKG.DXF
                 grv.Columns["No_"].Visible = false; // hide No_ column
                 grv.OptionsView.ShowAutoFilterRow = true;
                 grv.OptionsBehavior.Editable = false;
+                grv.OptionsView.ColumnAutoWidth = false;
+
                 grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
                 grv.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
                 grv.IndicatorWidth = 50;

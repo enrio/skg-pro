@@ -265,6 +265,12 @@ namespace SKG.DAL
                 if (id != new Guid())
                 {
                     var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == id);
+                    if (res.Fixed == false) // xoá chi tiết xe trong bến của xe vãng lai
+                    {
+                        var tmp = _db.Tra_Details.Where(p => p.VehicleId == id && p.UserOutId == null).ToList();
+                        tmp.ForEach(s => _db.Tra_Details.Remove(s));
+                        if (tmp.Count > 0) _db.SaveChanges();
+                    }
                     _db.Tra_Vehicles.Remove(res);
                 }
                 else

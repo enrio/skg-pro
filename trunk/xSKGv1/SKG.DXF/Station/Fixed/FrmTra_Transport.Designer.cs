@@ -94,11 +94,11 @@
             // 
             // txtDescript
             // 
-            this.txtDescript.Location = new System.Drawing.Point(547, 7);
+            this.txtDescript.Location = new System.Drawing.Point(562, 7);
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(258, 26);
+            this.txtDescript.Size = new System.Drawing.Size(243, 26);
             this.txtDescript.TabIndex = 3;
             // 
             // labelControl3
@@ -106,9 +106,9 @@
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl3.Location = new System.Drawing.Point(496, 10);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(45, 19);
+            this.labelControl3.Size = new System.Drawing.Size(60, 19);
             this.labelControl3.TabIndex = 2;
-            this.labelControl3.Text = "Mô tả:";
+            this.labelControl3.Text = "Ghi chú:";
             // 
             // txtName
             // 

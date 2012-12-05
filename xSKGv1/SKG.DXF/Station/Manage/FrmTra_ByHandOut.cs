@@ -57,20 +57,13 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var open = new OpenFileDialog { Filter = "Excel file (XuatBT*.xls)|XuatBT*.xls" };
-                open.ShowDialog();
+                var file = Application.StartupPath + @"\Import\XuatBT.xls";
 
-                if (open.FileName == "" || !open.CheckFileExists)
-                {
-                    PerformCancel();
-                    return;
-                }
-
-                _tbFixed = ImportData(open.FileName, "Codinh");
+                _tbFixed = ImportData(file, "Codinh");
                 InvoiceOut(_tbFixed.Rows, false);
                 grcFixed.DataSource = _tbFixed;
 
-                _tbNormal = ImportData(open.FileName, "Vanglai");
+                _tbNormal = ImportData(file, "Vanglai");
                 InvoiceOut(_tbNormal.Rows, false);
                 grcNormal.DataSource = _tbNormal;
 
@@ -296,6 +289,11 @@ namespace SKG.DXF.Station.Manage
                 e.Info.DisplayText = "" + (e.RowHandle + 1);
                 e.Handled = false;
             }
+        }
+
+        private void FrmTra_ByHandOut_Load(object sender, EventArgs e)
+        {
+            PerformAdd();
         }
         #endregion
 

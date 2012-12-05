@@ -243,6 +243,9 @@ namespace SKG.DXF.Station.Manage
 
                 XtraMessageBox.Show(String.Format(STR_INTO, fix, normal), Text);
                 PerformCancel();
+
+                grvFixed.BestFitColumns();
+                grvNormal.BestFitColumns();
             }
             catch (Exception ex)
             {

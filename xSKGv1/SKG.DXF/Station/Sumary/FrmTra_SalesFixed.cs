@@ -184,7 +184,7 @@ namespace SKG.DXF.Station.Sumary
             var a = cbeQuater.SelectedIndex + 1;
             var b = Global.Session.Current.Year;
 
-            dteFrom.DateTime = b.ToStartOfQuarter(a);
+            dteFrom.DateTime = b.ToStartOfQuarter(a).AddDays(-1);
             dteTo.DateTime = b.ToEndOfQuarter(a);
         }
 
@@ -192,7 +192,7 @@ namespace SKG.DXF.Station.Sumary
         {
             var a = cbeMonth.SelectedIndex + 1;
             var b = Global.Session.Current.Year;
-            var c = b.ToStartOfMonth(a);
+            var c = b.ToStartOfMonth(a).AddDays(-1);
 
             cbeQuater.SelectedIndex = (int)c.ToQuarter() - 1;
             dteFrom.DateTime = c;

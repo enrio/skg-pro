@@ -58,15 +58,6 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                //var open = new OpenFileDialog { Filter = "Excel file (NhapBT*.xls)|NhapBT*.xls" };
-                //open.ShowDialog();
-
-                //if (open.FileName == "" || !open.CheckFileExists)
-                //{
-                //    PerformCancel();
-                //    return;
-                //}
-
                 var file = Application.StartupPath + @"\Import\NhapBT.xls";
 
                 #region Fixed

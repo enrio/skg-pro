@@ -80,7 +80,9 @@ namespace SKG.DAL
                               s.Name,
                               s.Birth,
                               s.Address,
-                              s.Phone
+                              s.Phone,
+                              s.Code,
+                              s.Note
                           };
                 if (obj != null) res = res.Where(s => s.Acc == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);

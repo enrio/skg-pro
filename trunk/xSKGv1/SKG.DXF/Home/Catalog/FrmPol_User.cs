@@ -136,6 +136,8 @@ namespace SKG.DXF.Home.Catalog
             dteBirth.DateTime = Global.Session.Current.ToBirth(18);
             txtAddress.Text = null;
             txtPhone.Text = null;
+            txtCode.Text = null;
+            txtNote.Text = null;
 
             base.ResetInput();
         }
@@ -148,6 +150,8 @@ namespace SKG.DXF.Home.Catalog
             dteBirth.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
             txtPhone.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
+            txtNote.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -160,6 +164,8 @@ namespace SKG.DXF.Home.Catalog
             dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
+            txtNote.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }
@@ -172,6 +178,8 @@ namespace SKG.DXF.Home.Catalog
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
             txtPhone.Properties.ReadOnly = isReadOnly;
+            txtCode.Properties.ReadOnly = isReadOnly;
+            txtNote.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -196,7 +204,9 @@ namespace SKG.DXF.Home.Catalog
                     Name = txtName.Text,
                     Birth = dteBirth.DateTime,
                     Phone = txtPhone.Text,
-                    Address = txtAddress.Text
+                    Address = txtAddress.Text,
+                    Code = txtCode.Text,
+                    Note = txtNote.Text
                 };
 
                 var oki = _bll.Pol_User.Update(o);
@@ -220,7 +230,9 @@ namespace SKG.DXF.Home.Catalog
                     Name = txtName.Text,
                     Birth = dteBirth.DateTime,
                     Phone = txtPhone.Text,
-                    Address = txtAddress.Text
+                    Address = txtAddress.Text,
+                    Code = txtCode.Text,
+                    Note = txtNote.Text
                 };
 
                 var oki = _bll.Pol_User.Insert(o);

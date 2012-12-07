@@ -250,9 +250,7 @@ namespace SKG.DXF.Home.Catalog
             if (_dtb != null)
             {
                 grcMain.DataSource = _dtb;
-                gridColumn2.BestFit(); // fit column STT
-                gridColumn6.BestFit(); // fit column Birth
-                gridColumn7.BestFit(); // fit column Phone
+                grvMain.BestFitColumns();
             }
 
             base.LoadData();

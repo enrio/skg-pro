@@ -243,7 +243,7 @@ namespace SKG.DXF.Station.Sumary
 
             var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
             var to = dteTo.DateTime.Date.AddHours(14);
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
 
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;

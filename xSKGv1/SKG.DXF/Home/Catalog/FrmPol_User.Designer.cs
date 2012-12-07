@@ -32,6 +32,10 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
+            this.lblNote = new DevExpress.XtraEditors.LabelControl();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
+            this.lblCode = new DevExpress.XtraEditors.LabelControl();
             this.lblInfo = new DevExpress.XtraEditors.LabelControl();
             this.txtPhone = new DevExpress.XtraEditors.TextEdit();
             this.dteBirth = new DevExpress.XtraEditors.DateEdit();
@@ -57,10 +61,14 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).BeginInit();
@@ -94,12 +102,16 @@
             this.dockPanel1.ID = new System.Guid("d306450a-b885-42ef-85c8-d967b5746b3f");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 104);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 104);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 134);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 134);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtNote);
+            this.dockPanel1_Container.Controls.Add(this.lblNote);
+            this.dockPanel1_Container.Controls.Add(this.txtCode);
+            this.dockPanel1_Container.Controls.Add(this.lblCode);
             this.dockPanel1_Container.Controls.Add(this.lblInfo);
             this.dockPanel1_Container.Controls.Add(this.txtPhone);
             this.dockPanel1_Container.Controls.Add(this.dteBirth);
@@ -115,8 +127,44 @@
             this.dockPanel1_Container.Controls.Add(this.lblName);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 77);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 107);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(467, 75);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(321, 26);
+            this.txtNote.TabIndex = 21;
+            // 
+            // lblNote
+            // 
+            this.lblNote.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.Location = new System.Drawing.Point(388, 78);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(59, 20);
+            this.lblNote.TabIndex = 22;
+            this.lblNote.Text = "Ghi chú:";
+            // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(198, 75);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Properties.Appearance.Options.UseFont = true;
+            this.txtCode.Size = new System.Drawing.Size(184, 26);
+            this.txtCode.TabIndex = 21;
+            // 
+            // lblCode
+            // 
+            this.lblCode.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCode.Location = new System.Drawing.Point(11, 78);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Size = new System.Drawing.Size(181, 20);
+            this.lblCode.TabIndex = 22;
+            this.lblCode.Text = "Số chứng minh nhân dân:";
             // 
             // lblInfo
             // 
@@ -247,10 +295,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("d1826eac-a686-4e64-aefb-34f98cb3cd45");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 167);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 197);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 399);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 369);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -258,7 +306,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 372);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 342);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -267,7 +315,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 372);
+            this.grcMain.Size = new System.Drawing.Size(943, 342);
             this.grcMain.TabIndex = 1;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -288,7 +336,9 @@
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
-            this.gridColumn8});
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
@@ -353,6 +403,22 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 5;
             // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "CMND";
+            this.gridColumn9.FieldName = "Code";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 6;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "Ghi chú";
+            this.gridColumn10.FieldName = "Note";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 7;
+            // 
             // FrmPol_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -368,6 +434,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteBirth.Properties)).EndInit();
@@ -413,5 +481,11 @@
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblName;
         private DevExpress.XtraEditors.LabelControl lblInfo;
+        private DevExpress.XtraEditors.TextEdit txtNote;
+        private DevExpress.XtraEditors.LabelControl lblNote;
+        private DevExpress.XtraEditors.TextEdit txtCode;
+        private DevExpress.XtraEditors.LabelControl lblCode;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
     }
 }

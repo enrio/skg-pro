@@ -178,7 +178,11 @@ namespace SKG.DAL.Entities
             var bed = Beds ?? 0;
 
             if (Vehicle.Tariff.Code == "A")
-                Money = Price1 * seat + Price2 * bed;
+            {
+                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 2, error, 0);
+                var spn = DateOut.Value - tmp;
+                Money = Price1 * seat + Price2 * bed + spn.Days * 20000;
+            }
             else Money += odd < 0.5 ? Price1 : Price2;
             return Money;
         }

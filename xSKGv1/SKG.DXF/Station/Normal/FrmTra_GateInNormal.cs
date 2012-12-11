@@ -72,7 +72,7 @@ namespace SKG.DXF.Station.Normal
             // Xử lí khi không phải là xe ba gác (xe biển số bắt đầu là BG là xe ba gác)
             if (!txtNumber.Text.ToUpper().Contains("BG"))
             {
-                var o = _bll.Tra_Vehicle.Select(txtNumber.Text, false);
+                var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
 
                 if (o == null)
                 {
@@ -87,7 +87,7 @@ namespace SKG.DXF.Station.Normal
                     frm.ShowDialog();
 
                     txtNumber.Text = frm.NumOut;
-                    o = _bll.Tra_Vehicle.Select(txtNumber.Text, false);
+                    o = _bll.Tra_Vehicle.Select(txtNumber.Text);
                 }
 
                 if (o == null) return;

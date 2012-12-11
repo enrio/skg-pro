@@ -68,7 +68,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformSave()
         {
             if (!ValidInput()) return;
-            var o = _bll.Tra_Vehicle.Select(txtNumber.Text, true);
+            var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
 
             if (o == null)
             {

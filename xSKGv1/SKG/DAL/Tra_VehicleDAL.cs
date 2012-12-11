@@ -111,7 +111,8 @@ namespace SKG.DAL
             {
                 var gui = new Guid();
                 var ok = Guid.TryParse(code, out gui);
-                if (ok) return _db.Tra_Vehicles.SingleOrDefault(s => s.Id == gui);
+                if (ok) return _db.Tra_Vehicles.FirstOrDefault(s => s.Id == gui);
+
                 if (code.ToUpper().Contains("BG"))
                 {
                     var res = from s in _db.Tra_Vehicles
@@ -121,7 +122,12 @@ namespace SKG.DAL
                               select s;
                     return res.FirstOrDefault();
                 }
-                return _db.Tra_Vehicles.SingleOrDefault(s => s.Code == code);
+
+                var tmp = from s in _db.Tra_Vehicles
+                          where s.Code == code
+                          orderby s.CreateDate descending
+                          select s;
+                return tmp.FirstOrDefault();
             }
             catch { return null; }
         }
@@ -227,7 +233,7 @@ namespace SKG.DAL
                 res.Seats = o.Seats;
                 res.Beds = o.Beds;
 
-                o.CreateDate = Global.Session.Current;
+                res.CreateDate = Global.Session.Current;
 
                 res.High = o.High;
                 res.City = o.City;
@@ -399,7 +405,7 @@ namespace SKG.DAL
         /// <param name="code">Biển số</param>
         /// <param name="isFixed">Loại xe</param>
         /// <returns></returns>
-        public object Select(string code, bool isFixed)
+        public Tra_Vehicle Select(string code, bool isFixed)
         {
             try
             {
@@ -415,7 +421,13 @@ namespace SKG.DAL
                               select s;
                     return res.FirstOrDefault();
                 }
-                return _db.Tra_Vehicles.FirstOrDefault(s => s.Code == code && s.Fixed == isFixed);
+
+                var tmp = from s in _db.Tra_Vehicles
+                          where s.Code == code
+                          && s.Fixed == isFixed
+                          orderby s.CreateDate descending
+                          select s;
+                return tmp.FirstOrDefault();
             }
             catch { return null; }
         }

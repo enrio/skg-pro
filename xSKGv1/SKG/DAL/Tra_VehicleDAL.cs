@@ -190,7 +190,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Vehicle)obj;
-                if (Select(o.Code) != null) return null; // number already exists
+                if (Select(o.Code, o.Fixed) != null) return null; // number already exists
 
                 o.Id = Guid.NewGuid();
                 o.CreatorId = Global.Session.User.Id;
@@ -218,7 +218,7 @@ namespace SKG.DAL
 
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
                 if (res.Code.ToUpper() != o.Code.ToUpper())
-                    if (Select(o.Code) != null) return null; // number already exists
+                    if (Select(o.Code, o.Fixed) != null) return null; // number already exists
 
                 res.Code = o.Code.ToUpper();
                 res.TransportId = o.TransportId;
@@ -389,6 +389,33 @@ namespace SKG.DAL
                 return res.ToDataTable();
             }
             catch { return _tb; }
+        }
+
+        /// <summary>
+        /// Tìm biển số xe
+        /// </summary>
+        /// <param name="code">Biển số</param>
+        /// <param name="isFixed">Loại xe</param>
+        /// <returns></returns>
+        public object Select(string code, bool isFixed)
+        {
+            try
+            {
+                var gui = new Guid();
+                var ok = Guid.TryParse(code, out gui);
+                if (ok) return _db.Tra_Vehicles.FirstOrDefault(s => s.Id == gui);
+                if (code.ToUpper().Contains("BG"))
+                {
+                    var res = from s in _db.Tra_Vehicles
+                              where !_db.Tra_Details.Any(p => p.VehicleId == s.Id && p.UserOutId == null)
+                              && s.Tariff.Code == "J"
+                              orderby s.Code
+                              select s;
+                    return res.FirstOrDefault();
+                }
+                return _db.Tra_Vehicles.FirstOrDefault(s => s.Code == code && s.Fixed == isFixed);
+            }
+            catch { return null; }
         }
     }
 }

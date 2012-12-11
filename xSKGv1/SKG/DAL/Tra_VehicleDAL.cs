@@ -391,7 +391,13 @@ namespace SKG.DAL
             catch { return _tb; }
         }
 
-        public Tra_Vehicle Select(string code, bool isFixed)
+        /// <summary>
+        /// Tìm biển số xe
+        /// </summary>
+        /// <param name="code">Biển số</param>
+        /// <param name="isFixed">Loại xe</param>
+        /// <returns></returns>
+        public object Select(string code, bool isFixed)
         {
             try
             {

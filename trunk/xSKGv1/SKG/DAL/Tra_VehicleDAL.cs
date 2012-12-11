@@ -190,7 +190,7 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Vehicle)obj;
-                if (Select(o.Code) != null) return null; // number already exists
+                if (Select(o.Code, o.Fixed) != null) return null; // number already exists
 
                 o.Id = Guid.NewGuid();
                 o.CreatorId = Global.Session.User.Id;
@@ -218,7 +218,7 @@ namespace SKG.DAL
 
                 var res = _db.Tra_Vehicles.SingleOrDefault(s => s.Id == o.Id);
                 if (res.Code.ToUpper() != o.Code.ToUpper())
-                    if (Select(o.Code) != null) return null; // number already exists
+                    if (Select(o.Code, o.Fixed) != null) return null; // number already exists
 
                 res.Code = o.Code.ToUpper();
                 res.TransportId = o.TransportId;

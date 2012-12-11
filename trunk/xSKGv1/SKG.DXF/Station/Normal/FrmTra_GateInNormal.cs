@@ -132,7 +132,7 @@ namespace SKG.DXF.Station.Normal
         {
             try
             {
-                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text, false);
+                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text);
 
                 if (id != new Guid())
                 {
@@ -140,7 +140,8 @@ namespace SKG.DXF.Station.Normal
                     {
                         UserInId = Global.Session.User.Id,
                         VehicleId = id,
-                        DateIn = Global.Session.Current
+                        DateIn = Global.Session.Current,
+                        Code = txtNumber.Text
                     };
 
                     if (_bll.Tra_Detail.Insert(o) != null) return true;

@@ -125,7 +125,7 @@ namespace SKG.DAL
                 var o = (Tra_Detail)obj;
 
                 var res = from s in _db.Tra_Details
-                          where s.UserOutId == null && s.VehicleId == o.VehicleId
+                          where s.UserOutId == null && s.Vehicle.Code == o.Code
                           select s;
                 if (res.Count() > 0) return null; // xe này còn ở trong bến
 

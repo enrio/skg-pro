@@ -68,7 +68,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformSave()
         {
             if (!ValidInput()) return;
-            var o = _bll.Tra_Vehicle.Select(txtNumber.Text, true);
+            var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
 
             if (o == null)
             {
@@ -119,7 +119,7 @@ namespace SKG.DXF.Station.Fixed
         {
             try
             {
-                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text, true);
+                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text);
 
                 if (id != new Guid())
                 {

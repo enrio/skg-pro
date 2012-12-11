@@ -16,11 +16,11 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="number">Biển số</param>
         /// <returns>Id xe</returns>
-        public Guid CheckExist(string number, bool isFixed)
+        public Guid CheckExist(string number)
         {
             try
             {
-                var res = Select(number, isFixed);
+                var res = Select(number);
                 return res == null ? new Guid() : ((Tra_Vehicle)res).Id;
             }
             catch { return new Guid(); }

@@ -36,56 +36,7 @@ namespace SKG.DAL.Entities
         [StringLength(256)]
         public string Code { set; get; }
         #endregion
-        /*
-        #region Foreign key
-        /// <summary>
-        /// Creator (refercence to Pol_User)
-        /// </summary>
-        [Column(Order = 3), ForeignKey("Creator")]
-        public Guid? CreatorId { set; get; }
-        /// <summary>
-        /// Creator
-        /// </summary>
-        public virtual Pol_User Creator { get; set; }
 
-        /// <summary>
-        /// Modifier (refercence to Pol_User)
-        /// </summary>
-        [Column(Order = 3), ForeignKey("Modifier")]
-        public Guid? ModifierId { set; get; }
-        /// <summary>
-        /// Creator
-        /// </summary>
-        public virtual Pol_User Modifier { get; set; }
-
-        /// <summary>
-        /// Deleter (refercence to Pol_User)
-        /// </summary>
-        [Column(Order = 3), ForeignKey("Deleter")]
-        public Guid? DeleterId { set; get; }
-        /// <summary>
-        /// Creator
-        /// </summary>
-        public virtual Pol_User Deleter { get; set; }
-        #endregion
-
-        #region Date action
-        /// <summary>
-        /// Created date
-        /// </summary>
-        public DateTime? CreatedDate { get; set; }
-
-        /// <summary>
-        /// Modified date
-        /// </summary>
-        public DateTime? ModifiedDate { get; set; }
-
-        /// <summary>
-        /// Deleted date
-        /// </summary>
-        public DateTime? DeletedDate { get; set; }
-        #endregion
-        */
         #region Default language
         /// <summary>
         /// Content is shown of default language

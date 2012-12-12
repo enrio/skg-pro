@@ -550,16 +550,16 @@ namespace SKG.DAL
                     if (isOut) b.Repair = false;
                 }
 
-                // Không tính tiền (xe không đủ điều kiện)
-                var c = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.Show == false && k.Id != a.Id);
-                if (c != null)
-                {
-                    a.Cost = 0;
-                    a.Rose = 0;
-                    a.Parked = 0;
-                    a.Money = 0;
-                    if (isOut) c.Show = true;
-                }
+                //// Không tính tiền (xe không đủ điều kiện)
+                //var c = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.Show == false && k.Id != a.Id);
+                //if (c != null)
+                //{
+                //    a.Cost = 0;
+                //    a.Rose = 0;
+                //    a.Parked = 0;
+                //    a.Money = 0;
+                //    if (isOut) c.Show = true;
+                //}
 
                 // Xe ra ngoài sửa không tính tiền phí, hoa hồng; chỉ tính tiền lưu đậu đêm
                 if (a.Repair)
@@ -569,14 +569,14 @@ namespace SKG.DAL
                     a.Money = a.Parked;
                 }
 
-                // Xe không đủ điều kiện, không tính tiền
-                if (!a.Show)
-                {
-                    a.Cost = 0;
-                    a.Rose = 0;
-                    a.Parked = 0;
-                    a.Money = 0;
-                }
+                //// Xe không đủ điều kiện, không tính tiền
+                //if (!a.Show)
+                //{
+                //    a.Cost = 0;
+                //    a.Rose = 0;
+                //    a.Parked = 0;
+                //    a.Money = 0;
+                //}
 
                 _db.SaveChanges();
                 return a;

@@ -233,6 +233,7 @@ namespace SKG.DAL
                 res.Seats = o.Seats;
                 res.Beds = o.Beds;
 
+                o.CreatorId = Global.Session.User.Id;
                 res.CreateDate = Global.Session.Current;
 
                 res.High = o.High;

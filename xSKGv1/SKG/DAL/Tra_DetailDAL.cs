@@ -125,11 +125,11 @@ namespace SKG.DAL
                 var o = (Tra_Detail)obj;
 
                 // Ẩn các xe không đủ điều kiện
-                var p = from s in _db.Tra_Details
+                var t = from s in _db.Tra_Details
                         where s.Vehicle.Fixed == true
                         && s.Show == false
                         select s;
-                var q = p.FirstOrDefault();
+                var q = t.FirstOrDefault();
                 if (q != null) q.Show = true;
 
                 var res = from s in _db.Tra_Details

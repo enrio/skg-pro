@@ -455,7 +455,7 @@ namespace SKG.DAL
                 var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
 
                 _db = new Context();
-                var a = _db.Tra_Details.SingleOrDefault(k => k.Vehicle.Code == number && k.UserOutId == null);
+                var a = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.UserOutId == null);
 
                 if (dateOut == null)
                 {

@@ -558,7 +558,7 @@ namespace SKG.DAL
                     a.Rose = 0;
                     a.Parked = 0;
                     a.Money = 0;
-                    if (isOut) b.Show = true;
+                    if (isOut) c.Show = true;
                 }
 
                 // Xe ra ngoài sửa không tính tiền phí, hoa hồng; chỉ tính tiền lưu đậu đêm

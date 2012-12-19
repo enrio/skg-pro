@@ -123,11 +123,21 @@
     <Content Include="DAL\Test.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Import\Dictionary.xls" />
-    <None Include="Import\NhapBT.xls" />
-    <None Include="Import\Policy.xls" />
-    <None Include="Import\Transport.xls" />
-    <None Include="Import\XuatBT.xls" />
+    <None Include="Import\Dictionary.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\NhapBT.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Policy.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\Transport.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Import\XuatBT.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reader\FrmTransfer.resx">

@@ -5,6 +5,8 @@ using System.Windows.Forms;
 
 namespace SKG.Client
 {
+    using DevExpress.LookAndFeel;
+
     static class Program
     {
         /// <summary>
@@ -15,7 +17,14 @@ namespace SKG.Client
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            DevExpress.Skins.SkinManager.EnableFormSkins();
+            DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+
+            Global.Session = new Session();
+            var frm = new SKG.DXF.FrmMain();// Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmMain();
+            Application.Run(frm);
         }
     }
 }

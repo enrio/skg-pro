@@ -22,5 +22,17 @@ namespace SKG.Client.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public string IsDevExpress {
+            get {
+                return ((string)(this["IsDevExpress"]));
+            }
+            set {
+                this["IsDevExpress"] = value;
+            }
+        }
     }
 }

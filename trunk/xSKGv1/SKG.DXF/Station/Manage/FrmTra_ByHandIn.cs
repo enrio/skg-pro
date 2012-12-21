@@ -72,6 +72,16 @@ namespace SKG.DXF.Station.Manage
                     }
 
                     var bs = r["Code"] + "";
+                    var dtr = _tbFixed.Select(String.Format("Code = '{0}'", bs));
+                    if (dtr.Length > 1)
+                    {
+                        foreach (DataRow rr in dtr)
+                        {
+                            rr.RowError = STR_IN_DUPBO;
+                            rr["Note"] = rr.RowError;
+                        }
+                        continue;
+                    }
                     var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
                     if (ve == null)
@@ -123,6 +133,16 @@ namespace SKG.DXF.Station.Manage
                     }
 
                     var bs = r["Code"] + "";
+                    var dtr = _tbFixed.Select(String.Format("Code = '{0}'", bs));
+                    if (dtr.Length > 1)
+                    {
+                        foreach (DataRow rr in dtr)
+                        {
+                            rr.RowError = STR_IN_DUPBO;
+                            rr["Note"] = rr.RowError;
+                        }
+                        continue;
+                    }
                     var ve = (Tra_Vehicle)_bll.Tra_Vehicle.Select(bs);
 
                     if (ve == null)
@@ -394,6 +414,7 @@ namespace SKG.DXF.Station.Manage
 
         private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
+        private const string STR_IN_DUPBO = "TRÙNG BIỂN SỐ";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
         private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
 

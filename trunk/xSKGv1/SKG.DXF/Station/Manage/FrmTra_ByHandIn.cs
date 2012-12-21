@@ -133,7 +133,7 @@ namespace SKG.DXF.Station.Manage
                     }
 
                     var bs = r["Code"] + "";
-                    var dtr = _tbFixed.Select(String.Format("Code = '{0}'", bs));
+                    var dtr = _tbNormal.Select(String.Format("Code = '{0}'", bs));
                     if (dtr.Length > 1)
                     {
                         foreach (DataRow rr in dtr)

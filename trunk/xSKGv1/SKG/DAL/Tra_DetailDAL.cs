@@ -904,7 +904,7 @@ namespace SKG.DAL
                            && s.Money != s.Parked
                            && s.Show == true
                            && s.Money != 0
-                           && s.Vehicle.Transport.Note == null
+                           && (s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
                            group s by s.Vehicle.Tariff.Code into g
                            select new
                            {
@@ -1001,7 +1001,7 @@ namespace SKG.DAL
                             && s.Money != s.Parked
                             && s.Show == true
                             && s.Money != 0
-                            && s.Vehicle.Transport.Note != null
+                            && !(s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
                             group s by new
                             {
                                 s.Vehicle.Tariff.Code,

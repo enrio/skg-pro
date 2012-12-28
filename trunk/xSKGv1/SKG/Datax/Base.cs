@@ -259,6 +259,7 @@ namespace SKG.Datax
         /// <returns></returns>
         public static bool PingToHost(string host, int timer = 3000)
         {
+            if (host == ".") host = "127.0.0.1";
             bool result = false;
             Ping p = new Ping();
             try

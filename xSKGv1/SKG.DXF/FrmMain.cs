@@ -53,15 +53,19 @@ namespace SKG.DXF
             var ok = Datax.Base.PingToHost(Global.Connection.DataSource);
             if (!ok)
             {
-                var res = XtraMessageBox.Show("Lỗi kết nối máy chủ cơ sở dữ liệu, vui lòng thử lại sau!\n\rHoặc liên hệ Võ Minh Triết\n\rSdt: 0982 878 707 để khắc phục sự cố.",
-                     "Lỗi kết nối...", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (res == DialogResult.No)
-                {
-                }
+                XtraMessageBox.Show("Lỗi kết nối máy chủ cơ sở dữ liệu, vui lòng thử lại sau!\n\rHoặc liên hệ Võ Minh Triết\n\rSdt: 0982 878 707 để khắc phục sự cố.",
+                     "Lỗi kết nối...", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!Sample.CheckDb())
+            if (Sample.IsNotConnect)
+            {
+                XtraMessageBox.Show("Máy chủ cơ sở dữ liệu lỗi kết nối, vui lòng thử lại sau!\n\rHoặc liên hệ Võ Minh Triết\n\rSdt: 0982 878 707 để khắc phục sự cố.",
+                     "Lỗi kết nối...", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (Sample.IsDbNotExists)
             {
                 Extend.ShowRight<FrmPol_Setting>(this);
                 return;

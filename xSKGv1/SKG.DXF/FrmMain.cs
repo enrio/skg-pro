@@ -17,6 +17,8 @@ namespace SKG.DXF
 {
     using Home.Sytem;
     using SKG.Extend;
+    using System.Windows.Forms;
+    using DevExpress.XtraEditors;
 
     /// <summary>
     /// Form main of system
@@ -47,6 +49,17 @@ namespace SKG.DXF
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Global.Parent = this;
+
+            var ok = Datax.Base.PingToHost(Global.Connection.DataSource);
+            if (!ok)
+            {
+                var res = XtraMessageBox.Show("Lỗi kết nối máy chủ cơ sở dữ liệu, vui lòng thử lại sau!\n\rHoặc liên hệ Võ Minh Triết\n\rSdt: 0982 878 707 để khắc phục sự cố.",
+                     "Lỗi kết nối...", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if (res == DialogResult.No)
+                {
+                }
+                return;
+            }
 
             if (!Sample.CheckDb())
             {

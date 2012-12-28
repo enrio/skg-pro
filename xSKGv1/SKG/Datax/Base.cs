@@ -6,8 +6,9 @@ namespace SKG.Datax
 {
     using System.Data;
     using System.Data.Sql;
-    using System.Data.SqlClient;
     using System.Windows.Forms;
+    using System.Data.SqlClient;
+    using System.Net.NetworkInformation;
 
     /// <summary>
     /// Database processing
@@ -248,6 +249,26 @@ namespace SKG.Datax
                 return tbl;
             }
             catch { return null; }
+        }
+
+        /// <summary>
+        /// Ping to host
+        /// </summary>
+        /// <param name="host">Host name or IP address</param>
+        /// <param name="timer">Time out</param>
+        /// <returns></returns>
+        public static bool PingToHost(string host, int timer = 3000)
+        {
+            bool result = false;
+            Ping p = new Ping();
+            try
+            {
+                PingReply reply = p.Send(host, timer);
+                if (reply.Status == IPStatus.Success)
+                    return true;
+            }
+            catch { }
+            return result;
         }
         #endregion
 

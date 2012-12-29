@@ -57,16 +57,17 @@ namespace SKG.DXF.Home.Sytem
         #region Events
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-            _sec--;
             if (_sec < 0)
             {
                 lblInfo.Text = "Đang kết nối ...";
+                System.Threading.Thread.Sleep(1000);
+
                 var ok = Datax.Base.PingToHost(Global.Connection.DataSource);
                 if (!ok) lblInfo.Text = "Lỗi kết nối mạng cục bộ ...";
                 if (Sample.IsNotConnect) lblInfo.Text = "Lỗi máy chủ cơ sở dữ liệu ...";
                 _sec = INT_SEC;
             }
-            else lblInfo.Text = String.Format("Tự động kết nối sau {0} giây", _sec);
+            lblInfo.Text = String.Format("Tự động kết nối sau {0} giây", _sec--);
         }
         #endregion
 

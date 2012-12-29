@@ -16,6 +16,8 @@ using System.Collections.Generic;
 namespace SKG.DXF.Home.Sytem
 {
     using SKG.Plugin;
+    using System.Windows.Forms;
+    using DevExpress.XtraEditors;
 
     public partial class FrmPol_Connection : SKG.DXF.FrmMenuz
     {
@@ -57,7 +59,16 @@ namespace SKG.DXF.Home.Sytem
         #region Events
         private void tmrMain_Tick(object sender, EventArgs e)
         {
-
+            _sec--;
+            if (_sec < 0)
+            {
+                lblInfo.Text = "Đang kết nối ...";
+                var ok = Datax.Base.PingToHost(Global.Connection.DataSource);
+                if (!ok) lblInfo.Text = "Lỗi kết nối mạng cục bộ ...";
+                if (Sample.IsNotConnect) lblInfo.Text = "Lỗi máy chủ cơ sở dữ liệu ...";
+                _sec = 3;
+            }
+            else lblInfo.Text = String.Format("Tự động kết nối sau {0} giây", _sec);
         }
         #endregion
 
@@ -65,6 +76,7 @@ namespace SKG.DXF.Home.Sytem
         #endregion
 
         #region Fields
+        private int _sec = 3;
         #endregion
 
         #region Constants

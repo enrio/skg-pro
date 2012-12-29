@@ -15,7 +15,9 @@ using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Sytem
 {
+    using SKG.Datax;
     using SKG.Plugin;
+    using System.Threading;
 
     public partial class FrmPol_Connection : SKG.DXF.FrmMenuz
     {
@@ -60,11 +62,12 @@ namespace SKG.DXF.Home.Sytem
             if (_sec < 0)
             {
                 lblInfo.Text = "Đang kết nối ...";
-                System.Threading.Thread.Sleep(1000);
+                Thread.Sleep(1000);
 
-                var ok = Datax.Base.PingToHost(Global.Connection.DataSource);
-                if (!ok) lblInfo.Text = "Lỗi kết nối mạng cục bộ ...";
-                if (Sample.IsNotConnect) lblInfo.Text = "Lỗi máy chủ cơ sở dữ liệu ...";
+                if (!Base.PingToHost(Global.Connection.DataSource))
+                    lblInfo.Text = "Lỗi kết nối mạng cục bộ ...";
+                if (Sample.IsNotConnect)
+                    lblInfo.Text = "Lỗi máy chủ cơ sở dữ liệu ...";
                 _sec = INT_SEC;
             }
             lblInfo.Text = String.Format("Tự động kết nối sau {0} giây", _sec--);

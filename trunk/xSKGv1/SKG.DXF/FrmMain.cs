@@ -47,10 +47,8 @@ namespace SKG.DXF
         private void FrmMain_Load(object sender, EventArgs e)
         {
             Global.Parent = this;
-            var frm = new FrmPol_Connection();
-            frm.ShowDialog();
 
-            if (Sample.IsDbNotExists)
+            if (!Sample.CheckDb())
             {
                 Extend.ShowRight<FrmPol_Setting>(this);
                 return;

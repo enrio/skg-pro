@@ -87,30 +87,13 @@ namespace SKG.BLL
         public static BaseBLL _bll = new BaseBLL();
 
         /// <summary>
-        /// Check database not exists
+        /// Check database exists
         /// </summary>
-        public static bool IsDbNotExists
+        /// <returns></returns>
+        public static bool CheckDb()
         {
-            get
-            {
-                var svr = new SqlServer(Global.Connection.ConnectionString);
-                return !svr.CheckDbExists(Global.Connection.Database);
-            }
-        }
-
-        /// <summary>
-        /// Check SQL not connect
-        /// </summary>
-        public static bool IsNotConnect
-        {
-            get
-            {
-                var str = Global.Connection.ConnectionString;
-                str = str.Replace("xSKGv1", "master");
-
-                var svr = new Datax.SqlServer(str);
-                return !svr.Open();
-            }
+            var svr = new SqlServer(Global.Connection.ConnectionString);
+            return svr.CheckDbExists(Global.Connection.Database);
         }
         #endregion
     }

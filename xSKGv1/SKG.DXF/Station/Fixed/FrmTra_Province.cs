@@ -57,6 +57,19 @@ namespace SKG.DXF.Station.Fixed
             base.SetNullPrompt();
         }
 
+        protected override void PerformEdit()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_E,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            base.PerformEdit();
+        }
+
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -329,6 +342,7 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_DUPLICATE = "Mã này có rồi";
 
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

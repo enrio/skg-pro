@@ -56,6 +56,19 @@ namespace SKG.DXF.Station.Normal
             base.SetNullPrompt();
         }
 
+        protected override void PerformEdit()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_E,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            base.PerformEdit();
+        }
+
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -233,7 +246,7 @@ namespace SKG.DXF.Station.Normal
             if (_dtb != null)
             {
                 grcMain.DataSource = _dtb;
-                grvMain.BestFitColumns();                
+                grvMain.BestFitColumns();
             }
 
             base.LoadData();
@@ -327,8 +340,10 @@ namespace SKG.DXF.Station.Normal
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
 
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_DUPLICATE = "XE NÀY CÓ RỒI";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

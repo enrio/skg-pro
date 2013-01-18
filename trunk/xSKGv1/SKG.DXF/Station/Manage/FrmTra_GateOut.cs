@@ -234,6 +234,7 @@ namespace SKG.DXF.Station.Manage
                         dtr["Parked"] = detail.Parked;
                         dtr["ByChar"] = total.ToVietnamese("đồng");
                         dtr["Creator"] = Global.Session.User.Name;
+                        dtr["Tariff"] = detail.Vehicle.Tariff.Text;
 
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;

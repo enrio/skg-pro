@@ -42,6 +42,6 @@ EXECUTE sp_executesql @cmd
 Set Dateformat DMY
 Select Tra_Vehicle.Code, Tra_Detail.* From Tra_Detail Join Tra_Vehicle
 On Tra_Detail.VehicleId = Tra_Vehicle.Id
-Where DateOut >= '16/1/2013 13:00:01' And DateOut <= '17/1/2013 13:00:00'
-And Tra_Detail.Code = 'FIXED'
-Order By [order]
+Where DateOut >= '18/1/2013 13:00:01' And DateOut <= '19/1/2013 13:00:00'
+--And Tra_Detail.Code = 'FIXED'
+Order By [Order]

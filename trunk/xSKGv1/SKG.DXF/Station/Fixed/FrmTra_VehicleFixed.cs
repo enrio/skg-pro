@@ -58,6 +58,19 @@ namespace SKG.DXF.Station.Fixed
             base.SetNullPrompt();
         }
 
+        protected override void PerformEdit()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_E,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            base.PerformEdit();
+        }
+
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -423,8 +436,10 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_NOT_V = "Chưa nhập biển số xe!";
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_DUPLICATE = "XE NÀY CÓ RỒI";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

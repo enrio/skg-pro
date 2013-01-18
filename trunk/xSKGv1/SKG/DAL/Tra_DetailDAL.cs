@@ -976,8 +976,8 @@ namespace SKG.DAL
                                g.Key.Price2,
 
                                Count = g.Sum(p => p.Count),
-                               Seats = g.Sum(p => p.Seats),
-                               Beds = g.Sum(p => p.Beds),
+                               Seats = g.Sum(p => p.Seats) + g.Sum(p => p.Beds),
+                               Beds = g.Sum(p => p.Seats) + g.Sum(p => p.Beds) - 1,
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -1077,8 +1077,8 @@ namespace SKG.DAL
                                 g.Key.Price2,
 
                                 Count = g.Sum(p => p.Count),
-                                Seats = g.Sum(p => p.Seats),
-                                Beds = g.Sum(p => p.Beds),
+                                Seats = g.Sum(p => p.Seats) + g.Sum(p => p.Beds),
+                                Beds = g.Sum(p => p.Seats) + g.Sum(p => p.Beds) - 1,
 
                                 Cost = g.Sum(p => p.Cost),
                                 Rose = g.Sum(p => p.Rose),

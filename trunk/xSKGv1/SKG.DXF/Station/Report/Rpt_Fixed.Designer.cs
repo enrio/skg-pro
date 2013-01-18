@@ -1383,13 +1383,13 @@
             this.xrTableCell33.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)));
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StylePriority.UseBorders = false;
-            this.xrTableCell33.Text = "Ghế";
+            this.xrTableCell33.Text = "Tải trọng";
             this.xrTableCell33.Weight = 0.7819890800413517D;
             // 
             // xrTableCell34
             // 
             this.xrTableCell34.Name = "xrTableCell34";
-            this.xrTableCell34.Text = "Giường";
+            this.xrTableCell34.Text = "H.Khách";
             this.xrTableCell34.Weight = 0.74187982712285694D;
             // 
             // xrTableCell22

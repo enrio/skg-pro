@@ -199,7 +199,7 @@ namespace SKG.DXF.Station.Fixed
                     Text = txtName.Text,
                     //Note = txtDescript.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "STATION",
+                    Code = "" + grvMain.GetFocusedRowCellValue("Code"),
 
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
@@ -227,7 +227,7 @@ namespace SKG.DXF.Station.Fixed
                     Text = txtName.Text,
                     // Note = txtDescript.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "STATION",
+                    Code = "STATION_" + (_dtb.Rows.Count + 1),
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
 

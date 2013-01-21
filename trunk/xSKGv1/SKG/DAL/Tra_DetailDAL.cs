@@ -607,27 +607,6 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Revenue of vehicle fixed from 13:00:01 yesterday ago to 13:00:00 today
-        /// </summary>
-        /// <param name="sum">Sum of money</param>
-        /// <returns></returns>
-        public DataTable GetRevenueToday(out decimal sum, out string receipt)
-        {
-            sum = 0;
-            receipt = "";
-            try
-            {
-                var to = Global.Session.Current.Date.AddHours(13);
-                var fr = to.AddDays(-1).AddSeconds(1);
-                return GetRevenueFixed(out sum, out receipt, fr, to);
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
         /// List of 20 lastest vehicles normal
         /// </summary>
         public DataTable GetLatestFixed

@@ -32,6 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cmdRestore = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdPrint = new DevExpress.XtraEditors.SimpleButton();
             this.cmdView = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -68,8 +70,6 @@
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.cmdPrint = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdRestore = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -127,6 +127,28 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 34);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // cmdRestore
+            // 
+            this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRestore.Appearance.Options.UseFont = true;
+            this.cmdRestore.Location = new System.Drawing.Point(758, 3);
+            this.cmdRestore.Name = "cmdRestore";
+            this.cmdRestore.Size = new System.Drawing.Size(78, 26);
+            this.cmdRestore.TabIndex = 11;
+            this.cmdRestore.Text = "&Phục hồi";
+            this.cmdRestore.Click += new System.EventHandler(this.cmdRestore_Click);
+            // 
+            // cmdPrint
+            // 
+            this.cmdPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPrint.Appearance.Options.UseFont = true;
+            this.cmdPrint.Location = new System.Drawing.Point(649, 3);
+            this.cmdPrint.Name = "cmdPrint";
+            this.cmdPrint.Size = new System.Drawing.Size(103, 26);
+            this.cmdPrint.TabIndex = 10;
+            this.cmdPrint.Text = "&In phiếu thu";
+            this.cmdPrint.Click += new System.EventHandler(this.cmdPrint_Click);
             // 
             // cmdView
             // 
@@ -674,26 +696,6 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", "{0:#,0}")});
             this.gridColumn12.Visible = true;
             this.gridColumn12.Width = 65;
-            // 
-            // cmdPrint
-            // 
-            this.cmdPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPrint.Appearance.Options.UseFont = true;
-            this.cmdPrint.Location = new System.Drawing.Point(649, 3);
-            this.cmdPrint.Name = "cmdPrint";
-            this.cmdPrint.Size = new System.Drawing.Size(103, 26);
-            this.cmdPrint.TabIndex = 10;
-            this.cmdPrint.Text = "&In phiếu thu";
-            // 
-            // cmdRestore
-            // 
-            this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRestore.Appearance.Options.UseFont = true;
-            this.cmdRestore.Location = new System.Drawing.Point(758, 3);
-            this.cmdRestore.Name = "cmdRestore";
-            this.cmdRestore.Size = new System.Drawing.Size(78, 26);
-            this.cmdRestore.TabIndex = 11;
-            this.cmdRestore.Text = "&Phục hồi";
             // 
             // FrmTra_SalesFixed
             // 

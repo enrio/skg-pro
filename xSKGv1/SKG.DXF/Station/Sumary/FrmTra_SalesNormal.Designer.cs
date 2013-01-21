@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cmdRestore = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdView = new DevExpress.XtraEditors.SimpleButton();
@@ -67,7 +68,6 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand7 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.cmdRestore = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -126,6 +126,17 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 35);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // cmdRestore
+            // 
+            this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRestore.Appearance.Options.UseFont = true;
+            this.cmdRestore.Location = new System.Drawing.Point(833, 3);
+            this.cmdRestore.Name = "cmdRestore";
+            this.cmdRestore.Size = new System.Drawing.Size(78, 26);
+            this.cmdRestore.TabIndex = 20;
+            this.cmdRestore.Text = "&Phục hồi";
+            this.cmdRestore.Click += new System.EventHandler(this.cmdRestore_Click);
             // 
             // cmdSumary2
             // 
@@ -650,16 +661,6 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", "{0:#,0}")});
             this.gridColumn12.Visible = true;
             this.gridColumn12.Width = 136;
-            // 
-            // cmdRestore
-            // 
-            this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRestore.Appearance.Options.UseFont = true;
-            this.cmdRestore.Location = new System.Drawing.Point(833, 3);
-            this.cmdRestore.Name = "cmdRestore";
-            this.cmdRestore.Size = new System.Drawing.Size(78, 26);
-            this.cmdRestore.TabIndex = 20;
-            this.cmdRestore.Text = "&Phục hồi";
             // 
             // FrmTra_SalesNormal
             // 

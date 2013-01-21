@@ -1596,5 +1596,39 @@ namespace SKG.DAL
             }
         }
         #endregion
+
+        /// <summary>
+        /// Tìm theo khoá chính
+        /// </summary>
+        /// <param name="pKey">Khoá chính</param>
+        /// <returns></returns>
+        public Tra_Detail Find(Guid pKey)
+        {
+            try
+            {
+                return _db.Tra_Details.FirstOrDefault(p => p.Id == pKey);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Cho xe vào lại bến
+        /// </summary>
+        /// <param name="pKey">Khoá chính</param>
+        /// <returns></returns>
+        public bool Restore(Guid pKey)
+        {
+            try
+            {
+                var res = _db.Tra_Details.FirstOrDefault(p => p.Id == pKey);
+
+                res.UserOutId = null;
+                res.Order = 0;
+
+                _db.SaveChanges();
+                return true;
+            }
+            catch { return false; }
+        }
     }
 }

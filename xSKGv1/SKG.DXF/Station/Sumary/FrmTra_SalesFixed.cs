@@ -54,7 +54,8 @@ namespace SKG.DXF.Station.Sumary
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -206,6 +207,97 @@ namespace SKG.DXF.Station.Sumary
         {
             PerformRefresh();
         }
+
+        /// <summary>
+        /// In phiếu thu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdPrint_Click(object sender, EventArgs e)
+        {
+            var tmpId = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var detail = _bll.Tra_Detail.Find(tmpId);
+            bool _isFixed = detail.Vehicle.Fixed;
+            decimal total = 0;
+
+            // Xe cố định, không đi sửa, xe đủ điều kiện
+            if (_isFixed && !detail.Repair && detail.Show) // in phiếu thu xe cố định
+            {
+                var rpt = new Report.Rpt_Receipt();
+                var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
+                var dtr = tbl.NewRow();
+
+                dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
+                dtr["Date"] = Global.Session.Current;
+                dtr["Number"] = detail.Vehicle.Code;
+                dtr["Transport"] = detail.Vehicle.Transport.Text;
+
+                dtr["Cost"] = detail.Cost;
+                dtr["Rose"] = detail.Rose;
+
+                var seat = detail.Seats ?? 0;
+                var bed = detail.Beds ?? 0;
+                dtr["CostDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
+                    detail.Price1, seat, detail.Price2, bed);
+                dtr["RoseDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
+                    detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
+
+                dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
+                    detail.Cost, detail.Rose, detail.Arrears ?? 0);
+                var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                dtr["Arrears"] = arrears;
+                dtr["Money"] = total;
+
+                dtr["Parked"] = detail.Parked;
+                dtr["ByChar"] = total.ToVietnamese("đồng");
+                dtr["Creator"] = Global.Session.User.Name;
+                dtr["Tariff"] = detail.Vehicle.Tariff.Text;
+
+                tbl.Rows.Add(dtr);
+                rpt.DataSource = tbl;
+
+                try { rpt.Print(); }
+                catch
+                {
+                    XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Phục hồi xe trạng thái xe trong bến
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdRestore_Click(object sender, EventArgs e)
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_R,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            var cfm = String.Format(STR_CONFIRM_R, code + " VÀO LÚC " + dateIn);
+            var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_RESTORE, MessageBoxButtons.OKCancel);
+
+            if (oki == DialogResult.OK)
+                if (_bll.Tra_Detail.Restore(id)) PerformRefresh();
+                else XtraMessageBox.Show(STR_UNRESTORE, STR_RESTORE);
+        }
         #endregion
 
         #region Properties
@@ -217,11 +309,18 @@ namespace SKG.DXF.Station.Sumary
 
         #region Constants
         private const string STR_TITLE = "Doanh thu xe cố định";
+        private const string STR_SELECT = "Chọn dữ liệu!";
 
         private const string STR_DELETE = "Xoá xe";
-        private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+
+        private const string STR_RESTORE = "Phục hồi";
+        private const string STR_CONFIRM_R = "Có phục hồi xe '{0}' không?";
+        private const string STR_UNRESTORE = "Không phục hồi được!";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

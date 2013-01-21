@@ -215,7 +215,7 @@ namespace SKG.DXF.Station.Sumary
         /// <param name="e"></param>
         private void cmdPrint_Click(object sender, EventArgs e)
         {
-            var tmpId = (Guid)grvMain.GetFocusedRowCellValue("Id");
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
                 XtraMessageBox.Show(STR_CHOICE,
@@ -223,7 +223,7 @@ namespace SKG.DXF.Station.Sumary
                 return;
             }
 
-            var detail = _bll.Tra_Detail.Find(tmpId);
+            var detail = _bll.Tra_Detail.Find((Guid)tmpId);
             bool _isFixed = detail.Vehicle.Fixed;
             decimal total = 0;
 
@@ -252,6 +252,8 @@ namespace SKG.DXF.Station.Sumary
                 dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
                     detail.Cost, detail.Rose, detail.Arrears ?? 0);
                 var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                total = arrears + detail.Cost + detail.Rose + detail.Parked;
+
                 dtr["Arrears"] = arrears;
                 dtr["Money"] = total;
 
@@ -320,7 +322,8 @@ namespace SKG.DXF.Station.Sumary
         private const string STR_UNRESTORE = "Không phục hồi được!";
 
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
-        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ PHỤC HỒI";
+        private const string STR_CHOICE_P = "CHỌN DÒNG CẦN IN\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ IN";
         #endregion
     }
 }

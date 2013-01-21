@@ -862,7 +862,7 @@ namespace SKG.DAL
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        public DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
+        protected DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
         {
             sum = 0;
             receipt = "";
@@ -919,6 +919,7 @@ namespace SKG.DAL
 
                                Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
+                               ASB = g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -935,6 +936,7 @@ namespace SKG.DAL
                                s.Seats,
                                s.Beds,
                                s.Arrears,
+                               s.ASB,
 
                                t.Rose1,
                                t.Rose2,
@@ -979,8 +981,9 @@ namespace SKG.DAL
                                g.Key.Price2,
 
                                Count = g.Sum(p => p.Count),
-                               Seats = g.Sum(p => p.Seats) + g.Sum(p => p.Beds),
-                               Beds = g.Sum(p => p.Seats) + g.Sum(p => p.Beds) - g.Sum(p => p.Count),
+                               Seats = g.Sum(p => p.Seats),
+                               Beds = g.Sum(p => p.Beds),
+                               ASB = g.Sum(p => p.ASB),
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -990,8 +993,8 @@ namespace SKG.DAL
                                ArrearsMoney = g.Sum(p => p.ArrearsMoney),
                                Totals = g.Sum(p => p.Totals) + g.Sum(p => p.ArrearsMoney),
 
-                               Vat = g.Sum(p => p.Totals) * 10 / 100,
-                               Sales = g.Sum(p => p.Totals) * 90 / 100
+                               Vat = 0,
+                               Sales = 0
                            };
                 #endregion
 
@@ -1020,6 +1023,7 @@ namespace SKG.DAL
 
                                 Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                 Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
+                                ASB = g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
 
                                 Cost = g.Sum(p => p.Cost),
                                 Rose = g.Sum(p => p.Rose),
@@ -1036,6 +1040,7 @@ namespace SKG.DAL
                                 s.Seats,
                                 s.Beds,
                                 s.Arrears,
+                                s.ASB,
 
                                 t.Rose1,
                                 t.Rose2,
@@ -1080,8 +1085,9 @@ namespace SKG.DAL
                                 g.Key.Price2,
 
                                 Count = g.Sum(p => p.Count),
-                                Seats = g.Sum(p => p.Seats) + g.Sum(p => p.Beds),
-                                Beds = g.Sum(p => p.Seats) + g.Sum(p => p.Beds) - g.Sum(p => p.Count),
+                                Seats = g.Sum(p => p.Seats),
+                                Beds = g.Sum(p => p.Beds),
+                                ASB = g.Sum(p => p.ASB),
 
                                 Cost = g.Sum(p => p.Cost),
                                 Rose = g.Sum(p => p.Rose),
@@ -1091,8 +1097,8 @@ namespace SKG.DAL
                                 ArrearsMoney = g.Sum(p => p.ArrearsMoney),
                                 Totals = g.Sum(p => p.Totals) + g.Sum(p => p.ArrearsMoney),
 
-                                Vat = g.Sum(p => p.Totals) * 10 / 100,
-                                Sales = g.Sum(p => p.Totals) * 90 / 100
+                                Vat = 0,
+                                Sales = 0
                             };
                 #endregion
 

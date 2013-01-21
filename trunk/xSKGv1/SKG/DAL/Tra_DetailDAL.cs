@@ -7,6 +7,7 @@ namespace SKG.DAL
     using Entities;
     using SKG.Extend;
     using System.Data;
+    using System.Data.Objects.SqlClient;
 
     /// <summary>
     /// Vận tải - Xử lí bảng Tra_Detail
@@ -832,6 +833,8 @@ namespace SKG.DAL
                               Province = s.Vehicle.Tariff.Group.Text,
                               Tariff = s.Vehicle.Tariff.Text,
                               Transport = s.Vehicle.Transport.Text,
+
+                              Sophieu = SqlFunctions.StringConvert((double)s.Order).Trim() + "/" + SqlFunctions.StringConvert((double)s.DateOut.Value.Month).Trim(),
 
                               s.Parked,
                               s.Cost,

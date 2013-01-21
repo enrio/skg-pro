@@ -432,5 +432,35 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Tìm biển số xe
+        /// </summary>
+        /// <param name="code">Biển số</param>
+        /// <returns></returns>
+        public DataTable Find(string code)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          where s.Fixed == false
+                          select new
+                          {
+                              s.Code,
+                              s.Seats,
+                              s.Beds,
+
+                              Creator = s.Creator.Name,
+                              s.CreateDate,
+                              Kind = s.Tariff.Text,
+                              GroupId = s.Tariff.Group.Id,
+                              Group = s.Tariff.Group.Text
+                          };
+
+                res = res.Where(s => s.Code == code);
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
     }
 }

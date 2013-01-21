@@ -56,6 +56,23 @@ namespace SKG.DXF.Station.Normal
             base.SetNullPrompt();
         }
 
+        protected override void PerformFind()
+        {
+            _dtb = _bll.Tra_Vehicle.Find(txtCode.Text);
+
+            if (_dtb != null)
+            {
+                grcMain.DataSource = _dtb;
+                grvMain.BestFitColumns();
+            }
+
+            AllowDelete = false;
+            AllowEdit = false;
+            grvMain.Bands["badAudit"].Visible = true;
+
+            base.PerformFind();
+        }
+
         protected override void PerformEdit()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -108,6 +125,11 @@ namespace SKG.DXF.Station.Normal
                 ClearDataBindings();
                 if (_dtb.Rows.Count > 0) DataBindingControl();
             }
+
+            AllowDelete = true;
+            AllowEdit = true;
+            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+            if (!ql) grvMain.Bands["badAudit"].Visible = false;
 
             ReadOnlyControl();
 
@@ -171,7 +193,7 @@ namespace SKG.DXF.Station.Normal
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             lueTransport.Properties.ReadOnly = isReadOnly;
-            txtCode.Properties.ReadOnly = isReadOnly;
+            //txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;
 
@@ -275,8 +297,7 @@ namespace SKG.DXF.Station.Normal
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 
-            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-            if (!ql) grvMain.Bands["badAudit"].Visible = false;
+            AllowFind = true;
         }
         #endregion
 

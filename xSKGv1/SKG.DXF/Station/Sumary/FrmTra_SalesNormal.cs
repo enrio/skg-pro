@@ -142,6 +142,9 @@ namespace SKG.DXF.Station.Sumary
 
             dteFrom.DateTime = d.AddDays(-1);
             dteTo.DateTime = d;
+
+            var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
+            if (!ql) cmdRestore.Visible = false;
         }
         #endregion
 

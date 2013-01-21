@@ -1,0 +1,2 @@
+Seats = g.Sum(p => p.Vehicle.Seats ?? 0) + g.Sum(p => p.Vehicle.Beds ?? 0) + g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+                               Beds = g.Sum(p => p.Vehicle.Seats ?? 0) + g.Sum(p => p.Vehicle.Beds ?? 0) + g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))) - g.Count() - g.Sum(p => p.Arrears ?? 0),

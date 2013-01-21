@@ -54,7 +54,8 @@ namespace SKG.DXF.Station.Sumary
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ", Text);
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -264,6 +265,33 @@ namespace SKG.DXF.Station.Sumary
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
         }
+
+        /// <summary>
+        /// Phục hồi xe trạng thái xe trong bến
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdRestore_Click(object sender, EventArgs e)
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_R,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            var cfm = String.Format(STR_CONFIRM_R, code + " VÀO LÚC " + dateIn);
+            var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_RESTORE, MessageBoxButtons.OKCancel);
+
+            if (oki == DialogResult.OK)
+                if (_bll.Tra_Detail.Restore(id)) PerformRefresh();
+                else XtraMessageBox.Show(STR_UNRESTORE, STR_RESTORE);
+        }
         #endregion
 
         #region Properties
@@ -275,11 +303,18 @@ namespace SKG.DXF.Station.Sumary
 
         #region Constants
         private const string STR_TITLE = "Doanh thu xe vãng lai";
+        private const string STR_SELECT = "Chọn dữ liệu!";
 
         private const string STR_DELETE = "Xoá xe";
-        private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+
+        private const string STR_RESTORE = "Phục hồi";
+        private const string STR_CONFIRM_R = "Có phục hồi xe '{0}' không?";
+        private const string STR_UNRESTORE = "Không phục hồi được!";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

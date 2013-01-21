@@ -225,7 +225,10 @@ namespace SKG.DXF.Station.Manage
                     if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                         continue;
 
-                    var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+                    var bs = r["Code"] + "";
+                    var id = _bll.Tra_Vehicle.CheckExist(bs);
+                    var o = new Tra_Detail { VehicleId = id, DateIn = dt, Code = bs };
+
                     if (_bll.Tra_Detail.Insert(o) == null)
                     {
                         r["Note"] = STR_IN_DEPOT;
@@ -247,7 +250,10 @@ namespace SKG.DXF.Station.Manage
                     if (!DateTime.TryParse(r["DateIn"] + "", out dt))
                         continue;
 
-                    var o = new Tra_Detail { VehicleId = (Guid)r["Id"], DateIn = dt };
+                    var bs = r["Code"] + "";
+                    var id = _bll.Tra_Vehicle.CheckExist(bs);
+                    var o = new Tra_Detail { VehicleId = id, DateIn = dt, Code = bs };
+
                     if (_bll.Tra_Detail.Insert(o) == null)
                     {
                         r["Note"] = STR_IN_DEPOT;

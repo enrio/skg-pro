@@ -101,6 +101,28 @@ namespace SKG.DXF.Station.Fixed
             base.PerformDelete();
         }
 
+        protected override void PerformPrint()
+        {
+            var rpt = new Report.Rpt_FixedVehicle
+            {
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt", Global.Session.User.Acc, Global.Session.Current)
+            };
+
+            DateTime fr, to;
+            //Session.CutShiftMonth(dteMonth.DateTime, out fr, out to);
+
+            //rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to, chkHideActive.Checked);
+            //rpt.parDate.Value = Global.Session.Current;
+            //rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
+
+            var frm = new FrmPrint();
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+
+            base.PerformPrint();
+        }
+
         protected override void PerformRefresh()
         {
             LoadData();

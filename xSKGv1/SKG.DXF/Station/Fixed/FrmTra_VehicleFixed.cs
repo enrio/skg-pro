@@ -371,6 +371,8 @@ namespace SKG.DXF.Station.Fixed
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 
+            AllowPrint = true;
+
             Text = STR_TITLE.ToUpper();
         }
         #endregion

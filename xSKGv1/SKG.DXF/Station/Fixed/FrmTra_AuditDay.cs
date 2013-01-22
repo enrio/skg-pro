@@ -186,7 +186,6 @@ namespace SKG.DXF.Station.Fixed
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 
-            AllowAdd = false;
             AllowDelete = false;
             AllowRefresh = false;
             AllowPrint = true;

@@ -153,11 +153,13 @@ namespace SKG.DXF.Station.Fixed
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
             };
+            int lxe, hk;
+            decimal money;
 
             DateTime fr, to;
             Session.CutShiftDay(dteDay.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked, out lxe, out hk, out money);
             rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");

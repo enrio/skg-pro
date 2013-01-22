@@ -332,14 +332,16 @@
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell18.Weight = 0.66322516416997224D;
+            this.xrTableCell18.Weight = 0.55268797478548048D;
             // 
             // xrTableCell25
             // 
             this.xrTableCell25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Phone")});
             this.xrTableCell25.Name = "xrTableCell25";
+            this.xrTableCell25.StylePriority.UseTextAlignment = false;
             this.xrTableCell25.Text = "xrTableCell25";
+            this.xrTableCell25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell25.Weight = 0.77376574605865D;
             // 
             // xrTableCell34
@@ -347,8 +349,10 @@
             this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Driver")});
             this.xrTableCell34.Name = "xrTableCell34";
+            this.xrTableCell34.StylePriority.UseTextAlignment = false;
             this.xrTableCell34.Text = "xrTableCell34";
-            this.xrTableCell34.Weight = 0.98944588853117765D;
+            this.xrTableCell34.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrTableCell34.Weight = 1.0999830779156694D;
             // 
             // TopMargin
             // 
@@ -785,19 +789,19 @@
             // 
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Text = "Giá vé";
-            this.xrTableCell3.Weight = 0.655823545929891D;
+            this.xrTableCell3.Weight = 0.54651962233899D;
             // 
             // xrTableCell1
             // 
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Text = "Điện thoại";
-            this.xrTableCell1.Weight = 0.76512742636315978D;
+            this.xrTableCell1.Weight = 0.76512742636315967D;
             // 
             // xrTableCell24
             // 
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.Text = "Tên nhà xe";
-            this.xrTableCell24.Weight = 0.97840061198865014D;
+            this.xrTableCell24.Weight = 1.0877045355795512D;
             // 
             // DetailReport
             // 

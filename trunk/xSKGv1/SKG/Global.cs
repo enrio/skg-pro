@@ -116,6 +116,11 @@ namespace SKG
         /// Code of group shift
         /// </summary>
         public const string STR_SHIFT = "SHIFT";
+
+        /// <summary>
+        /// Vehicle arrear
+        /// </summary>
+        public const string STR_ARREAR = "Xe truy thu";
         #endregion
 
         #region Global properties

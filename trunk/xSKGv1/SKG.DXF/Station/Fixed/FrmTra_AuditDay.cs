@@ -236,7 +236,9 @@ namespace SKG.DXF.Station.Fixed
                         VehicleId = id,
                         DateIn = Global.Session.Current,
                         Code = txtNumber.Text,
-                        Arrears = txtArrears.Text.ToInt32()
+                        Arrears = txtArrears.Text.ToInt32(),
+                        Note = "ĐỘI ĐIỀU HÀNH: CHO VÀO ĐỂ TRUY THU;!;Thu tiền truy thu",
+                        More = "Xe truy thu"
                     };
 
                     if (_bll.Tra_Detail.Insert(o) != null) return true;

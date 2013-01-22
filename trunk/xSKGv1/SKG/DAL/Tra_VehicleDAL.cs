@@ -254,6 +254,7 @@ namespace SKG.DAL
 
                 res.Text = o.Text;
                 res.Note = o.Note;
+                res.More = o.More;
                 res.Order = o.Order;
                 res.Show = o.Show;
 
@@ -340,6 +341,7 @@ namespace SKG.DAL
 
                               s.Text,
                               s.Note,
+                              s.More,
                               s.Order,
                               s.Show
                           };

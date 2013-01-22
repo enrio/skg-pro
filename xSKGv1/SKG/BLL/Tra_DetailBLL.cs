@@ -46,6 +46,31 @@ namespace SKG.BLL
         }
 
         /// <summary>
+        /// Audit day vehicle fixed
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <param name="hideActive">Hide vehicle active</param>
+        /// <returns></returns>
+        public new DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive)
+        {
+            var tb = base.AuditDayFixed(fr, to, hideActive);
+            foreach (DataRow r in tb.Rows)
+            {
+                var Weight = Text.ToInt32(r["Weight"] + "");
+                var Th_Lxe = Text.ToInt32(r["Th_Lxe"] + "");
+                var Tr_Lxe = Text.ToInt32(r["Tr_Lxe"] + "");
+
+                var a = Th_Lxe + Tr_Lxe;
+
+                r["Th_Lxe"] = a;
+                r["Th_Hk"] = Weight * a - a;
+                r["Tr_Hk"] = Weight * Tr_Lxe;
+            }
+            return tb;
+        }
+
+        /// <summary>
         /// Revenue of vehicle fixed from 13:00:01 yesterday ago to 13:00:00 today
         /// </summary>
         /// <param name="sum">Sum of money</param>

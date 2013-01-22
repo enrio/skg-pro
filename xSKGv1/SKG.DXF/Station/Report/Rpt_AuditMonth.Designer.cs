@@ -1201,7 +1201,7 @@
             this.xrcStation.StylePriority.UseFont = false;
             this.xrcStation.StylePriority.UsePadding = false;
             this.xrcStation.StylePriority.UseTextAlignment = false;
-            this.xrcStation.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrcStation.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcStation.Weight = 0.40713046189529783D;
             this.xrcStation.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcStation_BeforePrint);
             // 
@@ -1376,13 +1376,13 @@
             // 
             // xrcArea
             // 
-            this.xrcArea.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrcArea.Font = new System.Drawing.Font("Times New Roman", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrcArea.Name = "xrcArea";
             this.xrcArea.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 5, 0, 0, 100F);
             this.xrcArea.StylePriority.UseFont = false;
             this.xrcArea.StylePriority.UsePadding = false;
             this.xrcArea.StylePriority.UseTextAlignment = false;
-            this.xrcArea.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrcArea.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcArea.Weight = 0.40713046189529783D;
             this.xrcArea.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcArea_BeforePrint);
             // 
@@ -1557,13 +1557,13 @@
             // 
             // xrcRegion
             // 
-            this.xrcRegion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrcRegion.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrcRegion.Name = "xrcRegion";
             this.xrcRegion.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 5, 0, 0, 100F);
             this.xrcRegion.StylePriority.UseFont = false;
             this.xrcRegion.StylePriority.UsePadding = false;
             this.xrcRegion.StylePriority.UseTextAlignment = false;
-            this.xrcRegion.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrcRegion.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcRegion.Weight = 0.40713046189529783D;
             this.xrcRegion.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrcRegion_BeforePrint);
             // 

@@ -170,6 +170,9 @@ namespace SKG.DXF.Station.Fixed
             txtDriver.Text = null;
             txtPhone.Text = null;
 
+            txtHours.Text = null;
+            txtDays.Text = null;
+
             base.ResetInput();
         }
 
@@ -193,6 +196,9 @@ namespace SKG.DXF.Station.Fixed
 
             txtDriver.DataBindings.Clear();
             txtPhone.DataBindings.Clear();
+
+            txtHours.DataBindings.Clear();
+            txtDays.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -218,6 +224,9 @@ namespace SKG.DXF.Station.Fixed
             txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
 
+            txtHours.DataBindings.Add("EditValue", _dtb, ".Note");
+            txtDays.DataBindings.Add("EditValue", _dtb, ".More");
+
             base.DataBindingControl();
         }
 
@@ -241,6 +250,9 @@ namespace SKG.DXF.Station.Fixed
 
             txtDriver.Properties.ReadOnly = isReadOnly;
             txtPhone.Properties.ReadOnly = isReadOnly;
+
+            txtHours.Properties.ReadOnly = isReadOnly;
+            txtDays.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -271,7 +283,10 @@ namespace SKG.DXF.Station.Fixed
                     Node = txtNode.Text.ToInt32(),
 
                     Driver = txtDriver.Text,
-                    Phone = txtPhone.Text
+                    Phone = txtPhone.Text,
+
+                    Note = txtHours.Text,
+                    More = txtDays.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")
@@ -315,7 +330,10 @@ namespace SKG.DXF.Station.Fixed
                     Node = txtNode.Text.ToInt32(),
 
                     Driver = txtDriver.Text,
-                    Phone = txtPhone.Text
+                    Phone = txtPhone.Text,
+
+                    Note = txtHours.Text,
+                    More = txtDays.Text
                 };
 
                 if (dteLimitedRegistration.EditValue + "" != "")

@@ -384,8 +384,10 @@ namespace SKG.DAL
                               s.Seats,
                               s.Beds,
 
-                              s.High,
-                              s.City,
+                              Clc = s.High == true ? "x" : "",
+                              Xt = s.High == true ? "" : "x",
+                              Tp = s.City == true ? "x" : "",
+                              Dp = s.City == true ? "" : "x",
 
                               s.ProductionYear,
                               s.LimitedRegistration,

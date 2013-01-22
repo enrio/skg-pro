@@ -68,13 +68,11 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary38 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary39 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary40 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary41 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcNumber = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -224,7 +222,6 @@
             this.xrTableRow1.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
             this.xrcNumber,
             this.xrTableCell2,
-            this.xrTableCell4,
             this.xrTableCell9,
             this.xrTableCell10,
             this.xrTableCell11,
@@ -257,16 +254,7 @@
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(9, 0, 0, 0, 100F);
             this.xrTableCell2.StylePriority.UsePadding = false;
             this.xrTableCell2.Text = "xrTableCell2";
-            this.xrTableCell2.Weight = 1.6653210346427168D;
-            // 
-            // xrTableCell4
-            // 
-            this.xrTableCell4.Name = "xrTableCell4";
-            this.xrTableCell4.StylePriority.UseTextAlignment = false;
-            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            this.xrTableCell4.Summary = xrSummary1;
-            this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell4.Weight = 0.44215144564424647D;
+            this.xrTableCell2.Weight = 2.1074724908590055D;
             // 
             // xrTableCell9
             // 
@@ -276,7 +264,7 @@
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "xrTableCell9";
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell9.Weight = 0.33161326918296929D;
+            this.xrTableCell9.Weight = 0.33161325861092716D;
             // 
             // xrTableCell10
             // 
@@ -346,7 +334,7 @@
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell18.Weight = 0.77376370289362484D;
+            this.xrTableCell18.Weight = 0.66322516416997224D;
             // 
             // xrTableCell25
             // 
@@ -354,7 +342,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Phone")});
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.Text = "xrTableCell25";
-            this.xrTableCell25.Weight = 0.77376507138906969D;
+            this.xrTableCell25.Weight = 0.77376574605865D;
             // 
             // xrTableCell34
             // 
@@ -362,7 +350,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Driver")});
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.Text = "xrTableCell34";
-            this.xrTableCell34.Weight = 0.87890802447710548D;
+            this.xrTableCell34.Weight = 0.98944588853117765D;
             // 
             // TopMargin
             // 
@@ -557,10 +545,10 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code")});
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseTextAlignment = false;
-            xrSummary2.FormatString = "{0:#,0}";
-            xrSummary2.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell53.Summary = xrSummary2;
+            xrSummary1.FormatString = "{0:#,0}";
+            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell53.Summary = xrSummary1;
             this.xrTableCell53.Text = "xrTableCell53";
             this.xrTableCell53.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell53.Weight = 0.44215178297903673D;
@@ -571,11 +559,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StylePriority.UseTextAlignment = false;
-            xrSummary3.FormatString = "{0:#,0}";
-            xrSummary3.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary3.IgnoreNullValues = true;
-            xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell54.Summary = xrSummary3;
+            xrSummary2.FormatString = "{0:#,0}";
+            xrSummary2.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary2.IgnoreNullValues = true;
+            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell54.Summary = xrSummary2;
             this.xrTableCell54.Text = "xrTableCell54";
             this.xrTableCell54.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell54.Weight = 0.33161394385254972D;
@@ -586,11 +574,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell55.Name = "xrTableCell55";
             this.xrTableCell55.StylePriority.UseTextAlignment = false;
-            xrSummary4.FormatString = "{0:#,0}";
-            xrSummary4.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary4.IgnoreNullValues = true;
-            xrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell55.Summary = xrSummary4;
+            xrSummary3.FormatString = "{0:#,0}";
+            xrSummary3.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary3.IgnoreNullValues = true;
+            xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell55.Summary = xrSummary3;
             this.xrTableCell55.Text = "xrTableCell55";
             this.xrTableCell55.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell55.Weight = 0.33161260640118462D;
@@ -601,11 +589,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
-            xrSummary5.FormatString = "{0:#,0}";
-            xrSummary5.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary5.IgnoreNullValues = true;
-            xrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell56.Summary = xrSummary5;
+            xrSummary4.FormatString = "{0:#,0}";
+            xrSummary4.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary4.IgnoreNullValues = true;
+            xrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell56.Summary = xrSummary4;
             this.xrTableCell56.Text = "xrTableCell56";
             this.xrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell56.Weight = 0.3316142563362976D;
@@ -616,11 +604,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StylePriority.UseTextAlignment = false;
-            xrSummary6.FormatString = "{0:#,0}";
-            xrSummary6.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary6.IgnoreNullValues = true;
-            xrSummary6.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell57.Summary = xrSummary6;
+            xrSummary5.FormatString = "{0:#,0}";
+            xrSummary5.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary5.IgnoreNullValues = true;
+            xrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell57.Summary = xrSummary5;
             this.xrTableCell57.Text = "xrTableCell57";
             this.xrTableCell57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell57.Weight = 0.33161331037861297D;
@@ -629,8 +617,8 @@
             // 
             this.xrTableCell58.Name = "xrTableCell58";
             this.xrTableCell58.StylePriority.UseTextAlignment = false;
-            xrSummary7.FormatString = "{0:#,0}";
-            this.xrTableCell58.Summary = xrSummary7;
+            xrSummary6.FormatString = "{0:#,0}";
+            this.xrTableCell58.Summary = xrSummary6;
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell58.Weight = 1.7686053885823949D;
             // 
@@ -640,9 +628,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell66.Name = "xrTableCell66";
             this.xrTableCell66.StylePriority.UseTextAlignment = false;
-            xrSummary8.FormatString = "{0:#,0}";
-            xrSummary8.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
-            this.xrTableCell66.Summary = xrSummary8;
+            xrSummary7.FormatString = "{0:#,0}";
+            xrSummary7.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
+            this.xrTableCell66.Summary = xrSummary7;
             this.xrTableCell66.Text = "xrTableCell66";
             this.xrTableCell66.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell66.Weight = 0.44215245396455916D;
@@ -651,8 +639,8 @@
             // 
             this.xrTableCell78.Name = "xrTableCell78";
             this.xrTableCell78.StylePriority.UseTextAlignment = false;
-            xrSummary9.FormatString = "{0:#,0.00}";
-            this.xrTableCell78.Summary = xrSummary9;
+            xrSummary8.FormatString = "{0:#,0.00}";
+            this.xrTableCell78.Summary = xrSummary8;
             this.xrTableCell78.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell78.Weight = 2.4264369099059406D;
             // 
@@ -825,19 +813,19 @@
             // 
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Text = "Giá vé";
-            this.xrTableCell3.Weight = 0.76512742782465437D;
+            this.xrTableCell3.Weight = 0.655823545929891D;
             // 
             // xrTableCell1
             // 
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Text = "Điện thoại";
-            this.xrTableCell1.Weight = 0.76512746805929754D;
+            this.xrTableCell1.Weight = 0.76512742636315978D;
             // 
             // xrTableCell24
             // 
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.Text = "Tên nhà xe";
-            this.xrTableCell24.Weight = 0.869096688397749D;
+            this.xrTableCell24.Weight = 0.97840061198865014D;
             // 
             // DetailReport
             // 
@@ -925,9 +913,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Soxe")});
             this.xrTableCell49.Name = "xrTableCell49";
             this.xrTableCell49.StylePriority.UseTextAlignment = false;
-            xrSummary10.FormatString = "{0:#,0}";
-            xrSummary10.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell49.Summary = xrSummary10;
+            xrSummary9.FormatString = "{0:#,0}";
+            xrSummary9.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell49.Summary = xrSummary9;
             this.xrTableCell49.Text = "xrTableCell49";
             this.xrTableCell49.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell49.Weight = 0.44215195164643173D;
@@ -938,11 +926,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell50.Name = "xrTableCell50";
             this.xrTableCell50.StylePriority.UseTextAlignment = false;
-            xrSummary11.FormatString = "{0:#,0}";
-            xrSummary11.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary11.IgnoreNullValues = true;
-            xrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell50.Summary = xrSummary11;
+            xrSummary10.FormatString = "{0:#,0}";
+            xrSummary10.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary10.IgnoreNullValues = true;
+            xrSummary10.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell50.Summary = xrSummary10;
             this.xrTableCell50.Text = "xrTableCell50";
             this.xrTableCell50.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell50.Weight = 0.33161360651775956D;
@@ -953,11 +941,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StylePriority.UseTextAlignment = false;
-            xrSummary12.FormatString = "{0:#,0}";
-            xrSummary12.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary12.IgnoreNullValues = true;
-            xrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell59.Summary = xrSummary12;
+            xrSummary11.FormatString = "{0:#,0}";
+            xrSummary11.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary11.IgnoreNullValues = true;
+            xrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell59.Summary = xrSummary11;
             this.xrTableCell59.Text = "xrTableCell59";
             this.xrTableCell59.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell59.Weight = 0.33161328107076504D;
@@ -968,11 +956,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell60.Name = "xrTableCell60";
             this.xrTableCell60.StylePriority.UseTextAlignment = false;
-            xrSummary13.FormatString = "{0:#,0}";
-            xrSummary13.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary13.IgnoreNullValues = true;
-            xrSummary13.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell60.Summary = xrSummary13;
+            xrSummary12.FormatString = "{0:#,0}";
+            xrSummary12.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary12.IgnoreNullValues = true;
+            xrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell60.Summary = xrSummary12;
             this.xrTableCell60.Text = "xrTableCell60";
             this.xrTableCell60.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell60.Weight = 0.3316139190015075D;
@@ -983,11 +971,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.StylePriority.UseTextAlignment = false;
-            xrSummary14.FormatString = "{0:#,0}";
-            xrSummary14.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary14.IgnoreNullValues = true;
-            xrSummary14.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell61.Summary = xrSummary14;
+            xrSummary13.FormatString = "{0:#,0}";
+            xrSummary13.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary13.IgnoreNullValues = true;
+            xrSummary13.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell61.Summary = xrSummary13;
             this.xrTableCell61.Text = "xrTableCell61";
             this.xrTableCell61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell61.Weight = 0.33161229837424244D;
@@ -996,8 +984,8 @@
             // 
             this.xrTableCell62.Name = "xrTableCell62";
             this.xrTableCell62.StylePriority.UseTextAlignment = false;
-            xrSummary15.FormatString = "{0:#,0}";
-            this.xrTableCell62.Summary = xrSummary15;
+            xrSummary14.FormatString = "{0:#,0}";
+            this.xrTableCell62.Summary = xrSummary14;
             this.xrTableCell62.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell62.Weight = 1.7686075812585311D;
             // 
@@ -1007,9 +995,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell63.Name = "xrTableCell63";
             this.xrTableCell63.StylePriority.UseTextAlignment = false;
-            xrSummary16.FormatString = "{0:#,0}";
-            xrSummary16.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell63.Summary = xrSummary16;
+            xrSummary15.FormatString = "{0:#,0}";
+            xrSummary15.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell63.Summary = xrSummary15;
             this.xrTableCell63.Text = "xrTableCell63";
             this.xrTableCell63.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell63.Weight = 0.44215110462539842D;
@@ -1018,8 +1006,8 @@
             // 
             this.xrTableCell65.Name = "xrTableCell65";
             this.xrTableCell65.StylePriority.UseTextAlignment = false;
-            xrSummary17.FormatString = "{0:#,0.00}";
-            this.xrTableCell65.Summary = xrSummary17;
+            xrSummary16.FormatString = "{0:#,0.00}";
+            this.xrTableCell65.Summary = xrSummary16;
             this.xrTableCell65.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell65.Weight = 2.4264369099059406D;
             // 
@@ -1092,9 +1080,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Soxe")});
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StylePriority.UseTextAlignment = false;
-            xrSummary18.FormatString = "{0:#,0}";
-            xrSummary18.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell30.Summary = xrSummary18;
+            xrSummary17.FormatString = "{0:#,0}";
+            xrSummary17.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell30.Summary = xrSummary17;
             this.xrTableCell30.Text = "xrTableCell49";
             this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell30.Weight = 0.44215178297903668D;
@@ -1105,11 +1093,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.StylePriority.UseTextAlignment = false;
-            xrSummary19.FormatString = "{0:#,0}";
-            xrSummary19.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary19.IgnoreNullValues = true;
-            xrSummary19.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell31.Summary = xrSummary19;
+            xrSummary18.FormatString = "{0:#,0}";
+            xrSummary18.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary18.IgnoreNullValues = true;
+            xrSummary18.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell31.Summary = xrSummary18;
             this.xrTableCell31.Text = "xrTableCell31";
             this.xrTableCell31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell31.Weight = 0.33161360651775951D;
@@ -1120,11 +1108,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.StylePriority.UseTextAlignment = false;
-            xrSummary20.FormatString = "{0:#,0}";
-            xrSummary20.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary20.IgnoreNullValues = true;
-            xrSummary20.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell35.Summary = xrSummary20;
+            xrSummary19.FormatString = "{0:#,0}";
+            xrSummary19.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary19.IgnoreNullValues = true;
+            xrSummary19.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell35.Summary = xrSummary19;
             this.xrTableCell35.Text = "xrTableCell35";
             this.xrTableCell35.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell35.Weight = 0.33161361840555503D;
@@ -1135,11 +1123,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell36.Name = "xrTableCell36";
             this.xrTableCell36.StylePriority.UseTextAlignment = false;
-            xrSummary21.FormatString = "{0:#,0}";
-            xrSummary21.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary21.IgnoreNullValues = true;
-            xrSummary21.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell36.Summary = xrSummary21;
+            xrSummary20.FormatString = "{0:#,0}";
+            xrSummary20.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary20.IgnoreNullValues = true;
+            xrSummary20.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell36.Summary = xrSummary20;
             this.xrTableCell36.Text = "xrTableCell36";
             this.xrTableCell36.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell36.Weight = 0.33161391900150761D;
@@ -1150,11 +1138,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell37.Name = "xrTableCell37";
             this.xrTableCell37.StylePriority.UseTextAlignment = false;
-            xrSummary22.FormatString = "{0:#,0}";
-            xrSummary22.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary22.IgnoreNullValues = true;
-            xrSummary22.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell37.Summary = xrSummary22;
+            xrSummary21.FormatString = "{0:#,0}";
+            xrSummary21.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary21.IgnoreNullValues = true;
+            xrSummary21.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell37.Summary = xrSummary21;
             this.xrTableCell37.Text = "xrTableCell37";
             this.xrTableCell37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell37.Weight = 0.33161263570903254D;
@@ -1163,8 +1151,8 @@
             // 
             this.xrTableCell38.Name = "xrTableCell38";
             this.xrTableCell38.StylePriority.UseTextAlignment = false;
-            xrSummary23.FormatString = "{0:#,0}";
-            this.xrTableCell38.Summary = xrSummary23;
+            xrSummary22.FormatString = "{0:#,0}";
+            this.xrTableCell38.Summary = xrSummary22;
             this.xrTableCell38.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell38.Weight = 1.7686079185933212D;
             // 
@@ -1174,9 +1162,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell39.Name = "xrTableCell39";
             this.xrTableCell39.StylePriority.UseTextAlignment = false;
-            xrSummary24.FormatString = "{0:#,0}";
-            xrSummary24.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell39.Summary = xrSummary24;
+            xrSummary23.FormatString = "{0:#,0}";
+            xrSummary23.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell39.Summary = xrSummary23;
             this.xrTableCell39.Text = "xrTableCell39";
             this.xrTableCell39.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell39.Weight = 0.44214975528623757D;
@@ -1185,8 +1173,8 @@
             // 
             this.xrTableCell44.Name = "xrTableCell44";
             this.xrTableCell44.StylePriority.UseTextAlignment = false;
-            xrSummary25.FormatString = "{0:#,0.00}";
-            this.xrTableCell44.Summary = xrSummary25;
+            xrSummary24.FormatString = "{0:#,0.00}";
+            this.xrTableCell44.Summary = xrSummary24;
             this.xrTableCell44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell44.Weight = 2.4264374159081261D;
             // 
@@ -1259,10 +1247,10 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code")});
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            xrSummary26.FormatString = "{0:#,0}";
-            xrSummary26.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary26.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell7.Summary = xrSummary26;
+            xrSummary25.FormatString = "{0:#,0}";
+            xrSummary25.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary25.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell7.Summary = xrSummary25;
             this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell7.Weight = 0.44215178297903668D;
@@ -1273,11 +1261,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
-            xrSummary27.FormatString = "{0:#,0}";
-            xrSummary27.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary27.IgnoreNullValues = true;
-            xrSummary27.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell16.Summary = xrSummary27;
+            xrSummary26.FormatString = "{0:#,0}";
+            xrSummary26.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary26.IgnoreNullValues = true;
+            xrSummary26.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell16.Summary = xrSummary26;
             this.xrTableCell16.Text = "xrTableCell16";
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell16.Weight = 0.33161360651775951D;
@@ -1288,11 +1276,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseTextAlignment = false;
-            xrSummary28.FormatString = "{0:#,0}";
-            xrSummary28.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary28.IgnoreNullValues = true;
-            xrSummary28.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell17.Summary = xrSummary28;
+            xrSummary27.FormatString = "{0:#,0}";
+            xrSummary27.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary27.IgnoreNullValues = true;
+            xrSummary27.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell17.Summary = xrSummary27;
             this.xrTableCell17.Text = "xrTableCell17";
             this.xrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell17.Weight = 0.33161294373597472D;
@@ -1303,11 +1291,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
-            xrSummary29.FormatString = "{0:#,0}";
-            xrSummary29.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary29.IgnoreNullValues = true;
-            xrSummary29.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell22.Summary = xrSummary29;
+            xrSummary28.FormatString = "{0:#,0}";
+            xrSummary28.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary28.IgnoreNullValues = true;
+            xrSummary28.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell22.Summary = xrSummary28;
             this.xrTableCell22.Text = "xrTableCell22";
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell22.Weight = 0.33161425633629793D;
@@ -1318,11 +1306,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell26.Name = "xrTableCell26";
             this.xrTableCell26.StylePriority.UseTextAlignment = false;
-            xrSummary30.FormatString = "{0:#,0}";
-            xrSummary30.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary30.IgnoreNullValues = true;
-            xrSummary30.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell26.Summary = xrSummary30;
+            xrSummary29.FormatString = "{0:#,0}";
+            xrSummary29.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary29.IgnoreNullValues = true;
+            xrSummary29.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell26.Summary = xrSummary29;
             this.xrTableCell26.Text = "xrTableCell26";
             this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell26.Weight = 0.33161331037861252D;
@@ -1331,8 +1319,8 @@
             // 
             this.xrTableCell27.Name = "xrTableCell27";
             this.xrTableCell27.StylePriority.UseTextAlignment = false;
-            xrSummary31.FormatString = "{0:#,0}";
-            this.xrTableCell27.Summary = xrSummary31;
+            xrSummary30.FormatString = "{0:#,0}";
+            this.xrTableCell27.Summary = xrSummary30;
             this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell27.Weight = 1.7686069065889509D;
             // 
@@ -1342,9 +1330,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell28.Name = "xrTableCell28";
             this.xrTableCell28.StylePriority.UseTextAlignment = false;
-            xrSummary32.FormatString = "{0:#,0}";
-            xrSummary32.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell28.Summary = xrSummary32;
+            xrSummary31.FormatString = "{0:#,0}";
+            xrSummary31.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell28.Summary = xrSummary31;
             this.xrTableCell28.Text = "xrTableCell28";
             this.xrTableCell28.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell28.Weight = 0.442150429955818D;
@@ -1353,8 +1341,8 @@
             // 
             this.xrTableCell45.Name = "xrTableCell45";
             this.xrTableCell45.StylePriority.UseTextAlignment = false;
-            xrSummary33.FormatString = "{0:#,0.00}";
-            this.xrTableCell45.Summary = xrSummary33;
+            xrSummary32.FormatString = "{0:#,0.00}";
+            this.xrTableCell45.Summary = xrSummary32;
             this.xrTableCell45.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell45.Weight = 2.4264374159081261D;
             // 
@@ -1427,10 +1415,10 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code")});
             this.xrTableCell68.Name = "xrTableCell68";
             this.xrTableCell68.StylePriority.UseTextAlignment = false;
-            xrSummary34.FormatString = "{0:#,0}";
-            xrSummary34.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary34.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell68.Summary = xrSummary34;
+            xrSummary33.FormatString = "{0:#,0}";
+            xrSummary33.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary33.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell68.Summary = xrSummary33;
             this.xrTableCell68.Text = "xrTableCell68";
             this.xrTableCell68.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell68.Weight = 0.44215178297903668D;
@@ -1441,11 +1429,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell69.Name = "xrTableCell69";
             this.xrTableCell69.StylePriority.UseTextAlignment = false;
-            xrSummary35.FormatString = "{0:#,0}";
-            xrSummary35.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary35.IgnoreNullValues = true;
-            xrSummary35.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell69.Summary = xrSummary35;
+            xrSummary34.FormatString = "{0:#,0}";
+            xrSummary34.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary34.IgnoreNullValues = true;
+            xrSummary34.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell69.Summary = xrSummary34;
             this.xrTableCell69.Text = "xrTableCell69";
             this.xrTableCell69.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell69.Weight = 0.33161360651775951D;
@@ -1456,11 +1444,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell70.Name = "xrTableCell70";
             this.xrTableCell70.StylePriority.UseTextAlignment = false;
-            xrSummary36.FormatString = "{0:#,0}";
-            xrSummary36.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary36.IgnoreNullValues = true;
-            xrSummary36.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell70.Summary = xrSummary36;
+            xrSummary35.FormatString = "{0:#,0}";
+            xrSummary35.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary35.IgnoreNullValues = true;
+            xrSummary35.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell70.Summary = xrSummary35;
             this.xrTableCell70.Text = "xrTableCell70";
             this.xrTableCell70.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell70.Weight = 0.331612901569126D;
@@ -1471,11 +1459,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell71.Name = "xrTableCell71";
             this.xrTableCell71.StylePriority.UseTextAlignment = false;
-            xrSummary37.FormatString = "{0:#,0}";
-            xrSummary37.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary37.IgnoreNullValues = true;
-            xrSummary37.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell71.Summary = xrSummary37;
+            xrSummary36.FormatString = "{0:#,0}";
+            xrSummary36.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary36.IgnoreNullValues = true;
+            xrSummary36.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell71.Summary = xrSummary36;
             this.xrTableCell71.Text = "xrTableCell71";
             this.xrTableCell71.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell71.Weight = 0.33161459367108775D;
@@ -1486,11 +1474,11 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell72.Name = "xrTableCell72";
             this.xrTableCell72.StylePriority.UseTextAlignment = false;
-            xrSummary38.FormatString = "{0:#,0}";
-            xrSummary38.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
-            xrSummary38.IgnoreNullValues = true;
-            xrSummary38.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell72.Summary = xrSummary38;
+            xrSummary37.FormatString = "{0:#,0}";
+            xrSummary37.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary37.IgnoreNullValues = true;
+            xrSummary37.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell72.Summary = xrSummary37;
             this.xrTableCell72.Text = "xrTableCell72";
             this.xrTableCell72.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell72.Weight = 0.33161326821176407D;
@@ -1499,8 +1487,8 @@
             // 
             this.xrTableCell73.Name = "xrTableCell73";
             this.xrTableCell73.StylePriority.UseTextAlignment = false;
-            xrSummary39.FormatString = "{0:#,0}";
-            this.xrTableCell73.Summary = xrSummary39;
+            xrSummary38.FormatString = "{0:#,0}";
+            this.xrTableCell73.Summary = xrSummary38;
             this.xrTableCell73.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell73.Weight = 1.7686058102508828D;
             // 
@@ -1510,9 +1498,9 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell74.Name = "xrTableCell74";
             this.xrTableCell74.StylePriority.UseTextAlignment = false;
-            xrSummary40.FormatString = "{0:#,0}";
-            xrSummary40.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell74.Summary = xrSummary40;
+            xrSummary39.FormatString = "{0:#,0}";
+            xrSummary39.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell74.Summary = xrSummary39;
             this.xrTableCell74.Text = "xrTableCell74";
             this.xrTableCell74.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell74.Weight = 0.44215110462539831D;
@@ -1521,8 +1509,8 @@
             // 
             this.xrTableCell75.Name = "xrTableCell75";
             this.xrTableCell75.StylePriority.UseTextAlignment = false;
-            xrSummary41.FormatString = "{0:#,0.00}";
-            this.xrTableCell75.Summary = xrSummary41;
+            xrSummary40.FormatString = "{0:#,0.00}";
+            this.xrTableCell75.Summary = xrSummary40;
             this.xrTableCell75.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell75.Weight = 2.4264375845755208D;
             // 
@@ -1593,7 +1581,6 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow1;
         private DevExpress.XtraReports.UI.XRTableCell xrcNumber;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;

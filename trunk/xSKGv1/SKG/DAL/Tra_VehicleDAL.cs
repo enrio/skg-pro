@@ -358,7 +358,7 @@ namespace SKG.DAL
         /// In danh sách xe tuyến cố định
         /// </summary>
         /// <returns></returns>
-        public DataTable SelectForFixedPrint()
+        protected DataTable SelectForFixedPrint()
         {
             try
             {
@@ -381,8 +381,13 @@ namespace SKG.DAL
                               StationCode = s.Tariff.Code,
                               TransportCode = s.Transport.Code,
 
-                              s.Seats,
-                              s.Beds,
+                              Seats = s.Seats ?? 0,
+                              Beds = s.Beds ?? 0,
+
+                              s.Tariff.Price1,
+                              s.Tariff.Price2,
+                              s.Tariff.Rose1,
+                              s.Tariff.Rose2,
 
                               Clc = s.High == true ? "x" : null,
                               Xt = s.High == true ? null : "x",

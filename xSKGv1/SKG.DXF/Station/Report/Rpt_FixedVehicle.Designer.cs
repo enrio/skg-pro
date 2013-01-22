@@ -265,7 +265,7 @@
             // xrTableCell2
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Code", "+ {0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code", "+ {0}")});
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(9, 0, 0, 0, 100F);
             this.xrTableCell2.StylePriority.UsePadding = false;
@@ -1027,7 +1027,7 @@
             // xrTableCell48
             // 
             this.xrTableCell48.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Transport", "- {0}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Transport", "- {0}")});
             this.xrTableCell48.Name = "xrTableCell48";
             this.xrTableCell48.Padding = new DevExpress.XtraPrinting.PaddingInfo(7, 0, 0, 0, 100F);
             this.xrTableCell48.StylePriority.UsePadding = false;
@@ -1208,7 +1208,7 @@
             // xrTableCell8
             // 
             this.xrTableCell8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Station")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Station")});
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 0, 0, 0, 100F);
             this.xrTableCell8.StylePriority.UsePadding = false;
@@ -1389,7 +1389,7 @@
             // xrTableCell6
             // 
             this.xrTableCell6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Area")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Area")});
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.Padding = new DevExpress.XtraPrinting.PaddingInfo(3, 0, 0, 0, 100F);
             this.xrTableCell6.StylePriority.UsePadding = false;
@@ -1570,7 +1570,7 @@
             // xrTableCell67
             // 
             this.xrTableCell67.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Region")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Region")});
             this.xrTableCell67.Name = "xrTableCell67";
             this.xrTableCell67.Padding = new DevExpress.XtraPrinting.PaddingInfo(1, 0, 0, 0, 100F);
             this.xrTableCell67.StylePriority.UsePadding = false;
@@ -1728,7 +1728,7 @@
             this.PageHeader,
             this.DetailReport,
             this.PageFooter});
-            this.DataMember = "Audit";
+            this.DataMember = "Vehicle";
             this.DataSource = this.dts_Fixed;
             this.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
             this.PageHeight = 1169;

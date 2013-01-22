@@ -108,7 +108,7 @@ namespace SKG.DXF.Station.Fixed
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            rpt.DataSource = _bll.Tra_Vehicle.SelectForFixed();
+            rpt.DataSource = _bll.Tra_Vehicle.SelectForFixedPrint();
             rpt.parDate.Value = Global.Session.Current;
 
             var frm = new FrmPrint();

@@ -355,6 +355,63 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// In danh sách xe tuyến cố định
+        /// </summary>
+        /// <returns></returns>
+        public DataTable SelectForFixedPrint()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          where s.Fixed == true
+                          orderby s.Tariff.Text
+                          select new
+                          {
+                              s.Code,
+
+                              Region = s.Tariff.Group.Parent.Parent.Text,
+                              Area = s.Tariff.Group.Parent.Text,
+                              Province = s.Tariff.Group.Text,
+                              Station = s.Tariff.Text,
+                              Transport = s.Transport.Text,
+
+                              RegionCode = s.Tariff.Group.Parent.Parent.Code,
+                              AreaCode = s.Tariff.Group.Parent.Code,
+                              ProvinceCode = s.Tariff.Group.Code,
+                              StationCode = s.Tariff.Code,
+                              TransportCode = s.Transport.Code,
+
+                              s.Seats,
+                              s.Beds,
+
+                              s.High,
+                              s.City,
+
+                              s.ProductionYear,
+                              s.LimitedRegistration,
+                              s.TermInsurance,
+                              s.TermFixedRoutes,
+                              s.TermDriverLicense,
+
+                              s.Node,
+                              s.Driver,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Text,
+                              s.Note,
+                              s.More,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
         /// Danh sách xe vãng lai
         /// </summary>
         /// <returns></returns>

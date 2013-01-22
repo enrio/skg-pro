@@ -317,6 +317,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_FixedVehicle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_FixedVehicle.Designer.cs">
+      <DependentUpon>Rpt_FixedVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_DebtMonth.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -470,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_FixedVehicle.resx">
+      <DependentUpon>Rpt_FixedVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_DebtMonth.resx">
       <DependentUpon>Rpt_DebtMonth.cs</DependentUpon>

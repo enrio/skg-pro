@@ -192,11 +192,11 @@
             // 
             // txtDays
             // 
-            this.txtDays.Location = new System.Drawing.Point(288, 23);
+            this.txtDays.Location = new System.Drawing.Point(277, 23);
             this.txtDays.Name = "txtDays";
             this.txtDays.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDays.Properties.Appearance.Options.UseFont = true;
-            this.txtDays.Size = new System.Drawing.Size(122, 26);
+            this.txtDays.Size = new System.Drawing.Size(133, 26);
             this.txtDays.TabIndex = 36;
             // 
             // txtHours
@@ -205,13 +205,13 @@
             this.txtHours.Name = "txtHours";
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHours.Properties.Appearance.Options.UseFont = true;
-            this.txtHours.Size = new System.Drawing.Size(102, 26);
+            this.txtHours.Size = new System.Drawing.Size(91, 26);
             this.txtHours.TabIndex = 34;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(194, 26);
+            this.labelControl2.Location = new System.Drawing.Point(183, 26);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(88, 19);
             this.labelControl2.TabIndex = 35;

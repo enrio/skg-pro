@@ -243,6 +243,9 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.parLxe = new DevExpress.XtraReports.Parameters.Parameter();
+            this.parHk = new DevExpress.XtraReports.Parameters.Parameter();
+            this.parDt = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -2053,6 +2056,31 @@
             this.PageFooter.HeightF = 23.95834F;
             this.PageFooter.Name = "PageFooter";
             // 
+            // parLxe
+            // 
+            this.parLxe.Description = "Tổng lượt xe";
+            this.parLxe.Name = "parLxe";
+            this.parLxe.Type = typeof(int);
+            this.parLxe.Value = 0;
+            // 
+            // parHk
+            // 
+            this.parHk.Description = "Tổng hành khách";
+            this.parHk.Name = "parHk";
+            this.parHk.Type = typeof(int);
+            this.parHk.Value = 0;
+            // 
+            // parDt
+            // 
+            this.parDt.Description = "Tổng doanh thu";
+            this.parDt.Name = "parDt";
+            this.parDt.Type = typeof(decimal);
+            this.parDt.Value = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            // 
             // Rpt_AuditDay
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2072,7 +2100,10 @@
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.parDate});
+            this.parDate,
+            this.parLxe,
+            this.parHk,
+            this.parDt});
             this.RequestParameters = false;
             this.Version = "12.1";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
@@ -2242,5 +2273,8 @@
         public DevExpress.XtraReports.UI.XRLabel xrLabel9;
         public DevExpress.XtraReports.UI.XRLabel xrLabel8;
         public DevExpress.XtraReports.UI.XRLabel xrlCashier;
+        public DevExpress.XtraReports.Parameters.Parameter parLxe;
+        public DevExpress.XtraReports.Parameters.Parameter parHk;
+        public DevExpress.XtraReports.Parameters.Parameter parDt;
     }
 }

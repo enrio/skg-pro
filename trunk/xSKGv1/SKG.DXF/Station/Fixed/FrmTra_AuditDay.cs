@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+    using DevExpress.XtraEditors;
 
     public partial class FrmTra_AuditDay : SKG.DXF.FrmInput
     {
@@ -82,6 +83,31 @@ namespace SKG.DXF.Station.Fixed
             switch (_state)
             {
                 case State.Add:
+                    if (!ValidInput()) return;
+                    var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+
+                    if (o == null)
+                    {
+                        XtraMessageBox.Show(String.Format(STR_NO_HAVE, txtNumber.Text), STR_MANAG,
+                            MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return;
+                    }
+
+                    var ve = (Tra_Vehicle)o;
+                    if (!ve.Fixed)
+                    {
+                        XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text), STR_NORMAL,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    if (ve.TariffId == null)
+                    {
+                        XtraMessageBox.Show(String.Format(STR_WARNING_ROUTE, txtNumber.Text), STR_NORMAL,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                     if (InsertObject())
                     {
                         ResetInput(); LoadData();
@@ -104,7 +130,7 @@ namespace SKG.DXF.Station.Fixed
         {
             try
             {
-                if (!ValidInput()) return false;
+                //if (!ValidInput()) return false;
 
                 var tb = _dtb.GetChanges(DataRowState.Modified);
                 foreach (DataRow r in tb.Rows)
@@ -175,6 +201,56 @@ namespace SKG.DXF.Station.Fixed
 
             base.PerformPrint();
         }
+
+        protected override bool ValidInput()
+        {
+            var oki = txtNumber.Text.Length == 0 ? false : true;
+            if (!oki) XtraMessageBox.Show(STR_NOT_INP,
+                          STR_ADD,
+                          MessageBoxButtons.OK,
+                          MessageBoxIcon.Warning);
+            else
+                txtNumber.Text = txtNumber.Text.Replace(" ", "");
+            return oki;
+        }
+
+        protected override void ResetInput()
+        {
+            txtNumber.Text = null;
+            txtArrears.Text = null;
+
+            base.ResetInput();
+        }
+
+        protected override bool InsertObject()
+        {
+            try
+            {
+                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text);
+
+                if (id != new Guid())
+                {
+                    var o = new Tra_Detail()
+                    {
+                        UserInId = Global.Session.User.Id,
+                        VehicleId = id,
+                        DateIn = Global.Session.Current,
+                        Code = txtNumber.Text,
+                        Arrears = txtArrears.Text.ToInt32()
+                    };
+
+                    if (_bll.Tra_Detail.Insert(o) != null) return true;
+                    else
+                    {
+                        XtraMessageBox.Show(STR_IN_GATE, STR_ADD,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }
+                }
+                else return false;
+            }
+            catch { return false; }
+        }
         #endregion
 
         #region Methods
@@ -244,6 +320,23 @@ namespace SKG.DXF.Station.Fixed
 
         #region Constants
         private const string STR_TITLE = "Theo dõi ngày";
+
+        private const string STR_ADD = "Thêm chi tiết ra/vào";
+        private const string STR_DELETE = "Xoá chi tiết ra/vào";
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
+
+        private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
+        private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ ĐỘI ĐIỀU HÀNH ĐỂ NHẬP THÔNG TIN XE";
+        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
+        private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÝ TUYẾN";
+        private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
+        private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
+        private const string STR_MANAG = "CHƯA QUẢN LÝ";
+
+        private const string STR_INTO = "CHO XE VÀO";
+        private const string STR_NORMAL = "XE VÃNG LAI";
+        private const string STR_FIXED = "XE CỐ ĐỊNH";
         #endregion
     }
 }

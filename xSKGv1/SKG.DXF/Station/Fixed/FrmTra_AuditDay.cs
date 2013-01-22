@@ -164,6 +164,10 @@ namespace SKG.DXF.Station.Fixed
             rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
 
+            rpt.parLxe.Value = lxe;
+            rpt.parHk.Value = hk;
+            rpt.parDt.Value = money;
+
             var frm = new FrmPrint();
             frm.SetReport(rpt);
             frm.WindowState = FormWindowState.Maximized;

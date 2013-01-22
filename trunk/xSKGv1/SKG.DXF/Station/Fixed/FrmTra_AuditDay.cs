@@ -155,7 +155,7 @@ namespace SKG.DXF.Station.Fixed
             };
 
             DateTime fr, to;
-            Session.CutShiftMonth(dteDay.DateTime, out fr, out to);
+            Session.CutShiftDay(dteDay.DateTime, out fr, out to);
 
             rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked);
             rpt.xrlCashier.Text = Global.Session.User.Name;

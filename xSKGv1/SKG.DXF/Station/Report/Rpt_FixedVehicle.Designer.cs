@@ -475,14 +475,14 @@
             // xrlTitle
             // 
             this.xrlTitle.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrlTitle.LocationFloat = new DevExpress.Utils.PointFloat(94.44262F, 119.6875F);
+            this.xrlTitle.LocationFloat = new DevExpress.Utils.PointFloat(114.2343F, 119.6875F);
             this.xrlTitle.Multiline = true;
             this.xrlTitle.Name = "xrlTitle";
             this.xrlTitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlTitle.SizeF = new System.Drawing.SizeF(584.9174F, 53.64587F);
+            this.xrlTitle.SizeF = new System.Drawing.SizeF(548.4591F, 53.64587F);
             this.xrlTitle.StylePriority.UseFont = false;
             this.xrlTitle.StylePriority.UseTextAlignment = false;
-            this.xrlTitle.Text = "BÁO CÁO TÌNH HÌNH HOẠT ĐỘNG\r\nCÁC TUYẾN VẬN TẢI HÀNH KHÁCH THÁNG";
+            this.xrlTitle.Text = "THÔNG TIN CÁC PHƯƠNG TIỆN VẬN TẢI LIÊN TỈNH HOẠT ĐỘNG TẠI BẾN XE NGÃ TƯ GA";
             this.xrlTitle.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // ReportFooter
@@ -827,7 +827,7 @@
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StylePriority.UseBorders = false;
             this.xrTableCell33.StylePriority.UseFont = false;
-            this.xrTableCell33.Text = "Tổng số ghế (ghế xe)";
+            this.xrTableCell33.Text = "Chất lượng cao";
             this.xrTableCell33.Weight = 0.64661355382858254D;
             // 
             // xrTableCell34
@@ -835,7 +835,7 @@
             this.xrTableCell34.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.StylePriority.UseFont = false;
-            this.xrTableCell34.Text = "Lượt xe xuất bến (lượt)";
+            this.xrTableCell34.Text = "Xe thành phố";
             this.xrTableCell34.Weight = 0.60439676357039906D;
             // 
             // xrLabel6
@@ -849,7 +849,7 @@
             this.xrLabel6.StylePriority.UseBorders = false;
             this.xrLabel6.StylePriority.UseFont = false;
             this.xrLabel6.StylePriority.UseTextAlignment = false;
-            this.xrLabel6.Text = "Theo kế hoạch";
+            this.xrLabel6.Text = "Thông tin xe";
             this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTableCell23
@@ -891,7 +891,7 @@
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseBorders = false;
             this.xrTableCell5.StylePriority.UseFont = false;
-            this.xrTableCell5.Text = "Tổng số xe (xe)";
+            this.xrTableCell5.Text = "Giờ xuất bến";
             this.xrTableCell5.Weight = 0.31317024328969967D;
             // 
             // xrTableCell40
@@ -901,7 +901,7 @@
             this.xrTableCell40.Name = "xrTableCell40";
             this.xrTableCell40.StylePriority.UseBorders = false;
             this.xrTableCell40.StylePriority.UseFont = false;
-            this.xrTableCell40.Text = "Tổng số ghế (ghế xe)";
+            this.xrTableCell40.Text = "Ngày đăng kí/tháng";
             this.xrTableCell40.Weight = 0.38651223021746689D;
             // 
             // xrTableCell41
@@ -911,7 +911,7 @@
             this.xrTableCell41.Name = "xrTableCell41";
             this.xrTableCell41.StylePriority.UseBorders = false;
             this.xrTableCell41.StylePriority.UseFont = false;
-            this.xrTableCell41.Text = "Lượt xe xuất bến (lượt)";
+            this.xrTableCell41.Text = "Nốt tài";
             this.xrTableCell41.Weight = 0.36127718990226176D;
             // 
             // xrTableCell42
@@ -919,7 +919,7 @@
             this.xrTableCell42.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell42.Name = "xrTableCell42";
             this.xrTableCell42.StylePriority.UseFont = false;
-            this.xrTableCell42.Text = "Lượt khách đi xe (khách)";
+            this.xrTableCell42.Text = "Giá vé";
             this.xrTableCell42.Weight = 0.47571349988528361D;
             // 
             // xrLabel7
@@ -942,7 +942,7 @@
             this.xrTableCell24.Multiline = true;
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.StylePriority.UseFont = false;
-            this.xrTableCell24.Text = "Tỷ lệ (%) số nốt (tài) thực hiện trong tháng";
+            this.xrTableCell24.Text = "Số điện thoại";
             this.xrTableCell24.Weight = 1.052738095744264D;
             // 
             // xrTableCell25
@@ -950,7 +950,7 @@
             this.xrTableCell25.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell25.Name = "xrTableCell25";
             this.xrTableCell25.StylePriority.UseFont = false;
-            this.xrTableCell25.Text = "Ghi chú số nốt tài hoạt động trong ngày";
+            this.xrTableCell25.Text = "Tên nhà xe";
             this.xrTableCell25.Weight = 0.957937562280301D;
             // 
             // DetailReport
@@ -1717,7 +1717,7 @@
             this.PageFooter.HeightF = 23.95834F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // Rpt_AuditMonth
+            // Rpt_FixedVehicle
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,

@@ -599,7 +599,7 @@
             // 
             this.txtNumber.Location = new System.Drawing.Point(48, 23);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
             this.txtNumber.Size = new System.Drawing.Size(91, 26);
             this.txtNumber.TabIndex = 6;

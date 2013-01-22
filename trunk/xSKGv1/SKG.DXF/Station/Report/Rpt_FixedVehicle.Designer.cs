@@ -57,6 +57,8 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary27 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary28 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary29 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary30 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary31 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary32 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary33 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary34 = new DevExpress.XtraReports.UI.XRSummary();
@@ -67,8 +69,6 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary39 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary40 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary41 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary30 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary31 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable1 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow1 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -83,6 +83,8 @@
             this.xrTableCell14 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell18 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell25 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
@@ -166,6 +168,8 @@
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell17 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell22 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell28 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell45 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupHeader2 = new DevExpress.XtraReports.UI.GroupHeaderBand();
@@ -184,10 +188,6 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.xrTableCell25 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell34 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell26 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell27 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable12)).BeginInit();
@@ -347,6 +347,22 @@
             this.xrTableCell18.Text = "xrTableCell18";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell18.Weight = 0.77376433539635647D;
+            // 
+            // xrTableCell25
+            // 
+            this.xrTableCell25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Phone")});
+            this.xrTableCell25.Name = "xrTableCell25";
+            this.xrTableCell25.Text = "xrTableCell25";
+            this.xrTableCell25.Weight = 0.77376507138906969D;
+            // 
+            // xrTableCell34
+            // 
+            this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Driver")});
+            this.xrTableCell34.Name = "xrTableCell34";
+            this.xrTableCell34.Text = "xrTableCell34";
+            this.xrTableCell34.Weight = 0.657831959034171D;
             // 
             // TopMargin
             // 
@@ -552,10 +568,12 @@
             // xrTableCell54
             // 
             this.xrTableCell54.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StylePriority.UseTextAlignment = false;
             xrSummary3.FormatString = "{0:#,0}";
+            xrSummary3.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary3.IgnoreNullValues = true;
             xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell54.Summary = xrSummary3;
             this.xrTableCell54.Text = "xrTableCell54";
@@ -565,10 +583,12 @@
             // xrTableCell55
             // 
             this.xrTableCell55.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Lx_Xuatben")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell55.Name = "xrTableCell55";
             this.xrTableCell55.StylePriority.UseTextAlignment = false;
             xrSummary4.FormatString = "{0:#,0}";
+            xrSummary4.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary4.IgnoreNullValues = true;
             xrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell55.Summary = xrSummary4;
             this.xrTableCell55.Text = "xrTableCell55";
@@ -578,10 +598,12 @@
             // xrTableCell56
             // 
             this.xrTableCell56.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
             xrSummary5.FormatString = "{0:#,0}";
+            xrSummary5.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary5.IgnoreNullValues = true;
             xrSummary5.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell56.Summary = xrSummary5;
             this.xrTableCell56.Text = "xrTableCell56";
@@ -591,10 +613,12 @@
             // xrTableCell57
             // 
             this.xrTableCell57.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StylePriority.UseTextAlignment = false;
             xrSummary6.FormatString = "{0:#,0}";
+            xrSummary6.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary6.IgnoreNullValues = true;
             xrSummary6.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell57.Summary = xrSummary6;
             this.xrTableCell57.Text = "xrTableCell57";
@@ -911,10 +935,12 @@
             // xrTableCell50
             // 
             this.xrTableCell50.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell50.Name = "xrTableCell50";
             this.xrTableCell50.StylePriority.UseTextAlignment = false;
             xrSummary11.FormatString = "{0:#,0}";
+            xrSummary11.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary11.IgnoreNullValues = true;
             xrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell50.Summary = xrSummary11;
             this.xrTableCell50.Text = "xrTableCell50";
@@ -924,10 +950,12 @@
             // xrTableCell59
             // 
             this.xrTableCell59.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Lx_Xuatben")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StylePriority.UseTextAlignment = false;
             xrSummary12.FormatString = "{0:#,0}";
+            xrSummary12.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary12.IgnoreNullValues = true;
             xrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell59.Summary = xrSummary12;
             this.xrTableCell59.Text = "xrTableCell59";
@@ -937,10 +965,12 @@
             // xrTableCell60
             // 
             this.xrTableCell60.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell60.Name = "xrTableCell60";
             this.xrTableCell60.StylePriority.UseTextAlignment = false;
             xrSummary13.FormatString = "{0:#,0}";
+            xrSummary13.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary13.IgnoreNullValues = true;
             xrSummary13.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell60.Summary = xrSummary13;
             this.xrTableCell60.Text = "xrTableCell60";
@@ -950,10 +980,12 @@
             // xrTableCell61
             // 
             this.xrTableCell61.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.StylePriority.UseTextAlignment = false;
             xrSummary14.FormatString = "{0:#,0}";
+            xrSummary14.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary14.IgnoreNullValues = true;
             xrSummary14.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell61.Summary = xrSummary14;
             this.xrTableCell61.Text = "xrTableCell61";
@@ -972,7 +1004,7 @@
             // xrTableCell63
             // 
             this.xrTableCell63.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Lk_Di")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell63.Name = "xrTableCell63";
             this.xrTableCell63.StylePriority.UseTextAlignment = false;
             xrSummary16.FormatString = "{0:#,0}";
@@ -1070,52 +1102,60 @@
             // xrTableCell31
             // 
             this.xrTableCell31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.StylePriority.UseTextAlignment = false;
             xrSummary19.FormatString = "{0:#,0}";
+            xrSummary19.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary19.IgnoreNullValues = true;
             xrSummary19.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell31.Summary = xrSummary19;
-            this.xrTableCell31.Text = "xrTableCell50";
+            this.xrTableCell31.Text = "xrTableCell31";
             this.xrTableCell31.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell31.Weight = 0.33161360651775951D;
             // 
             // xrTableCell35
             // 
             this.xrTableCell35.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Lx_Xuatben")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.StylePriority.UseTextAlignment = false;
             xrSummary20.FormatString = "{0:#,0}";
+            xrSummary20.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary20.IgnoreNullValues = true;
             xrSummary20.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell35.Summary = xrSummary20;
-            this.xrTableCell35.Text = "xrTableCell59";
+            this.xrTableCell35.Text = "xrTableCell35";
             this.xrTableCell35.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell35.Weight = 0.33161361840555503D;
             // 
             // xrTableCell36
             // 
             this.xrTableCell36.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell36.Name = "xrTableCell36";
             this.xrTableCell36.StylePriority.UseTextAlignment = false;
             xrSummary21.FormatString = "{0:#,0}";
+            xrSummary21.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary21.IgnoreNullValues = true;
             xrSummary21.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell36.Summary = xrSummary21;
-            this.xrTableCell36.Text = "xrTableCell60";
+            this.xrTableCell36.Text = "xrTableCell36";
             this.xrTableCell36.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell36.Weight = 0.33161391900150761D;
             // 
             // xrTableCell37
             // 
             this.xrTableCell37.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
             this.xrTableCell37.Name = "xrTableCell37";
             this.xrTableCell37.StylePriority.UseTextAlignment = false;
             xrSummary22.FormatString = "{0:#,0}";
+            xrSummary22.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary22.IgnoreNullValues = true;
             xrSummary22.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell37.Summary = xrSummary22;
-            this.xrTableCell37.Text = "xrTableCell61";
+            this.xrTableCell37.Text = "xrTableCell37";
             this.xrTableCell37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell37.Weight = 0.33161263570903254D;
             // 
@@ -1131,13 +1171,13 @@
             // xrTableCell39
             // 
             this.xrTableCell39.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Lk_Di")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Node")});
             this.xrTableCell39.Name = "xrTableCell39";
             this.xrTableCell39.StylePriority.UseTextAlignment = false;
             xrSummary24.FormatString = "{0:#,0}";
             xrSummary24.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell39.Summary = xrSummary24;
-            this.xrTableCell39.Text = "xrTableCell63";
+            this.xrTableCell39.Text = "xrTableCell39";
             this.xrTableCell39.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell39.Weight = 0.44215279129934937D;
             // 
@@ -1216,54 +1256,85 @@
             // xrTableCell7
             // 
             this.xrTableCell7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code")});
             this.xrTableCell7.Name = "xrTableCell7";
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             xrSummary26.FormatString = "{0:#,0}";
+            xrSummary26.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
             xrSummary26.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell7.Summary = xrSummary26;
-            this.xrTableCell7.Text = "xrTableCell49";
+            this.xrTableCell7.Text = "xrTableCell7";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell7.Weight = 0.44215178297903668D;
             // 
             // xrTableCell16
             // 
             this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Ts_Ghe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Clc")});
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
             xrSummary27.FormatString = "{0:#,0}";
+            xrSummary27.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary27.IgnoreNullValues = true;
             xrSummary27.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell16.Summary = xrSummary27;
-            this.xrTableCell16.Text = "xrTableCell50";
+            this.xrTableCell16.Text = "xrTableCell16";
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell16.Weight = 0.33161360651775951D;
             // 
             // xrTableCell17
             // 
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Lx_Xuatben")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Xt")});
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseTextAlignment = false;
             xrSummary28.FormatString = "{0:#,0}";
+            xrSummary28.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary28.IgnoreNullValues = true;
             xrSummary28.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell17.Summary = xrSummary28;
-            this.xrTableCell17.Text = "xrTableCell59";
+            this.xrTableCell17.Text = "xrTableCell17";
             this.xrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell17.Weight = 0.33161294373597472D;
             // 
             // xrTableCell22
             // 
             this.xrTableCell22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Tp")});
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
             xrSummary29.FormatString = "{0:#,0}";
+            xrSummary29.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary29.IgnoreNullValues = true;
             xrSummary29.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell22.Summary = xrSummary29;
-            this.xrTableCell22.Text = "xrTableCell60";
+            this.xrTableCell22.Text = "xrTableCell22";
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell22.Weight = 0.33161425633629793D;
+            // 
+            // xrTableCell26
+            // 
+            this.xrTableCell26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Dp")});
+            this.xrTableCell26.Name = "xrTableCell26";
+            this.xrTableCell26.StylePriority.UseTextAlignment = false;
+            xrSummary30.FormatString = "{0:#,0}";
+            xrSummary30.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary30.IgnoreNullValues = true;
+            xrSummary30.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrTableCell26.Summary = xrSummary30;
+            this.xrTableCell26.Text = "xrTableCell26";
+            this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell26.Weight = 0.33161331037861252D;
+            // 
+            // xrTableCell27
+            // 
+            this.xrTableCell27.Name = "xrTableCell27";
+            this.xrTableCell27.StylePriority.UseTextAlignment = false;
+            xrSummary31.FormatString = "{0:#,0}";
+            this.xrTableCell27.Summary = xrSummary31;
+            this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell27.Weight = 1.9896814540253294D;
             // 
             // xrTableCell28
             // 
@@ -1372,6 +1443,7 @@
             this.xrTableCell69.StylePriority.UseTextAlignment = false;
             xrSummary35.FormatString = "{0:#,0}";
             xrSummary35.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary35.IgnoreNullValues = true;
             xrSummary35.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell69.Summary = xrSummary35;
             this.xrTableCell69.Text = "xrTableCell69";
@@ -1386,6 +1458,7 @@
             this.xrTableCell70.StylePriority.UseTextAlignment = false;
             xrSummary36.FormatString = "{0:#,0}";
             xrSummary36.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary36.IgnoreNullValues = true;
             xrSummary36.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell70.Summary = xrSummary36;
             this.xrTableCell70.Text = "xrTableCell70";
@@ -1400,6 +1473,7 @@
             this.xrTableCell71.StylePriority.UseTextAlignment = false;
             xrSummary37.FormatString = "{0:#,0}";
             xrSummary37.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary37.IgnoreNullValues = true;
             xrSummary37.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell71.Summary = xrSummary37;
             this.xrTableCell71.Text = "xrTableCell71";
@@ -1414,6 +1488,7 @@
             this.xrTableCell72.StylePriority.UseTextAlignment = false;
             xrSummary38.FormatString = "{0:#,0}";
             xrSummary38.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
+            xrSummary38.IgnoreNullValues = true;
             xrSummary38.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell72.Summary = xrSummary38;
             this.xrTableCell72.Text = "xrTableCell72";
@@ -1425,7 +1500,6 @@
             this.xrTableCell73.Name = "xrTableCell73";
             this.xrTableCell73.StylePriority.UseTextAlignment = false;
             xrSummary39.FormatString = "{0:#,0}";
-            xrSummary39.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell73.Summary = xrSummary39;
             this.xrTableCell73.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell73.Weight = 1.9896812010242369D;
@@ -1475,44 +1549,6 @@
             this.xrPageInfo1});
             this.PageFooter.HeightF = 23.95834F;
             this.PageFooter.Name = "PageFooter";
-            // 
-            // xrTableCell25
-            // 
-            this.xrTableCell25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Phone")});
-            this.xrTableCell25.Name = "xrTableCell25";
-            this.xrTableCell25.Text = "xrTableCell25";
-            this.xrTableCell25.Weight = 0.77376507138906969D;
-            // 
-            // xrTableCell34
-            // 
-            this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Driver")});
-            this.xrTableCell34.Name = "xrTableCell34";
-            this.xrTableCell34.Text = "xrTableCell34";
-            this.xrTableCell34.Weight = 0.657831959034171D;
-            // 
-            // xrTableCell26
-            // 
-            this.xrTableCell26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Th_Ts_Ghe")});
-            this.xrTableCell26.Name = "xrTableCell26";
-            this.xrTableCell26.StylePriority.UseTextAlignment = false;
-            xrSummary30.FormatString = "{0:#,0}";
-            xrSummary30.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell26.Summary = xrSummary30;
-            this.xrTableCell26.Text = "xrTableCell61";
-            this.xrTableCell26.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell26.Weight = 0.33161331037861252D;
-            // 
-            // xrTableCell27
-            // 
-            this.xrTableCell27.Name = "xrTableCell27";
-            this.xrTableCell27.StylePriority.UseTextAlignment = false;
-            xrSummary31.FormatString = "{0:#,0}";
-            this.xrTableCell27.Summary = xrSummary31;
-            this.xrTableCell27.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell27.Weight = 1.9896814540253294D;
             // 
             // Rpt_FixedVehicle
             // 

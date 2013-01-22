@@ -578,6 +578,10 @@ namespace SKG.DAL
                     a.Money = a.Parked;
                 }
 
+                // Xe truy thu (chỉ tính tiền truy thu)
+                if (a.More.Contains(Global.STR_ARREAR))
+                    a.Money = 0;
+
                 //// Xe không đủ điều kiện, không tính tiền
                 //if (!a.Show)
                 //{

@@ -1,3 +1,6 @@
+Restore Database xSKGv1
+From Disk = 'C:\BXE-22.01.13.07.38.05.bak'
+
 Set Dateformat DMY
 Select Tra_Vehicle.Code, Tra_Detail.* From Tra_Detail Join Tra_Vehicle
 On Tra_Detail.VehicleId = Tra_Vehicle.Id

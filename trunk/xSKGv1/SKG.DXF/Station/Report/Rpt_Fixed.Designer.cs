@@ -1271,13 +1271,13 @@
             // xrTableCell49
             // 
             this.xrTableCell49.Name = "xrTableCell49";
-            this.xrTableCell49.Text = "14";
+            this.xrTableCell49.Text = "14=13/1.1";
             this.xrTableCell49.Weight = 0.73525384375994673D;
             // 
             // xrTableCell50
             // 
             this.xrTableCell50.Name = "xrTableCell50";
-            this.xrTableCell50.Text = "15";
+            this.xrTableCell50.Text = "15=14*10%";
             this.xrTableCell50.Weight = 0.743869530406791D;
             // 
             // xrTable4

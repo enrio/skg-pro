@@ -1126,7 +1126,9 @@ namespace SKG.DAL
 
                               UserOut = s.UserOut.Name,
                               s.DateOut,
-                              s.UserOutId
+                              s.UserOutId,
+                              s.More,
+                              s.Note
                           };
                 if (isOut)
                     res = res.Where(p => p.DateOut >= fr && p.DateOut <= to && p.UserOutId != null);

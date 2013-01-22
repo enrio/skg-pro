@@ -723,7 +723,7 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable4});
-            this.PageHeader.HeightF = 82.08333F;
+            this.PageHeader.HeightF = 40.41666F;
             this.PageHeader.Name = "PageHeader";
             // 
             // xrTable4
@@ -736,7 +736,7 @@
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow4});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(766.9999F, 82.08333F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(766.9999F, 40.41666F);
             this.xrTable4.StylePriority.UseBorders = false;
             this.xrTable4.StylePriority.UseFont = false;
             this.xrTable4.StylePriority.UseTextAlignment = false;

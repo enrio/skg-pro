@@ -538,10 +538,11 @@
             // xrTableCell53
             // 
             this.xrTableCell53.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "AuditMonth.Kh_Soxe")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Vehicle.Code")});
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseTextAlignment = false;
             xrSummary2.FormatString = "{0:#,0}";
+            xrSummary2.Func = DevExpress.XtraReports.UI.SummaryFunc.Count;
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell53.Summary = xrSummary2;
             this.xrTableCell53.Text = "xrTableCell53";

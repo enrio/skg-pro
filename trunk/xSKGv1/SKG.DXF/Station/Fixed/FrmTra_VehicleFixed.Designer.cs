@@ -93,6 +93,11 @@
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtDays = new DevExpress.XtraEditors.TextEdit();
+            this.txtHours = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -124,6 +129,9 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -152,6 +160,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.groupBox5);
             this.dockPanel1_Container.Controls.Add(this.groupBox4);
             this.dockPanel1_Container.Controls.Add(this.cheCity);
             this.dockPanel1_Container.Controls.Add(this.txtNode);
@@ -176,46 +185,46 @@
             this.groupBox4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(3, 127);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(913, 55);
+            this.groupBox4.Size = new System.Drawing.Size(491, 55);
             this.groupBox4.TabIndex = 27;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin nhà xe";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(598, 23);
+            this.txtPhone.Location = new System.Drawing.Point(318, 23);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Size = new System.Drawing.Size(309, 26);
+            this.txtPhone.Size = new System.Drawing.Size(166, 26);
             this.txtPhone.TabIndex = 31;
             // 
             // txtDriver
             // 
-            this.txtDriver.Location = new System.Drawing.Point(97, 23);
+            this.txtDriver.Location = new System.Drawing.Point(67, 23);
             this.txtDriver.Name = "txtDriver";
             this.txtDriver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDriver.Properties.Appearance.Options.UseFont = true;
-            this.txtDriver.Size = new System.Drawing.Size(387, 26);
+            this.txtDriver.Size = new System.Drawing.Size(182, 26);
             this.txtDriver.TabIndex = 29;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(513, 26);
+            this.labelControl3.Location = new System.Drawing.Point(255, 26);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(78, 19);
+            this.labelControl3.Size = new System.Drawing.Size(57, 19);
             this.labelControl3.TabIndex = 30;
-            this.labelControl3.Text = "Điện thoại:";
+            this.labelControl3.Text = "Đ.thoại:";
             // 
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Location = new System.Drawing.Point(6, 26);
             this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(85, 19);
+            this.labelControl5.Size = new System.Drawing.Size(55, 19);
             this.labelControl5.TabIndex = 28;
-            this.labelControl5.Text = "Tên nhà xe:";
+            this.labelControl5.Text = "Nhà xe:";
             // 
             // cheCity
             // 
@@ -965,6 +974,56 @@
             this.bandedGridColumn6.Name = "bandedGridColumn6";
             this.bandedGridColumn6.Visible = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtDays);
+            this.groupBox5.Controls.Add(this.txtHours);
+            this.groupBox5.Controls.Add(this.labelControl2);
+            this.groupBox5.Controls.Add(this.labelControl4);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(500, 127);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(416, 55);
+            this.groupBox5.TabIndex = 32;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Thông tin đăng kí";
+            // 
+            // txtDays
+            // 
+            this.txtDays.Location = new System.Drawing.Point(310, 23);
+            this.txtDays.Name = "txtDays";
+            this.txtDays.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDays.Properties.Appearance.Options.UseFont = true;
+            this.txtDays.Size = new System.Drawing.Size(100, 26);
+            this.txtDays.TabIndex = 36;
+            // 
+            // txtHours
+            // 
+            this.txtHours.Location = new System.Drawing.Point(108, 23);
+            this.txtHours.Name = "txtHours";
+            this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHours.Properties.Appearance.Options.UseFont = true;
+            this.txtHours.Size = new System.Drawing.Size(80, 26);
+            this.txtHours.TabIndex = 34;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Location = new System.Drawing.Point(194, 26);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(110, 19);
+            this.labelControl2.TabIndex = 35;
+            this.labelControl2.Text = "Ngày đk/tháng:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(6, 26);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(96, 19);
+            this.labelControl4.TabIndex = 33;
+            this.labelControl4.Text = "Giờ xuất bến:";
+            // 
             // FrmTra_VehicleFixed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1011,6 +1070,10 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1081,5 +1144,10 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn6;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private DevExpress.XtraEditors.TextEdit txtDays;
+        private DevExpress.XtraEditors.TextEdit txtHours;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

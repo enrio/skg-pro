@@ -61,6 +61,11 @@
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtArrears = new DevExpress.XtraEditors.TextEdit();
+            this.txtNumber = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -73,6 +78,9 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtArrears.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -101,6 +109,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.groupBox5);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
             this.dockPanel1_Container.Controls.Add(this.labelControl1);
             this.dockPanel1_Container.Controls.Add(this.chkHideActive);
@@ -119,7 +128,7 @@
             this.labelControl2.Location = new System.Drawing.Point(8, 35);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(66, 22);
-            this.labelControl2.TabIndex = 31;
+            this.labelControl2.TabIndex = 9;
             this.labelControl2.Text = "Ghi chú:";
             // 
             // labelControl1
@@ -129,7 +138,7 @@
             this.labelControl1.Location = new System.Drawing.Point(80, 35);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(513, 22);
-            this.labelControl1.TabIndex = 30;
+            this.labelControl1.TabIndex = 10;
             this.labelControl1.Text = "V.B: Vé bán thực tế, M.G: Miễn giảm, T.T: Truy thu, NT/T: Nốt tài/tháng";
             // 
             // chkHideActive
@@ -141,7 +150,7 @@
             this.chkHideActive.Properties.Appearance.Options.UseFont = true;
             this.chkHideActive.Properties.Caption = "Ẩn xe không hoạt động";
             this.chkHideActive.Size = new System.Drawing.Size(198, 24);
-            this.chkHideActive.TabIndex = 27;
+            this.chkHideActive.TabIndex = 3;
             // 
             // radType
             // 
@@ -155,7 +164,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Xe đã ra bến")});
             this.radType.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.radType.Size = new System.Drawing.Size(234, 26);
-            this.radType.TabIndex = 26;
+            this.radType.TabIndex = 2;
             this.radType.SelectedIndexChanged += new System.EventHandler(this.radType_SelectedIndexChanged);
             // 
             // dteDay
@@ -173,7 +182,7 @@
             this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteDay.Size = new System.Drawing.Size(93, 26);
-            this.dteDay.TabIndex = 24;
+            this.dteDay.TabIndex = 1;
             this.dteDay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dteDay_KeyDown);
             this.dteDay.Validated += new System.EventHandler(this.dteDay_Validated);
             // 
@@ -183,7 +192,7 @@
             this.lblGuest.Location = new System.Drawing.Point(8, 6);
             this.lblGuest.Name = "lblGuest";
             this.lblGuest.Size = new System.Drawing.Size(42, 19);
-            this.lblGuest.TabIndex = 23;
+            this.lblGuest.TabIndex = 0;
             this.lblGuest.Text = "Ngày:";
             // 
             // dockPanel2
@@ -561,6 +570,58 @@
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.Width = 90;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtArrears);
+            this.groupBox5.Controls.Add(this.txtNumber);
+            this.groupBox5.Controls.Add(this.labelControl3);
+            this.groupBox5.Controls.Add(this.labelControl4);
+            this.groupBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(599, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(246, 55);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Truy thu";
+            // 
+            // txtArrears
+            // 
+            this.txtArrears.Location = new System.Drawing.Point(182, 23);
+            this.txtArrears.Name = "txtArrears";
+            this.txtArrears.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtArrears.Properties.Appearance.Options.UseFont = true;
+            this.txtArrears.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtArrears.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtArrears.Size = new System.Drawing.Size(57, 26);
+            this.txtArrears.TabIndex = 8;
+            // 
+            // txtNumber
+            // 
+            this.txtNumber.Location = new System.Drawing.Point(48, 23);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Properties.Appearance.Options.UseFont = true;
+            this.txtNumber.Size = new System.Drawing.Size(91, 26);
+            this.txtNumber.TabIndex = 6;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Location = new System.Drawing.Point(145, 26);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(31, 19);
+            this.labelControl3.TabIndex = 7;
+            this.labelControl3.Text = "T.T:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(6, 26);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(36, 19);
+            this.labelControl4.TabIndex = 5;
+            this.labelControl4.Text = "B.số:";
+            // 
             // FrmTra_AuditDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,6 +646,10 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtArrears.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -623,5 +688,10 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private DevExpress.XtraEditors.TextEdit txtArrears;
+        private DevExpress.XtraEditors.TextEdit txtNumber;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
     }
 }

@@ -1310,7 +1310,7 @@ namespace SKG.DAL
         /// <param name="to">To date time</param>
         /// <param name="hideActive">Hide vehicle active</param>
         /// <returns></returns>
-        public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive)
+        protected DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive)
         {
             try
             {
@@ -1325,6 +1325,7 @@ namespace SKG.DAL
                            {
                                g.Key,
                                Th_Lxe = g.Count(),
+                               Weight = g.Sum(p => (p.Seats ?? 0) + (p.Beds ?? 0)),
 
                                Th_Arrears = g.Sum(p => p.Arrears ?? 0),
                                Th_Discount = g.Sum(p => p.Discount ?? 0),
@@ -1357,16 +1358,17 @@ namespace SKG.DAL
                                ProvinceCode = v.Tariff.Group.Code,
                                StationCode = v.Tariff.Code,
                                TransportCode = v.Transport.Code,
+                               s.Weight,
 
                                Th_Lxe = s.Th_Lxe == null ? 0 : s.Th_Lxe,
-                               Th_Hk = ((v.Seats ?? 0 + v.Beds ?? 0) - 1) * (s.Th_Lxe == null ? 0 : s.Th_Lxe),
+                               Th_Hk = 0,
                                Th_Cost = s.Th_Cost == null ? 0 : s.Th_Cost,
                                Th_Rose = s.Th_Rose == null ? 0 : s.Th_Rose,
                                Th_Parked = s.Th_Parked == null ? 0 : s.Th_Parked,
                                Th_Money = s.Th_Money == null ? 0 : s.Th_Money,
 
                                Tr_Lxe = s.Th_Arrears == null ? 0 : s.Th_Arrears,
-                               Tr_Hk = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * ((v.Seats ?? 0 + v.Beds ?? 0) - 1),
+                               Tr_Hk = 0,
                                Tr_Cost = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0)),
                                Tr_Rose = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Rose1 * ((v.Seats ?? 0) < 1 ? 1 : (v.Seats ?? 0) - 1) + v.Tariff.Rose2 * (v.Beds ?? 0)),
                                Tr_Money = (s.Th_Arrears == null ? 0 : s.Th_Arrears) * (v.Tariff.Price1 * (v.Seats ?? 0) + v.Tariff.Price2 * (v.Beds ?? 0))

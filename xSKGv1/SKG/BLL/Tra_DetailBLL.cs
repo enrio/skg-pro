@@ -57,14 +57,11 @@ namespace SKG.BLL
             var tb = base.AuditDayFixed(fr, to, hideActive);
             foreach (DataRow r in tb.Rows)
             {
-                var Weight = Text.ToInt32(r["Weight"] + "");
+                var Weight = Text.ToInt32(r["Weight"] + "") - 1;
                 var Th_Lxe = Text.ToInt32(r["Th_Lxe"] + "");
                 var Tr_Lxe = Text.ToInt32(r["Tr_Lxe"] + "");
 
-                var a = Th_Lxe + Tr_Lxe;
-
-                r["Th_Lxe"] = a;
-                r["Th_Hk"] = Weight * a - a;
+                r["Th_Hk"] = Weight * Th_Lxe;
                 r["Tr_Hk"] = Weight * Tr_Lxe;
             }
             return tb;

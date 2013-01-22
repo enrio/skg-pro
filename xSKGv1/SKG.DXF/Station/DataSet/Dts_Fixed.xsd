@@ -156,6 +156,11 @@
               <xs:element name="Driver" msprop:Generator_ColumnVarNameInTable="columnDriver" msprop:Generator_ColumnPropNameInRow="Driver" msprop:Generator_ColumnPropNameInTable="DriverColumn" msprop:Generator_UserColumnName="Driver" type="xs:string" minOccurs="0" />
               <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" type="xs:string" minOccurs="0" />
               <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
+              <xs:element name="Clc" msprop:Generator_ColumnVarNameInTable="columnClc" msprop:Generator_ColumnPropNameInRow="Clc" msprop:Generator_ColumnPropNameInTable="ClcColumn" msprop:Generator_UserColumnName="Clc" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Xt" msprop:Generator_ColumnVarNameInTable="columnXt" msprop:Generator_ColumnPropNameInRow="Xt" msprop:Generator_ColumnPropNameInTable="XtColumn" msprop:Generator_UserColumnName="Xt" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Tp" msprop:Generator_ColumnVarNameInTable="columnTp" msprop:Generator_ColumnPropNameInRow="Tp" msprop:Generator_ColumnPropNameInTable="TpColumn" msprop:Generator_UserColumnName="Tp" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Dp" msprop:Generator_ColumnVarNameInTable="columnDp" msprop:Generator_ColumnPropNameInRow="Dp" msprop:Generator_ColumnPropNameInTable="DpColumn" msprop:Generator_UserColumnName="Dp" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

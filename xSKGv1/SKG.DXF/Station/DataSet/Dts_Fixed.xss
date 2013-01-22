@@ -11,7 +11,7 @@
     <Shape ID="DesignTable:AuditMonth" ZOrder="4" X="337" Y="5" Height="368" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="364" />
     <Shape ID="DesignTable:AuditDay" ZOrder="3" X="499" Y="7" Height="419" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="415" />
     <Shape ID="DesignTable:DebtMonth" ZOrder="2" X="664" Y="10" Height="317" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="313" />
-    <Shape ID="DesignTable:Vehicle" ZOrder="1" X="828" Y="12" Height="300" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="296" />
+    <Shape ID="DesignTable:Vehicle" ZOrder="1" X="828" Y="12" Height="385" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="381" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

@@ -3061,6 +3061,16 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnText;
             
+            private global::System.Data.DataColumn columnClc;
+            
+            private global::System.Data.DataColumn columnXt;
+            
+            private global::System.Data.DataColumn columnTp;
+            
+            private global::System.Data.DataColumn columnDp;
+            
+            private global::System.Data.DataColumn columnPrice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public VehicleDataTable() {
@@ -3224,6 +3234,46 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ClcColumn {
+                get {
+                    return this.columnClc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn XtColumn {
+                get {
+                    return this.columnXt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TpColumn {
+                get {
+                    return this.columnTp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DpColumn {
+                get {
+                    return this.columnDp;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PriceColumn {
+                get {
+                    return this.columnPrice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3275,7 +3325,12 @@ namespace SKG.DXF.Station.DataSet {
                         string More, 
                         string Driver, 
                         string Phone, 
-                        string Text) {
+                        string Text, 
+                        bool Clc, 
+                        bool Xt, 
+                        bool Tp, 
+                        bool Dp, 
+                        decimal Price) {
                 VehicleRow rowVehicleRow = ((VehicleRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Region,
@@ -3293,7 +3348,12 @@ namespace SKG.DXF.Station.DataSet {
                         More,
                         Driver,
                         Phone,
-                        Text};
+                        Text,
+                        Clc,
+                        Xt,
+                        Tp,
+                        Dp,
+                        Price};
                 rowVehicleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowVehicleRow);
                 return rowVehicleRow;
@@ -3332,6 +3392,11 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnDriver = base.Columns["Driver"];
                 this.columnPhone = base.Columns["Phone"];
                 this.columnText = base.Columns["Text"];
+                this.columnClc = base.Columns["Clc"];
+                this.columnXt = base.Columns["Xt"];
+                this.columnTp = base.Columns["Tp"];
+                this.columnDp = base.Columns["Dp"];
+                this.columnPrice = base.Columns["Price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3369,6 +3434,16 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnPhone);
                 this.columnText = new global::System.Data.DataColumn("Text", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnText);
+                this.columnClc = new global::System.Data.DataColumn("Clc", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClc);
+                this.columnXt = new global::System.Data.DataColumn("Xt", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnXt);
+                this.columnTp = new global::System.Data.DataColumn("Tp", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTp);
+                this.columnDp = new global::System.Data.DataColumn("Dp", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDp);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
                 this.columnNode.Caption = "Kh_Ts_Ghe";
             }
             
@@ -6503,6 +6578,86 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Clc {
+                get {
+                    try {
+                        return ((bool)(this[this.tableVehicle.ClcColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Clc\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.ClcColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Xt {
+                get {
+                    try {
+                        return ((bool)(this[this.tableVehicle.XtColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Xt\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.XtColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Tp {
+                get {
+                    try {
+                        return ((bool)(this[this.tableVehicle.TpColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Tp\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.TpColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Dp {
+                get {
+                    try {
+                        return ((bool)(this[this.tableVehicle.DpColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Dp\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.DpColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Price {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableVehicle.PriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'Vehicle\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableVehicle.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRegionNull() {
                 return this.IsNull(this.tableVehicle.RegionColumn);
             }
@@ -6691,6 +6846,66 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTextNull() {
                 this[this.tableVehicle.TextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsClcNull() {
+                return this.IsNull(this.tableVehicle.ClcColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetClcNull() {
+                this[this.tableVehicle.ClcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsXtNull() {
+                return this.IsNull(this.tableVehicle.XtColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetXtNull() {
+                this[this.tableVehicle.XtColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTpNull() {
+                return this.IsNull(this.tableVehicle.TpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTpNull() {
+                this[this.tableVehicle.TpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDpNull() {
+                return this.IsNull(this.tableVehicle.DpColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDpNull() {
+                this[this.tableVehicle.DpColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPriceNull() {
+                return this.IsNull(this.tableVehicle.PriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPriceNull() {
+                this[this.tableVehicle.PriceColumn] = global::System.Convert.DBNull;
             }
         }
         

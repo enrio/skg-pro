@@ -194,16 +194,16 @@
             this.calPrice.Properties.EditFormat.FormatString = "#,#";
             this.calPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calPrice.Size = new System.Drawing.Size(102, 26);
-            this.calPrice.TabIndex = 38;
+            this.calPrice.TabIndex = 26;
             // 
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl6.Location = new System.Drawing.Point(662, 98);
+            this.labelControl6.Location = new System.Drawing.Point(651, 98);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(38, 19);
-            this.labelControl6.TabIndex = 37;
-            this.labelControl6.Text = "G.vé:";
+            this.labelControl6.Size = new System.Drawing.Size(50, 19);
+            this.labelControl6.TabIndex = 25;
+            this.labelControl6.Text = "Giá vé:";
             // 
             // groupBox5
             // 
@@ -215,7 +215,7 @@
             this.groupBox5.Location = new System.Drawing.Point(500, 127);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(416, 55);
-            this.groupBox5.TabIndex = 32;
+            this.groupBox5.TabIndex = 34;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thông tin đăng kí";
             // 
@@ -226,7 +226,7 @@
             this.txtDays.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDays.Properties.Appearance.Options.UseFont = true;
             this.txtDays.Size = new System.Drawing.Size(133, 26);
-            this.txtDays.TabIndex = 36;
+            this.txtDays.TabIndex = 38;
             // 
             // txtHours
             // 
@@ -235,7 +235,7 @@
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHours.Properties.Appearance.Options.UseFont = true;
             this.txtHours.Size = new System.Drawing.Size(91, 26);
-            this.txtHours.TabIndex = 34;
+            this.txtHours.TabIndex = 36;
             // 
             // labelControl2
             // 
@@ -243,7 +243,7 @@
             this.labelControl2.Location = new System.Drawing.Point(183, 26);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(88, 19);
-            this.labelControl2.TabIndex = 35;
+            this.labelControl2.TabIndex = 37;
             this.labelControl2.Text = "Ngày/tháng:";
             // 
             // labelControl4
@@ -252,7 +252,7 @@
             this.labelControl4.Location = new System.Drawing.Point(6, 26);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(74, 19);
-            this.labelControl4.TabIndex = 33;
+            this.labelControl4.TabIndex = 35;
             this.labelControl4.Text = "Giờ x.bến:";
             // 
             // groupBox4
@@ -265,7 +265,7 @@
             this.groupBox4.Location = new System.Drawing.Point(3, 127);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(491, 55);
-            this.groupBox4.TabIndex = 27;
+            this.groupBox4.TabIndex = 29;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Thông tin nhà xe";
             // 
@@ -276,7 +276,7 @@
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
             this.txtPhone.Size = new System.Drawing.Size(166, 26);
-            this.txtPhone.TabIndex = 31;
+            this.txtPhone.TabIndex = 33;
             // 
             // txtDriver
             // 
@@ -285,7 +285,7 @@
             this.txtDriver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDriver.Properties.Appearance.Options.UseFont = true;
             this.txtDriver.Size = new System.Drawing.Size(182, 26);
-            this.txtDriver.TabIndex = 29;
+            this.txtDriver.TabIndex = 31;
             // 
             // labelControl3
             // 
@@ -293,7 +293,7 @@
             this.labelControl3.Location = new System.Drawing.Point(255, 26);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(57, 19);
-            this.labelControl3.TabIndex = 30;
+            this.labelControl3.TabIndex = 32;
             this.labelControl3.Text = "Đ.thoại:";
             // 
             // labelControl5
@@ -302,7 +302,7 @@
             this.labelControl5.Location = new System.Drawing.Point(6, 26);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(55, 19);
-            this.labelControl5.TabIndex = 28;
+            this.labelControl5.TabIndex = 30;
             this.labelControl5.Text = "Nhà xe:";
             // 
             // cheCity
@@ -313,7 +313,7 @@
             this.cheCity.Properties.Appearance.Options.UseFont = true;
             this.cheCity.Properties.Caption = "TP";
             this.cheCity.Size = new System.Drawing.Size(43, 24);
-            this.cheCity.TabIndex = 26;
+            this.cheCity.TabIndex = 28;
             // 
             // txtNode
             // 
@@ -323,7 +323,7 @@
             this.txtNode.Properties.Appearance.Options.UseFont = true;
             this.txtNode.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
             this.txtNode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNode.Size = new System.Drawing.Size(41, 26);
+            this.txtNode.Size = new System.Drawing.Size(34, 26);
             this.txtNode.TabIndex = 24;
             // 
             // lblNode
@@ -343,7 +343,7 @@
             this.cheHigh.Properties.Appearance.Options.UseFont = true;
             this.cheHigh.Properties.Caption = "CLC";
             this.cheHigh.Size = new System.Drawing.Size(53, 24);
-            this.cheHigh.TabIndex = 25;
+            this.cheHigh.TabIndex = 27;
             // 
             // txtProductionYear
             // 

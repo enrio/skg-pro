@@ -457,7 +457,7 @@ namespace SKG.DAL
         /// <param name="isRepair">Out gate to repair</param>
         /// <param name="note">Note</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool isRepair = true, string note = "")
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool isRepair = true, string note = "", string seri = "")
         {
             try
             {
@@ -523,6 +523,9 @@ namespace SKG.DAL
                         var dt = _db.Tra_Details.Where(p => p.Code == a.Code);
                         if (dt.Count() > 0)
                             a.Order = dt.Max(p => p.Order) + 1;
+
+                        // Lưu số seri vé
+                        a.Text = seri;
                     }
                 }
 

@@ -217,7 +217,10 @@
             // 
             // xrTableCell47
             // 
+            this.xrTableCell47.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.Text")});
             this.xrTableCell47.Name = "xrTableCell47";
+            this.xrTableCell47.Text = "xrTableCell47";
             this.xrTableCell47.Weight = 0.39199290524638175D;
             // 
             // xrTableCell27

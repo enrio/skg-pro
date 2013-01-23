@@ -17,9 +17,9 @@ namespace SKG.Extend
         /// </summary>
         /// <typeparam name="T">Type of data</typeparam>
         /// <param name="l">Data</param>
-        /// <param name="s">Table's name</param>
+        /// <param name="s">Table name</param>
         /// <returns></returns>
-        private static DataTable Linq2Table<T>(IEnumerable<T> l, string s)
+        public static DataTable ToDataTable<T>(this IEnumerable<T> l, string s = "Tmp")
         {
             try
             {
@@ -40,28 +40,15 @@ namespace SKG.Extend
                             tb.Columns.Add(new DataColumn(pi.Name, colType));
                         }
                     }
+
                     DataRow dr = tb.NewRow();
                     foreach (var pi in pro) dr[pi.Name] = pi.GetValue(rec, null) ?? DBNull.Value;
                     tb.Rows.Add(dr);
                 }
+
                 return tb;
             }
             catch { return null; }
-        }
-
-        /// <summary>
-        /// Convert from IEnumerable (LINQ object) to DataTable
-        /// </summary>
-        /// <typeparam name="T">Type of data</typeparam>
-        /// <param name="d">Data</param>
-        /// <param name="n">Numbered</param>
-        /// <param name="s">Table's name</param>
-        /// <returns></returns>
-        public static DataTable ToDataTable<T>(this IEnumerable<T> d, bool n = true, string s = "Tmp")
-        {
-            var res = Linq2Table((IEnumerable<T>)d, s);
-            //res.Numbered(n);
-            return res;
         }
 
         /// <summary>
@@ -71,13 +58,15 @@ namespace SKG.Extend
         /// <param name="n">Numbered</param>
         public static void Numbered(this DataTable t, bool n = true)
         {
+            if (t == null) return;
+
             if (n)
             {
                 t.Columns.Add("No_");
                 for (int i = 0; i < t.Rows.Count; i++)
                     t.Rows[i].SetField("No_", i + 1); // numbered
+                t.AcceptChanges();
             }
-            t.AcceptChanges();
         }
     }
 }

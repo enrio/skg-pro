@@ -1473,7 +1473,7 @@ namespace SKG.DAL
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
 
                 sum = res.Sum(k => k.Money);
-                return res.ToDataTable(false);
+                return res.ToDataTable();
             }
             catch
             {

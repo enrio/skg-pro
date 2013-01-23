@@ -79,6 +79,9 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
+            LoadData();
+            _dtb.Numbered();
+
             var rpt = new Report.Rpt_Normal
             {
                 DataSource = _dtb,

@@ -83,7 +83,7 @@ namespace SKG
                     plugin.Menuz.Code = pluginType.FullName;
 
                     //if (plugin.Menuz.Level > 0) lst.Add(plugin);
-                    if (plugin.Menuz.Parent  !=null) lst.Add(plugin);
+                    if (plugin.Menuz.Parent != null) lst.Add(plugin);
                 }
                 return lst;
             }
@@ -116,7 +116,7 @@ namespace SKG
                     if (r.Count() > 0)
                     {
                         lst.Add(i);
-                        var c = r.ToDataTable(false, typeof(Menuz).Name);
+                        var c = r.ToDataTable(typeof(Menuz).Name);
                         var file = String.Format("{0}.xml", i);
 #if DEBUG
                         c.WriteXml(file);

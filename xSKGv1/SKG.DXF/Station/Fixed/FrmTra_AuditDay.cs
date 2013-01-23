@@ -52,6 +52,9 @@ namespace SKG.DXF.Station.Fixed
         #region Overrides
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            txtNumber.Properties.ReadOnly = isReadOnly;
+            txtArrears.Properties.ReadOnly = isReadOnly;
+
             grvMain.OptionsBehavior.Editable = !isReadOnly;
 
             base.ReadOnlyControl(isReadOnly);
@@ -60,6 +63,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformEdit()
         {
             grvMain.OptionsBehavior.Editable = true;
+
             base.PerformEdit();
         }
 
@@ -74,6 +78,7 @@ namespace SKG.DXF.Station.Fixed
             }
 
             ReadOnlyControl();
+            ResetInput();
 
             base.PerformRefresh();
         }

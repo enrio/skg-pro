@@ -168,6 +168,7 @@ namespace SKG.DXF.Station.Fixed
 
             txtHours.Text = null;
             txtDays.Text = null;
+            calPrice.Text = null;
 
             base.ResetInput();
         }
@@ -195,6 +196,7 @@ namespace SKG.DXF.Station.Fixed
 
             txtHours.DataBindings.Clear();
             txtDays.DataBindings.Clear();
+            calPrice.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -222,6 +224,7 @@ namespace SKG.DXF.Station.Fixed
 
             txtHours.DataBindings.Add("EditValue", _dtb, ".Note");
             txtDays.DataBindings.Add("EditValue", _dtb, ".More");
+            calPrice.DataBindings.Add("EditValue", _dtb, ".Text");
 
             base.DataBindingControl();
         }
@@ -249,6 +252,7 @@ namespace SKG.DXF.Station.Fixed
 
             txtHours.Properties.ReadOnly = isReadOnly;
             txtDays.Properties.ReadOnly = isReadOnly;
+            calPrice.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -281,6 +285,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
+                    Text = calPrice.Text,
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };
@@ -328,6 +333,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
+                    Text = calPrice.Text,
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };

@@ -881,10 +881,10 @@ namespace SKG.DAL
 
                                Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
-                               ASB = g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+                               ASB = g.Sum(p => (p.More != null ? 0 : (p.Arrears ?? 0)) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
 
-                               Cost = g.Sum(p => p.Cost),
-                               Rose = g.Sum(p => p.Rose),
+                               Cost = g.Sum(p => (p.More != null ? 0 : p.Cost)),
+                               Rose = g.Sum(p => (p.More != null ? 0 : p.Rose)),
                                Parked = g.Sum(p => p.Parked)
                            };
 
@@ -985,10 +985,10 @@ namespace SKG.DAL
 
                                 Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                 Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
-                                ASB = g.Sum(p => (p.Arrears ?? 0) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+                                ASB = g.Sum(p => (p.More != null ? 0 : (p.Arrears ?? 0)) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
 
-                                Cost = g.Sum(p => p.Cost),
-                                Rose = g.Sum(p => p.Rose),
+                                Cost = g.Sum(p => (p.More != null ? 0 : p.Cost)),
+                                Rose = g.Sum(p => (p.More != null ? 0 : p.Rose)),
                                 Parked = g.Sum(p => p.Parked)
                             };
 

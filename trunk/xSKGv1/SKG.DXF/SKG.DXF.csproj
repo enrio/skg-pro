@@ -317,11 +317,17 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_FixedVehicle.cs">
+    <Compile Include="Station\Report\Rpt_FixedVehicle2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_FixedVehicle.Designer.cs">
-      <DependentUpon>Rpt_FixedVehicle.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_FixedVehicle2.Designer.cs">
+      <DependentUpon>Rpt_FixedVehicle2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_FixedVehicle1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_FixedVehicle1.Designer.cs">
+      <DependentUpon>Rpt_FixedVehicle1.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_DebtMonth.cs">
       <SubType>Component</SubType>
@@ -477,8 +483,11 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_FixedVehicle.resx">
-      <DependentUpon>Rpt_FixedVehicle.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Report\Rpt_FixedVehicle2.resx">
+      <DependentUpon>Rpt_FixedVehicle2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_FixedVehicle1.resx">
+      <DependentUpon>Rpt_FixedVehicle1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_DebtMonth.resx">
       <DependentUpon>Rpt_DebtMonth.cs</DependentUpon>

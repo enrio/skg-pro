@@ -103,7 +103,7 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_FixedVehicle
+            var rpt = new Report.Rpt_FixedVehicle1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
             };

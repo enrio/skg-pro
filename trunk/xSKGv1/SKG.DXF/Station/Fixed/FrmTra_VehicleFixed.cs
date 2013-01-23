@@ -103,16 +103,32 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_FixedVehicle1
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
-            };
-
-            rpt.DataSource = _bll.Tra_Vehicle.SelectForPrint();
-            rpt.parDate.Value = Global.Session.Current;
-
             var frm = new FrmPrint();
-            frm.SetReport(rpt);
+            var oki = XtraMessageBox.Show("In theo mẫu 1 (chọn Yes), mẫu 2 (chọn No)", "In danh sách", MessageBoxButtons.YesNo);
+
+            if (oki == DialogResult.Yes)
+            {
+                var rpt = new Report.Rpt_FixedVehicle1
+                {
+                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
+                };
+
+                rpt.DataSource = _bll.Tra_Vehicle.SelectForPrint();
+                rpt.parDate.Value = Global.Session.Current;
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_FixedVehicle2
+                {
+                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
+                };
+
+                rpt.DataSource = _bll.Tra_Vehicle.SelectForPrint();
+                rpt.parDate.Value = Global.Session.Current;
+                frm.SetReport(rpt);
+            }
+
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 

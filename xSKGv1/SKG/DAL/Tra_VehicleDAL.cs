@@ -358,7 +358,7 @@ namespace SKG.DAL
         /// In danh sách xe tuyến cố định
         /// </summary>
         /// <returns></returns>
-        protected DataTable SelectForFixedPrint()
+        protected DataTable SelectForPrint()
         {
             try
             {

@@ -34,7 +34,7 @@ namespace SKG.BLL
         /// <returns></returns>
         public new DataTable SelectForPrint()
         {
-            var tb = base.SelectForFixedPrint();
+            var tb = base.SelectForPrint();
             if (tb == null || tb.Rows.Count == 0) return tb;
             tb.Columns.Add("Price", typeof(decimal));
 

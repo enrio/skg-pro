@@ -225,7 +225,6 @@ namespace SKG.DXF.Station.Sumary
 
             var detail = _bll.Tra_Detail.Find((Guid)tmpId);
             bool _isFixed = detail.Vehicle.Fixed;
-            decimal total = 0;
 
             // Xe cố định, không đi sửa, xe đủ điều kiện
             if (_isFixed && !detail.Repair && detail.Show) // in phiếu thu xe cố định
@@ -234,25 +233,29 @@ namespace SKG.DXF.Station.Sumary
                 var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                 var dtr = tbl.NewRow();
 
+                var seat = detail.Seats ?? 0;
+                var bed = detail.Beds ?? 0;
+
+                var cost = detail.Price1 * seat + detail.Price2 * bed;
+                var rose = detail.Rose1 * (seat < 1 ? 1 : seat - 1) + detail.Rose2 * bed;
+                var arrears = (cost + rose) * detail.Arrears ?? 0;
+                var total = detail.Money + arrears;
+
                 dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
                 dtr["Date"] = Global.Session.Current;
                 dtr["Number"] = detail.Vehicle.Code;
                 dtr["Transport"] = detail.Vehicle.Transport.Text;
 
-                dtr["Cost"] = detail.Cost;
-                dtr["Rose"] = detail.Rose;
-
-                var seat = detail.Seats ?? 0;
-                var bed = detail.Beds ?? 0;
                 dtr["CostDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                     detail.Price1, seat, detail.Price2, bed);
                 dtr["RoseDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                     detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
 
+                dtr["Cost"] = cost;
+                dtr["Rose"] = rose;
+
                 dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
-                    detail.Cost, detail.Rose, detail.Arrears ?? 0);
-                var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
-                total = arrears + detail.Cost + detail.Rose + detail.Parked;
+                    cost, rose, detail.Arrears ?? 0);
 
                 dtr["Arrears"] = arrears;
                 dtr["Money"] = total;

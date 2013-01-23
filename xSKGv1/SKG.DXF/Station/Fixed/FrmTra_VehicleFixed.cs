@@ -104,16 +104,15 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformPrint()
         {
             var frm = new FrmPrint();
-            var oki = XtraMessageBox.Show("In theo mẫu 1 (chọn Yes), mẫu 2 (chọn No)", "In danh sách", MessageBoxButtons.YesNo);
+            var oki = XtraMessageBox.Show(STR_CFM, STR_PRINT, MessageBoxButtons.YesNo);
 
             if (oki == DialogResult.Yes)
             {
                 var rpt = new Report.Rpt_FixedVehicle1
                 {
-                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
+                    Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Vehicle.SelectForPrint()
                 };
-
-                rpt.DataSource = _bll.Tra_Vehicle.SelectForPrint();
                 rpt.parDate.Value = Global.Session.Current;
                 frm.SetReport(rpt);
             }
@@ -121,10 +120,9 @@ namespace SKG.DXF.Station.Fixed
             {
                 var rpt = new Report.Rpt_FixedVehicle2
                 {
-                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds", Global.Session.User.Acc, Global.Session.Current)
+                    Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Vehicle.SelectForPrint()
                 };
-
-                rpt.DataSource = _bll.Tra_Vehicle.SelectForPrint();
                 rpt.parDate.Value = Global.Session.Current;
                 frm.SetReport(rpt);
             }
@@ -497,6 +495,10 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_NOT_C = "Chưa nhập số ghế!";
         private const string STR_NOT_N = "Chưa nhập nốt tài/tháng!";
         private const string STR_DUPLICATE = "XE NÀY CÓ RỒI";
+
+        private const string STR_CFM = "IN THEO MẪU 1 (CHỌN YES), MẪU 2 (CHỌN NO)";
+        private const string STR_PRINT = "In danh sách";
+        private const string STR_DT = "{0}{1:_dd.MM.yyyy_HH.mm.ss}_ds";
 
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";

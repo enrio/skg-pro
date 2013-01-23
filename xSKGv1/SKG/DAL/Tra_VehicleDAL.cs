@@ -299,7 +299,7 @@ namespace SKG.DAL
         /// Danh sách xe tuyến cố định
         /// </summary>
         /// <returns></returns>
-        public DataTable SelectForFixed()
+        protected DataTable SelectForFixed()
         {
             try
             {

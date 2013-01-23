@@ -105,14 +105,16 @@ namespace SKG.DXF.Station.Fixed
         {
             var frm = new FrmPrint();
             var oki = XtraMessageBox.Show(STR_CFM, STR_PRINT, MessageBoxButtons.YesNo);
+            var tb = _bll.Tra_Vehicle.SelectForPrint();
 
             if (oki == DialogResult.Yes)
             {
                 var rpt = new Report.Rpt_FixedVehicle1
                 {
                     Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
-                    DataSource = _bll.Tra_Vehicle.SelectForPrint()
+                    DataSource = tb
                 };
+
                 rpt.parDate.Value = Global.Session.Current;
                 frm.SetReport(rpt);
             }
@@ -121,8 +123,9 @@ namespace SKG.DXF.Station.Fixed
                 var rpt = new Report.Rpt_FixedVehicle2
                 {
                     Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
-                    DataSource = _bll.Tra_Vehicle.SelectForPrint()
+                    DataSource = tb
                 };
+
                 rpt.parDate.Value = Global.Session.Current;
                 frm.SetReport(rpt);
             }

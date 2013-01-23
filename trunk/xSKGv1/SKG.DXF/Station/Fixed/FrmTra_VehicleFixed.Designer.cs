@@ -32,6 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.calPrice = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDays = new DevExpress.XtraEditors.TextEdit();
             this.txtHours = new DevExpress.XtraEditors.TextEdit();
@@ -102,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice.Properties)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHours.Properties)).BeginInit();
@@ -160,6 +163,8 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.calPrice);
+            this.dockPanel1_Container.Controls.Add(this.labelControl6);
             this.dockPanel1_Container.Controls.Add(this.groupBox5);
             this.dockPanel1_Container.Controls.Add(this.groupBox4);
             this.dockPanel1_Container.Controls.Add(this.cheCity);
@@ -175,6 +180,30 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 186);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // calPrice
+            // 
+            this.calPrice.Location = new System.Drawing.Point(706, 95);
+            this.calPrice.Name = "calPrice";
+            this.calPrice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calPrice.Properties.Appearance.Options.UseFont = true;
+            this.calPrice.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calPrice.Properties.DisplayFormat.FormatString = "#,#";
+            this.calPrice.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice.Properties.EditFormat.FormatString = "#,#";
+            this.calPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPrice.Size = new System.Drawing.Size(102, 26);
+            this.calPrice.TabIndex = 38;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl6.Location = new System.Drawing.Point(662, 98);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(38, 19);
+            this.labelControl6.TabIndex = 37;
+            this.labelControl6.Text = "G.vé:";
             // 
             // groupBox5
             // 
@@ -278,29 +307,29 @@
             // 
             // cheCity
             // 
-            this.cheCity.Location = new System.Drawing.Point(840, 97);
+            this.cheCity.Location = new System.Drawing.Point(873, 99);
             this.cheCity.Name = "cheCity";
             this.cheCity.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cheCity.Properties.Appearance.Options.UseFont = true;
-            this.cheCity.Properties.Caption = "Xe TP";
-            this.cheCity.Size = new System.Drawing.Size(76, 24);
+            this.cheCity.Properties.Caption = "TP";
+            this.cheCity.Size = new System.Drawing.Size(43, 24);
             this.cheCity.TabIndex = 26;
             // 
             // txtNode
             // 
-            this.txtNode.Location = new System.Drawing.Point(601, 95);
+            this.txtNode.Location = new System.Drawing.Point(611, 95);
             this.txtNode.Name = "txtNode";
             this.txtNode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNode.Properties.Appearance.Options.UseFont = true;
             this.txtNode.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
             this.txtNode.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtNode.Size = new System.Drawing.Size(107, 26);
+            this.txtNode.Size = new System.Drawing.Size(41, 26);
             this.txtNode.TabIndex = 24;
             // 
             // lblNode
             // 
             this.lblNode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNode.Location = new System.Drawing.Point(496, 98);
+            this.lblNode.Location = new System.Drawing.Point(506, 98);
             this.lblNode.Name = "lblNode";
             this.lblNode.Size = new System.Drawing.Size(99, 19);
             this.lblNode.TabIndex = 23;
@@ -308,12 +337,12 @@
             // 
             // cheHigh
             // 
-            this.cheHigh.Location = new System.Drawing.Point(718, 97);
+            this.cheHigh.Location = new System.Drawing.Point(814, 99);
             this.cheHigh.Name = "cheHigh";
             this.cheHigh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cheHigh.Properties.Appearance.Options.UseFont = true;
-            this.cheHigh.Properties.Caption = "Xe CLC";
-            this.cheHigh.Size = new System.Drawing.Size(85, 24);
+            this.cheHigh.Properties.Caption = "CLC";
+            this.cheHigh.Size = new System.Drawing.Size(53, 24);
             this.cheHigh.TabIndex = 25;
             // 
             // txtProductionYear
@@ -1039,6 +1068,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calPrice.Properties)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).EndInit();
@@ -1149,5 +1179,7 @@
         private DevExpress.XtraEditors.TextEdit txtHours;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.CalcEdit calPrice;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

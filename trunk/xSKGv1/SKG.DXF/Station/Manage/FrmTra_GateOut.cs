@@ -333,6 +333,9 @@ namespace SKG.DXF.Station.Manage
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
+
+            lblSeri.Visible = false;
+            txtSeri.Visible = false;
         }
 
         /// <summary>

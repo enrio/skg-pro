@@ -139,7 +139,7 @@ namespace SKG.DXF.Station.Manage
             try
             {
                 if (lkeNumber.Text == "") return;
-                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, isRepair, txtNote.Text);
+                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, isRepair, txtNote.Text, txtSeri.Text);
 
                 _isFixed = detail.Vehicle.Fixed;
                 var seat = detail.Seats ?? 0;
@@ -166,6 +166,9 @@ namespace SKG.DXF.Station.Manage
                 {
                     lblSeri.Visible = !isOut;
                     txtSeri.Visible = !isOut;
+                    if (isOut)
+                        txtSeri.Text = "";
+                    else txtSeri.Focus();
 
                     lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
                     lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;

@@ -46,6 +46,7 @@ namespace SKG.Extend
                     tb.Rows.Add(dr);
                 }
 
+                tb.AcceptChanges();
                 return tb;
             }
             catch { return null; }

@@ -80,6 +80,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lblSeri = new System.Windows.Forms.Label();
+            this.txtSeri = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -93,6 +95,7 @@
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -156,6 +159,8 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.lblSeri);
+            this.groupControl1.Controls.Add(this.txtSeri);
             this.groupControl1.Controls.Add(this.cmdNotEnough);
             this.groupControl1.Controls.Add(this.cmdTempOut);
             this.groupControl1.Controls.Add(this.lblArrears);
@@ -713,6 +718,27 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblSeri
+            // 
+            this.lblSeri.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeri.Location = new System.Drawing.Point(303, 283);
+            this.lblSeri.Name = "lblSeri";
+            this.lblSeri.Size = new System.Drawing.Size(93, 31);
+            this.lblSeri.TabIndex = 80;
+            this.lblSeri.Text = "Sê ri vé:";
+            this.lblSeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSeri.Visible = false;
+            // 
+            // txtSeri
+            // 
+            this.txtSeri.Location = new System.Drawing.Point(394, 285);
+            this.txtSeri.Name = "txtSeri";
+            this.txtSeri.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeri.Properties.Appearance.Options.UseFont = true;
+            this.txtSeri.Size = new System.Drawing.Size(350, 30);
+            this.txtSeri.TabIndex = 79;
+            this.txtSeri.Visible = false;
+            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -736,6 +762,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -793,5 +820,7 @@
         private System.Windows.Forms.Label lblArrears;
         private DevExpress.XtraEditors.SimpleButton cmdNotEnough;
         private DevExpress.XtraEditors.SimpleButton cmdTempOut;
+        private System.Windows.Forms.Label lblSeri;
+        private DevExpress.XtraEditors.TextEdit txtSeri;
     }
 }

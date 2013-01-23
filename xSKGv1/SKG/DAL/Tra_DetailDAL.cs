@@ -785,7 +785,7 @@ namespace SKG.DAL
                           where s.UserOutId != null
                           && s.DateOut >= fr && s.DateOut <= to
                           && s.Vehicle.Fixed == true
-                          && s.Money != s.Parked
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                           orderby s.DateOut descending
                           select new
                           {
@@ -856,7 +856,7 @@ namespace SKG.DAL
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
-                           && s.Money != s.Parked
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            group s by s.Code into g
                            select new
                            {
@@ -868,7 +868,7 @@ namespace SKG.DAL
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
-                           && s.Money != s.Parked
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            group s by s.Code into g
                            select new
                            {
@@ -886,9 +886,9 @@ namespace SKG.DAL
                            && s.DateOut >= fr && s.DateOut <= to
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
-                           && s.Money != s.Parked
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            && s.Show == true
-                           && s.Money != 0
+                               //&& s.Money != 0
                            && (s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
                            group s by s.Vehicle.Tariff.Code into g
                            select new
@@ -986,9 +986,9 @@ namespace SKG.DAL
                             && s.DateOut >= fr && s.DateOut <= to
                             && s.Vehicle.Fixed == true
                             && s.Repair == false
-                            && s.Money != s.Parked
+                            && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                             && s.Show == true
-                            && s.Money != 0
+                                //&& s.Money != 0
                             && !(s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
                             group s by new
                             {

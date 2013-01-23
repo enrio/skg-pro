@@ -23,6 +23,8 @@ namespace SKG.BLL
         public new DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
         {
             var tb = base.GetRevenueFixed(out sum, out receipt, fr, to);
+            if (tb == null || tb.Rows.Count == 0) return tb;
+
             foreach (DataRow r in tb.Rows)
             {
                 var Arrears = Text.ToInt32(r["Arrears"] + "");
@@ -58,6 +60,14 @@ namespace SKG.BLL
         public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive, out int count, out int guest, out decimal money)
         {
             var tb = base.AuditDayFixed(fr, to, hideActive);
+            if (tb == null || tb.Rows.Count == 0)
+            {
+                count = 0;
+                guest = 0;
+                money = 0;
+                return tb;
+            }
+
             foreach (DataRow r in tb.Rows)
             {
                 var Weight = Text.ToInt32(r["Weight"] + "") - 1;
@@ -98,10 +108,7 @@ namespace SKG.BLL
                 var fr = to.AddDays(-1).AddSeconds(1);
                 return GetRevenueFixed(out sum, out receipt, fr, to);
             }
-            catch
-            {
-                return null;
-            }
+            catch { return null; }
         }
     }
 }

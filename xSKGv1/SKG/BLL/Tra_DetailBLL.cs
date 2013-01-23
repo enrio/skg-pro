@@ -38,15 +38,6 @@ namespace SKG.BLL
 
                 var a = Count + Arrears;
                 var b = Seats + Beds + ASB;
-                //var more = r["More"] + "";
-
-                //if (more.Contains(Global.STR_ARREAR))
-                //{
-                //    a--;
-                //    var tmp = ArrearsMoney / Arrears;
-                //    ArrearsMoney -= tmp;
-                //    Totals = -tmp;
-                //}
 
                 r["Count"] = a;
                 r["Seats"] = b;

@@ -569,7 +569,11 @@ namespace SKG.DAL
                 }
 
                 // Xe truy thu (chỉ tính tiền truy thu)
-                if (a.More != null && a.More.Contains(Global.STR_ARREAR)) a.Money = 0;
+                if (a.More != null && a.More.Contains(Global.STR_ARREAR))
+                {
+                    a.Money = 0;
+                    a.Parked = 0;
+                }
 
                 _db.SaveChanges();
                 return a;

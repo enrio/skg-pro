@@ -140,7 +140,14 @@ namespace SKG.DXF.Station.Manage
             {
                 if (lkeNumber.Text == "") return;
                 var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, isRepair, txtNote.Text);
+
                 _isFixed = detail.Vehicle.Fixed;
+                var seat = detail.Seats ?? 0;
+                var bed = detail.Beds ?? 0;
+
+                var cost = detail.Price1 * seat + detail.Price2 * bed;
+                var rose = detail.Rose1 * (seat < 1 ? 1 : seat - 1) + detail.Rose2 * bed;
+                var arrears = (cost + rose) * detail.Arrears ?? 0;
 
                 if (_isFixed)
                 {
@@ -152,10 +159,7 @@ namespace SKG.DXF.Station.Manage
                     if (detail.Arrears != null)
                     {
                         if (detail.Arrears > 0)
-                        {
-                            var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
                             lblArrears.Text = String.Format("TRUY THU {0:#,0}L = {1:#,0đ}", detail.Arrears, arrears);
-                        }
                     }
                 }
                 else
@@ -169,12 +173,11 @@ namespace SKG.DXF.Station.Manage
                 }
 
                 lblNumber.Text = "BS " + detail.Vehicle.Code;
+                lblSeats.Text = seat.ToString("#,0");
+                lblBeds.Text = bed.ToString("#,0");
 
                 lblDateIn.Text = detail.DateIn.ToString("dd/MM/yyyy HH:mm:ss");
                 lblDateOut.Text = detail.DateOut.Value.ToString("dd/MM/yyyy HH:mm:ss");
-
-                lblSeats.Text = detail.Seats == null ? null : detail.Seats.Value.ToString("#,0");
-                lblBeds.Text = detail.Beds == null ? null : detail.Beds.Value.ToString("#,0");
 
                 lblPrice1.Text = detail.Price1.ToString("#,0");
                 lblRose1.Text = detail.Rose1.ToString("#,0");
@@ -184,7 +187,7 @@ namespace SKG.DXF.Station.Manage
                 lblMoney.Text = (detail.Repair ? "PHÍ ĐẬU ĐÊM " : "LỆ PHÍ ")
                     + (detail.Money == 0 ? "0đ" : detail.Money.ToString("#,0đ"));
 
-                var total = detail.Money + ((detail.Cost + detail.Rose) * detail.Arrears ?? 0);
+                var total = detail.Money + arrears;
                 lblTotal.Text = total.ToString("PHẢI THU #,0đ");
 
                 var d = detail.DateOut.Value - detail.DateIn;
@@ -215,19 +218,17 @@ namespace SKG.DXF.Station.Manage
                         dtr["Number"] = detail.Vehicle.Code;
                         dtr["Transport"] = detail.Vehicle.Transport.Text;
 
-                        dtr["Cost"] = detail.Cost;
-                        dtr["Rose"] = detail.Rose;
-
-                        var seat = detail.Seats ?? 0;
-                        var bed = detail.Beds ?? 0;
                         dtr["CostDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                             detail.Price1, seat, detail.Price2, bed);
                         dtr["RoseDescript"] = String.Format("{0:#,0} x {1} + {2:#,0} x {3} = ",
                             detail.Rose1, (seat < 1 ? 1 : seat - 1), detail.Rose2, bed);
 
+                        dtr["Cost"] = cost;
+                        dtr["Rose"] = rose;
+
                         dtr["ArrearsDescript"] = String.Format("({0:#,0} + {1:#,0}) x {2} = ",
-                            detail.Cost, detail.Rose, detail.Arrears ?? 0);
-                        var arrears = (detail.Cost + detail.Rose) * detail.Arrears ?? 0;
+                            cost, rose, detail.Arrears ?? 0);
+
                         dtr["Arrears"] = arrears;
                         dtr["Money"] = total;
 
@@ -247,6 +248,7 @@ namespace SKG.DXF.Station.Manage
                         }
                     }
                 }
+
                 cmdOut.Enabled = !isOut;
                 cmdTariff.Enabled = !isOut;
             }

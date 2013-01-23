@@ -579,7 +579,12 @@ namespace SKG.DAL
                 }
 
                 // Xe truy thu (chỉ tính tiền truy thu)
-                if (a.More != null && a.More.Contains(Global.STR_ARREAR)) a.Money = 0;
+                if (a.More != null && a.More.Contains(Global.STR_ARREAR))
+                {
+                    a.Cost = 0;
+                    a.Rose = 0;
+                    a.Money = 0;
+                }
 
                 //// Xe không đủ điều kiện, không tính tiền
                 //if (!a.Show)

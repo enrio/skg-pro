@@ -50,6 +50,13 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Overrides
+        protected override void SetNullPrompt()
+        {
+            txtNumber.Properties.NullValuePrompt = String.Format("Nhập {0}", lblNumber.Text.ToBetween(null, ":", Format.Lower));
+
+            base.SetNullPrompt();
+        }
+
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
             txtNumber.Properties.ReadOnly = isReadOnly;

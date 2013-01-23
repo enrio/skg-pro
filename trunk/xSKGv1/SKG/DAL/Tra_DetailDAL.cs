@@ -288,7 +288,8 @@ namespace SKG.DAL
                               //s.Money,
 
                               s.Vehicle.Fixed,
-                              GroupCode = s.Vehicle.Tariff.Group.Code
+                              GroupCode = s.Vehicle.Tariff.Group.Code,
+                              s.More
                           };
                 switch (group)
                 {
@@ -804,16 +805,11 @@ namespace SKG.DAL
                               Arrears = (s.Arrears ?? 0) * (s.Cost + s.Rose),
                               s.UserOutId
                           };
-                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                //if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
-            catch
-            {
-                return null;
-            }
+            catch { return null; }
         }
 
         /// <summary>
@@ -1556,16 +1552,11 @@ namespace SKG.DAL
                               Tariff = s.Vehicle.Tariff.Text,
                               s.UserOutId
                           };
-                //var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
-                //if (!ql) res = res.Where(p => p.UserOutId == Global.Session.User.Id);
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
-            catch
-            {
-                return null;
-            }
+            catch { return null; }
         }
         #endregion
 

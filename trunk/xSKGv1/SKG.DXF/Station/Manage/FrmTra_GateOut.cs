@@ -320,6 +320,9 @@ namespace SKG.DXF.Station.Manage
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
             Invoice();
+
+            lblSeri.Visible = true;
+            txtSeri.Visible = true;
         }
 
         /// <summary>

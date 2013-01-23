@@ -36,23 +36,27 @@ namespace SKG.BLL
         {
             var tb = base.SelectForFixedPrint();
             if (tb == null || tb.Rows.Count == 0) return tb;
-
             tb.Columns.Add("Price", typeof(decimal));
 
             foreach (DataRow r in tb.Rows)
-            {
-                var Seats = Text.ToInt32(r["Seats"] + "");
-                var Beds = Text.ToInt32(r["Beds"] + "");
-                var Price1 = Text.ToInt32(r["Price1"] + "");
-                var Price2 = Text.ToInt32(r["Price2"] + "");
-                var Rose1 = Text.ToInt32(r["Rose1"] + "");
-                var Rose2 = Text.ToInt32(r["Rose2"] + "");
+                r["Price"] = Text.ToDecimal(r["Text"] + "");
 
-                var Cost = Price1 * Seats + Price2 * Beds;
-                var Rose = Rose1 * (Seats < 1 ? 1 : Seats - 1) + Rose2 * Beds;
+            return tb;
+        }
 
-                r["Price"] = Cost + Rose;
-            }
+        /// <summary>
+        /// Danh sách xe tuyến cố định
+        /// </summary>
+        /// <returns></returns>
+        public new DataTable SelectForFixed()
+        {
+            var tb = base.SelectForFixed();
+            if (tb == null || tb.Rows.Count == 0) return tb;
+            tb.Columns.Add("Price", typeof(decimal));
+
+            foreach (DataRow r in tb.Rows)
+                r["Price"] = Text.ToDecimal(r["Text"] + "");
+
             return tb;
         }
     }

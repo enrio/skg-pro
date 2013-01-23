@@ -224,7 +224,7 @@ namespace SKG.DXF.Station.Fixed
 
             txtHours.DataBindings.Add("EditValue", _dtb, ".Note");
             txtDays.DataBindings.Add("EditValue", _dtb, ".More");
-            calPrice.DataBindings.Add("EditValue", _dtb, ".Text");
+            calPrice.DataBindings.Add("EditValue", _dtb, ".Price");
 
             base.DataBindingControl();
         }
@@ -285,7 +285,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
-                    Text = calPrice.Text,
+                    Text = calPrice.Value + "",
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };
@@ -333,7 +333,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
-                    Text = calPrice.Text,
+                    Text = calPrice.Value + "",
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };

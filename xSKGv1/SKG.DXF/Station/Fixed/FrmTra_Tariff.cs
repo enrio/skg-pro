@@ -337,7 +337,10 @@ namespace SKG.DXF.Station.Fixed
 
         private void FrmTra_Tariff_Load(object sender, EventArgs e)
         {
-            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_PROVINCE);
+            var tb = _bll.Pol_Dictionary.Select((object)Global.STR_PROVINCE);
+            tb.Numbered();
+
+            lokGroup.Properties.DataSource = tb;
             lokGroup.ItemIndex = 0;
         }
 

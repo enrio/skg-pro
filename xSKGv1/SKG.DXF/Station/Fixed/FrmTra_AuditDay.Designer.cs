@@ -36,7 +36,7 @@
             this.txtArrears = new DevExpress.XtraEditors.TextEdit();
             this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.lblNumber = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.chkHideActive = new DevExpress.XtraEditors.CheckEdit();
@@ -127,7 +127,7 @@
             this.groupBox5.Controls.Add(this.txtArrears);
             this.groupBox5.Controls.Add(this.txtNumber);
             this.groupBox5.Controls.Add(this.labelControl3);
-            this.groupBox5.Controls.Add(this.labelControl4);
+            this.groupBox5.Controls.Add(this.lblNumber);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(599, 6);
             this.groupBox5.Name = "groupBox5";
@@ -165,14 +165,14 @@
             this.labelControl3.TabIndex = 7;
             this.labelControl3.Text = "T.T:";
             // 
-            // labelControl4
+            // lblNumber
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(6, 26);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(36, 19);
-            this.labelControl4.TabIndex = 5;
-            this.labelControl4.Text = "B.số:";
+            this.lblNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumber.Location = new System.Drawing.Point(6, 26);
+            this.lblNumber.Name = "lblNumber";
+            this.lblNumber.Size = new System.Drawing.Size(36, 19);
+            this.lblNumber.TabIndex = 5;
+            this.lblNumber.Text = "B.số:";
             // 
             // labelControl2
             // 
@@ -698,7 +698,7 @@
         private DevExpress.XtraEditors.TextEdit txtArrears;
         private DevExpress.XtraEditors.TextEdit txtNumber;
         private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl lblNumber;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn10;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;

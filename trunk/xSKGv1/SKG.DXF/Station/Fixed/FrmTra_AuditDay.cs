@@ -122,7 +122,7 @@ namespace SKG.DXF.Station.Fixed
 
                     if (InsertObject())
                     {
-                        ResetInput(); LoadData();
+                        ResetInput(); PerformCancel();
                     }
                     break;
 
@@ -134,6 +134,7 @@ namespace SKG.DXF.Station.Fixed
                     }
                     break;
             }
+
             if (_num + "" != "") Close();
             base.PerformSave();
         }

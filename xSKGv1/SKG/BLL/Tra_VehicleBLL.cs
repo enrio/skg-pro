@@ -32,7 +32,7 @@ namespace SKG.BLL
         /// In danh sách xe tuyến cố định
         /// </summary>
         /// <returns></returns>
-        public new DataTable SelectForFixedPrint()
+        public new DataTable SelectForPrint()
         {
             var tb = base.SelectForFixedPrint();
             if (tb == null || tb.Rows.Count == 0) return tb;

@@ -5,9 +5,9 @@ namespace SKG.DXF.Station.Report
     /// <summary>
     /// Danh sách xe tuyến cố định
     /// </summary>
-    public partial class Rpt_FixedVehicle : DevExpress.XtraReports.UI.XtraReport
+    public partial class Rpt_FixedVehicle2 : DevExpress.XtraReports.UI.XtraReport
     {
-        public Rpt_FixedVehicle()
+        public Rpt_FixedVehicle2()
         {
             InitializeComponent();
         }

@@ -164,6 +164,9 @@ namespace SKG.DXF.Station.Manage
                 }
                 else
                 {
+                    lblSeri.Visible = !isOut;
+                    txtSeri.Visible = !isOut;
+
                     lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
                     lblGroup.Text = "Nhóm xe: " + detail.Vehicle.Tariff.Group.Text;
                     lblHalfDay.Text = "Nửa ngày:";
@@ -320,9 +323,6 @@ namespace SKG.DXF.Station.Manage
         private void cmdInvoice_Click(object sender, EventArgs e)
         {
             Invoice();
-
-            lblSeri.Visible = true;
-            txtSeri.Visible = true;
         }
 
         /// <summary>
@@ -333,9 +333,6 @@ namespace SKG.DXF.Station.Manage
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
-
-            lblSeri.Visible = false;
-            txtSeri.Visible = false;
         }
 
         /// <summary>

@@ -870,7 +870,7 @@ namespace SKG.DAL
                            select new
                            {
                                g.Key,
-                               Count = g.Count(),
+                               Count = g.Count(p => p.More == null), // skip arrears
 
                                Arrears = g.Sum(p => p.Arrears ?? 0),
                                ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),
@@ -974,7 +974,7 @@ namespace SKG.DAL
                             select new
                             {
                                 g.Key,
-                                Count = g.Count(),
+                                Count = g.Count(p => p.More == null), // skip arrears
 
                                 Arrears = g.Sum(p => p.Arrears ?? 0),
                                 ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),

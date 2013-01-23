@@ -60,7 +60,7 @@ namespace SKG.Extend
         public static DataTable ToDataTable<T>(this IEnumerable<T> d, bool n = true, string s = "Tmp")
         {
             var res = Linq2Table((IEnumerable<T>)d, s);
-            res.Numbered(n);
+            //res.Numbered(n);
             return res;
         }
 

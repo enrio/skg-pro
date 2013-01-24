@@ -469,7 +469,7 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdPrintIngate_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Ingate
+            var rpt = new Report.Rpt_IngateMaster
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl", Global.Session.User.Acc, Global.Session.Current)
             };
@@ -479,7 +479,7 @@ namespace SKG.DXF.Station.Manage
             rpt.DataSource = tb;
 
             rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;            
+            rpt.parUserOut.Value = Global.Session.User.Name;
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

@@ -317,6 +317,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_IngateMaster.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_IngateMaster.Designer.cs">
+      <DependentUpon>Rpt_IngateMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_Ingate.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -488,6 +494,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_IngateMaster.resx">
+      <DependentUpon>Rpt_IngateMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Ingate.resx">
       <DependentUpon>Rpt_Ingate.cs</DependentUpon>

@@ -311,6 +311,7 @@ namespace SKG.DXF.Station.Manage
                 cmdSumary1.Visible = false;
                 cmdSumary2.Visible = false;
                 cmdSumaryFixed.Visible = false;
+                cmdPrintIngate.Visible = false;
 
                 cmdTempOut.Visible = true;
                 cmdNotEnough.Visible = true;
@@ -464,6 +465,25 @@ namespace SKG.DXF.Station.Manage
 
             Invoice(false, false);
             PerformRefresh();
+        }
+
+        private void cmdPrintIngate_Click(object sender, EventArgs e)
+        {
+            var rpt = new Report.Rpt_Normal
+            {
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl", Global.Session.User.Acc, Global.Session.Current)
+            };
+
+            _dtb = _bll.Tra_Detail.GetInDepot();
+            rpt.DataSource = _dtb;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+            rpt.xrLabel1.Text = "DANH SÁCH XE TRONG BẾN";
+
+            var frm = new FrmPrint();
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
         }
         #endregion
 

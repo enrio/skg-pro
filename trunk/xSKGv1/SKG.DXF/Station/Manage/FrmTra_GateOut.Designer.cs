@@ -35,6 +35,9 @@
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cmdPrintIngate = new DevExpress.XtraEditors.SimpleButton();
+            this.lblSeri = new System.Windows.Forms.Label();
+            this.txtSeri = new DevExpress.XtraEditors.TextEdit();
             this.cmdNotEnough = new DevExpress.XtraEditors.SimpleButton();
             this.cmdTempOut = new DevExpress.XtraEditors.SimpleButton();
             this.lblArrears = new System.Windows.Forms.Label();
@@ -80,8 +83,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblRose1 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblSeri = new System.Windows.Forms.Label();
-            this.txtSeri = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -89,13 +90,13 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -159,6 +160,7 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupControl1.Controls.Add(this.cmdPrintIngate);
             this.groupControl1.Controls.Add(this.lblSeri);
             this.groupControl1.Controls.Add(this.txtSeri);
             this.groupControl1.Controls.Add(this.cmdNotEnough);
@@ -193,6 +195,38 @@
             this.groupControl1.Size = new System.Drawing.Size(756, 484);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
+            // 
+            // cmdPrintIngate
+            // 
+            this.cmdPrintIngate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPrintIngate.Appearance.Options.UseFont = true;
+            this.cmdPrintIngate.Location = new System.Drawing.Point(536, 442);
+            this.cmdPrintIngate.Name = "cmdPrintIngate";
+            this.cmdPrintIngate.Size = new System.Drawing.Size(36, 37);
+            this.cmdPrintIngate.TabIndex = 81;
+            this.cmdPrintIngate.Text = "||";
+            this.cmdPrintIngate.Click += new System.EventHandler(this.cmdPrintIngate_Click);
+            // 
+            // lblSeri
+            // 
+            this.lblSeri.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSeri.Location = new System.Drawing.Point(303, 283);
+            this.lblSeri.Name = "lblSeri";
+            this.lblSeri.Size = new System.Drawing.Size(93, 31);
+            this.lblSeri.TabIndex = 80;
+            this.lblSeri.Text = "Sê ri vé:";
+            this.lblSeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblSeri.Visible = false;
+            // 
+            // txtSeri
+            // 
+            this.txtSeri.Location = new System.Drawing.Point(394, 285);
+            this.txtSeri.Name = "txtSeri";
+            this.txtSeri.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeri.Properties.Appearance.Options.UseFont = true;
+            this.txtSeri.Size = new System.Drawing.Size(350, 30);
+            this.txtSeri.TabIndex = 79;
+            this.txtSeri.Visible = false;
             // 
             // cmdNotEnough
             // 
@@ -718,27 +752,6 @@
             this.label12.Text = "Ghế:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblSeri
-            // 
-            this.lblSeri.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSeri.Location = new System.Drawing.Point(303, 283);
-            this.lblSeri.Name = "lblSeri";
-            this.lblSeri.Size = new System.Drawing.Size(93, 31);
-            this.lblSeri.TabIndex = 80;
-            this.lblSeri.Text = "Sê ri vé:";
-            this.lblSeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblSeri.Visible = false;
-            // 
-            // txtSeri
-            // 
-            this.txtSeri.Location = new System.Drawing.Point(394, 285);
-            this.txtSeri.Name = "txtSeri";
-            this.txtSeri.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSeri.Properties.Appearance.Options.UseFont = true;
-            this.txtSeri.Size = new System.Drawing.Size(350, 30);
-            this.txtSeri.TabIndex = 79;
-            this.txtSeri.Visible = false;
-            // 
             // FrmTra_GateOut
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,13 +769,13 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lkeNumber.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtSeri.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -822,5 +835,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdTempOut;
         private System.Windows.Forms.Label lblSeri;
         private DevExpress.XtraEditors.TextEdit txtSeri;
+        private DevExpress.XtraEditors.SimpleButton cmdPrintIngate;
     }
 }

@@ -1307,16 +1307,16 @@ namespace SKG.DAL
                            select new
                            {
                                g.Key,
-                               Th_Lxe = g.Count(),
+                               Th_Lxe = g.Count(p => p.More == null), // skip arrears
                                Weight = g.Sum(p => (p.Seats ?? 0) + (p.Beds ?? 0)),
 
                                Th_Arrears = g.Sum(p => p.Arrears ?? 0),
                                Th_Discount = g.Sum(p => p.Discount ?? 0),
                                Th_Guest = g.Sum(p => p.Guest ?? 0),
 
-                               Th_Cost = g.Sum(p => p.Cost),
-                               Th_Rose = g.Sum(p => p.Rose),
-                               Th_Parked = g.Sum(p => p.Parked),
+                               Th_Cost = g.Sum(p => p.More != null ? 0 : p.Cost),
+                               Th_Rose = g.Sum(p => p.More != null ? 0 : p.Rose),
+                               Th_Parked = g.Sum(p => p.More != null ? 0 : p.Parked),
                                Th_Money = g.Sum(p => p.Money)
                            };
 
@@ -1360,7 +1360,8 @@ namespace SKG.DAL
                                v.Code,
                                Guest = s.Th_Guest == null ? 0 : s.Th_Guest
                            };
-                if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0);
+
+                if (hideActive) res2 = res2.Where(p => p.Th_Lxe > 0 || p.Tr_Lxe > 0);
                 return res2.ToDataTable();
             }
             catch { return null; }

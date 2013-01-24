@@ -1341,7 +1341,7 @@ namespace SKG.DAL
                                ProvinceCode = v.Tariff.Group.Code,
                                StationCode = v.Tariff.Code,
                                TransportCode = v.Transport.Code,
-                               s.Weight,
+                               Weight = s.Weight == null ? 0 : s.Weight,
 
                                Th_Lxe = s.Th_Lxe == null ? 0 : s.Th_Lxe,
                                Th_Hk = 0,

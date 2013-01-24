@@ -285,7 +285,7 @@
             this.xrLabel2,
             this.xrLabel1,
             this.xrTable2});
-            this.ReportHeader.HeightF = 51.5625F;
+            this.ReportHeader.HeightF = 63.02083F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // xrLabel1

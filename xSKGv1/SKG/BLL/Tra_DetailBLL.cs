@@ -63,7 +63,7 @@ namespace SKG.BLL
         /// <returns></returns>
         public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive, out string infomation)
         {
-            var format = "Lượt xe: {0}, lượt khách: {1}, đậu đêm: {2}, doanh thu: {3}";
+            var format = "Ghi chú: Lượt xe: {0}, lượt khách: {1}, đậu đêm: {2}, doanh thu: {3}";
             var tb = base.AuditDayFixed(fr, to, hideActive);
 
             if (tb == null || tb.Rows.Count == 0)

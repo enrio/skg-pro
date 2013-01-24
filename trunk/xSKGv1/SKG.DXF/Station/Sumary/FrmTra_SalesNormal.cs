@@ -12,6 +12,7 @@
 
 using System;
 using System.Linq;
+using System.Data;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -19,6 +20,7 @@ namespace SKG.DXF.Station.Sumary
 {
     using SKG.Extend;
     using SKG.Plugin;
+    using DAL.Entities;
     using DevExpress.XtraEditors;
     using DevExpress.XtraGrid.Views.BandedGrid;
 
@@ -129,6 +131,54 @@ namespace SKG.DXF.Station.Sumary
             LoadData();
 
             base.PerformRefresh();
+        }
+
+        protected override void PerformSave()
+        {
+            switch (_state)
+            {
+                case State.Add:
+                    if (InsertObject())
+                    {
+                        ResetInput(); PerformCancel();
+                    }
+                    break;
+
+                case State.Edit:
+                    if (UpdateObject())
+                    {
+                        ChangeStatus(); ReadOnlyControl();
+                        PerformRefresh();
+                    }
+                    break;
+            }
+
+            base.PerformSave();
+        }
+
+        protected override bool UpdateObject()
+        {
+            try
+            {
+                //if (!ValidInput()) return false;
+
+                var tb = _dtb.GetChanges(DataRowState.Modified);
+                foreach (DataRow r in tb.Rows)
+                {
+                    var id = (Guid)r["Id"];
+                    var text = "" + r["Text"];
+
+                    var o = new Tra_Detail()
+                    {
+                        Id = id,
+                        Text = text
+                    };
+
+                    _bll.Tra_Detail.UpdateSeri(o);
+                }
+                return true;
+            }
+            catch { return false; }
         }
         #endregion
 

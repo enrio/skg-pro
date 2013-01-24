@@ -474,9 +474,15 @@ namespace SKG.DXF.Station.Manage
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            var tb = _bll.Tra_Detail.GetInDepot();
+            var tb = _bll.Tra_Detail.GetInDepotFixed();
             tb.Numbered();
-            rpt.DataSource = tb;
+            var sub = new Report.Rpt_Ingate() { DataSource = tb };
+            rpt.xrSubreport1.ReportSource = sub;
+
+            tb = _bll.Tra_Detail.GetInDepotNormal();
+            tb.Numbered();
+            sub = new Report.Rpt_Ingate() { DataSource = tb };
+            rpt.xrSubreport2.ReportSource = sub;
 
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;

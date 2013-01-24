@@ -20,9 +20,10 @@ namespace SKG.BLL
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        public new DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
+        public DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
         {
-            var tb = base.GetRevenueFixed(out sum, out receipt, fr, to);
+            sum = 0;
+            var tb = base.GetRevenueFixed(out receipt, fr, to);
             if (tb == null || tb.Rows.Count == 0) return tb;
 
             foreach (DataRow r in tb.Rows)
@@ -35,6 +36,7 @@ namespace SKG.BLL
 
                 var ArrearsMoney = Text.ToDecimal(r["ArrearsMoney"] + "");
                 var Totals = ArrearsMoney + Text.ToDecimal(r["Totals"] + "");
+                sum += Totals;
 
                 var a = Count + Arrears;
                 var b = Seats + Beds + ASB;

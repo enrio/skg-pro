@@ -1386,6 +1386,25 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Update number of serial
+        /// </summary>
+        /// <param name="obj">Detail</param>
+        /// <returns></returns>
+        public object UpdateSeri(object obj)
+        {
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Text = o.Text;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
         #endregion
 
         #region Vehicle normal

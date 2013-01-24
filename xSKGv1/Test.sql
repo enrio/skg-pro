@@ -1,17 +1,22 @@
 Restore Database xSKGv1
-From Disk = 'C:\BXE-22.01.13.07.38.05.bak'
+From Disk = 'C:\BXE-23.01.13.23.42.09.bak'
 
-Set Dateformat DMY
+Set Dateformat Dmy
+Declare @fr Datetime
+Declare @to Datetime
+Set @fr = '25/01/2013 1:00:01'
+Set @to = '26/01/2013 1:00:00'
+
 Select Tra_Vehicle.Code, Tra_Detail.* From Tra_Detail Join Tra_Vehicle
 On Tra_Detail.VehicleId = Tra_Vehicle.Id
-Where DateOut >= '17/1/2013 13:00:01' And DateOut <= '18/1/2013 13:00:00'
+Where DateOut >= @fr And DateOut <= @to
 And UserOutId Is Not Null
 And Tra_Detail.Code = 'FIXED'
 Order By [Order]
 
 Select Tra_Vehicle.Code, Tra_Detail.* From Tra_Detail Join Tra_Vehicle
 On Tra_Detail.VehicleId = Tra_Vehicle.Id
-Where DateOut >= '17/1/2013 14:00:01' And DateOut <= '18/1/2013 14:00:00'
+Where DateOut >= @fr And DateOut <= @to
 And UserOutId Is Not Null
 And Tra_Detail.Code <> 'FIXED'
 Order By [Order]

@@ -827,9 +827,8 @@ namespace SKG.DAL
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        protected DataTable GetRevenueFixed(out decimal sum, out string receipt, DateTime fr, DateTime to)
+        protected DataTable GetRevenueFixed(out string receipt, DateTime fr, DateTime to)
         {
-            sum = 0;
             receipt = "";
             try
             {
@@ -1068,13 +1067,9 @@ namespace SKG.DAL
                 #endregion
 
                 var res = res3.Union(ares3);
-                sum = res.Sum(k => k.Totals);
                 return res.ToDataTable();
             }
-            catch
-            {
-                return null;
-            }
+            catch { return null; }
         }
 
         /// <summary>

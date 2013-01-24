@@ -54,7 +54,7 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.colSeri = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -476,7 +476,7 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.bandedGridColumn1});
+            this.colSeri});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng tiền: {0:#,0}đ")});
@@ -494,7 +494,7 @@
             this.gridBand1.Columns.Add(this.gridColumn3);
             this.gridBand1.Columns.Add(this.gridColumn13);
             this.gridBand1.Columns.Add(this.bandedGridColumn2);
-            this.gridBand1.Columns.Add(this.bandedGridColumn1);
+            this.gridBand1.Columns.Add(this.colSeri);
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.Width = 454;
             // 
@@ -538,12 +538,12 @@
             this.bandedGridColumn2.Visible = true;
             this.bandedGridColumn2.Width = 124;
             // 
-            // bandedGridColumn1
+            // colSeri
             // 
-            this.bandedGridColumn1.Caption = "Sê ri";
-            this.bandedGridColumn1.FieldName = "Text";
-            this.bandedGridColumn1.Name = "bandedGridColumn1";
-            this.bandedGridColumn1.Visible = true;
+            this.colSeri.Caption = "Sê ri";
+            this.colSeri.FieldName = "Text";
+            this.colSeri.Name = "colSeri";
+            this.colSeri.Visible = true;
             // 
             // gridBand2
             // 
@@ -738,7 +738,7 @@
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
         private DevExpress.XtraEditors.SimpleButton cmdRestore;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSeri;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;

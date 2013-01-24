@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Sumary
     using SKG.Extend;
     using SKG.Plugin;
     using DevExpress.XtraEditors;
+    using DevExpress.XtraGrid.Views.BandedGrid;
 
     public partial class FrmTra_SalesNormal : SKG.DXF.FrmInput
     {
@@ -75,6 +76,13 @@ namespace SKG.DXF.Station.Sumary
             }
 
             base.PerformDelete();
+        }
+
+        protected override void PerformEdit()
+        {
+            grvMain.OptionsBehavior.Editable = true;
+
+            base.PerformEdit();
         }
 
         protected override void PerformPrint()
@@ -146,6 +154,11 @@ namespace SKG.DXF.Station.Sumary
 
             var ql = Global.Session.User.CheckAdmin();
             if (!ql) cmdRestore.Visible = false;
+
+            // Only allow edit on columns colSeri
+            foreach (BandedGridColumn c in grvMain.Columns)
+                c.OptionsColumn.ReadOnly = true;
+            colSeri.OptionsColumn.ReadOnly = false;
         }
         #endregion
 

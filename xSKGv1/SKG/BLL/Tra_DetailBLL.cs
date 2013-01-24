@@ -59,18 +59,16 @@ namespace SKG.BLL
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <param name="hideActive">Hide vehicle active</param>
-        /// <param name="count">Total of vehicle</param>
-        /// <param name="guest">Total of guest</param>
-        /// <param name="money">Total of money</param>
+        /// <param name="infomation">Finish infomation</param>
         /// <returns></returns>
-        public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive, out int count, out int guest, out decimal money)
+        public DataTable AuditDayFixed(DateTime fr, DateTime to, bool hideActive, out string infomation)
         {
+            var format = "Lượt xe: {0}, lượt khách: {1}, đậu đêm: {2}, doanh thu: {3}";
             var tb = base.AuditDayFixed(fr, to, hideActive);
+
             if (tb == null || tb.Rows.Count == 0)
             {
-                count = 0;
-                guest = 0;
-                money = 0;
+                infomation = String.Format(format, 0, 0, 0, 0);
                 return tb;
             }
 
@@ -86,16 +84,18 @@ namespace SKG.BLL
 
             var a = Convert.ToInt32(tb.Compute("Sum(Th_Lxe)", ""));
             var b = Convert.ToInt32(tb.Compute("Sum(Tr_Lxe)", ""));
-            count = a + b;
+            var count = a + b;
 
             var c = Convert.ToInt32(tb.Compute("Sum(Th_Hk)", ""));
             var d = Convert.ToInt32(tb.Compute("Sum(Tr_Hk)", ""));
-            guest = c + d;
+            var guest = c + d;
 
             var e = Convert.ToDecimal(tb.Compute("Sum(Th_Money)", ""));
             var f = Convert.ToDecimal(tb.Compute("Sum(Tr_Money)", ""));
-            money = e + f;
+            var money = e + f;
 
+            var p = Convert.ToDecimal(tb.Compute("Sum(Th_Parked)", ""));
+            infomation = String.Format(format, count.ToString("#,0"), guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
             return tb;
         }
 

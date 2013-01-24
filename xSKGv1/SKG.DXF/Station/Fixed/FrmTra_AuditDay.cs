@@ -192,20 +192,15 @@ namespace SKG.DXF.Station.Fixed
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
             };
-            int lxe, hk;
-            decimal money;
 
+            string inf = "";
             DateTime fr, to;
             Session.CutShiftDay(dteDay.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked, out lxe, out hk, out money);
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked, out inf);
             rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
-
-            rpt.parLxe.Value = lxe;
-            rpt.parHk.Value = hk;
-            rpt.parDt.Value = money;
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

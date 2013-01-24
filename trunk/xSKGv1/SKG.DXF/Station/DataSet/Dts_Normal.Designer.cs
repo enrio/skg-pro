@@ -555,7 +555,7 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueRow AddRevenueRow(
-                        string No_, 
+                        int No_, 
                         string UserIn, 
                         string UserOut, 
                         string Code, 
@@ -635,7 +635,7 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnNo_ = new global::System.Data.DataColumn("No_", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnNo_ = new global::System.Data.DataColumn("No_", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNo_);
                 this.columnUserIn = new global::System.Data.DataColumn("UserIn", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserIn);
@@ -806,6 +806,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnDateIn;
             
+            private global::System.Data.DataColumn columnNo_;
+            
+            private global::System.Data.DataColumn columnMore;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public IngateDataTable() {
@@ -857,6 +861,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn No_Column {
+                get {
+                    return this.columnNo_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MoreColumn {
+                get {
+                    return this.columnMore;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -892,11 +912,13 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public IngateRow AddIngateRow(string Code, System.DateTime DateIn) {
+            public IngateRow AddIngateRow(string Code, System.DateTime DateIn, int No_, string More) {
                 IngateRow rowIngateRow = ((IngateRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Code,
-                        DateIn};
+                        DateIn,
+                        No_,
+                        More};
                 rowIngateRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowIngateRow);
                 return rowIngateRow;
@@ -921,6 +943,8 @@ namespace SKG.DXF.Station.DataSet {
             internal void InitVars() {
                 this.columnCode = base.Columns["Code"];
                 this.columnDateIn = base.Columns["DateIn"];
+                this.columnNo_ = base.Columns["No_"];
+                this.columnMore = base.Columns["More"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -930,6 +954,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnCode);
                 this.columnDateIn = new global::System.Data.DataColumn("DateIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDateIn);
+                this.columnNo_ = new global::System.Data.DataColumn("No_", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNo_);
+                this.columnMore = new global::System.Data.DataColumn("More", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMore);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1072,10 +1100,10 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string No_ {
+            public int No_ {
                 get {
                     try {
-                        return ((string)(this[this.tableRevenue.No_Column]));
+                        return ((int)(this[this.tableRevenue.No_Column]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'No_\' in table \'Revenue\' is DBNull.", e);
@@ -1595,6 +1623,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int No_ {
+                get {
+                    try {
+                        return ((int)(this[this.tableIngate.No_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'No_\' in table \'Ingate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIngate.No_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string More {
+                get {
+                    try {
+                        return ((string)(this[this.tableIngate.MoreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'More\' in table \'Ingate\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableIngate.MoreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCodeNull() {
                 return this.IsNull(this.tableIngate.CodeColumn);
             }
@@ -1615,6 +1675,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDateInNull() {
                 this[this.tableIngate.DateInColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNo_Null() {
+                return this.IsNull(this.tableIngate.No_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNo_Null() {
+                this[this.tableIngate.No_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMoreNull() {
+                return this.IsNull(this.tableIngate.MoreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMoreNull() {
+                this[this.tableIngate.MoreColumn] = global::System.Convert.DBNull;
             }
         }
         

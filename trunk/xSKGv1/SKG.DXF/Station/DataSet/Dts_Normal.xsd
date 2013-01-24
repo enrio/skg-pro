@@ -15,7 +15,7 @@
         <xs:element name="Revenue" msprop:Generator_TableClassName="RevenueDataTable" msprop:Generator_TableVarName="tableRevenue" msprop:Generator_TablePropName="Revenue" msprop:Generator_RowDeletingName="RevenueRowDeleting" msprop:Generator_UserTableName="Revenue" msprop:Generator_RowChangingName="RevenueRowChanging" msprop:Generator_RowEvHandlerName="RevenueRowChangeEventHandler" msprop:Generator_RowDeletedName="RevenueRowDeleted" msprop:Generator_RowEvArgName="RevenueRowChangeEvent" msprop:Generator_RowChangedName="RevenueRowChanged" msprop:Generator_RowClassName="RevenueRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="No_" msprop:Generator_ColumnVarNameInTable="columnNo_" msprop:Generator_ColumnPropNameInRow="No_" msprop:Generator_ColumnPropNameInTable="No_Column" msprop:Generator_UserColumnName="No_" type="xs:string" minOccurs="0" />
+              <xs:element name="No_" msprop:Generator_ColumnVarNameInTable="columnNo_" msprop:Generator_ColumnPropNameInRow="No_" msprop:Generator_ColumnPropNameInTable="No_Column" msprop:Generator_UserColumnName="No_" type="xs:int" minOccurs="0" />
               <xs:element name="UserIn" msprop:Generator_ColumnVarNameInTable="columnUserIn" msprop:Generator_ColumnPropNameInRow="UserIn" msprop:Generator_ColumnPropNameInTable="UserInColumn" msprop:Generator_UserColumnName="UserIn" type="xs:string" minOccurs="0" />
               <xs:element name="UserOut" msprop:Generator_ColumnVarNameInTable="columnUserOut" msprop:Generator_ColumnPropNameInRow="UserOut" msprop:Generator_ColumnPropNameInTable="UserOutColumn" msprop:Generator_UserColumnName="UserOut" type="xs:string" minOccurs="0" />
               <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
@@ -40,6 +40,8 @@
             <xs:sequence>
               <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
               <xs:element name="DateIn" msprop:Generator_ColumnVarNameInTable="columnDateIn" msprop:Generator_ColumnPropNameInRow="DateIn" msprop:Generator_ColumnPropNameInTable="DateInColumn" msprop:Generator_UserColumnName="DateIn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="No_" msprop:Generator_ColumnVarNameInTable="columnNo_" msprop:Generator_ColumnPropNameInRow="No_" msprop:Generator_ColumnPropNameInTable="No_Column" msprop:Generator_UserColumnName="No_" type="xs:int" minOccurs="0" />
+              <xs:element name="More" msprop:Generator_ColumnVarNameInTable="columnMore" msprop:Generator_ColumnPropNameInRow="More" msprop:Generator_ColumnPropNameInTable="MoreColumn" msprop:Generator_UserColumnName="More" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -48,8 +48,6 @@
             this.xrTableRow5 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrcWatch = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.parDate = new DevExpress.XtraReports.Parameters.Parameter();
@@ -246,28 +244,10 @@
             // xrTableRow4
             // 
             this.xrTableRow4.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell8,
-            this.xrcWatch,
             this.xrTableCell9,
             this.xrTableCell5});
             this.xrTableRow4.Name = "xrTableRow4";
             this.xrTableRow4.Weight = 1D;
-            // 
-            // xrTableCell8
-            // 
-            this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.StylePriority.UseTextAlignment = false;
-            this.xrTableCell8.Text = "Ca trực:";
-            this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell8.Weight = 0.46827715727449554D;
-            // 
-            // xrcWatch
-            // 
-            this.xrcWatch.Name = "xrcWatch";
-            this.xrcWatch.StylePriority.UseTextAlignment = false;
-            this.xrcWatch.Text = "7:00-16:00";
-            this.xrcWatch.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrcWatch.Weight = 0.73141187477232639D;
             // 
             // xrTableCell9
             // 
@@ -275,17 +255,17 @@
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.Text = "Ngày trực:";
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell9.Weight = 0.6498276056143204D;
+            this.xrTableCell9.Weight = 1.030216300419875D;
             // 
             // xrTableCell5
             // 
             this.xrTableCell5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:dd/MM/yyyy}")});
+            new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:dd/MM/yyyy HH:mm:ss}")});
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "xrTableCell5";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell5.Weight = 1.150483362338858D;
+            this.xrTableCell5.Weight = 1.9697836995801252D;
             // 
             // parDate
             // 
@@ -519,7 +499,6 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow5;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow4;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
         private DevExpress.XtraReports.UI.XRTable xrTable3;
@@ -535,7 +514,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell39;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell26;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell13;
-        public DevExpress.XtraReports.UI.XRTableCell xrcWatch;
         private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
         private DevExpress.XtraReports.UI.XRTable xrTable1;

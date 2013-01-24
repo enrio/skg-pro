@@ -361,7 +361,7 @@ namespace SKG.DXF.Station.Manage
             rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
+            rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
             rpt.xrcLve1.Text = "15.000";
             rpt.xrcLve2.Text = "20.000";
@@ -397,7 +397,7 @@ namespace SKG.DXF.Station.Manage
             rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
+            rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 
             rpt.xrcLve1.Text = "5.000";
             rpt.xrcLve2.Text = "8.000";
@@ -469,16 +469,17 @@ namespace SKG.DXF.Station.Manage
 
         private void cmdPrintIngate_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_Ingate
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl", Global.Session.User.Acc, Global.Session.Current)
             };
 
-            _dtb = _bll.Tra_Detail.GetInDepot();
-            rpt.DataSource = _dtb;
+            var tb = _bll.Tra_Detail.GetInDepot();
+            tb.Numbered();
+            rpt.DataSource = tb;
+
             rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
-            rpt.xrLabel1.Text = "DANH SÁCH XE TRONG BẾN";
+            rpt.parUserOut.Value = Global.Session.User.Name;            
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

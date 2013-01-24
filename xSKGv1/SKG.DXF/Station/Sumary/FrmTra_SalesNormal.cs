@@ -281,7 +281,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
+            rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
             rpt.xrcLve1.Text = "15.000";
             rpt.xrcLve2.Text = "20.000";
@@ -315,7 +315,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-            rpt.xrLabel1.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
+            rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 
             rpt.xrcLve1.Text = "5.000";
             rpt.xrcLve2.Text = "8.000";

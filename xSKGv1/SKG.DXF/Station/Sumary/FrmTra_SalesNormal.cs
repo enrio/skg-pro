@@ -134,9 +134,6 @@ namespace SKG.DXF.Station.Sumary
             grvMain.SetStandard();
 
             AllowAdd = false;
-            AllowEdit = false;
-            AllowSave = false;
-            AllowCancel = false;
             AllowRefresh = false;
             AllowFind = false;
             AllowPrint = true;

@@ -79,7 +79,7 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_Fixed
+            var rpt = new Report.Rpt_Fixed1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd",
                 Global.Session.User.Acc, Global.Session.Current)

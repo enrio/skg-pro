@@ -5,9 +5,9 @@ namespace SKG.DXF.Station.Report
     /// <summary>
     /// Bảng kê xe cố định
     /// </summary>
-    public partial class Rpt_Fixed : DevExpress.XtraReports.UI.XtraReport
+    public partial class Rpt_Fixed2 : DevExpress.XtraReports.UI.XtraReport
     {
-        public Rpt_Fixed()
+        public Rpt_Fixed2()
         {
             InitializeComponent();
         }

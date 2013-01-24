@@ -317,6 +317,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_Fixed2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_Fixed2.Designer.cs">
+      <DependentUpon>Rpt_Fixed2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_IngateMaster.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -384,11 +390,11 @@
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
-    <Compile Include="Station\Report\Rpt_Fixed.cs">
+    <Compile Include="Station\Report\Rpt_Fixed1.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_Fixed.Designer.cs">
-      <DependentUpon>Rpt_Fixed.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_Fixed1.Designer.cs">
+      <DependentUpon>Rpt_Fixed1.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_Normal.cs">
       <SubType>Component</SubType>
@@ -495,6 +501,9 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_Fixed2.resx">
+      <DependentUpon>Rpt_Fixed2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_IngateMaster.resx">
       <DependentUpon>Rpt_IngateMaster.cs</DependentUpon>
     </EmbeddedResource>
@@ -516,8 +525,8 @@
     <EmbeddedResource Include="Station\Report\Rpt_AuditMonth.resx">
       <DependentUpon>Rpt_AuditMonth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Fixed.resx">
-      <DependentUpon>Rpt_Fixed.cs</DependentUpon>
+    <EmbeddedResource Include="Station\Report\Rpt_Fixed1.resx">
+      <DependentUpon>Rpt_Fixed1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Normal.resx">
       <DependentUpon>Rpt_Normal.cs</DependentUpon>

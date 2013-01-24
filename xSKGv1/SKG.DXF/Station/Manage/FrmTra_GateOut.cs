@@ -418,7 +418,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdSumaryFixed_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Fixed
+            var rpt = new Report.Rpt_Fixed1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd", Global.Session.User.Acc, Global.Session.Current)
             };

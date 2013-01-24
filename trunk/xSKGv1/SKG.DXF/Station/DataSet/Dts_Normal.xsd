@@ -35,6 +35,14 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Ingate" msprop:Generator_TableClassName="IngateDataTable" msprop:Generator_TableVarName="tableIngate" msprop:Generator_TablePropName="Ingate" msprop:Generator_RowDeletingName="IngateRowDeleting" msprop:Generator_UserTableName="Ingate" msprop:Generator_RowChangingName="IngateRowChanging" msprop:Generator_RowEvHandlerName="IngateRowChangeEventHandler" msprop:Generator_RowDeletedName="IngateRowDeleted" msprop:Generator_RowEvArgName="IngateRowChangeEvent" msprop:Generator_RowChangedName="IngateRowChanged" msprop:Generator_RowClassName="IngateRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="DateIn" msprop:Generator_ColumnVarNameInTable="columnDateIn" msprop:Generator_ColumnPropNameInRow="DateIn" msprop:Generator_ColumnPropNameInTable="DateInColumn" msprop:Generator_UserColumnName="DateIn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

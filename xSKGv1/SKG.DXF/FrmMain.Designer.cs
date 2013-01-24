@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmrMain = new System.Windows.Forms.Timer();
-            this.tmmMain = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager();
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.dmgMain = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmgMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -98,9 +101,13 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.tmrMain_Tick);
             // 
-            // tmmMain
+            // dmgMain
             // 
-            this.tmmMain.MdiParent = this;
+            this.dmgMain.MdiParent = this;
+            this.dmgMain.MenuManager = this.ribbon;
+            this.dmgMain.View = this.tabbedView1;
+            this.dmgMain.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
             // 
             // FrmMain
             // 
@@ -120,7 +127,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tmmMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dmgMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -129,10 +137,11 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private System.Windows.Forms.Timer tmrMain;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager tmmMain;
         private DevExpress.XtraBars.BarStaticItem bsiServer;
         private DevExpress.XtraBars.BarStaticItem bsiTimer;
         public DevExpress.XtraBars.BarStaticItem bsiUser;
         public DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
+        private DevExpress.XtraBars.Docking2010.DocumentManager dmgMain;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
     }
 }

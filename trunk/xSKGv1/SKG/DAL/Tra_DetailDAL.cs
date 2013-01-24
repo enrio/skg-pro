@@ -1136,7 +1136,7 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
-                           && s.Parked != s.Money
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            group s by s.VehicleId into g
                            select new
                            {
@@ -1209,7 +1209,7 @@ namespace SKG.DAL
                           && s.Vehicle.Fixed == true
                           && s.Repair == false
                           && s.DateOut >= frx && s.DateOut <= tox
-                          && s.Parked != s.Money
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                           group s by s.VehicleId into g
                           select new
                           {
@@ -1225,7 +1225,7 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
-                           && s.Parked != s.Money
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            group s by s.VehicleId into g
                            select new
                            {
@@ -1302,7 +1302,7 @@ namespace SKG.DAL
                            && s.Vehicle.Fixed == true
                            && s.Repair == false
                            && s.DateOut >= fr && s.DateOut <= to
-                           && s.Parked != s.Money
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            group s by s.VehicleId into g
                            select new
                            {

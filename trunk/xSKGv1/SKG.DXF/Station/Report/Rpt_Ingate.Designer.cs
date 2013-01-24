@@ -112,7 +112,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Ingate.Code")});
             this.xrTableCell27.Name = "xrTableCell27";
             this.xrTableCell27.Text = "xrTableCell27";
-            this.xrTableCell27.Weight = 0.42872615574667683D;
+            this.xrTableCell27.Weight = 0.34372238828963808D;
             // 
             // xrTableCell20
             // 
@@ -120,7 +120,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "Ingate.DateIn", "{0:dd/MM/yyyy HH:mm:ss}")});
             this.xrTableCell20.Name = "xrTableCell20";
             this.xrTableCell20.Text = "xrTableCell20";
-            this.xrTableCell20.Weight = 0.57254920873356019D;
+            this.xrTableCell20.Weight = 0.4875453951590511D;
             // 
             // xrTableCell71
             // 
@@ -132,7 +132,7 @@
             this.xrTableCell71.StylePriority.UseTextAlignment = false;
             this.xrTableCell71.Text = "xrTableCell71";
             this.xrTableCell71.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell71.Weight = 1.1405263698571269D;
+            this.xrTableCell71.Weight = 1.3105339508886746D;
             // 
             // xrTable3
             // 
@@ -170,19 +170,19 @@
             // 
             this.xrTableCell26.Name = "xrTableCell26";
             this.xrTableCell26.Text = "SỐ XE";
-            this.xrTableCell26.Weight = 0.42872620801115457D;
+            this.xrTableCell26.Weight = 0.34372247836430558D;
             // 
             // xrTableCell13
             // 
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.Text = "VÀO BẾN";
-            this.xrTableCell13.Weight = 0.57254915066940615D;
+            this.xrTableCell13.Weight = 0.487545467140032D;
             // 
             // xrTableCell19
             // 
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.Text = "GHI CHÚ";
-            this.xrTableCell19.Weight = 1.140526687603121D;
+            this.xrTableCell19.Weight = 1.3105341007793441D;
             // 
             // xrTable2
             // 

@@ -202,7 +202,7 @@
             this.cmdPrintIngate.Appearance.Options.UseFont = true;
             this.cmdPrintIngate.Location = new System.Drawing.Point(536, 442);
             this.cmdPrintIngate.Name = "cmdPrintIngate";
-            this.cmdPrintIngate.Size = new System.Drawing.Size(36, 37);
+            this.cmdPrintIngate.Size = new System.Drawing.Size(53, 37);
             this.cmdPrintIngate.TabIndex = 81;
             this.cmdPrintIngate.Text = "||";
             this.cmdPrintIngate.Click += new System.EventHandler(this.cmdPrintIngate_Click);

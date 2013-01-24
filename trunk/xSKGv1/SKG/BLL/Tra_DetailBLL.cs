@@ -34,8 +34,7 @@ namespace SKG.BLL
                 var Beds = Text.ToInt32(r["Beds"] + "");
                 var ASB = Text.ToInt32(r["ASB"] + "");
 
-                var ArrearsMoney = Text.ToDecimal(r["ArrearsMoney"] + "");
-                var Totals = ArrearsMoney + Text.ToDecimal(r["Totals"] + "");
+                var Totals = Text.ToDecimal(r["Totals"] + "");
                 sum += Totals;
 
                 var a = Count + Arrears;
@@ -45,7 +44,6 @@ namespace SKG.BLL
                 r["Seats"] = b;
                 r["Beds"] = b - a;
 
-                r["ArrearsMoney"] = ArrearsMoney;
                 r["Totals"] = Totals;
                 r["Vat"] = Totals / 11;
                 r["Sales"] = Totals * 10 / 11;

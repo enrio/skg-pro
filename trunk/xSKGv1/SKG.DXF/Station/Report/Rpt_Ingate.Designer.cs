@@ -72,7 +72,7 @@
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(511F, 23.75002F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(535.9999F, 23.75002F);
             this.xrTable1.StylePriority.UseBorders = false;
             this.xrTable1.StylePriority.UseFont = false;
             this.xrTable1.StylePriority.UseTextAlignment = false;
@@ -122,7 +122,7 @@
             this.xrTableCell71.StylePriority.UseTextAlignment = false;
             this.xrTableCell71.Text = "xrTableCell71";
             this.xrTableCell71.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
-            this.xrTableCell71.Weight = 0.53681165071477333D;
+            this.xrTableCell71.Weight = 0.612370146941529D;
             // 
             // xrTable3
             // 
@@ -134,7 +134,7 @@
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow6});
-            this.xrTable3.SizeF = new System.Drawing.SizeF(511F, 23.33337F);
+            this.xrTable3.SizeF = new System.Drawing.SizeF(536F, 23.33337F);
             this.xrTable3.StylePriority.UseBorders = false;
             this.xrTable3.StylePriority.UseFont = false;
             this.xrTable3.StylePriority.UseTextAlignment = false;
@@ -172,7 +172,7 @@
             // 
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.Text = "GHI CHÚ";
-            this.xrTableCell19.Weight = 0.53681163275582422D;
+            this.xrTableCell19.Weight = 0.61237050355302336D;
             // 
             // parDate
             // 
@@ -213,7 +213,7 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(465.1667F, 0F);
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(490.1665F, 0F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.SizeF = new System.Drawing.SizeF(45.83331F, 21.875F);
@@ -260,7 +260,7 @@
             this.DataMember = "Ingate";
             this.DataSource = this.dts_Normal;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(30, 286, 30, 30);
+            this.Margins = new System.Drawing.Printing.Margins(30, 261, 30, 30);
             this.PageHeight = 583;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A5;

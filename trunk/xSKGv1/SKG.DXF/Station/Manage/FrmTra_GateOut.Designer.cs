@@ -198,13 +198,13 @@
             // 
             // cmdPrintIngate
             // 
-            this.cmdPrintIngate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPrintIngate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdPrintIngate.Appearance.Options.UseFont = true;
             this.cmdPrintIngate.Location = new System.Drawing.Point(536, 442);
             this.cmdPrintIngate.Name = "cmdPrintIngate";
             this.cmdPrintIngate.Size = new System.Drawing.Size(53, 37);
             this.cmdPrintIngate.TabIndex = 81;
-            this.cmdPrintIngate.Text = "||";
+            this.cmdPrintIngate.Text = "I&N";
             this.cmdPrintIngate.Click += new System.EventHandler(this.cmdPrintIngate_Click);
             // 
             // lblSeri

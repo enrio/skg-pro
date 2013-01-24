@@ -48,6 +48,8 @@
             this.PageHeader = new DevExpress.XtraReports.UI.PageHeaderBand();
             this.xrSubreport1 = new DevExpress.XtraReports.UI.XRSubreport();
             this.xrSubreport2 = new DevExpress.XtraReports.UI.XRSubreport();
+            this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
+            this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_Normal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -231,6 +233,24 @@
             this.xrSubreport2.ReportSource = new SKG.DXF.Station.Report.Rpt_Ingate();
             this.xrSubreport2.SizeF = new System.Drawing.SizeF(371.0834F, 44.58337F);
             // 
+            // PageFooter
+            // 
+            this.PageFooter.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrPageInfo1});
+            this.PageFooter.HeightF = 21.875F;
+            this.PageFooter.Name = "PageFooter";
+            // 
+            // xrPageInfo1
+            // 
+            this.xrPageInfo1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(721.1665F, 0F);
+            this.xrPageInfo1.Name = "xrPageInfo1";
+            this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(45.83331F, 21.875F);
+            this.xrPageInfo1.StylePriority.UseFont = false;
+            this.xrPageInfo1.StylePriority.UseTextAlignment = false;
+            this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
             // Rpt_IngateMaster
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -239,7 +259,8 @@
             this.BottomMargin,
             this.ReportHeader,
             this.ReportFooter,
-            this.PageHeader});
+            this.PageHeader,
+            this.PageFooter});
             this.DataMember = "Ingate";
             this.DataSource = this.dts_Normal;
             this.Margins = new System.Drawing.Printing.Margins(30, 30, 30, 30);
@@ -282,5 +303,7 @@
         public DevExpress.XtraReports.UI.XRLabel xrLabel4;
         public DevExpress.XtraReports.UI.XRLabel xrLabel3;
         private DevExpress.XtraReports.UI.PageHeaderBand PageHeader;
+        private DevExpress.XtraReports.UI.PageFooterBand PageFooter;
+        private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
     }
 }

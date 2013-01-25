@@ -721,4 +721,3 @@ namespace SMSapplication
         private System.Windows.Forms.StatusBar statusBar1;
     }
 }
-

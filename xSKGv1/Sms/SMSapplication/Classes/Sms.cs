@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace SMSapplication
 {
     /// <summary>
-    /// 
+    /// Sms for xSKGv1
     /// </summary>
     public class Sms : IDisposable
     {
@@ -249,7 +249,7 @@ namespace SMSapplication
 
                 while (m.Success)
                 {
-                    var msg = new Message
+                    var msg = new ShortMessage
                     {
                         Index = m.Groups[1].Value,
                         Status = m.Groups[2].Value,

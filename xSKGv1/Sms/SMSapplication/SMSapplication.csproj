@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\clsSMS.cs" />
     <Compile Include="Classes\ShortMessage.cs" />
     <Compile Include="Classes\ShortMessageCollection.cs" />
+    <Compile Include="Classes\Sms.cs" />
     <Compile Include="SMSapplication.cs">
       <SubType>Form</SubType>
     </Compile>

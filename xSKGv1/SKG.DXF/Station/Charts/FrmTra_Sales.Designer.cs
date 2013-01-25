@@ -35,7 +35,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(292, 266);
             this.Name = "FrmDesktop";
-            this.Load += new System.EventHandler(this.FrmDesktop_Load);
+            this.Load += new System.EventHandler(this.FrmTra_Sales_Load);
             this.ResumeLayout(false);
 
         }

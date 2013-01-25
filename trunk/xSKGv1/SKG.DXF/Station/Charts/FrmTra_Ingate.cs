@@ -39,8 +39,9 @@ namespace SKG.DXF.Station.Charts
 
             // Set some properties to get a nice-looking chart.
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
-            ((XYDiagram)chart.Diagram).AxisY.Visible = false;
+            //((XYDiagram)chart.Diagram).AxisY.Visible = false;
             chart.Legend.Visible = false;
+            series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
 
             // Dock the chart into its parent and add it to the current form.
             chart.Dock = DockStyle.Fill;

@@ -159,6 +159,7 @@ namespace SKG.DXF.Home.Catalog
             txtDescript.DataBindings.Clear();
             txtMore.DataBindings.Clear();
             lueParent.DataBindings.Clear();
+            calPosition.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -170,6 +171,7 @@ namespace SKG.DXF.Home.Catalog
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
             txtMore.DataBindings.Add("EditValue", _dtb, ".More");
             lueParent.DataBindings.Add("EditValue", _dtb, ".ParentId");
+            calPosition.DataBindings.Add("EditValue", _dtb, ".Order");
 
             base.DataBindingControl();
         }
@@ -181,6 +183,7 @@ namespace SKG.DXF.Home.Catalog
             txtDescript.Properties.ReadOnly = isReadOnly;
             txtMore.Properties.ReadOnly = isReadOnly;
             lueParent.Properties.ReadOnly = isReadOnly;
+            calPosition.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -203,7 +206,8 @@ namespace SKG.DXF.Home.Catalog
                     Code = txtCode.Text,
                     Text = txtName.Text,
                     More = txtMore.Text,
-                    Note = txtDescript.Text
+                    Note = txtDescript.Text,
+                    Order = (int)calPosition.Value
                 };
 
                 var parent = lueParent.EditValue + "";

@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace SKG.DXF.Station.Charts
@@ -20,7 +16,7 @@ namespace SKG.DXF.Station.Charts
             WindowState = FormWindowState.Maximized;
         }
 
-        private void FrmDesktop_Load(object sender, EventArgs e)
+        private void FrmTra_Ingate_Load(object sender, EventArgs e)
         {
             // Create a chart.
             ChartControl chart = new ChartControl();
@@ -31,8 +27,8 @@ namespace SKG.DXF.Station.Charts
             chart.Series.Add(series);
 
             var bll = new BLL.BaseBLL();
-            var tb = bll.Tra_Detail.GetInDepot();
-            series.DataSource = tb;
+            series.DataSource = bll.Tra_Detail.GetInDepot();
+
             series.ArgumentDataMember = "Argument";
             series.ValueScaleType = ScaleType.Numerical;
             series.ValueDataMembers.AddRange(new string[] { "Value" });
@@ -40,6 +36,7 @@ namespace SKG.DXF.Station.Charts
             // Set some properties to get a nice-looking chart.
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
             //((XYDiagram)chart.Diagram).AxisY.Visible = false;
+
             chart.Legend.Visible = false;
             series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
 

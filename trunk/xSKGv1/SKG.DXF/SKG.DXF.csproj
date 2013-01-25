@@ -242,6 +242,12 @@
       <DependentUpon>FrmTra_Transport.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\InDepot\Level2.cs" />
+    <Compile Include="Station\Manage\FrmDesktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Manage\FrmDesktop.Designer.cs">
+      <DependentUpon>FrmDesktop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Manage\FrmTra_ByHandOut.cs">
       <SubType>Form</SubType>
     </Compile>

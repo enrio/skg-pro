@@ -62,15 +62,17 @@ namespace SKG.DXF.Station.Charts
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
             AllowBar = false;
+            var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
+            var sum = ((decimal)tb.Compute("Sum(Money)", "")).ToString("#,0");
 
             // Create a chart.
             var chart = new ChartControl();
-            chart.Titles.Add(new ChartTitle() { Text = Text.ToUpper() });
+            chart.Titles.Add(new ChartTitle() { Text = String.Format("{0} = {1}VNĐ", Text.ToUpper(), sum) });
 
             // Create an empty Bar series and add it to the chart.
             var series = new Series("Series1", ViewType.Bar)
             {
-                DataSource = _bll.Tra_Detail.SumaryFixedByAreaToday()
+                DataSource = tb
             };
             chart.Series.Add(series);
 

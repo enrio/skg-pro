@@ -6,28 +6,26 @@ namespace SKG.DXF.Station.Charts
 {
     using DevExpress.XtraCharts;
 
-    public partial class FrmTra_Ingate : SKG.DXF.FrmMenuz
+    public partial class FrmTra_Ingate : SKG.DXF.FrmInput
     {
         public FrmTra_Ingate()
         {
             InitializeComponent();
 
             Text = "Xe trong bến";
-            WindowState = FormWindowState.Maximized;
         }
 
         private void FrmTra_Ingate_Load(object sender, EventArgs e)
         {
+            AllowBar = false;
+
             // Create a chart.
-            ChartControl chart = new ChartControl();
+            var chart = new ChartControl();
             chart.Titles.Add(new ChartTitle() { Text = Text.ToUpper() });
 
             // Create an empty Bar series and add it to the chart.
-            Series series = new Series("Series1", ViewType.Bar);
+            var series = new Series("Series1", ViewType.Bar) { DataSource = _bll.Tra_Detail.GetInDepot() };
             chart.Series.Add(series);
-
-            var bll = new BLL.BaseBLL();
-            series.DataSource = bll.Tra_Detail.GetInDepot();
 
             series.ArgumentDataMember = "Argument";
             series.ValueScaleType = ScaleType.Numerical;
@@ -42,7 +40,7 @@ namespace SKG.DXF.Station.Charts
 
             // Dock the chart into its parent and add it to the current form.
             chart.Dock = DockStyle.Fill;
-            this.Controls.Add(chart);
+            Controls.Add(chart);
         }
     }
 }

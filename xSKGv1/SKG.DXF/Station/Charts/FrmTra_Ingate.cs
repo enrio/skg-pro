@@ -63,7 +63,8 @@ namespace SKG.DXF.Station.Charts
         {
             AllowBar = false;
             var tb = _bll.Tra_Detail.GetInDepot();
-            var sum = ((decimal)tb.Compute("Sum(Value)", "")).ToString("#,0");
+            var tmp = tb.Compute("Sum(Value)", "");
+            var sum = Convert.ToInt32(tmp).ToString("#,0");
 
             // Create a chart.
             var chart = new ChartControl();

@@ -842,6 +842,36 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Sumary vehicle fixed by region
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryFixedByRegion(out decimal sum, DateTime fr, DateTime to)
+        {
+            sum = 0;
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == true
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                          group s by s.Vehicle.Tariff.Group.Parent.Parent.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                              Region = g.Key
+                          };
+
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Revenue of vehicle fixed
         /// </summary>
         /// <param name="sum">Totals money</param>

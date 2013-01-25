@@ -397,6 +397,28 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
+        /// List of all vehicle in depot by tariff
+        /// </summary>
+        /// <returns></returns>
+        public DataTable GetInDepot()
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId == null
+                          group s by s.Vehicle.Tariff.Text into g
+                          select new
+                          {
+                              Argument = g.Key,
+                              Value = g.Count(p => p.More == null), // skip arrears                           
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
         /// List of all vehicle in depot
         /// </summary>
         /// <param name="number">Number of vehicle</param>

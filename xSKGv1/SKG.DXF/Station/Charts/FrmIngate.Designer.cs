@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Station.Manage
+﻿namespace SKG.DXF.Station.Charts
 {
-    partial class FrmDesktop
+    partial class FrmIngate
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FrmDesktop
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.ClientSize = new System.Drawing.Size(292, 266);
+            this.Name = "FrmDesktop";
+            this.Load += new System.EventHandler(this.FrmDesktop_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

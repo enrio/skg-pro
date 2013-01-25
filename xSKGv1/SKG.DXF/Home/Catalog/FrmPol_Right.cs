@@ -273,9 +273,6 @@ namespace SKG.DXF.Home.Catalog
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
-
-            AllowAdd = false;
-            AllowDelete = false;
         }
         #endregion
 

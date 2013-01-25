@@ -120,14 +120,29 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegionToday(out decimal sum)
+        public DataTable SumaryFixedByRegionToday()
         {
-            sum = 0;
             try
             {
                 var to = Global.Session.Current.Date.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return base.SumaryFixedByRegion(out sum, fr, to);
+                return base.SumaryFixedByRegion(fr, to);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary vehicle fixed by region today
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <returns></returns>
+        public DataTable SumaryFixedByAreaToday()
+        {
+            try
+            {
+                var to = Global.Session.Current.Date.AddHours(13);
+                var fr = to.AddDays(-1).AddSeconds(1);
+                return base.SumaryFixedByArea(fr, to);
             }
             catch { return null; }
         }

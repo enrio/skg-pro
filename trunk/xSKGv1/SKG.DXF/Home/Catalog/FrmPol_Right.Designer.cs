@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.lueParent = new DevExpress.XtraEditors.LookUpEdit();
             this.txtMore = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -56,6 +57,8 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.calPosition = new DevExpress.XtraEditors.CalcEdit();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -69,6 +72,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calPosition.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -97,6 +101,8 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.calPosition);
+            this.dockPanel1_Container.Controls.Add(this.labelControl4);
             this.dockPanel1_Container.Controls.Add(this.lueParent);
             this.dockPanel1_Container.Controls.Add(this.txtMore);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
@@ -111,6 +117,15 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 97);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(561, 6);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(40, 19);
+            this.labelControl4.TabIndex = 2;
+            this.labelControl4.Text = "Vị trí:";
             // 
             // lueParent
             // 
@@ -131,7 +146,7 @@
             this.lueParent.Properties.ShowHeader = false;
             this.lueParent.Properties.ValueMember = "Id";
             this.lueParent.Size = new System.Drawing.Size(254, 26);
-            this.lueParent.TabIndex = 3;
+            this.lueParent.TabIndex = 5;
             // 
             // txtMore
             // 
@@ -140,7 +155,7 @@
             this.txtMore.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMore.Properties.Appearance.Options.UseFont = true;
             this.txtMore.Size = new System.Drawing.Size(255, 26);
-            this.txtMore.TabIndex = 5;
+            this.txtMore.TabIndex = 7;
             // 
             // labelControl2
             // 
@@ -148,7 +163,7 @@
             this.labelControl2.Location = new System.Drawing.Point(8, 37);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(80, 19);
-            this.labelControl2.TabIndex = 2;
+            this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "Menuz cha:";
             // 
             // labelControl1
@@ -157,7 +172,7 @@
             this.labelControl1.Location = new System.Drawing.Point(359, 38);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(39, 19);
-            this.labelControl1.TabIndex = 4;
+            this.labelControl1.TabIndex = 6;
             this.labelControl1.Text = "Hình:";
             // 
             // txtDescript
@@ -167,7 +182,7 @@
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
             this.txtDescript.Size = new System.Drawing.Size(255, 26);
-            this.txtDescript.TabIndex = 9;
+            this.txtDescript.TabIndex = 11;
             // 
             // labelControl3
             // 
@@ -175,7 +190,7 @@
             this.labelControl3.Location = new System.Drawing.Point(359, 69);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(45, 19);
-            this.labelControl3.TabIndex = 8;
+            this.labelControl3.TabIndex = 10;
             this.labelControl3.Text = "Mô tả:";
             // 
             // txtCode
@@ -184,7 +199,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(566, 26);
+            this.txtCode.Size = new System.Drawing.Size(456, 26);
             this.txtCode.TabIndex = 1;
             // 
             // lblCode
@@ -203,7 +218,7 @@
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
             this.txtName.Size = new System.Drawing.Size(254, 26);
-            this.txtName.TabIndex = 7;
+            this.txtName.TabIndex = 9;
             // 
             // lblName
             // 
@@ -211,7 +226,7 @@
             this.lblName.Location = new System.Drawing.Point(8, 69);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(85, 19);
-            this.lblName.TabIndex = 6;
+            this.lblName.TabIndex = 8;
             this.lblName.Text = "Tên menuz:";
             // 
             // dockPanel2
@@ -375,6 +390,7 @@
             this.gridColumn7,
             this.gridColumn9,
             this.gridColumn10,
+            this.gridColumn11,
             this.gridColumn8});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -464,6 +480,29 @@
             this.gridColumn8.VisibleIndex = 5;
             this.gridColumn8.Width = 541;
             // 
+            // calPosition
+            // 
+            this.calPosition.Location = new System.Drawing.Point(607, 3);
+            this.calPosition.Name = "calPosition";
+            this.calPosition.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calPosition.Properties.Appearance.Options.UseFont = true;
+            this.calPosition.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calPosition.Properties.DisplayFormat.FormatString = "#,#";
+            this.calPosition.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPosition.Properties.EditFormat.FormatString = "#,#";
+            this.calPosition.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.calPosition.Size = new System.Drawing.Size(58, 26);
+            this.calPosition.TabIndex = 3;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Vị trí";
+            this.gridColumn11.FieldName = "Order";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 5;
+            // 
             // FrmPol_Right
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +528,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calPosition.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -522,5 +562,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.CalcEdit calPosition;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

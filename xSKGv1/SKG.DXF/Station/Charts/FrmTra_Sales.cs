@@ -62,6 +62,7 @@ namespace SKG.DXF.Station.Charts
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
             AllowBar = false;
+            decimal sum;
 
             // Create a chart.
             var chart = new ChartControl();
@@ -70,13 +71,13 @@ namespace SKG.DXF.Station.Charts
             // Create an empty Bar series and add it to the chart.
             var series = new Series("Series1", ViewType.Bar)
             {
-                DataSource = _bll.Tra_Detail.GetInDepot()
+                DataSource = _bll.Tra_Detail.SumaryFixedByRegionToday(out sum)
             };
             chart.Series.Add(series);
 
-            series.ArgumentDataMember = "Argument";
+            series.ArgumentDataMember = "Region";
             series.ValueScaleType = ScaleType.Numerical;
-            series.ValueDataMembers.AddRange(new string[] { "Value" });
+            series.ValueDataMembers.AddRange(new string[] { "Money" });
 
             // Set some properties to get a nice-looking chart.
             ((SideBySideBarSeriesView)series.View).ColorEach = true;

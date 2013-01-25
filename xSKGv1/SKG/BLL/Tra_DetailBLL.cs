@@ -114,5 +114,22 @@ namespace SKG.BLL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Sumary vehicle fixed by region today
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <returns></returns>
+        public DataTable SumaryFixedByRegionToday(out decimal sum)
+        {
+            sum = 0;
+            try
+            {
+                var to = Global.Session.Current.Date.AddHours(13);
+                var fr = to.AddDays(-1).AddSeconds(1);
+                return base.SumaryFixedByRegion(out sum, fr, to);
+            }
+            catch { return null; }
+        }
     }
 }

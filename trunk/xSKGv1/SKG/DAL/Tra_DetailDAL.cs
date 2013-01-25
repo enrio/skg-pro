@@ -406,11 +406,12 @@ namespace SKG.DAL
             {
                 var res = from s in _db.Tra_Details
                           where s.UserOutId == null
-                          group s by s.Vehicle.Tariff.Text into g
+                          group s by new { s.Code, s.Vehicle.Tariff.Text } into g
+                          orderby g.Key.Code
                           select new
                           {
-                              Argument = g.Key,
-                              Value = g.Count(p => p.More == null), // skip arrears                           
+                              Argument = g.Key.Text,
+                              Value = g.Count(p => p.More == null), // skip arrears
                           };
 
                 return res.ToDataTable();

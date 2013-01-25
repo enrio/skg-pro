@@ -233,7 +233,8 @@ namespace SKG.DXF.Home.Catalog
                     Text = txtName.Text,
                     More = txtMore.Text,
                     ParentId = (Guid)lueParent.EditValue,
-                    Note = txtDescript.Text
+                    Note = txtDescript.Text,
+                    Order = (int)calPosition.Value
                 };
 
                 var oki = _bll.Pol_Dictionary.InsertRight(o);

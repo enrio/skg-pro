@@ -243,11 +243,11 @@
       <DependentUpon>FrmTra_Transport.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\InDepot\Level2.cs" />
-    <Compile Include="Station\Manage\FrmDesktop.cs">
+    <Compile Include="Station\Charts\FrmIngate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Station\Manage\FrmDesktop.Designer.cs">
-      <DependentUpon>FrmDesktop.cs</DependentUpon>
+    <Compile Include="Station\Charts\FrmIngate.Designer.cs">
+      <DependentUpon>FrmIngate.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\FrmTra_ByHandOut.cs">
       <SubType>Form</SubType>
@@ -483,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\InDepot\FrmTra_InDepotNormal.resx">
       <DependentUpon>FrmTra_InDepotNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Charts\FrmIngate.resx">
+      <DependentUpon>FrmIngate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Manage\FrmTra_ByHandIn.resx">
       <DependentUpon>FrmTra_ByHandIn.cs</DependentUpon>

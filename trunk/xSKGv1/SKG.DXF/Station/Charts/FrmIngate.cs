@@ -6,13 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace SKG.DXF.Station.Manage
+namespace SKG.DXF.Station.Charts
 {
     using DevExpress.XtraCharts;
 
-    public partial class FrmDesktop : SKG.DXF.FrmMenuz
+    public partial class FrmIngate : SKG.DXF.FrmMenuz
     {
-        public FrmDesktop()
+        public FrmIngate()
         {
             InitializeComponent();
 

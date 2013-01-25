@@ -1,6 +1,6 @@
 ﻿namespace SKG.DXF.Station.Charts
 {
-    partial class FrmIngate
+    partial class FrmTra_Ingate
     {
         /// <summary>
         /// Required designer variable.

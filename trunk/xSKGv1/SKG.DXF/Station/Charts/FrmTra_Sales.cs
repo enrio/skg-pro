@@ -10,9 +10,9 @@ namespace SKG.DXF.Station.Charts
 {
     using DevExpress.XtraCharts;
 
-    public partial class FrmIngate : SKG.DXF.FrmMenuz
+    public partial class FrmTra_Sales : SKG.DXF.FrmMenuz
     {
-        public FrmIngate()
+        public FrmTra_Sales()
         {
             InitializeComponent();
 

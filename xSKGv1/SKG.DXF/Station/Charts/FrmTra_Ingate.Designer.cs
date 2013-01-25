@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // FrmDesktop
+            // FrmTra_Ingate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Name = "FrmDesktop";
-            this.Load += new System.EventHandler(this.FrmDesktop_Load);
+            this.Name = "FrmTra_Ingate";
+            this.Load += new System.EventHandler(this.FrmTra_Ingate_Load);
             this.ResumeLayout(false);
 
         }

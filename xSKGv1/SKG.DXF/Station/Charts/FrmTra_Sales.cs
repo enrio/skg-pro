@@ -76,7 +76,7 @@ namespace SKG.DXF.Station.Charts
             };
             chart.Series.Add(series);
 
-            series.ArgumentDataMember = "Area";
+            series.ArgumentDataMember = "Key";
             series.ValueScaleType = ScaleType.Numerical;
             series.ValueDataMembers.AddRange(new string[] { "Money" });
 

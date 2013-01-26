@@ -1,3 +1,15 @@
+#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 25/01/2012 21:07
+ * Update: 25/01/2012 21:07
+ * Status: OK
+ */
+#endregion
+
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
@@ -7,7 +19,7 @@ using System.Text.RegularExpressions;
 namespace SMSapplication
 {
     /// <summary>
-    /// Sms for xSKGv1
+    /// Sms processing for xSKGv1
     /// </summary>
     public class Sms : IDisposable
     {
@@ -179,10 +191,10 @@ namespace SMSapplication
         /// <param name="port">port</param>
         /// <param name="command">AT command</param>
         /// <returns></returns>
-        public ShortMessageCollection ReadSMS(SerialPort port, string command)
+        public MessageCollection ReadSMS(SerialPort port, string command)
         {
             // Set up the phone and read the messages
-            ShortMessageCollection messages = null;
+            MessageCollection messages = null;
             try
             {
                 #region Execute Command
@@ -208,9 +220,9 @@ namespace SMSapplication
         /// </summary>
         /// <param name="input">Data input</param>
         /// <returns></returns>
-        public ShortMessageCollection ParseMessages(string input)
+        public MessageCollection ParseMessages(string input)
         {
-            var messages = new ShortMessageCollection();
+            var messages = new MessageCollection();
             try
             {
                 var r = new Regex(@"\+CMGL: (\d+),""(.+)"",""(.+)"",(.*),""(.+)""\r\n(.+)\r\n");

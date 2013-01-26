@@ -1,8 +1,23 @@
+#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 25/01/2012 21:07
+ * Update: 25/01/2012 21:07
+ * Status: OK
+ */
+#endregion
+
 using System;
 using System.Collections.Generic;
 
 namespace SMSapplication
 {
+    /// <summary>
+    /// SMS information
+    /// </summary>
     public class ShortMessage
     {
         public string Index { get; set; }

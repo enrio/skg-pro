@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ShortMessage.cs" />
-    <Compile Include="Classes\ShortMessageCollection.cs" />
+    <Compile Include="Classes\MessageCollection.cs" />
     <Compile Include="Classes\Sms.cs" />
     <Compile Include="SMSapplication.cs">
       <SubType>Form</SubType>

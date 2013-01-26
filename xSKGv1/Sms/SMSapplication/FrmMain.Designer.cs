@@ -1,4 +1,4 @@
-namespace SKG.Sms
+namespace SKG.Server
 {
     partial class FrmMain
     {

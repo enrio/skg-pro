@@ -13,18 +13,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace SKG.Sms.Classes
+namespace SKG.SMS
 {
     /// <summary>
     /// SMS information
     /// </summary>
-    public class ShortMessage
+    public class Message
     {
         public string Index { get; set; }
         public string Status { get; set; }
         public string Sender { get; set; }
         public string Alphabet { get; set; }
         public string Sent { get; set; }
-        public string Message { get; set; }
+        public string Content { get; set; }
     }
 }

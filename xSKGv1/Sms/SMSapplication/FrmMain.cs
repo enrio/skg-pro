@@ -16,9 +16,9 @@ using System.IO.Ports;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace SKG.Sms
+namespace SKG.Server
 {
-    using Classes;
+    using SKG.SMS;
 
     /// <summary>
     /// SMS application
@@ -35,7 +35,7 @@ namespace SKG.Sms
         #region Private variables
         SerialPort port = new SerialPort();
         Sms objclsSMS = new Sms();
-        MessageCollection objShortMessageCollection = new MessageCollection();
+        Messages objShortMessageCollection = new Messages();
         #endregion
 
         private void WriteStatusBar(string status)
@@ -137,9 +137,9 @@ namespace SKG.Sms
                     else if (rbReadStoreUnSent.Checked) strCommand = "AT+CMGL=\"STO UNSENT\"";
 
                     objShortMessageCollection = objclsSMS.ReadMsg(port, strCommand);
-                    foreach (ShortMessage msg in objShortMessageCollection)
+                    foreach (Message msg in objShortMessageCollection)
                     {
-                        var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Message };
+                        var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Content };
                         var item = new ListViewItem(tmp) { Tag = msg };
                         lvwMessages.Items.Add(item);
                     }

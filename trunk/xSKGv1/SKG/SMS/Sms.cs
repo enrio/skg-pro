@@ -16,7 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Text.RegularExpressions;
 
-namespace SKG.Sms.Classes
+namespace SKG.SMS
 {
     /// <summary>
     /// Sms processing for xSKGv1
@@ -191,10 +191,10 @@ namespace SKG.Sms.Classes
         /// <param name="port">port</param>
         /// <param name="command">AT command</param>
         /// <returns></returns>
-        public MessageCollection ReadMsg(SerialPort port, string command)
+        public Messages ReadMsg(SerialPort port, string command)
         {
             // Set up the phone and read the messages
-            MessageCollection messages = null;
+            Messages messages = null;
             try
             {
                 #region Execute Command
@@ -220,9 +220,9 @@ namespace SKG.Sms.Classes
         /// </summary>
         /// <param name="input">Data input</param>
         /// <returns></returns>
-        public MessageCollection ParseMsg(string input)
+        public Messages ParseMsg(string input)
         {
-            var messages = new MessageCollection();
+            var messages = new Messages();
             try
             {
                 var r = new Regex(@"\+CMGL: (\d+),""(.+)"",""(.+)"",(.*),""(.+)""\r\n(.+)\r\n");
@@ -230,14 +230,14 @@ namespace SKG.Sms.Classes
 
                 while (m.Success)
                 {
-                    var msg = new ShortMessage
+                    var msg = new Message
                     {
                         Index = m.Groups[1].Value,
                         Status = m.Groups[2].Value,
                         Sender = m.Groups[3].Value,
                         Alphabet = m.Groups[4].Value,
                         Sent = m.Groups[5].Value,
-                        Message = m.Groups[6].Value
+                        Content = m.Groups[6].Value
                     };
 
                     messages.Add(msg);

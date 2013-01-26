@@ -126,6 +126,9 @@
     <Compile Include="Reader\SqlReader.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="Session.cs" />
+    <Compile Include="SMS\Messages.cs" />
+    <Compile Include="SMS\Message.cs" />
+    <Compile Include="SMS\Sms.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

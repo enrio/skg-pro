@@ -13,12 +13,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace SKG.Sms.Classes
+namespace SKG.SMS
 {
     /// <summary>
     /// SMS collection
     /// </summary>
-    public class MessageCollection : List<ShortMessage>
+    public class Messages : List<Message>
     {
     }
 }

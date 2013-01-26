@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SKG.Sms
+namespace SKG.Server
 {
     static class Program
     {

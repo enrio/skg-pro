@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMSapplication", "SMSapplication\SMSapplication.csproj", "{668635D8-4F39-4A78-9929-7DEBB881559C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.Sms", "SMSapplication\SKG.Sms.csproj", "{668635D8-4F39-4A78-9929-7DEBB881559C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

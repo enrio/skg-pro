@@ -16,15 +16,17 @@ using System.IO.Ports;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace SMSapplication
+namespace SKG.Sms
 {
+    using Classes;
+
     /// <summary>
     /// SMS application
     /// </summary>
-    public partial class SMSapplication : Form
+    public partial class FrmMain : Form
     {
         #region Constructor
-        public SMSapplication()
+        public FrmMain()
         {
             InitializeComponent();
         }

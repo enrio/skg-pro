@@ -1,6 +1,6 @@
-namespace SMSapplication
+namespace SKG.Sms
 {
-    partial class SMSapplication
+    partial class FrmMain
     {
         /// <summary>
         /// Required designer variable.

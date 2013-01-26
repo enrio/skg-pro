@@ -150,7 +150,7 @@ namespace SMSapplication
         /// </summary>
         /// <param name="port">Port</param>
         /// <returns></returns>
-        public int CountSMS(SerialPort port)
+        public int CountMsg(SerialPort port)
         {
             int countTotalMessages = 0;
             try
@@ -191,7 +191,7 @@ namespace SMSapplication
         /// <param name="port">port</param>
         /// <param name="command">AT command</param>
         /// <returns></returns>
-        public MessageCollection ReadSMS(SerialPort port, string command)
+        public MessageCollection ReadMsg(SerialPort port, string command)
         {
             // Set up the phone and read the messages
             MessageCollection messages = null;
@@ -207,7 +207,7 @@ namespace SMSapplication
                 string input = ExecCommand(port, command, 5000); // read the messages
                 #endregion
 
-                messages = ParseMessages(input); // parse messages
+                messages = ParseMsg(input); // parse messages
             }
             catch (Exception ex) { throw ex; }
 
@@ -220,7 +220,7 @@ namespace SMSapplication
         /// </summary>
         /// <param name="input">Data input</param>
         /// <returns></returns>
-        public MessageCollection ParseMessages(string input)
+        public MessageCollection ParseMsg(string input)
         {
             var messages = new MessageCollection();
             try
@@ -259,7 +259,7 @@ namespace SMSapplication
         /// <param name="phoneNo">Phone number</param>
         /// <param name="message">Message</param>
         /// <returns></returns>
-        public bool sendMsg(SerialPort port, string phoneNo, string message)
+        public bool SendMsg(SerialPort port, string phoneNo, string message)
         {
             bool isSend = false;
             try
@@ -286,11 +286,11 @@ namespace SMSapplication
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        static void DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
-                if (e.EventType == SerialData.Chars) readNow.Set();
+                if (e.EventType == SerialData.Chars) receiveNow.Set();
             }
             catch (Exception ex) { throw ex; }
         }

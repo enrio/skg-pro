@@ -114,7 +114,7 @@ namespace SMSapplication
         {
             try
             {
-                if (objclsSMS.sendMsg(port, txtSIM.Text, txtMessage.Text))
+                if (objclsSMS.SendMsg(port, txtSIM.Text, txtMessage.Text))
                     statusBar1.Text = "Message has sent successfully";
                 else this.statusBar1.Text = "Failed to send message";
             }
@@ -125,8 +125,7 @@ namespace SMSapplication
         {
             try
             {
-                // Count SMS 
-                int uCountSMS = objclsSMS.CountSMS(port);
+                int uCountSMS = objclsSMS.CountMsg(port);
                 if (uCountSMS > 0)
                 {
                     string strCommand = "";
@@ -135,7 +134,7 @@ namespace SMSapplication
                     else if (rbReadStoreSent.Checked) strCommand = "AT+CMGL=\"STO SENT\"";
                     else if (rbReadStoreUnSent.Checked) strCommand = "AT+CMGL=\"STO UNSENT\"";
 
-                    objShortMessageCollection = objclsSMS.ReadSMS(port, strCommand);
+                    objShortMessageCollection = objclsSMS.ReadMsg(port, strCommand);
                     foreach (ShortMessage msg in objShortMessageCollection)
                     {
                         var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Message };
@@ -157,7 +156,7 @@ namespace SMSapplication
             try
             {
                 // Count SMS 
-                int uCountSMS = objclsSMS.CountSMS(port);
+                int uCountSMS = objclsSMS.CountMsg(port);
                 if (uCountSMS > 0)
                 {
                     DialogResult dr = MessageBox.Show("Are you sure you want to delete the SMS?",
@@ -186,7 +185,7 @@ namespace SMSapplication
             try
             {
                 //Count SMS
-                int uCountSMS = objclsSMS.CountSMS(this.port);
+                int uCountSMS = objclsSMS.CountMsg(this.port);
                 this.txtCountSMS.Text = uCountSMS.ToString();
             }
             catch (Exception ex) { ErrorLog(ex.Message); }

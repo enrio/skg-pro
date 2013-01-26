@@ -48,17 +48,17 @@
     <Compile Include="Classes\ShortMessage.cs" />
     <Compile Include="Classes\MessageCollection.cs" />
     <Compile Include="Classes\Sms.cs" />
-    <Compile Include="SMSapplication.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SMSapplication.Designer.cs">
-      <DependentUpon>SMSapplication.cs</DependentUpon>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SMSapplication.resx">
+    <EmbeddedResource Include="FrmMain.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>SMSapplication.cs</DependentUpon>
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

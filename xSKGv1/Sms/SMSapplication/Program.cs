@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace SMSapplication
+namespace SKG.Sms
 {
     static class Program
     {
@@ -14,7 +14,7 @@ namespace SMSapplication
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SMSapplication());
+            Application.Run(new FrmMain());
         }
     }
 }

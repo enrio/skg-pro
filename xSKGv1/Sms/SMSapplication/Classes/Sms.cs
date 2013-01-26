@@ -16,7 +16,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Text.RegularExpressions;
 
-namespace SMSapplication
+namespace SKG.Sms.Classes
 {
     /// <summary>
     /// Sms processing for xSKGv1

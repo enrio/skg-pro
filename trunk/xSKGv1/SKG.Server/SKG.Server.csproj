@@ -83,7 +83,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SKG\SKG.csproj">
+    <ProjectReference Include="..\SKG\SKG.csproj">
       <Project>{B7F0E574-E7E4-4354-B620-FE23B07F663E}</Project>
       <Name>SKG</Name>
     </ProjectReference>

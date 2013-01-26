@@ -13,7 +13,7 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "xSKGv1", "xSKGv1\xSKGv1.vdp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.Update", "SKG.Update\SKG.Update.csproj", "{70F5D707-B5A0-42A8-A12F-314DF592A324}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.Server", "Sms\SMSapplication\SKG.Server.csproj", "{668635D8-4F39-4A78-9929-7DEBB881559C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKG.Server", "SKG.Server\SKG.Server.csproj", "{668635D8-4F39-4A78-9929-7DEBB881559C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

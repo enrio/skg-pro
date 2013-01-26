@@ -127,7 +127,7 @@ namespace SMSapplication
             try
             {
                 // Count SMS 
-                int uCountSMS = objclsSMS.CountSMSmessages(port);
+                int uCountSMS = objclsSMS.CountSMS(port);
                 if (uCountSMS > 0)
                 {
                     #region Command
@@ -164,7 +164,7 @@ namespace SMSapplication
             try
             {
                 // Count SMS 
-                int uCountSMS = objclsSMS.CountSMSmessages(port);
+                int uCountSMS = objclsSMS.CountSMS(port);
                 if (uCountSMS > 0)
                 {
                     DialogResult dr = MessageBox.Show("Are u sure u want to delete the SMS?",
@@ -204,7 +204,7 @@ namespace SMSapplication
             try
             {
                 //Count SMS
-                int uCountSMS = objclsSMS.CountSMSmessages(this.port);
+                int uCountSMS = objclsSMS.CountSMS(this.port);
                 this.txtCountSMS.Text = uCountSMS.ToString();
             }
             catch (Exception ex) { ErrorLog(ex.Message); }

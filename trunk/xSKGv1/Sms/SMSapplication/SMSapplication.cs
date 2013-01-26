@@ -1,14 +1,20 @@
+#region Information
 /*
- * Created by: Syeda Anila Nusrat. 
- * Date: 1st August 2009
- * Time: 2:54 PM 
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 25/01/2012 21:07
+ * Update: 25/01/2012 21:07
+ * Status: OK
  */
+#endregion
 
 using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using System.IO;
 using System.IO.Ports;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SMSapplication
 {
@@ -27,15 +33,12 @@ namespace SMSapplication
         #region Private variables
         SerialPort port = new SerialPort();
         Sms objclsSMS = new Sms();
-        ShortMessageCollection objShortMessageCollection = new ShortMessageCollection();
+        MessageCollection objShortMessageCollection = new MessageCollection();
         #endregion
 
         private void WriteStatusBar(string status)
         {
-            try
-            {
-                statusBar1.Text = "Message: " + status;
-            }
+            try { statusBar1.Text = "Message: " + status; }
             catch { return; }
         }
 
@@ -48,18 +51,15 @@ namespace SMSapplication
                 string[] ports = SerialPort.GetPortNames();
 
                 // Add all port names to the combo box:
-                foreach (string port in ports)
-                {
-                    this.cboPortName.Items.Add(port);
-                }
+                foreach (string port in ports) cboPortName.Items.Add(port);
                 #endregion
 
                 //Remove tab pages
-                this.tabSMSapplication.TabPages.Remove(tbSendSMS);
-                this.tabSMSapplication.TabPages.Remove(tbReadSMS);
-                this.tabSMSapplication.TabPages.Remove(tbDeleteSMS);
+                tabSMSapplication.TabPages.Remove(tbSendSMS);
+                tabSMSapplication.TabPages.Remove(tbReadSMS);
+                tabSMSapplication.TabPages.Remove(tbDeleteSMS);
 
-                this.btnDisconnect.Enabled = false;
+                btnDisconnect.Enabled = false;
             }
             catch (Exception ex) { ErrorLog(ex.Message); }
         }
@@ -69,29 +69,28 @@ namespace SMSapplication
             try
             {
                 //Open communication port 
-                this.port = objclsSMS.OpenPort(cboPortName.Text, Convert.ToInt32(cboBaudRate.Text),
+                port = objclsSMS.OpenPort(cboPortName.Text, Convert.ToInt32(cboBaudRate.Text),
                     Convert.ToInt32(cboDataBits.Text), Convert.ToInt32(txtReadTimeOut.Text),
                     Convert.ToInt32(txtWriteTimeOut.Text));
 
-                if (this.port != null)
+                if (port != null)
                 {
-                    this.gboPortSettings.Enabled = false;
-
-                    //MessageBox.Show("Modem is connected at PORT " + this.cboPortName.Text);
+                    gboPortSettings.Enabled = false;
                     this.statusBar1.Text = "Modem is connected at PORT " + cboPortName.Text;
 
                     //Add tab pages
-                    this.tabSMSapplication.TabPages.Add(tbSendSMS);
-                    this.tabSMSapplication.TabPages.Add(tbReadSMS);
-                    this.tabSMSapplication.TabPages.Add(tbDeleteSMS);
+                    tabSMSapplication.TabPages.Add(tbSendSMS);
+                    tabSMSapplication.TabPages.Add(tbReadSMS);
+                    tabSMSapplication.TabPages.Add(tbDeleteSMS);
 
-                    this.lblConnectionStatus.Text = "Connected at " + cboPortName.Text;
-                    this.btnDisconnect.Enabled = true;
+                    lblConnectionStatus.Text = "Connected at " + cboPortName.Text;
+                    btnDisconnect.Enabled = true;
                 }
                 else statusBar1.Text = "Invalid port settings";
             }
             catch (Exception ex) { ErrorLog(ex.Message); }
         }
+
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             try
@@ -115,7 +114,7 @@ namespace SMSapplication
         {
             try
             {
-                if (objclsSMS.sendMsg(this.port, this.txtSIM.Text, this.txtMessage.Text))
+                if (objclsSMS.sendMsg(port, txtSIM.Text, txtMessage.Text))
                     statusBar1.Text = "Message has sent successfully";
                 else this.statusBar1.Text = "Failed to send message";
             }
@@ -130,17 +129,12 @@ namespace SMSapplication
                 int uCountSMS = objclsSMS.CountSMS(port);
                 if (uCountSMS > 0)
                 {
-                    #region Command
-                    string strCommand = "AT+CMGL=\"ALL\"";
-
+                    string strCommand = "";
                     if (this.rbReadAll.Checked) strCommand = "AT+CMGL=\"ALL\"";
                     else if (rbReadUnRead.Checked) strCommand = "AT+CMGL=\"REC UNREAD\"";
                     else if (rbReadStoreSent.Checked) strCommand = "AT+CMGL=\"STO SENT\"";
                     else if (rbReadStoreUnSent.Checked) strCommand = "AT+CMGL=\"STO UNSENT\"";
-                    #endregion
 
-                    #region Read SMS
-                    // If SMS exist then read SMS
                     objShortMessageCollection = objclsSMS.ReadSMS(port, strCommand);
                     foreach (ShortMessage msg in objShortMessageCollection)
                     {
@@ -148,7 +142,6 @@ namespace SMSapplication
                         var item = new ListViewItem(tmp) { Tag = msg };
                         lvwMessages.Items.Add(item);
                     }
-                    #endregion
                 }
                 else
                 {
@@ -167,32 +160,21 @@ namespace SMSapplication
                 int uCountSMS = objclsSMS.CountSMS(port);
                 if (uCountSMS > 0)
                 {
-                    DialogResult dr = MessageBox.Show("Are u sure u want to delete the SMS?",
+                    DialogResult dr = MessageBox.Show("Are you sure you want to delete the SMS?",
                         "Delete confirmation", MessageBoxButtons.YesNo);
+                    if (dr == DialogResult.No) return;
 
-                    if (dr.ToString() == "Yes")
+                    if (this.rbDeleteAllSMS.Checked)
                     {
-                        #region Delete SMS
-
-                        if (this.rbDeleteAllSMS.Checked)
-                        {
-
-
-                            #region Delete all SMS
-                            if (objclsSMS.DeleteMsg(port, "AT+CMGD=1,4"))
-                                statusBar1.Text = "Messages has deleted successfuly";
-                            else statusBar1.Text = "Failed to delete messages";
-                            #endregion
-                        }
-                        else if (rbDeleteReadSMS.Checked)
-                        {
-                            #region Delete read SMS
-                            if (objclsSMS.DeleteMsg(port, "AT+CMGD=1,3"))
-                                statusBar1.Text = "Messages has deleted successfuly";
-                            else this.statusBar1.Text = "Failed to delete messages";
-                            #endregion
-                        }
-                        #endregion
+                        if (objclsSMS.DeleteMsg(port, "AT+CMGD=1,4"))
+                            statusBar1.Text = "Messages has deleted successfuly";
+                        else statusBar1.Text = "Failed to delete messages";
+                    }
+                    else if (rbDeleteReadSMS.Checked)
+                    {
+                        if (objclsSMS.DeleteMsg(port, "AT+CMGD=1,3"))
+                            statusBar1.Text = "Messages has deleted successfuly";
+                        else this.statusBar1.Text = "Failed to delete messages";
                     }
                 }
             }

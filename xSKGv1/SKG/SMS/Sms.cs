@@ -319,5 +319,44 @@ namespace SKG.SMS
             }
             catch (Exception ex) { throw ex; }
         }
+
+        /// <summary>
+        /// Auto detect COM port
+        /// </summary>
+        /// <param name="port">COM port</param>
+        /// <param name="timeout">Timeout</param>
+        /// <returns></returns>
+        public int AutoDetect(SerialPort port)
+        {
+            int countTotalMessages = 0;
+            try
+            {
+                #region Execute command
+                string recievedData = ExecCommand(port, "AT", 300);
+                recievedData = ExecCommand(port, "AT+CMGF=1", 300);
+
+                const string command = "AT+CPMS?";
+                recievedData = ExecCommand(port, command, 1000);
+                #endregion
+
+                //if ((recievedData.Length >= 45) && (recievedData.StartsWith("AT+CPMS?")))
+                if ((recievedData.Length >= 45))
+                {
+                    string[] strSplit = recievedData.Split(',');
+                    //string strMessageStorageArea1 = strSplit[0];     // SM
+                    string strMessageExist1 = strSplit[1];           // Msgs exist in SM
+                    countTotalMessages = Convert.ToInt32(strMessageExist1); // count total number of SMS in SIM
+                }
+                else if (recievedData.Contains("ERROR"))
+                {
+                    string recievedError = recievedData;
+                    recievedError = recievedError.Trim();
+                    recievedData = "Following error occured while counting the message " + recievedError;
+                }
+
+                return countTotalMessages;
+            }
+            catch { return -1; }
+        }
     }
 }

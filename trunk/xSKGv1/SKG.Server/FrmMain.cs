@@ -52,6 +52,21 @@ namespace SKG.Server
                 #region Display all available COM Ports
                 string[] ports = SerialPort.GetPortNames();
 
+                // Auto detect COM port
+                foreach (var p in ports)
+                {
+                    port = objclsSMS.OpenPort(p, Convert.ToInt32(cboBaudRate.Text),
+                    Convert.ToInt32(cboDataBits.Text), Convert.ToInt32(txtReadTimeOut.Text),
+                    Convert.ToInt32(txtWriteTimeOut.Text));
+
+                    var ok = objclsSMS.AutoDetect(port);
+                    if (ok > 0)
+                    {
+                        cboPortName.Text = port.PortName;
+                        port.Close();
+                    }
+                }
+
                 // Add all port names to the combo box:
                 foreach (string port in ports) cboPortName.Items.Add(port);
                 #endregion

@@ -49,7 +49,6 @@ namespace SKG.Server
         {
             try
             {
-                #region Display all available COM Ports
                 string[] ports = SerialPort.GetPortNames();
 
                 // Auto detect COM port
@@ -60,7 +59,7 @@ namespace SKG.Server
                     Convert.ToInt32(txtWriteTimeOut.Text));
 
                     var ok = objclsSMS.AutoDetect(port);
-                    if (ok > 0)
+                    if (ok > -1)
                     {
                         cboPortName.Text = port.PortName;
                         port.Close();
@@ -69,7 +68,6 @@ namespace SKG.Server
 
                 // Add all port names to the combo box:
                 foreach (string port in ports) cboPortName.Items.Add(port);
-                #endregion
 
                 //Remove tab pages
                 tabSMSapplication.TabPages.Remove(tbSendSMS);

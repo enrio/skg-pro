@@ -63,6 +63,8 @@ namespace SKG.DXF.Station.Charts
         {
             AllowBar = false;
             var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
+            if (tb == null || tb.Rows.Count == 0) return;
+
             var tmp = tb.Compute("Sum(Money)", "");
             var sum = Convert.ToDecimal(tmp).ToString("#,0");
 

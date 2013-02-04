@@ -102,6 +102,27 @@ namespace SKG
             fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
             to = end.AddHours(13);
         }
+
+        /// <summary>
+        /// Cut shift normal: from 05:00:01 - 14:00:00 today; 14:00:01 today - 05:00:00 tomorrow
+        /// </summary>
+        /// <param name="date">Date</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        public static void CutShiftNormal(DateTime date, out DateTime fr, out DateTime to)
+        {
+            var cur = date.Date.AddHours(14);
+            if (date > cur) // 14:00:01 today - 05:00:00 tomorrow
+            {
+                fr = cur.AddSeconds(1);
+                to = date.Date.AddDays(1).AddHours(5);
+            }
+            else // 05:00:01 - 14:00:00 today
+            {
+                fr = cur.Date.AddHours(5).AddSeconds(1);
+                to = cur;
+            }
+        }
         #endregion
 
         public List<Zaction> ZActions

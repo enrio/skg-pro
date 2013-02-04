@@ -356,9 +356,11 @@ namespace SKG.DXF.Station.Manage
             var fr = to.AddDays(-1).AddSeconds(1);
 
             Session.CutShiftNormal(Global.Session.Current, out fr, out to);
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
+            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
 
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
             rpt.DataSource = _dtb;
+
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 
@@ -394,9 +396,11 @@ namespace SKG.DXF.Station.Manage
             var fr = to.AddDays(-1).AddSeconds(1);
 
             Session.CutShiftNormal(Global.Session.Current, out fr, out to);
-            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
+            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
 
+            _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
             rpt.DataSource = _dtb;
+
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 

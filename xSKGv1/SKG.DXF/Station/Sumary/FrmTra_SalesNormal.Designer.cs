@@ -106,7 +106,7 @@
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 62);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 62);
+            this.dockPanel1.Size = new System.Drawing.Size(980, 62);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
@@ -125,14 +125,14 @@
             this.dockPanel1_Container.Controls.Add(this.cbeQuater);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 35);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(972, 35);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // cmdRestore
             // 
             this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdRestore.Appearance.Options.UseFont = true;
-            this.cmdRestore.Location = new System.Drawing.Point(833, 3);
+            this.cmdRestore.Location = new System.Drawing.Point(887, 3);
             this.cmdRestore.Name = "cmdRestore";
             this.cmdRestore.Size = new System.Drawing.Size(78, 26);
             this.cmdRestore.TabIndex = 20;
@@ -143,7 +143,7 @@
             // 
             this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(741, 3);
+            this.cmdSumary2.Location = new System.Drawing.Point(795, 3);
             this.cmdSumary2.Name = "cmdSumary2";
             this.cmdSumary2.Size = new System.Drawing.Size(86, 26);
             this.cmdSumary2.TabIndex = 19;
@@ -154,7 +154,7 @@
             // 
             this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(649, 3);
+            this.cmdSumary1.Location = new System.Drawing.Point(703, 3);
             this.cmdSumary1.Name = "cmdSumary1";
             this.cmdSumary1.Size = new System.Drawing.Size(86, 26);
             this.cmdSumary1.TabIndex = 18;
@@ -165,7 +165,7 @@
             // 
             this.cmdView.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdView.Appearance.Options.UseFont = true;
-            this.cmdView.Location = new System.Drawing.Point(574, 3);
+            this.cmdView.Location = new System.Drawing.Point(628, 3);
             this.cmdView.Name = "cmdView";
             this.cmdView.Size = new System.Drawing.Size(69, 26);
             this.cmdView.TabIndex = 8;
@@ -175,24 +175,24 @@
             // dteTo
             // 
             this.dteTo.EditValue = null;
-            this.dteTo.Location = new System.Drawing.Point(475, 4);
+            this.dteTo.Location = new System.Drawing.Point(502, 3);
             this.dteTo.Name = "dteTo";
             this.dteTo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteTo.Properties.Appearance.Options.UseFont = true;
-            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteTo.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH";
             this.dteTo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteTo.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteTo.Properties.EditFormat.FormatString = "dd/MM/yyyy HH";
             this.dteTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteTo.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteTo.Properties.Mask.EditMask = "dd/MM/yyyy HH";
             this.dteTo.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteTo.Size = new System.Drawing.Size(93, 26);
+            this.dteTo.Size = new System.Drawing.Size(120, 26);
             this.dteTo.TabIndex = 6;
             // 
             // lblTo
             // 
             this.lblTo.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTo.Location = new System.Drawing.Point(396, 7);
+            this.lblTo.Location = new System.Drawing.Point(423, 6);
             this.lblTo.Name = "lblTo";
             this.lblTo.Size = new System.Drawing.Size(73, 19);
             this.lblTo.TabIndex = 7;
@@ -205,14 +205,14 @@
             this.dteFrom.Name = "dteFrom";
             this.dteFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteFrom.Properties.Appearance.Options.UseFont = true;
-            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteFrom.Properties.DisplayFormat.FormatString = "dd/MM/yyyy HH";
             this.dteFrom.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteFrom.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteFrom.Properties.EditFormat.FormatString = "dd/MM/yyyy HH";
             this.dteFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dteFrom.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.dteFrom.Properties.Mask.EditMask = "dd/MM/yyyy HH";
             this.dteFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteFrom.Size = new System.Drawing.Size(93, 26);
+            this.dteFrom.Size = new System.Drawing.Size(120, 26);
             this.dteFrom.TabIndex = 4;
             // 
             // lblFrom
@@ -292,7 +292,7 @@
             this.dockPanel2.Location = new System.Drawing.Point(0, 125);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 441);
+            this.dockPanel2.Size = new System.Drawing.Size(980, 441);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -300,7 +300,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 414);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(972, 414);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -309,7 +309,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 414);
+            this.grcMain.Size = new System.Drawing.Size(972, 414);
             this.grcMain.TabIndex = 4;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -675,7 +675,7 @@
             // FrmTra_SalesNormal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(951, 566);
+            this.ClientSize = new System.Drawing.Size(980, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
             this.Name = "FrmTra_SalesNormal";

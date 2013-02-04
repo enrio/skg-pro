@@ -116,11 +116,12 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void LoadData()
         {
-            var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
-            var to = dteTo.DateTime.Date.AddHours(14);
-            _dtb = _bll.Tra_Detail.SumaryNormal(out _sum, fr, to);
+            var fr = dteFrom.DateTime;
+            var to = dteTo.DateTime;
 
+            _dtb = _bll.Tra_Detail.SumaryNormal(out _sum, fr, to);
             grcMain.DataSource = _dtb;
+
             grvMain.BestFitColumns();
 
             base.LoadData();

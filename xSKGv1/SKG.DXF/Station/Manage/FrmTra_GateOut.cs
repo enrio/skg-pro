@@ -354,6 +354,8 @@ namespace SKG.DXF.Station.Manage
 
             var to = Global.Session.Current.Date.AddHours(14);
             var fr = to.AddDays(-1).AddSeconds(1);
+
+            Session.CutShiftNormal(Global.Session.Current, out fr, out to);
             _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
 
             rpt.DataSource = _dtb;
@@ -390,6 +392,8 @@ namespace SKG.DXF.Station.Manage
 
             var to = Global.Session.Current.Date.AddHours(14);
             var fr = to.AddDays(-1).AddSeconds(1);
+
+            Session.CutShiftNormal(Global.Session.Current, out fr, out to);
             _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
 
             rpt.DataSource = _dtb;

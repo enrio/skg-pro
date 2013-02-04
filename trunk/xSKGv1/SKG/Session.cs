@@ -111,13 +111,21 @@ namespace SKG
         /// <param name="to">To date time</param>
         public static void CutShiftNormal(DateTime date, out DateTime fr, out DateTime to)
         {
-            fr = date.Date.AddHours(5).AddSeconds(1); // 05:00:01 today
-            to = date.Date.AddHours(14); // 14:00:00 today
+            var tmp = date.Date;
+            fr = tmp.AddHours(5).AddSeconds(1); // 05:00:01 today
+            to = tmp.AddHours(14); // 14:00:00 today
+
+            if (date < fr)
+            {
+
+                fr = tmp.AddDays(-1).AddHours(5).AddSeconds(1); // 05:00:01 before
+                to = tmp.AddDays(-1).AddHours(14); // 14:00:00 before
+            }
 
             if (fr <= date && date <= to)
             {
                 fr = to.AddDays(-1).AddSeconds(1); // 14:00:01 before
-                to = date.Date.AddHours(5); // 05:00:00 today
+                to = tmp.AddHours(5); // 05:00:00 today
             }
         }
         #endregion

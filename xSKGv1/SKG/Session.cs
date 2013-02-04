@@ -104,7 +104,7 @@ namespace SKG
         }
 
         /// <summary>
-        /// Cut shift normal: from 05:00:01 - 14:00:00 today; 14:00:01 today - 05:00:00 tomorrow
+        /// Cut shift normal: from 14:00:01 before - 05:00:00 today; 05:00:01 - 14:00:00 today
         /// </summary>
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
@@ -114,10 +114,10 @@ namespace SKG
             fr = date.Date.AddHours(5).AddSeconds(1); // 05:00:01 today
             to = date.Date.AddHours(14); // 14:00:00 today
 
-            if (date < fr || date > to)
+            if (fr <= date && date <= to)
             {
-                fr = to.AddSeconds(1); // 14:00:01 today
-                to = date.Date.AddDays(1).AddHours(5); // 05:00:00 tomorrow
+                fr = to.AddDays(-1).AddSeconds(1); // 14:00:01 before
+                to = date.Date.AddHours(5); // 05:00:00 today
             }
         }
         #endregion

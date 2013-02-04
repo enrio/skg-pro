@@ -276,8 +276,10 @@ namespace SKG.DXF.Station.Sumary
             };
             decimal sum = 0;
 
-            var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
-            var to = dteTo.DateTime.Date.AddHours(14);
+            var fr = dteFrom.DateTime;
+            var to = dteTo.DateTime;
+
+            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
 
             rpt.parDate.Value = Global.Session.Current;
@@ -310,8 +312,10 @@ namespace SKG.DXF.Station.Sumary
             };
             decimal sum = 0;
 
-            var fr = dteFrom.DateTime.Date.AddHours(14).AddSeconds(1);
-            var to = dteTo.DateTime.Date.AddHours(14);
+            var fr = dteFrom.DateTime;
+            var to = dteTo.DateTime;
+
+            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
 
             rpt.parDate.Value = Global.Session.Current;

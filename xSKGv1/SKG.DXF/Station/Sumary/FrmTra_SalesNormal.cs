@@ -199,8 +199,10 @@ namespace SKG.DXF.Station.Sumary
             var d = Global.Session.Current;
             cbeMonth.SelectedIndex = (int)d.ToMonth() - 1;
 
-            dteFrom.DateTime = d.AddDays(-1);
-            dteTo.DateTime = d;
+            DateTime fr, to;
+            Session.CutShiftNormal(Global.Session.Current, out fr, out to);
+            dteFrom.DateTime = fr;
+            dteTo.DateTime = to;
 
             var ql = Global.Session.User.CheckAdmin();
             if (!ql) cmdRestore.Visible = false;

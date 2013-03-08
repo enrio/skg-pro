@@ -31,11 +31,6 @@ namespace SKG.DAL.Entities
         /// List of user belong group
         /// </summary>
         public virtual ICollection<Pol_UserRole> UserRoles { get; set; }
-
-        /// <summary>
-        /// List of user's language choice
-        /// </summary>
-        public virtual ICollection<Pol_Selection> Selections { get; set; }
         #endregion
 
         /// <summary>

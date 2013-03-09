@@ -62,39 +62,5 @@ namespace SKG.DAL.Entities
         /// </summary>
         public string More1 { set; get; }
         #endregion
-
-        #region Language 2
-        /// <summary>
-        /// Content is shown of language 2
-        /// </summary>
-        public string Text2 { set; get; }
-
-        /// <summary>
-        /// Descriptive detailing of language 2
-        /// </summary>
-        public string Note2 { set; get; }
-
-        /// <summary>
-        /// More information of language 2
-        /// </summary>
-        public string More2 { set; get; }
-        #endregion
-
-        #region Language 3
-        /// <summary>
-        /// Content is shown of language 3
-        /// </summary>
-        public string Text3 { set; get; }
-
-        /// <summary>
-        /// Descriptive detailing of language 3
-        /// </summary>
-        public string Note3 { set; get; }
-
-        /// <summary>
-        /// More information of language 3
-        /// </summary>
-        public string More3 { set; get; }
-        #endregion
     }
 }

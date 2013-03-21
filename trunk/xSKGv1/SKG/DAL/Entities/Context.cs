@@ -50,6 +50,16 @@ namespace SKG.DAL.Entities
         public DbSet<Pol_UserRole> Pol_UserRoles { get; set; }
 
         /// <summary>
+        /// Policy - Chat on system
+        /// </summary>
+        public DbSet<Pol_Chat> Pol_Chats { get; set; }
+
+        /// <summary>
+        /// Policy - User's language choice
+        /// </summary>
+        public DbSet<Pol_Selection> Pol_UserLangs { get; set; }
+
+        /// <summary>
         /// Using string connection from App.Config file
         /// </summary>
         public Context() : base("xSKGv1") { }
@@ -62,20 +72,20 @@ namespace SKG.DAL.Entities
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             base.OnModelCreating(modelBuilder);
-        }
+        }        
 
         /// <summary>
-        /// Transport - Tariffs  of vehicles
+        /// 
         /// </summary>
-        public DbSet<Tra_Tariff> Tra_Tariffs { get; set; }
+        public DbSet<Tra_Tariff> Tra_Tariffs { get; set; }        
 
         /// <summary>
-        /// Transport -  Vehicles information
+        /// 
         /// </summary>
         public DbSet<Tra_Vehicle> Tra_Vehicles { get; set; }
 
         /// <summary>
-        /// Transport - Details out in of vehicles
+        /// 
         /// </summary>
         public DbSet<Tra_Detail> Tra_Details { get; set; }
     }

@@ -1,5 +1,5 @@
 Restore Database xSKGv1
-From Disk = 'C:\BXE-23.01.13.23.42.09.bak'
+From Disk = 'C:\BXE-02.04.13.23.42.58.bak'
 
 Set Dateformat Dmy
 Declare @fr Datetime

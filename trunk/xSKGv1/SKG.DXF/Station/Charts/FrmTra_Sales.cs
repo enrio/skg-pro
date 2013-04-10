@@ -94,7 +94,7 @@ namespace SKG.DXF.Station.Charts
             chart.Titles.Add(new ChartTitle()
             {
                 Text = String.Format("{0} ngày {1} = {2}đ",
-                Text.ToUpper(), Global.ToDateVN, sum)
+                Text.ToUpper(), dteDay.DateTime.ToString("dd/MM/yyyy"), sum)
             });
 
             // Create an empty Bar series and add it to the chart
@@ -178,8 +178,12 @@ namespace SKG.DXF.Station.Charts
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
             AllowBar = false;
+            dteDay.DateTime = Global.Session.Current;
+        }
 
-            var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
+        private void dteDay_EditValueChanged(object sender, EventArgs e)
+        {
+            var tb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
 
             BarChart(tb);
             PieChart(tb);

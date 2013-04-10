@@ -33,15 +33,15 @@
             this.dckSalesDay = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
+            this.cbbType = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.dteDay = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.sccContent = new DevExpress.XtraEditors.SplitContainerControl();
             this.dckSalesMonth = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dteDay = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.cbbType = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
@@ -49,13 +49,13 @@
             this.controlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
             this.sccMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).BeginInit();
             this.sccContent.SuspendLayout();
             this.dckSalesMonth.SuspendLayout();
             this.dckSalesQuatar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -125,6 +125,44 @@
             this.sccMain.TabIndex = 6;
             this.sccMain.Text = "splitContainerControl1";
             // 
+            // cbbType
+            // 
+            this.cbbType.Location = new System.Drawing.Point(211, 3);
+            this.cbbType.Name = "cbbType";
+            this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbType.Size = new System.Drawing.Size(134, 20);
+            this.cbbType.TabIndex = 3;
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(169, 6);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(36, 13);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Tiêu chí";
+            // 
+            // dteDay
+            // 
+            this.dteDay.EditValue = null;
+            this.dteDay.Location = new System.Drawing.Point(61, 3);
+            this.dteDay.Name = "dteDay";
+            this.dteDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dteDay.Size = new System.Drawing.Size(102, 20);
+            this.dteDay.TabIndex = 1;
+            this.dteDay.EditValueChanged += new System.EventHandler(this.dteDay_EditValueChanged);
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(3, 6);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(52, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Chọn ngày";
+            // 
             // sccContent
             // 
             this.sccContent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -175,43 +213,6 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
             this.dockPanel2_Container.TabIndex = 0;
             // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(3, 6);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Chọn ngày";
-            // 
-            // dteDay
-            // 
-            this.dteDay.EditValue = null;
-            this.dteDay.Location = new System.Drawing.Point(61, 3);
-            this.dteDay.Name = "dteDay";
-            this.dteDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteDay.Size = new System.Drawing.Size(102, 20);
-            this.dteDay.TabIndex = 1;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(169, 6);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(36, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Tiêu chí";
-            // 
-            // cbbType
-            // 
-            this.cbbType.Location = new System.Drawing.Point(211, 3);
-            this.cbbType.Name = "cbbType";
-            this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbbType.Size = new System.Drawing.Size(134, 20);
-            this.cbbType.TabIndex = 3;
-            // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,13 +228,13 @@
             this.controlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
             this.sccMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).EndInit();
             this.sccContent.ResumeLayout(false);
             this.dckSalesMonth.ResumeLayout(false);
             this.dckSalesQuatar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

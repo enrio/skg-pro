@@ -116,15 +116,15 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Sumary vehicle fixed by region today
+        /// Sumary vehicle fixed by region
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegionToday()
+        public DataTable SumaryFixedByRegion(DateTime dt)
         {
             try
             {
-                var to = Global.Session.Current.Date.AddHours(13);
+                var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
                 return base.SumaryFixedByRegion(fr, to);
             }
@@ -136,15 +136,35 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByAreaToday()
+        public DataTable SumaryFixedByRegionToday()
+        {
+            return SumaryFixedByRegion(Global.Session.Current);
+        }
+
+        /// <summary>
+        /// Sumary vehicle fixed by area
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <returns></returns>
+        public DataTable SumaryFixedByArea(DateTime dt)
         {
             try
             {
-                var to = Global.Session.Current.Date.AddHours(13);
+                var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
                 return base.SumaryFixedByArea(fr, to);
             }
             catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary vehicle fixed by area today
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <returns></returns>
+        public DataTable SumaryFixedByAreaToday()
+        {
+            return SumaryFixedByArea(Global.Session.Current);
         }
     }
 }

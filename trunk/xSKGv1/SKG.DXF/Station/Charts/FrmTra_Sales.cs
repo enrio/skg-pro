@@ -179,14 +179,14 @@ namespace SKG.DXF.Station.Charts
         {
             AllowBar = false;
             dteDay.DateTime = Global.Session.Current;
+
+            BarChart(_dtb);
+            PieChart(_dtb);
         }
 
         private void dteDay_EditValueChanged(object sender, EventArgs e)
         {
-            var tb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
-
-            BarChart(tb);
-            PieChart(tb);
+            _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
         }
         #endregion
 

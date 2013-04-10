@@ -119,7 +119,7 @@ namespace SKG.DXF.Station.Charts
 
             // Dock the chart into its parent and add it to the current form
             chart.Dock = DockStyle.Fill;
-            sccMain.Panel1.Controls.Add(chart);
+            sccContent.Panel1.Controls.Add(chart);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace SKG.DXF.Station.Charts
 
             // Dock the chart into its parent and add it to the current form
             chart.Dock = DockStyle.Fill;
-            sccMain.Panel2.Controls.Add(chart);
+            sccContent.Panel2.Controls.Add(chart);
         }
         #endregion
 
@@ -181,6 +181,7 @@ namespace SKG.DXF.Station.Charts
 
             var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
             sccMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
+            sccContent.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
 
             BarChart(tb);
             PieChart(tb);

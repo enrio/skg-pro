@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesDay = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
             this.dckSalesMonth = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.sccContent = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
-            this.dckSalesQuatar.SuspendLayout();
             this.dckSalesDay.SuspendLayout();
             this.controlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
             this.sccMain.SuspendLayout();
             this.dckSalesMonth.SuspendLayout();
+            this.dckSalesQuatar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sccContent)).BeginInit();
+            this.sccContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -77,24 +79,6 @@
             this.panelContainer1.Tabbed = true;
             this.panelContainer1.Text = "panelContainer1";
             // 
-            // dckSalesQuatar
-            // 
-            this.dckSalesQuatar.Controls.Add(this.dockPanel2_Container);
-            this.dckSalesQuatar.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dckSalesQuatar.ID = new System.Guid("efddf0bf-8e67-492a-8bff-e08498797255");
-            this.dckSalesQuatar.Location = new System.Drawing.Point(4, 23);
-            this.dckSalesQuatar.Name = "dckSalesQuatar";
-            this.dckSalesQuatar.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dckSalesQuatar.Size = new System.Drawing.Size(585, 282);
-            this.dckSalesQuatar.Text = "Doanh thu theo quí";
-            // 
-            // dockPanel2_Container
-            // 
-            this.dockPanel2_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
-            this.dockPanel2_Container.TabIndex = 0;
-            // 
             // dckSalesDay
             // 
             this.dckSalesDay.Controls.Add(this.controlContainer1);
@@ -117,12 +101,14 @@
             // sccMain
             // 
             this.sccMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sccMain.Horizontal = false;
             this.sccMain.Location = new System.Drawing.Point(0, 0);
             this.sccMain.Name = "sccMain";
             this.sccMain.Panel1.Text = "Panel1";
+            this.sccMain.Panel2.Controls.Add(this.sccContent);
             this.sccMain.Panel2.Text = "Panel2";
             this.sccMain.Size = new System.Drawing.Size(585, 282);
-            this.sccMain.SplitterPosition = 296;
+            this.sccMain.SplitterPosition = 32;
             this.sccMain.TabIndex = 6;
             this.sccMain.Text = "splitContainerControl1";
             // 
@@ -145,6 +131,36 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(585, 282);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // dckSalesQuatar
+            // 
+            this.dckSalesQuatar.Controls.Add(this.dockPanel2_Container);
+            this.dckSalesQuatar.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.dckSalesQuatar.ID = new System.Guid("efddf0bf-8e67-492a-8bff-e08498797255");
+            this.dckSalesQuatar.Location = new System.Drawing.Point(4, 23);
+            this.dckSalesQuatar.Name = "dckSalesQuatar";
+            this.dckSalesQuatar.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dckSalesQuatar.Size = new System.Drawing.Size(585, 282);
+            this.dckSalesQuatar.Text = "Doanh thu theo quí";
+            // 
+            // dockPanel2_Container
+            // 
+            this.dockPanel2_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel2_Container.Name = "dockPanel2_Container";
+            this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
+            this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // sccContent
+            // 
+            this.sccContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sccContent.Location = new System.Drawing.Point(0, 0);
+            this.sccContent.Name = "sccContent";
+            this.sccContent.Panel1.Text = "Panel1";
+            this.sccContent.Panel2.Text = "Panel2";
+            this.sccContent.Size = new System.Drawing.Size(585, 245);
+            this.sccContent.SplitterPosition = 290;
+            this.sccContent.TabIndex = 0;
+            this.sccContent.Text = "splitContainerControl1";
+            // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,12 +172,14 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.panelContainer1.ResumeLayout(false);
-            this.dckSalesQuatar.ResumeLayout(false);
             this.dckSalesDay.ResumeLayout(false);
             this.controlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
             this.sccMain.ResumeLayout(false);
             this.dckSalesMonth.ResumeLayout(false);
+            this.dckSalesQuatar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sccContent)).EndInit();
+            this.sccContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -177,7 +195,6 @@
         private DevExpress.XtraEditors.SplitContainerControl sccMain;
         private DevExpress.XtraBars.Docking.DockPanel dckSalesQuatar;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel2_Container;
-
-
+        private DevExpress.XtraEditors.SplitContainerControl sccContent;
     }
 }

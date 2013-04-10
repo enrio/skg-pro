@@ -182,8 +182,8 @@ namespace SKG.DXF.Station.Charts
         private void dteDay_EditValueChanged(object sender, EventArgs e)
         {
             _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
-            _barChart.DataSource = _dtb;
-            _pieChart.DataSource = _dtb;
+            if (_barChart.Series.Count > 0) _barChart.DataSource = _dtb;
+            if (_pieChart.Series.Count > 0) _pieChart.DataSource = _dtb;
         }
         #endregion
 

@@ -104,6 +104,7 @@ namespace SKG.DXF.Station.Charts
             var series = new Series("Series1", ViewType.Bar) { DataSource = tb };
             chart.Series.Add(series);
 
+            // Adjust the point options of the series
             series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
             series.Label.PointOptions.ValueNumericOptions.Precision = 0;
@@ -128,21 +129,13 @@ namespace SKG.DXF.Station.Charts
             // Create an empty chart
             var pieChart = new ChartControl();
 
-            // Create a pie series
-            var series1 = new Series("A Pie Series", ViewType.Pie);
-
-            // Populate the series with points
-            series1.Points.Add(new SeriesPoint("Russia", 17.0752));
-            series1.Points.Add(new SeriesPoint("Canada", 9.98467));
-            series1.Points.Add(new SeriesPoint("USA", 9.63142));
-            series1.Points.Add(new SeriesPoint("China", 9.59696));
-            series1.Points.Add(new SeriesPoint("Brazil", 8.511965));
-            series1.Points.Add(new SeriesPoint("Australia", 7.68685));
-            series1.Points.Add(new SeriesPoint("India", 3.28759));
-            series1.Points.Add(new SeriesPoint("Others", 81.2));
-
-            // Add the series to the chart
+            // Create an empty Pie series and add it to the chart
+            var series1 = new Series("A Pie Series", ViewType.Pie) { DataSource = tb };
             pieChart.Series.Add(series1);
+
+            series1.ArgumentDataMember = "Key";
+            series1.ValueScaleType = ScaleType.Numerical;
+            series1.ValueDataMembers.AddRange(new string[] { "Money" });
 
             // Adjust the point options of the series
             series1.Label.PointOptions.PointView = PointView.ArgumentAndValues;

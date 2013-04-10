@@ -879,30 +879,45 @@ namespace SKG.DAL
         {
             try
             {
-                var res1 = from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == true
-                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                           group s by s.Vehicle.Tariff.Group.Parent.Text into g
-                           select new
-                           {
-                               Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                               g.Key
-                           };
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == true
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                          group s by s.Vehicle.Tariff.Group.Parent.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                              g.Key
+                          };
 
-                var res2 = from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == false
-                           group s by s.Vehicle.Tariff.Group.Text into g
-                           select new
-                           {
-                               Money = g.Sum(s => s.Money),
-                               g.Key
-                           };
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
 
-                var res = res1.Union(res2);
+        /// <summary>
+        /// Sumary vehicle fixed by province
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryFixedByProvince(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == true
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                          group s by s.Vehicle.Tariff.Group.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                              g.Key
+                          };
+
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -1665,6 +1680,58 @@ namespace SKG.DAL
                           };
 
                 sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary vehicle normal by tariff
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryNormalByTariff(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == false
+                          group s by s.Vehicle.Tariff.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money),
+                              g.Key
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary vehicle normal by group
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryNormalByGroup(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == false
+                          group s by s.Vehicle.Tariff.Group.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money),
+                              g.Key
+                          };
+
                 return res.ToDataTable();
             }
             catch { return null; }

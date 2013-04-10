@@ -119,7 +119,7 @@ namespace SKG.DXF.Station.Charts
 
             // Dock the chart into its parent and add it to the current form
             chart.Dock = DockStyle.Fill;
-            splitContainer1.Panel1.Controls.Add(chart);
+            sccMain.Panel1.Controls.Add(chart);
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace SKG.DXF.Station.Charts
 
             // Add the chart to the form.
             pieChart.Dock = DockStyle.Fill;
-            splitContainer1.Panel2.Controls.Add(pieChart);
+            sccMain.Panel2.Controls.Add(pieChart);
         }
         #endregion
 

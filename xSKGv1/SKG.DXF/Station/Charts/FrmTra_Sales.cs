@@ -180,6 +180,7 @@ namespace SKG.DXF.Station.Charts
             AllowBar = false;
 
             var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
+            sccMain.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.None;
 
             BarChart(tb);
             PieChart(tb);

@@ -89,9 +89,7 @@ namespace SKG.DXF.Station.Charts
             var tmp = tb.Compute("Sum(Money)", "");
             var sum = Convert.ToDecimal(tmp).ToString("#,0");
 
-            // Create an empty chart
-            var chart = new ChartControl();
-            chart.Titles.Add(new ChartTitle()
+            _barChart.Titles.Add(new ChartTitle()
             {
                 Text = String.Format("{0} ngày {1} = {2}đ",
                 Text.ToUpper(), dteDay.DateTime.ToString("dd/MM/yyyy"), sum)
@@ -99,7 +97,7 @@ namespace SKG.DXF.Station.Charts
 
             // Create an empty Bar series and add it to the chart
             var series = new Series("Series1", ViewType.Bar) { DataSource = tb };
-            chart.Series.Add(series);
+            _barChart.Series.Add(series);
 
             // Adjust the point options of the series
             series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
@@ -112,14 +110,14 @@ namespace SKG.DXF.Station.Charts
 
             // Set some properties to get a nice-looking chart and set axis title
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
-            SetAxisTitle((XYDiagram)chart.Diagram, "Vùng/Nhóm xe", "Số tiền");
+            SetAxisTitle((XYDiagram)_barChart.Diagram, "Vùng/Nhóm xe", "Số tiền");
 
-            chart.Legend.Visible = false;
+            _barChart.Legend.Visible = false;
             series.LabelsVisibility = DefaultBoolean.True;
 
             // Dock the chart into its parent and add it to the current form
-            chart.Dock = DockStyle.Fill;
-            sccContent.Panel1.Controls.Add(chart);
+            _barChart.Dock = DockStyle.Fill;
+            sccContent.Panel1.Controls.Add(_barChart);
         }
 
         /// <summary>
@@ -129,12 +127,9 @@ namespace SKG.DXF.Station.Charts
         {
             if (tb == null || tb.Rows.Count == 0) return;
 
-            // Create an empty chart
-            var chart = new ChartControl();
-
             // Create an empty Pie series and add it to the chart
             var series = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie) { DataSource = tb };
-            chart.Series.Add(series);
+            _pieChart.Series.Add(series);
 
             series.ArgumentDataMember = "Key";
             series.ValueScaleType = ScaleType.Numerical;
@@ -166,11 +161,11 @@ namespace SKG.DXF.Station.Charts
             myView.HeightToWidthRatio = 99;
 
             // Hide the legend (if necessary)
-            chart.Legend.Visible = false;
+            _pieChart.Legend.Visible = false;
 
             // Dock the chart into its parent and add it to the current form
-            chart.Dock = DockStyle.Fill;
-            sccContent.Panel2.Controls.Add(chart);
+            _pieChart.Dock = DockStyle.Fill;
+            sccContent.Panel2.Controls.Add(_pieChart);
         }
         #endregion
 
@@ -187,6 +182,8 @@ namespace SKG.DXF.Station.Charts
         private void dteDay_EditValueChanged(object sender, EventArgs e)
         {
             _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
+            _barChart.DataSource = _dtb;
+            _pieChart.DataSource = _dtb;
         }
         #endregion
 
@@ -194,6 +191,8 @@ namespace SKG.DXF.Station.Charts
         #endregion
 
         #region Fields
+        ChartControl _barChart = new ChartControl();
+        ChartControl _pieChart = new ChartControl();
         #endregion
 
         #region Constants

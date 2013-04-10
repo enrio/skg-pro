@@ -75,6 +75,8 @@ namespace SKG.DXF.Station.Charts
             diagram.AxisY.Title.Text = axisY;
             diagram.AxisY.Title.TextColor = Color.Blue;
             diagram.AxisY.Title.Antialiasing = true;
+            diagram.AxisY.NumericOptions.Format = NumericFormat.Number;
+            diagram.AxisY.NumericOptions.Precision = 0;
         }
         #endregion
 

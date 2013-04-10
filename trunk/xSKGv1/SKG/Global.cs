@@ -150,6 +150,15 @@ namespace SKG
                 return db.Database.Connection;
             }
         }
+
+        /// <summary>
+        /// Return current Vietnamese's date format
+        /// </summary>
+        /// <returns></returns>
+        public static string ToDateVN
+        {
+            get { return Session.Current.ToString("dd/MM/yyyy"); }
+        }
         #endregion
     }
 }

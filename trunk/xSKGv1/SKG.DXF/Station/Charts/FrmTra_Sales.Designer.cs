@@ -42,6 +42,7 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.ckbAutoUpdate = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
@@ -113,6 +114,7 @@
             this.sccMain.Horizontal = false;
             this.sccMain.Location = new System.Drawing.Point(0, 0);
             this.sccMain.Name = "sccMain";
+            this.sccMain.Panel1.Controls.Add(this.ckbAutoUpdate);
             this.sccMain.Panel1.Controls.Add(this.cbbType);
             this.sccMain.Panel1.Controls.Add(this.labelControl2);
             this.sccMain.Panel1.Controls.Add(this.dteDay);
@@ -213,6 +215,15 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
             this.dockPanel2_Container.TabIndex = 0;
             // 
+            // ckbAutoUpdate
+            // 
+            this.ckbAutoUpdate.Location = new System.Drawing.Point(351, 2);
+            this.ckbAutoUpdate.Name = "ckbAutoUpdate";
+            this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 20);
+            this.ckbAutoUpdate.TabIndex = 4;
+            this.ckbAutoUpdate.Text = "Tự động cập nhật";
+            this.ckbAutoUpdate.CheckedChanged += new System.EventHandler(this.ckbAutoUpdate_CheckedChanged);
+            // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -255,5 +266,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.DateEdit dteDay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.CheckButton ckbAutoUpdate;
     }
 }

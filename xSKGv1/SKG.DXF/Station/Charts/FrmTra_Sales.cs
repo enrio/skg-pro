@@ -201,6 +201,16 @@ namespace SKG.DXF.Station.Charts
         {
             LoadData();
         }
+
+        private void ckbAutoUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckbAutoUpdate.Checked)
+            {
+                tmrMain.Interval = 10000;
+                tmrMain.Enabled = true;
+            }
+            else tmrMain.Enabled = false;
+        }
         #endregion
 
         #region Properties

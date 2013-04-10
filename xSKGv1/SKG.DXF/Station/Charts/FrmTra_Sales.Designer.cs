@@ -28,38 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
+            this.sccMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // sccMain
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 63);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Size = new System.Drawing.Size(292, 203);
-            this.splitContainer1.SplitterDistance = 155;
-            this.splitContainer1.TabIndex = 4;
+            this.sccMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.sccMain.Location = new System.Drawing.Point(0, 63);
+            this.sccMain.Name = "sccMain";
+            this.sccMain.Panel1.Text = "Panel1";
+            this.sccMain.Panel2.Text = "Panel2";
+            this.sccMain.Size = new System.Drawing.Size(292, 203);
+            this.sccMain.SplitterPosition = 143;
+            this.sccMain.TabIndex = 4;
+            this.sccMain.Text = "splitContainerControl1";
             // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(292, 266);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.sccMain);
             this.Name = "FrmTra_Sales";
             this.Load += new System.EventHandler(this.FrmTra_Sales_Load);
-            this.Controls.SetChildIndex(this.splitContainer1, 0);
+            this.Controls.SetChildIndex(this.sccMain, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
+            this.sccMain.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private DevExpress.XtraEditors.SplitContainerControl sccMain;
+
     }
 }

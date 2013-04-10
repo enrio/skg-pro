@@ -94,7 +94,11 @@ namespace SKG.DXF.Station.Charts
 
             // Create an empty chart
             var chart = new ChartControl();
-            chart.Titles.Add(new ChartTitle() { Text = String.Format("{0} = {1}VNĐ", Text.ToUpper(), sum) });
+            chart.Titles.Add(new ChartTitle()
+            {
+                Text = String.Format("{0} NGÀY {1} LÀ {2}VNĐ",
+                    Text.ToUpper(), Global.ToDateVN, sum)
+            });
 
             // Create an empty Bar series and add it to the chart
             var series = new Series("Series1", ViewType.Bar) { DataSource = tb };

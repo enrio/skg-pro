@@ -130,30 +130,30 @@ namespace SKG.DXF.Station.Charts
             if (tb == null || tb.Rows.Count == 0) return;
 
             // Create an empty chart
-            var pieChart = new ChartControl();
+            var chart = new ChartControl();
 
             // Create an empty Pie series and add it to the chart
-            var series1 = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie) { DataSource = tb };
-            pieChart.Series.Add(series1);
+            var series = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie) { DataSource = tb };
+            chart.Series.Add(series);
 
-            series1.ArgumentDataMember = "Key";
-            series1.ValueScaleType = ScaleType.Numerical;
-            series1.ValueDataMembers.AddRange(new string[] { "Money" });
+            series.ArgumentDataMember = "Key";
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { "Money" });
 
             // Adjust the point options of the series
-            series1.Label.PointOptions.PointView = PointView.ArgumentAndValues;
-            series1.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
-            series1.Label.PointOptions.ValueNumericOptions.Precision = 2;
+            series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
+            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
 
             // Detect overlapping of series labels
-            ((PieSeriesLabel)series1.Label).ResolveOverlappingMode = ResolveOverlappingMode.Default;
+            ((PieSeriesLabel)series.Label).ResolveOverlappingMode = ResolveOverlappingMode.Default;
 
             // Access the view-type-specific options of the series
-            PieSeriesView myView = (PieSeriesView)series1.View;
+            PieSeriesView myView = (PieSeriesView)series.View;
 
             // Show a title for the series.
             myView.Titles.Add(new SeriesTitle());
-            myView.Titles[0].Text = series1.Name;
+            myView.Titles[0].Text = series.Name;
 
             // Specify a data filter to explode points.
             myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Value_1,
@@ -165,12 +165,12 @@ namespace SKG.DXF.Station.Charts
             myView.RuntimeExploding = true;
             myView.HeightToWidthRatio = 99;
 
-            // Hide the legend (if necessary).
-            pieChart.Legend.Visible = false;
+            // Hide the legend (if necessary)
+            chart.Legend.Visible = false;
 
-            // Add the chart to the form.
-            pieChart.Dock = DockStyle.Fill;
-            sccMain.Panel2.Controls.Add(pieChart);
+            // Dock the chart into its parent and add it to the current form
+            chart.Dock = DockStyle.Fill;
+            sccMain.Panel2.Controls.Add(chart);
         }
         #endregion
 

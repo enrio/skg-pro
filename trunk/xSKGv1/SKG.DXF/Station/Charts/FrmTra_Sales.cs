@@ -11,6 +11,7 @@
 #endregion
 
 using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -78,17 +79,13 @@ namespace SKG.DXF.Station.Charts
             diagram.AxisY.NumericOptions.Format = NumericFormat.Number;
             diagram.AxisY.NumericOptions.Precision = 0;
         }
-        #endregion
 
-        #region Events
-        private void FrmTra_Sales_Load(object sender, EventArgs e)
+        /// <summary>
+        /// Bar series chart
+        /// </summary>
+        void BarChart(DataTable tb)
         {
-            AllowBar = false;
-
-            #region Bar series chart
-            var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
             if (tb == null || tb.Rows.Count == 0) return;
-
             var tmp = tb.Compute("Sum(Money)", "");
             var sum = Convert.ToDecimal(tmp).ToString("#,0");
 
@@ -123,14 +120,20 @@ namespace SKG.DXF.Station.Charts
             // Dock the chart into its parent and add it to the current form
             chart.Dock = DockStyle.Fill;
             splitContainer1.Panel1.Controls.Add(chart);
-            #endregion
+        }
 
-            #region Pie series chart
+        /// <summary>
+        /// Pie series chart
+        /// </summary>
+        void PieChart(DataTable tb)
+        {
+            if (tb == null || tb.Rows.Count == 0) return;
+
             // Create an empty chart
             var pieChart = new ChartControl();
 
             // Create an empty Pie series and add it to the chart
-            var series1 = new Series("A Pie Series", ViewType.Pie) { DataSource = tb };
+            var series1 = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie) { DataSource = tb };
             pieChart.Series.Add(series1);
 
             series1.ArgumentDataMember = "Key";
@@ -168,7 +171,18 @@ namespace SKG.DXF.Station.Charts
             // Add the chart to the form.
             pieChart.Dock = DockStyle.Fill;
             splitContainer1.Panel2.Controls.Add(pieChart);
-            #endregion
+        }
+        #endregion
+
+        #region Events
+        private void FrmTra_Sales_Load(object sender, EventArgs e)
+        {
+            AllowBar = false;
+
+            var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
+
+            BarChart(tb);
+            PieChart(tb);
         }
         #endregion
 

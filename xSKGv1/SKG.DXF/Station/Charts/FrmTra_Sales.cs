@@ -63,14 +63,15 @@ namespace SKG.DXF.Station.Charts
         {
             // Customize the appearance of the X-axis title
             diagram.AxisX.Title.Visible = true;
-            diagram.AxisX.Title.Alignment = StringAlignment.Center;
+            diagram.AxisX.Title.Alignment = StringAlignment.Far;
             diagram.AxisX.Title.Text = axisX;
             diagram.AxisX.Title.TextColor = Color.Red;
             diagram.AxisX.Title.Antialiasing = true;
+            diagram.AxisX.Label.Visible = false;
 
             // Customize the appearance of the Y-axis title
             diagram.AxisY.Title.Visible = true;
-            diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            diagram.AxisY.Title.Alignment = StringAlignment.Far;
             diagram.AxisY.Title.Text = axisY;
             diagram.AxisY.Title.TextColor = Color.Blue;
             diagram.AxisY.Title.Antialiasing = true;

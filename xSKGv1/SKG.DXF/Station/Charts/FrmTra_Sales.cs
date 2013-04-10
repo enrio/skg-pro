@@ -50,6 +50,35 @@ namespace SKG.DXF.Station.Charts
         #endregion
 
         #region Overrides
+        protected override void LoadData()
+        {
+            if (dteDay.DateTime > Global.Session.Current)
+                dteDay.DateTime = Global.Session.Current;
+
+            _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
+            if (_dtb == null || _dtb.Rows.Count <= 0) return;
+
+            var tmp = _dtb.Compute("Sum(Money)", "");
+            var sum = Convert.ToDecimal(tmp).ToString("#,0");
+            var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
+                dteDay.DateTime.ToString("dd/MM/yyyy"), sum); ;
+
+            if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
+            else _barChart.Titles.Add(new ChartTitle() { Text = str });
+
+            if (_barChart.Series.Count > 0)
+                _barChart.Series[0].DataSource = _dtb;
+
+            if (_pieChart.Series.Count > 0)
+                _pieChart.Series[0].DataSource = _dtb;
+
+            base.LoadData();
+        }
+
+        protected override void TimerTick(object sender, EventArgs e)
+        {
+            LoadData();
+        }
         #endregion
 
         #region Methods
@@ -170,25 +199,7 @@ namespace SKG.DXF.Station.Charts
 
         private void dteDay_EditValueChanged(object sender, EventArgs e)
         {
-            if (dteDay.DateTime > Global.Session.Current)
-                dteDay.DateTime = Global.Session.Current;
-
-            _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
-            if (_dtb == null || _dtb.Rows.Count <= 0) return;
-
-            var tmp = _dtb.Compute("Sum(Money)", "");
-            var sum = Convert.ToDecimal(tmp).ToString("#,0");
-            var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
-                dteDay.DateTime.ToString("dd/MM/yyyy"), sum); ;
-
-            if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
-            else _barChart.Titles.Add(new ChartTitle() { Text = str });
-
-            if (_barChart.Series.Count > 0)
-                _barChart.Series[0].DataSource = _dtb;
-
-            if (_pieChart.Series.Count > 0)
-                _pieChart.Series[0].DataSource = _dtb;
+            LoadData();
         }
         #endregion
 

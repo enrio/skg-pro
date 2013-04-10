@@ -97,6 +97,10 @@ namespace SKG.DXF.Station.Charts
             var series = new Series("Series1", ViewType.Bar) { DataSource = tb };
             chart.Series.Add(series);
 
+            series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
+            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
+
             series.ArgumentDataMember = "Key";
             series.ValueScaleType = ScaleType.Numerical;
             series.ValueDataMembers.AddRange(new string[] { "Money" });

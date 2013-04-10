@@ -58,6 +58,9 @@ namespace SKG.DXF.Station.Charts
             InitializeComponent();
 
             Text = STR_TITLE;
+
+            BarChart();
+            PieChart();
         }
 
         void SetAxisTitle(XYDiagram diagram, string axisX, string axisY)
@@ -83,20 +86,10 @@ namespace SKG.DXF.Station.Charts
         /// <summary>
         /// Bar series chart
         /// </summary>
-        void BarChart(DataTable tb)
+        void BarChart()
         {
-            if (tb == null || tb.Rows.Count == 0) return;
-            var tmp = tb.Compute("Sum(Money)", "");
-            var sum = Convert.ToDecimal(tmp).ToString("#,0");
-
-            _barChart.Titles.Add(new ChartTitle()
-            {
-                Text = String.Format("{0} ngày {1} = {2}đ",
-                Text.ToUpper(), dteDay.DateTime.ToString("dd/MM/yyyy"), sum)
-            });
-
             // Create an empty Bar series and add it to the chart
-            var series = new Series("Series1", ViewType.Bar) { DataSource = tb };
+            var series = new Series("Series1", ViewType.Bar);
             _barChart.Series.Add(series);
 
             // Adjust the point options of the series
@@ -123,22 +116,20 @@ namespace SKG.DXF.Station.Charts
         /// <summary>
         /// Pie series chart
         /// </summary>
-        void PieChart(DataTable tb)
+        void PieChart()
         {
-            if (tb == null || tb.Rows.Count == 0) return;
-
             // Create an empty Pie series and add it to the chart
-            var series = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie) { DataSource = tb };
+            var series = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie);
             _pieChart.Series.Add(series);
-
-            series.ArgumentDataMember = "Key";
-            series.ValueScaleType = ScaleType.Numerical;
-            series.ValueDataMembers.AddRange(new string[] { "Money" });
 
             // Adjust the point options of the series
             series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
             series.Label.PointOptions.ValueNumericOptions.Precision = 0;
+
+            series.ArgumentDataMember = "Key";
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { "Money" });
 
             // Detect overlapping of series labels
             ((PieSeriesLabel)series.Label).ResolveOverlappingMode = ResolveOverlappingMode.Default;
@@ -155,6 +146,7 @@ namespace SKG.DXF.Station.Charts
                 DataFilterCondition.GreaterThanOrEqual, 9));
             myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Argument,
                 DataFilterCondition.NotEqual, "Others"));
+
             myView.ExplodeMode = PieExplodeMode.UseFilters;
             myView.ExplodedDistancePercentage = 30;
             myView.RuntimeExploding = true;
@@ -174,16 +166,29 @@ namespace SKG.DXF.Station.Charts
         {
             AllowBar = false;
             dteDay.DateTime = Global.Session.Current;
-
-            BarChart(_dtb);
-            PieChart(_dtb);
         }
 
         private void dteDay_EditValueChanged(object sender, EventArgs e)
         {
+            if (dteDay.DateTime > Global.Session.Current)
+                dteDay.DateTime = Global.Session.Current;
+
             _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
-            if (_barChart.Series.Count > 0) _barChart.DataSource = _dtb;
-            if (_pieChart.Series.Count > 0) _pieChart.DataSource = _dtb;
+            if (_dtb == null || _dtb.Rows.Count <= 0) return;
+
+            var tmp = _dtb.Compute("Sum(Money)", "");
+            var sum = Convert.ToDecimal(tmp).ToString("#,0");
+            var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
+                dteDay.DateTime.ToString("dd/MM/yyyy"), sum); ;
+
+            if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
+            else _barChart.Titles.Add(new ChartTitle() { Text = str });
+
+            if (_barChart.Series.Count > 0)
+                _barChart.Series[0].DataSource = _dtb;
+
+            if (_pieChart.Series.Count > 0)
+                _pieChart.Series[0].DataSource = _dtb;
         }
         #endregion
 

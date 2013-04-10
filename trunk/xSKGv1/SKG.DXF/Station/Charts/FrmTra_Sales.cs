@@ -11,12 +11,14 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Charts
 {
     using SKG.Plugin;
+    using DevExpress.Utils;
     using DevExpress.XtraCharts;
 
     public partial class FrmTra_Sales : SKG.DXF.FrmInput
@@ -56,51 +58,69 @@ namespace SKG.DXF.Station.Charts
 
             Text = STR_TITLE;
         }
+
+        void SetAxisTitle(XYDiagram diagram, string axisX, string axisY)
+        {
+            // Customize the appearance of the X-axis title
+            diagram.AxisX.Title.Visible = true;
+            diagram.AxisX.Title.Alignment = StringAlignment.Center;
+            diagram.AxisX.Title.Text = axisX;
+            diagram.AxisX.Title.TextColor = Color.Red;
+            diagram.AxisX.Title.Antialiasing = true;
+
+            // Customize the appearance of the Y-axis title
+            diagram.AxisY.Title.Visible = true;
+            diagram.AxisY.Title.Alignment = StringAlignment.Center;
+            diagram.AxisY.Title.Text = axisY;
+            diagram.AxisY.Title.TextColor = Color.Blue;
+            diagram.AxisY.Title.Antialiasing = true;
+        }
         #endregion
 
         #region Events
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
             AllowBar = false;
+
+            #region Bar series chart
             var tb = _bll.Tra_Detail.SumaryFixedByAreaToday();
             if (tb == null || tb.Rows.Count == 0) return;
 
             var tmp = tb.Compute("Sum(Money)", "");
             var sum = Convert.ToDecimal(tmp).ToString("#,0");
 
-            // Create a chart.
+            // Create an empty chart
             var chart = new ChartControl();
             chart.Titles.Add(new ChartTitle() { Text = String.Format("{0} = {1}VNĐ", Text.ToUpper(), sum) });
 
-            // Create an empty Bar series and add it to the chart.
-            var series = new Series("Series1", ViewType.Bar)
-            {
-                DataSource = tb
-            };
+            // Create an empty Bar series and add it to the chart
+            var series = new Series("Series1", ViewType.Bar) { DataSource = tb };
             chart.Series.Add(series);
 
             series.ArgumentDataMember = "Key";
             series.ValueScaleType = ScaleType.Numerical;
             series.ValueDataMembers.AddRange(new string[] { "Money" });
 
-            // Set some properties to get a nice-looking chart.
+            // Set some properties to get a nice-looking chart and set axis title
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
-            //((XYDiagram)chart.Diagram).AxisY.Visible = false;
+            SetAxisTitle((XYDiagram)chart.Diagram, "Vùng/Nhóm xe", "Số tiền");
 
             chart.Legend.Visible = false;
-            series.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series.LabelsVisibility = DefaultBoolean.True;
 
-            // Dock the chart into its parent and add it to the current form.
+            // Dock the chart into its parent and add it to the current form
             chart.Dock = DockStyle.Fill;
             splitContainer1.Panel1.Controls.Add(chart);
+            #endregion
 
-            // Create an empty chart.
+            #region Pie series chart
+            // Create an empty chart
             var pieChart = new ChartControl();
 
-            // Create a pie series.
+            // Create a pie series
             var series1 = new Series("A Pie Series", ViewType.Pie);
 
-            // Populate the series with points.
+            // Populate the series with points
             series1.Points.Add(new SeriesPoint("Russia", 17.0752));
             series1.Points.Add(new SeriesPoint("Canada", 9.98467));
             series1.Points.Add(new SeriesPoint("USA", 9.63142));
@@ -110,18 +130,18 @@ namespace SKG.DXF.Station.Charts
             series1.Points.Add(new SeriesPoint("India", 3.28759));
             series1.Points.Add(new SeriesPoint("Others", 81.2));
 
-            // Add the series to the chart.
+            // Add the series to the chart
             pieChart.Series.Add(series1);
 
-            // Adjust the point options of the series.
+            // Adjust the point options of the series
             series1.Label.PointOptions.PointView = PointView.ArgumentAndValues;
             series1.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
             series1.Label.PointOptions.ValueNumericOptions.Precision = 2;
 
-            // Detect overlapping of series labels.
+            // Detect overlapping of series labels
             ((PieSeriesLabel)series1.Label).ResolveOverlappingMode = ResolveOverlappingMode.Default;
 
-            // Access the view-type-specific options of the series.
+            // Access the view-type-specific options of the series
             PieSeriesView myView = (PieSeriesView)series1.View;
 
             // Show a title for the series.
@@ -129,8 +149,10 @@ namespace SKG.DXF.Station.Charts
             myView.Titles[0].Text = series1.Name;
 
             // Specify a data filter to explode points.
-            myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Value_1, DataFilterCondition.GreaterThanOrEqual, 9));
-            myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Argument, DataFilterCondition.NotEqual, "Others"));
+            myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Value_1,
+                DataFilterCondition.GreaterThanOrEqual, 9));
+            myView.ExplodedPointsFilters.Add(new SeriesPointFilter(SeriesPointKey.Argument,
+                DataFilterCondition.NotEqual, "Others"));
             myView.ExplodeMode = PieExplodeMode.UseFilters;
             myView.ExplodedDistancePercentage = 30;
             myView.RuntimeExploding = true;
@@ -142,6 +164,7 @@ namespace SKG.DXF.Station.Charts
             // Add the chart to the form.
             pieChart.Dock = DockStyle.Fill;
             splitContainer1.Panel2.Controls.Add(pieChart);
+            #endregion
         }
         #endregion
 

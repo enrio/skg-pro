@@ -18,6 +18,7 @@ using System.Collections.Generic;
 
 namespace SKG.DXF.Station.Charts
 {
+    using SKG.Extend;
     using SKG.Plugin;
     using DevExpress.Utils;
     using DevExpress.XtraCharts;
@@ -61,7 +62,7 @@ namespace SKG.DXF.Station.Charts
             _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDay.DateTime);
             if (sum <= 0) return;
 
-            var tit = cbbType.Text.Replace("Theo", "").ToUpperInvariant();
+            var tit = cbbType.Text.Replace("Theo", "").ToUpperWords();
             SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),

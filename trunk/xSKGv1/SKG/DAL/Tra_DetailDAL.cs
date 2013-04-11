@@ -930,126 +930,6 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sumary vehicle fixed by region
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByRegion(out decimal sum, DateTime fr, DateTime to)
-        {
-            sum = 0;
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == true
-                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                          group s by s.Vehicle.Tariff.Group.Parent.Parent.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                              Region = g.Key
-                          };
-
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by area
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByArea(out decimal sum, DateTime fr, DateTime to)
-        {
-            sum = 0;
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == true
-                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                          group s by s.Vehicle.Tariff.Group.Parent.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                              g.Key
-                          };
-
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by province
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByProvince(out decimal sum, DateTime fr, DateTime to)
-        {
-            sum = 0;
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == true
-                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                          group s by s.Vehicle.Tariff.Group.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                              g.Key
-                          };
-
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by transport
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByTransport(out decimal sum, DateTime fr, DateTime to)
-        {
-            sum = 0;
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == true
-                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                          group s by s.Vehicle.Transport.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                              g.Key
-                          };
-
-                sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
         /// Revenue of vehicle fixed
         /// </summary>
         /// <param name="sum">Totals money</param>
@@ -1617,25 +1497,6 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
-
-        /// <summary>
-        /// Update number of serial
-        /// </summary>
-        /// <param name="obj">Detail</param>
-        /// <returns></returns>
-        public object UpdateSeri(object obj)
-        {
-            try
-            {
-                var o = (Tra_Detail)obj;
-                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
-
-                res.Text = o.Text;
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
         #endregion
 
         #region Vehicle normal
@@ -1812,53 +1673,77 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Sumary vehicle normal by tariff
+        /// Sumary vehicle normal by
         /// </summary>
+        /// <param name="by">Summary by</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        protected DataTable SumaryNormalByTariff(DateTime fr, DateTime to)
+        protected DataTable SumaryNormal(VehicleNormal by, DateTime fr, DateTime to)
         {
             try
             {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == false
-                          group s by s.Vehicle.Tariff.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money),
-                              g.Key
-                          };
+                switch (by)
+                {
 
-                return res.ToDataTable();
+                    case VehicleNormal.Group:
+                        var r1 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Tariff.Group.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r1.ToDataTable();
+
+                    case VehicleNormal.Kind:
+                        var r2 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Tariff.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r2.ToDataTable();
+
+                    default:
+                        var r3 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r3.ToDataTable();
+                }
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Sumary vehicle normal by group
+        /// Update number of serial
         /// </summary>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
+        /// <param name="obj">Detail</param>
         /// <returns></returns>
-        protected DataTable SumaryNormalByGroup(DateTime fr, DateTime to)
+        public object UpdateSeri(object obj)
         {
             try
             {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == false
-                          group s by s.Vehicle.Tariff.Group.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money),
-                              g.Key
-                          };
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
 
-                return res.ToDataTable();
+                res.Text = o.Text;
+
+                return _db.SaveChanges();
             }
             catch { return null; }
         }

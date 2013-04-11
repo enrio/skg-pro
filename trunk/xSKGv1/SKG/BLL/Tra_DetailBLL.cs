@@ -116,57 +116,49 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Sumary vehicle fixed by region
+        /// Sumary vehicle fixed by
         /// </summary>
         /// <param name="sum">Total money</param>
+        /// <param name="by">Sumary by</param>
+        /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegion(out decimal sum, DateTime dt)
+        public DataTable SumaryFixed(out decimal sum, VehicleFixed by, DateTime dt)
         {
             sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return base.SumaryFixedByRegion(out sum, fr, to);
+                var tb = base.SumaryFixed(by, fr, to);
+
+                if (tb != null && tb.Rows.Count > 0)
+                    sum = (decimal)tb.Compute("Sum(Money)", "");
+                return tb;
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Sumary vehicle fixed by region today
+        /// Sumary vehicle normal by
         /// </summary>
         /// <param name="sum">Total money</param>
+        /// <param name="by">Sumary by</param>
+        /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegionToday(out decimal sum)
-        {
-            return SumaryFixedByRegion(out sum, Global.Session.Current);
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by area
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <returns></returns>
-        public DataTable SumaryFixedByArea(out decimal sum, DateTime dt)
+        public DataTable SumaryNormal(out decimal sum, VehicleNormal by, DateTime dt)
         {
             sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return base.SumaryFixedByArea(out sum, fr, to);
+                var tb = base.SumaryNormal(by, fr, to);
+
+                if (tb != null && tb.Rows.Count > 0)
+                    sum = (decimal)tb.Compute("Sum(Money)", "");
+                return tb;
             }
             catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by area today
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <returns></returns>
-        public DataTable SumaryFixedByAreaToday(out decimal sum)
-        {
-            return SumaryFixedByArea(out sum, Global.Session.Current);
         }
     }
 }

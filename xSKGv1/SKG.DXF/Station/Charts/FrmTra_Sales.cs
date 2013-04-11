@@ -169,7 +169,6 @@ namespace SKG.DXF.Station.Charts
             // Set some properties to get a nice-looking chart and set axis title
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
 
-            _barChart.Legend.Visible = false;
             series.LabelsVisibility = DefaultBoolean.True;
 
             // Dock the chart into its parent and add it to the current form
@@ -189,7 +188,7 @@ namespace SKG.DXF.Station.Charts
             // Adjust the point options of the series
             series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
-            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 2;
 
             series.ArgumentDataMember = "Key";
             series.ValueScaleType = ScaleType.Numerical;
@@ -215,9 +214,6 @@ namespace SKG.DXF.Station.Charts
             myView.ExplodedDistancePercentage = 30;
             myView.RuntimeExploding = true;
             myView.HeightToWidthRatio = 99;
-
-            // Hide the legend (if necessary)
-            _pieChart.Legend.Visible = false;
 
             // Dock the chart into its parent and add it to the current form
             _pieChart.Dock = DockStyle.Fill;

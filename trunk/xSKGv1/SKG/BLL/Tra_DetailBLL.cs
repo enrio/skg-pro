@@ -165,5 +165,32 @@ namespace SKG.BLL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Sumary sales year of vehicle by
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="by">Sumary by</param>
+        /// <param name="dt">Date time</param>
+        /// <returns></returns>
+        public DataTable SumarySalesYear(out decimal sum, Summary by, DateTime dt)
+        {
+            sum = 0;
+            try
+            {
+                var a = dt.ToStartOfYear();
+                var b = dt.ToEndOfYear();
+
+                var to = b.AddHours(13);
+                var fr = a.AddDays(-1).AddSeconds(1);
+                var tb = base.SumarySales(by, fr, to);
+
+                if (tb != null && tb.Rows.Count > 0)
+                    sum = (decimal)tb.Compute("Sum(Money)", "");
+
+                return tb;
+            }
+            catch { return null; }
+        }
     }
 }

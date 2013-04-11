@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
-            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
+            this.rdgDayMonth = new DevExpress.XtraEditors.RadioGroup();
             this.ckbAutoUpdate = new DevExpress.XtraEditors.CheckButton();
             this.cbbType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.dteDay = new DevExpress.XtraEditors.DateEdit();
+            this.dteDayMonth = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.sccContent = new DevExpress.XtraEditors.SplitContainerControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
             this.sccMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgDayMonth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDayMonth.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDayMonth.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).BeginInit();
             this.sccContent.SuspendLayout();
             this.SuspendLayout();
@@ -55,11 +55,11 @@
             this.sccMain.Horizontal = false;
             this.sccMain.Location = new System.Drawing.Point(0, 63);
             this.sccMain.Name = "sccMain";
-            this.sccMain.Panel1.Controls.Add(this.radioGroup1);
+            this.sccMain.Panel1.Controls.Add(this.rdgDayMonth);
             this.sccMain.Panel1.Controls.Add(this.ckbAutoUpdate);
             this.sccMain.Panel1.Controls.Add(this.cbbType);
             this.sccMain.Panel1.Controls.Add(this.labelControl2);
-            this.sccMain.Panel1.Controls.Add(this.dteDay);
+            this.sccMain.Panel1.Controls.Add(this.dteDayMonth);
             this.sccMain.Panel1.Controls.Add(this.labelControl1);
             this.sccMain.Panel1.Text = "Panel1";
             this.sccMain.Panel2.Controls.Add(this.sccContent);
@@ -69,18 +69,19 @@
             this.sccMain.TabIndex = 7;
             this.sccMain.Text = "splitContainerControl1";
             // 
-            // radioGroup1
+            // rdgDayMonth
             // 
-            this.radioGroup1.EditValue = true;
-            this.radioGroup1.Location = new System.Drawing.Point(176, 6);
-            this.radioGroup1.Name = "radioGroup1";
-            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
-            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            this.rdgDayMonth.EditValue = true;
+            this.rdgDayMonth.Location = new System.Drawing.Point(176, 6);
+            this.rdgDayMonth.Name = "rdgDayMonth";
+            this.rdgDayMonth.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rdgDayMonth.Properties.Appearance.Options.UseBackColor = true;
+            this.rdgDayMonth.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Ngày"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Tháng")});
-            this.radioGroup1.Size = new System.Drawing.Size(109, 23);
-            this.radioGroup1.TabIndex = 5;
+            this.rdgDayMonth.Size = new System.Drawing.Size(109, 23);
+            this.rdgDayMonth.TabIndex = 5;
+            this.rdgDayMonth.SelectedIndexChanged += new System.EventHandler(this.rdgDayMonth_SelectedIndexChanged);
             // 
             // ckbAutoUpdate
             // 
@@ -119,18 +120,22 @@
             this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "Kiểu xem";
             // 
-            // dteDay
+            // dteDayMonth
             // 
-            this.dteDay.EditValue = null;
-            this.dteDay.Location = new System.Drawing.Point(60, 8);
-            this.dteDay.Name = "dteDay";
-            this.dteDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteDayMonth.EditValue = null;
+            this.dteDayMonth.Location = new System.Drawing.Point(60, 8);
+            this.dteDayMonth.Name = "dteDayMonth";
+            this.dteDayMonth.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.dteDayMonth.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.dteDayMonth.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDayMonth.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dteDayMonth.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dteDayMonth.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteDay.Size = new System.Drawing.Size(110, 20);
-            this.dteDay.TabIndex = 1;
-            this.dteDay.EditValueChanged += new System.EventHandler(this.dteDay_EditValueChanged);
+            this.dteDayMonth.Size = new System.Drawing.Size(110, 20);
+            this.dteDayMonth.TabIndex = 1;
+            this.dteDayMonth.EditValueChanged += new System.EventHandler(this.dteDayMonth_EditValueChanged);
             // 
             // labelControl1
             // 
@@ -165,10 +170,10 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
             this.sccMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdgDayMonth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDayMonth.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dteDayMonth.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).EndInit();
             this.sccContent.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -181,9 +186,9 @@
         private DevExpress.XtraEditors.CheckButton ckbAutoUpdate;
         private DevExpress.XtraEditors.ComboBoxEdit cbbType;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.DateEdit dteDay;
+        private DevExpress.XtraEditors.DateEdit dteDayMonth;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SplitContainerControl sccContent;
-        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraEditors.RadioGroup rdgDayMonth;
     }
 }

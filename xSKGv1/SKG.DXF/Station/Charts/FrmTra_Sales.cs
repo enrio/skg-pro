@@ -61,21 +61,31 @@ namespace SKG.DXF.Station.Charts
             var format = "dd/MM/yyyy";
             var ix = rdgDayMonth.SelectedIndex;
 
-            if (ix == 0)
+            switch (ix)
             {
-                format = "dd/MM/yyyy";
-                _dtb = _bll.Tra_Detail.SumarySalesDay(out sum, by, dteDayMonth.DateTime);
+                case 0:
+                    format = "dd/MM/yyyy";
+                    _dtb = _bll.Tra_Detail.SumarySalesDay(out sum, by, dteDayMonth.DateTime);
 
-                dteDayMonth.Properties.DisplayFormat.FormatString = format;
-                dteDayMonth.Properties.EditFormat.FormatString = format;
-            }
-            else
-            {
-                format = "MM/yyyy";
-                _dtb = _bll.Tra_Detail.SumarySalesMonth(out sum, by, dteDayMonth.DateTime);
+                    dteDayMonth.Properties.DisplayFormat.FormatString = format;
+                    dteDayMonth.Properties.EditFormat.FormatString = format;
+                    break;
 
-                dteDayMonth.Properties.DisplayFormat.FormatString = format;
-                dteDayMonth.Properties.EditFormat.FormatString = format;
+                case 1:
+                    format = "MM/yyyy";
+                    _dtb = _bll.Tra_Detail.SumarySalesMonth(out sum, by, dteDayMonth.DateTime);
+
+                    dteDayMonth.Properties.DisplayFormat.FormatString = format;
+                    dteDayMonth.Properties.EditFormat.FormatString = format;
+                    break;
+
+                default:
+                    format = "yyyy";
+                    _dtb = _bll.Tra_Detail.SumarySalesYear(out sum, by, dteDayMonth.DateTime);
+
+                    dteDayMonth.Properties.DisplayFormat.FormatString = format;
+                    dteDayMonth.Properties.EditFormat.FormatString = format;
+                    break;
             }
 
             if (sum <= 0) return;

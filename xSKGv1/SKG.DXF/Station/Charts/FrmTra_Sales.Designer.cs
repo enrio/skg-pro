@@ -66,36 +66,37 @@
             this.sccMain.Panel2.Text = "Panel2";
             this.sccMain.Size = new System.Drawing.Size(644, 366);
             this.sccMain.SplitterPosition = 29;
-            this.sccMain.TabIndex = 7;
+            this.sccMain.TabIndex = 6;
             this.sccMain.Text = "splitContainerControl1";
             // 
             // rdgDayMonth
             // 
-            this.rdgDayMonth.EditValue = true;
+            this.rdgDayMonth.EditValue = 'D';
             this.rdgDayMonth.Location = new System.Drawing.Point(176, 6);
             this.rdgDayMonth.Name = "rdgDayMonth";
             this.rdgDayMonth.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.rdgDayMonth.Properties.Appearance.Options.UseBackColor = true;
             this.rdgDayMonth.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Ngày"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Tháng")});
-            this.rdgDayMonth.Size = new System.Drawing.Size(109, 23);
-            this.rdgDayMonth.TabIndex = 5;
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('D', "Ngày"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('M', "Tháng"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem('Y', "Năm")});
+            this.rdgDayMonth.Size = new System.Drawing.Size(158, 23);
+            this.rdgDayMonth.TabIndex = 2;
             this.rdgDayMonth.SelectedIndexChanged += new System.EventHandler(this.rdgDayMonth_SelectedIndexChanged);
             // 
             // ckbAutoUpdate
             // 
-            this.ckbAutoUpdate.Location = new System.Drawing.Point(485, 6);
+            this.ckbAutoUpdate.Location = new System.Drawing.Point(534, 6);
             this.ckbAutoUpdate.Name = "ckbAutoUpdate";
             this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 23);
-            this.ckbAutoUpdate.TabIndex = 4;
+            this.ckbAutoUpdate.TabIndex = 5;
             this.ckbAutoUpdate.Text = "Tự động cập nhật";
             this.ckbAutoUpdate.CheckedChanged += new System.EventHandler(this.ckbAutoUpdate_CheckedChanged);
             // 
             // cbbType
             // 
-            this.cbbType.EditValue = "Theo miền (xe cố định)";
-            this.cbbType.Location = new System.Drawing.Point(346, 8);
+            this.cbbType.EditValue = "Theo cố định, vãng lai";
+            this.cbbType.Location = new System.Drawing.Point(395, 8);
             this.cbbType.Name = "cbbType";
             this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -108,16 +109,16 @@
             "Theo loại (xe vãng lai)",
             "Theo cố định, vãng lai"});
             this.cbbType.Size = new System.Drawing.Size(133, 20);
-            this.cbbType.TabIndex = 3;
+            this.cbbType.TabIndex = 4;
             this.cbbType.EditValueChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
             // labelControl2
             // 
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl2.Location = new System.Drawing.Point(291, 6);
+            this.labelControl2.Location = new System.Drawing.Point(340, 6);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(49, 23);
-            this.labelControl2.TabIndex = 2;
+            this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "Kiểu xem";
             // 
             // dteDayMonth
@@ -156,7 +157,7 @@
             this.sccContent.Panel2.Text = "Panel2";
             this.sccContent.Size = new System.Drawing.Size(644, 332);
             this.sccContent.SplitterPosition = 319;
-            this.sccContent.TabIndex = 0;
+            this.sccContent.TabIndex = 7;
             this.sccContent.Text = "splitContainerControl1";
             // 
             // FrmTra_Sales

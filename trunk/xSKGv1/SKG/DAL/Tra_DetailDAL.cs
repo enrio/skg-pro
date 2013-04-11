@@ -1744,7 +1744,7 @@ namespace SKG.DAL
                                  select new
                                  {
                                      Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                                     g.Key
+                                     Key = "Xe cố định"
                                  };
                         var r8 = from s in _db.Tra_Details
                                  where s.UserOutId != null
@@ -1754,7 +1754,7 @@ namespace SKG.DAL
                                  select new
                                  {
                                      Money = g.Sum(s => s.Money),
-                                     g.Key
+                                     Key = "Xe vãng lai"
                                  };
                         return r7.Union(r8).ToDataTable();
                 }

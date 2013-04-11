@@ -116,19 +116,46 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Sumary sales of vehicle by
+        /// Sumary sales day of vehicle by
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="by">Sumary by</param>
         /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumarySales(out decimal sum, Summary by, DateTime dt)
+        public DataTable SumarySalesDay(out decimal sum, Summary by, DateTime dt)
         {
             sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
+                var tb = base.SumarySales(by, fr, to);
+
+                if (tb != null && tb.Rows.Count > 0)
+                    sum = (decimal)tb.Compute("Sum(Money)", "");
+
+                return tb;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary sales month of vehicle by
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="by">Sumary by</param>
+        /// <param name="dt">Date time</param>
+        /// <returns></returns>
+        public DataTable SumarySalesMonth(out decimal sum, Summary by, DateTime dt)
+        {
+            sum = 0;
+            try
+            {
+                var a = dt.ToStartOfMonth();
+                var b = dt.ToEndOfMonth();
+
+                var to = b.AddHours(13);
+                var fr = a.AddDays(-1).AddSeconds(1);
                 var tb = base.SumarySales(by, fr, to);
 
                 if (tb != null && tb.Rows.Count > 0)

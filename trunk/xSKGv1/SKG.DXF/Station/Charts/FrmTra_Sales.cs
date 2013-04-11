@@ -58,29 +58,36 @@ namespace SKG.DXF.Station.Charts
 
             decimal sum;
             var by = (Summary)cbbType.SelectedIndex;
+            var format = "dd/MM/yyyy";
+            var ix = rdgDayMonth.SelectedIndex;
 
-            if (rdgDayMonth.SelectedIndex == 0)
+            if (ix == 0)
             {
+                format = "dd/MM/yyyy";
                 _dtb = _bll.Tra_Detail.SumarySalesDay(out sum, by, dteDayMonth.DateTime);
 
-                dteDayMonth.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-                dteDayMonth.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+                dteDayMonth.Properties.DisplayFormat.FormatString = format;
+                dteDayMonth.Properties.EditFormat.FormatString = format;
             }
             else
             {
+                format = "MM/yyyy";
                 _dtb = _bll.Tra_Detail.SumarySalesMonth(out sum, by, dteDayMonth.DateTime);
 
-                dteDayMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
-                dteDayMonth.Properties.EditFormat.FormatString = "MM/yyyy";
+                dteDayMonth.Properties.DisplayFormat.FormatString = format;
+                dteDayMonth.Properties.EditFormat.FormatString = format;
             }
 
             if (sum <= 0) return;
 
+            var dm = rdgDayMonth.Properties.Items[ix].Description;
+            dm = dm.ToUpper();
             var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
+
             SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
 
-            var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
-                dteDayMonth.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;
+            var str = String.Format("{0} {3} {1} = {2}đ", Text.ToUpper(),
+                dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), dm);
 
             if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
             else _barChart.Titles.Add(new ChartTitle() { Text = str });

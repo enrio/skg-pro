@@ -843,6 +843,39 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Sumary vehicle fixed by
+        /// </summary>
+        /// <param name="by">Summary by</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryFixed(VehicleFixed by, DateTime fr, DateTime to)
+        {
+            try
+            {
+                switch (by)
+                {
+                    case VehicleFixed.Region:
+                        break;
+
+                    case VehicleFixed.Area:
+                        break;
+
+                    case VehicleFixed.Province:
+                        break;
+
+                    case VehicleFixed.Transport:
+                        break;
+
+                    default:
+                        break;
+                }
+                return null;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Sumary vehicle fixed by region
         /// </summary>
         /// <param name="sum">Total money</param>

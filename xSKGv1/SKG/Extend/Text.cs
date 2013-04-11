@@ -28,6 +28,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var a = start == null ? 0 : s.IndexOf(start);
                 var b = s.IndexOf(end);
                 var c = s.Substring(a, b - a);
@@ -56,6 +57,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var a = s.IndexOf(start);
                 var b = s.IndexOf(end);
                 var c = s.Substring(a, b - a);
@@ -81,6 +83,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 if (String.IsNullOrEmpty(s)) return String.Empty;
                 return Char.ToUpper(s[0]) + s.Substring(1);
             }
@@ -96,14 +99,18 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var arr = s.ToCharArray();
+
                 if (arr.Length >= 1)
                     if (Char.IsLower(arr[0]))
                         arr[0] = Char.ToUpper(arr[0]);
+
                 for (var i = 1; i < arr.Length; i++)
                     if (arr[i - 1] == ' ')
                         if (Char.IsLower(arr[i]))
                             arr[i] = Char.ToUpper(arr[i]);
+
                 return new string(arr);
             }
             catch { return s; }

@@ -76,12 +76,11 @@ namespace SKG
     public enum KeySelected { Primary, Foreign, Filter }
 
     /// <summary>
-    /// Summary vehicle fixed by
+    /// Summary vehicle by
     /// </summary>
-    public enum VehicleFixed { Region, Area, Province, Transport, Vehicle }
-
-    /// <summary>
-    /// Summary vehicle normal by
-    /// </summary>
-    public enum VehicleNormal { Group, Kind, Vehicle }
+    public enum Summary
+    {
+        RegionFixed, AreaFixed, ProvinceFixed,
+        TransportFixed, GroupNormal, KindNormal, Both
+    }
 }

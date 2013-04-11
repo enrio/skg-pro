@@ -116,46 +116,24 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Sumary vehicle fixed by
+        /// Sumary sales of vehicle by
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <param name="by">Sumary by</param>
         /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumaryFixed(out decimal sum, VehicleFixed by, DateTime dt)
+        public DataTable SumarySales(out decimal sum, Summary by, DateTime dt)
         {
             sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                var tb = base.SumaryFixed(by, fr, to);
+                var tb = base.SumarySales(by, fr, to);
 
                 if (tb != null && tb.Rows.Count > 0)
                     sum = (decimal)tb.Compute("Sum(Money)", "");
-                return tb;
-            }
-            catch { return null; }
-        }
 
-        /// <summary>
-        /// Sumary vehicle normal by
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="by">Sumary by</param>
-        /// <param name="dt">Date time</param>
-        /// <returns></returns>
-        public DataTable SumaryNormal(out decimal sum, VehicleNormal by, DateTime dt)
-        {
-            sum = 0;
-            try
-            {
-                var to = dt.AddHours(13);
-                var fr = to.AddDays(-1).AddSeconds(1);
-                var tb = base.SumaryNormal(by, fr, to);
-
-                if (tb != null && tb.Rows.Count > 0)
-                    sum = (decimal)tb.Compute("Sum(Money)", "");
                 return tb;
             }
             catch { return null; }

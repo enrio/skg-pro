@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dckSalesMonth = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesDay = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
@@ -40,13 +42,14 @@
             this.dteDay = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.sccContent = new DevExpress.XtraEditors.SplitContainerControl();
-            this.dckSalesMonth = new DevExpress.XtraBars.Docking.DockPanel();
-            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.usrSalesMonth = new SKG.DXF.Station.Charts.UsrSales();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
+            this.dckSalesMonth.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
             this.dckSalesDay.SuspendLayout();
             this.controlContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
@@ -56,7 +59,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).BeginInit();
             this.sccContent.SuspendLayout();
-            this.dckSalesMonth.SuspendLayout();
             this.dckSalesQuatar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +76,7 @@
             // 
             // panelContainer1
             // 
-            this.panelContainer1.ActiveChild = this.dckSalesDay;
+            this.panelContainer1.ActiveChild = this.dckSalesMonth;
             this.panelContainer1.Controls.Add(this.dckSalesDay);
             this.panelContainer1.Controls.Add(this.dckSalesMonth);
             this.panelContainer1.Controls.Add(this.dckSalesQuatar);
@@ -87,6 +89,26 @@
             this.panelContainer1.Size = new System.Drawing.Size(593, 336);
             this.panelContainer1.Tabbed = true;
             this.panelContainer1.Text = "panelContainer1";
+            // 
+            // dckSalesMonth
+            // 
+            this.dckSalesMonth.Controls.Add(this.dockPanel1_Container);
+            this.dckSalesMonth.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
+            this.dckSalesMonth.FloatVertical = true;
+            this.dckSalesMonth.ID = new System.Guid("16a2b87b-d010-4922-b8db-e0c55586e1c1");
+            this.dckSalesMonth.Location = new System.Drawing.Point(4, 23);
+            this.dckSalesMonth.Name = "dckSalesMonth";
+            this.dckSalesMonth.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dckSalesMonth.Size = new System.Drawing.Size(585, 282);
+            this.dckSalesMonth.Text = "Doanh thu theo tháng";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.usrSalesMonth);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(585, 282);
+            this.dockPanel1_Container.TabIndex = 0;
             // 
             // dckSalesDay
             // 
@@ -198,25 +220,6 @@
             this.sccContent.TabIndex = 0;
             this.sccContent.Text = "splitContainerControl1";
             // 
-            // dckSalesMonth
-            // 
-            this.dckSalesMonth.Controls.Add(this.dockPanel1_Container);
-            this.dckSalesMonth.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dckSalesMonth.FloatVertical = true;
-            this.dckSalesMonth.ID = new System.Guid("16a2b87b-d010-4922-b8db-e0c55586e1c1");
-            this.dckSalesMonth.Location = new System.Drawing.Point(4, 23);
-            this.dckSalesMonth.Name = "dckSalesMonth";
-            this.dckSalesMonth.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dckSalesMonth.Size = new System.Drawing.Size(585, 282);
-            this.dckSalesMonth.Text = "Doanh thu theo tháng";
-            // 
-            // dockPanel1_Container
-            // 
-            this.dockPanel1_Container.Location = new System.Drawing.Point(0, 0);
-            this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(585, 282);
-            this.dockPanel1_Container.TabIndex = 0;
-            // 
             // dckSalesQuatar
             // 
             this.dckSalesQuatar.Controls.Add(this.dockPanel2_Container);
@@ -235,6 +238,14 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
             this.dockPanel2_Container.TabIndex = 0;
             // 
+            // usrSalesMonth
+            // 
+            this.usrSalesMonth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.usrSalesMonth.Location = new System.Drawing.Point(0, 0);
+            this.usrSalesMonth.Name = "usrSalesMonth";
+            this.usrSalesMonth.Size = new System.Drawing.Size(585, 282);
+            this.usrSalesMonth.TabIndex = 0;
+            // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +257,8 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.panelContainer1.ResumeLayout(false);
+            this.dckSalesMonth.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
             this.dckSalesDay.ResumeLayout(false);
             this.controlContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
@@ -255,7 +268,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccContent)).EndInit();
             this.sccContent.ResumeLayout(false);
-            this.dckSalesMonth.ResumeLayout(false);
             this.dckSalesQuatar.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -278,5 +290,6 @@
         private DevExpress.XtraEditors.DateEdit dteDay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.CheckButton ckbAutoUpdate;
+        private UsrSales usrSalesMonth;
     }
 }

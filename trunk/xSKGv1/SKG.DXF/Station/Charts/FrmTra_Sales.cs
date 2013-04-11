@@ -56,7 +56,8 @@ namespace SKG.DXF.Station.Charts
                 dteDay.DateTime = Global.Session.Current;
 
             decimal sum;
-            _dtb = _bll.Tra_Detail.SumaryFixed(out sum, VehicleFixed.Region, dteDay.DateTime);
+            var by = (VehicleFixed)cbbType.SelectedIndex;
+            _dtb = _bll.Tra_Detail.SumaryFixed(out sum, by, dteDay.DateTime);
             if (_dtb == null || _dtb.Rows.Count <= 0) return;
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
@@ -197,6 +198,11 @@ namespace SKG.DXF.Station.Charts
         }
 
         private void dteDay_EditValueChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadData();
         }

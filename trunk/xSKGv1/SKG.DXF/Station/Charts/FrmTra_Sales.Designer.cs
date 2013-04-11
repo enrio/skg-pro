@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
+            this.components = new System.ComponentModel.Container();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dckSalesDay = new DevExpress.XtraBars.Docking.DockPanel();
             this.controlContainer1 = new DevExpress.XtraBars.Docking.ControlContainer();
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
+            this.ckbAutoUpdate = new DevExpress.XtraEditors.CheckButton();
             this.cbbType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.dteDay = new DevExpress.XtraEditors.DateEdit();
@@ -42,7 +44,6 @@
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dckSalesQuatar = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.ckbAutoUpdate = new DevExpress.XtraEditors.CheckButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.panelContainer1.SuspendLayout();
@@ -127,14 +128,31 @@
             this.sccMain.TabIndex = 6;
             this.sccMain.Text = "splitContainerControl1";
             // 
+            // ckbAutoUpdate
+            // 
+            this.ckbAutoUpdate.Location = new System.Drawing.Point(351, 2);
+            this.ckbAutoUpdate.Name = "ckbAutoUpdate";
+            this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 20);
+            this.ckbAutoUpdate.TabIndex = 4;
+            this.ckbAutoUpdate.Text = "Tự động cập nhật";
+            this.ckbAutoUpdate.CheckedChanged += new System.EventHandler(this.ckbAutoUpdate_CheckedChanged);
+            // 
             // cbbType
             // 
+            this.cbbType.EditValue = "Theo miền";
             this.cbbType.Location = new System.Drawing.Point(211, 3);
             this.cbbType.Name = "cbbType";
             this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbType.Properties.Items.AddRange(new object[] {
+            "Theo miền",
+            "Theo vùng",
+            "Theo tỉnh",
+            "Theo đơn vị vận tải",
+            "Theo biển số xe"});
             this.cbbType.Size = new System.Drawing.Size(134, 20);
             this.cbbType.TabIndex = 3;
+            this.cbbType.SelectedIndexChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
             // labelControl2
             // 
@@ -214,15 +232,6 @@
             this.dockPanel2_Container.Name = "dockPanel2_Container";
             this.dockPanel2_Container.Size = new System.Drawing.Size(585, 282);
             this.dockPanel2_Container.TabIndex = 0;
-            // 
-            // ckbAutoUpdate
-            // 
-            this.ckbAutoUpdate.Location = new System.Drawing.Point(351, 2);
-            this.ckbAutoUpdate.Name = "ckbAutoUpdate";
-            this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 20);
-            this.ckbAutoUpdate.TabIndex = 4;
-            this.ckbAutoUpdate.Text = "Tự động cập nhật";
-            this.ckbAutoUpdate.CheckedChanged += new System.EventHandler(this.ckbAutoUpdate_CheckedChanged);
             // 
             // FrmTra_Sales
             // 

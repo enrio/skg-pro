@@ -62,7 +62,7 @@ namespace SKG.DXF.Station.Charts
             _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDay.DateTime);
             if (sum <= 0) return;
 
-            var tit = cbbType.Text.Replace("Theo", "").ToUpperWords();
+            var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
             SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),

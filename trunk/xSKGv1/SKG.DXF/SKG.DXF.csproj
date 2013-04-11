@@ -209,12 +209,6 @@
     <Compile Include="Station\Charts\FrmTra_Sales.Designer.cs">
       <DependentUpon>FrmTra_Sales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Charts\UsrSales.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Station\Charts\UsrSales.Designer.cs">
-      <DependentUpon>UsrSales.cs</DependentUpon>
-    </Compile>
     <Compile Include="Station\DataSet\Dts_Fixed.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -469,9 +463,6 @@
     </Compile>
     <EmbeddedResource Include="Station\Charts\FrmTra_Sales.resx">
       <DependentUpon>FrmTra_Sales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Charts\UsrSales.resx">
-      <DependentUpon>UsrSales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Fixed\FrmTra_DebtMonth.resx">
       <DependentUpon>FrmTra_DebtMonth.cs</DependentUpon>

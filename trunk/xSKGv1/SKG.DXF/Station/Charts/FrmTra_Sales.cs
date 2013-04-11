@@ -95,7 +95,7 @@ namespace SKG.DXF.Station.Charts
 
             SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
 
-            var str = String.Format("{0} {3} {1} = {2}đ", Text.ToUpper(),
+            var str = String.Format("{0} {3} {1} = {2}VNĐ", Text.ToUpper(),
                 dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), dm);
 
             if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;

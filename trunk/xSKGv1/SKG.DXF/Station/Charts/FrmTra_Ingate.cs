@@ -58,7 +58,7 @@ namespace SKG.DXF.Station.Charts
 
             var tmp = _dtb.Compute("Sum(Value)", "");
             var sum = Convert.ToInt32(tmp).ToString("#,0");
-            var str = String.Format("", Text.ToUpper(), sum);
+            var str = String.Format("{0} = {1}XE", Text.ToUpper(), sum);
 
             if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
             else _barChart.Titles.Add(new ChartTitle() { Text = str });

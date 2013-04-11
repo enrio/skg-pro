@@ -56,7 +56,7 @@ namespace SKG.DXF.Station.Charts
                 dteDay.DateTime = Global.Session.Current;
 
             decimal sum;
-            _dtb = _bll.Tra_Detail.SumaryFixedByArea(out sum, dteDay.DateTime);
+            _dtb = _bll.Tra_Detail.SumaryFixed(out sum, VehicleFixed.Region, dteDay.DateTime);
             if (_dtb == null || _dtb.Rows.Count <= 0) return;
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),

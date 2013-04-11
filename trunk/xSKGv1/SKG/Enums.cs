@@ -73,5 +73,15 @@ namespace SKG
     /// <summary>
     /// Kind of selection in conditions
     /// </summary>
-    public enum KeySelected { Primary, Foreign, Filter };
+    public enum KeySelected { Primary, Foreign, Filter }
+
+    /// <summary>
+    /// Summary vehicle fixed by
+    /// </summary>
+    public enum VehicleFixed { Region, Area, Province, Transport, Vehicle }
+
+    /// <summary>
+    /// Summary vehicle normal by
+    /// </summary>
+    public enum VehicleNormal { Group, Kind, Vehicle }
 }

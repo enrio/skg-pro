@@ -139,17 +139,19 @@
             // 
             // cbbType
             // 
-            this.cbbType.EditValue = "Theo miền";
+            this.cbbType.EditValue = "Theo miền (xe cố định)";
             this.cbbType.Location = new System.Drawing.Point(211, 3);
             this.cbbType.Name = "cbbType";
             this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbbType.Properties.Items.AddRange(new object[] {
-            "Theo miền",
-            "Theo vùng",
-            "Theo tỉnh",
-            "Theo đơn vị vận tải",
-            "Theo biển số xe"});
+            "Theo miền (xe cố định)",
+            "Theo vùng (xe cố định)",
+            "Theo tỉnh (xe cố định)",
+            "Theo đvvt (xe cố định)",
+            "Theo nhóm (xe vãng lai)",
+            "Theo loại (xe vãng lai)",
+            "Theo cố định, vãng lai"});
             this.cbbType.Size = new System.Drawing.Size(134, 20);
             this.cbbType.TabIndex = 3;
             this.cbbType.SelectedIndexChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);

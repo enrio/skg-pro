@@ -56,9 +56,10 @@ namespace SKG.DXF.Station.Charts
                 dteDay.DateTime = Global.Session.Current;
 
             decimal sum;
-            var by = (VehicleFixed)cbbType.SelectedIndex;
-            _dtb = _bll.Tra_Detail.SumaryFixed(out sum, by, dteDay.DateTime);
-            if (_dtb == null || _dtb.Rows.Count <= 0) return;
+            var by = (Summary)cbbType.SelectedIndex;
+
+            _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDay.DateTime);
+            if (sum <= 0) return;
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
                 dteDay.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;

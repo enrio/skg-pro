@@ -61,6 +61,9 @@ namespace SKG.DXF.Station.Charts
             _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDay.DateTime);
             if (sum <= 0) return;
 
+            var tit = cbbType.Text.Replace("Theo", "").ToUpperInvariant();
+            SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
+
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
                 dteDay.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;
 
@@ -133,7 +136,6 @@ namespace SKG.DXF.Station.Charts
 
             // Set some properties to get a nice-looking chart and set axis title
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
-            SetAxisTitle((XYDiagram)_barChart.Diagram, "Vùng/Nhóm xe", "Số tiền");
 
             _barChart.Legend.Visible = false;
             series.LabelsVisibility = DefaultBoolean.True;

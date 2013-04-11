@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.sccMain = new DevExpress.XtraEditors.SplitContainerControl();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.ckbAutoUpdate = new DevExpress.XtraEditors.CheckButton();
             this.cbbType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -38,6 +39,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).BeginInit();
             this.sccMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).BeginInit();
@@ -53,6 +55,7 @@
             this.sccMain.Horizontal = false;
             this.sccMain.Location = new System.Drawing.Point(0, 63);
             this.sccMain.Name = "sccMain";
+            this.sccMain.Panel1.Controls.Add(this.radioGroup1);
             this.sccMain.Panel1.Controls.Add(this.ckbAutoUpdate);
             this.sccMain.Panel1.Controls.Add(this.cbbType);
             this.sccMain.Panel1.Controls.Add(this.labelControl2);
@@ -61,16 +64,29 @@
             this.sccMain.Panel1.Text = "Panel1";
             this.sccMain.Panel2.Controls.Add(this.sccContent);
             this.sccMain.Panel2.Text = "Panel2";
-            this.sccMain.Size = new System.Drawing.Size(593, 336);
-            this.sccMain.SplitterPosition = 28;
+            this.sccMain.Size = new System.Drawing.Size(644, 366);
+            this.sccMain.SplitterPosition = 29;
             this.sccMain.TabIndex = 7;
             this.sccMain.Text = "splitContainerControl1";
             // 
+            // radioGroup1
+            // 
+            this.radioGroup1.EditValue = true;
+            this.radioGroup1.Location = new System.Drawing.Point(176, 6);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Ngày"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Tháng")});
+            this.radioGroup1.Size = new System.Drawing.Size(109, 23);
+            this.radioGroup1.TabIndex = 5;
+            // 
             // ckbAutoUpdate
             // 
-            this.ckbAutoUpdate.Location = new System.Drawing.Point(351, 2);
+            this.ckbAutoUpdate.Location = new System.Drawing.Point(485, 6);
             this.ckbAutoUpdate.Name = "ckbAutoUpdate";
-            this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 20);
+            this.ckbAutoUpdate.Size = new System.Drawing.Size(98, 23);
             this.ckbAutoUpdate.TabIndex = 4;
             this.ckbAutoUpdate.Text = "Tự động cập nhật";
             this.ckbAutoUpdate.CheckedChanged += new System.EventHandler(this.ckbAutoUpdate_CheckedChanged);
@@ -78,7 +94,7 @@
             // cbbType
             // 
             this.cbbType.EditValue = "Theo miền (xe cố định)";
-            this.cbbType.Location = new System.Drawing.Point(211, 3);
+            this.cbbType.Location = new System.Drawing.Point(346, 8);
             this.cbbType.Name = "cbbType";
             this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -90,38 +106,40 @@
             "Theo nhóm (xe vãng lai)",
             "Theo loại (xe vãng lai)",
             "Theo cố định, vãng lai"});
-            this.cbbType.Size = new System.Drawing.Size(134, 20);
+            this.cbbType.Size = new System.Drawing.Size(133, 20);
             this.cbbType.TabIndex = 3;
             this.cbbType.EditValueChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(169, 6);
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelControl2.Location = new System.Drawing.Point(291, 6);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(36, 13);
+            this.labelControl2.Size = new System.Drawing.Size(49, 23);
             this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Tiêu chí";
+            this.labelControl2.Text = "Kiểu xem";
             // 
             // dteDay
             // 
             this.dteDay.EditValue = null;
-            this.dteDay.Location = new System.Drawing.Point(61, 3);
+            this.dteDay.Location = new System.Drawing.Point(60, 8);
             this.dteDay.Name = "dteDay";
             this.dteDay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dteDay.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dteDay.Size = new System.Drawing.Size(102, 20);
+            this.dteDay.Size = new System.Drawing.Size(110, 20);
             this.dteDay.TabIndex = 1;
             this.dteDay.EditValueChanged += new System.EventHandler(this.dteDay_EditValueChanged);
             // 
             // labelControl1
             // 
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.Location = new System.Drawing.Point(3, 6);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(52, 13);
+            this.labelControl1.Size = new System.Drawing.Size(51, 23);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Chọn ngày";
+            this.labelControl1.Text = "Thời gian";
             // 
             // sccContent
             // 
@@ -131,15 +149,15 @@
             this.sccContent.Name = "sccContent";
             this.sccContent.Panel1.Text = "Panel1";
             this.sccContent.Panel2.Text = "Panel2";
-            this.sccContent.Size = new System.Drawing.Size(593, 303);
-            this.sccContent.SplitterPosition = 294;
+            this.sccContent.Size = new System.Drawing.Size(644, 332);
+            this.sccContent.SplitterPosition = 319;
             this.sccContent.TabIndex = 0;
             this.sccContent.Text = "splitContainerControl1";
             // 
             // FrmTra_Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(593, 399);
+            this.ClientSize = new System.Drawing.Size(644, 429);
             this.Controls.Add(this.sccMain);
             this.Name = "FrmTra_Sales";
             this.Load += new System.EventHandler(this.FrmTra_Sales_Load);
@@ -147,6 +165,7 @@
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sccMain)).EndInit();
             this.sccMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties)).EndInit();
@@ -165,5 +184,6 @@
         private DevExpress.XtraEditors.DateEdit dteDay;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SplitContainerControl sccContent;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
     }
 }

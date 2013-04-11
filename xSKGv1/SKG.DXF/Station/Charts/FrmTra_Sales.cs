@@ -55,13 +55,12 @@ namespace SKG.DXF.Station.Charts
             if (dteDay.DateTime > Global.Session.Current)
                 dteDay.DateTime = Global.Session.Current;
 
-            _dtb = _bll.Tra_Detail.SumaryFixedByArea(dteDay.DateTime);
+            decimal sum;
+            _dtb = _bll.Tra_Detail.SumaryFixedByArea(out sum, dteDay.DateTime);
             if (_dtb == null || _dtb.Rows.Count <= 0) return;
 
-            var tmp = _dtb.Compute("Sum(Money)", "");
-            var sum = Convert.ToDecimal(tmp).ToString("#,0");
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
-                dteDay.DateTime.ToString("dd/MM/yyyy"), sum); ;
+                dteDay.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;
 
             if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
             else _barChart.Titles.Add(new ChartTitle() { Text = str });

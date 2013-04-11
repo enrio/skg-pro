@@ -120,13 +120,14 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegion(DateTime dt)
+        public DataTable SumaryFixedByRegion(out decimal sum, DateTime dt)
         {
+            sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return base.SumaryFixedByRegion(fr, to);
+                return base.SumaryFixedByRegion(out sum, fr, to);
             }
             catch { return null; }
         }
@@ -136,9 +137,9 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByRegionToday()
+        public DataTable SumaryFixedByRegionToday(out decimal sum)
         {
-            return SumaryFixedByRegion(Global.Session.Current);
+            return SumaryFixedByRegion(out sum, Global.Session.Current);
         }
 
         /// <summary>
@@ -146,13 +147,14 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByArea(DateTime dt)
+        public DataTable SumaryFixedByArea(out decimal sum, DateTime dt)
         {
+            sum = 0;
             try
             {
                 var to = dt.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                return base.SumaryFixedByArea(fr, to);
+                return base.SumaryFixedByArea(out sum, fr, to);
             }
             catch { return null; }
         }
@@ -162,9 +164,9 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="sum">Total money</param>
         /// <returns></returns>
-        public DataTable SumaryFixedByAreaToday()
+        public DataTable SumaryFixedByAreaToday(out decimal sum)
         {
-            return SumaryFixedByArea(Global.Session.Current);
+            return SumaryFixedByArea(out sum, Global.Session.Current);
         }
     }
 }

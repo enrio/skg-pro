@@ -845,11 +845,13 @@ namespace SKG.DAL
         /// <summary>
         /// Sumary vehicle fixed by region
         /// </summary>
+        /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        protected DataTable SumaryFixedByRegion(DateTime fr, DateTime to)
+        protected DataTable SumaryFixedByRegion(out decimal sum, DateTime fr, DateTime to)
         {
+            sum = 0;
             try
             {
                 var res = from s in _db.Tra_Details
@@ -864,6 +866,7 @@ namespace SKG.DAL
                               Region = g.Key
                           };
 
+                sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -872,11 +875,13 @@ namespace SKG.DAL
         /// <summary>
         /// Sumary vehicle fixed by area
         /// </summary>
+        /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        protected DataTable SumaryFixedByArea(DateTime fr, DateTime to)
+        protected DataTable SumaryFixedByArea(out decimal sum, DateTime fr, DateTime to)
         {
+            sum = 0;
             try
             {
                 var res = from s in _db.Tra_Details
@@ -891,6 +896,7 @@ namespace SKG.DAL
                               g.Key
                           };
 
+                sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -899,11 +905,13 @@ namespace SKG.DAL
         /// <summary>
         /// Sumary vehicle fixed by province
         /// </summary>
+        /// <param name="sum">Total money</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         /// <returns></returns>
-        protected DataTable SumaryFixedByProvince(DateTime fr, DateTime to)
+        protected DataTable SumaryFixedByProvince(out decimal sum, DateTime fr, DateTime to)
         {
+            sum = 0;
             try
             {
                 var res = from s in _db.Tra_Details
@@ -918,6 +926,37 @@ namespace SKG.DAL
                               g.Key
                           };
 
+                sum = res.Sum(k => k.Money);
+                return res.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Sumary vehicle fixed by transport
+        /// </summary>
+        /// <param name="sum">Total money</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumaryFixedByTransport(out decimal sum, DateTime fr, DateTime to)
+        {
+            sum = 0;
+            try
+            {
+                var res = from s in _db.Tra_Details
+                          where s.UserOutId != null
+                          && s.DateOut >= fr && s.DateOut <= to
+                          && s.Vehicle.Fixed == true
+                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                          group s by s.Vehicle.Transport.Text into g
+                          select new
+                          {
+                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                              g.Key
+                          };
+
+                sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
             }
             catch { return null; }

@@ -53,20 +53,20 @@ namespace SKG.DXF.Station.Charts
         #region Overrides
         protected override void LoadData()
         {
-            if (dteDay.DateTime > Global.Session.Current)
-                dteDay.DateTime = Global.Session.Current;
+            if (dteDayMonth.DateTime > Global.Session.Current)
+                dteDayMonth.DateTime = Global.Session.Current;
 
             decimal sum;
             var by = (Summary)cbbType.SelectedIndex;
 
-            _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDay.DateTime);
+            _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDayMonth.DateTime);
             if (sum <= 0) return;
 
             var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
             SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
 
             var str = String.Format("{0} ngày {1} = {2}đ", Text.ToUpper(),
-                dteDay.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;
+                dteDayMonth.DateTime.ToString("dd/MM/yyyy"), sum.ToString("#,0")); ;
 
             if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
             else _barChart.Titles.Add(new ChartTitle() { Text = str });
@@ -198,10 +198,10 @@ namespace SKG.DXF.Station.Charts
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
             AllowBar = false;
-            dteDay.DateTime = Global.Session.Current;
+            dteDayMonth.DateTime = Global.Session.Current;
         }
 
-        private void dteDay_EditValueChanged(object sender, EventArgs e)
+        private void dteDayMonth_EditValueChanged(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -219,6 +219,22 @@ namespace SKG.DXF.Station.Charts
                 tmrMain.Enabled = true;
             }
             else tmrMain.Enabled = false;
+        }
+
+        private void rdgDayMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rdgDayMonth.SelectedIndex == 0)
+            {
+                dteDayMonth.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+                dteDayMonth.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            }
+            else
+            {
+                dteDayMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
+                dteDayMonth.Properties.EditFormat.FormatString = "MM/yyyy";
+            }
+
+            LoadData();
         }
         #endregion
 

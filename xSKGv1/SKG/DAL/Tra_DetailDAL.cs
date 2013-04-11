@@ -1735,7 +1735,28 @@ namespace SKG.DAL
                         return r6.ToDataTable();
 
                     default:
-                        return null;
+                        var r7 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Fixed into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     g.Key
+                                 };
+                        var r8 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Fixed into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r7.Union(r8).ToDataTable();
                 }
             }
             catch { return null; }

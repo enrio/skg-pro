@@ -155,10 +155,11 @@ namespace SKG.DXF.Station.Charts
         {
             // Create an empty Bar series and add it to the chart
             var series = new Series("Series1", ViewType.Bar);
+            series.LegendPointOptions.PointView = PointView.Argument;
             _barChart.Series.Add(series);
 
             // Adjust the point options of the series
-            series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
+            series.Label.PointOptions.PointView = PointView.Values;
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
             series.Label.PointOptions.ValueNumericOptions.Precision = 0;
 
@@ -183,10 +184,11 @@ namespace SKG.DXF.Station.Charts
         {
             // Create an empty Pie series and add it to the chart
             var series = new Series("DOANH THU THEO TỈ LỆ %", ViewType.Pie);
+            series.LegendPointOptions.PointView = PointView.Argument;
             _pieChart.Series.Add(series);
 
             // Adjust the point options of the series
-            series.Label.PointOptions.PointView = PointView.ArgumentAndValues;
+            series.Label.PointOptions.PointView = PointView.Values;
             series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Percent;
             series.Label.PointOptions.ValueNumericOptions.Precision = 2;
 

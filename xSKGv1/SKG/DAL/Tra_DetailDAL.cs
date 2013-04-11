@@ -865,7 +865,7 @@ namespace SKG.DAL
                                  select new
                                  {
                                      Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                                     Region = g.Key
+                                     g.Key
                                  };
                         return r1.ToDataTable();
 

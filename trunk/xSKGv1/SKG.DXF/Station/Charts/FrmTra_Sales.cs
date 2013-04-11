@@ -59,7 +59,21 @@ namespace SKG.DXF.Station.Charts
             decimal sum;
             var by = (Summary)cbbType.SelectedIndex;
 
-            _dtb = _bll.Tra_Detail.SumarySales(out sum, by, dteDayMonth.DateTime);
+            if (rdgDayMonth.SelectedIndex == 0)
+            {
+                _dtb = _bll.Tra_Detail.SumarySalesDay(out sum, by, dteDayMonth.DateTime);
+
+                dteDayMonth.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
+                dteDayMonth.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            }
+            else
+            {
+                _dtb = _bll.Tra_Detail.SumarySalesMonth(out sum, by, dteDayMonth.DateTime);
+
+                dteDayMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
+                dteDayMonth.Properties.EditFormat.FormatString = "MM/yyyy";
+            }
+
             if (sum <= 0) return;
 
             var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
@@ -223,17 +237,6 @@ namespace SKG.DXF.Station.Charts
 
         private void rdgDayMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rdgDayMonth.SelectedIndex == 0)
-            {
-                dteDayMonth.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
-                dteDayMonth.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            }
-            else
-            {
-                dteDayMonth.Properties.DisplayFormat.FormatString = "MM/yyyy";
-                dteDayMonth.Properties.EditFormat.FormatString = "MM/yyyy";
-            }
-
             LoadData();
         }
         #endregion

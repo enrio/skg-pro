@@ -41,10 +41,34 @@ namespace SKG.Server
 
         void OpenPort()
         {
+            receiveNow = new AutoResetEvent(false);            
+            try
+            {
+                srpMain.PortName = "COM1";
+                srpMain.BaudRate = 9600;
+                srpMain.DataBits = 8;
+                srpMain.StopBits = StopBits.One;
+                srpMain.Parity = Parity.None;
+                srpMain.ReadTimeout = 300;
+                srpMain.WriteTimeout = 300;
+
+                srpMain.DataReceived += new SerialDataReceivedEventHandler(srpMain_DataReceived);
+                srpMain.Open();
+                srpMain.DtrEnable = true;
+                srpMain.RtsEnable = true;
+            }
+            catch (Exception ex) { throw ex; }            
         }
 
         void ClosePort()
         {
+            try
+            {
+                srpMain.Close();
+                srpMain.DataReceived -= new SerialDataReceivedEventHandler(srpMain_DataReceived);
+                srpMain = null;
+            }
+            catch (Exception ex) { throw ex; }
         }
 
         #region AT command

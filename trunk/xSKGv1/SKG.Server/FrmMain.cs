@@ -49,7 +49,7 @@ namespace SKG.Server
 
         void OpenPort()
         {
-            if (srpMain.IsOpen) return;
+            if (srpMain == null || srpMain.IsOpen) return;
 
             receiveNow = new AutoResetEvent(false);
             try
@@ -78,7 +78,7 @@ namespace SKG.Server
                 srpMain.DataReceived -= new SerialDataReceivedEventHandler(DataReceived);
                 srpMain = null;
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex) { return; }
         }
 
         #region AT command
@@ -171,7 +171,7 @@ namespace SKG.Server
 
                 return countTotalMessages;
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex) { return 0; }
         }
         #endregion
 

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace SKG.Server
 {
+    using SKG.Extend;
     using SKG.SMS;
     using System.IO.Ports;
     using System.Threading;
@@ -41,7 +42,7 @@ namespace SKG.Server
             {
                 if (e.EventType == SerialData.Chars) receiveNow.Set();
 
-                
+
             }
             catch (Exception ex) { throw ex; }
         }
@@ -347,7 +348,81 @@ namespace SKG.Server
                     var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Content };
                     var item = new ListViewItem(tmp) { Tag = msg };
                     listView1.Items.Add(item);
-                    SendMsg(srpMain, msg.Sender, msg.Content + "MrTOan");
+
+                    var noidung = "";
+                    decimal sum = 0;
+                    var content = msg.Content.Trim();
+
+                    switch (content)
+                    {
+                        case "DTXCD":
+                            content = content.Replace("DTXCD", "").Trim();
+                            var s = content.Split(new char[] { '/' });
+
+                            if (s.Length > 2) // doanh thu theo ngay
+                            {
+                                var d = s[0].ToInt32();
+                                var m = s[1].ToInt32();
+                                var y = s[2].ToInt32();
+                                var dt = new DateTime(y, m, d);
+                                var res = _bll.Tra_Detail.SumarySalesDay(out sum, Summary.AreaFixed, dt);
+                                noidung = String.Format("Doanh thu ngay {0} la {1:#,0}", content, sum);
+                            }
+                            else if (s.Length > 1) // doanh thu theo thang
+                            {
+                                var m = s[0].ToInt32();
+                                var y = s[1].ToInt32();
+                                var dt = new DateTime(y, m, 1);
+                                var res = _bll.Tra_Detail.SumarySalesMonth(out sum, Summary.AreaFixed, dt);
+                                noidung = String.Format("Doanh thu thang {0}/{1} la {2:#,0}", m, y, sum);
+                            }
+                            else if (s.Length > 0) // doanh thu theo nam
+                            {
+                                var y = s[0].ToInt32();
+                                var dt = new DateTime(y, 1, 1);
+                                var res = _bll.Tra_Detail.SumarySalesYear(out sum, Summary.AreaFixed, dt);
+                                noidung = String.Format("Doanh thu nam {0} la {1:#,0}", y, sum);
+                            }
+                            else noidung = "Sai cu phap";
+                            break;
+
+                        case "DTXVL":
+                            content = content.Replace("DTXVL", "").Trim();
+                            s = content.Split(new char[] { '/' });
+
+                            if (s.Length > 2) // doanh thu theo ngay
+                            {
+                                var d = s[0].ToInt32();
+                                var m = s[1].ToInt32();
+                                var y = s[2].ToInt32();
+                                var dt = new DateTime(y, m, d);
+                                var res = _bll.Tra_Detail.SumarySalesDay(out sum, Summary.KindNormal, dt);
+                                noidung = String.Format("Doanh thu ngay {0} la {1:#,0}", content, sum);
+                            }
+                            else if (s.Length > 1) // doanh thu theo thang
+                            {
+                                var m = s[0].ToInt32();
+                                var y = s[1].ToInt32();
+                                var dt = new DateTime(y, m, 1);
+                                var res = _bll.Tra_Detail.SumarySalesMonth(out sum, Summary.KindNormal, dt);
+                                noidung = String.Format("Doanh thu thang {0}/{1} la {2:#,0}", m, y, sum);
+                            }
+                            else if (s.Length > 0) // doanh thu theo nam
+                            {
+                                var y = s[0].ToInt32();
+                                var dt = new DateTime(y, 1, 1);
+                                var res = _bll.Tra_Detail.SumarySalesYear(out sum, Summary.KindNormal, dt);
+                                noidung = String.Format("Doanh thu nam {0} la {1:#,0}", y, sum);
+                            }
+                            else noidung = "Sai cu phap";
+                            break;
+
+                        default:
+                            noidung = "Sai cu phap";
+                            break;
+                    }
+
+                    SendMsg(srpMain, msg.Sender, noidung);
                 }
             }
         }
@@ -356,5 +431,7 @@ namespace SKG.Server
         {
             button1_Click(null, null);
         }
+
+        SKG.BLL.BaseBLL _bll = new BLL.BaseBLL();
     }
 }

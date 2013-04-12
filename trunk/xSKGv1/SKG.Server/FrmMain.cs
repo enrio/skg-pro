@@ -234,7 +234,6 @@ namespace SKG.Server
                 return isSend;
             }
             catch (Exception ex) { throw ex; }
-            finally { ClosePort(); }
         }
 
         /// <summary>
@@ -337,6 +336,8 @@ namespace SKG.Server
 
         private void button1_Click(object sender, EventArgs e)
         {
+            OpenPort();
+
             int uCountSMS = CountMsg(srpMain);
             if (uCountSMS > 0)
             {
@@ -358,7 +359,7 @@ namespace SKG.Server
                     {
                         noidung = "Sai cu phap";
                         SendMsg(srpMain, msg.Sender, noidung);
-                        return;
+                        continue;
                     }
 
                     switch (ct[0])
@@ -433,6 +434,8 @@ namespace SKG.Server
                     SendMsg(srpMain, msg.Sender, noidung);
                 }
             }
+
+            ClosePort();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

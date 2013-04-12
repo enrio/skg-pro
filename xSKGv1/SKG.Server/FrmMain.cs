@@ -351,5 +351,10 @@ namespace SKG.Server
                 }
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            button1_Click(null, null);
+        }
     }
 }

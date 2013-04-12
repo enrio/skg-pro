@@ -340,13 +340,14 @@ namespace SKG.Server
             {
                 listView1.Clear();
                 var at = "AT+CMGL=\"ALL\"";
-                //at = "AT+CMGL=\"REC UNREAD\"";
+                at = "AT+CMGL=\"REC UNREAD\"";
                 var objShortMessageCollection = ReadMsg(srpMain, at);
                 foreach (Message msg in objShortMessageCollection)
                 {
                     var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Content };
                     var item = new ListViewItem(tmp) { Tag = msg };
                     listView1.Items.Add(item);
+                    SendMsg(srpMain, msg.Sender, msg.Content + "MrTOan");
                 }
             }
         }

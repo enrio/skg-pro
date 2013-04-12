@@ -70,12 +70,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GSMCommunication">
-      <Name>GSMCommunication</Name>
-      <HintPath>bin\Debug\GSMCommunication.dll</HintPath>
+      <HintPath>..\GSMCommunication.dll</HintPath>
     </Reference>
     <Reference Include="PDUConverter">
-      <Name>PDUConverter</Name>
-      <HintPath>bin\Debug\PDUConverter.dll</HintPath>
+      <HintPath>..\PDUConverter.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>

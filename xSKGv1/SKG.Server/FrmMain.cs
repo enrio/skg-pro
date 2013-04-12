@@ -30,7 +30,7 @@ namespace SKG.Server
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void srpMain_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
+        private void DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             try
             {
@@ -41,7 +41,7 @@ namespace SKG.Server
 
         void OpenPort()
         {
-            receiveNow = new AutoResetEvent(false);            
+            receiveNow = new AutoResetEvent(false);
             try
             {
                 srpMain.PortName = "COM1";
@@ -52,12 +52,12 @@ namespace SKG.Server
                 srpMain.ReadTimeout = 300;
                 srpMain.WriteTimeout = 300;
 
-                srpMain.DataReceived += new SerialDataReceivedEventHandler(srpMain_DataReceived);
+                srpMain.DataReceived += new SerialDataReceivedEventHandler(DataReceived);
                 srpMain.Open();
                 srpMain.DtrEnable = true;
                 srpMain.RtsEnable = true;
             }
-            catch (Exception ex) { throw ex; }            
+            catch (Exception ex) { throw ex; }
         }
 
         void ClosePort()
@@ -65,7 +65,7 @@ namespace SKG.Server
             try
             {
                 srpMain.Close();
-                srpMain.DataReceived -= new SerialDataReceivedEventHandler(srpMain_DataReceived);
+                srpMain.DataReceived -= new SerialDataReceivedEventHandler(DataReceived);
                 srpMain = null;
             }
             catch (Exception ex) { throw ex; }

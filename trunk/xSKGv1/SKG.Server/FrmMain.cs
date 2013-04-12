@@ -352,8 +352,15 @@ namespace SKG.Server
                     var noidung = "";
                     decimal sum = 0;
                     var content = msg.Content.Trim();
+                    var ct =  content.Split(new char[] { ' ' });
+                    if (ct.Length < 2)
+                    {
+                        noidung = "Sai cu phap";
+                        SendMsg(srpMain, msg.Sender, noidung);
+                        return;
+                    }
 
-                    switch (content)
+                    switch (ct[0])
                     {
                         case "DTXCD":
                             content = content.Replace("DTXCD", "").Trim();

@@ -141,8 +141,9 @@ namespace SKG.Server
         }
         #endregion
 
-        #region Read SMS
+        #region Read, Send & Delete SMS
         AutoResetEvent receiveNow;
+        static AutoResetEvent readNow = new AutoResetEvent(false);
 
         /// <summary>
         /// Read SMS
@@ -173,6 +174,60 @@ namespace SKG.Server
             if (messages != null) return messages;
             return null;
         }
+
+        /// <summary>
+        /// Send SMS
+        /// </summary>
+        /// <param name="port">Port</param>
+        /// <param name="phoneNo">Phone number</param>
+        /// <param name="message">Message</param>
+        /// <returns></returns>
+        public bool SendMsg(SerialPort port, string phoneNo, string message)
+        {
+            bool isSend = false;
+            try
+            {
+                string recievedData = ExecCommand(port, "AT", 300);
+                recievedData = ExecCommand(port, "AT+CMGF=1", 300);
+
+                var command = String.Format("AT+CMGS=\"{0}\"", phoneNo);
+                recievedData = ExecCommand(port, command, 300);
+
+                command = String.Format("{0}{1}\r", message, Char.ConvertFromUtf32(26));
+                recievedData = ExecCommand(port, command, 3000); //3 seconds
+
+                if (recievedData.EndsWith(STR_OK)) isSend = true;
+                else if (recievedData.Contains("ERROR")) isSend = false;
+
+                return isSend;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        /// <summary>
+        /// Delete SMS
+        /// </summary>
+        /// <param name="port">Port</param>
+        /// <param name="command">AT command</param>
+        /// <returns></returns>
+        public bool DeleteMsg(SerialPort port, string command)
+        {
+            bool isDeleted = false;
+            try
+            {
+                var recievedData = ExecCommand(port, "AT", 300);
+                recievedData = ExecCommand(port, "AT+CMGF=1", 300);
+                var cmd = command;
+                recievedData = ExecCommand(port, cmd, 300);
+
+                if (recievedData.EndsWith(STR_OK)) isDeleted = true;
+                if (recievedData.Contains("ERROR")) isDeleted = false;
+
+                return isDeleted;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        #endregion
 
         /// <summary>
         /// Parse messages
@@ -207,38 +262,44 @@ namespace SKG.Server
 
             return messages;
         }
-        #endregion
 
-        #region Send SMS
-        static AutoResetEvent readNow = new AutoResetEvent(false);
         /// <summary>
-        /// Send SMS
+        /// Auto detect COM port
         /// </summary>
-        /// <param name="port">Port</param>
-        /// <param name="phoneNo">Phone number</param>
-        /// <param name="message">Message</param>
+        /// <param name="port">COM port</param>
+        /// <param name="timeout">Timeout</param>
         /// <returns></returns>
-        public bool SendMsg(SerialPort port, string phoneNo, string message)
+        public int AutoDetect(SerialPort port)
         {
-            bool isSend = false;
+            int countTotalMessages = 0;
             try
             {
+                #region Execute command
                 string recievedData = ExecCommand(port, "AT", 300);
                 recievedData = ExecCommand(port, "AT+CMGF=1", 300);
 
-                var command = String.Format("AT+CMGS=\"{0}\"", phoneNo);
-                recievedData = ExecCommand(port, command, 300);
+                const string command = "AT+CPMS?";
+                recievedData = ExecCommand(port, command, 1000);
+                #endregion
 
-                command = String.Format("{0}{1}\r", message, Char.ConvertFromUtf32(26));
-                recievedData = ExecCommand(port, command, 3000); //3 seconds
+                //if ((recievedData.Length >= 45) && (recievedData.StartsWith("AT+CPMS?")))
+                if ((recievedData.Length >= 45))
+                {
+                    string[] strSplit = recievedData.Split(',');
+                    //string strMessageStorageArea1 = strSplit[0];     // SM
+                    string strMessageExist1 = strSplit[1];           // Msgs exist in SM
+                    countTotalMessages = Convert.ToInt32(strMessageExist1); // count total number of SMS in SIM
+                }
+                else if (recievedData.Contains("ERROR"))
+                {
+                    string recievedError = recievedData;
+                    recievedError = recievedError.Trim();
+                    recievedData = "Following error occured while counting the message " + recievedError;
+                }
 
-                if (recievedData.EndsWith(STR_OK)) isSend = true;
-                else if (recievedData.Contains("ERROR")) isSend = false;
-
-                return isSend;
+                return countTotalMessages;
             }
-            catch (Exception ex) { throw ex; }
+            catch { return -1; }
         }
-        #endregion
     }
 }

@@ -49,7 +49,11 @@ namespace SKG.Server
 
         void OpenPort()
         {
-            if (srpMain == null || srpMain.IsOpen) return;
+            if (srpMain == null )
+            {
+                srpMain = new SerialPort();
+            }
+            if(srpMain.IsOpen) return;
 
             receiveNow = new AutoResetEvent(false);
             try

@@ -49,6 +49,8 @@ namespace SKG.Server
 
         void OpenPort()
         {
+            if (srpMain.IsOpen) return;
+
             receiveNow = new AutoResetEvent(false);
             try
             {

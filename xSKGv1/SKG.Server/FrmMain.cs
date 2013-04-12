@@ -9,6 +9,8 @@ using System.Windows.Forms;
 
 namespace SKG.Server
 {
+    using System.IO.Ports;
+
     public partial class FrmMain : Form
     {
         public FrmMain()

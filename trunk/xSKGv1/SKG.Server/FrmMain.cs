@@ -25,6 +25,11 @@ namespace SKG.Server
             InitializeComponent();
         }
 
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            OpenPort();
+        }
+
         /// <summary>
         /// Receive data from port
         /// </summary>
@@ -35,6 +40,8 @@ namespace SKG.Server
             try
             {
                 if (e.EventType == SerialData.Chars) receiveNow.Set();
+
+                
             }
             catch (Exception ex) { throw ex; }
         }
@@ -44,7 +51,7 @@ namespace SKG.Server
             receiveNow = new AutoResetEvent(false);
             try
             {
-                srpMain.PortName = "COM1";
+                srpMain.PortName = "COM5";
                 srpMain.BaudRate = 9600;
                 srpMain.DataBits = 8;
                 srpMain.StopBits = StopBits.One;
@@ -324,6 +331,24 @@ namespace SKG.Server
                 return countTotalMessages;
             }
             catch { return -1; }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int uCountSMS = CountMsg(srpMain);
+            if (uCountSMS > 0)
+            {
+                listView1.Clear();
+                var at = "AT+CMGL=\"ALL\"";
+                //at = "AT+CMGL=\"REC UNREAD\"";
+                var objShortMessageCollection = ReadMsg(srpMain, at);
+                foreach (Message msg in objShortMessageCollection)
+                {
+                    var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Content };
+                    var item = new ListViewItem(tmp) { Tag = msg };
+                    listView1.Items.Add(item);
+                }
+            }
         }
     }
 }

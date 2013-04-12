@@ -234,6 +234,7 @@ namespace SKG.Server
                 return isSend;
             }
             catch (Exception ex) { throw ex; }
+            finally { ClosePort(); }
         }
 
         /// <summary>
@@ -352,7 +353,7 @@ namespace SKG.Server
                     var noidung = "";
                     decimal sum = 0;
                     var content = msg.Content.Trim();
-                    var ct =  content.Split(new char[] { ' ' });
+                    var ct = content.Split(new char[] { ' ' });
                     if (ct.Length < 2)
                     {
                         noidung = "Sai cu phap";

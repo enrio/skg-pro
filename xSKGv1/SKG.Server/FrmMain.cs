@@ -9,8 +9,10 @@ using System.Windows.Forms;
 
 namespace SKG.Server
 {
+    using SKG.SMS;
     using System.IO.Ports;
     using System.Threading;
+    using System.Text.RegularExpressions;
 
     public partial class FrmMain : Form
     {
@@ -18,16 +20,23 @@ namespace SKG.Server
         private const string STR_ERROR = "\r\nERROR\r\n";
         private const string STR_OK = "\r\nOK\r\n";
 
-        public AutoResetEvent receiveNow;
-
         public FrmMain()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Receive data from port
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void srpMain_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-
+            try
+            {
+                if (e.EventType == SerialData.Chars) receiveNow.Set();
+            }
+            catch (Exception ex) { throw ex; }
         }
 
         void OpenPort()
@@ -127,6 +136,106 @@ namespace SKG.Server
                 }
 
                 return countTotalMessages;
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        #endregion
+
+        #region Read SMS
+        AutoResetEvent receiveNow;
+
+        /// <summary>
+        /// Read SMS
+        /// </summary>
+        /// <param name="port">port</param>
+        /// <param name="command">AT command</param>
+        /// <returns></returns>
+        public Messages ReadMsg(SerialPort port, string command)
+        {
+            // Set up the phone and read the messages
+            Messages messages = null;
+            try
+            {
+                #region Execute Command
+                ExecCommand(port, "AT", 300); // check connection
+                ExecCommand(port, "AT+CMGF=1", 300); // use message format "Text mode"
+
+                //ExecCommand(port, "AT+CSCS=\"PCCP437\"", 300); // use character set "PCCP437"
+                ExecCommand(port, "AT+CPMS=\"SM\"", 300); // select SIM storage
+
+                string input = ExecCommand(port, command, 5000); // read the messages
+                #endregion
+
+                messages = ParseMsg(input); // parse messages
+            }
+            catch (Exception ex) { throw ex; }
+
+            if (messages != null) return messages;
+            return null;
+        }
+
+        /// <summary>
+        /// Parse messages
+        /// </summary>
+        /// <param name="input">Data input</param>
+        /// <returns></returns>
+        public Messages ParseMsg(string input)
+        {
+            var messages = new Messages();
+            try
+            {
+                var r = new Regex(@"\+CMGL: (\d+),""(.+)"",""(.+)"",(.*),""(.+)""\r\n(.+)\r\n");
+                var m = r.Match(input);
+
+                while (m.Success)
+                {
+                    var msg = new Message
+                    {
+                        Index = m.Groups[1].Value,
+                        Status = m.Groups[2].Value,
+                        Sender = m.Groups[3].Value,
+                        Alphabet = m.Groups[4].Value,
+                        Sent = m.Groups[5].Value,
+                        Content = m.Groups[6].Value
+                    };
+
+                    messages.Add(msg);
+                    m = m.NextMatch();
+                }
+            }
+            catch (Exception ex) { throw ex; }
+
+            return messages;
+        }
+        #endregion
+
+        #region Send SMS
+        static AutoResetEvent readNow = new AutoResetEvent(false);
+        /// <summary>
+        /// Send SMS
+        /// </summary>
+        /// <param name="port">Port</param>
+        /// <param name="phoneNo">Phone number</param>
+        /// <param name="message">Message</param>
+        /// <returns></returns>
+        public bool SendMsg(SerialPort port, string phoneNo, string message)
+        {
+            bool isSend = false;
+            try
+            {
+                string recievedData = ExecCommand(port, "AT", 300);
+                recievedData = ExecCommand(port, "AT+CMGF=1", 300);
+
+                var command = String.Format("AT+CMGS=\"{0}\"", phoneNo);
+                recievedData = ExecCommand(port, command, 300);
+
+                command = String.Format("{0}{1}\r", message, Char.ConvertFromUtf32(26));
+                recievedData = ExecCommand(port, command, 3000); //3 seconds
+
+                if (recievedData.EndsWith(STR_OK)) isSend = true;
+                else if (recievedData.Contains("ERROR")) isSend = false;
+
+                return isSend;
             }
             catch (Exception ex) { throw ex; }
         }

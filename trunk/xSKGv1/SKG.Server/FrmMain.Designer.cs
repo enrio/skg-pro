@@ -37,7 +37,6 @@
             this.srpMain.PortName = "COM5";
             this.srpMain.ReadTimeout = 300;
             this.srpMain.WriteTimeout = 300;
-            this.srpMain.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.srpMain_DataReceived);
             // 
             // FrmMain
             // 

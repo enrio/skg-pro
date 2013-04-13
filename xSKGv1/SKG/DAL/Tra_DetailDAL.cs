@@ -496,6 +496,11 @@ namespace SKG.DAL
                     m = Global.Session.Current.Month;
                     y = Global.Session.Current.Year;
                 }
+                else if (dateOut < a.DateIn)
+                {
+                    a.Note = "THỜI GIAN RA < THỜI GIAN VÀO";
+                    return a;
+                }
                 else
                 {
                     a.DateOut = dateOut;

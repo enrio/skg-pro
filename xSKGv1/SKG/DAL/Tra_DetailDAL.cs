@@ -480,7 +480,7 @@ namespace SKG.DAL
         /// <param name="isRepair">Out gate to repair</param>
         /// <param name="note">Note</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool isRepair = true, string note = "", string seri = "")
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool? isRepair = true, string note = "", string seri = "")
         {
             try
             {
@@ -515,19 +515,21 @@ namespace SKG.DAL
                     return a;
                 }
 
-                // Xe cố định - tạm cho ra bến
-                if (ql && a.Vehicle.Fixed)
+                // Tạm cho ra bến/xe không đủ điều kiện (xe cố định)
+                if (isRepair != null & ql && a.Vehicle.Fixed)
                 {
                     a.Note = "ĐỘI ĐIỀU HÀNH: ";
-                    if (isRepair)
+                    if (isRepair.Value)
                     {
-                        a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                        // Cho ra ngoài để sửa chữa (không tính tiền lúc ra bến) chỉ ghi nhận tiền đậu đêm
+                        a.Repair = true;
                         a.Show = true;
                         a.Note += "TẠM CHO XE RA BẾN";
                     }
                     else
                     {
-                        a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
+                        // Xe không đủ điều kiện (không tính tiền lúc ra bến) cho xe ra bến luôn
+                        a.Show = false;
                         a.Repair = false;
                         a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
 

@@ -60,11 +60,11 @@ namespace SKG.DXF.Station.Manage
                 var file = Application.StartupPath + @"\Import\XuatBT.xls";
 
                 _tbFixed = ImportData(file, "Codinh");
-                InvoiceOut(_tbFixed.Rows, false);
+                InvoiceOut(_tbFixed.Rows);
                 grcFixed.DataSource = _tbFixed;
 
                 _tbNormal = ImportData(file, "Vanglai");
-                InvoiceOut(_tbNormal.Rows, false);
+                InvoiceOut(_tbNormal.Rows);
                 grcNormal.DataSource = _tbNormal;
 
                 grvFixed.BestFitColumns();
@@ -84,10 +84,21 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var fix = InvoiceOut(_tbFixed.Rows, true);
-                grcFixed.DataSource = _tbFixed;
+                int fix = 0, nor;
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
 
-                var nor = InvoiceOut(_tbNormal.Rows, true);
+                if (ql && _tbFixed.Rows.Count > 0)
+                {
+                    var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (ok == DialogResult.No)
+                    {
+                        fix = InvoiceOut(_tbFixed.Rows, true);
+                        grcFixed.DataSource = _tbFixed;
+                    }
+                }
+
+                nor = InvoiceOut(_tbNormal.Rows, null, true);
                 grcNormal.DataSource = _tbNormal;
 
                 XtraMessageBox.Show(String.Format(STR_INTO, fix, nor), Text);
@@ -173,7 +184,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="dtr">Data</param>
         /// <param name="isOut">Out gate</param>
         /// <returns></returns>
-        private int InvoiceOut(DataRowCollection dtr, bool isOut = true)
+        private int InvoiceOut(DataRowCollection dtr, bool? isRepair = null, bool isOut = false)
         {
             try
             {
@@ -190,7 +201,7 @@ namespace SKG.DXF.Station.Manage
                         continue;
                     }
 
-                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date);
+                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date, isRepair);
                     if (d == null)
                     {
                         r.RowError = STR_IN_DEPOT;

@@ -509,6 +509,12 @@ namespace SKG.DAL
                     return a;
                 }
 
+                if (a.DateOut > Global.Session.Current)
+                {
+                    a.Note = "THỜI GIAN RA > HIỆN TẠI";
+                    return a;
+                }
+
                 // Xe cố định - tạm cho ra bến
                 if (ql && a.Vehicle.Fixed)
                 {

@@ -240,11 +240,22 @@ namespace SKG.DXF.Station.Manage
                         r["Parked"] = d.Parked;
                         r["Money"] = d.Money;
 
-                        if (isOut) r["Note"] = STR_EXIT;
-                        count++;
+                        // Thời gian xe ra < thời gian vào
+                        if (d.Note != null)
+                        {
+                            r.RowError = d.Note;
+                            r["Note"] = r.RowError;
+                        }
+                        else
+                        {
+                            if (isOut) r["Note"] = STR_EXIT;
+                            count++;
+                        }
                     }
+
                     r["UserOut"] = Global.Session.User.Name;
                 }
+
                 return count;
             }
             catch (Exception ex)
@@ -318,8 +329,8 @@ namespace SKG.DXF.Station.Manage
         #region Constants
         private const string STR_TITLE = "Xuất xe bằng tay";
 
-        private const string STR_NO_LIST = "Không có trong danh sách";
-        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
+        private const string STR_NO_LIST = "CHƯA CÓ THÔNG TIN XE";
+        private const string STR_NO_ROUTE = "CHƯA ĐĂNG KÍ TUYẾN";
 
         private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";

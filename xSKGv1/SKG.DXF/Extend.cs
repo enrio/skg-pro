@@ -685,7 +685,7 @@ namespace SKG.DXF
             var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);
 
             menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
-            menuz3.Caption = "Đăng xuất";
+            menuz3.Caption = "ĐĂNG XUẤT";
 
             // Show default form
             var d = Global.Session.Default;

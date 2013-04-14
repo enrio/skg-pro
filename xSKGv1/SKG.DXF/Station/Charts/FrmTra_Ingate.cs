@@ -54,7 +54,7 @@ namespace SKG.DXF.Station.Charts
             _dtb = _bll.Tra_Detail.GetInDepot();
             if (_dtb == null || _dtb.Rows.Count == 0) return;
 
-            SetAxisTitle((XYDiagram)_barChart.Diagram, "Loại xe", "Số xe");
+            SetAxisTitle((XYDiagram)_barChart.Diagram, "Tuyến/Loại xe", "Số xe");
 
             var tmp = _dtb.Compute("Sum(Value)", "");
             var sum = Convert.ToInt32(tmp).ToString("#,0");

@@ -62,5 +62,16 @@ namespace SKG.BLL
             }
             else return false;
         }
+
+        /// <summary>
+        /// Select by phone number
+        /// </summary>
+        /// <param name="phone">Phone number</param>
+        /// <returns></returns>
+        protected Pol_User SelectByPhone(string phone)
+        {
+            var o = base.SelectByPhone(phone);
+            return o;
+        }
     }
 }

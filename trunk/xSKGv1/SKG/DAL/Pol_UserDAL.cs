@@ -255,7 +255,7 @@ namespace SKG.DAL
         /// </summary>
         /// <param name="phone">Phone number</param>
         /// <returns></returns>
-        public Pol_User SelectByPhone(string phone)
+        protected Pol_User SelectByPhone(string phone)
         {
             try
             {

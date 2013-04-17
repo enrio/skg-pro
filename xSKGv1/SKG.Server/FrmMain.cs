@@ -355,7 +355,9 @@ namespace SKG.Server
                 listView1.Clear();
                 var at = "AT+CMGL=\"ALL\"";
                 at = "AT+CMGL=\"REC UNREAD\"";
+
                 var objShortMessageCollection = ReadMsg(srpMain, at);
+                _bll = new BaseBLL();
 
                 foreach (Message msg in objShortMessageCollection)
                 {

@@ -46,9 +46,8 @@ namespace SKG.Server
         {
             try
             {
-                if (e.EventType == SerialData.Chars) receiveNow.Set();
-
-
+                if (e.EventType == SerialData.Chars)
+                    receiveNow.Set();
             }
             catch (Exception ex) { throw ex; }
         }
@@ -357,6 +356,7 @@ namespace SKG.Server
                 var at = "AT+CMGL=\"ALL\"";
                 at = "AT+CMGL=\"REC UNREAD\"";
                 var objShortMessageCollection = ReadMsg(srpMain, at);
+
                 foreach (Message msg in objShortMessageCollection)
                 {
                     var tmp = new string[] { msg.Index, msg.Sent, msg.Sender, msg.Content };

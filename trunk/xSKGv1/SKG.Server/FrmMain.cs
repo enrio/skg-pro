@@ -398,7 +398,7 @@ namespace SKG.Server
                     switch (ct[0])
                     {
                         case "DTCD":
-                            content = content.Replace("DTXCD", "").Trim();
+                            content = content.Replace("DTCD", "").Trim();
                             var s = content.Split(new char[] { '/' });
 
                             if (s.Length > 2) // doanh thu theo ngay
@@ -429,7 +429,7 @@ namespace SKG.Server
                             break;
 
                         case "DTVL":
-                            content = content.Replace("DTXVL", "").Trim();
+                            content = content.Replace("DTVL", "").Trim();
                             s = content.Split(new char[] { '/' });
 
                             if (s.Length > 2) // doanh thu theo ngay
@@ -469,23 +469,21 @@ namespace SKG.Server
                                 var m = s[1].ToInt32();
                                 var y = s[2].ToInt32();
                                 var dt = new DateTime(y, m, d);
-                                _bll.Tra_Detail.SumarySalesDay(out sum, Summary.Both, dt);
-                                noidung = String.Format("Doanh thu ngay {0} la {1:#,0}", content, sum);
+                                noidung = SumarySalesDay(content, dt);
                             }
                             else if (s.Length > 1) // doanh thu theo thang
                             {
                                 var m = s[0].ToInt32();
                                 var y = s[1].ToInt32();
                                 var dt = new DateTime(y, m, 1);
-                                _bll.Tra_Detail.SumarySalesMonth(out sum, Summary.Both, dt);
-                                noidung = String.Format("Doanh thu thang {0}/{1} la {2:#,0}", m, y, sum);
+                                noidung = SumarySalesMonth(content, dt);
                             }
                             else if (s.Length > 0) // doanh thu theo nam
                             {
                                 var y = s[0].ToInt32();
                                 var dt = new DateTime(y, 1, 1);
                                 _bll.Tra_Detail.SumarySalesYear(out sum, Summary.Both, dt);
-                                noidung = String.Format("Doanh thu nam {0} la {1:#,0}", y, sum);
+                                noidung = SumarySalesYear(content, dt);
                             }
                             else noidung = sai;
                             break;
@@ -530,6 +528,36 @@ namespace SKG.Server
             }
 
             return null;
+        }
+
+        string SumarySalesDay(string content, DateTime dt)
+        {
+            decimal fix, nor, sum;
+            _bll.Tra_Detail.SumarySalesDay(out fix, Summary.AreaFixed, dt);
+            _bll.Tra_Detail.SumarySalesDay(out nor, Summary.KindNormal, dt);
+            sum = fix + nor;
+            var format = "Doanh thu {4} {0} la {1:#,0}; Xe CD = {2:#,0}; Xe VL = {3:#,0}";
+            return String.Format(format, content, sum, fix, nor, "ngay");
+        }
+
+        string SumarySalesMonth(string content, DateTime dt)
+        {
+            decimal fix, nor, sum;
+            _bll.Tra_Detail.SumarySalesMonth(out fix, Summary.AreaFixed, dt);
+            _bll.Tra_Detail.SumarySalesMonth(out nor, Summary.KindNormal, dt);
+            sum = fix + nor;
+            var format = "Doanh thu {4} {0} la {1:#,0}; Xe CD = {2:#,0}; Xe VL = {3:#,0}";
+            return String.Format(format, content, sum, fix, nor, "thang");
+        }
+
+        string SumarySalesYear(string content, DateTime dt)
+        {
+            decimal fix, nor, sum;
+            _bll.Tra_Detail.SumarySalesYear(out fix, Summary.AreaFixed, dt);
+            _bll.Tra_Detail.SumarySalesYear(out nor, Summary.KindNormal, dt);
+            sum = fix + nor;
+            var format = "Doanh thu {4} {0} la {1:#,0}; Xe CD = {2:#,0}; Xe VL = {3:#,0}";
+            return String.Format(format, content, sum, fix, nor, "nam");
         }
     }
 }

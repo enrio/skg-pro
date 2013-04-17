@@ -367,6 +367,10 @@ namespace SKG.Server
                     decimal sum = 0;
                     var content = msg.Content.Trim();
                     var ct = content.Split(new char[] { ' ' });
+
+                    // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
+                    var ok = _bll.Pol_User.SelectByPhone("+841645515010");
+
                     if (ct.Length < 2)
                     {
                         noidung = "Sai cu phap";

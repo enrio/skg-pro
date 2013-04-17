@@ -249,5 +249,19 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Select by phone number
+        /// </summary>
+        /// <param name="phone">Phone number</param>
+        /// <returns></returns>
+        public Pol_User SelectByPhone(string phone)
+        {
+            try
+            {
+                return _db.Pol_Users.SingleOrDefault(s => s.Phone == phone);
+            }
+            catch { return null; }
+        }
     }
 }

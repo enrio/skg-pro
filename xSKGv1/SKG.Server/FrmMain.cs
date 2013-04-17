@@ -361,7 +361,9 @@ namespace SKG.Server
 
                     var noidung = "";
                     decimal sum = 0;
+
                     var content = msg.Content.Trim();
+                    content = content.ToUpper();
                     var ct = content.Split(new char[] { ' ' });
 
                     // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
@@ -395,7 +397,7 @@ namespace SKG.Server
                         continue;
                     }
 
-                    switch (ct[0].ToUpper())
+                    switch (ct[0])
                     {
                         case "DTCD":
                             content = content.Replace("DTCD", "").Trim();

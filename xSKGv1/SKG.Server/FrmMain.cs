@@ -374,6 +374,7 @@ namespace SKG.Server
                         continue;
                     }
 
+                    usr.Name = usr.Name.RemoveVN();
                     sai = usr.Name + "Nhap sai cu phap; cu phap la DT, DTCD, DTVL, vidu: DT dd/MM/yyyy";
 
                     var ok = usr.CheckRole("TS");

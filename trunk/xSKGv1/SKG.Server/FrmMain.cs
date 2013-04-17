@@ -375,7 +375,7 @@ namespace SKG.Server
                     }
 
                     usr.Name = usr.Name.RemoveVN();
-                    sai = usr.Name + "Nhap sai cu phap; cu phap la DT, DTCD, DTVL, vidu: DT dd/MM/yyyy";
+                    sai = "Sai cu phap; cu phap la DT, DTCD, DTVL, vidu: DT dd/MM/yyyy";
 
                     var ok = usr.CheckRole("TS");
                     ok = ok || usr.CheckRole("QT");
@@ -391,13 +391,13 @@ namespace SKG.Server
 
                     if (ct.Length < 2)
                     {
-                        SendMsg(srpMain, msg.Sender, sai);
+                        SendMsg(srpMain, msg.Sender, String.Format("{0}. Cam on {1}!", sai, usr.Name));
                         continue;
                     }
 
                     switch (ct[0])
                     {
-                        case "DTXCD":
+                        case "DTCD":
                             content = content.Replace("DTXCD", "").Trim();
                             var s = content.Split(new char[] { '/' });
 
@@ -425,10 +425,10 @@ namespace SKG.Server
                                 _bll.Tra_Detail.SumarySalesYear(out sum, Summary.AreaFixed, dt);
                                 noidung = String.Format("Doanh thu xe CD nam {0} la {1:#,0}", y, sum);
                             }
-                            else noidung = "Sai cu phap";
+                            else noidung = sai;
                             break;
 
-                        case "DTXVL":
+                        case "DTVL":
                             content = content.Replace("DTXVL", "").Trim();
                             s = content.Split(new char[] { '/' });
 
@@ -456,7 +456,7 @@ namespace SKG.Server
                                 _bll.Tra_Detail.SumarySalesYear(out sum, Summary.KindNormal, dt);
                                 noidung = String.Format("Doanh thu xe VL nam {0} la {1:#,0}", y, sum);
                             }
-                            else noidung = "Sai cu phap";
+                            else noidung = sai;
                             break;
 
                         case "DT":
@@ -487,11 +487,11 @@ namespace SKG.Server
                                 _bll.Tra_Detail.SumarySalesYear(out sum, Summary.Both, dt);
                                 noidung = String.Format("Doanh thu nam {0} la {1:#,0}", y, sum);
                             }
-                            else noidung = "Sai cu phap";
+                            else noidung = sai;
                             break;
 
                         default:
-                            noidung = "Sai cu phap";
+                            noidung = sai;
                             break;
                     }
 

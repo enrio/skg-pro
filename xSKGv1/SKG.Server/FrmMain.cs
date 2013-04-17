@@ -238,7 +238,7 @@ namespace SKG.Server
 
                 return isSend;
             }
-            catch (Exception ex) { throw ex; }
+            catch { return false; }
         }
 
         /// <summary>

@@ -93,6 +93,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SKG.DXF\SKG.DXF.csproj">
+      <Project>{6AD372CD-DC02-4782-96B6-5FE83CA91DB6}</Project>
+      <Name>SKG.DXF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SKG\SKG.csproj">
       <Project>{B7F0E574-E7E4-4354-B620-FE23B07F663E}</Project>
       <Name>SKG</Name>

@@ -481,7 +481,7 @@ namespace SKG.Server
             ClosePort();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void trmMain_Tick(object sender, EventArgs e)
         {
             btnAutoSendReceive_Click(null, null);
         }

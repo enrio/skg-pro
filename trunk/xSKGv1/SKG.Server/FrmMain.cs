@@ -372,6 +372,15 @@ namespace SKG.Server
 
                     // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
                     var usr = _bll.Pol_User.SelectByPhone(msg.Sender);
+                    var sai = "Khong tim thay nguoi su dung co so dien thoai nay!";
+
+                    if (usr == null)
+                    {
+                        SendMsg(srpMain, msg.Sender, sai);
+                        continue;
+                    }
+
+                    sai = usr.Name + "Nhap sai cu phap; cu phap la DT, DTCD, DTVL, vidu: DT dd/MM/yyyy";
 
                     var ok = usr.CheckRole("TS");
                     ok = ok || usr.CheckRole("QT");
@@ -380,15 +389,14 @@ namespace SKG.Server
 
                     if (!ok)
                     {
-                        noidung = "Khong co quyen";
+                        noidung = usr.Name + " khong co quyen!";
                         SendMsg(srpMain, msg.Sender, noidung);
                         continue;
                     };
 
                     if (ct.Length < 2)
                     {
-                        noidung = "Sai cu phap";
-                        SendMsg(srpMain, msg.Sender, noidung);
+                        SendMsg(srpMain, msg.Sender, sai);
                         continue;
                     }
 
@@ -405,7 +413,7 @@ namespace SKG.Server
                                 var y = s[2].ToInt32();
                                 var dt = new DateTime(y, m, d);
                                 var res = _bll.Tra_Detail.SumarySalesDay(out sum, Summary.AreaFixed, dt);
-                                noidung = String.Format("Doanh thu xe co dinh ngay {0} la {1:#,0}", content, sum);
+                                noidung = String.Format("Doanh thu xe CD ngay {0} la {1:#,0}", content, sum);
                             }
                             else if (s.Length > 1) // doanh thu theo thang
                             {
@@ -413,14 +421,14 @@ namespace SKG.Server
                                 var y = s[1].ToInt32();
                                 var dt = new DateTime(y, m, 1);
                                 var res = _bll.Tra_Detail.SumarySalesMonth(out sum, Summary.AreaFixed, dt);
-                                noidung = String.Format("Doanh thu xe co dinh thang {0}/{1} la {2:#,0}", m, y, sum);
+                                noidung = String.Format("Doanh thu xe CD thang {0}/{1} la {2:#,0}", m, y, sum);
                             }
                             else if (s.Length > 0) // doanh thu theo nam
                             {
                                 var y = s[0].ToInt32();
                                 var dt = new DateTime(y, 1, 1);
                                 var res = _bll.Tra_Detail.SumarySalesYear(out sum, Summary.AreaFixed, dt);
-                                noidung = String.Format("Doanh thu xe co dinh nam {0} la {1:#,0}", y, sum);
+                                noidung = String.Format("Doanh thu xe CD nam {0} la {1:#,0}", y, sum);
                             }
                             else noidung = "Sai cu phap";
                             break;
@@ -436,7 +444,7 @@ namespace SKG.Server
                                 var y = s[2].ToInt32();
                                 var dt = new DateTime(y, m, d);
                                 var res = _bll.Tra_Detail.SumarySalesDay(out sum, Summary.KindNormal, dt);
-                                noidung = String.Format("Doanh thu xe vang lai ngay {0} la {1:#,0}", content, sum);
+                                noidung = String.Format("Doanh thu xe VL ngay {0} la {1:#,0}", content, sum);
                             }
                             else if (s.Length > 1) // doanh thu theo thang
                             {
@@ -444,14 +452,14 @@ namespace SKG.Server
                                 var y = s[1].ToInt32();
                                 var dt = new DateTime(y, m, 1);
                                 var res = _bll.Tra_Detail.SumarySalesMonth(out sum, Summary.KindNormal, dt);
-                                noidung = String.Format("Doanh thu xe vang lai thang {0}/{1} la {2:#,0}", m, y, sum);
+                                noidung = String.Format("Doanh thu xe VL thang {0}/{1} la {2:#,0}", m, y, sum);
                             }
                             else if (s.Length > 0) // doanh thu theo nam
                             {
                                 var y = s[0].ToInt32();
                                 var dt = new DateTime(y, 1, 1);
                                 var res = _bll.Tra_Detail.SumarySalesYear(out sum, Summary.KindNormal, dt);
-                                noidung = String.Format("Doanh thu xe vang lai nam {0} la {1:#,0}", y, sum);
+                                noidung = String.Format("Doanh thu xe VL nam {0} la {1:#,0}", y, sum);
                             }
                             else noidung = "Sai cu phap";
                             break;
@@ -492,7 +500,7 @@ namespace SKG.Server
                             break;
                     }
 
-                    SendMsg(srpMain, msg.Sender, noidung + " Cam on!");
+                    SendMsg(srpMain, msg.Sender, noidung + ". Cam on " + usr.Name + "!");
                 }
             }
 

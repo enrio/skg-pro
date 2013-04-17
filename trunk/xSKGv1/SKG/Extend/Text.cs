@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.Extend
 {
@@ -16,6 +17,18 @@ namespace SKG.Extend
     public static class Text
     {
         #region Strings
+        /// <summary>
+        /// Removing Vietnamese
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <returns></returns>
+        public static string RemoveVN(this string str)
+        {
+            var regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
+            var strFormD = str.Normalize(NormalizationForm.FormD);
+            return regex.Replace(strFormD, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+
         /// <summary>
         /// Return a copy of this string between two strings with format case
         /// </summary>

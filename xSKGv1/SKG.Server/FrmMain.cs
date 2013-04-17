@@ -369,12 +369,10 @@ namespace SKG.Server
                     var ct = content.Split(new char[] { ' ' });
 
                     // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
-                    var ok = _bll.Pol_User.SelectByPhone("+841645515010");
-                    var role1 = typeof(SKG.DXF.Station.Sumary.FrmTra_SalesFixed).FullName;
-                    var role2 = typeof(SKG.DXF.Station.Sumary.FrmTra_SalesNormal).FullName;
+                    var ok = _bll.Pol_User.SelectByPhone(msg.Sender);
 
-                    var ok1 = ok.CheckRole(role1);
-                    var ok2 = ok.CheckRole(role2);
+                    var ok1 = ok.CheckRole("SKG.DXF.Station.Sumary.FrmTra_SalesFixed");
+                    var ok2 = ok.CheckRole("SKG.DXF.Station.Sumary.FrmTra_SalesNormal");
 
                     if (ct.Length < 2)
                     {

@@ -9,8 +9,9 @@ using System.Windows.Forms;
 
 namespace SKG.Server
 {
-    using SKG.Extend;
     using SKG.SMS;
+    using SKG.BLL;
+    using SKG.Extend;
     using System.IO.Ports;
     using System.Threading;
     using System.Text.RegularExpressions;
@@ -21,9 +22,14 @@ namespace SKG.Server
         private const string STR_ERROR = "\r\nERROR\r\n";
         private const string STR_OK = "\r\nOK\r\n";
 
+        string port;
+        BaseBLL _bll = new BaseBLL();
+
         public FrmMain()
         {
             InitializeComponent();
+
+            port = AutoDetect();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -58,7 +64,7 @@ namespace SKG.Server
             receiveNow = new AutoResetEvent(false);
             try
             {
-                srpMain.PortName = "COM5";
+                srpMain.PortName = port;
                 srpMain.BaudRate = 9600;
                 srpMain.DataBits = 8;
                 srpMain.StopBits = StopBits.One;
@@ -340,7 +346,7 @@ namespace SKG.Server
             catch { return -1; }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAutoSendReceive_Click(object sender, EventArgs e)
         {
             OpenPort();
 
@@ -462,7 +468,6 @@ namespace SKG.Server
                             }
                             else noidung = "Sai cu phap";
                             break;
-                            break;
 
                         default:
                             noidung = "Sai cu phap";
@@ -478,9 +483,32 @@ namespace SKG.Server
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            button1_Click(null, null);
+            btnAutoSendReceive_Click(null, null);
         }
 
-        SKG.BLL.BaseBLL _bll = new BLL.BaseBLL();
+        /// <summary>
+        /// Auto detect COM port
+        /// </summary>
+        /// <returns></returns>
+        string AutoDetect()
+        {
+            SerialPort port;
+            string[] ports = SerialPort.GetPortNames();
+            var sms = new Sms();
+
+            foreach (var p in ports)
+            {
+                port = sms.OpenPort(p, 9600, 8, 300, 300);
+                var ok = sms.AutoDetect(port);
+
+                if (ok > -1)
+                {
+                    port.Close();
+                    return p;
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -395,7 +395,7 @@ namespace SKG.Server
                         continue;
                     }
 
-                    switch (ct[0])
+                    switch (ct[0].ToUpper())
                     {
                         case "DTCD":
                             content = content.Replace("DTCD", "").Trim();

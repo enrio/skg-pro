@@ -369,10 +369,19 @@ namespace SKG.Server
                     var ct = content.Split(new char[] { ' ' });
 
                     // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
-                    var ok = _bll.Pol_User.SelectByPhone(msg.Sender);
+                    var usr = _bll.Pol_User.SelectByPhone(msg.Sender);
 
-                    var ok1 = ok.CheckRole("SKG.DXF.Station.Sumary.FrmTra_SalesFixed");
-                    var ok2 = ok.CheckRole("SKG.DXF.Station.Sumary.FrmTra_SalesNormal");
+                    var ok = usr.CheckRole("TS");
+                    ok = ok || usr.CheckRole("QT");
+                    ok = ok || usr.CheckRole("QL");
+                    ok = ok || usr.CheckRole("CR");
+
+                    if (!ok)
+                    {
+                        noidung = "Khong co quyen";
+                        SendMsg(srpMain, msg.Sender, noidung);
+                        continue;
+                    };
 
                     if (ct.Length < 2)
                     {
@@ -384,12 +393,6 @@ namespace SKG.Server
                     switch (ct[0])
                     {
                         case "DTXCD":
-                            if (!ok1)
-                            {
-                                noidung = "Khong co quyen";
-                                break;
-                            };
-
                             content = content.Replace("DTXCD", "").Trim();
                             var s = content.Split(new char[] { '/' });
 
@@ -421,12 +424,6 @@ namespace SKG.Server
                             break;
 
                         case "DTXVL":
-                            if (!ok2)
-                            {
-                                noidung = "Khong co quyen";
-                                break;
-                            };
-
                             content = content.Replace("DTXVL", "").Trim();
                             s = content.Split(new char[] { '/' });
 
@@ -458,12 +455,6 @@ namespace SKG.Server
                             break;
 
                         case "DT":
-                            if (!ok1 || !ok2)
-                            {
-                                noidung = "Khong co quyen";
-                                break;
-                            };
-
                             content = content.Replace("DT", "").Trim();
                             s = content.Split(new char[] { '/' });
 

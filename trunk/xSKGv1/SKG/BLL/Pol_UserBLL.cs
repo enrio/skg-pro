@@ -70,8 +70,9 @@ namespace SKG.BLL
         /// <returns></returns>
         protected Pol_User SelectByPhone(string phone)
         {
-            var o = base.SelectByPhone(phone);
-            return o;
+            phone = phone.Trim();
+            phone = phone.Replace("+84", "0");
+            return base.SelectByPhone(phone);
         }
     }
 }

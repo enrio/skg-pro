@@ -32,7 +32,7 @@
             this.srpMain = new System.IO.Ports.SerialPort(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
             this.btnAutoSendReceive = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.trmMain = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // srpMain
@@ -59,11 +59,11 @@
             this.btnAutoSendReceive.UseVisualStyleBackColor = true;
             this.btnAutoSendReceive.Click += new System.EventHandler(this.btnAutoSendReceive_Click);
             // 
-            // timer1
+            // trmMain
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 2000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.trmMain.Enabled = true;
+            this.trmMain.Interval = 2000;
+            this.trmMain.Tick += new System.EventHandler(this.trmMain_Tick);
             // 
             // FrmMain
             // 
@@ -86,6 +86,6 @@
         private System.IO.Ports.SerialPort srpMain;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnAutoSendReceive;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer trmMain;
     }
 }

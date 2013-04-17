@@ -370,6 +370,11 @@ namespace SKG.Server
 
                     // Kiểm tra số điện thoại gởi tới có có quyền truy vấn thông tin không
                     var ok = _bll.Pol_User.SelectByPhone("+841645515010");
+                    var role1 = typeof(SKG.DXF.Station.Sumary.FrmTra_SalesFixed).FullName;
+                    var role2 = typeof(SKG.DXF.Station.Sumary.FrmTra_SalesNormal).FullName;
+
+                    var ok1 = ok.CheckRole(role1);
+                    var ok2 = ok.CheckRole(role2);
 
                     if (ct.Length < 2)
                     {
@@ -381,6 +386,12 @@ namespace SKG.Server
                     switch (ct[0])
                     {
                         case "DTXCD":
+                            if (!ok1)
+                            {
+                                noidung = "Khong co quyen";
+                                break;
+                            };
+
                             content = content.Replace("DTXCD", "").Trim();
                             var s = content.Split(new char[] { '/' });
 
@@ -412,6 +423,12 @@ namespace SKG.Server
                             break;
 
                         case "DTXVL":
+                            if (!ok2)
+                            {
+                                noidung = "Khong co quyen";
+                                break;
+                            };
+
                             content = content.Replace("DTXVL", "").Trim();
                             s = content.Split(new char[] { '/' });
 
@@ -443,6 +460,12 @@ namespace SKG.Server
                             break;
 
                         case "DT":
+                            if (!ok1 || !ok2)
+                            {
+                                noidung = "Khong co quyen";
+                                break;
+                            };
+
                             content = content.Replace("DT", "").Trim();
                             s = content.Split(new char[] { '/' });
 

@@ -125,7 +125,7 @@ namespace SKG.DXF.Home.Sytem
             ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
             Properties.Settings.Default.Reload();
 
-            Sample.CreateData(true);
+            Sample.CreateData(true, !chkSQLCE.Checked);
 
             //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
             Extend.Login();
@@ -260,16 +260,8 @@ namespace SKG.DXF.Home.Sytem
             get
             {
                 var a = ConnectionStringSetting.ConnectionString;
-                if (chkSQLCE.Checked)
-                {
-                    var b = a.Split(new char[] { '|' });
-                    var c = String.Format("{0}{1}", Application.StartupPath, b[2]);
-                    if (!c.CheckSqlCeConnect())
-                    {
-                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
-                        return false;
-                    }
-                }
+
+                if (chkSQLCE.Checked) return true;
                 else
                 {
                     var b = a.Replace("xSKGv1", "master");
@@ -279,6 +271,7 @@ namespace SKG.DXF.Home.Sytem
                         return false;
                     }
                 }
+
                 return true;
             }
         }

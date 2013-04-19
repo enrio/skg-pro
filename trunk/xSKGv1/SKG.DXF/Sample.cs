@@ -32,12 +32,12 @@ namespace SKG.DXF
         /// Auto create data for sample
         /// </summary>
         /// <param name="isDelete">Delete</param>
-        public static void CreateData(bool isDelete = false)
+        public static void CreateData(bool isDelete = false, bool isSQL = true)
         {
             var bll = new Sample();
             if (isDelete) bll.DeleteAll();
             if (bll.Pol_User.Count() > 0) return;
-            bll.CreateAll();
+            bll.CreateAll(isSQL);
         }
         #endregion
 
@@ -632,31 +632,33 @@ namespace SKG.DXF
         /// <summary>
         /// Create new all
         /// </summary>
-        protected virtual void CreateAll()
+        protected virtual void CreateAll(bool isSQL = true)
         {
+            var a = Global.Connection.ConnectionString;
+
             #region Policy
             var file = Application.StartupPath + @"\Import\Dictionary.xls";
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
 
             file = Application.StartupPath + @"\Import\Policy.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Pol_UserRole).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_UserId", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
             tbl.Columns.Add("Pol_RightId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
             #endregion
 
             #region Transport
@@ -664,21 +666,21 @@ namespace SKG.DXF
             tbl = new DataTable(typeof(Tra_Tariff).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Tra_Vehicle).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("TransportId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("CreatorId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Tra_Detail).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("UserInId", typeof(Guid));
             tbl.Columns.Add("UserOutId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
             #endregion
         }
     }

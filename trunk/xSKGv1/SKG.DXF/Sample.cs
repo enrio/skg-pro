@@ -721,7 +721,7 @@ namespace SKG.DXF
 
         void CreatePol_User(DataTable tbl)
         {
-            if (Pol_Dictionary.Count() > 0) return;
+            if (Pol_User.Count() > 0) return;
 
             foreach (DataRow r in tbl.Rows)
             {

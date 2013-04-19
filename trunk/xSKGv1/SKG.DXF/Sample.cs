@@ -683,5 +683,67 @@ namespace SKG.DXF
             Server.ImportFromExcel(file, a, tbl, isSQL);
             #endregion
         }
+
+        #region For SQL Compact
+        void CreatePol_Dictionary(DataTable tbl)
+        {
+            if (Pol_Dictionary.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var dic = new Pol_Dictionary
+                {
+                    Id = (Guid)r["Id"],
+                    ParentId = (Guid)r["ParentId"],
+                    Type = r["Type"] + "",
+                    Text1 = r["Text1"] + "",
+                    Note1 = r["Note1"] + "",
+                    More1 = r["More1"] + "",
+                    Text2 = r["Text2"] + "",
+                    Note2 = r["Note2"] + "",
+                    More2 = r["More2"] + "",
+                    Text3 = r["Text3"] + "",
+                    Note3 = r["Note3"] + "",
+                    More3 = r["More3"] + "",
+                    Code = r["Code"] + "",
+                    Text = r["Text"] + "",
+                    Note = r["Note"] + "",
+                    More = r["More"] + "",
+                    Order = (int)r["Order"],
+                    Show = (bool)r["Show"]
+                };
+
+                Pol_Dictionary.Insert(dic);
+            }
+        }
+
+        void CreatePol_User(DataTable tbl)
+        {
+            if (Pol_Dictionary.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var dic = new Pol_User
+
+                {
+                    Id = (Guid)r["Id"],
+                    Acc = r["Acc"] + "",
+                    Pass = r["Pass"] + "",
+                    Name = r["Name"] + "",
+                    Birth = Convert.ToDateTime(r["Birth"]),
+                    Address = r["Address"] + "",
+                    Phone = r["Text2"] + "",
+                    Code = r["Code"] + "",
+                    Text = r["Text"] + "",
+                    Note = r["Note"] + "",
+                    More = r["More"] + "",
+                    Order = (int)r["Order"],
+                    Show = (bool)r["Show"]
+                };
+
+                Pol_User.Insert(dic);
+            }
+        }
+        #endregion
     }
 }

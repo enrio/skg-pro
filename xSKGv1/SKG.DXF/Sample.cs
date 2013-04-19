@@ -641,12 +641,14 @@ namespace SKG.DXF
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_Dictionary(tbl);
 
             file = Application.StartupPath + @"\Import\Policy.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_User(tbl);
 
             tbl = new DataTable(typeof(Pol_UserRole).Name);
             tbl.Columns.Add("Id", typeof(Guid));
@@ -694,7 +696,7 @@ namespace SKG.DXF
                 var dic = new Pol_Dictionary
                 {
                     Id = (Guid)r["Id"],
-                    ParentId = (Guid)r["ParentId"],
+                    ParentId = (r["ParentId"] + "" == "") ? Guid.Empty : (Guid)r["ParentId"],
                     Type = r["Type"] + "",
                     Text1 = r["Text1"] + "",
                     Note1 = r["Note1"] + "",
@@ -709,8 +711,8 @@ namespace SKG.DXF
                     Text = r["Text"] + "",
                     Note = r["Note"] + "",
                     More = r["More"] + "",
-                    Order = (int)r["Order"],
-                    Show = (bool)r["Show"]
+                    Order = Convert.ToInt32(r["Order"]),
+                    Show = Convert.ToBoolean(r["Show"])
                 };
 
                 Pol_Dictionary.Insert(dic);
@@ -732,13 +734,13 @@ namespace SKG.DXF
                     Name = r["Name"] + "",
                     Birth = Convert.ToDateTime(r["Birth"]),
                     Address = r["Address"] + "",
-                    Phone = r["Text2"] + "",
+                    Phone = r["Phone"] + "",
                     Code = r["Code"] + "",
                     Text = r["Text"] + "",
                     Note = r["Note"] + "",
                     More = r["More"] + "",
-                    Order = (int)r["Order"],
-                    Show = (bool)r["Show"]
+                    Order = Convert.ToInt32(r["Order"]),
+                    Show = Convert.ToBoolean(r["Show"])
                 };
 
                 Pol_User.Insert(dic);

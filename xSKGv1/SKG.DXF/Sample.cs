@@ -745,6 +745,11 @@ namespace SKG.DXF
             };
         }
 
+        /// <summary>
+        /// Create Pol_UserRole object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
         Pol_UserRole CreatePol_UserRole(DataRow r)
         {
             return new Pol_UserRole
@@ -761,6 +766,11 @@ namespace SKG.DXF
             };
         }
 
+        /// <summary>
+        /// Create Pol_RoleRight object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
         Pol_RoleRight CreatePol_RoleRight(DataRow r)
         {
             return new Pol_RoleRight

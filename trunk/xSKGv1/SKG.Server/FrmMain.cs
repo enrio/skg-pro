@@ -502,6 +502,11 @@ namespace SKG.Server
             ClosePort();
         }
 
+        private void cboPortName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            port = cboPortName.Text;
+        }
+
         private void trmMain_Tick(object sender, EventArgs e)
         {
             btnAutoSendReceive_Click(null, null);

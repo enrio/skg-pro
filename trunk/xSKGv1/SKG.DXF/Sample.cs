@@ -796,6 +796,11 @@ namespace SKG.DXF
         {
             if (Pol_Dictionary.Count() > 0) return;
 
+            var v = tbl.AsDataView();
+            v.Sort = "ParentId";
+            tbl = v.ToTable();
+            tbl.AcceptChanges();
+
             foreach (DataRow r in tbl.Rows)
             {
                 if (r.RowState == DataRowState.Added) continue;
@@ -808,6 +813,7 @@ namespace SKG.DXF
                     r.SetAdded();
                     continue;
                 }
+                else o = CreatePol_Dictionary(r);
 
                 #region Insert parent record
                 var str = "Id = '{0}'";

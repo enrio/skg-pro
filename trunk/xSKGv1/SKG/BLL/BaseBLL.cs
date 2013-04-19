@@ -17,6 +17,7 @@ using System.Linq;
 namespace SKG.BLL
 {
     using SKG.Datax;
+    using SKG.Extend;
 
     /// <summary>
     /// Data sample, all of flow processing
@@ -92,7 +93,13 @@ namespace SKG.BLL
         /// <returns></returns>
         public static bool CheckDb()
         {
-            var svr = new SqlServer(Global.Connection.ConnectionString);
+            var a = Global.Connection.ConnectionString;
+
+            var ok = a.SplitIndex(';', 1);
+            if (ok == null)
+                return a.CheckSqlCeConnect();
+
+            var svr = new SqlServer(a);
             return svr.CheckDbExists(Global.Connection.Database);
         }
         #endregion

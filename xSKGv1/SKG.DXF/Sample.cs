@@ -688,35 +688,63 @@ namespace SKG.DXF
         }
 
         #region For SQL Compact
+        /// <summary>
+        /// Create Pol_Dictionary object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_Dictionary CreatePol_Dictionary(DataRow r)
+        {
+            return new Pol_Dictionary
+            {
+                Id = r["Id"].GetGuid(),
+                ParentId = r["ParentId"].GetGuidNull(),
+                Type = r["Type"].ToText(),
+                Text1 = r["Text1"].ToText(),
+                Note1 = r["Note1"].ToText(),
+                More1 = r["More1"].ToText(),
+                Text2 = r["Text2"].ToText(),
+                Note2 = r["Note2"].ToText(),
+                More2 = r["More2"].ToText(),
+                Text3 = r["Text3"].ToText(),
+                Note3 = r["Note3"].ToText(),
+                More3 = r["More3"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create data Pol_Dictionary
+        /// </summary>
+        /// <param name="tbl">Data</param>
         void CreatePol_Dictionary(DataTable tbl)
         {
             if (Pol_Dictionary.Count() > 0) return;
 
             foreach (DataRow r in tbl.Rows)
             {
-                var dic = new Pol_Dictionary
-                {
-                    Id = r["Id"].GetGuid(),
-                    ParentId = r["ParentId"].GetGuidNull(),
-                    Type = r["Type"].ToText(),
-                    Text1 = r["Text1"].ToText(),
-                    Note1 = r["Note1"].ToText(),
-                    More1 = r["More1"].ToText(),
-                    Text2 = r["Text2"].ToText(),
-                    Note2 = r["Note2"].ToText(),
-                    More2 = r["More2"].ToText(),
-                    Text3 = r["Text3"].ToText(),
-                    Note3 = r["Note3"].ToText(),
-                    More3 = r["More3"].ToText(),
-                    Code = r["Code"].ToText(),
-                    Text = r["Text"].ToText(),
-                    Note = r["Note"].ToText(),
-                    More = r["More"].ToText(),
-                    Order = r["Order"].ToInt32(),
-                    Show = r["Show"].ToBoolean()
-                };
+                var o = CreatePol_Dictionary(r);
+                var ok = Pol_Dictionary.Insert(o);
+                if (ok != null) return;
 
-                Pol_Dictionary.Insert(dic);
+                #region Insert parent record
+                var str = "Id = '{0}'";
+                str = String.Format(str, o.ParentId);
+                var dtr = tbl.Select(str, "");
+
+                if (dtr.Length > 0)
+                {
+                    var x = CreatePol_Dictionary(dtr[0]);
+                    Pol_Dictionary.Insert(x);
+
+                    Pol_Dictionary.Insert(o); // insert again
+                }
+                #endregion
             }
         }
 

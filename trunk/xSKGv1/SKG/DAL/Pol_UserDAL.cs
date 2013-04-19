@@ -103,13 +103,9 @@ namespace SKG.DAL
                 var o = (Pol_User)obj;
                 if (Select(o.Acc) != null) return null; // account already exists
                 if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
-                o.Pass = Coder.Encode(o.Pass);
 
-                var phone = o.Phone;
-                phone = phone.Trim();
-                phone = phone.Replace("+84", "0");
-                phone = phone.Replace(" ", "");
-                o.Phone = phone;
+                o.Pass = Coder.Encode(o.Pass);
+                o.Phone = o.Phone.FormatPhoneNumber();
 
                 var oki = _db.Pol_Users.Add(o);
                 _db.SaveChanges();

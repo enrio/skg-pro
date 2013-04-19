@@ -74,6 +74,7 @@
             this.cboPortName.Size = new System.Drawing.Size(87, 21);
             this.cboPortName.TabIndex = 1;
             this.cboPortName.Text = "COM1";
+            this.cboPortName.SelectedIndexChanged += new System.EventHandler(this.cboPortName_SelectedIndexChanged);
             // 
             // lblPortName
             // 

@@ -655,13 +655,15 @@ namespace SKG.DXF
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_UserId", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_UserRole(tbl);
 
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
             tbl.Columns.Add("Pol_RightId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_RoleRight(tbl);
             #endregion
 
             #region Transport

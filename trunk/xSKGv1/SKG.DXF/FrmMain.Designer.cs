@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.bsiServer = new DevExpress.XtraBars.BarStaticItem();
             this.bsiUser = new DevExpress.XtraBars.BarStaticItem();
             this.bsiTimer = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.tmrMain = new System.Windows.Forms.Timer();
-            this.dmgMain = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.dmgMain = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dmgMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
@@ -119,7 +120,7 @@
             this.Controls.Add(this.ribbon);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "FrmMain";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;

@@ -177,7 +177,7 @@ namespace SKG.Datax
         /// <param name="strCnn">String connection</param>
         /// <param name="tbl">Table name or Sheet name</param>
         /// <param name="isSQL">Use SQL Server</param>
-        public static void ImportFromExcel(string file, string strCnn, DataTable tbl, bool isSQL = true)
+        public static DataTable ImportFromExcel(string file, string strCnn, DataTable tbl, bool isSQL = true)
         {
             try
             {
@@ -191,7 +191,7 @@ namespace SKG.Datax
                 else
                 {
                     MessageBox.Show("Not excel file!");
-                    return;
+                    return null;
                 }
 
                 var oleCnn = new OleDbConnection(str);
@@ -212,8 +212,14 @@ namespace SKG.Datax
                     var copy = new SqlBulkCopy(strCnn) { DestinationTableName = tbl.TableName };
                     copy.WriteToServer(tbl);
                 }
+
+                return tbl;
             }
-            catch (Exception e) { MessageBox.Show(e.Message); }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
         }
     }
 }

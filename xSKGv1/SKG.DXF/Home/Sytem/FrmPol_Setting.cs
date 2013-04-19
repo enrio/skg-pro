@@ -61,6 +61,24 @@ namespace SKG.DXF.Home.Sytem
         {
             InitializeComponent();
         }
+
+        void EnabledControl(bool enabled)
+        {
+            cbbServer.Enabled = enabled;
+            cbbAuthen.Enabled = enabled;
+            cbbDb.Enabled = enabled;
+
+            if (enabled && cbbAuthen.SelectedIndex == 1)
+            {
+                cbbUser.Enabled = !enabled;
+                txtPass.Enabled = !enabled;
+            }
+            else
+            {
+                cbbUser.Enabled = enabled;
+                txtPass.Enabled = enabled;
+            }
+        }
         #endregion
 
         #region Events
@@ -193,22 +211,7 @@ namespace SKG.DXF.Home.Sytem
 
         private void chkSQLCE_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkSQLCE.Checked)
-            {
-                cbbServer.Enabled = false;
-                cbbAuthen.Enabled = false;
-                cbbUser.Enabled = false;
-                txtPass.Enabled = false;
-                cbbDb.Enabled = false;
-            }
-            else
-            {
-                cbbServer.Enabled = true;
-                cbbAuthen.Enabled = true;
-                cbbUser.Enabled = true;
-                txtPass.Enabled = true;
-                cbbDb.Enabled = true;
-            }
+            EnabledControl(!chkSQLCE.Checked);
         }
         #endregion
 

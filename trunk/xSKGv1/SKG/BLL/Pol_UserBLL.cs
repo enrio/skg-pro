@@ -68,7 +68,7 @@ namespace SKG.BLL
         /// </summary>
         /// <param name="phone">Phone number</param>
         /// <returns></returns>
-        public Pol_User SelectByPhone(string phone)
+        public new Pol_User SelectByPhone(string phone)
         {
             phone = phone.Trim();
             phone = phone.Replace("+84", "0");

@@ -833,9 +833,9 @@ namespace SKG.DXF
             return new Tra_Vehicle
             {
                 Id = r["Id"].GetGuid(),
-                TransportId = r[""].GetGuidNull(),
-                TariffId = r[""].GetGuidNull(),
-                CreatorId = r[""].GetGuidNull(),
+                TransportId = r["TransportId"].GetGuidNull(),
+                TariffId = r["TariffId"].GetGuidNull(),
+                CreatorId = r["CreatorId"].GetGuidNull(),
                 CreateDate = r["CreateDate"].ToDateTime(),
                 Seats = r["Seats"].ToInt32(),
                 Beds = r["Beds"].ToInt32(),

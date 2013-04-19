@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.Datax
 {
     using System.IO;
     using System.Data;
-    using DAL.Entities;
     using System.Data.OleDb;
     using System.Windows.Forms;
     using System.Data.SqlClient;
@@ -14,7 +13,7 @@ namespace SKG.Datax
     /// <summary>
     /// SQL Server processing
     /// </summary>
-    public class SqlServer : Base
+    public class Server : Base
     {
         #region Contansts
         public const string STR_SEC = @"Data Source={0};Initial Catalog={1};Persist Security Info=True;User Id={2};Password={3}";
@@ -32,8 +31,8 @@ namespace SKG.Datax
         #endregion
 
         #region Constructors
-        public SqlServer() { }
-        public SqlServer(string connectString) : base(connectString) { }
+        public Server() { }
+        public Server(string connectString) : base(connectString) { }
         #endregion
 
         #region Methods

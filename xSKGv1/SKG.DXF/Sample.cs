@@ -641,24 +641,24 @@ namespace SKG.DXF
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
 
             file = Application.StartupPath + @"\Import\Policy.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Pol_UserRole).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_UserId", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("Pol_RoleId", typeof(Guid));
             tbl.Columns.Add("Pol_RightId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
             #endregion
 
             #region Transport
@@ -666,21 +666,21 @@ namespace SKG.DXF
             tbl = new DataTable(typeof(Tra_Tariff).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Tra_Vehicle).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("TransportId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("CreatorId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
 
             tbl = new DataTable(typeof(Tra_Detail).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("UserInId", typeof(Guid));
             tbl.Columns.Add("UserOutId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, a, tbl, isSQL);
+            Server.ImportFromExcel(file, a, tbl, isSQL);
             #endregion
         }
     }

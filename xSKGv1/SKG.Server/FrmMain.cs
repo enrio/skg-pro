@@ -84,7 +84,7 @@ namespace SKG.Server
                 srpMain.DataReceived -= new SerialDataReceivedEventHandler(DataReceived);
                 srpMain = null;
             }
-            catch (Exception ex) { return; }
+            catch { return; }
         }
 
         #region AT command
@@ -177,7 +177,7 @@ namespace SKG.Server
 
                 return countTotalMessages;
             }
-            catch (Exception ex) { return 0; }
+            catch { return 0; }
         }
         #endregion
 

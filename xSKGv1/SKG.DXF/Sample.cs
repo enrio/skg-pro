@@ -671,21 +671,24 @@ namespace SKG.DXF
             tbl = new DataTable(typeof(Tra_Tariff).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Tariff(tbl);
 
             tbl = new DataTable(typeof(Tra_Vehicle).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("TransportId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("CreatorId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Vehicle(tbl);
 
             tbl = new DataTable(typeof(Tra_Detail).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("UserInId", typeof(Guid));
             tbl.Columns.Add("UserOutId", typeof(Guid));
-            Server.ImportFromExcel(file, a, tbl, isSQL);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Detail(tbl);
             #endregion
         }
 
@@ -795,6 +798,108 @@ namespace SKG.DXF
                 Show = r["Show"].ToBoolean()
             };
         }
+
+        /// <summary>
+        /// Create Tra_Tariff object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Tariff CreateTra_Tariff(DataRow r)
+        {
+            return new Tra_Tariff
+            {
+                Id = r["Id"].GetGuid(),
+                GroupId = r["GroupId"].GetGuidNull(),
+                Price1 = r["Price1"].ToInt32(),
+                Price2 = r["Price2"].ToInt32(),
+                Rose1 = r["Rose1"].ToInt32(),
+                Rose2 = r["Rose2"].ToInt32(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Tra_Vehicle object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Vehicle CreateTra_Vehicle(DataRow r)
+        {
+            return new Tra_Vehicle
+            {
+                Id = r["Id"].GetGuid(),
+                TransportId = r[""].GetGuidNull(),
+                TariffId = r[""].GetGuidNull(),
+                CreatorId = r[""].GetGuidNull(),
+                CreateDate = r["CreateDate"].ToDateTime(),
+                Seats = r["Seats"].ToInt32(),
+                Beds = r["Beds"].ToInt32(),
+                ProductionYear = r["ProductionYear"].ToText(),
+                LimitedRegistration = r["LimitedRegistration"].ToDateTime(),
+                TermInsurance = r["TermInsurance"].ToDateTime(),
+                TermFixedRoutes = r["TermFixedRoutes"].ToDateTime(),
+                TermDriverLicense = r["TermDriverLicense"].ToDateTime(),
+                Node = r["Node"].ToInt32(),
+                High = r["High"].ToBoolean(),
+                City = r["City"].ToBoolean(),
+                Fixed = r["Fixed"].ToBoolean(),
+                Driver = r["Driver"].ToText(),
+                Birth = r["Birth"].ToDateTime(),
+                Address = r["Address"].ToText(),
+                Phone = r["Phone"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Tra_Detail object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Detail CreateTra_Detail(DataRow r)
+        {
+            return new Tra_Detail
+            {
+                Id = r["Id"].GetGuid(),
+                VehicleId = r["VehicleId"].GetGuidNull(),
+                UserInId = r["UserInId"].GetGuidNull(),
+                UserOutId = r["UserOutId"].GetGuidNull(),
+                DateIn = r["Note"].ToDateTime(),
+                DateOut = r["Note"].ToDateTime(),
+                FullDay = r["Note"].ToInt32(),
+                HalfDay = r["Note"].ToInt32(),
+                Price1 = r["Note"].ToInt32(),
+                Price2 = r["Note"].ToInt32(),
+                Rose1 = r["Note"].ToInt32(),
+                Rose2 = r["Note"].ToInt32(),
+                Seats = r["Note"].ToInt32(),
+                Beds = r["Note"].ToInt32(),
+                Cost = r["Note"].ToInt64(),
+                Rose = r["Note"].ToInt64(),
+                Parked = r["Note"].ToInt64(),
+                Money = r["Note"].ToDecimal(),
+                Repair = r["Note"].ToBoolean(),
+                Guest = r["Note"].ToInt32(),
+                Discount = r["Note"].ToInt32(),
+                Arrears = r["Note"].ToInt32(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
         #endregion
 
         #region For SQL Compact
@@ -873,6 +978,39 @@ namespace SKG.DXF
             {
                 var o = CreatePol_RoleRight(r);
                 Pol_RoleRight.Insert(o);
+            }
+        }
+
+        void CreateTra_Tariff(DataTable tbl)
+        {
+            if (Tra_Tariff.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Tariff(r);
+                Tra_Tariff.Insert(o);
+            }
+        }
+
+        void CreateTra_Vehicle(DataTable tbl)
+        {
+            if (Tra_Vehicle.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Vehicle(r);
+                Tra_Vehicle.Insert(o);
+            }
+        }
+
+        void CreateTra_Detail(DataTable tbl)
+        {
+            if (Tra_Detail.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Detail(r);
+                Tra_Detail.Insert(o);
             }
         }
         #endregion

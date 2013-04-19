@@ -104,6 +104,17 @@ namespace SKG.Extend
             var tmp = o + "";
             return tmp.ToBoolean();
         }
+
+        /// <summary>
+        /// Converts the specified string representation of a date time value to an equivalent DateTime
+        /// </summary>
+        /// <param name="o">Date time</param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this object o)
+        {
+            var tmp = o + "";
+            return tmp.ToDateTime();
+        }
         #endregion
     }
 }

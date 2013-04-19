@@ -11,8 +11,9 @@
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.BLL
 {
@@ -97,7 +98,11 @@ namespace SKG.BLL
 
             var ok = a.SplitIndex(';', 1);
             if (ok == null)
+            {
+                a = a.SplitIndex('\\', 1);
+                a = String.Format(@"{0}\{1}", Application.StartupPath, a);
                 return a.CheckSqlCeConnect();
+            }
 
             var svr = new SqlServer(a);
             return svr.CheckDbExists(Global.Connection.Database);

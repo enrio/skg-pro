@@ -513,9 +513,9 @@ namespace SKG.Server
         /// <returns></returns>
         string AutoDetect()
         {
-            SerialPort port;
-            string[] ports = SerialPort.GetPortNames();
             var sms = new Sms();
+            var port = new SerialPort();
+            var ports = SerialPort.GetPortNames();
 
             foreach (var p in ports)
             {
@@ -524,12 +524,14 @@ namespace SKG.Server
 
                 if (ok > -1)
                 {
+                    cboPortName.Items.Add(p);
+                    cboPortName.Text = p;
+
                     port.Close();
-                    return p;
                 }
             }
 
-            return null;
+            return cboPortName.Text;
         }
 
         string SumarySalesDay(string content, DateTime dt)

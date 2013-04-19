@@ -18,6 +18,23 @@ namespace SKG.Extend
     {
         #region Strings
         /// <summary>
+        /// Format standard phone number
+        /// </summary>
+        /// <param name="s">Phone number</param>
+        /// <returns></returns>
+        public static string FormatPhoneNumber(this string s)
+        {
+            if (s != null)
+            {
+                s = s.Trim();
+                s = s.Replace("+84", "0");
+                s = s.Replace(" ", "");
+            }
+
+            return s;
+        }
+
+        /// <summary>
         /// Return string split by separate
         /// </summary>
         /// <param name="str">String</param>

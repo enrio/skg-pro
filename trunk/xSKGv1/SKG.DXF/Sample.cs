@@ -687,7 +687,7 @@ namespace SKG.DXF
             #endregion
         }
 
-        #region For SQL Compact
+        #region Create object
         /// <summary>
         /// Create Pol_Dictionary object
         /// </summary>
@@ -718,6 +718,65 @@ namespace SKG.DXF
             };
         }
 
+        /// <summary>
+        /// Create Pol_User object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_User CreatePol_User(DataRow r)
+        {
+            return new Pol_User
+            {
+                Id = r["Id"].GetGuid(),
+                Acc = r["Acc"].ToText(),
+                Pass = r["Pass"].ToText(),
+                Name = r["Name"].ToText(),
+                Birth = r["Birth"].ToDateTime(),
+                Address = r["Address"].ToText(),
+                Phone = r["Phone"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        Pol_UserRole CreatePol_UserRole(DataRow r)
+        {
+            return new Pol_UserRole
+            {
+                Id = r["Id"].GetGuid(),
+                UserId = r["UserId"].GetGuid(),
+                RoleId = r["RoleId"].GetGuid(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        Pol_RoleRight CreatePol_RoleRight(DataRow r)
+        {
+            return new Pol_RoleRight
+            {
+                Id = r["Id"].GetGuid(),
+                RoleId = r["RoleId"].GetGuid(),
+                RightId = r["RightId"].GetGuid(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+        #endregion
+
+        #region For SQL Compact
         /// <summary>
         /// Create data Pol_Dictionary
         /// </summary>
@@ -763,24 +822,30 @@ namespace SKG.DXF
 
             foreach (DataRow r in tbl.Rows)
             {
-                var dic = new Pol_User
-                {
-                    Id = (Guid)r["Id"],
-                    Acc = r["Acc"].ToText(),
-                    Pass = r["Pass"].ToText(),
-                    Name = r["Name"].ToText(),
-                    Birth = r["Birth"].ToDateTime(),
-                    Address = r["Address"].ToText(),
-                    Phone = r["Phone"].ToText(),
-                    Code = r["Code"].ToText(),
-                    Text = r["Text"].ToText(),
-                    Note = r["Note"].ToText(),
-                    More = r["More"].ToText(),
-                    Order = r["Order"].ToInt32(),
-                    Show = r["Show"].ToBoolean()
-                };
+                var o = CreatePol_User(r);
+                Pol_User.Insert(o);
+            }
+        }
 
-                Pol_User.Insert(dic);
+        void CreatePol_UserRole(DataTable tbl)
+        {
+            if (Pol_UserRole.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreatePol_UserRole(r);
+                Pol_UserRole.Insert(o);
+            }
+        }
+
+        void CreatePol_RoleRight(DataTable tbl)
+        {
+            if (Pol_RoleRight.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreatePol_RoleRight(r);
+                Pol_RoleRight.Insert(o);
             }
         }
         #endregion

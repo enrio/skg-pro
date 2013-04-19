@@ -727,21 +727,20 @@ namespace SKG.DXF
             foreach (DataRow r in tbl.Rows)
             {
                 var dic = new Pol_User
-
                 {
                     Id = (Guid)r["Id"],
-                    Acc = r["Acc"] + "",
-                    Pass = r["Pass"] + "",
-                    Name = r["Name"] + "",
-                    Birth = Convert.ToDateTime(r["Birth"]),
-                    Address = r["Address"] + "",
-                    Phone = r["Phone"] + "",
-                    Code = r["Code"] + "",
-                    Text = r["Text"] + "",
-                    Note = r["Note"] + "",
-                    More = r["More"] + "",
-                    Order = Convert.ToInt32(r["Order"]),
-                    Show = Convert.ToBoolean(r["Show"])
+                    Acc = r["Acc"].GetString(),
+                    Pass = r["Pass"].GetString(),
+                    Name = r["Name"].GetString(),
+                    Birth = r["Birth"].ToDateTime(),
+                    Address = r["Address"].GetString(),
+                    Phone = r["Phone"].GetString(),
+                    Code = r["Code"].GetString(),
+                    Text = r["Text"].GetString(),
+                    Note = r["Note"].GetString(),
+                    More = r["More"].GetString(),
+                    Order = r["Order"].ToInt32(),
+                    Show = r["Show"].ToBoolean()
                 };
 
                 Pol_User.Insert(dic);

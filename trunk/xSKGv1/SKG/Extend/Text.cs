@@ -328,6 +328,18 @@ namespace SKG.Extend
             Boolean.TryParse(s, out  i);
             return i;
         }
+
+        /// <summary>
+        /// Converts the specified string representation of a date time value to an equivalent DateTime
+        /// </summary>
+        /// <param name="s">Date time</param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this string s)
+        {
+            var i = DateTime.Now;
+            DateTime.TryParse(s, out  i);
+            return i;
+        }
         #endregion
 
         #region Menu

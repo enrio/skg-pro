@@ -192,7 +192,7 @@ namespace SKG.DXF.Home.Sytem
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
                     var a = ConnectionStringSetting.ConnectionString.Replace("xSKGv1", "master");
-                    using (var db = new SqlServer(a))
+                    using (var db = new Server(a))
                     {
                         var tbl = db.GetDatabases();
                         cbbDb.Properties.Items.Remove(STR_FIND);
@@ -247,8 +247,8 @@ namespace SKG.DXF.Home.Sytem
                 var str = "";
 
                 if (data == "" || data == STR_FIND) data = "xSKGv1";
-                if (cbbAuthen.Text == STR_WIND) str = String.Format(SqlServer.STR_TRU, sver, data);
-                else str = String.Format(SqlServer.STR_SEC, sver, data, user, pass);
+                if (cbbAuthen.Text == STR_WIND) str = String.Format(Server.STR_TRU, sver, data);
+                else str = String.Format(Server.STR_SEC, sver, data, user, pass);
 
                 _a.ConnectionString = str;
                 return _a;

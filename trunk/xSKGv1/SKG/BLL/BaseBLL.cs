@@ -104,7 +104,7 @@ namespace SKG.BLL
                 return a.CheckSqlCeConnect();
             }
 
-            var svr = new SqlServer(a);
+            var svr = new Server(a);
             return svr.CheckDbExists(Global.Connection.Database);
         }
         #endregion

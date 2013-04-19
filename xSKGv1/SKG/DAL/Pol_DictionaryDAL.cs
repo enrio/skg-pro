@@ -138,18 +138,28 @@ namespace SKG.DAL
         /// <returns></returns>
         public object Insert(object obj)
         {
+            var o = new Pol_Dictionary();
             try
             {
-                var o = (Pol_Dictionary)obj;
-                if (Select(o.Code) != null) return null; // already exists
-                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
+                o = (Pol_Dictionary)obj;
+
+                if (Select(o.Code) != null)
+                    return null; // already exists
+
+                if (o.Id == Guid.Empty)
+                    o.Id = Guid.NewGuid();
 
                 var oki = _db.Pol_Dictionarys.Add(o);
                 _db.SaveChanges();
 
                 return oki;
             }
-            catch { return null; }
+            catch
+            {
+                _db.Pol_Dictionarys.Remove(o);
+
+                return null;
+            }
         }
 
         /// <summary>

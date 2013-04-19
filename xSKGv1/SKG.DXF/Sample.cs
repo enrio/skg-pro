@@ -728,9 +728,16 @@ namespace SKG.DXF
 
             foreach (DataRow r in tbl.Rows)
             {
+                if (r.RowState == DataRowState.Added) continue;
+
                 var o = CreatePol_Dictionary(r);
                 var ok = Pol_Dictionary.Insert(o);
-                if (ok != null) return;
+
+                if (ok != null)
+                {
+                    r.SetAdded();
+                    continue;
+                }
 
                 #region Insert parent record
                 var str = "Id = '{0}'";
@@ -740,9 +747,11 @@ namespace SKG.DXF
                 if (dtr.Length > 0)
                 {
                     var x = CreatePol_Dictionary(dtr[0]);
-                    Pol_Dictionary.Insert(x);
+                    ok = Pol_Dictionary.Insert(x);
+                    if (ok != null) r.SetAdded();
 
-                    Pol_Dictionary.Insert(o); // insert again
+                    ok = Pol_Dictionary.Insert(o); // insert again
+                    if (ok != null) r.SetAdded();
                 }
                 #endregion
             }

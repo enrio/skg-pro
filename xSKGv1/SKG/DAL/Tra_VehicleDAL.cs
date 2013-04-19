@@ -197,15 +197,16 @@ namespace SKG.DAL
             {
                 var o = (Tra_Vehicle)obj;
                 if (Select(o.Code, o.Fixed) != null) return null; // number already exists
+                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
 
-                o.Id = Guid.NewGuid();
+
                 o.CreatorId = Global.Session.User.Id;
                 o.CreateDate = Global.Session.Current;
                 o.Code = o.Code.ToUpper();
 
                 var oki = _db.Tra_Vehicles.Add(o);
-
                 _db.SaveChanges();
+
                 return oki;
             }
             catch { return null; }

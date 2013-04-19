@@ -102,7 +102,7 @@ namespace SKG.DAL
             {
                 var o = (Pol_User)obj;
                 if (Select(o.Acc) != null) return null; // account already exists
-                o.Id = Guid.NewGuid();
+                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
                 o.Pass = Coder.Encode(o.Pass);
 
                 var phone = o.Phone;
@@ -112,8 +112,8 @@ namespace SKG.DAL
                 o.Phone = phone;
 
                 var oki = _db.Pol_Users.Add(o);
-
                 _db.SaveChanges();
+
                 return oki;
             }
             catch { return null; }

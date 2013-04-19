@@ -146,6 +146,7 @@ namespace SKG.DAL
 
                 var oki = _db.Pol_Dictionarys.Add(o);
                 _db.SaveChanges();
+
                 return oki;
             }
             catch { return null; }

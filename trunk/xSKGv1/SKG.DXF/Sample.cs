@@ -810,6 +810,9 @@ namespace SKG.DXF
                     var x = CreatePol_Dictionary(dtr[0]);
                     ok = Pol_Dictionary.Insert(x);
                     if (ok != null) dtr[0].SetAdded();
+
+                    ok = Pol_Dictionary.Insert(o); // insert again
+                    if (ok != null) r.SetAdded();
                 }
                 #endregion
             }

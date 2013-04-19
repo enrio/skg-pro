@@ -68,6 +68,26 @@ namespace SKG.DXF.Home.Sytem
         {
             _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var a = _config.ConnectionStrings.ConnectionStrings[1];
+            var cfg = a.ConnectionString.GetConfig();
+
+            if (cfg != null)
+            {
+                if (cfg.Count > 1)
+                {
+                    cbbAuthen.SelectedIndex = 1; // select Windows Authencation
+
+                    cbbServer.EditValue = cfg[0];
+                    cbbDb.EditValue = cfg[1];
+                }
+
+                if (cfg.Count > 3)
+                {
+                    cbbAuthen.SelectedIndex = 0; // select SQL Server Authencation
+
+                    cbbUser.EditValue = cfg[2];
+                    txtPass.EditValue = cfg[3];
+                }
+            }
 
             if (a.ProviderName == _b.ProviderName) chkSQLCE.Checked = true;
             else chkSQLCE.Checked = false;
@@ -135,12 +155,12 @@ namespace SKG.DXF.Home.Sytem
 
         private void cbbAuthen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbAuthen.SelectedItem + "" == STR_WIND)
+            if (cbbAuthen.SelectedIndex == 1) // select Windows Authencation
             {
                 cbbUser.Enabled = false;
                 txtPass.Enabled = false;
             }
-            else
+            else // select SQL Server Authencation
             {
                 cbbUser.Enabled = true;
                 txtPass.Enabled = true;

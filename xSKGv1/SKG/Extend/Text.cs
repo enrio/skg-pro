@@ -194,17 +194,6 @@ namespace SKG.Extend
 
         #region Checks
         /// <summary>
-        /// Check text is number using Regex class
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static bool IsNumber(this string s)
-        {
-            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
-            return regex.IsMatch(s);
-        }
-
-        /// <summary>
         /// Check number between min & max
         /// </summary>
         /// <param name="n">Number</param>
@@ -287,8 +276,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static int ToInt32(this string s)
         {
-            if (IsNumber(s)) return Convert.ToInt32(s);
-            return 0;
+            int i = 0;
+            Int32.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -298,8 +288,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static long ToInt64(this string s)
         {
-            if (IsNumber(s)) return Convert.ToInt64(s);
-            return 0;
+            long i = 0;
+            Int64.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -309,8 +300,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static double ToDouble(this string s)
         {
-            if (IsNumber(s)) return Convert.ToDouble(s);
-            return 0;
+            double i = 0;
+            Double.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -320,8 +312,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static decimal ToDecimal(this string s)
         {
-            if (IsNumber(s)) return Convert.ToDecimal(s);
-            return 0;
+            decimal i = 0;
+            Decimal.TryParse(s, out  i);
+            return i;
         }
         #endregion
 

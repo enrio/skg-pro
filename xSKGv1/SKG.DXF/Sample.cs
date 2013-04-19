@@ -18,6 +18,7 @@ namespace SKG.DXF
 {
     using BLL;
     using SKG.Datax;
+    using SKG.Extend;
     using System.Data;
     using DAL.Entities;
     using System.Windows.Forms;
@@ -695,22 +696,22 @@ namespace SKG.DXF
             {
                 var dic = new Pol_Dictionary
                 {
-                    Id = (Guid)r["Id"],
-                    ParentId = (r["ParentId"] + "" == "") ? Guid.Empty : (Guid)r["ParentId"],
-                    Type = r["Type"] + "",
-                    Text1 = r["Text1"] + "",
-                    Note1 = r["Note1"] + "",
-                    More1 = r["More1"] + "",
-                    Text2 = r["Text2"] + "",
-                    Note2 = r["Note2"] + "",
-                    More2 = r["More2"] + "",
-                    Text3 = r["Text3"] + "",
-                    Note3 = r["Note3"] + "",
-                    More3 = r["More3"] + "",
-                    Code = r["Code"] + "",
-                    Text = r["Text"] + "",
-                    Note = r["Note"] + "",
-                    More = r["More"] + "",
+                    Id = r["Id"].GetGuid(),
+                    ParentId = r["ParentId"].GetGuidNull(),
+                    Type = r["Type"].GetString(),
+                    Text1 = r["Text1"].GetString(),
+                    Note1 = r["Note1"].GetString(),
+                    More1 = r["More1"].GetString(),
+                    Text2 = r["Text2"].GetString(),
+                    Note2 = r["Note2"].GetString(),
+                    More2 = r["More2"].GetString(),
+                    Text3 = r["Text3"].GetString(),
+                    Note3 = r["Note3"].GetString(),
+                    More3 = r["More3"].GetString(),
+                    Code = r["Code"].GetString(),
+                    Text = r["Text"].GetString(),
+                    Note = r["Note"].GetString(),
+                    More = r["More"].GetString(),
                     Order = Convert.ToInt32(r["Order"]),
                     Show = Convert.ToBoolean(r["Show"])
                 };

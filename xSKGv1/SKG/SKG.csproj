@@ -94,6 +94,7 @@
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Number.cs" />
+    <Compile Include="Extend\Objs.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />
     <Compile Include="Global.cs" />

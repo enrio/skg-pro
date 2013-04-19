@@ -653,15 +653,15 @@ namespace SKG.DXF
 
             tbl = new DataTable(typeof(Pol_UserRole).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            tbl.Columns.Add("Pol_UserId", typeof(Guid));
-            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
+            tbl.Columns.Add("UserId", typeof(Guid));
+            tbl.Columns.Add("RoleId", typeof(Guid));
             tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
             if (!isSQL) CreatePol_UserRole(tbl);
 
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            tbl.Columns.Add("Pol_RightId", typeof(Guid));
+            tbl.Columns.Add("RoleId", typeof(Guid));
+            tbl.Columns.Add("RightId", typeof(Guid));
             tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
             if (!isSQL) CreatePol_RoleRight(tbl);
             #endregion

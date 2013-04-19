@@ -16,7 +16,7 @@ namespace SKG.Extend
         /// </summary>
         /// <param name="o"></param>
         /// <returns></returns>
-        public static string GetString(this object o)
+        public static string ToText(this object o)
         {
             var tmp = o + "";
             if (tmp == "")

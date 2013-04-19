@@ -18,6 +18,68 @@ namespace SKG.Extend
     {
         #region Strings
         /// <summary>
+        /// Return string split by separate
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <param name="sep">Separate</param>
+        /// <param name="idx">Index</param>
+        /// <returns></returns>
+        public static string SplitIndex(this string str, char sep, int idx)
+        {
+            try
+            {
+                var sp = str.Split(new char[] { sep });
+                return sp[idx];
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Return list of string config as server name, database name, user and password
+        /// </summary>
+        /// <param name="str">String connection</param>
+        /// <returns></returns>
+        public static List<string> GetConfig(this string str)
+        {
+            var lst = new List<string>();
+            var sp = str.Split(new char[] { ';' });
+
+            switch (sp.Length)
+            {
+                case 3:
+                    var a = sp[0];
+                    a = a.SplitIndex('=', 1); // get server name
+                    lst.Add(a);
+
+                    var b = sp[1];
+                    b = b.SplitIndex('=', 1); // get database name                    
+                    lst.Add(b);
+                    break;
+
+                case 5:
+                    a = sp[0];
+                    a = a.SplitIndex('=', 1); // get server name
+                    lst.Add(a);
+                    b = sp[1];
+                    b = b.SplitIndex('=', 1); // get database name
+                    lst.Add(b);
+
+                    var c = sp[3];
+                    c = c.SplitIndex('=', 1); // get user
+                    lst.Add(c);
+                    var d = sp[4];
+                    d = d.SplitIndex('=', 1); // get password
+                    lst.Add(d);
+                    break;
+
+                default:
+                    return null;
+            }
+
+            return lst;
+        }
+
+        /// <summary>
         /// Removing Vietnamese
         /// </summary>
         /// <param name="str">String</param>

@@ -93,6 +93,17 @@ namespace SKG.Extend
             var tmp = o + "";
             return tmp.ToDecimal();
         }
+
+        /// <summary>
+        /// Converts the specified string representation of a logic value to an equivalent boolean
+        /// </summary>
+        /// <param name="o">Boolean value</param>
+        /// <returns></returns>
+        public static bool ToBoolean(this object o)
+        {
+            var tmp = o + "";
+            return tmp.ToBoolean();
+        }
         #endregion
     }
 }

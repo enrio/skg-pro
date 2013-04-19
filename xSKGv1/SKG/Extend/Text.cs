@@ -316,6 +316,18 @@ namespace SKG.Extend
             Decimal.TryParse(s, out  i);
             return i;
         }
+
+        /// <summary>
+        /// Converts the specified string representation of a logic value to an equivalent boolean
+        /// </summary>
+        /// <param name="s">Boolean value</param>
+        /// <returns></returns>
+        public static bool ToBoolean(this string s)
+        {
+            bool i = false;
+            Boolean.TryParse(s, out  i);
+            return i;
+        }
         #endregion
 
         #region Menu

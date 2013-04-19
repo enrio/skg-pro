@@ -712,8 +712,8 @@ namespace SKG.DXF
                     Text = r["Text"].GetString(),
                     Note = r["Note"].GetString(),
                     More = r["More"].GetString(),
-                    Order = Convert.ToInt32(r["Order"]),
-                    Show = Convert.ToBoolean(r["Show"])
+                    Order = r["Order"].ToInt32(),
+                    Show = r["Show"].ToBoolean()
                 };
 
                 Pol_Dictionary.Insert(dic);

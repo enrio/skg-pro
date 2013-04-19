@@ -142,7 +142,8 @@ namespace SKG.DAL
             {
                 var o = (Pol_Dictionary)obj;
                 if (Select(o.Code) != null) return null; // already exists
-                o.Id = Guid.NewGuid();
+                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
+
                 var oki = _db.Pol_Dictionarys.Add(o);
                 _db.SaveChanges();
                 return oki;

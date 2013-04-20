@@ -278,7 +278,7 @@ namespace SKG.DXF.Station.Charts
 
         private void dteDayMonth_EditValueChanged(object sender, EventArgs e)
         {
-            LoadData();
+            cbbType_SelectedIndexChanged(null, null);
         }
 
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)

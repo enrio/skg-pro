@@ -284,8 +284,6 @@ namespace SKG.DXF.Station.Charts
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             decimal sum = 0;
-            var ix = 0;
-
             var format = "dd/MM/yyyy";
             var ds = new System.Data.DataSet();
             var by = (Summary)cbbType.SelectedIndex;
@@ -314,6 +312,7 @@ namespace SKG.DXF.Station.Charts
             }
 
             if (sum <= 0) return;
+            var ix = rdgDayMonth.SelectedIndex;
 
             var dm = rdgDayMonth.Properties.Items[ix].Description;
             dm = dm.ToUpper();

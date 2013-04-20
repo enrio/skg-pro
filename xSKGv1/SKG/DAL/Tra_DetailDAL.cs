@@ -1654,6 +1654,86 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Sumary for sales DayInMonth or MonthInYear
+        /// </summary>
+        /// <param name="by"></param>
+        /// <param name="fr"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        protected DataSet Sumary4Sales(Summary by, DateTime fr, DateTime to)
+        {
+            var ds = new DataSet();
+
+            switch (by)
+            {
+                case Summary.DayInMonth:
+                    var r1 = from s in _db.Tra_Details
+                             where s.UserOutId != null
+                             && s.DateOut >= fr && s.DateOut <= to
+                             && s.Vehicle.Fixed == true
+                             && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                             group s by s.DateOut.Value.Day into g
+                             select new
+                             {
+                                 Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                 g.Key
+                             };
+                    var tb = r1.ToDataTable();
+                    ds.Tables.Add(tb);
+
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == false
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by s.DateOut.Value.Day into g
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             g.Key
+                         };
+                    tb = r1.ToDataTable();
+                    ds.Tables.Add(tb);
+                    break;
+
+                case Summary.MonthInYear:
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == true
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by s.DateOut.Value.Month into g
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             g.Key
+                         };
+                    tb = r1.ToDataTable();
+                    ds.Tables.Add(tb);
+
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == false
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by s.DateOut.Value.Month into g
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             g.Key
+                         };
+                    tb = r1.ToDataTable();
+                    ds.Tables.Add(tb);
+                    break;
+
+                default:
+                    break;
+            }
+
+            return ds;
+        }
+
+        /// <summary>
         /// Sumary sales of vehicle by
         /// </summary>
         /// <param name="by">Summary by</param>

@@ -270,5 +270,22 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Update user skin
+        /// </summary>
+        /// <param name="o">Pol_User</param>
+        /// <returns></returns>
+        public object UpdateSkin(Pol_User o)
+        {
+            try
+            {
+                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
+                res.Skin = o.Skin;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
     }
 }

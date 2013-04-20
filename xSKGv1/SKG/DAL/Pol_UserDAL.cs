@@ -79,6 +79,8 @@ namespace SKG.DAL
                               s.Pass,
                               s.Name,
                               s.Birth,
+                              s.Sex,
+                              s.Skin,
                               s.Address,
                               s.Phone,
                               s.Code,
@@ -130,6 +132,8 @@ namespace SKG.DAL
                 res.Pass = Coder.Encode(o.Pass);
                 res.Name = o.Name;
                 res.Birth = o.Birth;
+                res.Sex = o.Sex;
+                res.Skin = o.Skin;
                 res.Address = o.Address;
                 res.Phone = o.Phone;
                 res.Code = o.Code;

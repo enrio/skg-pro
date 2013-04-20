@@ -291,7 +291,8 @@ namespace SKG.DXF.Station.Charts
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             decimal sum = 0;
-            var xt = "";
+            string x1, x2;
+
             var format = "dd/MM/yyyy";
             var ds = new System.Data.DataSet();
             var by = (Summary)cbbType.SelectedIndex;
@@ -305,7 +306,8 @@ namespace SKG.DXF.Station.Charts
                     ds = _bll.Tra_Detail.Sumary4Sales(out sum, by, dteDayMonth.DateTime);
 
                     rdgDayMonth.SelectedIndex = 1;
-                    xt = "Tháng";
+                    x1 = "THÁNG";
+                    x2 = "Ngày";
                     break;
 
                 case Summary.MonthInYear:
@@ -315,7 +317,8 @@ namespace SKG.DXF.Station.Charts
                     ds = _bll.Tra_Detail.Sumary4Sales(out sum, by, dteDayMonth.DateTime);
 
                     rdgDayMonth.SelectedIndex = 2;
-                    xt = "Năm";
+                    x1 = "NĂM";
+                    x2 = "Tháng";
                     break;
 
                 default:
@@ -327,10 +330,10 @@ namespace SKG.DXF.Station.Charts
             if (sum <= 0) return;
 
             sccContent.Visible = false;
-            SetAxisTitle((XYDiagram)_lineChart.Diagram, xt, "Số tiền", true);
+            SetAxisTitle((XYDiagram)_lineChart.Diagram, x2, "Số tiền", true);
 
             var str = String.Format("{0} {3} {1} = {2}VNĐ", Text.ToUpper(),
-                dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), xt.ToUpper());
+                dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), x1);
 
             if (_lineChart.Titles.Count > 0) _lineChart.Titles[0].Text = str;
             else _lineChart.Titles.Add(new ChartTitle() { Text = str });

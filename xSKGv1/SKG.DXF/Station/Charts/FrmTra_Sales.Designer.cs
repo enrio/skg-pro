@@ -107,7 +107,9 @@
             "Theo đvvt (xe cố định)",
             "Theo nhóm (xe vãng lai)",
             "Theo loại (xe vãng lai)",
-            "Theo cố định, vãng lai"});
+            "Theo cố định, vãng lai",
+            "Theo ngày trong tháng",
+            "Theo tháng trong năm"});
             this.cbbType.Size = new System.Drawing.Size(133, 20);
             this.cbbType.TabIndex = 4;
             this.cbbType.EditValueChanged += new System.EventHandler(this.cbbType_SelectedIndexChanged);

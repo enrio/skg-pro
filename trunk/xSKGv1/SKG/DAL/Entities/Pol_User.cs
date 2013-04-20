@@ -59,6 +59,16 @@ namespace SKG.DAL.Entities
         public DateTime Birth { set; get; }
 
         /// <summary>
+        /// User's sex
+        /// </summary>
+        public bool Sex { set; get; }
+
+        /// <summary>
+        /// Default skin name
+        /// </summary>
+        public string Skin { set; get; }
+
+        /// <summary>
         /// User's address
         /// </summary>
         public string Address { set; get; }

@@ -122,9 +122,6 @@ namespace SKG.DXF.Station.Charts
             InitializeComponent();
 
             Text = STR_TITLE;
-
-            BarChart();
-            PieChart();
         }
 
         void SetAxisTitle(XYDiagram diagram, string axisX, string axisY)
@@ -271,6 +268,10 @@ namespace SKG.DXF.Station.Charts
         #region Events
         private void FrmTra_Sales_Load(object sender, EventArgs e)
         {
+            LineChart();
+            BarChart();
+            PieChart();
+
             AllowBar = false;
             dteDayMonth.DateTime = Global.Session.Current;
         }

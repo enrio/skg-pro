@@ -192,5 +192,52 @@ namespace SKG.BLL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Sumary for sales DayInMonth or MonthInYear
+        /// </summary>
+        /// <param name="sum"></param>
+        /// <param name="by"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataSet Sumary4Sales(out decimal sum, Summary by, DateTime dt)
+        {
+            sum = 0;
+            var ds = new DataSet();
+
+            try
+            {
+                switch (by)
+                {
+                    case Summary.DayInMonth:
+                        var a = dt.ToStartOfMonth();
+                        var b = dt.ToEndOfMonth();
+                        var to = b.AddHours(13);
+                        var fr = a.AddDays(-1).AddSeconds(1);
+                        ds = base.Sumary4Sales(by, fr, to);
+                        break;
+
+                    case Summary.MonthInYear:
+                        a = dt.ToStartOfYear();
+                        b = dt.ToEndOfYear();
+                        to = b.AddHours(13);
+                        fr = a.AddDays(-1).AddSeconds(1);
+                        ds = base.Sumary4Sales(by, fr, to);
+                        break;
+
+                    default:
+                        break;
+                }
+
+                if (ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
+                    sum = (decimal)ds.Tables[0].Compute("Sum(Money)", "");
+
+                if (ds.Tables[1] != null && ds.Tables[1].Rows.Count > 0)
+                    sum += (decimal)ds.Tables[1].Compute("Sum(Money)", "");
+
+                return ds;
+            }
+            catch { return null; }
+        }
     }
 }

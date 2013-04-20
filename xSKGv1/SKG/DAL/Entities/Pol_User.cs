@@ -61,7 +61,7 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// User's sex
         /// </summary>
-        public bool Sex { set; get; }
+        public bool? Sex { set; get; }
 
         /// <summary>
         /// Default skin name

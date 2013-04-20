@@ -93,7 +93,8 @@ namespace SKG.BLL
             var money = e + f;
 
             var p = Convert.ToDecimal(tb.Compute("Sum(Th_Parked)", ""));
-            infomation = String.Format(format, count.ToString("#,0"), guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
+            infomation = String.Format(format, count.ToString("#,0"),
+                guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
             return tb;
         }
 
@@ -106,6 +107,7 @@ namespace SKG.BLL
         {
             sum = 0;
             receipt = "";
+
             try
             {
                 var to = Global.Session.Current.Date.AddHours(13);
@@ -125,6 +127,8 @@ namespace SKG.BLL
         public DataTable SumarySalesDay(out decimal sum, Summary by, DateTime dt)
         {
             sum = 0;
+            dt = dt.Date;
+
             try
             {
                 var to = dt.AddHours(13);
@@ -149,10 +153,11 @@ namespace SKG.BLL
         public DataTable SumarySalesMonth(out decimal sum, Summary by, DateTime dt)
         {
             sum = 0;
+
             try
             {
-                var a = dt.ToStartOfMonth();
-                var b = dt.ToEndOfMonth();
+                var a = dt.ToStartOfMonth().Date;
+                var b = dt.ToEndOfMonth().Date;
 
                 var to = b.AddHours(13);
                 var fr = a.AddDays(-1).AddSeconds(1);
@@ -176,10 +181,11 @@ namespace SKG.BLL
         public DataTable SumarySalesYear(out decimal sum, Summary by, DateTime dt)
         {
             sum = 0;
+
             try
             {
-                var a = dt.ToStartOfYear();
-                var b = dt.ToEndOfYear();
+                var a = dt.ToStartOfYear().Date;
+                var b = dt.ToEndOfYear().Date;
 
                 var to = b.AddHours(13);
                 var fr = a.AddDays(-1).AddSeconds(1);
@@ -210,16 +216,18 @@ namespace SKG.BLL
                 switch (by)
                 {
                     case Summary.DayInMonth:
-                        var a = dt.ToStartOfMonth();
-                        var b = dt.ToEndOfMonth();
+                        var a = dt.ToStartOfMonth().Date;
+                        var b = dt.ToEndOfMonth().Date;
+
                         var to = b.AddHours(13);
                         var fr = a.AddDays(-1).AddSeconds(1);
                         ds = base.Sumary4Sales(by, fr, to);
                         break;
 
                     case Summary.MonthInYear:
-                        a = dt.ToStartOfYear();
-                        b = dt.ToEndOfYear();
+                        a = dt.ToStartOfYear().Date;
+                        b = dt.ToEndOfYear().Date;
+
                         to = b.AddHours(13);
                         fr = a.AddDays(-1).AddSeconds(1);
                         ds = base.Sumary4Sales(by, fr, to);
@@ -241,6 +249,7 @@ namespace SKG.BLL
                     var xx = tb.Rows[0]["Money"].ToDecimal();
                     xx += tb.Rows[1]["Money"].ToDecimal();
                     tb.Rows[1]["Money"] = xx;
+
                     tb.Rows[0].Delete();
                     tb.AcceptChanges();
                 }
@@ -251,6 +260,7 @@ namespace SKG.BLL
                     var xx = tb.Rows[0]["Money"].ToDecimal();
                     xx += tb.Rows[1]["Money"].ToDecimal();
                     tb.Rows[1]["Money"] = xx;
+
                     tb.Rows[0].Delete();
                     tb.AcceptChanges();
                 }

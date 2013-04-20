@@ -161,7 +161,6 @@ namespace SKG.DXF.Home.Catalog
             txtAcc.DataBindings.Clear();
             txtPass.DataBindings.Clear();
             dteBirth.DataBindings.Clear();
-            radSex.DataBindings.Clear();
             txtAddress.DataBindings.Clear();
             txtPhone.DataBindings.Clear();
             txtCode.DataBindings.Clear();
@@ -176,7 +175,6 @@ namespace SKG.DXF.Home.Catalog
             txtAcc.DataBindings.Add("EditValue", _dtb, ".Acc");
             txtPass.DataBindings.Add("EditValue", _dtb, ".Pass");
             dteBirth.DataBindings.Add("EditValue", _dtb, ".Birth");
-            radSex.DataBindings.Add("EditValue", _dtb, ".Sex");
             txtAddress.DataBindings.Add("EditValue", _dtb, ".Address");
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
@@ -218,7 +216,6 @@ namespace SKG.DXF.Home.Catalog
                     Pass = txtPass.Text,
                     Name = txtName.Text,
                     Birth = dteBirth.DateTime,
-                    Sex = radSex.EditValue.ToBoolean(),
                     Phone = txtPhone.Text,
                     Address = txtAddress.Text,
                     Code = txtCode.Text,
@@ -245,7 +242,6 @@ namespace SKG.DXF.Home.Catalog
                     Pass = txtPass.Text,
                     Name = txtName.Text,
                     Birth = dteBirth.DateTime,
-                    Sex = radSex.EditValue.ToBoolean(),
                     Phone = txtPhone.Text,
                     Address = txtAddress.Text,
                     Code = txtCode.Text,

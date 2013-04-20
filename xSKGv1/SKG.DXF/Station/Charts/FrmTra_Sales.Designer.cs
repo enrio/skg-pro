@@ -100,6 +100,7 @@
             this.cbbType.Name = "cbbType";
             this.cbbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbType.Properties.DropDownRows = 9;
             this.cbbType.Properties.Items.AddRange(new object[] {
             "Theo miền (xe cố định)",
             "Theo vùng (xe cố định)",

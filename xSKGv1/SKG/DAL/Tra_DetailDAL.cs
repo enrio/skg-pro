@@ -1673,7 +1673,7 @@ namespace SKG.DAL
                              && s.Vehicle.Fixed == true
                              && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                              group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
-                             orderby g.Key.Day descending, g.Key.Month descending
+                             orderby g.Key.Month, g.Key.Day
                              select new
                              {
                                  Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
@@ -1688,7 +1688,7 @@ namespace SKG.DAL
                          && s.Vehicle.Fixed == false
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                          group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
-                         orderby g.Key.Day descending, g.Key.Month descending
+                         orderby g.Key.Month, g.Key.Day
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
@@ -1705,7 +1705,7 @@ namespace SKG.DAL
                          && s.Vehicle.Fixed == true
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                          group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
-                         orderby g.Key.Month descending, g.Key.Year descending
+                         orderby g.Key.Year, g.Key.Month
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
@@ -1720,7 +1720,7 @@ namespace SKG.DAL
                          && s.Vehicle.Fixed == false
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                          group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
-                         orderby g.Key.Month descending, g.Key.Year descending
+                         orderby g.Key.Year, g.Key.Month
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),

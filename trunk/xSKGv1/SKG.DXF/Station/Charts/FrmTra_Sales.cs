@@ -151,7 +151,7 @@ namespace SKG.DXF.Station.Charts
         {
             #region Series1
             // Create an empty Bar series and add it to the chart
-            var series = new Series("Series1", ViewType.Line);
+            var series = new Series("Xe cố định", ViewType.Line);
             series.LegendPointOptions.PointView = PointView.Argument;
             _lineChart.Series.Add(series);
 
@@ -169,7 +169,7 @@ namespace SKG.DXF.Station.Charts
 
             #region Series2
             // Create an empty Bar series and add it to the chart
-            series = new Series("Series2", ViewType.Line);
+            series = new Series("Xe vãng lai", ViewType.Line);
             series.LegendPointOptions.PointView = PointView.Argument;
             _lineChart.Series.Add(series);
 
@@ -187,7 +187,7 @@ namespace SKG.DXF.Station.Charts
 
             // Dock the chart into its parent and add it to the current form
             _lineChart.Dock = DockStyle.Fill;
-            sccContent.Panel1.Controls.Add(_lineChart);
+            sccMain.Panel2.Controls.Add(_lineChart);
         }
 
         /// <summary>
@@ -308,11 +308,13 @@ namespace SKG.DXF.Station.Charts
 
                 default:
                     LoadData();
+                    sccContent.Visible = true;
                     return;
             }
 
             if (sum <= 0) return;
             var ix = rdgDayMonth.SelectedIndex;
+            sccContent.Visible = false;
 
             var dm = rdgDayMonth.Properties.Items[ix].Description;
             dm = dm.ToUpper();

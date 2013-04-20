@@ -124,7 +124,14 @@ namespace SKG.DXF.Station.Charts
             Text = STR_TITLE;
         }
 
-        void SetAxisTitle(XYDiagram diagram, string axisX, string axisY)
+        /// <summary>
+        /// Set axis title
+        /// </summary>
+        /// <param name="diagram">XYDiagram</param>
+        /// <param name="axisX">Axis X title</param>
+        /// <param name="axisY">Axis Y title</param>
+        /// <param name="x">Visible axis X</param>
+        void SetAxisTitle(XYDiagram diagram, string axisX, string axisY, bool x = false)
         {
             // Customize the appearance of the X-axis title
             diagram.AxisX.Title.Visible = true;
@@ -132,7 +139,7 @@ namespace SKG.DXF.Station.Charts
             diagram.AxisX.Title.Text = axisX;
             diagram.AxisX.Title.TextColor = Color.Red;
             diagram.AxisX.Title.Antialiasing = true;
-            diagram.AxisX.Label.Visible = false;
+            diagram.AxisX.Label.Visible = x;
 
             // Customize the appearance of the Y-axis title
             diagram.AxisY.Title.Visible = true;
@@ -320,7 +327,7 @@ namespace SKG.DXF.Station.Charts
             dm = dm.ToUpper();
             var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
 
-            SetAxisTitle((XYDiagram)_lineChart.Diagram, tit, "Số tiền");
+            SetAxisTitle((XYDiagram)_lineChart.Diagram, tit, "Số tiền", true);
 
             var str = String.Format("{0} {3} {1} = {2}VNĐ", Text.ToUpper(),
                 dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), dm);

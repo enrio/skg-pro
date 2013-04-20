@@ -46,6 +46,7 @@ namespace SKG.DXF
             rgbiSkins.Gallery.RowCount = 4;
             rgbiSkins.Id = 60;
             rgbiSkins.Name = "rgbiSkins";
+            rgbiSkins.GalleryItemClick += new GalleryItemClickEventHandler(rgbiSkins_GalleryItemClick);
 
             var rgbiSkinsGroup = new RibbonPageGroup();
             rgbiSkinsGroup.ItemLinks.Add(rgbiSkins);
@@ -58,6 +59,19 @@ namespace SKG.DXF
 
             SkinHelper.InitSkinGallery(rgbiSkins, true);
             UserLookAndFeel.Default.SetSkinStyle(skin);
+        }
+
+        void rgbiSkins_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
+        {
+            var bll = new BLL.Pol_UserBLL();
+
+            var usr = new DAL.Entities.Pol_User()
+            {
+                Id = Global.Session.User.Id,
+                Skin = UserLookAndFeel.Default.ActiveSkinName
+            };
+
+            bll.UpdateSkin(usr);
         }
 
         public FrmMain()

@@ -29,7 +29,6 @@ namespace SKG.DXF
     using DevExpress.XtraEditors;
     using DevExpress.XtraTreeList;
     using DevExpress.XtraBars.Ribbon;
-    using DevExpress.XtraBars.Helpers;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraGrid.Views.Grid;
     using DevExpress.XtraTreeList.Columns;
@@ -681,8 +680,8 @@ namespace SKG.DXF
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
             var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);
 
-            menuz1.Groups.Add(_frmMain.skinsRibbonPageGroup);
-            SkinHelper.InitSkinGallery(_frmMain.rgbiSkins, true);
+            _frmMain.InitSkinGallery(menuz1);
+
             menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
             menuz3.Caption = "ĐĂNG XUẤT";
 

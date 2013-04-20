@@ -680,7 +680,7 @@ namespace SKG.DXF
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
             var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);
 
-            _frmMain.InitSkinGallery(menuz1);
+            _frmMain.InitSkinGallery(menuz1, Global.Session.User.Skin);
 
             menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
             menuz3.Caption = "ĐĂNG XUẤT";

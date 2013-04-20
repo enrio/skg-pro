@@ -19,6 +19,7 @@ namespace SKG.DXF
     using SKG.Extend;
     using DevExpress.Utils;
     using DevExpress.XtraBars;
+    using DevExpress.LookAndFeel;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Helpers;
 
@@ -31,7 +32,7 @@ namespace SKG.DXF
         /// Init skin gallery
         /// </summary>
         /// <param name="rp">RibbonPage</param>
-        public void InitSkinGallery(RibbonPage rp)
+        public void InitSkinGallery(RibbonPage rp, string skin = "DevExpress Style")
         {
             var rgbiSkins = new RibbonGalleryBarItem { Caption = "Skins" };
             rgbiSkins.Gallery.AllowHoverImages = true;
@@ -56,6 +57,7 @@ namespace SKG.DXF
             rp.Groups.Add(skinsRibbonPageGroup);
 
             SkinHelper.InitSkinGallery(rgbiSkins, true);
+            UserLookAndFeel.Default.SetSkinStyle(skin);
         }
 
         public FrmMain()

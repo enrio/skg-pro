@@ -1676,7 +1676,7 @@ namespace SKG.DAL
                              select new
                              {
                                  Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                                 Key = g.Key.Day + "/" + g.Key.Month
+                                 Key = SqlFunctions.StringConvert((double)g.Key.Day).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Month).Trim()
                              };
                     var tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
@@ -1690,7 +1690,7 @@ namespace SKG.DAL
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             Key = g.Key.Day + "/" + g.Key.Month
+                             Key = SqlFunctions.StringConvert((double)g.Key.Day).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Month).Trim()
                          };
                     tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);
@@ -1706,7 +1706,7 @@ namespace SKG.DAL
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             Key = g.Key.Month + "/" + g.Key.Year
+                             Key = SqlFunctions.StringConvert((double)g.Key.Month).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Year).Trim()
                          };
                     tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
@@ -1720,7 +1720,7 @@ namespace SKG.DAL
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             Key = g.Key.Month + "/" + g.Key.Year
+                             Key = SqlFunctions.StringConvert((double)g.Key.Month).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Year).Trim()
                          };
                     tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);

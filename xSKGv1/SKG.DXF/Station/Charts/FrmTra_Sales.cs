@@ -284,9 +284,10 @@ namespace SKG.DXF.Station.Charts
         private void cbbType_SelectedIndexChanged(object sender, EventArgs e)
         {
             decimal sum = 0;
+            var ix = 0;
+
             var format = "dd/MM/yyyy";
             var ds = new System.Data.DataSet();
-            var ix = rdgDayMonth.SelectedIndex;
             var by = (Summary)cbbType.SelectedIndex;
 
             switch (by)
@@ -296,6 +297,7 @@ namespace SKG.DXF.Station.Charts
                     dteDayMonth.Properties.DisplayFormat.FormatString = format;
                     dteDayMonth.Properties.EditFormat.FormatString = format;
                     ds = _bll.Tra_Detail.Sumary4Sales(out sum, by, dteDayMonth.DateTime);
+                    rdgDayMonth.SelectedIndex = 1;
                     break;
 
                 case Summary.MonthInYear:
@@ -303,6 +305,7 @@ namespace SKG.DXF.Station.Charts
                     dteDayMonth.Properties.DisplayFormat.FormatString = format;
                     dteDayMonth.Properties.EditFormat.FormatString = format;
                     ds = _bll.Tra_Detail.Sumary4Sales(out sum, by, dteDayMonth.DateTime);
+                    rdgDayMonth.SelectedIndex = 2;
                     break;
 
                 default:
@@ -316,19 +319,19 @@ namespace SKG.DXF.Station.Charts
             dm = dm.ToUpper();
             var tit = cbbType.Text.Replace("Theo", "").ToUpperFirst();
 
-            SetAxisTitle((XYDiagram)_barChart.Diagram, tit, "Số tiền");
+            SetAxisTitle((XYDiagram)_lineChart.Diagram, tit, "Số tiền");
 
             var str = String.Format("{0} {3} {1} = {2}VNĐ", Text.ToUpper(),
                 dteDayMonth.DateTime.ToString(format), sum.ToString("#,0"), dm);
 
-            if (_barChart.Titles.Count > 0) _barChart.Titles[0].Text = str;
-            else _barChart.Titles.Add(new ChartTitle() { Text = str });
+            if (_lineChart.Titles.Count > 0) _lineChart.Titles[0].Text = str;
+            else _lineChart.Titles.Add(new ChartTitle() { Text = str });
 
-            if (_barChart.Series.Count > 0)
-                _barChart.Series[0].DataSource = ds.Tables[0];
+            if (_lineChart.Series.Count > 0)
+                _lineChart.Series[0].DataSource = ds.Tables[0];
 
-            if (_barChart.Series.Count > 1)
-                _barChart.Series[1].DataSource = ds.Tables[1];
+            if (_lineChart.Series.Count > 1)
+                _lineChart.Series[1].DataSource = ds.Tables[1];
         }
 
         private void ckbAutoUpdate_CheckedChanged(object sender, EventArgs e)

@@ -148,11 +148,56 @@ namespace SKG.DXF.Station.Charts
         }
 
         /// <summary>
+        /// Line series chart
+        /// </summary>
+        void LineChart()
+        {
+            #region Series1
+            // Create an empty Bar series and add it to the chart
+            var series = new Series("Series1", ViewType.Line);
+            series.LegendPointOptions.PointView = PointView.Argument;
+            _lineChart.Series.Add(series);
+
+            // Adjust the point options of the series
+            series.Label.PointOptions.PointView = PointView.Values;
+            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
+
+            series.ArgumentDataMember = "Key";
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { "Money" });
+
+            series.LabelsVisibility = DefaultBoolean.True;
+            #endregion
+
+            #region Series2
+            // Create an empty Bar series and add it to the chart
+            series = new Series("Series2", ViewType.Line);
+            series.LegendPointOptions.PointView = PointView.Argument;
+            _lineChart.Series.Add(series);
+
+            // Adjust the point options of the series
+            series.Label.PointOptions.PointView = PointView.Values;
+            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
+            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
+
+            series.ArgumentDataMember = "Key";
+            series.ValueScaleType = ScaleType.Numerical;
+            series.ValueDataMembers.AddRange(new string[] { "Money" });
+
+            series.LabelsVisibility = DefaultBoolean.True;
+            #endregion
+
+            // Dock the chart into its parent and add it to the current form
+            _lineChart.Dock = DockStyle.Fill;
+            sccContent.Panel1.Controls.Add(_lineChart);
+        }
+
+        /// <summary>
         /// Bar series chart
         /// </summary>
         void BarChart()
         {
-            #region Series1
             // Create an empty Bar series and add it to the chart
             var series = new Series("Series1", ViewType.Bar);
             series.LegendPointOptions.PointView = PointView.Argument;
@@ -171,28 +216,6 @@ namespace SKG.DXF.Station.Charts
             ((SideBySideBarSeriesView)series.View).ColorEach = true;
 
             series.LabelsVisibility = DefaultBoolean.True;
-            #endregion
-
-            #region Series2
-            // Create an empty Bar series and add it to the chart
-            series = new Series("Series2", ViewType.Bar);
-            series.LegendPointOptions.PointView = PointView.Argument;
-            _barChart.Series.Add(series);
-
-            // Adjust the point options of the series
-            series.Label.PointOptions.PointView = PointView.Values;
-            series.Label.PointOptions.ValueNumericOptions.Format = NumericFormat.Number;
-            series.Label.PointOptions.ValueNumericOptions.Precision = 0;
-
-            series.ArgumentDataMember = "Key";
-            series.ValueScaleType = ScaleType.Numerical;
-            series.ValueDataMembers.AddRange(new string[] { "Money" });
-
-            // Set some properties to get a nice-looking chart and set axis title
-            ((SideBySideBarSeriesView)series.View).ColorEach = true;
-
-            series.LabelsVisibility = DefaultBoolean.True;
-            #endregion
 
             // Dock the chart into its parent and add it to the current form
             _barChart.Dock = DockStyle.Fill;
@@ -327,6 +350,7 @@ namespace SKG.DXF.Station.Charts
         #endregion
 
         #region Fields
+        ChartControl _lineChart = new ChartControl();
         ChartControl _barChart = new ChartControl();
         ChartControl _pieChart = new ChartControl();
         #endregion

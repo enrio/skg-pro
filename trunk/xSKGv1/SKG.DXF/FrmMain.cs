@@ -20,18 +20,20 @@ namespace SKG.DXF
     using DevExpress.Utils;
     using DevExpress.XtraBars;
     using DevExpress.XtraBars.Ribbon;
+    using DevExpress.XtraBars.Helpers;
 
     /// <summary>
     /// Form main of system
     /// </summary>
     public partial class FrmMain : RibbonForm
     {
-        public RibbonGalleryBarItem rgbiSkins;
-        public RibbonPageGroup skinsRibbonPageGroup;
-
-        void InitSkinGallery()
+        /// <summary>
+        /// Init skin gallery
+        /// </summary>
+        /// <param name="rp">RibbonPage</param>
+        public void InitSkinGallery(RibbonPage rp)
         {
-            rgbiSkins = new RibbonGalleryBarItem { Caption = "Skins" };
+            var rgbiSkins = new RibbonGalleryBarItem { Caption = "Skins" };
             rgbiSkins.Gallery.AllowHoverImages = true;
             rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseFont = true;
             rgbiSkins.Gallery.Appearance.ItemCaptionAppearance.Normal.Options.UseTextOptions = true;
@@ -44,13 +46,16 @@ namespace SKG.DXF
             rgbiSkins.Id = 60;
             rgbiSkins.Name = "rgbiSkins";
 
-            skinsRibbonPageGroup = new RibbonPageGroup();
+            var skinsRibbonPageGroup = new RibbonPageGroup();
             skinsRibbonPageGroup.ItemLinks.Add(rgbiSkins);
             skinsRibbonPageGroup.Name = "skinsRibbonPageGroup";
             skinsRibbonPageGroup.ShowCaptionButton = false;
-            skinsRibbonPageGroup.Text = "Skins";
+            skinsRibbonPageGroup.Text = "GIAO DIỆN";
 
             ribbon.Items.Add(rgbiSkins);
+            rp.Groups.Add(skinsRibbonPageGroup);
+
+            SkinHelper.InitSkinGallery(rgbiSkins, true);
         }
 
         public FrmMain()
@@ -58,7 +63,6 @@ namespace SKG.DXF
             InitializeComponent();
 
             Global.Parent = this;
-            InitSkinGallery();
 
             #region Information of server, timer
             bsiServer.Caption = String.Format("[SV:{0} | DB:{1}]",

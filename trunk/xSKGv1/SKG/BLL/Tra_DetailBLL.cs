@@ -238,8 +238,8 @@ namespace SKG.BLL
                 var tb = ds.Tables[0];
                 if (tb.Rows.Count > 2)
                 {
-                    var xx = tb.Rows[0]["Money"].ToInt64();
-                    xx += tb.Rows[1]["Money"].ToInt64();
+                    var xx = tb.Rows[0]["Money"].ToDecimal();
+                    xx += tb.Rows[1]["Money"].ToDecimal();
                     tb.Rows[1]["Money"] = xx;
                     tb.Rows[0].Delete();
                     tb.AcceptChanges();
@@ -248,8 +248,8 @@ namespace SKG.BLL
                 tb = ds.Tables[1];
                 if (tb.Rows.Count > 2)
                 {
-                    var xx = tb.Rows[0]["Money"].ToInt64();
-                    xx += tb.Rows[1]["Money"].ToInt64();
+                    var xx = tb.Rows[0]["Money"].ToDecimal();
+                    xx += tb.Rows[1]["Money"].ToDecimal();
                     tb.Rows[1]["Money"] = xx;
                     tb.Rows[0].Delete();
                     tb.AcceptChanges();

@@ -1672,11 +1672,11 @@ namespace SKG.DAL
                              && s.DateOut >= fr && s.DateOut <= to
                              && s.Vehicle.Fixed == true
                              && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                             group s by s.DateOut.Value.Day into g
+                             group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
                              select new
                              {
                                  Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                                 g.Key
+                                 Key = g.Key.Day + "/" + g.Key.Month
                              };
                     var tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
@@ -1686,11 +1686,11 @@ namespace SKG.DAL
                          && s.DateOut >= fr && s.DateOut <= to
                          && s.Vehicle.Fixed == false
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                         group s by s.DateOut.Value.Day into g
+                         group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             g.Key
+                             Key = g.Key.Day + "/" + g.Key.Month
                          };
                     tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);
@@ -1702,11 +1702,11 @@ namespace SKG.DAL
                          && s.DateOut >= fr && s.DateOut <= to
                          && s.Vehicle.Fixed == true
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                         group s by s.DateOut.Value.Month into g
+                         group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             g.Key
+                             Key = g.Key.Month + "/" + g.Key.Year
                          };
                     tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
@@ -1716,11 +1716,11 @@ namespace SKG.DAL
                          && s.DateOut >= fr && s.DateOut <= to
                          && s.Vehicle.Fixed == false
                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                         group s by s.DateOut.Value.Month into g
+                         group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
                          select new
                          {
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                             g.Key
+                             Key = g.Key.Month + "/" + g.Key.Year
                          };
                     tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);

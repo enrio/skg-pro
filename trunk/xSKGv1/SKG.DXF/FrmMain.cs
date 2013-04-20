@@ -64,14 +64,8 @@ namespace SKG.DXF
         void rgbiSkins_GalleryItemClick(object sender, GalleryItemClickEventArgs e)
         {
             var bll = new BLL.Pol_UserBLL();
-
-            var usr = new DAL.Entities.Pol_User()
-            {
-                Id = Global.Session.User.Id,
-                Skin = UserLookAndFeel.Default.ActiveSkinName
-            };
-
-            bll.UpdateSkin(usr);
+            Global.Session.User.Skin = UserLookAndFeel.Default.ActiveSkinName;
+            bll.UpdateSkin(Global.Session.User);
         }
 
         public FrmMain()

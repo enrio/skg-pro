@@ -1678,7 +1678,7 @@ namespace SKG.DAL
                                  Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
                                  g.Key
                              };
-                    var tb = r1.ToDataTable();
+                    var tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
 
                     r1 = from s in _db.Tra_Details
@@ -1692,7 +1692,7 @@ namespace SKG.DAL
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
                              g.Key
                          };
-                    tb = r1.ToDataTable();
+                    tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);
                     break;
 
@@ -1708,7 +1708,7 @@ namespace SKG.DAL
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
                              g.Key
                          };
-                    tb = r1.ToDataTable();
+                    tb = r1.ToDataTable("Fixed");
                     ds.Tables.Add(tb);
 
                     r1 = from s in _db.Tra_Details
@@ -1722,7 +1722,7 @@ namespace SKG.DAL
                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
                              g.Key
                          };
-                    tb = r1.ToDataTable();
+                    tb = r1.ToDataTable("Normal");
                     ds.Tables.Add(tb);
                     break;
 

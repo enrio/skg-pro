@@ -235,6 +235,26 @@ namespace SKG.BLL
                 if (ds.Tables[1] != null && ds.Tables[1].Rows.Count > 0)
                     sum += (decimal)ds.Tables[1].Compute("Sum(Money)", "");
 
+                var tb = ds.Tables[0];
+                if (tb.Rows.Count > 2)
+                {
+                    var xx = tb.Rows[0]["Money"].ToInt64();
+                    xx += tb.Rows[1]["Money"].ToInt64();
+                    tb.Rows[1]["Money"] = xx;
+                    tb.Rows[0].Delete();
+                    tb.AcceptChanges();
+                }
+
+                tb = ds.Tables[1];
+                if (tb.Rows.Count > 2)
+                {
+                    var xx = tb.Rows[0]["Money"].ToInt64();
+                    xx += tb.Rows[1]["Money"].ToInt64();
+                    tb.Rows[1]["Money"] = xx;
+                    tb.Rows[0].Delete();
+                    tb.AcceptChanges();
+                }
+
                 return ds;
             }
             catch { return null; }

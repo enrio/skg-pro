@@ -81,6 +81,7 @@ namespace SKG
     public enum Summary
     {
         RegionFixed, AreaFixed, ProvinceFixed,
-        TransportFixed, GroupNormal, KindNormal, Both
+        TransportFixed, GroupNormal, KindNormal,
+        Both, DayInMonth, MonthInYear
     }
 }

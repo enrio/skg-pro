@@ -32,7 +32,7 @@ namespace SKG.DXF
         /// Init skin gallery
         /// </summary>
         /// <param name="rp">RibbonPage</param>
-        public void InitSkinGallery(RibbonPage rp, string skin = "DevExpress Style")
+        public void InitSkinGallery(RibbonPage rp, string skin)
         {
             var rgbiSkins = new RibbonGalleryBarItem { Caption = "Skins" };
             rgbiSkins.Gallery.AllowHoverImages = true;
@@ -47,14 +47,14 @@ namespace SKG.DXF
             rgbiSkins.Id = 60;
             rgbiSkins.Name = "rgbiSkins";
 
-            var skinsRibbonPageGroup = new RibbonPageGroup();
-            skinsRibbonPageGroup.ItemLinks.Add(rgbiSkins);
-            skinsRibbonPageGroup.Name = "skinsRibbonPageGroup";
-            skinsRibbonPageGroup.ShowCaptionButton = false;
-            skinsRibbonPageGroup.Text = "GIAO DIỆN";
+            var rgbiSkinsGroup = new RibbonPageGroup();
+            rgbiSkinsGroup.ItemLinks.Add(rgbiSkins);
+            rgbiSkinsGroup.Name = "skinsRibbonPageGroup";
+            rgbiSkinsGroup.ShowCaptionButton = false;
+            rgbiSkinsGroup.Text = "GIAO DIỆN";
 
             ribbon.Items.Add(rgbiSkins);
-            rp.Groups.Add(skinsRibbonPageGroup);
+            rp.Groups.Add(rgbiSkinsGroup);
 
             SkinHelper.InitSkinGallery(rgbiSkins, true);
             UserLookAndFeel.Default.SetSkinStyle(skin);

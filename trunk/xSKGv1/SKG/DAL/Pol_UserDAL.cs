@@ -79,8 +79,6 @@ namespace SKG.DAL
                               s.Pass,
                               s.Name,
                               s.Birth,
-                              s.Sex,
-                              s.Skin,
                               s.Address,
                               s.Phone,
                               s.Code,
@@ -132,8 +130,6 @@ namespace SKG.DAL
                 res.Pass = Coder.Encode(o.Pass);
                 res.Name = o.Name;
                 res.Birth = o.Birth;
-                res.Sex = o.Sex;
-                res.Skin = o.Skin;
                 res.Address = o.Address;
                 res.Phone = o.Phone;
                 res.Code = o.Code;
@@ -267,23 +263,6 @@ namespace SKG.DAL
             try
             {
                 return _db.Pol_Users.SingleOrDefault(s => s.Phone == phone);
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Update user skin
-        /// </summary>
-        /// <param name="o">Pol_User</param>
-        /// <returns></returns>
-        public object UpdateSkin(Pol_User o)
-        {
-            try
-            {
-                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
-                res.Skin = o.Skin;
-
-                return _db.SaveChanges();
             }
             catch { return null; }
         }

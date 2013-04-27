@@ -138,6 +138,7 @@ namespace SKG.DXF.Home.Grant
         protected override void PerformRefresh()
         {
             LoadData();
+            ReadOnlyControl();
 
             base.PerformRefresh();
         }

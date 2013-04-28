@@ -75,7 +75,6 @@
             this.treeListColumn3.Caption = "Họ tên / Tên form, menuz";
             this.treeListColumn3.FieldName = "Caption";
             this.treeListColumn3.Name = "treeListColumn3";
-            this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 1;
             // 
@@ -84,7 +83,6 @@
             this.treeListColumn4.Caption = "Mô tả";
             this.treeListColumn4.FieldName = "Descript";
             this.treeListColumn4.Name = "treeListColumn4";
-            this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
             this.treeListColumn4.VisibleIndex = 2;
             // 

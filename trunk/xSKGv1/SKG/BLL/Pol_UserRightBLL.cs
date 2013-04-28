@@ -59,6 +59,7 @@ namespace SKG.BLL
                 }
             }
 
+            tb.AcceptChanges();
             return tb;
         }
     }

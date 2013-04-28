@@ -48,6 +48,8 @@ namespace SKG.BLL
                 r["Vat"] = Totals / 11;
                 r["Sales"] = Totals * 10 / 11;
             }
+
+            tb.AcceptChanges();
             return tb;
         }
 
@@ -95,6 +97,8 @@ namespace SKG.BLL
             var p = Convert.ToDecimal(tb.Compute("Sum(Th_Parked)", ""));
             infomation = String.Format(format, count.ToString("#,0"),
                 guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
+
+            tb.AcceptChanges();
             return tb;
         }
 

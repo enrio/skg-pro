@@ -54,6 +54,8 @@
             this.trlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trlMain.Location = new System.Drawing.Point(0, 0);
             this.trlMain.Name = "trlMain";
+            this.trlMain.OptionsPrint.UsePrintStyles = true;
+            this.trlMain.OptionsView.ShowAutoFilterRow = true;
             this.trlMain.OptionsView.ShowCheckBoxes = true;
             this.trlMain.Size = new System.Drawing.Size(494, 299);
             this.trlMain.TabIndex = 3;

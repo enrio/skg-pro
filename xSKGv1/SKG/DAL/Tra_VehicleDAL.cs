@@ -32,7 +32,23 @@ namespace SKG.DAL
         /// <returns></returns>
         public int Count()
         {
+            var res = (from s in _db.Tra_Vehicles
+                       where s.Code == ""
+                       select s.Tra_Details).FirstOrDefault();
+
+            var r = (from s in res
+                     where s.UserOutId == null
+                     select s).FirstOrDefault();
+
+
+
+            //foreach (var x in res) 
+            //{
+            //   var xu= x.Sum(o => o.Money);
+            //}
+
             return _db.Tra_Vehicles.Count();
+
         }
 
         /// <summary>
@@ -181,16 +197,15 @@ namespace SKG.DAL
             {
                 var o = (Tra_Vehicle)obj;
                 if (Select(o.Code, o.Fixed) != null) return null; // number already exists
-                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
 
-
+                o.Id = Guid.NewGuid();
                 o.CreatorId = Global.Session.User.Id;
                 o.CreateDate = Global.Session.Current;
                 o.Code = o.Code.ToUpper();
 
                 var oki = _db.Tra_Vehicles.Add(o);
-                _db.SaveChanges();
 
+                _db.SaveChanges();
                 return oki;
             }
             catch { return null; }

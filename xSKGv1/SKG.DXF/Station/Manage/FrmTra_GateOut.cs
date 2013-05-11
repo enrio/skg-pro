@@ -100,9 +100,6 @@ namespace SKG.DXF.Station.Manage
             base.ResetInput();
         }
 
-        /// <summary>
-        /// Cập nhật lại danh sách xe trong bến
-        /// </summary>
         protected override void PerformRefresh()
         {
             ResetInput();
@@ -449,12 +446,12 @@ namespace SKG.DXF.Station.Manage
             frm.ShowDialog();
         }
 
+        /// <summary>
+        /// Cập nhật lại danh sách xe trong bến
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lkeNumber_Enter(object sender, EventArgs e)
-        {
-            PerformRefresh();
-        }
-
-        private void FrmTra_GateOut_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
         }

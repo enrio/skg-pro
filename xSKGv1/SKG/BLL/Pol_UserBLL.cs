@@ -62,17 +62,5 @@ namespace SKG.BLL
             }
             else return false;
         }
-
-        /// <summary>
-        /// Select by phone number
-        /// </summary>
-        /// <param name="phone">Phone number</param>
-        /// <returns></returns>
-        public new Pol_User SelectByPhone(string phone)
-        {
-            phone = phone.Trim();
-            phone = phone.Replace("+84", "0");
-            return base.SelectByPhone(phone);
-        }
     }
 }

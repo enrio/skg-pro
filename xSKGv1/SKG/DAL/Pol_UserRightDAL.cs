@@ -69,12 +69,8 @@ namespace SKG.DAL
                 var a = from s in _db.Pol_UserRights
                         select new
                         {
-                            xID = s.Id,
-                            xParentID = s.User.Id,
-
-                            ID = s.Right.Id,
-                            ParentID = s.Right.Parent.Id == null ? s.User.Id : s.Right.Parent.Id,
-
+                            ID = s.Id,
+                            ParentID = s.User.Id,
                             RightId = s.RightId,
                             Format = false,
                             s.Add,
@@ -92,12 +88,8 @@ namespace SKG.DAL
                 var b = from s in _db.Pol_Users
                         select new
                         {
-                            xID = s.Id,
-                            xParentID = s.Id,
-
                             ID = s.Id,
                             ParentID = s.Id,
-
                             RightId = id,
                             Format = true,
                             Add = false,

@@ -760,7 +760,6 @@
             this.Name = "FrmTra_GateOut";
             this.Tag = "";
             this.Text = "CỔNG RA";
-            this.Activated += new System.EventHandler(this.FrmTra_GateOut_Activated);
             this.Load += new System.EventHandler(this.FrmTra_GateOut_Load);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

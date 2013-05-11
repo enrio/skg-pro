@@ -125,11 +125,10 @@ namespace SKG.DAL
             try
             {
                 var o = (Tra_Tariff)obj;
-                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
-
+                o.Id = Guid.NewGuid();
                 var oki = _db.Tra_Tariffs.Add(o);
-                _db.SaveChanges();
 
+                _db.SaveChanges();
                 return oki;
             }
             catch { return null; }

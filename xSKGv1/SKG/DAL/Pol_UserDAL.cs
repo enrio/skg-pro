@@ -102,14 +102,11 @@ namespace SKG.DAL
             {
                 var o = (Pol_User)obj;
                 if (Select(o.Acc) != null) return null; // account already exists
-                if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
-
+                o.Id = Guid.NewGuid();
                 o.Pass = Coder.Encode(o.Pass);
-                o.Phone = o.Phone.FormatPhoneNumber();
-
                 var oki = _db.Pol_Users.Add(o);
-                _db.SaveChanges();
 
+                _db.SaveChanges();
                 return oki;
             }
             catch { return null; }
@@ -249,20 +246,6 @@ namespace SKG.DAL
                         where s.UserId == userId
                         select r;
                 return a.ToList();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Select by phone number
-        /// </summary>
-        /// <param name="phone">Phone number</param>
-        /// <returns></returns>
-        protected Pol_User SelectByPhone(string phone)
-        {
-            try
-            {
-                return _db.Pol_Users.SingleOrDefault(s => s.Phone == phone);
             }
             catch { return null; }
         }

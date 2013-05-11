@@ -69,12 +69,8 @@ namespace SKG.DAL
                 var a = from s in _db.Pol_RoleRights
                         select new
                         {
-                            xID = s.Id,
-                            xParentID = s.Role.Id,
-
-                            ID = s.Right.Id,
-                            ParentID = s.Right.Parent.Id == null ? s.Role.Id : s.Right.Parent.Id,
-
+                            ID = s.Id,
+                            ParentID = s.Role.Id,
                             RightId = s.RightId,
                             Format = false,
                             s.Add,
@@ -93,12 +89,8 @@ namespace SKG.DAL
                         where s.Type == Global.STR_ROLE
                         select new
                         {
-                            xID = s.Id,
-                            xParentID = s.Id,
-
                             ID = s.Id,
                             ParentID = s.Id,
-
                             RightId = id,
                             Format = true,
                             Add = false,
@@ -109,7 +101,7 @@ namespace SKG.DAL
                             Access = false,
                             Full = false,
                             None = false,
-                            Name = s.Text,
+                            Name=s.Text,
                             Descript = s.Note
                         };
                 var res = a.Union(b);

@@ -48,8 +48,6 @@ namespace SKG.BLL
                 r["Vat"] = Totals / 11;
                 r["Sales"] = Totals * 10 / 11;
             }
-
-            tb.AcceptChanges();
             return tb;
         }
 
@@ -95,10 +93,7 @@ namespace SKG.BLL
             var money = e + f;
 
             var p = Convert.ToDecimal(tb.Compute("Sum(Th_Parked)", ""));
-            infomation = String.Format(format, count.ToString("#,0"),
-                guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
-
-            tb.AcceptChanges();
+            infomation = String.Format(format, count.ToString("#,0"), guest.ToString("#,0"), p.ToString("#,0"), money.ToString("#,0"));
             return tb;
         }
 
@@ -111,7 +106,6 @@ namespace SKG.BLL
         {
             sum = 0;
             receipt = "";
-
             try
             {
                 var to = Global.Session.Current.Date.AddHours(13);
@@ -122,154 +116,33 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Sumary sales day of vehicle by
+        /// Sumary vehicle fixed by region today
         /// </summary>
         /// <param name="sum">Total money</param>
-        /// <param name="by">Sumary by</param>
-        /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumarySalesDay(out decimal sum, Summary by, DateTime dt)
+        public DataTable SumaryFixedByRegionToday()
         {
-            sum = 0;
-            dt = dt.Date;
-
             try
             {
-                var to = dt.AddHours(13);
+                var to = Global.Session.Current.Date.AddHours(13);
                 var fr = to.AddDays(-1).AddSeconds(1);
-                var tb = base.SumarySales(by, fr, to);
-
-                if (tb != null && tb.Rows.Count > 0)
-                    sum = (decimal)tb.Compute("Sum(Money)", "");
-
-                return tb;
+                return base.SumaryFixedByRegion(fr, to);
             }
             catch { return null; }
         }
 
         /// <summary>
-        /// Sumary sales month of vehicle by
+        /// Sumary vehicle fixed by region today
         /// </summary>
         /// <param name="sum">Total money</param>
-        /// <param name="by">Sumary by</param>
-        /// <param name="dt">Date time</param>
         /// <returns></returns>
-        public DataTable SumarySalesMonth(out decimal sum, Summary by, DateTime dt)
+        public DataTable SumaryFixedByAreaToday()
         {
-            sum = 0;
-
             try
             {
-                var a = dt.ToStartOfMonth().Date;
-                var b = dt.ToEndOfMonth().Date;
-
-                var to = b.AddHours(13);
-                var fr = a.AddDays(-1).AddSeconds(1);
-                var tb = base.SumarySales(by, fr, to);
-
-                if (tb != null && tb.Rows.Count > 0)
-                    sum = (decimal)tb.Compute("Sum(Money)", "");
-
-                return tb;
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary sales year of vehicle by
-        /// </summary>
-        /// <param name="sum">Total money</param>
-        /// <param name="by">Sumary by</param>
-        /// <param name="dt">Date time</param>
-        /// <returns></returns>
-        public DataTable SumarySalesYear(out decimal sum, Summary by, DateTime dt)
-        {
-            sum = 0;
-
-            try
-            {
-                var a = dt.ToStartOfYear().Date;
-                var b = dt.ToEndOfYear().Date;
-
-                var to = b.AddHours(13);
-                var fr = a.AddDays(-1).AddSeconds(1);
-                var tb = base.SumarySales(by, fr, to);
-
-                if (tb != null && tb.Rows.Count > 0)
-                    sum = (decimal)tb.Compute("Sum(Money)", "");
-
-                return tb;
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary for sales DayInMonth or MonthInYear
-        /// </summary>
-        /// <param name="sum"></param>
-        /// <param name="by"></param>
-        /// <param name="dt"></param>
-        /// <returns></returns>
-        public DataSet Sumary4Sales(out decimal sum, Summary by, DateTime dt)
-        {
-            sum = 0;
-            var ds = new DataSet();
-
-            try
-            {
-                switch (by)
-                {
-                    case Summary.DayInMonth:
-                        var a = dt.ToStartOfMonth().Date;
-                        var b = dt.ToEndOfMonth().Date;
-
-                        var to = b.AddHours(13);
-                        var fr = a.AddDays(-1).AddSeconds(1);
-                        ds = base.Sumary4Sales(by, fr, to);
-                        break;
-
-                    case Summary.MonthInYear:
-                        a = dt.ToStartOfYear().Date;
-                        b = dt.ToEndOfYear().Date;
-
-                        to = b.AddHours(13);
-                        fr = a.AddDays(-1).AddSeconds(1);
-                        ds = base.Sumary4Sales(by, fr, to);
-                        break;
-
-                    default:
-                        break;
-                }
-
-                if (ds.Tables[0] != null && ds.Tables[0].Rows.Count > 0)
-                    sum = (decimal)ds.Tables[0].Compute("Sum(Money)", "");
-
-                if (ds.Tables[1] != null && ds.Tables[1].Rows.Count > 0)
-                    sum += (decimal)ds.Tables[1].Compute("Sum(Money)", "");
-
-                var tb = ds.Tables[0];
-                if (tb.Rows.Count > 2)
-                {
-                    var xx = tb.Rows[0]["Money"].ToDecimal();
-                    xx += tb.Rows[1]["Money"].ToDecimal();
-                    tb.Rows[1]["Money"] = xx;
-
-                    tb.Rows[0].Delete();
-                    tb.AcceptChanges();
-                }
-
-                tb = ds.Tables[1];
-                if (tb.Rows.Count > 2)
-                {
-                    var xx = tb.Rows[0]["Money"].ToDecimal();
-                    xx += tb.Rows[1]["Money"].ToDecimal();
-                    tb.Rows[1]["Money"] = xx;
-
-                    tb.Rows[0].Delete();
-                    tb.AcceptChanges();
-                }
-
-                return ds;
+                var to = Global.Session.Current.Date.AddHours(13);
+                var fr = to.AddDays(-1).AddSeconds(1);
+                return base.SumaryFixedByArea(fr, to);
             }
             catch { return null; }
         }

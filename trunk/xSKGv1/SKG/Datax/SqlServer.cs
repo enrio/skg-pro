@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SKG.Datax
 {
     using System.IO;
     using System.Data;
+    using DAL.Entities;
     using System.Data.OleDb;
     using System.Windows.Forms;
     using System.Data.SqlClient;
@@ -13,14 +14,11 @@ namespace SKG.Datax
     /// <summary>
     /// SQL Server processing
     /// </summary>
-    public class Server : Base
+    public class SqlServer : Base
     {
         #region Contansts
         public const string STR_SEC = @"Data Source={0};Initial Catalog={1};Persist Security Info=True;User Id={2};Password={3}";
         public const string STR_TRU = @"Data Source={0};Initial Catalog={1};Integrated Security=SSPI";
-
-        private const string STR_2K7 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";";
-        private const string STR_2K3 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\";";
 
         private const string STR_SUCCESS = "Cài đặt thành công!";
         private const string STR_SETUP = "Cài đặt";
@@ -31,8 +29,8 @@ namespace SKG.Datax
         #endregion
 
         #region Constructors
-        public Server() { }
-        public Server(string connectString) : base(connectString) { }
+        public SqlServer() { }
+        public SqlServer(string connectString) : base(connectString) { }
         #endregion
 
         #region Methods
@@ -173,25 +171,27 @@ namespace SKG.Datax
         /// <summary>
         /// Import from Sheet in Excel file to Table in SQL Server
         /// </summary>
-        /// <param name="file">Path Excel file</param>
-        /// <param name="strCnn">String connection</param>
-        /// <param name="tbl">Table name or Sheet name</param>
-        /// <param name="isSQL">Use SQL Server</param>
-        public static DataTable ImportFromExcel(string file, string strCnn, DataTable tbl, bool isSQL = true)
+        /// <param name="excelFile">Path Excel file</param>
+        /// <param name="connectionString">Connection string</param>
+        /// <param name="tableName">Table name/Sheet name</param>
+        public static void ImportFromExcel(string excelFile, string connectionString, DataTable tbl)
         {
             try
             {
-                var tmp = file.Split(new char[] { '.' });
+                const string STR_2K7 = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\";";
+                const string STR_2K3 = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=\"Excel 8.0;HDR=Yes;IMEX=1\";";
+
+                var tmp = excelFile.Split(new char[] { '.' });
                 var str = "";
 
                 if (tmp[1] == "xls")
-                    str = String.Format(STR_2K3, file);
+                    str = String.Format(STR_2K3, excelFile);
                 else if (tmp[1] == "xlsx")
-                    str = String.Format(STR_2K7, file);
+                    str = String.Format(STR_2K7, excelFile);
                 else
                 {
                     MessageBox.Show("Not excel file!");
-                    return null;
+                    return;
                 }
 
                 var oleCnn = new OleDbConnection(str);
@@ -207,19 +207,10 @@ namespace SKG.Datax
                 foreach (DataRow r in dtr)
                     r["Id"] = Guid.NewGuid();
 
-                if (isSQL)
-                {
-                    var copy = new SqlBulkCopy(strCnn) { DestinationTableName = tbl.TableName };
-                    copy.WriteToServer(tbl);
-                }
-
-                return tbl;
+                var copy = new SqlBulkCopy(connectionString) { DestinationTableName = tbl.TableName };
+                copy.WriteToServer(tbl);
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-                return null;
-            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
     }
 }

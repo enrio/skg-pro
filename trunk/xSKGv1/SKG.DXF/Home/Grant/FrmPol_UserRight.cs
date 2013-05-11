@@ -137,15 +137,12 @@ namespace SKG.DXF.Home.Grant
         protected override void PerformRefresh()
         {
             LoadData();
-            ReadOnlyControl();
 
             base.PerformRefresh();
         }
 
         protected override void PerformSave()
         {
-            trlMain.EndCurrentEdit();
-
             switch (_state)
             {
                 case State.Add:

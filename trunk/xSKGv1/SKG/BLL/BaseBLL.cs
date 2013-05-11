@@ -11,14 +11,12 @@
 #endregion
 
 using System;
-using System.Linq;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SKG.BLL
 {
     using SKG.Datax;
-    using SKG.Extend;
 
     /// <summary>
     /// Data sample, all of flow processing
@@ -94,17 +92,7 @@ namespace SKG.BLL
         /// <returns></returns>
         public static bool CheckDb()
         {
-            var a = Global.Connection.ConnectionString;
-
-            var ok = a.SplitIndex(';', 1);
-            if (ok == null)
-            {
-                a = a.SplitIndex('\\', 1);
-                a = String.Format(@"{0}\{1}", Application.StartupPath, a);
-                return a.CheckSqlCeConnect();
-            }
-
-            var svr = new Server(a);
+            var svr = new SqlServer(Global.Connection.ConnectionString);
             return svr.CheckDbExists(Global.Connection.Database);
         }
         #endregion

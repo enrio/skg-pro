@@ -39,9 +39,8 @@ namespace SKG.BLL
             tb.Columns.Add("Price", typeof(decimal));
 
             foreach (DataRow r in tb.Rows)
-                r["Price"] = r["Text"].ToDecimal();
+                r["Price"] = Text.ToDecimal(r["Text"] + "");
 
-            tb.AcceptChanges();
             return tb;
         }
 
@@ -56,9 +55,8 @@ namespace SKG.BLL
             tb.Columns.Add("Price", typeof(decimal));
 
             foreach (DataRow r in tb.Rows)
-                r["Price"] = r["Text"].ToDecimal();
+                r["Price"] = Text.ToDecimal(r["Text"] + "");
 
-            tb.AcceptChanges();
             return tb;
         }
     }

@@ -11,8 +11,9 @@
 #endregion
 
 using System;
-using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using DevExpress.LookAndFeel;
 
 namespace SKG.Client
 {
@@ -29,6 +30,7 @@ namespace SKG.Client
 
             DevExpress.Skins.SkinManager.EnableFormSkins();
             DevExpress.UserSkins.BonusSkins.Register();
+            UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
 
             Global.Session = new Session();
             var frm = Properties.Settings.Default.IsDevExpress ? (Form)new SKG.DXF.FrmMain() : (Form)new SKG.MSF.FrmMain();

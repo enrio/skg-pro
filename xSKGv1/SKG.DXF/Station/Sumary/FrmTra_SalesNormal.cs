@@ -283,7 +283,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
 
-            rpt.parDate.Value = Global.Session.Current;
+            rpt.parDate.Value = to.Date;
             rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
@@ -319,7 +319,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
 
-            rpt.parDate.Value = Global.Session.Current;
+            rpt.parDate.Value = to.Date;
             rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";

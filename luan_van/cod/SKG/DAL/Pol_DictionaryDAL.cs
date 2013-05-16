@@ -59,6 +59,12 @@ namespace SKG.DAL
                               s.Text1,
                               s.Note1,
                               s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
                               s.Order,
                               s.Show
                           };
@@ -109,6 +115,12 @@ namespace SKG.DAL
                               s.Text1,
                               s.Note1,
                               s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
                               s.Order,
                               s.Show
                           };
@@ -126,16 +138,28 @@ namespace SKG.DAL
         /// <returns></returns>
         public object Insert(object obj)
         {
+            var o = new Pol_Dictionary();
             try
             {
-                var o = (Pol_Dictionary)obj;
-                if (Select(o.Code) != null) return null; // already exists
-                o.Id = Guid.NewGuid();
+                o = (Pol_Dictionary)obj;
+
+                if (Select(o.Code) != null)
+                    return null; // already exists
+
+                if (o.Id == Guid.Empty)
+                    o.Id = Guid.NewGuid();
+
                 var oki = _db.Pol_Dictionarys.Add(o);
                 _db.SaveChanges();
+
                 return oki;
             }
-            catch { return null; }
+            catch
+            {
+                _db.Pol_Dictionarys.Remove(o);
+
+                return null;
+            }
         }
 
         /// <summary>
@@ -158,6 +182,12 @@ namespace SKG.DAL
                 res.Text1 = o.Text1;
                 res.Note1 = o.Note1;
                 res.More1 = o.More1;
+                res.Text2 = o.Text2;
+                res.Note2 = o.Note2;
+                res.More2 = o.More2;
+                res.Text3 = o.Text3;
+                res.Note3 = o.Note3;
+                res.More3 = o.More3;
                 res.Order = o.Order;
                 res.Show = o.Show;
                 return _db.SaveChanges();
@@ -216,6 +246,12 @@ namespace SKG.DAL
                               s.Text1,
                               s.Note1,
                               s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
                               s.Order,
                               s.Show
                           };
@@ -250,6 +286,12 @@ namespace SKG.DAL
                               s.Text1,
                               s.Note1,
                               s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
                               s.Order,
                               s.Show
                           };

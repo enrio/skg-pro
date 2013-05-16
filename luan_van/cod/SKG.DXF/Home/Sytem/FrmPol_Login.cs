@@ -94,7 +94,6 @@ namespace SKG.DXF.Home.Sytem
         {
 #if DEBUG
             txtUser.Text = "admin";
-            txtPass.Text = "@13579208";
 #endif
             NotifyBeforeLogon();
 

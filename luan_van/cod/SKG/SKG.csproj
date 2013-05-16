@@ -65,9 +65,11 @@
     <Compile Include="BLL\Tra_VehicleBLL.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\Entities\Context.cs" />
+    <Compile Include="DAL\Entities\Pol_Chat.cs" />
     <Compile Include="DAL\Entities\Pol_Dictionary.cs" />
     <Compile Include="DAL\Entities\Pol_RoleRight.cs" />
     <Compile Include="DAL\Entities\Pol_User.cs" />
+    <Compile Include="DAL\Entities\Pol_Selection.cs" />
     <Compile Include="DAL\Entities\Pol_UserRight.cs" />
     <Compile Include="DAL\Entities\Pol_UserRole.cs" />
     <Compile Include="DAL\Entities\Tra_Detail.cs" />
@@ -88,10 +90,11 @@
     <Compile Include="DAL\Tra_VehicleDAL.cs" />
     <Compile Include="Datax\Base.cs" />
     <Compile Include="Datax\Excel.cs" />
-    <Compile Include="Datax\SqlServer.cs" />
+    <Compile Include="Datax\Server.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Number.cs" />
+    <Compile Include="Extend\Objs.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />
     <Compile Include="Global.cs" />

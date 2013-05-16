@@ -18,6 +18,7 @@ namespace SKG.DXF
 {
     using BLL;
     using SKG.Datax;
+    using SKG.Extend;
     using System.Data;
     using DAL.Entities;
     using System.Windows.Forms;
@@ -32,12 +33,12 @@ namespace SKG.DXF
         /// Auto create data for sample
         /// </summary>
         /// <param name="isDelete">Delete</param>
-        public static void CreateData(bool isDelete = false)
+        public static void CreateData(bool isDelete = false, bool isSQL = true)
         {
             var bll = new Sample();
             if (isDelete) bll.DeleteAll();
             if (bll.Pol_User.Count() > 0) return;
-            bll.CreateAll();
+            bll.CreateAll(isSQL);
         }
         #endregion
 
@@ -632,31 +633,37 @@ namespace SKG.DXF
         /// <summary>
         /// Create new all
         /// </summary>
-        protected virtual void CreateAll()
+        protected virtual void CreateAll(bool isSQL = true)
         {
+            var a = Global.Connection.ConnectionString;
+
             #region Policy
             var file = Application.StartupPath + @"\Import\Dictionary.xls";
             var tbl = new DataTable(typeof(Pol_Dictionary).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("ParentId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_Dictionary(tbl);
 
             file = Application.StartupPath + @"\Import\Policy.xls";
             tbl = new DataTable(typeof(Pol_User).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_User(tbl);
 
             tbl = new DataTable(typeof(Pol_UserRole).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            tbl.Columns.Add("Pol_UserId", typeof(Guid));
-            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl.Columns.Add("UserId", typeof(Guid));
+            tbl.Columns.Add("RoleId", typeof(Guid));
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_UserRole(tbl);
 
             tbl = new DataTable(typeof(Pol_RoleRight).Name);
             tbl.Columns.Add("Id", typeof(Guid));
-            tbl.Columns.Add("Pol_RoleId", typeof(Guid));
-            tbl.Columns.Add("Pol_RightId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl.Columns.Add("RoleId", typeof(Guid));
+            tbl.Columns.Add("RightId", typeof(Guid));
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreatePol_RoleRight(tbl);
             #endregion
 
             #region Transport
@@ -664,22 +671,348 @@ namespace SKG.DXF
             tbl = new DataTable(typeof(Tra_Tariff).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("GroupId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Tariff(tbl);
 
             tbl = new DataTable(typeof(Tra_Vehicle).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("TransportId", typeof(Guid));
             tbl.Columns.Add("TariffId", typeof(Guid));
             tbl.Columns.Add("CreatorId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Vehicle(tbl);
 
             tbl = new DataTable(typeof(Tra_Detail).Name);
             tbl.Columns.Add("Id", typeof(Guid));
             tbl.Columns.Add("VehicleId", typeof(Guid));
             tbl.Columns.Add("UserInId", typeof(Guid));
             tbl.Columns.Add("UserOutId", typeof(Guid));
-            SqlServer.ImportFromExcel(file, Global.Connection.ConnectionString, tbl);
+            tbl = Server.ImportFromExcel(file, a, tbl, isSQL);
+            if (!isSQL) CreateTra_Detail(tbl);
             #endregion
         }
+
+        #region Create object
+        /// <summary>
+        /// Create Pol_Dictionary object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_Dictionary CreatePol_Dictionary(DataRow r)
+        {
+            return new Pol_Dictionary
+            {
+                Id = r["Id"].GetGuid(),
+                ParentId = r["ParentId"].GetGuidNull(),
+                Type = r["Type"].ToText(),
+                Text1 = r["Text1"].ToText(),
+                Note1 = r["Note1"].ToText(),
+                More1 = r["More1"].ToText(),
+                Text2 = r["Text2"].ToText(),
+                Note2 = r["Note2"].ToText(),
+                More2 = r["More2"].ToText(),
+                Text3 = r["Text3"].ToText(),
+                Note3 = r["Note3"].ToText(),
+                More3 = r["More3"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Pol_User object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_User CreatePol_User(DataRow r)
+        {
+            return new Pol_User
+            {
+                Id = r["Id"].GetGuid(),
+                Acc = r["Acc"].ToText(),
+                Pass = r["Pass"].ToText(),
+                Name = r["Name"].ToText(),
+                Birth = r["Birth"].ToDateTime(),
+                Address = r["Address"].ToText(),
+                Phone = r["Phone"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Pol_UserRole object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_UserRole CreatePol_UserRole(DataRow r)
+        {
+            return new Pol_UserRole
+            {
+                Id = r["Id"].GetGuid(),
+                UserId = r["UserId"].GetGuid(),
+                RoleId = r["RoleId"].GetGuid(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Pol_RoleRight object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Pol_RoleRight CreatePol_RoleRight(DataRow r)
+        {
+            return new Pol_RoleRight
+            {
+                Id = r["Id"].GetGuid(),
+                RoleId = r["RoleId"].GetGuid(),
+                RightId = r["RightId"].GetGuid(),
+                Add = r["Add"].ToBoolean(),
+                Edit = r["Edit"].ToBoolean(),
+                Delete = r["Delete"].ToBoolean(),
+                Query = r["Query"].ToBoolean(),
+                Print = r["Print"].ToBoolean(),
+                Access = r["Access"].ToBoolean(),
+                Default = r["Default"].ToBoolean(),
+                Full = r["Full"].ToBoolean(),
+                None = r["None"].ToBoolean(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Tra_Tariff object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Tariff CreateTra_Tariff(DataRow r)
+        {
+            return new Tra_Tariff
+            {
+                Id = r["Id"].GetGuid(),
+                GroupId = r["GroupId"].GetGuidNull(),
+                Price1 = r["Price1"].ToInt32(),
+                Price2 = r["Price2"].ToInt32(),
+                Rose1 = r["Rose1"].ToInt32(),
+                Rose2 = r["Rose2"].ToInt32(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Tra_Vehicle object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Vehicle CreateTra_Vehicle(DataRow r)
+        {
+            return new Tra_Vehicle
+            {
+                Id = r["Id"].GetGuid(),
+                TransportId = r["TransportId"].GetGuidNull(),
+                TariffId = r["TariffId"].GetGuidNull(),
+                CreatorId = r["CreatorId"].GetGuidNull(),
+                CreateDate = r["CreateDate"].ToDateTime(),
+                Seats = r["Seats"].ToInt32(),
+                Beds = r["Beds"].ToInt32(),
+                ProductionYear = r["ProductionYear"].ToText(),
+                LimitedRegistration = r["LimitedRegistration"].ToDateTime(),
+                TermInsurance = r["TermInsurance"].ToDateTime(),
+                TermFixedRoutes = r["TermFixedRoutes"].ToDateTime(),
+                TermDriverLicense = r["TermDriverLicense"].ToDateTime(),
+                Node = r["Node"].ToInt32(),
+                High = r["High"].ToBoolean(),
+                City = r["City"].ToBoolean(),
+                Fixed = r["Fixed"].ToBoolean(),
+                Driver = r["Driver"].ToText(),
+                Birth = r["Birth"].ToDateTime(),
+                Address = r["Address"].ToText(),
+                Phone = r["Phone"].ToText(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+
+        /// <summary>
+        /// Create Tra_Detail object
+        /// </summary>
+        /// <param name="r">DataRow</param>
+        /// <returns></returns>
+        Tra_Detail CreateTra_Detail(DataRow r)
+        {
+            return new Tra_Detail
+            {
+                Id = r["Id"].GetGuid(),
+                VehicleId = r["VehicleId"].GetGuidNull(),
+                UserInId = r["UserInId"].GetGuidNull(),
+                UserOutId = r["UserOutId"].GetGuidNull(),
+                DateIn = r["Note"].ToDateTime(),
+                DateOut = r["Note"].ToDateTime(),
+                FullDay = r["Note"].ToInt32(),
+                HalfDay = r["Note"].ToInt32(),
+                Price1 = r["Note"].ToInt32(),
+                Price2 = r["Note"].ToInt32(),
+                Rose1 = r["Note"].ToInt32(),
+                Rose2 = r["Note"].ToInt32(),
+                Seats = r["Note"].ToInt32(),
+                Beds = r["Note"].ToInt32(),
+                Cost = r["Note"].ToInt64(),
+                Rose = r["Note"].ToInt64(),
+                Parked = r["Note"].ToInt64(),
+                Money = r["Note"].ToDecimal(),
+                Repair = r["Note"].ToBoolean(),
+                Guest = r["Note"].ToInt32(),
+                Discount = r["Note"].ToInt32(),
+                Arrears = r["Note"].ToInt32(),
+                Code = r["Code"].ToText(),
+                Text = r["Text"].ToText(),
+                Note = r["Note"].ToText(),
+                More = r["More"].ToText(),
+                Order = r["Order"].ToInt32(),
+                Show = r["Show"].ToBoolean()
+            };
+        }
+        #endregion
+
+        #region For SQL Compact
+        /// <summary>
+        /// Create data Pol_Dictionary
+        /// </summary>
+        /// <param name="tbl">Data</param>
+        void CreatePol_Dictionary(DataTable tbl)
+        {
+            if (Pol_Dictionary.Count() > 0) return;
+
+            var v = tbl.AsDataView();
+            v.Sort = "ParentId";
+            tbl = v.ToTable();
+            tbl.AcceptChanges();
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                if (r.RowState == DataRowState.Added) continue;
+
+                var o = CreatePol_Dictionary(r);
+                var ok = Pol_Dictionary.Insert(o);
+
+                if (ok != null)
+                {
+                    r.SetAdded();
+                    continue;
+                }
+                else o = CreatePol_Dictionary(r);
+
+                #region Insert parent record
+                var str = "Id = '{0}'";
+                str = String.Format(str, o.ParentId);
+                var dtr = tbl.Select(str, "");
+
+                if (dtr.Length > 0)
+                {
+                    var x = CreatePol_Dictionary(dtr[0]);
+                    ok = Pol_Dictionary.Insert(x);
+                    if (ok != null) dtr[0].SetAdded();
+
+                    ok = Pol_Dictionary.Insert(o); // insert again
+                    if (ok != null) r.SetAdded();
+                }
+                #endregion
+            }
+        }
+
+        void CreatePol_User(DataTable tbl)
+        {
+            if (Pol_User.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreatePol_User(r);
+                Pol_User.Insert(o);
+            }
+        }
+
+        void CreatePol_UserRole(DataTable tbl)
+        {
+            if (Pol_UserRole.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreatePol_UserRole(r);
+                Pol_UserRole.Insert(o);
+            }
+        }
+
+        void CreatePol_RoleRight(DataTable tbl)
+        {
+            if (Pol_RoleRight.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreatePol_RoleRight(r);
+                Pol_RoleRight.Insert(o);
+            }
+        }
+
+        void CreateTra_Tariff(DataTable tbl)
+        {
+            if (Tra_Tariff.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Tariff(r);
+                Tra_Tariff.Insert(o);
+            }
+        }
+
+        void CreateTra_Vehicle(DataTable tbl)
+        {
+            if (Tra_Vehicle.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Vehicle(r);
+                Tra_Vehicle.Insert(o);
+            }
+        }
+
+        void CreateTra_Detail(DataTable tbl)
+        {
+            if (Tra_Detail.Count() > 0) return;
+
+            foreach (DataRow r in tbl.Rows)
+            {
+                var o = CreateTra_Detail(r);
+                Tra_Detail.Insert(o);
+            }
+        }
+        #endregion
     }
 }

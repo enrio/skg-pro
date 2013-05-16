@@ -60,11 +60,11 @@ namespace SKG.DXF.Station.Manage
                 var file = Application.StartupPath + @"\Import\XuatBT.xls";
 
                 _tbFixed = ImportData(file, "Codinh");
-                InvoiceOut(_tbFixed.Rows, false);
+                InvoiceOut(_tbFixed.Rows);
                 grcFixed.DataSource = _tbFixed;
 
                 _tbNormal = ImportData(file, "Vanglai");
-                InvoiceOut(_tbNormal.Rows, false);
+                InvoiceOut(_tbNormal.Rows);
                 grcNormal.DataSource = _tbNormal;
 
                 grvFixed.BestFitColumns();
@@ -84,10 +84,21 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var fix = InvoiceOut(_tbFixed.Rows, true);
-                grcFixed.DataSource = _tbFixed;
+                int fix = 0, nor;
+                var ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
 
-                var nor = InvoiceOut(_tbNormal.Rows, true);
+                if (ql && _tbFixed.Rows.Count > 0)
+                {
+                    var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (ok == DialogResult.No)
+                    {
+                        fix = InvoiceOut(_tbFixed.Rows, true);
+                        grcFixed.DataSource = _tbFixed;
+                    }
+                }
+
+                nor = InvoiceOut(_tbNormal.Rows, null, true);
                 grcNormal.DataSource = _tbNormal;
 
                 XtraMessageBox.Show(String.Format(STR_INTO, fix, nor), Text);
@@ -173,7 +184,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="dtr">Data</param>
         /// <param name="isOut">Out gate</param>
         /// <returns></returns>
-        private int InvoiceOut(DataRowCollection dtr, bool isOut = true)
+        private int InvoiceOut(DataRowCollection dtr, bool? isRepair = null, bool isOut = false)
         {
             try
             {
@@ -190,7 +201,7 @@ namespace SKG.DXF.Station.Manage
                         continue;
                     }
 
-                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date);
+                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date, isRepair);
                     if (d == null)
                     {
                         r.RowError = STR_IN_DEPOT;
@@ -240,11 +251,22 @@ namespace SKG.DXF.Station.Manage
                         r["Parked"] = d.Parked;
                         r["Money"] = d.Money;
 
-                        if (isOut) r["Note"] = STR_EXIT;
-                        count++;
+                        // Thời gian xe ra < thời gian vào
+                        if (d.Note != null)
+                        {
+                            r.RowError = d.Note;
+                            r["Note"] = r.RowError;
+                        }
+                        else
+                        {
+                            if (isOut) r["Note"] = STR_EXIT;
+                            count++;
+                        }
                     }
+
                     r["UserOut"] = Global.Session.User.Name;
                 }
+
                 return count;
             }
             catch (Exception ex)
@@ -318,8 +340,8 @@ namespace SKG.DXF.Station.Manage
         #region Constants
         private const string STR_TITLE = "Xuất xe bằng tay";
 
-        private const string STR_NO_LIST = "Không có trong danh sách";
-        private const string STR_NO_ROUTE = "Không đăng kí tuyến";
+        private const string STR_NO_LIST = "CHƯA CÓ THÔNG TIN XE";
+        private const string STR_NO_ROUTE = "CHƯA ĐĂNG KÍ TUYẾN";
 
         private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";

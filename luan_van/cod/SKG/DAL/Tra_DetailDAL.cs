@@ -480,7 +480,7 @@ namespace SKG.DAL
         /// <param name="isRepair">Out gate to repair</param>
         /// <param name="note">Note</param>
         /// <returns></returns>
-        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool isRepair = true, string note = "", string seri = "")
+        public Tra_Detail InvoiceOut(string number, bool isOut, DateTime? dateOut = null, bool? isRepair = true, string note = "", string seri = "")
         {
             try
             {
@@ -503,19 +503,33 @@ namespace SKG.DAL
                     y = dateOut.Value.Year;
                 }
 
-                // Xe cố định - tạm cho ra bến
-                if (ql && a.Vehicle.Fixed)
+                if (a.DateOut < a.DateIn)
+                {
+                    a.Note = "THỜI GIAN RA < THỜI GIAN VÀO";
+                    return a;
+                }
+
+                if (a.DateOut > Global.Session.Current)
+                {
+                    a.Note = "THỜI GIAN RA > HIỆN TẠI";
+                    return a;
+                }
+
+                // Tạm cho ra bến/xe không đủ điều kiện (xe cố định)
+                if (isRepair != null & ql && a.Vehicle.Fixed)
                 {
                     a.Note = "ĐỘI ĐIỀU HÀNH: ";
-                    if (isRepair)
+                    if (isRepair.Value)
                     {
-                        a.Repair = true; // cho ra ngoài để sửa chữa (không tính tiền lúc ra bến)
+                        // Cho ra ngoài để sửa chữa (không tính tiền lúc ra bến) chỉ ghi nhận tiền đậu đêm
+                        a.Repair = true;
                         a.Show = true;
                         a.Note += "TẠM CHO XE RA BẾN";
                     }
                     else
                     {
-                        a.Show = false; // xe không đủ điều kiện (không tính tiền lúc ra bến)
+                        // Xe không đủ điều kiện (không tính tiền lúc ra bến) cho xe ra bến luôn
+                        a.Show = false;
                         a.Repair = false;
                         a.Note += "XE KHÔNG ĐỦ ĐIỀU KIỆN";
 
@@ -837,72 +851,6 @@ namespace SKG.DAL
                           };
 
                 sum = res.Sum(k => k.Money);
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by region
-        /// </summary>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByRegion(DateTime fr, DateTime to)
-        {
-            try
-            {
-                var res = from s in _db.Tra_Details
-                          where s.UserOutId != null
-                          && s.DateOut >= fr && s.DateOut <= to
-                          && s.Vehicle.Fixed == true
-                          && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                          group s by s.Vehicle.Tariff.Group.Parent.Parent.Text into g
-                          select new
-                          {
-                              Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                              Region = g.Key
-                          };
-
-                return res.ToDataTable();
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Sumary vehicle fixed by area
-        /// </summary>
-        /// <param name="fr">From date time</param>
-        /// <param name="to">To date time</param>
-        /// <returns></returns>
-        protected DataTable SumaryFixedByArea(DateTime fr, DateTime to)
-        {
-            try
-            {
-                var res1 = from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == true
-                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
-                           group s by s.Vehicle.Tariff.Group.Parent.Text into g
-                           select new
-                           {
-                               Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
-                               g.Key
-                           };
-
-                var res2 = from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == false
-                           group s by s.Vehicle.Tariff.Group.Text into g
-                           select new
-                           {
-                               Money = g.Sum(s => s.Money),
-                               g.Key
-                           };
-
-                var res = res1.Union(res2);
                 return res.ToDataTable();
             }
             catch { return null; }
@@ -1476,25 +1424,6 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
-
-        /// <summary>
-        /// Update number of serial
-        /// </summary>
-        /// <param name="obj">Detail</param>
-        /// <returns></returns>
-        public object UpdateSeri(object obj)
-        {
-            try
-            {
-                var o = (Tra_Detail)obj;
-                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
-
-                res.Text = o.Text;
-
-                return _db.SaveChanges();
-            }
-            catch { return null; }
-        }
         #endregion
 
         #region Vehicle normal
@@ -1669,6 +1598,25 @@ namespace SKG.DAL
             }
             catch { return null; }
         }
+
+        /// <summary>
+        /// Update number of serial
+        /// </summary>
+        /// <param name="obj">Detail</param>
+        /// <returns></returns>
+        public object UpdateSeri(object obj)
+        {
+            try
+            {
+                var o = (Tra_Detail)obj;
+                var res = _db.Tra_Details.SingleOrDefault(s => s.Id == o.Id);
+
+                res.Text = o.Text;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
         #endregion
 
         /// <summary>
@@ -1703,6 +1651,213 @@ namespace SKG.DAL
                 return true;
             }
             catch { return false; }
+        }
+
+        /// <summary>
+        /// Sumary for sales DayInMonth or MonthInYear
+        /// </summary>
+        /// <param name="by"></param>
+        /// <param name="fr"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        protected DataSet Sumary4Sales(Summary by, DateTime fr, DateTime to)
+        {
+            var ds = new DataSet();
+
+            switch (by)
+            {
+                case Summary.DayInMonth:
+                    var r1 = from s in _db.Tra_Details
+                             where s.UserOutId != null
+                             && s.DateOut >= fr && s.DateOut <= to
+                             && s.Vehicle.Fixed == true
+                             && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                             group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
+                             orderby g.Key.Month, g.Key.Day
+                             select new
+                             {
+                                 Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                 Key = SqlFunctions.StringConvert((double)g.Key.Day).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Month).Trim()
+                             };
+                    var tb = r1.ToDataTable("Fixed");
+                    ds.Tables.Add(tb);
+
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == false
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by new { s.DateOut.Value.Day, s.DateOut.Value.Month } into g
+                         orderby g.Key.Month, g.Key.Day
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             Key = SqlFunctions.StringConvert((double)g.Key.Day).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Month).Trim()
+                         };
+                    tb = r1.ToDataTable("Normal");
+                    ds.Tables.Add(tb);
+                    break;
+
+                case Summary.MonthInYear:
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == true
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
+                         orderby g.Key.Year, g.Key.Month
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             Key = SqlFunctions.StringConvert((double)g.Key.Month).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Year).Trim()
+                         };
+                    tb = r1.ToDataTable("Fixed");
+                    ds.Tables.Add(tb);
+
+                    r1 = from s in _db.Tra_Details
+                         where s.UserOutId != null
+                         && s.DateOut >= fr && s.DateOut <= to
+                         && s.Vehicle.Fixed == false
+                         && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                         group s by new { s.DateOut.Value.Month, s.DateOut.Value.Year } into g
+                         orderby g.Key.Year, g.Key.Month
+                         select new
+                         {
+                             Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                             Key = SqlFunctions.StringConvert((double)g.Key.Month).Trim() + "/" + SqlFunctions.StringConvert((double)g.Key.Year).Trim()
+                         };
+                    tb = r1.ToDataTable("Normal");
+                    ds.Tables.Add(tb);
+                    break;
+
+                default:
+                    break;
+            }
+
+            return ds;
+        }
+
+        /// <summary>
+        /// Sumary sales of vehicle by
+        /// </summary>
+        /// <param name="by">Summary by</param>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        protected DataTable SumarySales(Summary by, DateTime fr, DateTime to)
+        {
+            try
+            {
+                switch (by)
+                {
+                    case Summary.RegionFixed:
+                        var r1 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Tariff.Group.Parent.Parent.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     g.Key
+                                 };
+                        return r1.ToDataTable();
+
+                    case Summary.AreaFixed:
+                        var r2 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Tariff.Group.Parent.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     g.Key
+                                 };
+                        return r2.ToDataTable();
+
+                    case Summary.ProvinceFixed:
+                        var r3 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Tariff.Group.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     g.Key
+                                 };
+                        return r3.ToDataTable();
+
+                    case Summary.TransportFixed:
+                        var r4 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Transport.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     g.Key
+                                 };
+                        return r4.ToDataTable();
+
+                    case Summary.GroupNormal:
+                        var r5 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Tariff.Group.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r5.ToDataTable();
+
+                    case Summary.KindNormal:
+                        var r6 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Tariff.Text into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     g.Key
+                                 };
+                        return r6.ToDataTable();
+
+                    default:
+                        var r7 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == true
+                                 && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                                 group s by s.Vehicle.Fixed into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose)),
+                                     Key = "Xe cố định"
+                                 };
+                        var r8 = from s in _db.Tra_Details
+                                 where s.UserOutId != null
+                                 && s.DateOut >= fr && s.DateOut <= to
+                                 && s.Vehicle.Fixed == false
+                                 group s by s.Vehicle.Fixed into g
+                                 select new
+                                 {
+                                     Money = g.Sum(s => s.Money),
+                                     Key = "Xe vãng lai"
+                                 };
+                        return r7.Union(r8).ToDataTable();
+                }
+            }
+            catch { return null; }
         }
     }
 }

@@ -61,6 +61,24 @@ namespace SKG.DXF.Home.Sytem
         {
             InitializeComponent();
         }
+
+        void EnabledControl(bool enabled)
+        {
+            cbbServer.Enabled = enabled;
+            cbbAuthen.Enabled = enabled;
+            cbbDb.Enabled = enabled;
+
+            if (enabled && cbbAuthen.SelectedIndex == 1)
+            {
+                cbbUser.Enabled = !enabled;
+                txtPass.Enabled = !enabled;
+            }
+            else
+            {
+                cbbUser.Enabled = enabled;
+                txtPass.Enabled = enabled;
+            }
+        }
         #endregion
 
         #region Events
@@ -68,6 +86,26 @@ namespace SKG.DXF.Home.Sytem
         {
             _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             var a = _config.ConnectionStrings.ConnectionStrings[1];
+            var cfg = a.ConnectionString.GetConfig();
+
+            if (cfg != null)
+            {
+                if (cfg.Count > 1)
+                {
+                    cbbAuthen.SelectedIndex = 1; // select Windows Authencation
+
+                    cbbServer.EditValue = cfg[0];
+                    cbbDb.EditValue = cfg[1];
+                }
+
+                if (cfg.Count > 3)
+                {
+                    cbbAuthen.SelectedIndex = 0; // select SQL Server Authencation
+
+                    cbbUser.EditValue = cfg[2];
+                    txtPass.EditValue = cfg[3];
+                }
+            }
 
             if (a.ProviderName == _b.ProviderName) chkSQLCE.Checked = true;
             else chkSQLCE.Checked = false;
@@ -87,7 +125,7 @@ namespace SKG.DXF.Home.Sytem
             ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
             Properties.Settings.Default.Reload();
 
-            Sample.CreateData(true);
+            Sample.CreateData(true, !chkSQLCE.Checked);
 
             //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
             Extend.Login();
@@ -135,12 +173,12 @@ namespace SKG.DXF.Home.Sytem
 
         private void cbbAuthen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbbAuthen.SelectedItem + "" == STR_WIND)
+            if (cbbAuthen.SelectedIndex == 1) // select Windows Authencation
             {
                 cbbUser.Enabled = false;
                 txtPass.Enabled = false;
             }
-            else
+            else // select SQL Server Authencation
             {
                 cbbUser.Enabled = true;
                 txtPass.Enabled = true;
@@ -154,7 +192,7 @@ namespace SKG.DXF.Home.Sytem
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
                     var a = ConnectionStringSetting.ConnectionString.Replace("xSKGv1", "master");
-                    using (var db = new SqlServer(a))
+                    using (var db = new Server(a))
                     {
                         var tbl = db.GetDatabases();
                         cbbDb.Properties.Items.Remove(STR_FIND);
@@ -173,22 +211,7 @@ namespace SKG.DXF.Home.Sytem
 
         private void chkSQLCE_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkSQLCE.Checked)
-            {
-                cbbServer.Enabled = false;
-                cbbAuthen.Enabled = false;
-                cbbUser.Enabled = false;
-                txtPass.Enabled = false;
-                cbbDb.Enabled = false;
-            }
-            else
-            {
-                cbbServer.Enabled = true;
-                cbbAuthen.Enabled = true;
-                cbbUser.Enabled = true;
-                txtPass.Enabled = true;
-                cbbDb.Enabled = true;
-            }
+            EnabledControl(!chkSQLCE.Checked);
         }
         #endregion
 
@@ -224,8 +247,8 @@ namespace SKG.DXF.Home.Sytem
                 var str = "";
 
                 if (data == "" || data == STR_FIND) data = "xSKGv1";
-                if (cbbAuthen.Text == STR_WIND) str = String.Format(SqlServer.STR_TRU, sver, data);
-                else str = String.Format(SqlServer.STR_SEC, sver, data, user, pass);
+                if (cbbAuthen.Text == STR_WIND) str = String.Format(Server.STR_TRU, sver, data);
+                else str = String.Format(Server.STR_SEC, sver, data, user, pass);
 
                 _a.ConnectionString = str;
                 return _a;
@@ -237,16 +260,8 @@ namespace SKG.DXF.Home.Sytem
             get
             {
                 var a = ConnectionStringSetting.ConnectionString;
-                if (chkSQLCE.Checked)
-                {
-                    var b = a.Split(new char[] { '|' });
-                    var c = String.Format("{0}{1}", Application.StartupPath, b[2]);
-                    if (!c.CheckSqlCeConnect())
-                    {
-                        XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
-                        return false;
-                    }
-                }
+
+                if (chkSQLCE.Checked) return true;
                 else
                 {
                     var b = a.Replace("xSKGv1", "master");
@@ -256,6 +271,7 @@ namespace SKG.DXF.Home.Sytem
                         return false;
                     }
                 }
+
                 return true;
             }
         }

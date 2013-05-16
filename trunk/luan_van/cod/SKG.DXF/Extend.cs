@@ -676,16 +676,14 @@ namespace SKG.DXF
             VisibleMenuParentForm(_frmMain);
             _frmMain.bsiUser.Caption = String.Format("{0} - {1}", Global.Session.User.Name.ToUpper(), Global.Session.User.Note);
 
-            //var ax = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_RoleRights);
-            //var bx = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_UserRights);
-            //var cx = SKG.Extend.Data.ToDataTable(Global.Session.User.Pol_UserRoles);
-
             var menuz1 = _frmMain.ribbon.FindMenuz(typeof(Home.Level1).FullName);
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
             var menuz3 = menuz2.FindMenuz(typeof(Home.Sytem.FrmPol_Login).FullName);
 
+            _frmMain.InitSkinGallery(menuz1);
+
             menuz3.LargeGlyph = Image.FromFile(Application.StartupPath + @"\Icons\Logout.png");
-            menuz3.Caption = "Đăng xuất";
+            menuz3.Caption = "ĐĂNG XUẤT";
 
             // Show default form
             var d = Global.Session.Default;
@@ -714,11 +712,6 @@ namespace SKG.DXF
         {
             ClearMenuParentForm(_frmMain);
             _frmMain.bsiUser.Caption = null;
-
-            //VisibleMenuParentForm(_frmMain, false);
-            //bbiLogin.LargeGlyph = Properties.Resources.login;
-            //bbiLogin.Caption = Properties.Settings.Default.Login;
-            //rpgPermission.Visible = false;
         }
 
         /// <summary>

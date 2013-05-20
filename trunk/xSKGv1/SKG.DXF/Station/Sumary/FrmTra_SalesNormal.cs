@@ -205,7 +205,7 @@ namespace SKG.DXF.Station.Sumary
             dteFrom.DateTime = fr;
             dteTo.DateTime = to;
 
-            var ql = Global.Session.User.CheckAdmin();
+            var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
             if (!ql) cmdRestore.Visible = false;
 
             // Only allow edit on columns colSeri

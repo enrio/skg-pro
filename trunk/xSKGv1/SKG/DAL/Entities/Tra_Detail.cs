@@ -211,5 +211,27 @@ namespace SKG.DAL.Entities
             return Money;
         }
         #endregion
+
+        /// <summary>
+        /// Nằm trong giờ cao điểm 22:00:00 hôm nay đến 06:00:00 hôm sau
+        /// </summary>
+        /// <param name="d">Thời gian</param>
+        /// <returns></returns>
+        bool Caodiem(DateTime d)
+        {
+            var cur = d.Date;
+            var fr = cur.AddHours(22); // 22:00:00 hôm nay
+            DateTime to;
+
+            if (Global.Session.Current >= fr)
+                to = fr.AddHours(8); // 06:00:00 hôm sau            
+            else
+            {
+                to = cur.AddHours(6); // 06:00:00 hôm nay
+                fr = to.AddHours(-8); // 22:00:00 hôm trước
+            }
+
+            return (d >= fr && d <= to);
+        }
     }
 }

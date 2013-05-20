@@ -183,7 +183,15 @@ namespace SKG.DAL.Entities
                 var spn = DateOut.Value - tmp;
                 Money = Price1 * seat + Price2 * bed + spn.Days * 20000;
             }
-            else Money += odd < 0.5 ? Price1 : Price2;
+            else
+            {
+                var v = Caodiem(dateIn);
+                var r = Caodiem(DateOut.Value);
+
+                if (v || r) Money += Price2;
+                else Money += odd < 0.5 ? Price1 : Price2;
+            }
+
             return Money;
         }
 

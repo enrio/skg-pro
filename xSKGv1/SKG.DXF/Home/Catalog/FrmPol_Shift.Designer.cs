@@ -32,6 +32,8 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.calValue = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tedEnd = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tedStart = new DevExpress.XtraEditors.TimeEdit();
@@ -50,14 +52,13 @@
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.calValue = new DevExpress.XtraEditors.CalcEdit();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).BeginInit();
@@ -66,7 +67,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -109,6 +109,26 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 38);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // calValue
+            // 
+            this.calValue.Location = new System.Drawing.Point(644, 7);
+            this.calValue.Name = "calValue";
+            this.calValue.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calValue.Properties.Appearance.Options.UseFont = true;
+            this.calValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calValue.Size = new System.Drawing.Size(53, 26);
+            this.calValue.TabIndex = 7;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl4.Location = new System.Drawing.Point(589, 10);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(49, 19);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Giá trị:";
             // 
             // tedEnd
             // 
@@ -416,6 +436,14 @@
             this.gridColumn7.VisibleIndex = 4;
             this.gridColumn7.Width = 273;
             // 
+            // gridColumn8
+            // 
+            this.gridColumn8.Caption = "Giá trị";
+            this.gridColumn8.FieldName = "More2";
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 5;
+            // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "Ghi chú";
@@ -424,33 +452,6 @@
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 280;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Giá trị";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 5;
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(589, 10);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(49, 19);
-            this.labelControl4.TabIndex = 6;
-            this.labelControl4.Text = "Giá trị:";
-            // 
-            // calValue
-            // 
-            this.calValue.Location = new System.Drawing.Point(644, 7);
-            this.calValue.Name = "calValue";
-            this.calValue.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calValue.Properties.Appearance.Options.UseFont = true;
-            this.calValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calValue.Size = new System.Drawing.Size(53, 26);
-            this.calValue.TabIndex = 7;
             // 
             // FrmPol_Shift
             // 
@@ -467,6 +468,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescript.Properties)).EndInit();
@@ -475,7 +477,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

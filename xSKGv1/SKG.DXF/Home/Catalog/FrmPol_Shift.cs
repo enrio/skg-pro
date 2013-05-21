@@ -150,6 +150,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ClearDataBindings()
         {
+            txtCode.DataBindings.Clear();
             txtName.DataBindings.Clear();
             tedStart.DataBindings.Clear();
             tedEnd.DataBindings.Clear();
@@ -161,6 +162,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void DataBindingControl()
         {
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Text");
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             tedStart.DataBindings.Add("EditValue", _dtb, ".More");
             tedEnd.DataBindings.Add("EditValue", _dtb, ".More1");
@@ -172,6 +174,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             tedStart.Properties.ReadOnly = isReadOnly;
             tedEnd.Properties.ReadOnly = isReadOnly;
@@ -195,10 +198,11 @@ namespace SKG.DXF.Home.Catalog
                 {
                     Id = id,
                     Type = Global.STR_SHIFT,
+                    Code = txtCode.Text,
+                    Text = txtName.Text,
                     More = tedStart.Time.ToString("HH:mm:ss"),
                     More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     More2 = calValue.Value.ToString("#"),
-                    Text = txtName.Text,
                     Note = txtDescript.Text
                 };
 
@@ -219,6 +223,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Dictionary()
                 {
                     Type = Global.STR_SHIFT,
+                    Code = txtCode.Text,
                     Text = txtName.Text,
                     More = tedStart.Time.ToString("HH:mm:ss"),
                     More1 = tedEnd.Time.ToString("HH:mm:ss"),

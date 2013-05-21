@@ -32,7 +32,9 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.calValue = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tedEnd = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -54,12 +56,11 @@
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtCode = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).BeginInit();
@@ -69,7 +70,6 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -115,9 +115,18 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 67);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(40, 7);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCode.Properties.Appearance.Options.UseFont = true;
+            this.txtCode.Size = new System.Drawing.Size(96, 26);
+            this.txtCode.TabIndex = 1;
+            // 
             // calValue
             // 
-            this.calValue.Location = new System.Drawing.Point(782, 7);
+            this.calValue.Location = new System.Drawing.Point(821, 7);
             this.calValue.Name = "calValue";
             this.calValue.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calValue.Properties.Appearance.Options.UseFont = true;
@@ -126,10 +135,19 @@
             this.calValue.Size = new System.Drawing.Size(53, 26);
             this.calValue.TabIndex = 9;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl5.Location = new System.Drawing.Point(8, 10);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(26, 19);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Mã:";
+            // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(727, 10);
+            this.labelControl4.Location = new System.Drawing.Point(766, 10);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(49, 19);
             this.labelControl4.TabIndex = 8;
@@ -138,7 +156,7 @@
             // tedEnd
             // 
             this.tedEnd.EditValue = new System.DateTime(2012, 10, 29, 0, 0, 0, 0);
-            this.tedEnd.Location = new System.Drawing.Point(625, 7);
+            this.tedEnd.Location = new System.Drawing.Point(643, 7);
             this.tedEnd.Name = "tedEnd";
             this.tedEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tedEnd.Properties.Appearance.Options.UseFont = true;
@@ -148,13 +166,13 @@
             this.tedEnd.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tedEnd.Properties.EditFormat.FormatString = "HH:mm:ss";
             this.tedEnd.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.tedEnd.Size = new System.Drawing.Size(96, 26);
+            this.tedEnd.Size = new System.Drawing.Size(117, 26);
             this.tedEnd.TabIndex = 7;
             // 
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(556, 10);
+            this.labelControl2.Location = new System.Drawing.Point(574, 10);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(63, 19);
             this.labelControl2.TabIndex = 6;
@@ -173,7 +191,7 @@
             this.tedStart.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.tedStart.Properties.EditFormat.FormatString = "HH:mm:ss";
             this.tedStart.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.tedStart.Size = new System.Drawing.Size(96, 26);
+            this.tedStart.Size = new System.Drawing.Size(117, 26);
             this.tedStart.TabIndex = 5;
             // 
             // labelControl1
@@ -191,7 +209,7 @@
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(761, 26);
+            this.txtDescript.Size = new System.Drawing.Size(800, 26);
             this.txtDescript.TabIndex = 11;
             // 
             // labelControl3
@@ -458,24 +476,6 @@
             this.gridColumn5.VisibleIndex = 6;
             this.gridColumn5.Width = 280;
             // 
-            // txtCode
-            // 
-            this.txtCode.Location = new System.Drawing.Point(40, 7);
-            this.txtCode.Name = "txtCode";
-            this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(96, 26);
-            this.txtCode.TabIndex = 1;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(8, 10);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(26, 19);
-            this.labelControl5.TabIndex = 0;
-            this.labelControl5.Text = "Mã:";
-            // 
             // FrmPol_Shift
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,6 +491,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tedStart.Properties)).EndInit();
@@ -500,7 +501,6 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -140,9 +140,11 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ResetInput()
         {
+            txtCode.Text = null;
             txtName.Text = null;
             tedStart.EditValue = null;
             tedEnd.EditValue = null;
+            calValue.EditValue = null;
             txtDescript.Text = null;
 
             base.ResetInput();

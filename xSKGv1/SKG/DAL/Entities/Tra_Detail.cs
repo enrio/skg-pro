@@ -187,8 +187,9 @@ namespace SKG.DAL.Entities
             {
                 var v = Caodiem(dateIn);
                 var r = Caodiem(DateOut.Value);
+                var x = 8D / 24D;
 
-                if (v || r) Money += Price2;
+                if (v || r) Money += odd < x ? Price1 : Price2;
                 else Money += odd < 0.5 ? Price1 : Price2;
             }
 

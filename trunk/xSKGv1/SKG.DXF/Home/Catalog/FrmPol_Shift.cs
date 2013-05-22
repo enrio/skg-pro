@@ -176,7 +176,9 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtCode.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+            else txtCode.Properties.ReadOnly = isReadOnly;
+
             txtName.Properties.ReadOnly = isReadOnly;
             tedStart.Properties.ReadOnly = isReadOnly;
             tedEnd.Properties.ReadOnly = isReadOnly;

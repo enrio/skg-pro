@@ -43,6 +43,14 @@ namespace SKG
         }
 
         /// <summary>
+        /// Get park from
+        /// </summary>
+        public static DateTime ParkFrom
+        {
+            get { return _bll.GetParkFrom(); }
+        }
+
+        /// <summary>
         /// Get delay
         /// </summary>
         /// <returns></returns>

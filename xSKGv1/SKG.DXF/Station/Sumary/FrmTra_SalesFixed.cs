@@ -92,12 +92,11 @@ namespace SKG.DXF.Station.Sumary
             rpt.xrlDuration.Text += "Từ ngày " + dteFrom.DateTime.ToString("dd/MM/yyyy");
             rpt.xrlDuration.Text += " đến ngày " + dteTo.DateTime.ToString("dd/MM/yyyy");
 
+            rpt.parDate.Value = shift.Date;
             rpt.xrlCashier.Text = Global.Session.User.Name;
 
             var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
             var to = dteTo.DateTime.Date.AddHours(13);
-
-            rpt.parDate.Value = to.Date;
             string receipt = "";
 
             rpt.DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
@@ -155,7 +154,7 @@ namespace SKG.DXF.Station.Sumary
             dteFrom.DateTime = d.AddDays(-1);
             dteTo.DateTime = d;
 
-            var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
+            var ql = Global.Session.User.CheckAdmin();
             if (!ql) cmdRestore.Visible = false;
         }
         #endregion

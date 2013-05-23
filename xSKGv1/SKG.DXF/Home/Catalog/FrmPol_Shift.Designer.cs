@@ -132,7 +132,7 @@
             this.calValue.Properties.Appearance.Options.UseFont = true;
             this.calValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calValue.Size = new System.Drawing.Size(53, 26);
+            this.calValue.Size = new System.Drawing.Size(92, 26);
             this.calValue.TabIndex = 9;
             // 
             // labelControl5
@@ -209,7 +209,7 @@
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
-            this.txtDescript.Size = new System.Drawing.Size(800, 26);
+            this.txtDescript.Size = new System.Drawing.Size(839, 26);
             this.txtDescript.TabIndex = 11;
             // 
             // labelControl3

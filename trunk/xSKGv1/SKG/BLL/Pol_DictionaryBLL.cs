@@ -318,28 +318,40 @@ namespace SKG.BLL
         /// Get peak from
         /// </summary>
         /// <returns></returns>
-        public string GetPeakFrom()
+        public DateTime GetPeakFrom()
         {
-            try
-            {
-                var r = (Pol_Dictionary)Select("PEAK");
-                return r.More;
-            }
-            catch { return null; }
+            var r = (Pol_Dictionary)Select("PEAK");
+            return SplitTime(r.More);
         }
 
         /// <summary>
         /// Get peak to
         /// </summary>
         /// <returns></returns>
-        public string GetPeakTo()
+        public DateTime GetPeakTo()
+        {
+            var r = (Pol_Dictionary)Select("PEAK");
+            return SplitTime(r.More1);
+        }
+
+        /// <summary>
+        /// SplitTime
+        /// </summary>
+        /// <param name="t">Time</param>
+        /// <returns></returns>
+        DateTime SplitTime(string t)
         {
             try
             {
-                var r = (Pol_Dictionary)Select("PEAK");
-                return r.More1;
+                var r = t.Split(new char[] { ':' });
+
+                var h = Convert.ToInt32(r[0]);
+                var m = Convert.ToInt32(r[1]);
+                var s = Convert.ToInt32(r[2]);
+
+                return new DateTime(1, 1, 1, h, m, s);
             }
-            catch { return null; }
+            catch { return new DateTime(); }
         }
         #endregion
     }

@@ -18,6 +18,7 @@ using System.Collections.Generic;
 
 namespace SKG
 {
+    using BLL;
     using DAL.Entities;
 
     /// <summary>
@@ -26,6 +27,49 @@ namespace SKG
     public class Global
     {
         #region Methods
+        /// <summary>
+        /// Pol_Dictionary BLL
+        /// </summary>
+        static Pol_DictionaryBLL _bll = new Pol_DictionaryBLL();
+
+        #region Coefficient
+        /// <summary>
+        /// Get unit cost of night parking
+        /// </summary>
+        /// <returns></returns>
+        public static int GetPark()
+        {
+            return _bll.GetPark();
+        }
+
+        /// <summary>
+        /// Get delay
+        /// </summary>
+        /// <returns></returns>
+        public int GetDelay()
+        {
+            return _bll.GetDelay();
+        }
+
+        /// <summary>
+        /// Get peak from
+        /// </summary>
+        /// <returns></returns>
+        public string GetPeakFrom()
+        {
+            return _bll.GetPeakFrom();
+        }
+
+        /// <summary>
+        /// Get peak to
+        /// </summary>
+        /// <returns></returns>
+        public string GetPeakTo()
+        {
+            return _bll.GetPeakTo();
+        }
+        #endregion
+
         /// <summary>
         /// Get icon name
         /// </summary>

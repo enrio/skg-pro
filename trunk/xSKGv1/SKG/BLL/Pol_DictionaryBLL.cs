@@ -301,6 +301,16 @@ namespace SKG.BLL
         }
 
         /// <summary>
+        /// Get park from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetParkFrom()
+        {
+            var r = (Pol_Dictionary)Select("PARK");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
         /// Get delay
         /// </summary>
         /// <returns></returns>

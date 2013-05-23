@@ -178,7 +178,10 @@ namespace SKG.DAL.Entities
 
             if (Vehicle.Tariff.Code == "A")
             {
-                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
+                var pFr = Global.ParkFrom;
+                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
+                    pFr.Hour, pFr.Minute, pFr.Second);
+
                 var spn = DateOut.Value - tmp;
                 Money = Price1 * seat + Price2 * bed + spn.Days * Global.Park;
             }
@@ -204,7 +207,10 @@ namespace SKG.DAL.Entities
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
+            var pFr = Global.ParkFrom;
+            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
+                pFr.Hour, pFr.Minute, pFr.Second);
+
             var span = DateOut.Value - dateIn;
             Parked = span.Days * Global.Park;
 

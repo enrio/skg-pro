@@ -55,7 +55,7 @@ namespace SKG
         /// Get peak from
         /// </summary>
         /// <returns></returns>
-        public static DateTime GetPeakFrom
+        public static DateTime PeakFr
         {
             get { return _bll.GetPeakFrom(); }
         }
@@ -64,7 +64,7 @@ namespace SKG
         /// Get peak to
         /// </summary>
         /// <returns></returns>
-        public static DateTime GetPeakTo
+        public static DateTime PeakTo
         {
             get { return _bll.GetPeakTo(); }
         }

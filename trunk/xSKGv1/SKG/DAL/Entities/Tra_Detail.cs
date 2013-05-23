@@ -161,7 +161,6 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Charge for vehicle normal
         /// </summary>
-        /// <param name="error">Error of time</param>
         /// <returns></returns>
         public decimal ChargeForNormal()
         {
@@ -199,7 +198,6 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Charge for vehicle fixed
         /// </summary>
-        /// <param name="error">Error of time</param>
         /// <returns></returns>
         public decimal ChargeForFixed()
         {
@@ -228,25 +226,32 @@ namespace SKG.DAL.Entities
         /// <returns></returns>
         bool Caodiem(DateTime d)
         {
-            var peakFr = Global.GetPeakFrom;
-            var peakTo = Global.GetPeakTo;
+            var pFr = Global.PeakFr;
+            var pTo = Global.PeakTo;
+            var span = pTo - pFr;
 
             var cur = d.Date;
             DateTime to;
 
-            var fr = cur.AddHours(peakFr.Hour)
-                .AddMinutes(peakFr.Minute)
-                .AddSeconds(peakFr.Second); // 22:00:00 hôm nay            
+            var fr = cur.AddHours(pFr.Hour)
+                .AddMinutes(pFr.Minute)
+                .AddSeconds(pFr.Second); // 22:00:00 hôm nay
 
             if (Global.Session.Current >= fr)
-                to = fr.AddHours(8); // 06:00:00 hôm sau            
+            {
+                to = fr.AddHours(span.Hours)
+                    .AddMinutes(span.Minutes)
+                    .AddSeconds(span.Seconds); // 06:00:00 hôm sau
+            }
             else
             {
-                to = cur.AddHours(peakTo.Hour)
-                    .AddMinutes(peakTo.Minute)
-                    .AddSeconds(peakTo.Second); // 06:00:00 hôm nay
+                to = cur.AddHours(pTo.Hour)
+                    .AddMinutes(pTo.Minute)
+                    .AddSeconds(pTo.Second); // 06:00:00 hôm nay
 
-                fr = to.AddHours(-8); // 22:00:00 hôm trước
+                fr = to.AddHours(-span.Hours)
+                    .AddMinutes(-span.Minutes)
+                    .AddSeconds(-span.Seconds); // 22:00:00 hôm trước
             }
 
             return (d >= fr && d <= to);

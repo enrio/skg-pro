@@ -37,36 +37,36 @@ namespace SKG
         /// Get unit cost of night parking
         /// </summary>
         /// <returns></returns>
-        public static int GetPark()
+        public static int Park
         {
-            return _bll.GetPark();
+            get { return _bll.GetPark(); }
         }
 
         /// <summary>
         /// Get delay
         /// </summary>
         /// <returns></returns>
-        public int GetDelay()
+        public static int Delay
         {
-            return _bll.GetDelay();
+            get { return _bll.GetDelay(); }
         }
 
         /// <summary>
         /// Get peak from
         /// </summary>
         /// <returns></returns>
-        public string GetPeakFrom()
+        public static string GetPeakFrom
         {
-            return _bll.GetPeakFrom();
+            get { return _bll.GetPeakFrom(); }
         }
 
         /// <summary>
         /// Get peak to
         /// </summary>
         /// <returns></returns>
-        public string GetPeakTo()
+        public static string GetPeakTo
         {
-            return _bll.GetPeakTo();
+            get { return _bll.GetPeakTo(); }
         }
         #endregion
 

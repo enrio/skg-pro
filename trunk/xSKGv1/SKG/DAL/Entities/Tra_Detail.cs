@@ -163,12 +163,12 @@ namespace SKG.DAL.Entities
         /// </summary>
         /// <param name="error">Error of time</param>
         /// <returns></returns>
-        public decimal ChargeForNormal(int error = 11)
+        public decimal ChargeForNormal()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var dateIn = DateIn.AddMinutes(error);
+            var dateIn = DateIn.AddMinutes(Global.Delay);
             var span = DateOut.Value - dateIn;
 
             var odd = span.TotalDays - span.Days;
@@ -181,7 +181,7 @@ namespace SKG.DAL.Entities
             {
                 var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
                 var spn = DateOut.Value - tmp;
-                Money = Price1 * seat + Price2 * bed + spn.Days * 20000;
+                Money = Price1 * seat + Price2 * bed + spn.Days * Global.Park;
             }
             else
             {
@@ -201,14 +201,14 @@ namespace SKG.DAL.Entities
         /// </summary>
         /// <param name="error">Error of time</param>
         /// <returns></returns>
-        public decimal ChargeForFixed(int error = 11)
+        public decimal ChargeForFixed()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
             var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
             var span = DateOut.Value - dateIn;
-            Parked = span.Days * 20000;
+            Parked = span.Days * Global.Park;
 
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;

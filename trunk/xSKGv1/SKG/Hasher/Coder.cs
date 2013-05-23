@@ -19,9 +19,12 @@ namespace SKG.Hasher
         {
             try
             {
+                if (data == null) return "";
+
                 byte[] encData_byte = new byte[data.Length];
                 encData_byte = Encoding.UTF8.GetBytes(data);
                 string encodedData = Convert.ToBase64String(encData_byte);
+
                 return encodedData;
             }
             catch (Exception e)

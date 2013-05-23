@@ -90,10 +90,11 @@
     <Compile Include="DAL\Tra_VehicleDAL.cs" />
     <Compile Include="Datax\Base.cs" />
     <Compile Include="Datax\Excel.cs" />
-    <Compile Include="Datax\SqlServer.cs" />
+    <Compile Include="Datax\Server.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extend\Data.cs" />
     <Compile Include="Extend\Number.cs" />
+    <Compile Include="Extend\Objs.cs" />
     <Compile Include="Extend\Text.cs" />
     <Compile Include="Extend\Time.cs" />
     <Compile Include="Global.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.Extend
 {
@@ -17,6 +18,97 @@ namespace SKG.Extend
     {
         #region Strings
         /// <summary>
+        /// Format standard phone number
+        /// </summary>
+        /// <param name="s">Phone number</param>
+        /// <returns></returns>
+        public static string FormatPhoneNumber(this string s)
+        {
+            if (s != null)
+            {
+                s = s.Trim();
+                s = s.Replace("+84", "0");
+                s = s.Replace(" ", "");
+            }
+
+            return s;
+        }
+
+        /// <summary>
+        /// Return string split by separate
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <param name="sep">Separate</param>
+        /// <param name="idx">Index</param>
+        /// <returns></returns>
+        public static string SplitIndex(this string str, char sep, int idx)
+        {
+            try
+            {
+                var sp = str.Split(new char[] { sep });
+                return sp[idx];
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Return list of string config as server name, database name, user and password
+        /// </summary>
+        /// <param name="str">String connection</param>
+        /// <returns></returns>
+        public static List<string> GetConfig(this string str)
+        {
+            var lst = new List<string>();
+            var sp = str.Split(new char[] { ';' });
+
+            switch (sp.Length)
+            {
+                case 3:
+                    var a = sp[0];
+                    a = a.SplitIndex('=', 1); // get server name
+                    lst.Add(a);
+
+                    var b = sp[1];
+                    b = b.SplitIndex('=', 1); // get database name                    
+                    lst.Add(b);
+                    break;
+
+                case 5:
+                    a = sp[0];
+                    a = a.SplitIndex('=', 1); // get server name
+                    lst.Add(a);
+                    b = sp[1];
+                    b = b.SplitIndex('=', 1); // get database name
+                    lst.Add(b);
+
+                    var c = sp[3];
+                    c = c.SplitIndex('=', 1); // get user
+                    lst.Add(c);
+                    var d = sp[4];
+                    d = d.SplitIndex('=', 1); // get password
+                    lst.Add(d);
+                    break;
+
+                default:
+                    return null;
+            }
+
+            return lst;
+        }
+
+        /// <summary>
+        /// Removing Vietnamese
+        /// </summary>
+        /// <param name="str">String</param>
+        /// <returns></returns>
+        public static string RemoveVN(this string str)
+        {
+            var regex = new Regex(@"\p{IsCombiningDiacriticalMarks}+");
+            var strFormD = str.Normalize(NormalizationForm.FormD);
+            return regex.Replace(strFormD, String.Empty).Replace('\u0111', 'd').Replace('\u0110', 'D');
+        }
+
+        /// <summary>
         /// Return a copy of this string between two strings with format case
         /// </summary>
         /// <param name="s">String</param>
@@ -28,6 +120,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var a = start == null ? 0 : s.IndexOf(start);
                 var b = s.IndexOf(end);
                 var c = s.Substring(a, b - a);
@@ -56,6 +149,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var a = s.IndexOf(start);
                 var b = s.IndexOf(end);
                 var c = s.Substring(a, b - a);
@@ -81,6 +175,7 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 if (String.IsNullOrEmpty(s)) return String.Empty;
                 return Char.ToUpper(s[0]) + s.Substring(1);
             }
@@ -96,14 +191,18 @@ namespace SKG.Extend
         {
             try
             {
+                s = s.Trim();
                 var arr = s.ToCharArray();
+
                 if (arr.Length >= 1)
                     if (Char.IsLower(arr[0]))
                         arr[0] = Char.ToUpper(arr[0]);
+
                 for (var i = 1; i < arr.Length; i++)
                     if (arr[i - 1] == ' ')
                         if (Char.IsLower(arr[i]))
                             arr[i] = Char.ToUpper(arr[i]);
+
                 return new string(arr);
             }
             catch { return s; }
@@ -111,17 +210,6 @@ namespace SKG.Extend
         #endregion
 
         #region Checks
-        /// <summary>
-        /// Check text is number using Regex class
-        /// </summary>
-        /// <param name="s">Number</param>
-        /// <returns></returns>
-        public static bool IsNumber(this string s)
-        {
-            Regex regex = new Regex(@"^[-+]?[0-9]*\.?[0-9]+$");
-            return regex.IsMatch(s);
-        }
-
         /// <summary>
         /// Check number between min & max
         /// </summary>
@@ -205,8 +293,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static int ToInt32(this string s)
         {
-            if (IsNumber(s)) return Convert.ToInt32(s);
-            return 0;
+            int i = 0;
+            Int32.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -216,8 +305,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static long ToInt64(this string s)
         {
-            if (IsNumber(s)) return Convert.ToInt64(s);
-            return 0;
+            long i = 0;
+            Int64.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -227,8 +317,9 @@ namespace SKG.Extend
         /// <returns></returns>
         public static double ToDouble(this string s)
         {
-            if (IsNumber(s)) return Convert.ToDouble(s);
-            return 0;
+            double i = 0;
+            Double.TryParse(s, out  i);
+            return i;
         }
 
         /// <summary>
@@ -238,8 +329,33 @@ namespace SKG.Extend
         /// <returns></returns>
         public static decimal ToDecimal(this string s)
         {
-            if (IsNumber(s)) return Convert.ToDecimal(s);
-            return 0;
+            decimal i = 0;
+            Decimal.TryParse(s, out  i);
+            return i;
+        }
+
+        /// <summary>
+        /// Converts the specified string representation of a logic value to an equivalent boolean
+        /// </summary>
+        /// <param name="s">Boolean value</param>
+        /// <returns></returns>
+        public static bool ToBoolean(this string s)
+        {
+            bool i = false;
+            Boolean.TryParse(s, out  i);
+            return i;
+        }
+
+        /// <summary>
+        /// Converts the specified string representation of a date time value to an equivalent DateTime
+        /// </summary>
+        /// <param name="s">Date time</param>
+        /// <returns></returns>
+        public static DateTime ToDateTime(this string s)
+        {
+            var i = DateTime.Now;
+            DateTime.TryParse(s, out  i);
+            return i;
         }
         #endregion
 

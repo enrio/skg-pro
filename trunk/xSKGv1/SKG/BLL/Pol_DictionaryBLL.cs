@@ -284,5 +284,63 @@ namespace SKG.BLL
             return Update(o);
         }
         #endregion
+
+        #region Coefficient
+        /// <summary>
+        /// Get unit cost of night parking
+        /// </summary>
+        /// <returns></returns>
+        public int GetPark()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("PARK");
+                return Convert.ToInt32(r.More2);
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Get delay
+        /// </summary>
+        /// <returns></returns>
+        public int GetDelay()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("DELAY");
+                return Convert.ToInt32(r.More2);
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Get peak from
+        /// </summary>
+        /// <returns></returns>
+        public string GetPeakFrom()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("PEAK");
+                return r.More;
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Get peak to
+        /// </summary>
+        /// <returns></returns>
+        public string GetPeakTo()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("PEAK");
+                return r.More1;
+            }
+            catch { return null; }
+        }
+        #endregion
     }
 }

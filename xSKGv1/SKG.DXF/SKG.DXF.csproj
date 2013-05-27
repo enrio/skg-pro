@@ -49,7 +49,6 @@
     <Reference Include="DevExpress.XtraCharts.v12.1.UI, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPivotGrid.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraReports.v12.1, Version=12.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -331,6 +330,18 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_SalesNormal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_SalesNormal.Designer.cs">
+      <DependentUpon>Rpt_SalesNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_SalesFixed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_SalesFixed.Designer.cs">
+      <DependentUpon>Rpt_SalesFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_Fixed2.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -429,9 +440,6 @@
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelect.resx">
-      <DependentUpon>FrmSelect.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Help\Infor\Frm_About.resx">
       <DependentUpon>Frm_About.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,7 +461,6 @@
     <EmbeddedResource Include="Home\Catalog\FrmPol_User.resx">
       <DependentUpon>FrmPol_User.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -524,6 +531,12 @@
     <EmbeddedResource Include="Station\Normal\FrmTra_VehicleNormal.resx">
       <DependentUpon>FrmTra_VehicleNormal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_SalesNormal.resx">
+      <DependentUpon>Rpt_SalesNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_SalesFixed.resx">
+      <DependentUpon>Rpt_SalesFixed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Fixed2.resx">
       <DependentUpon>Rpt_Fixed2.cs</DependentUpon>
     </EmbeddedResource>
@@ -566,6 +579,7 @@
     <None Include="Manual.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Manual.doc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

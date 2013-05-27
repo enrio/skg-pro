@@ -16,6 +16,7 @@ using System.Linq;
 
 namespace SKG.DAL.Entities
 {
+    using SKG.Extend;
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
@@ -161,14 +162,13 @@ namespace SKG.DAL.Entities
         /// <summary>
         /// Charge for vehicle normal
         /// </summary>
-        /// <param name="error">Error of time</param>
         /// <returns></returns>
-        public decimal ChargeForNormal(int error = 11)
+        public decimal ChargeForNormal()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var dateIn = DateIn.AddMinutes(error);
+            var dateIn = DateIn.AddMinutes(Global.Delay);
             var span = DateOut.Value - dateIn;
 
             var odd = span.TotalDays - span.Days;
@@ -179,27 +179,45 @@ namespace SKG.DAL.Entities
 
             if (Vehicle.Tariff.Code == "A")
             {
-                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
+                var pFr = Global.ParkFrom;
+                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
+                    pFr.Hour, pFr.Minute, pFr.Second);
+
                 var spn = DateOut.Value - tmp;
-                Money = Price1 * seat + Price2 * bed + spn.Days * 20000;
+                Money = Price1 * seat + Price2 * bed + spn.Days * Global.Park;
             }
-            else Money += odd < 0.5 ? Price1 : Price2;
+            else
+            {
+                var pFr = Global.PeakFr;
+                var pTo = Global.PeakTo;
+                var x = 8D / 24D;
+
+                var xx = dateIn.AddDays(span.Days);
+                var v = Caodiem(xx, pFr, pTo);
+                var r = Caodiem(DateOut.Value, pFr, pTo);
+
+                if (v || r) Money += odd < x ? Price1 : Price2;
+                else Money += odd < 0.5 ? Price1 : Price2;
+            }
+
             return Money;
         }
 
         /// <summary>
         /// Charge for vehicle fixed
         /// </summary>
-        /// <param name="error">Error of time</param>
         /// <returns></returns>
-        public decimal ChargeForFixed(int error = 11)
+        public decimal ChargeForFixed()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day, 1, 30, 0);
+            var pFr = Global.ParkFrom;
+            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
+                pFr.Hour, pFr.Minute, pFr.Second);
+
             var span = DateOut.Value - dateIn;
-            Parked = span.Days * 20000;
+            Parked = span.Days * Global.Park;
 
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
@@ -211,5 +229,40 @@ namespace SKG.DAL.Entities
             return Money;
         }
         #endregion
+
+        /// <summary>
+        /// Nằm trong giờ cao điểm 22:00:00 hôm nay đến 06:00:00 hôm sau
+        /// </summary>
+        /// <param name="d">Thời gian</param>
+        /// <returns></returns>
+        bool Caodiem(DateTime d, DateTime pFr, DateTime pTo)
+        {
+            var span = pTo - pFr;
+            var cur = d.Date;
+            DateTime to;
+
+            var fr = cur.AddHours(pFr.Hour)
+                .AddMinutes(pFr.Minute)
+                .AddSeconds(pFr.Second); // 22:00:00 hôm nay
+
+            if (d >= fr)
+            {
+                to = fr.AddHours(span.Hours)
+                    .AddMinutes(span.Minutes)
+                    .AddSeconds(span.Seconds); // 06:00:00 hôm sau
+            }
+            else
+            {
+                to = cur.AddHours(pTo.Hour)
+                    .AddMinutes(pTo.Minute)
+                    .AddSeconds(pTo.Second); // 06:00:00 hôm nay
+
+                fr = to.AddHours(-span.Hours)
+                    .AddMinutes(-span.Minutes)
+                    .AddSeconds(-span.Seconds); // 22:00:00 hôm trước
+            }
+
+            return d.CheckBetween(fr, to);
+        }
     }
 }

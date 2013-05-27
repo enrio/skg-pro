@@ -181,7 +181,7 @@ namespace SKG.DXF.Station.Manage
                     lblArrears.Text = null;
                 }
 
-                lblNumber.Text = "BS " + detail.Vehicle.Code;
+                lblNumber.Text = detail.Vehicle.Code;
                 lblSeats.Text = seat.ToString("#,0");
                 lblBeds.Text = bed.ToString("#,0");
 

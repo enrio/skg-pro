@@ -178,7 +178,9 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtCode.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+            else txtCode.Properties.ReadOnly = isReadOnly;
+
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
             txtMore.Properties.ReadOnly = isReadOnly;
@@ -186,8 +188,6 @@ namespace SKG.DXF.Home.Catalog
             calPosition.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
-
-            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
 
             base.ReadOnlyControl(isReadOnly);
         }

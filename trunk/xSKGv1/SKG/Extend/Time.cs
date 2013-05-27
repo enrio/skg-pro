@@ -204,5 +204,17 @@ namespace SKG.Extend
                 d.Hour, d.Minute, d.Second, d.Millisecond);
         }
         #endregion
+
+        /// <summary>
+        /// Check between DateTime from to
+        /// </summary>
+        /// <param name="d">DateTime</param>
+        /// <param name="fr">From DateTime</param>
+        /// <param name="to">To DateTime</param>
+        /// <returns></returns>
+        public static bool CheckBetween(this DateTime d, DateTime fr, DateTime to)
+        {
+            return (d >= fr && d <= to);
+        }
     }
 }

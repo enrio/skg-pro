@@ -45,6 +45,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_UserTableName="Sales" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_RowEvArgName="SalesRowChangeEvent" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_RowClassName="SalesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" type="xs:string" minOccurs="0" />
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="AmountFull" msprop:Generator_ColumnVarNameInTable="columnAmountFull" msprop:Generator_ColumnPropNameInRow="AmountFull" msprop:Generator_ColumnPropNameInTable="AmountFullColumn" msprop:Generator_UserColumnName="AmountFull" type="xs:string" minOccurs="0" />
+              <xs:element name="PriceFull" msprop:Generator_ColumnVarNameInTable="columnPriceFull" msprop:Generator_ColumnPropNameInRow="PriceFull" msprop:Generator_ColumnPropNameInTable="PriceFullColumn" msprop:Generator_UserColumnName="PriceFull" type="xs:string" minOccurs="0" />
+              <xs:element name="AmountHalf" msprop:Generator_ColumnVarNameInTable="columnAmountHalf" msprop:Generator_ColumnPropNameInRow="AmountHalf" msprop:Generator_ColumnPropNameInTable="AmountHalfColumn" msprop:Generator_UserColumnName="AmountHalf" type="xs:string" minOccurs="0" />
+              <xs:element name="PriceHalf" msprop:Generator_ColumnVarNameInTable="columnPriceHalf" msprop:Generator_ColumnPropNameInRow="PriceHalf" msprop:Generator_ColumnPropNameInTable="PriceHalfColumn" msprop:Generator_UserColumnName="PriceHalf" type="xs:string" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:string" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

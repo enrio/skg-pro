@@ -962,7 +962,7 @@
             // xrTableCell40
             // 
             this.xrTableCell40.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "Revenue.DateOut", "{0:\"Ngày\" dd \"tháng\" MM \"năm\" yyyy}")});
+            new DevExpress.XtraReports.UI.XRBinding(this.parDate, "Text", "{0:\"Ngày\" dd \"tháng\" MM \"năm\" yyyy}")});
             this.xrTableCell40.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell40.Name = "xrTableCell40";
             this.xrTableCell40.StylePriority.UseFont = false;

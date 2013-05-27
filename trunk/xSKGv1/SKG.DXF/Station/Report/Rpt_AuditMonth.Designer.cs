@@ -648,6 +648,7 @@
             this.xrTableCell77.Name = "xrTableCell77";
             this.xrTableCell77.StylePriority.UseTextAlignment = false;
             xrSummary8.FormatString = "{0:#,0.00}";
+            xrSummary8.Func = DevExpress.XtraReports.UI.SummaryFunc.Avg;
             xrSummary8.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell77.Summary = xrSummary8;
             this.xrTableCell77.Text = "xrTableCell77";
@@ -1132,6 +1133,7 @@
             this.xrTableCell64.Name = "xrTableCell64";
             this.xrTableCell64.StylePriority.UseTextAlignment = false;
             xrSummary17.FormatString = "{0:#,0.00}";
+            xrSummary17.Func = DevExpress.XtraReports.UI.SummaryFunc.Avg;
             xrSummary17.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell64.Summary = xrSummary17;
             this.xrTableCell64.Text = "xrTableCell64";
@@ -1313,9 +1315,10 @@
             this.xrTableCell43.Name = "xrTableCell43";
             this.xrTableCell43.StylePriority.UseTextAlignment = false;
             xrSummary26.FormatString = "{0:#,0.00}";
+            xrSummary26.Func = DevExpress.XtraReports.UI.SummaryFunc.Avg;
             xrSummary26.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell43.Summary = xrSummary26;
-            this.xrTableCell43.Text = "xrTableCell64";
+            this.xrTableCell43.Text = "xrTableCell43";
             this.xrTableCell43.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell43.Weight = 1.0646219623344055D;
             // 
@@ -1494,9 +1497,10 @@
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.StylePriority.UseTextAlignment = false;
             xrSummary35.FormatString = "{0:#,0.00}";
+            xrSummary35.Func = DevExpress.XtraReports.UI.SummaryFunc.Avg;
             xrSummary35.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell29.Summary = xrSummary35;
-            this.xrTableCell29.Text = "xrTableCell64";
+            this.xrTableCell29.Text = "xrTableCell29";
             this.xrTableCell29.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell29.Weight = 1.0646219623344055D;
             // 
@@ -1675,9 +1679,10 @@
             this.xrTableCell75.Name = "xrTableCell75";
             this.xrTableCell75.StylePriority.UseTextAlignment = false;
             xrSummary44.FormatString = "{0:#,0.00}";
+            xrSummary44.Func = DevExpress.XtraReports.UI.SummaryFunc.Avg;
             xrSummary44.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell75.Summary = xrSummary44;
-            this.xrTableCell75.Text = "xrTableCell64";
+            this.xrTableCell75.Text = "xrTableCell75";
             this.xrTableCell75.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell75.Weight = 1.0646219623344055D;
             // 

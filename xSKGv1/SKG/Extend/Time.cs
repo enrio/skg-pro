@@ -167,13 +167,27 @@ namespace SKG.Extend
         }
 
         /// <summary>
-        /// Converts the value of the current DateTime object to its equivalent string representation using the Vietnamese format information
+        /// Converts the value of the current DateTime object 
+        /// to its equivalent string representation using the Vietnamese format information
+        /// with format dd/MM/yyyy HH:mm:ss
         /// </summary>
         /// <param name="d">Date and time</param>
         /// <returns></returns>
         public static string ToStringVN(this DateTime d)
         {
             return d.ToString("dd/MM/yyyy HH:mm:ss");
+        }
+
+        /// <summary>
+        /// Converts the value of the current DateTime object 
+        /// to its equivalent string representation using the Vietnamese format information
+        /// with format dd/MM/yyyy
+        /// </summary>
+        /// <param name="d">Date and time</param>
+        /// <returns></returns>
+        public static string ToStringDateVN(this DateTime d)
+        {
+            return d.ToString("dd/MM/yyyy");
         }
         #endregion
 

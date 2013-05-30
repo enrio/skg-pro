@@ -32,52 +32,6 @@ namespace SKG
         /// </summary>
         static Pol_DictionaryBLL _bll = new Pol_DictionaryBLL();
 
-        #region Coefficient
-        /// <summary>
-        /// Get unit cost of night parking
-        /// </summary>
-        /// <returns></returns>
-        public static int Park
-        {
-            get { return _bll.GetPark(); }
-        }
-
-        /// <summary>
-        /// Get park from
-        /// </summary>
-        public static DateTime ParkFrom
-        {
-            get { return _bll.GetParkFrom(); }
-        }
-
-        /// <summary>
-        /// Get delay
-        /// </summary>
-        /// <returns></returns>
-        public static int Delay
-        {
-            get { return _bll.GetDelay(); }
-        }
-
-        /// <summary>
-        /// Get peak from
-        /// </summary>
-        /// <returns></returns>
-        public static DateTime PeakFr
-        {
-            get { return _bll.GetPeakFrom(); }
-        }
-
-        /// <summary>
-        /// Get peak to
-        /// </summary>
-        /// <returns></returns>
-        public static DateTime PeakTo
-        {
-            get { return _bll.GetPeakTo(); }
-        }
-        #endregion
-
         /// <summary>
         /// Get icon name
         /// </summary>
@@ -210,6 +164,92 @@ namespace SKG
         public static string ToDateVN
         {
             get { return Session.Current.ToString("dd/MM/yyyy"); }
+        }
+        #endregion
+
+        #region Coefficient
+        /// <summary>
+        /// Get unit cost of night parking
+        /// </summary>
+        /// <returns></returns>
+        public static int Park
+        {
+            get { return _bll.GetPark(); }
+        }
+
+        /// <summary>
+        /// Get park from
+        /// </summary>
+        public static DateTime ParkFrom
+        {
+            get { return _bll.GetParkFrom(); }
+        }
+
+        /// <summary>
+        /// Get delay
+        /// </summary>
+        /// <returns></returns>
+        public static int Delay
+        {
+            get { return _bll.GetDelay(); }
+        }
+
+        /// <summary>
+        /// Get peak from
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime PeakFr
+        {
+            get { return _bll.GetPeakFrom(); }
+        }
+
+        /// <summary>
+        /// Get peak to
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime PeakTo
+        {
+            get { return _bll.GetPeakTo(); }
+        }
+
+        /// <summary>
+        /// Address
+        /// </summary>
+        public static string Address
+        {
+            get { return _bll.GetAddress(); }
+        }
+
+        /// <summary>
+        /// Taxcode
+        /// </summary>
+        public static string Taxcode
+        {
+            get { return _bll.GetTaxcode(); }
+        }
+
+        /// <summary>
+        /// Title 1
+        /// </summary>
+        public static string Title1
+        {
+            get { return _bll.GetTitle1(); }
+        }
+
+        /// <summary>
+        /// Title 2
+        /// </summary>
+        public static string Title2
+        {
+            get { return _bll.GetTitle2(); }
+        }
+
+        /// <summary>
+        /// Title 3
+        /// </summary>
+        public static string Title3
+        {
+            get { return _bll.GetTitle3(); }
         }
         #endregion
     }

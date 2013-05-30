@@ -10,7 +10,7 @@ using System.Resources;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SKG")]
 [assembly: AssemblyProduct("SKG.Client")]
-[assembly: AssemblyCopyright("Copyright © SKG 2012")]
+[assembly: AssemblyCopyright("Copyright © SKG 2013")]
 [assembly: AssemblyTrademark("ZF")]
 [assembly: AssemblyCulture("")]
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -26,6 +26,6 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.3.4")]
-[assembly: AssemblyFileVersion("1.0.3.4")]
+[assembly: AssemblyVersion("1.0.4.9")]
+[assembly: AssemblyFileVersion("1.0.4.9")]
 [assembly: NeutralResourcesLanguageAttribute("vi-VN")]

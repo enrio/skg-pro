@@ -70,6 +70,26 @@ namespace SKG.DXF.Station.Fixed
             base.PerformEdit();
         }
 
+        protected override void PerformPrint()
+        {
+            var rpt = new Report.Rpt_TariffFixed
+            {
+                DataSource = _dtb,
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_bg",
+                Global.Session.User.Acc, Global.Session.Current)
+            };
+
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            var frm = new FrmPrint();
+            frm.SetReport(rpt);
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+
+            base.PerformPrint();
+        }
+
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -313,6 +333,8 @@ namespace SKG.DXF.Station.Fixed
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
+
+            AllowPrint = true;
         }
         #endregion
 

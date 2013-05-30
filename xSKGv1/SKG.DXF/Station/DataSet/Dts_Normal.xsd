@@ -32,6 +32,7 @@
               <xs:element name="TotalDays" msprop:Generator_ColumnVarNameInTable="columnTotalDays" msprop:Generator_ColumnPropNameInRow="TotalDays" msprop:Generator_ColumnPropNameInTable="TotalDaysColumn" msprop:Generator_UserColumnName="TotalDays" type="xs:decimal" minOccurs="0" />
               <xs:element name="More" msprop:Generator_ColumnVarNameInTable="columnMore" msprop:Generator_ColumnPropNameInRow="More" msprop:Generator_ColumnPropNameInTable="MoreColumn" msprop:Generator_UserColumnName="More" type="xs:string" minOccurs="0" />
               <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
+              <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -56,6 +57,21 @@
               <xs:element name="PriceHalf" msprop:Generator_ColumnVarNameInTable="columnPriceHalf" msprop:Generator_ColumnPropNameInRow="PriceHalf" msprop:Generator_ColumnPropNameInTable="PriceHalfColumn" msprop:Generator_UserColumnName="PriceHalf" type="xs:string" minOccurs="0" />
               <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:string" minOccurs="0" />
               <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tariff" msprop:Generator_TableClassName="TariffDataTable" msprop:Generator_TableVarName="tableTariff" msprop:Generator_TablePropName="Tariff" msprop:Generator_RowDeletingName="TariffRowDeleting" msprop:Generator_UserTableName="Tariff" msprop:Generator_RowChangingName="TariffRowChanging" msprop:Generator_RowEvHandlerName="TariffRowChangeEventHandler" msprop:Generator_RowDeletedName="TariffRowDeleted" msprop:Generator_RowEvArgName="TariffRowChangeEvent" msprop:Generator_RowChangedName="TariffRowChanged" msprop:Generator_RowClassName="TariffRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" type="xs:string" minOccurs="0" />
+              <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
+              <xs:element name="Price1" msprop:Generator_ColumnVarNameInTable="columnPrice1" msprop:Generator_ColumnPropNameInRow="Price1" msprop:Generator_ColumnPropNameInTable="Price1Column" msprop:Generator_UserColumnName="Price1" type="xs:long" minOccurs="0" />
+              <xs:element name="Price2" msprop:Generator_ColumnVarNameInTable="columnPrice2" msprop:Generator_ColumnPropNameInRow="Price2" msprop:Generator_ColumnPropNameInTable="Price2Column" msprop:Generator_UserColumnName="Price2" type="xs:long" minOccurs="0" />
+              <xs:element name="Rose1" msprop:Generator_ColumnVarNameInTable="columnRose1" msprop:Generator_ColumnPropNameInRow="Rose1" msprop:Generator_ColumnPropNameInTable="Rose1Column" msprop:Generator_UserColumnName="Rose1" type="xs:long" minOccurs="0" />
+              <xs:element name="Rose2" msprop:Generator_ColumnVarNameInTable="columnRose2" msprop:Generator_ColumnPropNameInRow="Rose2" msprop:Generator_ColumnPropNameInTable="Rose2Column" msprop:Generator_UserColumnName="Rose2" type="xs:long" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
+              <xs:element name="Area" msprop:Generator_ColumnVarNameInTable="columnArea" msprop:Generator_ColumnPropNameInRow="Area" msprop:Generator_ColumnPropNameInTable="AreaColumn" msprop:Generator_UserColumnName="Area" type="xs:string" minOccurs="0" />
+              <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

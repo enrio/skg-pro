@@ -92,22 +92,26 @@ namespace SKG.DXF.Station.Sumary
             LoadData();
             _dtb.Numbered();
 
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_RevenueNormal2
             {
-                DataSource = _dtb,
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl",
-                Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                DataSource = _dtb
             };
 
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddHours(13);
+
+            var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+            duration = String.Format(duration,
+                dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
+            rpt.xrlFromTo.Text = duration;
+
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 
-            rpt.xrlSove.Visible = false;
-            rpt.xrtSove.Visible = false;
-
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
+
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 
@@ -271,7 +275,7 @@ namespace SKG.DXF.Station.Sumary
         /// <param name="e"></param>
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_RevenueNormal1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
             };
@@ -307,7 +311,7 @@ namespace SKG.DXF.Station.Sumary
         /// <param name="e"></param>
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_RevenueNormal1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
             };

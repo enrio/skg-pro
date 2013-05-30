@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Update: 28/05/2013 22:48
  * Status: OK
  */
 #endregion
@@ -349,7 +349,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdSumary1_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_RevenueNormal1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
             };
@@ -389,7 +389,7 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdSumary2_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Normal
+            var rpt = new Report.Rpt_RevenueNormal1
             {
                 Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
             };
@@ -423,28 +423,56 @@ namespace SKG.DXF.Station.Manage
         }
 
         /// <summary>
-        /// In bảng kê xe cố định từ 13:00 hôm trước đến 13:00 hôm nay
+        /// In bảng kê và báo cáo xe cố định từ 13:00 hôm trước đến 13:00 hôm nay
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void cmdSumaryFixed_Click(object sender, EventArgs e)
         {
-            var rpt = new Report.Rpt_Fixed1
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd", Global.Session.User.Acc, Global.Session.Current)
-            };
-            decimal sum = 0;
+            var oki = XtraMessageBox.Show(Level1.STR_CFM, Level1.STR_PRINT, MessageBoxButtons.YesNo);
+
+            decimal _sum = 0;
             string receipt = "";
+            var frm = new FrmPrint();
 
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueToday(out sum, out  receipt);
-            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
+            var cur = Global.Session.Current;
+            var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+            duration = String.Format(duration,
+                cur.AddDays(-1).ToStringDateVN(), cur.ToStringDateVN());
 
-            rpt.parDate.Value = Global.Session.Current.Date;
-            rpt.xrlCashier.Text = Global.Session.User.Name;
-            rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+            if (oki == DialogResult.Yes)
+            {
+                var rpt = new Report.Rpt_RevenueFixed2
+                {
+                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum)
+                };
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum) };
-            frm.SetReport(rpt);
+                rpt.xrlFromTo.Text = duration;
+                rpt.parDate.Value = Global.Session.Current;
+
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_RevenueFixed1
+                {
+                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum, out receipt)
+                };
+
+                rpt.xrlFromTo.Text = duration;
+
+                rpt.xrlCashier.Text = Global.Session.User.Name;
+                rpt.parDate.Value = Global.Session.Current;
+
+                rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+                rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+
+                frm.SetReport(rpt);
+            }
+
+            frm.Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum);
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
         }

@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:17
+ * Update: 28/05/2013 22:48
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -575,20 +587,7 @@ namespace SKG.DAL
                 a.Price2 = a.Vehicle.Tariff.Price2;
                 a.Rose2 = a.Vehicle.Tariff.Rose2;
 
-                var dateIn = a.DateIn.AddMinutes(11);
-                var t = a.DateOut.Value - dateIn;
-                var o = t.TotalDays - t.Days;
-
-                a.FullDay = t.Days;
-                if (o < 0.5)
-                    a.HalfDay = 1;
-                else
-                {
-                    a.HalfDay = 0;
-                    a.FullDay++;
-                }
-
-                a.Money = a.Vehicle.Fixed ? a.ChargeForFixed() : a.ChargeForNormal();
+                a.Money = a.Charge();
 
                 // Tính tiền lưu đậu đêm lần trước (ra do xin ra ngoài sửa xe)
                 var b = _db.Tra_Details.FirstOrDefault(k => k.Vehicle.Code == number && k.Repair == true && k.Id != a.Id);
@@ -857,9 +856,119 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Sales of vehicle fixed
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        public DataTable GetRevenueFixed(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var res1 = from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
+                           && s.Show == true
+                           group s by s.Vehicle.Tariff.Code into g
+                           select new
+                           {
+                               g.Key,
+                               Count = g.Count(p => p.More == null), // skip arrears
+
+                               Arrears = g.Sum(p => p.Arrears ?? 0),
+                               ArrearsMoney = g.Sum(p => (p.Arrears ?? 0) * (p.Cost + p.Rose)),
+
+                               Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
+                               Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
+                               ASB = g.Sum(p => (p.More != null ? 0 : (p.Arrears ?? 0)) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+
+                               Cost = g.Sum(p => (p.More != null ? 0 : p.Cost)) + g.Sum(p => (p.Arrears ?? 0) * p.Cost),
+                               Rose = g.Sum(p => (p.More != null ? 0 : p.Rose)) + g.Sum(p => (p.Arrears ?? 0) * p.Rose),
+                               Parked = g.Sum(p => p.Parked)
+                           };
+
+                var res2 = from s in res1
+                           join t in _db.Tra_Tariffs on s.Key equals t.Code
+                           select new
+                           {
+                               s.Key,
+                               s.Count,
+
+                               s.Seats,
+                               s.Beds,
+                               s.Arrears,
+                               s.ASB,
+
+                               t.Rose1,
+                               t.Rose2,
+                               t.Price1,
+                               t.Price2,
+
+                               s.Cost,
+                               s.Rose,
+                               s.Parked,
+                               s.ArrearsMoney,
+
+                               Totals = s.Parked + s.Cost + s.Rose,
+
+                               Station = t.Text,
+                               Province = t.Group.Text,
+                               Area = t.Group.Parent.Text,
+                               Region = t.Group.Parent.Parent.Text
+                           };
+
+                var res3 = from s in res2
+                           group s by new
+                           {
+                               s.Province,
+                               s.Area,
+                               s.Region,
+
+                               s.Rose1,
+                               s.Rose2,
+                               s.Price1,
+                               s.Price2,
+                           } into g
+                           select new
+                           {
+                               Hoadon = "A",
+                               g.Key.Region,
+                               g.Key.Area,
+                               g.Key.Province,
+
+                               g.Key.Rose1,
+                               g.Key.Rose2,
+                               g.Key.Price1,
+                               g.Key.Price2,
+
+                               Count = g.Sum(p => p.Count),
+                               Seats = g.Sum(p => p.Seats),
+                               Beds = g.Sum(p => p.Beds),
+                               ASB = g.Sum(p => p.ASB),
+
+                               Cost = g.Sum(p => p.Cost),
+                               Rose = g.Sum(p => p.Rose),
+                               Parked = g.Sum(p => p.Parked),
+
+                               Arrears = g.Sum(p => p.Arrears),
+                               ArrearsMoney = g.Sum(p => p.ArrearsMoney),
+                               Totals = g.Sum(p => p.Totals),
+
+                               Vat = 0.0,
+                               Sales = 0.0
+                           };
+
+                return res3.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Revenue of vehicle fixed
         /// </summary>
-        /// <param name="sum">Totals money</param>
         /// <param name="receipt">Range of receipt</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
@@ -907,8 +1016,7 @@ namespace SKG.DAL
                            && s.Repair == false
                            && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                            && s.Show == true
-                               //&& s.Money != 0
-                           && (s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
+                           && (s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "") // without order
                            group s by s.Vehicle.Tariff.Code into g
                            select new
                            {
@@ -1007,8 +1115,7 @@ namespace SKG.DAL
                             && s.Repair == false
                             && (s.Money != s.Parked || (s.More != null && s.More.Contains(Global.STR_ARREAR)))
                             && s.Show == true
-                                //&& s.Money != 0
-                            && !(s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "")
+                            && !(s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "") // with order
                             group s by new
                             {
                                 s.Vehicle.Tariff.Code,

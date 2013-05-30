@@ -56,7 +56,7 @@ namespace SKG.BLL
             if (Global.Session.User != null)
             {
                 Global.Session.User.Pass = pass;
-                ok = Update(Global.Session.User);
+                ok = UpdatePass(Global.Session.User);
                 if (ok != null) return true;
                 else return false;
             }

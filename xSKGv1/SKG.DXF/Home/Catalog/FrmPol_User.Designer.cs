@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.chkActive = new DevExpress.XtraEditors.CheckEdit();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.txtCode = new DevExpress.XtraEditors.TextEdit();
@@ -63,10 +64,12 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).BeginInit();
@@ -108,6 +111,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.chkActive);
             this.dockPanel1_Container.Controls.Add(this.txtNote);
             this.dockPanel1_Container.Controls.Add(this.lblNote);
             this.dockPanel1_Container.Controls.Add(this.txtCode);
@@ -130,19 +134,29 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 107);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // chkActive
+            // 
+            this.chkActive.Location = new System.Drawing.Point(734, 75);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkActive.Properties.Appearance.Options.UseFont = true;
+            this.chkActive.Properties.Caption = "&Hoạt động";
+            this.chkActive.Size = new System.Drawing.Size(102, 25);
+            this.chkActive.TabIndex = 22;
+            // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(467, 75);
+            this.txtNote.Location = new System.Drawing.Point(381, 75);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Properties.Appearance.Options.UseFont = true;
-            this.txtNote.Size = new System.Drawing.Size(321, 26);
+            this.txtNote.Size = new System.Drawing.Size(347, 26);
             this.txtNote.TabIndex = 21;
             // 
             // lblNote
             // 
             this.lblNote.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNote.Location = new System.Drawing.Point(388, 78);
+            this.lblNote.Location = new System.Drawing.Point(316, 80);
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(59, 20);
             this.lblNote.TabIndex = 22;
@@ -150,35 +164,35 @@
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(198, 75);
+            this.txtCode.Location = new System.Drawing.Point(133, 75);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(184, 26);
+            this.txtCode.Size = new System.Drawing.Size(177, 26);
             this.txtCode.TabIndex = 21;
             // 
             // lblCode
             // 
             this.lblCode.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCode.Location = new System.Drawing.Point(11, 78);
+            this.lblCode.Location = new System.Drawing.Point(11, 80);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(181, 20);
+            this.lblCode.Size = new System.Drawing.Size(116, 20);
             this.lblCode.TabIndex = 22;
-            this.lblCode.Text = "Số chứng minh nhân dân:";
+            this.lblCode.Text = "Chứng minh thư:";
             // 
             // lblInfo
             // 
             this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(794, 17);
+            this.lblInfo.Location = new System.Drawing.Point(842, 17);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(141, 55);
+            this.lblInfo.Size = new System.Drawing.Size(93, 84);
             this.lblInfo.TabIndex = 27;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(664, 14);
+            this.txtPhone.Location = new System.Drawing.Point(712, 14);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
@@ -188,7 +202,7 @@
             // dteBirth
             // 
             this.dteBirth.EditValue = null;
-            this.dteBirth.Location = new System.Drawing.Point(467, 14);
+            this.dteBirth.Location = new System.Drawing.Point(515, 14);
             this.dteBirth.Name = "dteBirth";
             this.dteBirth.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dteBirth.Properties.Appearance.Options.UseFont = true;
@@ -202,7 +216,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(582, 17);
+            this.labelControl2.Location = new System.Drawing.Point(630, 17);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(76, 20);
             this.labelControl2.TabIndex = 26;
@@ -211,7 +225,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Location = new System.Drawing.Point(388, 17);
+            this.labelControl1.Location = new System.Drawing.Point(436, 17);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(73, 20);
             this.labelControl1.TabIndex = 23;
@@ -219,7 +233,7 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(467, 46);
+            this.txtAddress.Location = new System.Drawing.Point(515, 46);
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
@@ -229,7 +243,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(388, 49);
+            this.labelControl3.Location = new System.Drawing.Point(436, 49);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(52, 20);
             this.labelControl3.TabIndex = 25;
@@ -237,18 +251,18 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(254, 46);
+            this.txtPass.Location = new System.Drawing.Point(270, 46);
             this.txtPass.Name = "txtPass";
             this.txtPass.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.Properties.Appearance.Options.UseFont = true;
             this.txtPass.Properties.UseSystemPasswordChar = true;
-            this.txtPass.Size = new System.Drawing.Size(128, 26);
+            this.txtPass.Size = new System.Drawing.Size(160, 26);
             this.txtPass.TabIndex = 2;
             // 
             // lblPass
             // 
             this.lblPass.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPass.Location = new System.Drawing.Point(178, 49);
+            this.lblPass.Location = new System.Drawing.Point(194, 49);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(70, 20);
             this.lblPass.TabIndex = 22;
@@ -260,13 +274,13 @@
             this.txtAcc.Name = "txtAcc";
             this.txtAcc.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAcc.Properties.Appearance.Options.UseFont = true;
-            this.txtAcc.Size = new System.Drawing.Size(82, 26);
+            this.txtAcc.Size = new System.Drawing.Size(98, 26);
             this.txtAcc.TabIndex = 1;
             // 
             // lblAcc
             // 
             this.lblAcc.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAcc.Location = new System.Drawing.Point(8, 49);
+            this.lblAcc.Location = new System.Drawing.Point(11, 49);
             this.lblAcc.Name = "lblAcc";
             this.lblAcc.Size = new System.Drawing.Size(73, 20);
             this.lblAcc.TabIndex = 21;
@@ -278,7 +292,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(292, 26);
+            this.txtName.Size = new System.Drawing.Size(340, 26);
             this.txtName.TabIndex = 0;
             // 
             // lblName
@@ -338,7 +352,8 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.gridColumn11});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
@@ -419,6 +434,14 @@
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 7;
             // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Hoạt động";
+            this.gridColumn11.FieldName = "Show";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 8;
+            // 
             // FrmPol_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,6 +457,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPhone.Properties)).EndInit();
@@ -487,5 +511,7 @@
         private DevExpress.XtraEditors.LabelControl lblCode;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraEditors.CheckEdit chkActive;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
     }
 }

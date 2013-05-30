@@ -251,6 +251,14 @@ namespace SKG
         {
             get { return _bll.GetTitle3(); }
         }
+
+        /// <summary>
+        /// Audit number
+        /// </summary>
+        public static string AuditNumber
+        {
+            get { return _bll.GetAuditNumber(); }
+        }
         #endregion
     }
 }

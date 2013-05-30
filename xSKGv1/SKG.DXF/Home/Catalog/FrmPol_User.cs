@@ -143,14 +143,15 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ResetInput()
         {
-            txtName.Text = null;
-            txtAcc.Text = null;
-            txtPass.Text = null;
-            dteBirth.DateTime = Global.Session.Current.ToBirth(18);
-            txtAddress.Text = null;
-            txtPhone.Text = null;
-            txtCode.Text = null;
-            txtNote.Text = null;
+            txtName.EditValue = null;
+            txtAcc.EditValue = null;
+            txtPass.EditValue = null;
+            dteBirth.EditValue = Global.Session.Current.ToBirth(18);
+            txtAddress.EditValue = null;
+            txtPhone.EditValue = null;
+            txtCode.EditValue = null;
+            txtNote.EditValue = null;
+            chkActive.EditValue = true;
 
             base.ResetInput();
         }
@@ -165,6 +166,7 @@ namespace SKG.DXF.Home.Catalog
             txtPhone.DataBindings.Clear();
             txtCode.DataBindings.Clear();
             txtNote.DataBindings.Clear();
+            chkActive.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -179,6 +181,7 @@ namespace SKG.DXF.Home.Catalog
             txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtNote.DataBindings.Add("EditValue", _dtb, ".Note");
+            chkActive.DataBindings.Add("EditValue", _dtb, ".Show");
 
             base.DataBindingControl();
         }
@@ -193,6 +196,7 @@ namespace SKG.DXF.Home.Catalog
             txtPhone.Properties.ReadOnly = isReadOnly;
             txtCode.Properties.ReadOnly = isReadOnly;
             txtNote.Properties.ReadOnly = isReadOnly;
+            chkActive.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -219,7 +223,8 @@ namespace SKG.DXF.Home.Catalog
                     Phone = txtPhone.Text,
                     Address = txtAddress.Text,
                     Code = txtCode.Text,
-                    Note = txtNote.Text
+                    Note = txtNote.Text,
+                    Show = chkActive.Checked
                 };
 
                 var oki = _bll.Pol_User.Update(o);
@@ -245,7 +250,8 @@ namespace SKG.DXF.Home.Catalog
                     Phone = txtPhone.Text,
                     Address = txtAddress.Text,
                     Code = txtCode.Text,
-                    Note = txtNote.Text
+                    Note = txtNote.Text,
+                    Show = chkActive.Checked
                 };
 
                 var oki = _bll.Pol_User.Insert(o);
@@ -351,5 +357,6 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
+
     }
 }

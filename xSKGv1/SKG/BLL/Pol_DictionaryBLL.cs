@@ -413,6 +413,16 @@ namespace SKG.BLL
             var r = (Pol_Dictionary)Select("TITLE3");
             return r.Note;
         }
+
+        /// <summary>
+        /// Audit number
+        /// </summary>
+        /// <returns></returns>
+        public string GetAuditNumber()
+        {
+            var r = (Pol_Dictionary)Select("NUM");
+            return r.Note;
+        }
         #endregion
     }
 }

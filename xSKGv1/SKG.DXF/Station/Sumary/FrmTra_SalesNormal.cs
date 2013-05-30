@@ -94,20 +94,21 @@ namespace SKG.DXF.Station.Sumary
 
             var rpt = new Report.Rpt_RevenueNormal2
             {
-                Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                Name = String.Format(Level1.STR_DT,
+                Global.Session.User.Acc, Global.Session.Current),
                 DataSource = _dtb
             };
 
-            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
-            var to = dteTo.DateTime.Date.AddHours(13);
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parNum.Value = Global.AuditNumber;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
 
             var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
             duration = String.Format(duration,
                 dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
             rpt.xrlFromTo.Text = duration;
-
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
             frm.SetReport(rpt);
@@ -277,18 +278,23 @@ namespace SKG.DXF.Station.Sumary
         {
             var rpt = new Report.Rpt_RevenueNormal1
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1",
+                Global.Session.User.Acc, Global.Session.Current)
             };
-            decimal sum = 0;
 
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            decimal sum = 0;
             var fr = dteFrom.DateTime;
             var to = dteTo.DateTime;
 
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to,
+                DAL.Tra_DetailDAL.Group.A);
 
-            rpt.parDate.Value = to.Date;
-            rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
 
@@ -313,18 +319,23 @@ namespace SKG.DXF.Station.Sumary
         {
             var rpt = new Report.Rpt_RevenueNormal1
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2",
+                Global.Session.User.Acc, Global.Session.Current)
             };
-            decimal sum = 0;
 
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            decimal sum = 0;
             var fr = dteFrom.DateTime;
             var to = dteTo.DateTime;
 
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
+            rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to,
+                DAL.Tra_DetailDAL.Group.B);
 
-            rpt.parDate.Value = to.Date;
-            rpt.parUserOut.Value = Global.Session.User.Name;
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
 

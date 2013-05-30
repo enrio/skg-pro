@@ -151,15 +151,21 @@ namespace SKG.DXF.Station.Fixed
         {
             var rpt = new Report.Rpt_AuditMonth
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
+                Global.Session.User.Acc, Global.Session.Current)
             };
 
             DateTime fr, to;
             Session.CutShiftMonth(dteMonth.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to, chkHideActive.Checked);
-            rpt.parDate.Value = Global.Session.Current;
+            rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to,
+                chkHideActive.Checked);
             rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
+
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parNum.Value = Global.AuditNumber;
+            rpt.parDate.Value = Global.Session.Current;
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

@@ -62,6 +62,10 @@ namespace SKG.DXF.Station
 
         #region Constants
         private const string STR_TITLE = "Bến xe";
+
+        public const string STR_CFM = "IN BÁO CÁO (CHỌN YES), BẢNG KÊ (CHỌN NO)";
+        public const string STR_PRINT = "In thống kê";
+        public const string STR_DT = "{0}{1:_dd.MM.yyyy_HH.mm.ss}_tk";
         #endregion
     }
 }

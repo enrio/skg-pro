@@ -30,6 +30,8 @@ namespace SKG.DXF.Station.DataSet {
         
         private SalesDataTable tableSales;
         
+        private TariffDataTable tableTariff;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -66,6 +68,9 @@ namespace SKG.DXF.Station.DataSet {
                 }
                 if ((ds.Tables["Sales"] != null)) {
                     base.Tables.Add(new SalesDataTable(ds.Tables["Sales"]));
+                }
+                if ((ds.Tables["Tariff"] != null)) {
+                    base.Tables.Add(new TariffDataTable(ds.Tables["Tariff"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -112,6 +117,16 @@ namespace SKG.DXF.Station.DataSet {
         public SalesDataTable Sales {
             get {
                 return this.tableSales;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public TariffDataTable Tariff {
+            get {
+                return this.tableTariff;
             }
         }
         
@@ -191,6 +206,9 @@ namespace SKG.DXF.Station.DataSet {
                 if ((ds.Tables["Sales"] != null)) {
                     base.Tables.Add(new SalesDataTable(ds.Tables["Sales"]));
                 }
+                if ((ds.Tables["Tariff"] != null)) {
+                    base.Tables.Add(new TariffDataTable(ds.Tables["Tariff"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -242,6 +260,12 @@ namespace SKG.DXF.Station.DataSet {
                     this.tableSales.InitVars();
                 }
             }
+            this.tableTariff = ((TariffDataTable)(base.Tables["Tariff"]));
+            if ((initTable == true)) {
+                if ((this.tableTariff != null)) {
+                    this.tableTariff.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -258,6 +282,8 @@ namespace SKG.DXF.Station.DataSet {
             base.Tables.Add(this.tableIngate);
             this.tableSales = new SalesDataTable();
             base.Tables.Add(this.tableSales);
+            this.tableTariff = new TariffDataTable();
+            base.Tables.Add(this.tableTariff);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -275,6 +301,12 @@ namespace SKG.DXF.Station.DataSet {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSales() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeTariff() {
             return false;
         }
         
@@ -342,6 +374,9 @@ namespace SKG.DXF.Station.DataSet {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SalesRowChangeEventHandler(object sender, SalesRowChangeEvent e);
         
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void TariffRowChangeEventHandler(object sender, TariffRowChangeEvent e);
+        
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -382,6 +417,8 @@ namespace SKG.DXF.Station.DataSet {
             private global::System.Data.DataColumn columnMore;
             
             private global::System.Data.DataColumn columnText;
+            
+            private global::System.Data.DataColumn columnGroup;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -554,6 +591,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GroupColumn {
+                get {
+                    return this.columnGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -606,7 +651,8 @@ namespace SKG.DXF.Station.DataSet {
                         int Beds, 
                         decimal TotalDays, 
                         string More, 
-                        string Text) {
+                        string Text, 
+                        string Group) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -625,7 +671,8 @@ namespace SKG.DXF.Station.DataSet {
                         Beds,
                         TotalDays,
                         More,
-                        Text};
+                        Text,
+                        Group};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -665,6 +712,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnTotalDays = base.Columns["TotalDays"];
                 this.columnMore = base.Columns["More"];
                 this.columnText = base.Columns["Text"];
+                this.columnGroup = base.Columns["Group"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -704,6 +752,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnMore);
                 this.columnText = new global::System.Data.DataColumn("Text", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnText);
+                this.columnGroup = new global::System.Data.DataColumn("Group", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroup);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1465,6 +1515,365 @@ namespace SKG.DXF.Station.DataSet {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class TariffDataTable : global::System.Data.TypedTableBase<TariffRow> {
+            
+            private global::System.Data.DataColumn columnGroup;
+            
+            private global::System.Data.DataColumn columnText;
+            
+            private global::System.Data.DataColumn columnPrice1;
+            
+            private global::System.Data.DataColumn columnPrice2;
+            
+            private global::System.Data.DataColumn columnRose1;
+            
+            private global::System.Data.DataColumn columnRose2;
+            
+            private global::System.Data.DataColumn columnNote;
+            
+            private global::System.Data.DataColumn columnArea;
+            
+            private global::System.Data.DataColumn columnCode;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffDataTable() {
+                this.TableName = "Tariff";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TariffDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected TariffDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GroupColumn {
+                get {
+                    return this.columnGroup;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TextColumn {
+                get {
+                    return this.columnText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Price1Column {
+                get {
+                    return this.columnPrice1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Price2Column {
+                get {
+                    return this.columnPrice2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Rose1Column {
+                get {
+                    return this.columnRose1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Rose2Column {
+                get {
+                    return this.columnRose2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NoteColumn {
+                get {
+                    return this.columnNote;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AreaColumn {
+                get {
+                    return this.columnArea;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CodeColumn {
+                get {
+                    return this.columnCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffRow this[int index] {
+                get {
+                    return ((TariffRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TariffRowChangeEventHandler TariffRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TariffRowChangeEventHandler TariffRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TariffRowChangeEventHandler TariffRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event TariffRowChangeEventHandler TariffRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddTariffRow(TariffRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffRow AddTariffRow(string Group, string Text, long Price1, long Price2, long Rose1, long Rose2, string Note, string Area, string Code) {
+                TariffRow rowTariffRow = ((TariffRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Group,
+                        Text,
+                        Price1,
+                        Price2,
+                        Rose1,
+                        Rose2,
+                        Note,
+                        Area,
+                        Code};
+                rowTariffRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTariffRow);
+                return rowTariffRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                TariffDataTable cln = ((TariffDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new TariffDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnGroup = base.Columns["Group"];
+                this.columnText = base.Columns["Text"];
+                this.columnPrice1 = base.Columns["Price1"];
+                this.columnPrice2 = base.Columns["Price2"];
+                this.columnRose1 = base.Columns["Rose1"];
+                this.columnRose2 = base.Columns["Rose2"];
+                this.columnNote = base.Columns["Note"];
+                this.columnArea = base.Columns["Area"];
+                this.columnCode = base.Columns["Code"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnGroup = new global::System.Data.DataColumn("Group", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroup);
+                this.columnText = new global::System.Data.DataColumn("Text", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnText);
+                this.columnPrice1 = new global::System.Data.DataColumn("Price1", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice1);
+                this.columnPrice2 = new global::System.Data.DataColumn("Price2", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice2);
+                this.columnRose1 = new global::System.Data.DataColumn("Rose1", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRose1);
+                this.columnRose2 = new global::System.Data.DataColumn("Rose2", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRose2);
+                this.columnNote = new global::System.Data.DataColumn("Note", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNote);
+                this.columnArea = new global::System.Data.DataColumn("Area", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnArea);
+                this.columnCode = new global::System.Data.DataColumn("Code", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCode);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffRow NewTariffRow() {
+                return ((TariffRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new TariffRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(TariffRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.TariffRowChanged != null)) {
+                    this.TariffRowChanged(this, new TariffRowChangeEvent(((TariffRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.TariffRowChanging != null)) {
+                    this.TariffRowChanging(this, new TariffRowChangeEvent(((TariffRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.TariffRowDeleted != null)) {
+                    this.TariffRowDeleted(this, new TariffRowChangeEvent(((TariffRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.TariffRowDeleting != null)) {
+                    this.TariffRowDeleting(this, new TariffRowChangeEvent(((TariffRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveTariffRow(TariffRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                Dts_Normal ds = new Dts_Normal();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "TariffDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class RevenueRow : global::System.Data.DataRow {
@@ -1752,6 +2161,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Group {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.GroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Group\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.GroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNo_Null() {
                 return this.IsNull(this.tableRevenue.No_Column);
             }
@@ -1952,6 +2377,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTextNull() {
                 this[this.tableRevenue.TextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGroupNull() {
+                return this.IsNull(this.tableRevenue.GroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGroupNull() {
+                this[this.tableRevenue.GroupColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2322,6 +2759,273 @@ namespace SKG.DXF.Station.DataSet {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class TariffRow : global::System.Data.DataRow {
+            
+            private TariffDataTable tableTariff;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal TariffRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableTariff = ((TariffDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Group {
+                get {
+                    try {
+                        return ((string)(this[this.tableTariff.GroupColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Group\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.GroupColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Text {
+                get {
+                    try {
+                        return ((string)(this[this.tableTariff.TextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Text\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.TextColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long Price1 {
+                get {
+                    try {
+                        return ((long)(this[this.tableTariff.Price1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price1\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.Price1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long Price2 {
+                get {
+                    try {
+                        return ((long)(this[this.tableTariff.Price2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price2\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.Price2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long Rose1 {
+                get {
+                    try {
+                        return ((long)(this[this.tableTariff.Rose1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rose1\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.Rose1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long Rose2 {
+                get {
+                    try {
+                        return ((long)(this[this.tableTariff.Rose2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Rose2\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.Rose2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Note {
+                get {
+                    try {
+                        return ((string)(this[this.tableTariff.NoteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Note\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.NoteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Area {
+                get {
+                    try {
+                        return ((string)(this[this.tableTariff.AreaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Area\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.AreaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Code {
+                get {
+                    try {
+                        return ((string)(this[this.tableTariff.CodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Code\' in table \'Tariff\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTariff.CodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGroupNull() {
+                return this.IsNull(this.tableTariff.GroupColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGroupNull() {
+                this[this.tableTariff.GroupColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTextNull() {
+                return this.IsNull(this.tableTariff.TextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTextNull() {
+                this[this.tableTariff.TextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrice1Null() {
+                return this.IsNull(this.tableTariff.Price1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrice1Null() {
+                this[this.tableTariff.Price1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrice2Null() {
+                return this.IsNull(this.tableTariff.Price2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrice2Null() {
+                this[this.tableTariff.Price2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRose1Null() {
+                return this.IsNull(this.tableTariff.Rose1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRose1Null() {
+                this[this.tableTariff.Rose1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRose2Null() {
+                return this.IsNull(this.tableTariff.Rose2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRose2Null() {
+                this[this.tableTariff.Rose2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNoteNull() {
+                return this.IsNull(this.tableTariff.NoteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNoteNull() {
+                this[this.tableTariff.NoteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAreaNull() {
+                return this.IsNull(this.tableTariff.AreaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAreaNull() {
+                this[this.tableTariff.AreaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCodeNull() {
+                return this.IsNull(this.tableTariff.CodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCodeNull() {
+                this[this.tableTariff.CodeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2409,6 +3113,40 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SalesRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class TariffRowChangeEvent : global::System.EventArgs {
+            
+            private TariffRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffRowChangeEvent(TariffRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public TariffRow Row {
                 get {
                     return this.eventRow;
                 }

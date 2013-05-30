@@ -164,29 +164,6 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Sales" msprop:Generator_TableClassName="SalesDataTable" msprop:Generator_TableVarName="tableSales" msprop:Generator_TablePropName="Sales" msprop:Generator_RowDeletingName="SalesRowDeleting" msprop:Generator_UserTableName="Sales" msprop:Generator_RowChangingName="SalesRowChanging" msprop:Generator_RowEvHandlerName="SalesRowChangeEventHandler" msprop:Generator_RowDeletedName="SalesRowDeleted" msprop:Generator_RowEvArgName="SalesRowChangeEvent" msprop:Generator_RowChangedName="SalesRowChanged" msprop:Generator_RowClassName="SalesRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Region" msprop:Generator_ColumnVarNameInTable="columnRegion" msprop:Generator_ColumnPropNameInRow="Region" msprop:Generator_ColumnPropNameInTable="RegionColumn" msprop:Generator_UserColumnName="Region" type="xs:string" minOccurs="0" />
-              <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
-              <xs:element name="Area" msprop:Generator_ColumnVarNameInTable="columnArea" msprop:Generator_ColumnPropNameInRow="Area" msprop:Generator_ColumnPropNameInTable="AreaColumn" msprop:Generator_UserColumnName="Area" type="xs:string" minOccurs="0" />
-              <xs:element name="AreaCode" msprop:Generator_ColumnVarNameInTable="columnAreaCode" msprop:Generator_ColumnPropNameInRow="AreaCode" msprop:Generator_ColumnPropNameInTable="AreaCodeColumn" msprop:Generator_UserColumnName="AreaCode" type="xs:string" minOccurs="0" />
-              <xs:element name="Province" msprop:Generator_ColumnVarNameInTable="columnProvince" msprop:Generator_ColumnPropNameInRow="Province" msprop:Generator_ColumnPropNameInTable="ProvinceColumn" msprop:Generator_UserColumnName="Province" type="xs:string" minOccurs="0" />
-              <xs:element name="ProvinceCode" msprop:Generator_ColumnVarNameInTable="columnProvinceCode" msprop:Generator_ColumnPropNameInRow="ProvinceCode" msprop:Generator_ColumnPropNameInTable="ProvinceCodeColumn" msprop:Generator_UserColumnName="ProvinceCode" type="xs:string" minOccurs="0" />
-              <xs:element name="Work" msprop:Generator_ColumnVarNameInTable="columnWork" msprop:Generator_ColumnPropNameInRow="Work" msprop:Generator_ColumnPropNameInTable="WorkColumn" msprop:Generator_UserColumnName="Work" type="xs:int" minOccurs="0" />
-              <xs:element name="Seats" msprop:Generator_ColumnVarNameInTable="columnSeats" msprop:Generator_ColumnPropNameInRow="Seats" msprop:Generator_ColumnPropNameInTable="SeatsColumn" msprop:Generator_UserColumnName="Seats" type="xs:int" minOccurs="0" />
-              <xs:element name="Beds" msprop:Generator_ColumnVarNameInTable="columnBeds" msprop:Generator_ColumnPropNameInRow="Beds" msprop:Generator_ColumnPropNameInTable="BedsColumn" msprop:Generator_UserColumnName="Beds" type="xs:int" minOccurs="0" />
-              <xs:element name="Price1" msprop:Generator_ColumnVarNameInTable="columnPrice1" msprop:Generator_ColumnPropNameInRow="Price1" msprop:Generator_ColumnPropNameInTable="Price1Column" msprop:Generator_UserColumnName="Price1" type="xs:int" minOccurs="0" />
-              <xs:element name="Price2" msprop:Generator_ColumnVarNameInTable="columnPrice2" msprop:Generator_ColumnPropNameInRow="Price2" msprop:Generator_ColumnPropNameInTable="Price2Column" msprop:Generator_UserColumnName="Price2" type="xs:int" minOccurs="0" />
-              <xs:element name="Rose1" msprop:Generator_ColumnVarNameInTable="columnRose1" msprop:Generator_ColumnPropNameInRow="Rose1" msprop:Generator_ColumnPropNameInTable="Rose1Column" msprop:Generator_UserColumnName="Rose1" type="xs:int" minOccurs="0" />
-              <xs:element name="Rose2" msprop:Generator_ColumnVarNameInTable="columnRose2" msprop:Generator_ColumnPropNameInRow="Rose2" msprop:Generator_ColumnPropNameInTable="Rose2Column" msprop:Generator_UserColumnName="Rose2" type="xs:int" minOccurs="0" />
-              <xs:element name="Parked" msprop:Generator_ColumnVarNameInTable="columnParked" msprop:Generator_ColumnPropNameInRow="Parked" msprop:Generator_ColumnPropNameInTable="ParkedColumn" msprop:Generator_UserColumnName="Parked" type="xs:decimal" minOccurs="0" />
-              <xs:element name="ArrearsMoney" msprop:Generator_ColumnVarNameInTable="columnArrearsMoney" msprop:Generator_ColumnPropNameInRow="ArrearsMoney" msprop:Generator_ColumnPropNameInTable="ArrearsMoneyColumn" msprop:Generator_UserColumnName="ArrearsMoney" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Totals" msprop:Generator_ColumnVarNameInTable="columnTotals" msprop:Generator_ColumnPropNameInRow="Totals" msprop:Generator_ColumnPropNameInTable="TotalsColumn" msprop:Generator_UserColumnName="Totals" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

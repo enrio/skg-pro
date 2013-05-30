@@ -163,7 +163,7 @@ namespace SKG.DAL.Entities
         /// Charge for vehicle normal
         /// </summary>
         /// <returns></returns>
-        public decimal ChargeForNormal()
+        decimal ChargeForNormal()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -190,14 +190,27 @@ namespace SKG.DAL.Entities
             {
                 var pFr = Global.PeakFr;
                 var pTo = Global.PeakTo;
-                var x = 8D / 24D;
 
                 var xx = dateIn.AddDays(span.Days);
-                var v = Caodiem(xx, pFr, pTo);
-                var r = Caodiem(DateOut.Value, pFr, pTo);
+                var v = Peak(xx, pFr, pTo);
+                v = v || Peak(DateOut.Value, pFr, pTo);
 
-                if (v || r) Money += odd < x ? Price1 : Price2;
-                else Money += odd < 0.5 ? Price1 : Price2;
+                double x = 0;
+                if (v) x = 8D / 24D;
+                else x = 0.5;
+
+                FullDay = span.Days;
+                if (odd < x)
+                {
+                    HalfDay = 1;
+                    Money += Price1;
+                }
+                else
+                {
+                    HalfDay = 0;
+                    FullDay++;
+                    Money += Price2;
+                }
             }
 
             return Money;
@@ -207,7 +220,7 @@ namespace SKG.DAL.Entities
         /// Charge for vehicle fixed
         /// </summary>
         /// <returns></returns>
-        public decimal ChargeForFixed()
+        decimal ChargeForFixed()
         {
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
@@ -228,14 +241,13 @@ namespace SKG.DAL.Entities
             Money = Parked + Cost + Rose;
             return Money;
         }
-        #endregion
 
         /// <summary>
-        /// Nằm trong giờ cao điểm 22:00:00 hôm nay đến 06:00:00 hôm sau
+        /// Into peak time from 22:00:00 today to 06:00:00 tomorrow
         /// </summary>
         /// <param name="d">Thời gian</param>
         /// <returns></returns>
-        bool Caodiem(DateTime d, DateTime pFr, DateTime pTo)
+        bool Peak(DateTime d, DateTime pFr, DateTime pTo)
         {
             var span = pTo - pFr;
             var cur = d.Date;
@@ -243,26 +255,36 @@ namespace SKG.DAL.Entities
 
             var fr = cur.AddHours(pFr.Hour)
                 .AddMinutes(pFr.Minute)
-                .AddSeconds(pFr.Second); // 22:00:00 hôm nay
+                .AddSeconds(pFr.Second); // 22:00:00 default today
 
             if (d >= fr)
             {
                 to = fr.AddHours(span.Hours)
                     .AddMinutes(span.Minutes)
-                    .AddSeconds(span.Seconds); // 06:00:00 hôm sau
+                    .AddSeconds(span.Seconds); // 06:00:00 tomorrow
             }
             else
             {
                 to = cur.AddHours(pTo.Hour)
                     .AddMinutes(pTo.Minute)
-                    .AddSeconds(pTo.Second); // 06:00:00 hôm nay
+                    .AddSeconds(pTo.Second); // 06:00:00 today
 
                 fr = to.AddHours(-span.Hours)
                     .AddMinutes(-span.Minutes)
-                    .AddSeconds(-span.Seconds); // 22:00:00 hôm trước
+                    .AddSeconds(-span.Seconds); // 22:00:00 yesterday
             }
 
             return d.CheckBetween(fr, to);
         }
+
+        /// <summary>
+        /// Charge for vehicle fixed and normal
+        /// </summary>
+        /// <returns></returns>
+        public decimal Charge()
+        {
+            return Vehicle.Fixed ? ChargeForFixed() : ChargeForNormal();
+        }
+        #endregion
     }
 }

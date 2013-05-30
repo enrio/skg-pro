@@ -109,7 +109,7 @@ namespace SKG.DXF.Station.Fixed
 
             if (oki == DialogResult.Yes)
             {
-                var rpt = new Report.Rpt_FixedVehicle1
+                var rpt = new Report.Rpt_VehicleFixed1
                 {
                     Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
                     DataSource = tb
@@ -120,7 +120,7 @@ namespace SKG.DXF.Station.Fixed
             }
             else
             {
-                var rpt = new Report.Rpt_FixedVehicle2
+                var rpt = new Report.Rpt_VehicleFixed2
                 {
                     Name = String.Format(STR_DT, Global.Session.User.Acc, Global.Session.Current),
                     DataSource = tb

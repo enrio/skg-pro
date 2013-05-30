@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Update: 28/05/2013 22:48
  * Status: OK
  */
 #endregion
@@ -79,33 +79,55 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_Fixed1
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cd",
-                Global.Session.User.Acc, Global.Session.Current)
-            };
+            var oki = XtraMessageBox.Show(Level1.STR_CFM, Level1.STR_PRINT, MessageBoxButtons.YesNo);
 
-            DateTime shift;
-            Session.Shift(out shift);
-
-            rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
-            rpt.xrlDuration.Text += "Từ ngày " + dteFrom.DateTime.ToString("dd/MM/yyyy");
-            rpt.xrlDuration.Text += " đến ngày " + dteTo.DateTime.ToString("dd/MM/yyyy");
-
-            rpt.xrlCashier.Text = Global.Session.User.Name;
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+            string receipt = "";
 
             var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
             var to = dteTo.DateTime.Date.AddHours(13);
 
-            rpt.parDate.Value = to.Date;
-            string receipt = "";
+            if (oki == DialogResult.Yes)
+            {
+                var rpt = new Report.Rpt_RevenueFixed2
+                {
+                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Detail.GetRevenueFixed(fr, to)
+                };
 
-            rpt.DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
-            rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
-            rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                duration = String.Format(duration,
+                    dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
+                rpt.xrlFromTo.Text = duration;
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(rpt);
+                rpt.parDate.Value = Global.Session.Current;
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_RevenueFixed1
+                {
+                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to)
+                };
+
+                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                duration = String.Format(duration,
+                    dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
+                rpt.xrlFromTo.Text = duration;
+
+                rpt.xrlTitle.DataBindings.Clear();
+                rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
+
+                rpt.xrlCashier.Text = Global.Session.User.Name;
+                rpt.parDate.Value = Global.Session.Current;
+
+                rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+                rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+
+                frm.SetReport(rpt);
+            }
+
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 

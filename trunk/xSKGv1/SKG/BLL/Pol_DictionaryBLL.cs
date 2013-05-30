@@ -363,6 +363,56 @@ namespace SKG.BLL
             }
             catch { return new DateTime(); }
         }
+
+        /// <summary>
+        /// Address
+        /// </summary>
+        /// <returns></returns>
+        public string GetAddress()
+        {
+            var r = (Pol_Dictionary)Select("ADDRESS");
+            return r.Note;
+        }
+
+        /// <summary>
+        /// Taxcode
+        /// </summary>
+        /// <returns></returns>
+        public string GetTaxcode()
+        {
+            var r = (Pol_Dictionary)Select("TAXCODE");
+            return r.Note;
+        }
+
+        /// <summary>
+        /// Title 1
+        /// </summary>
+        /// <returns></returns>
+        public string GetTitle1()
+        {
+            var r = (Pol_Dictionary)Select("TITLE1");
+            return r.Note;
+        }
+
+        /// <summary>
+        /// Title 2
+        /// </summary>
+        /// <returns></returns>
+        public string GetTitle2()
+        {
+            var r = (Pol_Dictionary)Select("TITLE2");
+            return r.Note;
+        }
+
+        /// <summary>
+        /// Title 3
+        /// </summary>
+        /// <returns></returns>
+        public string GetTitle3()
+        {
+            var r = (Pol_Dictionary)Select("TITLE3");
+            return r.Note;
+        }
         #endregion
     }
 }

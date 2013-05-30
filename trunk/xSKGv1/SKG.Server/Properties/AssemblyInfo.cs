@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SMSapplication")]
+[assembly: AssemblyTitle("SKG.Server")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Syndustria (Pvt) Ltd")]
-[assembly: AssemblyProduct("SMSapplication")]
-[assembly: AssemblyCopyright("Copyright © Syndustria (Pvt) Ltd 2009")]
+[assembly: AssemblyCompany("SKG")]
+[assembly: AssemblyProduct("SKG.Server")]
+[assembly: AssemblyCopyright("Copyright © SKG 2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.4.9")]
+[assembly: AssemblyFileVersion("1.0.4.9")]

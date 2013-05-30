@@ -291,7 +291,7 @@ namespace SKG.DXF.Station.Sumary
                 tbl.Rows.Add(dtr);
                 rpt.DataSource = tbl;
 
-                try { rpt.Print(); }
+                try { /*rpt.Print();*/ }
                 catch
                 {
                     XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",

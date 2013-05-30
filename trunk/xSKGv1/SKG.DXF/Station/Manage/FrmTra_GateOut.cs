@@ -249,7 +249,7 @@ namespace SKG.DXF.Station.Manage
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
 
-                        try { /*rpt.Print();*/ }
+                        try { rpt.Print(); }
                         catch
                         {
                             XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",
@@ -351,10 +351,16 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_RevenueNormal1
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1",
+                Global.Session.User.Acc, Global.Session.Current)
             };
-            decimal sum = 0;
 
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            decimal sum = 0;
             var to = Global.Session.Current.Date.AddHours(14);
             var fr = to.AddDays(-1).AddSeconds(1);
 
@@ -363,9 +369,6 @@ namespace SKG.DXF.Station.Manage
 
             _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
             rpt.DataSource = _dtb;
-
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ LƯU ĐẬU XE TẢI";
@@ -391,10 +394,16 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_RevenueNormal1
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2",
+                Global.Session.User.Acc, Global.Session.Current)
             };
-            decimal sum = 0;
 
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = Global.Session.Current;
+            rpt.parUserOut.Value = Global.Session.User.Name;
+
+            decimal sum = 0;
             var to = Global.Session.Current.Date.AddHours(14);
             var fr = to.AddDays(-1).AddSeconds(1);
 
@@ -403,9 +412,6 @@ namespace SKG.DXF.Station.Manage
 
             _dtb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
             rpt.DataSource = _dtb;
-
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
             rpt.xrlTitle.Text = "BẢNG KÊ THU PHÍ DỊCH VỤ XE SANG HÀNG";
@@ -448,9 +454,12 @@ namespace SKG.DXF.Station.Manage
                     DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum)
                 };
 
-                rpt.xrlFromTo.Text = duration;
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parNum.Value = Global.AuditNumber;
                 rpt.parDate.Value = Global.Session.Current;
 
+                rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
             }
             else
@@ -461,11 +470,14 @@ namespace SKG.DXF.Station.Manage
                     DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum, out receipt)
                 };
 
-                rpt.xrlFromTo.Text = duration;
-
-                rpt.xrlCashier.Text = Global.Session.User.Name;
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
                 rpt.parDate.Value = Global.Session.Current;
 
+                rpt.xrlFromTo.Text = duration;
+                rpt.xrlCashier.Text = Global.Session.User.Name;
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
@@ -510,8 +522,13 @@ namespace SKG.DXF.Station.Manage
         {
             var rpt = new Report.Rpt_IngateMaster
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_vl", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tb",
+                Global.Session.User.Acc, Global.Session.Current)
             };
+
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = Global.Session.Current;
 
             var tb = _bll.Tra_Detail.GetInDepotFixed();
             tb.Numbered();

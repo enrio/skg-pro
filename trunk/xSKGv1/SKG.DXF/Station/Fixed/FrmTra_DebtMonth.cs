@@ -151,17 +151,22 @@ namespace SKG.DXF.Station.Fixed
         {
             var rpt = new Report.Rpt_DebtMonth
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cnt", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_cnt",
+                Global.Session.User.Acc, Global.Session.Current)
             };
 
             DateTime fr, to;
             Session.CutShiftMonth(dteMonth.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.DebtMonthFixed(fr, to, chkHideActive.Checked);
+            rpt.DataSource = _bll.Tra_Detail.DebtMonthFixed(fr, to,
+                chkHideActive.Checked);
             rpt.xrlCashier.Text = Global.Session.User.Name;
-            rpt.parDate.Value = Global.Session.Current;
             rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
             rpt.xrlThuchien.Text += dteMonth.DateTime.ToString(" MM/yyyy");
+
+            rpt.parTitle1.Value = Global.Title2;
+            rpt.parTitle2.Value = Global.Title3;
+            rpt.parDate.Value = Global.Session.Current;
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

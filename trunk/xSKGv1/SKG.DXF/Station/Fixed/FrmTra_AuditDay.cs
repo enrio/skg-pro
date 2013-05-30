@@ -190,18 +190,23 @@ namespace SKG.DXF.Station.Fixed
         {
             var rpt = new Report.Rpt_AuditDay
             {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn", Global.Session.User.Acc, Global.Session.Current)
+                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn",
+                Global.Session.User.Acc, Global.Session.Current)
             };
 
             string inf = "";
             DateTime fr, to;
             Session.CutShiftDay(dteDay.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to, chkHideActive.Checked, out inf);
+            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to,
+                chkHideActive.Checked, out inf);
             rpt.xrlCashier.Text = Global.Session.User.Name;
+            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
+
+            rpt.parTitle1.Value = Global.Title2;
+            rpt.parTitle2.Value = Global.Title3;
             rpt.parDate.Value = Global.Session.Current;
             rpt.parInf.Value = inf;
-            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
 
             var frm = new FrmPrint();
             frm.SetReport(rpt);

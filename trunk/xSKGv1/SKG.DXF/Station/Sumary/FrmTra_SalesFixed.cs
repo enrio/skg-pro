@@ -95,12 +95,16 @@ namespace SKG.DXF.Station.Sumary
                     DataSource = _bll.Tra_Detail.GetRevenueFixed(fr, to)
                 };
 
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parNum.Value = Global.AuditNumber;
+                rpt.parDate.Value = Global.Session.Current;
+
                 var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
                 duration = String.Format(duration,
                     dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
                 rpt.xrlFromTo.Text = duration;
 
-                rpt.parDate.Value = Global.Session.Current;
                 frm.SetReport(rpt);
             }
             else
@@ -111,17 +115,21 @@ namespace SKG.DXF.Station.Sumary
                     DataSource = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to)
                 };
 
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
+                rpt.parDate.Value = Global.Session.Current;
+
                 var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
                 duration = String.Format(duration,
                     dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
-                rpt.xrlFromTo.Text = duration;
 
                 rpt.xrlTitle.DataBindings.Clear();
-                rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH BẾN XE NGÃ TƯ GA";
+                rpt.xrlTitle.Text = "BẢNG KÊ DOANH THU XE KHÁCH " + Global.Title2;
 
+                rpt.xrlFromTo.Text = duration;
                 rpt.xrlCashier.Text = Global.Session.User.Name;
-                rpt.parDate.Value = Global.Session.Current;
-
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
@@ -256,6 +264,9 @@ namespace SKG.DXF.Station.Sumary
                 var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                 var dtr = tbl.NewRow();
 
+                rpt.parUnit.Value = Global.Title1;
+                rpt.parAddress.Value = Global.Address;
+
                 var seat = detail.Seats ?? 0;
                 var bed = detail.Beds ?? 0;
 
@@ -291,7 +302,7 @@ namespace SKG.DXF.Station.Sumary
                 tbl.Rows.Add(dtr);
                 rpt.DataSource = tbl;
 
-                try { /*rpt.Print();*/ }
+                try { rpt.Print(); }
                 catch
                 {
                     XtraMessageBox.Show("LỖI: MÁY KHÔNG IN ĐƯỢC!",

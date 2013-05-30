@@ -79,6 +79,8 @@ namespace SKG.DXF.Station.Normal
                 Global.Session.User.Acc, Global.Session.Current)
             };
 
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 

@@ -82,7 +82,8 @@ namespace SKG.DAL
                               s.Address,
                               s.Phone,
                               s.Code,
-                              s.Note
+                              s.Note,
+                              s.Show
                           };
                 if (obj != null) res = res.Where(s => s.Acc == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
@@ -127,7 +128,6 @@ namespace SKG.DAL
                 var o = (Pol_User)obj;
                 var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
 
-                res.Pass = Coder.Encode(o.Pass);
                 res.Name = o.Name;
                 res.Birth = o.Birth;
                 res.Address = o.Address;
@@ -263,6 +263,23 @@ namespace SKG.DAL
             try
             {
                 return _db.Pol_Users.SingleOrDefault(s => s.Phone == phone);
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
+        /// Update password
+        /// </summary>
+        /// <param name="o">Pol_User</param>
+        /// <returns></returns>
+        protected object UpdatePass(Pol_User o)
+        {
+            try
+            {
+                var res = _db.Pol_Users.SingleOrDefault(s => s.Id == o.Id || s.Acc == o.Acc);
+
+                res.Pass = Coder.Encode(o.Pass);
+                return _db.SaveChanges();
             }
             catch { return null; }
         }

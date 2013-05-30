@@ -115,7 +115,10 @@ namespace SKG.DXF.Station.Fixed
                     DataSource = tb
                 };
 
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
                 rpt.parDate.Value = Global.Session.Current;
+
                 frm.SetReport(rpt);
             }
             else
@@ -126,7 +129,10 @@ namespace SKG.DXF.Station.Fixed
                     DataSource = tb
                 };
 
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
                 rpt.parDate.Value = Global.Session.Current;
+
                 frm.SetReport(rpt);
             }
 

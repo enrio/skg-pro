@@ -322,7 +322,7 @@
             this.grvFixed.OptionsView.EnableAppearanceEvenRow = true;
             this.grvFixed.OptionsView.EnableAppearanceOddRow = true;
             this.grvFixed.OptionsView.ShowFooter = true;
-            this.grvFixed.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvFixed_CustomDrawRowIndicator);
+            
             // 
             // gridBand3
             // 
@@ -723,7 +723,7 @@
             this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
             this.grvNormal.OptionsView.ShowFooter = true;
-            this.grvNormal.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvNormal_CustomDrawRowIndicator);
+            
             // 
             // gridBand1
             // 

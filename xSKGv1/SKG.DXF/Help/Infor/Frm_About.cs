@@ -5,22 +5,22 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 10/11/2012 21:48
- * Update: 10/11/2012 21:48
+ * Update: 02/06/2013 07:12
  * Status: OK
  */
 #endregion
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Collections.Generic;
 
 namespace SKG.DXF.Help.Infor
 {
     using SKG.Plugin;
 
-    public partial class Frm_About : SKG.DXF.FrmMenuz
+    public partial class Frm_About : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz
@@ -56,12 +56,14 @@ namespace SKG.DXF.Help.Infor
             InitializeComponent();
 
             Text = String.Format("About {0}", AssemblyTitle);
+
             labelProductName.Text = AssemblyProduct;
             labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
             labelCopyright.Text = AssemblyCopyright;
             labelCompanyName.Text = AssemblyCompany;
+
             var str = "Quản lí xe ra vào bến - bến xe Ngã Tư Ga - TP. Hồ Chí Minh{0}{0}" +
-                "Công Ty TNHH Thương Mại và Dịch Vụ Vi Tính Võ Minh{0}" +
+                "Công Ty TNHH Thương mại và Dịch vụ Vi tính Võ Minh{0}" +
                 "541/26 Điện Biên Phủ, Phường 3, Quận 3, TP. Hồ Chí Minh{0}" +
                 "Điện thoại: 0838 391 232{0}{0}Lập trình: Nguyễn Văn Toàn{0}" +
                 "Điện thoại: 01645 515 010{0}Email:nvt87x@gmail.com";
@@ -77,7 +79,9 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyTitleAttribute), false);
+
                 if (attributes.Length > 0)
                 {
                     AssemblyTitleAttribute titleAttribute = (AssemblyTitleAttribute)attributes[0];
@@ -86,7 +90,7 @@ namespace SKG.DXF.Help.Infor
                         return titleAttribute.Title;
                     }
                 }
-                return System.IO.Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+                return Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
             }
         }
 
@@ -102,7 +106,9 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false);
+
                 if (attributes.Length == 0)
                 {
                     return "";
@@ -115,7 +121,9 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyProductAttribute), false);
+
                 if (attributes.Length == 0)
                 {
                     return "";
@@ -128,7 +136,9 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
+
                 if (attributes.Length == 0)
                 {
                     return "";
@@ -141,7 +151,9 @@ namespace SKG.DXF.Help.Infor
         {
             get
             {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+                object[] attributes = Assembly.GetExecutingAssembly()
+                    .GetCustomAttributes(typeof(AssemblyCompanyAttribute), false);
+
                 if (attributes.Length == 0)
                 {
                     return "";

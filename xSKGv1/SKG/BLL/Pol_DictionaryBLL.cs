@@ -4,25 +4,26 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 09/08/2013 20:32
- * Update: 09/08/2013 20:32
+ * Create: 24/07/2012 21:33
+ * Update: 02/06/2013 22:02
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Collections.Generic;
 
 namespace SKG.BLL
 {
-    using System.Data;
+    using DAL;
     using DAL.Entities;
 
     /// <summary>
     /// Policy - Pol_Dictionary accessing
     /// </summary>
-    public sealed class Pol_DictionaryBLL : DAL.Pol_DictionaryDAL
+    public sealed class Pol_DictionaryBLL : Pol_DictionaryDAL
     {
         #region Select
         /// <summary>
@@ -421,6 +422,54 @@ namespace SKG.BLL
         public string GetAuditNumber()
         {
             var r = (Pol_Dictionary)Select("NUM");
+            return r.Note;
+        }
+
+        /// <summary>
+        /// Rose per seat for south region
+        /// </summary>
+        /// <returns></returns>
+        public int GetRoseN()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("ROSEN");
+                return Convert.ToInt32(r.More2);
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Rose per seat for north region
+        /// </summary>
+        /// <returns></returns>
+        public int GetRoseB()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("ROSEB");
+                return Convert.ToInt32(r.More2);
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Default database name
+        /// </summary>
+        /// <returns></returns>
+        public string GetDbName()
+        {
+            var r = (Pol_Dictionary)Select("DBN");
+            return r == null ? "xSKGv1" : r.Note;
+        }
+
+        /// <summary>
+        /// Default URL update
+        /// </summary>
+        /// <returns></returns>
+        public string GetURL()
+        {
+            var r = (Pol_Dictionary)Select("URL");
             return r.Note;
         }
         #endregion

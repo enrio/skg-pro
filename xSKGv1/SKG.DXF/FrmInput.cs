@@ -5,24 +5,25 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 23:35
+ * Update: 02/06/2013 20:46
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace SKG.DXF
 {
     using BLL;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraBars;
+    using DevExpress.XtraEditors;
 
     /// <summary>
     /// For menuz with input form
@@ -31,7 +32,7 @@ namespace SKG.DXF
     {
         #region Implement plugin
         public string Author { get { return "Zng Tfy"; } }
-        public string Description { get { return "xSGKv1 Framework 2012 - For menuz with input form"; } }
+        public string Description { get { return "xSGKv1 Framework 2013 - For menuz with input form"; } }
         public string Version { get { return "1.0"; } }
 
         public virtual Form Form { get { return null; } }
@@ -94,7 +95,7 @@ namespace SKG.DXF
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bmgMain_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void bmgMain_ItemClick(object sender, ItemClickEventArgs e)
         {
             switch (e.Item.Name)
             {
@@ -193,7 +194,29 @@ namespace SKG.DXF
         /// <summary>
         /// Perform when click save button
         /// </summary>
-        protected virtual void PerformSave() { }
+        protected virtual void PerformSave()
+        {
+            switch (_state)
+            {
+                case State.Add:
+                    if (InsertObject())
+                    {
+                        ResetInput(); LoadData();
+                    }
+                    break;
+
+                case State.Edit:
+                    if (UpdateObject())
+                    {
+                        ChangeStatus(); ReadOnlyControl();
+                        PerformRefresh();
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
 
         /// <summary>
         /// Perform when click cancel button

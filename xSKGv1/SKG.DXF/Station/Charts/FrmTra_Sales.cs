@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 25/01/2012 21:07
- * Update: 25/01/2012 21:07
+ * Update: 02/06/2013 21:07
  * Status: OK
  */
 #endregion
@@ -19,10 +19,11 @@ namespace SKG.DXF.Station.Charts
 {
     using SKG.Extend;
     using SKG.Plugin;
+
     using DevExpress.Utils;
     using DevExpress.XtraCharts;
 
-    public partial class FrmTra_Sales : SKG.DXF.FrmInput
+    public partial class FrmTra_Sales : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz

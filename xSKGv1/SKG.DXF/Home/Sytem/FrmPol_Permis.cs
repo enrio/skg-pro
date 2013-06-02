@@ -5,8 +5,8 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 30/07/2012 20:27
- * Status: None
+ * Update: 02/06/2013 08:10
+ * Status: OK
  */
 #endregion
 
@@ -20,7 +20,7 @@ namespace SKG.DXF.Home.Sytem
     /// <summary>
     /// Menuz - Permission
     /// </summary>
-    public partial class FrmPol_Permis : SKG.DXF.FrmInput
+    public partial class FrmPol_Permis : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz

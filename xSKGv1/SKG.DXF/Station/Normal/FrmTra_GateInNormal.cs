@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 26/10/2012 23:21
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
@@ -18,12 +18,13 @@ namespace SKG.DXF.Station.Normal
 {
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Input gate
     /// </summary>
-    public partial class FrmTra_GateInNormal : SKG.DXF.FrmInput
+    public partial class FrmTra_GateInNormal : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -111,21 +112,16 @@ namespace SKG.DXF.Station.Normal
                         XtraMessageBox.Show(STR_INTO, STR_NORMAL,
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
-                    }
-                    //else XtraMessageBox.Show(STR_BG, STR_NORMAL,
-                    //    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }                    
                     break;
 
                 case State.Edit:
-                    if (UpdateObject())
-                        PerformCancel();
+                    if (UpdateObject()) PerformCancel();
                     break;
 
                 default:
                     break;
             }
-
-            base.PerformSave();
         }
 
         protected override bool InsertObject()
@@ -210,17 +206,7 @@ namespace SKG.DXF.Station.Normal
 
         protected override void PerformRefresh()
         {
-            LoadData();
-
-            if (_dtb != null)
-            {
-
-                if (_dtb.Rows.Count > 0)
-                {
-                    ClearDataBindings();
-                    DataBindingControl();
-                }
-            }
+            LoadData();            
 
             base.PerformRefresh();
         }
@@ -230,23 +216,7 @@ namespace SKG.DXF.Station.Normal
             txtNumber.Text = null;
 
             base.ResetInput();
-        }
-
-        protected override void ClearDataBindings()
-        {
-            //txtNumber.DataBindings.Clear();
-            //txtDateIn.DataBindings.Clear();
-
-            base.ClearDataBindings();
-        }
-
-        protected override void DataBindingControl()
-        {
-            //txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
-            //txtDateIn.DataBindings.Add("Text", _dtb, ".DateIn");
-
-            base.DataBindingControl();
-        }
+        }                
 
         /// <summary>
         /// Danh sách 20 xe vào bến cuối cùng
@@ -300,24 +270,6 @@ namespace SKG.DXF.Station.Normal
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

@@ -5,28 +5,26 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Update: 02/06/2013 08:27
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Grant
 {
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
-    using System.Drawing.Drawing2D;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraTreeList.Nodes;
-    using DevExpress.XtraTreeList.StyleFormatConditions;
 
-    public partial class FrmPol_UserRole : SKG.DXF.FrmInput
+    public partial class FrmPol_UserRole : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -131,8 +129,6 @@ namespace SKG.DXF.Home.Grant
                 {
                     ChangeStatus(); PerformRefresh();
                 }
-
-            base.PerformSave();
         }
 
         protected override bool InsertObject()
@@ -195,27 +191,8 @@ namespace SKG.DXF.Home.Grant
             AllowEdit = false;
             AllowFind = false;
 
-            trlMain.Columns["No_"].Visible = false; // tạm thời ẩn cột STT
-            FormatRows();
-        }
-
-        /// <summary>
-        /// Định dạng in đậm, màu dòng cấp cha
-        /// </summary>
-        private void FormatRows()
-        {
-            var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
-                trlMain.Columns["Format"], null, true, true, true);
-
-            sfc.Appearance.BackColor = Color.Orange;
-            sfc.Appearance.BackColor2 = Color.Yellow;
-            sfc.Appearance.GradientMode = LinearGradientMode.BackwardDiagonal;
-
-            var f = new Font(Font, FontStyle.Bold);
-            sfc.Appearance.Font = f;
-            sfc.Appearance.ForeColor = Color.Blue;
-
-            trlMain.FormatConditions.Add(sfc);
+            trlMain.FormatRows(Font, "Format");
+            trlMain.SetStandard();
         }
 
         /// <summary>

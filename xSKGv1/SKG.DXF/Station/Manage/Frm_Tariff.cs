@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 22:50
- * Update: 10/11/2012 16:32
+ * Create: 25/01/2012 21:07
+ * Update: 02/06/2013 21:07
  * Status: OK
  */
 #endregion
@@ -17,7 +17,7 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Plugin;
 
-    public partial class Frm_Tariff : SKG.DXF.FrmMenuz
+    public partial class Frm_Tariff : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz

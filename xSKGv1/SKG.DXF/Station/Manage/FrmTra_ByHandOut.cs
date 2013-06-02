@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 12/11/2012 14:32
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
@@ -20,12 +20,13 @@ namespace SKG.DXF.Station.Manage
     using SKG.Datax;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Input gate
     /// </summary>
-    public partial class FrmTra_ByHandOut : SKG.DXF.FrmInput
+    public partial class FrmTra_ByHandOut : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -113,8 +114,6 @@ namespace SKG.DXF.Station.Manage
                 XtraMessageBox.Show(ex.Message);
 #endif
             }
-
-            base.PerformSave();
         }
         #endregion
 
@@ -280,42 +279,6 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered for vihicle fixed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvFixed_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
-        /// <summary>
-        /// Numbered for vihicle normal
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvNormal_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmTra_ByHandOut_Load(object sender, EventArgs e)
         {
             PerformAdd();

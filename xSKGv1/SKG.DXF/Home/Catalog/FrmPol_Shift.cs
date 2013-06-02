@@ -5,24 +5,24 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Update: 02/06/2013 19:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Catalog
 {
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_Shift : SKG.DXF.FrmInput
+    public partial class FrmPol_Shift : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -111,31 +111,9 @@ namespace SKG.DXF.Home.Catalog
             }
 
             ReadOnlyControl();
+            grvMain.ExpandAllGroups();
 
             base.PerformRefresh();
-        }
-
-        protected override void PerformSave()
-        {
-            switch (_state)
-            {
-                case State.Add:
-                    if (InsertObject())
-                    {
-                        ResetInput(); LoadData();
-                    }
-                    break;
-
-                case State.Edit:
-                    if (UpdateObject())
-                    {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
-                    }
-                    break;
-            }
-
-            base.PerformSave();
         }
 
         protected override void ResetInput()
@@ -145,6 +123,7 @@ namespace SKG.DXF.Home.Catalog
             tedStart.EditValue = null;
             tedEnd.EditValue = null;
             calValue.EditValue = null;
+            txtText1.Text = null;
             txtDescript.Text = null;
 
             base.ResetInput();
@@ -157,6 +136,7 @@ namespace SKG.DXF.Home.Catalog
             tedStart.DataBindings.Clear();
             tedEnd.DataBindings.Clear();
             calValue.DataBindings.Clear();
+            txtText1.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -169,6 +149,7 @@ namespace SKG.DXF.Home.Catalog
             tedStart.DataBindings.Add("EditValue", _dtb, ".More");
             tedEnd.DataBindings.Add("EditValue", _dtb, ".More1");
             calValue.DataBindings.Add("EditValue", _dtb, ".More2");
+            txtText1.DataBindings.Add("EditValue", _dtb, ".Text1");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
@@ -183,6 +164,7 @@ namespace SKG.DXF.Home.Catalog
             tedStart.Properties.ReadOnly = isReadOnly;
             tedEnd.Properties.ReadOnly = isReadOnly;
             calValue.Properties.ReadOnly = isReadOnly;
+            txtText1.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
@@ -207,6 +189,7 @@ namespace SKG.DXF.Home.Catalog
                     More = tedStart.Time.ToString("HH:mm:ss"),
                     More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     More2 = calValue.Value.ToString("#"),
+                    Text1 = txtText1.Text,
                     Note = txtDescript.Text
                 };
 
@@ -232,6 +215,7 @@ namespace SKG.DXF.Home.Catalog
                     More = tedStart.Time.ToString("HH:mm:ss"),
                     More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     More2 = calValue.Value.ToString("#"),
+                    Text1 = txtText1.Text,
                     Note = txtDescript.Text
                 };
 
@@ -276,23 +260,6 @@ namespace SKG.DXF.Home.Catalog
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
         #endregion
 
         #region Properties
@@ -315,5 +282,6 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
+
     }
 }

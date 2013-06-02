@@ -65,6 +65,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cmdResetPass = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.cmdResetPass);
             this.dockPanel1_Container.Controls.Add(this.chkActive);
             this.dockPanel1_Container.Controls.Add(this.txtNote);
             this.dockPanel1_Container.Controls.Add(this.lblNote);
@@ -140,8 +142,8 @@
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActive.Properties.Appearance.Options.UseFont = true;
-            this.chkActive.Properties.Caption = "&Hoạt động";
-            this.chkActive.Size = new System.Drawing.Size(102, 25);
+            this.chkActive.Properties.Caption = "Đang &sử dụng";
+            this.chkActive.Size = new System.Drawing.Size(201, 25);
             this.chkActive.TabIndex = 22;
             // 
             // txtNote
@@ -185,9 +187,9 @@
             this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(842, 17);
+            this.lblInfo.Location = new System.Drawing.Point(734, 46);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(93, 84);
+            this.lblInfo.Size = new System.Drawing.Size(201, 26);
             this.lblInfo.TabIndex = 27;
             // 
             // txtPhone
@@ -196,7 +198,7 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.Properties.Appearance.Options.UseFont = true;
-            this.txtPhone.Size = new System.Drawing.Size(124, 26);
+            this.txtPhone.Size = new System.Drawing.Size(138, 26);
             this.txtPhone.TabIndex = 4;
             // 
             // dteBirth
@@ -237,7 +239,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtAddress.Size = new System.Drawing.Size(321, 26);
+            this.txtAddress.Size = new System.Drawing.Size(213, 26);
             this.txtAddress.TabIndex = 5;
             // 
             // labelControl3
@@ -356,7 +358,7 @@
             this.gridColumn11});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
-            this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
+            
             // 
             // gridColumn1
             // 
@@ -436,11 +438,22 @@
             // 
             // gridColumn11
             // 
-            this.gridColumn11.Caption = "Hoạt động";
+            this.gridColumn11.Caption = "Đang sử dụng";
             this.gridColumn11.FieldName = "Show";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 8;
+            // 
+            // cmdResetPass
+            // 
+            this.cmdResetPass.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdResetPass.Appearance.Options.UseFont = true;
+            this.cmdResetPass.Location = new System.Drawing.Point(856, 14);
+            this.cmdResetPass.Name = "cmdResetPass";
+            this.cmdResetPass.Size = new System.Drawing.Size(79, 23);
+            this.cmdResetPass.TabIndex = 28;
+            this.cmdResetPass.Text = "Reset pass";
+            this.cmdResetPass.Click += new System.EventHandler(this.cmdResetPass_Click);
             // 
             // FrmPol_User
             // 
@@ -513,5 +526,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
         private DevExpress.XtraEditors.CheckEdit chkActive;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraEditors.SimpleButton cmdResetPass;
     }
 }

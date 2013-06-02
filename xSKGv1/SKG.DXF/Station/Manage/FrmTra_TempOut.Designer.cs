@@ -307,7 +307,6 @@
             this.grvNotEnough.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNotEnough.OptionsView.EnableAppearanceOddRow = true;
             this.grvNotEnough.OptionsView.ShowFooter = true;
-            this.grvNotEnough.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // bandedGridColumn1
             // 
@@ -603,7 +602,6 @@
             this.grvTempOut.OptionsView.EnableAppearanceEvenRow = true;
             this.grvTempOut.OptionsView.EnableAppearanceOddRow = true;
             this.grvTempOut.OptionsView.ShowFooter = true;
-            this.grvTempOut.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
             // 
             // gridBand4
             // 

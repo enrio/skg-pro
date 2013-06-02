@@ -4,14 +4,13 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Create: 23/07/2012 22:50
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Linq;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -21,10 +20,11 @@ namespace SKG.DXF.Station.Sumary
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
     using DevExpress.XtraGrid.Views.BandedGrid;
 
-    public partial class FrmTra_SalesNormal : SKG.DXF.FrmInput
+    public partial class FrmTra_SalesNormal : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -139,29 +139,6 @@ namespace SKG.DXF.Station.Sumary
             base.PerformRefresh();
         }
 
-        protected override void PerformSave()
-        {
-            switch (_state)
-            {
-                case State.Add:
-                    if (InsertObject())
-                    {
-                        ResetInput(); PerformCancel();
-                    }
-                    break;
-
-                case State.Edit:
-                    if (UpdateObject())
-                    {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
-                    }
-                    break;
-            }
-
-            base.PerformSave();
-        }
-
         protected override bool UpdateObject()
         {
             try
@@ -221,24 +198,6 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmTra_Sales_Activated(object sender, EventArgs e)
         {
             PerformRefresh();

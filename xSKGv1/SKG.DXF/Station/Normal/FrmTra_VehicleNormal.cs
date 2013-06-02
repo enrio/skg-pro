@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Create: 23/07/2012 22:50
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
@@ -19,9 +19,10 @@ namespace SKG.DXF.Station.Normal
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_VehicleNormal : SKG.DXF.FrmInput
+    public partial class FrmTra_VehicleNormal : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -156,9 +157,8 @@ namespace SKG.DXF.Station.Normal
                     }
                     break;
             }
-            if (NumIn + "" != "") Close();
 
-            base.PerformSave();
+            if (NumIn + "" != "") Close();
         }
 
         protected override void ResetInput()
@@ -302,24 +302,6 @@ namespace SKG.DXF.Station.Normal
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmTra_VehicleNormal_Activated(object sender, EventArgs e)
         {
             lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();

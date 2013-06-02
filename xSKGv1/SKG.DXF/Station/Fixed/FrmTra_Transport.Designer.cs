@@ -45,6 +45,8 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.chkShow = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -55,6 +57,7 @@
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShow.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // dockManager1
@@ -83,6 +86,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.chkShow);
             this.dockPanel1_Container.Controls.Add(this.txtDescript);
             this.dockPanel1_Container.Controls.Add(this.labelControl3);
             this.dockPanel1_Container.Controls.Add(this.txtName);
@@ -94,20 +98,20 @@
             // 
             // txtDescript
             // 
-            this.txtDescript.Location = new System.Drawing.Point(562, 7);
+            this.txtDescript.Location = new System.Drawing.Point(697, 7);
             this.txtDescript.Name = "txtDescript";
             this.txtDescript.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescript.Properties.Appearance.Options.UseFont = true;
             this.txtDescript.Size = new System.Drawing.Size(243, 26);
-            this.txtDescript.TabIndex = 3;
+            this.txtDescript.TabIndex = 4;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(496, 10);
+            this.labelControl3.Location = new System.Drawing.Point(631, 10);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(60, 19);
-            this.labelControl3.TabIndex = 2;
+            this.labelControl3.TabIndex = 3;
             this.labelControl3.Text = "Ghi chú:";
             // 
             // txtName
@@ -116,7 +120,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(394, 26);
+            this.txtName.Size = new System.Drawing.Size(363, 26);
             this.txtName.TabIndex = 1;
             // 
             // lblName
@@ -291,13 +295,14 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn6,
             this.gridColumn5});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
-            this.grvMain.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.grvMain_CustomDrawRowIndicator);
+            
             // 
             // gridColumn1
             // 
@@ -312,7 +317,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
-            this.gridColumn2.Width = 50;
+            this.gridColumn2.Width = 46;
             // 
             // gridColumn3
             // 
@@ -329,7 +334,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Text", "{0:#,0} đơn vị")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 150;
+            this.gridColumn4.Width = 138;
             // 
             // gridColumn5
             // 
@@ -337,8 +342,27 @@
             this.gridColumn5.FieldName = "Note";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 2;
-            this.gridColumn5.Width = 725;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 606;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.Caption = "Có thuê phòng vé";
+            this.gridColumn6.FieldName = "Show";
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 135;
+            // 
+            // chkShow
+            // 
+            this.chkShow.Location = new System.Drawing.Point(465, 7);
+            this.chkShow.Name = "chkShow";
+            this.chkShow.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkShow.Properties.Appearance.Options.UseFont = true;
+            this.chkShow.Properties.Caption = "Có thuê phòng vé";
+            this.chkShow.Size = new System.Drawing.Size(160, 24);
+            this.chkShow.TabIndex = 2;
             // 
             // FrmTra_Transport
             // 
@@ -361,6 +385,7 @@
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkShow.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -383,5 +408,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.TextEdit txtName;
         private DevExpress.XtraEditors.LabelControl lblName;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private DevExpress.XtraEditors.CheckEdit chkShow;
     }
 }

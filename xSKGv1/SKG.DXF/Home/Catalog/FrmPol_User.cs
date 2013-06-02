@@ -5,23 +5,25 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 29/07/2012 10:27
+ * Update: 02/06/2013 19:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Catalog
 {
+    using BLL;
     using SKG.Plugin;
     using SKG.Extend;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
-    public partial class FrmPol_User : SKG.DXF.FrmInput
+    public partial class FrmPol_User : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -113,32 +115,6 @@ namespace SKG.DXF.Home.Catalog
             ReadOnlyControl();
 
             base.PerformRefresh();
-        }
-
-        protected override void PerformSave()
-        {
-            switch (_state)
-            {
-                case State.Add:
-                    if (InsertObject())
-                    {
-                        ResetInput(); LoadData();
-                    }
-                    break;
-
-                case State.Edit:
-                    if (UpdateObject())
-                    {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-
-            base.PerformSave();
         }
 
         protected override void ResetInput()
@@ -315,22 +291,16 @@ namespace SKG.DXF.Home.Catalog
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        private void cmdResetPass_Click(object sender, EventArgs e)
         {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
+            var bll = new Pol_UserBLL();
+
+            if (bll.ChangePass("@123456"))
+                XtraMessageBox.Show(STR_SUCC, STR_TITLE,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                XtraMessageBox.Show(STR_ERR, STR_TITLE,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         #endregion
 
@@ -354,9 +324,11 @@ namespace SKG.DXF.Home.Catalog
         private const string STR_AGE = "Phải 18 tuổi trở lên!";
         private const string STR_PASS = "Mật khẩu 6 kí tự trở lên!";
 
+        private const string STR_ERR = "Không đổi được mật khẩu!";
+        private const string STR_SUCC = "Đổi mật khẩu thành công!";
+
         private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
         private const string STR_CHOICE_E = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
-
     }
 }

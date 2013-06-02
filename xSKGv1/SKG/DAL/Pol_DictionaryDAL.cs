@@ -5,20 +5,21 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 09/08/2013 20:32
- * Update: 09/08/2013 20:32
+ * Update: 01/06/2013 05:58
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Collections.Generic;
 
 namespace SKG.DAL
 {
     using Entities;
+
     using SKG.Extend;
-    using System.Data;
 
     /// <summary>
     /// Policy - Pol_Dictionary accessing
@@ -68,6 +69,7 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
@@ -84,6 +86,7 @@ namespace SKG.DAL
             {
                 var gui = new Guid();
                 var ok = Guid.TryParse(code, out gui);
+
                 if (ok) return _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == gui);
                 return _db.Pol_Dictionarys.SingleOrDefault(s => s.Code == code);
             }
@@ -124,6 +127,7 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
                 if (obj != null) res = res.Where(s => s.Code == obj + "");
                 if (take > 0) res = res.Skip(skip).Take(take);
                 return res.ToDataTable();
@@ -173,6 +177,7 @@ namespace SKG.DAL
             {
                 var o = (Pol_Dictionary)obj;
                 var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == o.Id);
+
                 res.ParentId = o.ParentId;
                 res.Code = o.Code;
                 res.Type = o.Type;
@@ -190,6 +195,7 @@ namespace SKG.DAL
                 res.More3 = o.More3;
                 res.Order = o.Order;
                 res.Show = o.Show;
+
                 return _db.SaveChanges();
             }
             catch { return null; }
@@ -231,7 +237,7 @@ namespace SKG.DAL
             {
                 var a = type + "";
                 var res = from s in _db.Pol_Dictionarys
-                          where s.Type == a && s.Show == true
+                          where s.Type == a
                           orderby s.Order
                           select new
                           {
@@ -255,6 +261,7 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
@@ -269,9 +276,9 @@ namespace SKG.DAL
         {
             try
             {
-
                 var res = from s in _db.Pol_Dictionarys
-                          where s.Type == "ROOT" && s.Show == true && s.Code != "ROLE" && s.Code != "GROUP"
+                          where s.Type == "ROOT" && s.Show == true
+                          && s.Code != "ROLE" && s.Code != "GROUP"
                           orderby s.Order
                           select new
                           {
@@ -295,6 +302,7 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
                 return res.ToDataTable();
             }
             catch { return _tb; }

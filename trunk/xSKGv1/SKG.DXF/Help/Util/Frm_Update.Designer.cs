@@ -82,7 +82,7 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(229, 16);
             this.labelControl1.TabIndex = 3;
-            this.labelControl1.Text = "Bản quyền © SKG 2012";
+            this.labelControl1.Text = "Bản quyền © SKG 2013";
             // 
             // progressBarControl1
             // 

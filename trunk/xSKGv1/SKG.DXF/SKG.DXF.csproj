@@ -122,6 +122,7 @@
     <Compile Include="Help\Infor\Level2.cs" />
     <Compile Include="Help\Level1.cs" />
     <Compile Include="Help\Util\Level2.cs" />
+    <Compile Include="Help\Util\VersionInfo.cs" />
     <Compile Include="Home\Catalog\FrmPol_Dictionary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -445,12 +446,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Help\Infor\Frm_About.resx">
-      <DependentUpon>Frm_About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Help\Util\Frm_Update.resx">
-      <DependentUpon>Frm_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home\Catalog\FrmPol_Dictionary.resx">
       <DependentUpon>FrmPol_Dictionary.cs</DependentUpon>

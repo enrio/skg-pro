@@ -5,34 +5,37 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 25/07/2012 00:16
+ * Update: 02/06/2013 08:52
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Drawing;
+using System.Reflection;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Collections.Generic;
 
 namespace SKG.DXF
 {
     using BLL;
-    using System.IO;
     using Home.Sytem;
     using DAL.Entities;
-    using System.Drawing;
+
     using DevExpress.Utils;
-    using System.Reflection;
-    using System.Diagnostics;
     using DevExpress.XtraBars;
-    using System.Windows.Forms;
     using DevExpress.XtraEditors;
     using DevExpress.XtraTreeList;
+    using DevExpress.Utils.Drawing;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Docking;
     using DevExpress.XtraGrid.Views.Grid;
     using DevExpress.XtraTreeList.Columns;
     using DevExpress.XtraGrid.Views.BandedGrid;
+    using DevExpress.XtraTreeList.StyleFormatConditions;
 
     /// <summary>
     /// Extension of methods for presentation layer
@@ -43,6 +46,36 @@ namespace SKG.DXF
         /// Main form ribbon
         /// </summary>
         private static FrmMain _frmMain = (FrmMain)Global.Parent;
+
+        #region Numbered
+        /// <summary>
+        /// Numbered on GridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public static void CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (e.Info.IsRowIndicator && e.RowHandle >= 0)
+            {
+                e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
+                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+            }
+        }
+
+        /// <summary>
+        /// Numbered on TreeList
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public static void CustomDrawNodeIndicator(object sender, CustomDrawNodeIndicatorEventArgs e)
+        {
+            var tree = (TreeList)sender;
+            var args = (IndicatorObjectInfoArgs)e.ObjectArgs;
+
+            args.DisplayText = (tree.GetVisibleIndexByNode(e.Node) + 1).ToString();
+            e.ImageIndex = -1;
+        }
+        #endregion
 
         #region Form methods
         /// <summary>
@@ -284,14 +317,13 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Set grid view standard
+        /// Set standard BandedGridView
         /// </summary>
         /// <param name="grv">BandedGridView</param>
-        public static void SetStandard(this BandedGridView grv)
+        public static void SetStandard(this BandedGridView grv, int width = 40)
         {
             try
             {
-                grv.Columns["No_"].Visible = false; // hide No_ column
                 grv.OptionsView.ShowAutoFilterRow = true;
                 grv.OptionsView.ColumnAutoWidth = false;
 
@@ -300,7 +332,10 @@ namespace SKG.DXF
                 grv.Appearance.BandPanel.TextOptions.HAlignment = HorzAlignment.Center;
                 grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
                 grv.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-                grv.IndicatorWidth = 50;
+
+                grv.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(CustomDrawRowIndicator);
+                grv.IndicatorWidth = width;
+                grv.Columns["No_"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -312,21 +347,50 @@ namespace SKG.DXF
         }
 
         /// <summary>
-        /// Set grid view standard
+        /// Set standard GridView
         /// </summary>
         /// <param name="grv">GridView</param>
-        public static void SetStandard(this GridView grv)
+        public static void SetStandard(this GridView grv, int width = 40)
         {
             try
             {
-                grv.Columns["No_"].Visible = false; // hide No_ column
                 grv.OptionsView.ShowAutoFilterRow = true;
                 grv.OptionsBehavior.Editable = false;
                 grv.OptionsView.ColumnAutoWidth = false;
 
                 grv.Appearance.HeaderPanel.Options.UseTextOptions = true;
                 grv.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
-                grv.IndicatorWidth = 50;
+
+                grv.CustomDrawRowIndicator += new RowIndicatorCustomDrawEventHandler(CustomDrawRowIndicator);
+                grv.IndicatorWidth = width;
+                grv.Columns["No_"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                XtraMessageBox.Show(ex.Message);
+#endif
+                return;
+            }
+        }
+
+        /// <summary>
+        /// Set standard TreeList
+        /// </summary>
+        /// <param name="trl">TreeList</param>
+        public static void SetStandard(this TreeList trl, int width = 40)
+        {
+            try
+            {
+                trl.OptionsView.ShowAutoFilterRow = true;
+                trl.OptionsBehavior.Editable = false;
+
+                trl.Appearance.HeaderPanel.Options.UseTextOptions = true;
+                trl.Appearance.HeaderPanel.TextOptions.HAlignment = HorzAlignment.Center;
+
+                trl.CustomDrawNodeIndicator += new CustomDrawNodeIndicatorEventHandler(CustomDrawNodeIndicator);
+                trl.IndicatorWidth = width;
+                trl.Columns["No_"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -601,34 +665,6 @@ namespace SKG.DXF
                     frm.ShowDialog();
                     return;
                 }
-                //else if (n == typeof(Help.Util.Frm_Update).FullName)
-                //{
-                //    Process.Start("SKG.Update.exe");
-                //    Application.ExitThread();
-                //    Application.Exit();
-
-                //    //// Prepare the process to run
-                //    //ProcessStartInfo start = new ProcessStartInfo();
-
-                //    //// Enter in the command line arguments, everything you would enter after the executable name itself
-                //    //start.Arguments = "";
-
-                //    //// Enter the executable to run, including the complete path
-                //    //start.FileName = "";
-
-                //    //// Do you want to show a console window?
-                //    //start.WindowStyle = ProcessWindowStyle.Hidden;
-                //    //start.CreateNoWindow = true;
-
-                //    //// Run the external process & wait for it to finish
-                //    //using (Process proc = Process.Start(start))
-                //    //{
-                //    //    proc.WaitForExit();
-
-                //    //    // Retrieve the app's exit code
-                //    //    var exitCode = proc.ExitCode;
-                //    //}
-                //}
 
                 var f = (Form)e.Item.Tag;
                 if (f.GetType().BaseType == typeof(FrmInput))
@@ -674,7 +710,8 @@ namespace SKG.DXF
             _frmMain.ribbon.LoadMenu(GetPlugins);
 
             VisibleMenuParentForm(_frmMain);
-            _frmMain.bsiUser.Caption = String.Format("{0} - {1}", Global.Session.User.Name.ToUpper(), Global.Session.User.Note);
+            _frmMain.bsiUser.Caption = String.Format("{0} - {1}",
+                Global.Session.User.Name.ToUpper(), Global.Session.User.Note);
 
             var menuz1 = _frmMain.ribbon.FindMenuz(typeof(Home.Level1).FullName);
             var menuz2 = menuz1.FindMenuz(typeof(Home.Sytem.Level2).FullName);
@@ -735,5 +772,27 @@ namespace SKG.DXF
             catch (Exception ex) { XtraMessageBox.Show(ex.Message, _frmMain.Text); }
         }
         #endregion
+
+        /// <summary>
+        /// Format bold, color row parent
+        /// </summary>
+        /// <param name="trl">TreeList</param>
+        /// <param name="font">Font</param>
+        /// <param name="col">Colum name</param>
+        public static void FormatRows(this TreeList trl, Font font, string col)
+        {
+            var sfc = new StyleFormatCondition(DevExpress.XtraGrid.FormatConditionEnum.Equal,
+                trl.Columns[col], null, true, true, true);
+
+            sfc.Appearance.BackColor = Color.Orange;
+            sfc.Appearance.BackColor2 = Color.Yellow;
+            sfc.Appearance.GradientMode = LinearGradientMode.BackwardDiagonal;
+
+            var f = new Font(font, FontStyle.Bold);
+            sfc.Appearance.Font = f;
+            sfc.Appearance.ForeColor = Color.Blue;
+
+            trl.FormatConditions.Add(sfc);
+        }
     }
 }

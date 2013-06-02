@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 28/05/2013 22:48
+ * Create: 23/07/2012 22:50
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
@@ -18,12 +18,13 @@ namespace SKG.DXF.Station.Manage
 {
     using SKG.Extend;
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Cổng ra
     /// </summary>
-    public partial class FrmTra_GateOut : SKG.DXF.FrmInput
+    public partial class FrmTra_GateOut : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -221,6 +222,9 @@ namespace SKG.DXF.Station.Manage
                         var rpt = new Report.Rpt_Receipt();
                         var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                         var dtr = tbl.NewRow();
+
+                        rpt.parUnit.Value = Global.Title2;
+                        rpt.parAddress.Value = Global.Address;
 
                         dtr["Seri"] = String.Format("{0}/{1}", detail.Order, Global.Session.Current.Month);
                         dtr["Date"] = Global.Session.Current;

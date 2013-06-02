@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Create: 25/01/2012 21:07
+ * Update: 02/06/2013 21:07
  * Status: OK
  */
 #endregion
@@ -19,9 +19,10 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using SKG.Extend;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_Province : SKG.DXF.FrmInput
+    public partial class FrmTra_Province : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -124,32 +125,6 @@ namespace SKG.DXF.Station.Fixed
             }
 
             base.PerformRefresh();
-        }
-
-        protected override void PerformSave()
-        {
-            switch (_state)
-            {
-                case State.Add:
-                    if (InsertObject())
-                    {
-                        ResetInput(); LoadData();
-                    }
-                    break;
-
-                case State.Edit:
-                    if (UpdateObject())
-                    {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-
-            base.PerformSave();
         }
 
         protected override void ResetInput()
@@ -293,24 +268,6 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmPol_Dictionary_Load(object sender, EventArgs e)
         {
             lokList.Properties.DataSource = _bll.Pol_Dictionary.SelectForFixed();

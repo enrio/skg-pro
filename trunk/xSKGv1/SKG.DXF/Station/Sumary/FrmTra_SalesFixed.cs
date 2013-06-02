@@ -4,14 +4,13 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 28/05/2013 22:48
+ * Create: 23/07/2012 22:50
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -19,9 +18,10 @@ namespace SKG.DXF.Station.Sumary
 {
     using SKG.Extend;
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
-    public partial class FrmTra_SalesFixed : SKG.DXF.FrmInput
+    public partial class FrmTra_SalesFixed : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -191,24 +191,6 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmTra_Sales_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -264,7 +246,7 @@ namespace SKG.DXF.Station.Sumary
                 var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
                 var dtr = tbl.NewRow();
 
-                rpt.parUnit.Value = Global.Title1;
+                rpt.parUnit.Value = Global.Title2;
                 rpt.parAddress.Value = Global.Address;
 
                 var seat = detail.Seats ?? 0;

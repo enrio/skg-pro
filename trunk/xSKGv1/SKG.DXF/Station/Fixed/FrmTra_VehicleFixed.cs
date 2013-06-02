@@ -4,14 +4,13 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 22:50
- * Update: 10/11/2012 18:07
+ * Create: 25/01/2012 21:07
+ * Update: 02/06/2013 21:07
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Linq;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -20,10 +19,11 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
 
-    public partial class FrmTra_VehicleFixed : SKG.DXF.FrmInput
+    public partial class FrmTra_VehicleFixed : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -155,28 +155,6 @@ namespace SKG.DXF.Station.Fixed
             ReadOnlyControl();
 
             base.PerformRefresh();
-        }
-
-        protected override void PerformSave()
-        {
-            switch (_state)
-            {
-                case State.Add:
-                    if (InsertObject())
-                    {
-                        ResetInput(); LoadData();
-                    }
-                    break;
-
-                case State.Edit:
-                    if (UpdateObject())
-                    {
-                        ChangeStatus(); ReadOnlyControl();
-                        PerformRefresh();
-                    }
-                    break;
-            }
-            base.PerformSave();
         }
 
         protected override void ResetInput()
@@ -443,24 +421,6 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Kind == ButtonPredefines.Ellipsis)

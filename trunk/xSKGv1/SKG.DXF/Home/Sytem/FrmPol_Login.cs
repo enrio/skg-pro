@@ -5,25 +5,26 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 30/07/2012 20:27
- * Status: None
+ * Update: 02/06/2013 08:10
+ * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Sytem
 {
     using BLL;
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Menuz - Login
     /// </summary>
-    public partial class FrmPol_Login : SKG.DXF.FrmMenuz
+    public partial class FrmPol_Login : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz

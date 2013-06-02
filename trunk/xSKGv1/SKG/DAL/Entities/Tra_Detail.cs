@@ -232,6 +232,20 @@ namespace SKG.DAL.Entities
             var span = DateOut.Value - dateIn;
             Parked = span.Days * Global.Park;
 
+            if (Vehicle.Transport.Show) // các xe có phòng vé đặt trong bến
+            {
+                if (Vehicle.Tariff.Group.Parent.Parent.Code == "REGION_2") // các tuyến miền Nam
+                {
+                    Rose1 = Global.RoseSouth1;
+                    Rose2 = Global.RoseSouth2;
+                }
+                else
+                {
+                    Rose1 = Global.RoseNorth1;
+                    Rose2 = Global.RoseNorth2;
+                }
+            }
+
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
 

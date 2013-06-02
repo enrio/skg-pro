@@ -5,14 +5,14 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 24/07/2012 22:02
+ * Update: 02/06/2013 21:53
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.BLL
 {
@@ -39,7 +39,7 @@ namespace SKG.BLL
 
                 pass = Coder.Encode(pass);
 
-                if (sss.User.Pass != pass) return null;
+                if (sss.User.Pass != pass || !sss.User.Show) return null;
                 return sss;
             }
             catch { return null; }

@@ -4,8 +4,8 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 08/11/2012 19:52
+ * Create: 23/07/2012 22:50
+ * Update: 02/06/2013 20:32
  * Status: OK
  */
 #endregion
@@ -17,12 +17,13 @@ using System.Collections.Generic;
 namespace SKG.DXF.Station.Manage
 {
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Danh sách xe tạm ra bến
     /// </summary>
-    public partial class FrmTra_TempOut : SKG.DXF.FrmInput
+    public partial class FrmTra_TempOut : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -171,24 +172,6 @@ namespace SKG.DXF.Station.Manage
         #endregion
 
         #region Events
-        /// <summary>
-        /// Numbered
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void grvMain_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
-        {
-            if (e.Info.IsRowIndicator)
-            {
-                if (e.RowHandle < 0)
-                {
-                    return;
-                }
-                e.Info.DisplayText = "" + (e.RowHandle + 1);
-                e.Handled = false;
-            }
-        }
-
         private void FrmTra_InDepot_Activated(object sender, EventArgs e)
         {
             PerformRefresh();

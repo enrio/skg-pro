@@ -5,22 +5,23 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 10/11/2012 21:48
- * Update: 10/11/2012 21:48
+ * Update: 02/06/2013 07:12
  * Status: OK
  */
 #endregion
 
 using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace SKG.DXF.Help.Util
 {
     using SKG.Hasher;
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
-    public partial class Frm_License : SKG.DXF.FrmMenuz
+    public partial class Frm_License : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz

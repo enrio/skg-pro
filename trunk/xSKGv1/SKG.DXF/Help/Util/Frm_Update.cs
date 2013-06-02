@@ -5,26 +5,28 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 10/11/2012 21:48
- * Update: 10/11/2012 21:48
+ * Update: 02/06/2013 07:12
  * Status: OK
  */
 #endregion
 
 using System;
+using System.Net;
+using System.Xml;
+using System.Linq;
+using System.Reflection;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 
 namespace SKG.DXF.Help.Util
 {
-    using System.Net;
-    using System.Xml;
     using SKG.Plugin;
-    using System.Reflection;
-    using System.Diagnostics;
+
     using DevExpress.XtraEditors;
 
-    public partial class Frm_Update : SKG.DXF.FrmMenuz
+    public partial class Frm_Update : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz
@@ -181,17 +183,5 @@ namespace SKG.DXF.Help.Util
         private string STR_PATH = Application.StartupPath + @"\";
         private const string STR_URL = "https://xskgv1.googlecode.com/svn/trunk/DUL/NTG/Update/";
         #endregion
-    }
-
-    /// <summary>
-    /// This struct will contain the info from the xml file
-    /// </summary>
-    public struct VersionInfo
-    {
-        public bool error;
-        public Version latestVersion;
-        public string installerUrl;
-        public string homeUrl;
-        public string date;
     }
 }

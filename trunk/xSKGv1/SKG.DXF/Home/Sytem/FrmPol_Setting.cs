@@ -5,28 +5,28 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 29/07/2012 10:27
- * Update: 30/07/2012 20:27
- * Status: None
+ * Update: 02/06/2013 08:10
+ * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
+using System.Configuration;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Sytem
 {
     using SKG.Datax;
     using SKG.Plugin;
     using SKG.Extend;
-    using System.Configuration;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
     /// Menuz - Setting
     /// </summary>
-    public partial class FrmPol_Setting : SKG.DXF.FrmMenuz
+    public partial class FrmPol_Setting : FrmMenuz
     {
         #region Override plugin
         public override Menuz Menuz
@@ -84,8 +84,8 @@ namespace SKG.DXF.Home.Sytem
         #region Events
         private void FrmSetting_Load(object sender, EventArgs e)
         {
-            _config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var a = _config.ConnectionStrings.ConnectionStrings[1];
+            _cfg = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var a = _cfg.ConnectionStrings.ConnectionStrings[1];
             var cfg = a.ConnectionString.GetConfig();
 
             if (cfg != null)
@@ -119,15 +119,13 @@ namespace SKG.DXF.Home.Sytem
         {
             if (!IsValid) return;
 
-            _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
-            _config.Save(ConfigurationSaveMode.Modified);
+            _cfg.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
+            _cfg.Save(ConfigurationSaveMode.Modified);
 
-            ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
+            ConfigurationManager.RefreshSection(_cfg.ConnectionStrings.SectionInformation.Name);
             Properties.Settings.Default.Reload();
 
             Sample.CreateData(true, !chkSQLCE.Checked);
-
-            //XtraMessageBox.Show(STR_TEMPLATE, STR_SETUP);
             Extend.Login();
         }
 
@@ -137,13 +135,12 @@ namespace SKG.DXF.Home.Sytem
 
             try
             {
-                _config.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
-                _config.Save(ConfigurationSaveMode.Modified);
+                _cfg.ConnectionStrings.ConnectionStrings[1] = ConnectionStringSetting;
+                _cfg.Save(ConfigurationSaveMode.Modified);
 
-                ConfigurationManager.RefreshSection(_config.ConnectionStrings.SectionInformation.Name);
+                ConfigurationManager.RefreshSection(_cfg.ConnectionStrings.SectionInformation.Name);
                 Properties.Settings.Default.Reload();
 
-                //XtraMessageBox.Show(STR_SAVE, STR_SETUP);
                 Extend.Login();
             }
             catch { XtraMessageBox.Show(STR_NOT_FOUND, STR_SETUP); }
@@ -191,7 +188,7 @@ namespace SKG.DXF.Home.Sytem
             {
                 if (cbbDb.SelectedItem + "" == STR_FIND)
                 {
-                    var a = ConnectionStringSetting.ConnectionString.Replace("xSKGv1", "master");
+                    var a = ConnectionStringSetting.ConnectionString.Replace(_dbName, "master");
                     using (var db = new Server(a))
                     {
                         var tbl = db.GetDatabases();
@@ -219,17 +216,23 @@ namespace SKG.DXF.Home.Sytem
         /// <summary>
         /// This configuration
         /// </summary>
-        Configuration _config;
+        Configuration _cfg;
 
         /// <summary>
         /// Connection string for SQL Server
         /// </summary>
-        private ConnectionStringSettings _a = new ConnectionStringSettings("xSKGv1", @"Data Source=.;Initial Catalog=xSKGv1;Integrated Security=True", "System.Data.SqlClient");
+        private ConnectionStringSettings _a =
+            new ConnectionStringSettings(_dbName,
+                String.Format(@"Data Source=.;Initial Catalog={0};Integrated Security=True", _dbName),
+                "System.Data.SqlClient");
 
         /// <summary>
         /// Connection string for SQL CE 4.0
         /// </summary>
-        private ConnectionStringSettings _b = new ConnectionStringSettings("xSKGv1", @"Data Source=|DataDirectory|\xSKGv1.sdf", "System.Data.SqlServerCe.4.0");
+        private ConnectionStringSettings _b =
+            new ConnectionStringSettings(_dbName,
+                String.Format(@"Data Source=|DataDirectory|\{0}.sdf", _dbName),
+                "System.Data.SqlServerCe.4.0");
 
         /// <summary>
         /// Get string connect
@@ -246,7 +249,7 @@ namespace SKG.DXF.Home.Sytem
                 var data = cbbDb.Text;
                 var str = "";
 
-                if (data == "" || data == STR_FIND) data = "xSKGv1";
+                if (data == "" || data == STR_FIND) data = _dbName;
                 if (cbbAuthen.Text == STR_WIND) str = String.Format(Server.STR_TRU, sver, data);
                 else str = String.Format(Server.STR_SEC, sver, data, user, pass);
 
@@ -264,7 +267,7 @@ namespace SKG.DXF.Home.Sytem
                 if (chkSQLCE.Checked) return true;
                 else
                 {
-                    var b = a.Replace("xSKGv1", "master");
+                    var b = a.Replace(_dbName, "master");
                     if (!b.CheckSqlConnect())
                     {
                         XtraMessageBox.Show(STR_NOCONNECT, STR_SETUP);
@@ -278,6 +281,7 @@ namespace SKG.DXF.Home.Sytem
         #endregion
 
         #region Fields
+        static string _dbName = Global.DbName;
         #endregion
 
         #region Constants
@@ -289,11 +293,6 @@ namespace SKG.DXF.Home.Sytem
         private const string STR_SETUP = "Cài đặt";
         private const string STR_NOCONNECT = "Không kết nối được server!";
         private const string STR_NOT_FOUND = "Không tìm thấy file cấu hình!";
-
-        /*private const string STR_TEMPLATE = "Đã tạo xong dữ liễu mẫu!";
-        private const string STR_SET_TEMP = "Cài dữ liệu mẫu không?";
-        private const string STR_EXISTS = "Cơ sở dữ liệu đã có!";
-        private const string STR_SAVE = "Đã lưu cấu hình!\nHãy khởi động lại hệ thống...";*/
         #endregion
     }
 }

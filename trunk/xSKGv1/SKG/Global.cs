@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 10/11/2012 21:48
- * Update: 10/11/2012 21:48
+ * Update: 02/06/2013 07:51
  * Status: OK
  */
 #endregion
@@ -258,6 +258,54 @@ namespace SKG
         public static string AuditNumber
         {
             get { return _bll.GetAuditNumber(); }
+        }
+
+        /// <summary>
+        /// Rose per seat for north region
+        /// </summary>
+        public static int RoseNorth1
+        {
+            get { return _bll.GetRoseB(); }
+        }
+
+        /// <summary>
+        /// Rose per bed for north region
+        /// </summary>
+        public static int RoseNorth2
+        {
+            get { return RoseNorth1 * 130 / 100; }
+        }
+
+        /// <summary>
+        /// Rose per seat for south region
+        /// </summary>
+        public static int RoseSouth1
+        {
+            get { return _bll.GetRoseN(); }
+        }
+
+        /// <summary>
+        /// Rose per bed for south region
+        /// </summary>
+        public static int RoseSouth2
+        {
+            get { return RoseSouth1 * 130 / 100; }
+        }
+
+        /// <summary>
+        /// Default database name
+        /// </summary>
+        public static string DbName
+        {
+            get { return _bll.GetDbName(); }
+        }
+
+        /// <summary>
+        /// Default URL update
+        /// </summary>
+        public static string URL
+        {
+            get { return _bll.GetURL(); }
         }
         #endregion
     }

@@ -4,26 +4,28 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 29/07/2012 10:27
- * Update: 30/07/2012 20:27
- * Status: None
+ * Create: 10/11/2012 21:48
+ * Update: 02/06/2012 07:54
+ * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.DXF.Home.Sytem
 {
     using BLL;
     using SKG.Plugin;
+
     using DevExpress.XtraEditors;
 
     /// <summary>
-    /// Menuz - Login
+    /// Menuz - Change password
     /// </summary>
-    public partial class FrmPol_ChangePass : SKG.DXF.FrmInput
+    public partial class FrmPol_ChangePass : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
@@ -73,18 +75,24 @@ namespace SKG.DXF.Home.Sytem
                 var bll = new Pol_UserBLL();
                 if (bll.ChangePass(txtPass.Text))
                 {
-                    XtraMessageBox.Show(STR_SUCC, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    XtraMessageBox.Show(STR_SUCC, STR_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     Extend.Login();
                 }
                 else
                 {
-                    XtraMessageBox.Show(STR_ERR, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show(STR_ERR, STR_TITLE,
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                     txtPass.Focus();
                 }
             }
             else
             {
-                XtraMessageBox.Show(STR_CONFIRM, STR_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(STR_CONFIRM, STR_TITLE,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 txtConfirm.Focus();
             }
         }

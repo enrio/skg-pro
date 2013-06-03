@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Sumary
     using SKG.Plugin;
 
     using DevExpress.XtraEditors;
+    using DevExpress.XtraReports.UI;
 
     public partial class FrmTra_SalesFixed : FrmInput
     {

@@ -58,7 +58,7 @@ namespace SKG.DXF
             if (e.Info.IsRowIndicator && e.RowHandle >= 0)
             {
                 e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
-                e.Info.DisplayText = (e.RowHandle + 1).ToString();
+                e.Info.DisplayText = (e.RowHandle + 1) + "";
             }
         }
 
@@ -72,7 +72,8 @@ namespace SKG.DXF
             var tree = (TreeList)sender;
             var args = (IndicatorObjectInfoArgs)e.ObjectArgs;
 
-            args.DisplayText = (tree.GetVisibleIndexByNode(e.Node) + 1).ToString();
+            var tmp = tree.GetVisibleIndexByNode(e.Node);
+            args.DisplayText = (tmp + 1) + "";
             e.ImageIndex = -1;
         }
         #endregion

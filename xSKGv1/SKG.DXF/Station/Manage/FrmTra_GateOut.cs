@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Manage
     using SKG.Plugin;
 
     using DevExpress.XtraEditors;
+    using DevExpress.XtraReports.UI;
 
     /// <summary>
     /// Cổng ra

@@ -167,31 +167,14 @@ namespace SKG
         }
         #endregion
 
-        #region Coefficient
+        #region Shifts
         /// <summary>
-        /// Get unit cost of night parking
+        /// Get cuts from
         /// </summary>
         /// <returns></returns>
-        public static int Park
+        public static DateTime CutsFr
         {
-            get { return _bll.GetPark(); }
-        }
-
-        /// <summary>
-        /// Get park from
-        /// </summary>
-        public static DateTime ParkFrom
-        {
-            get { return _bll.GetParkFrom(); }
-        }
-
-        /// <summary>
-        /// Get delay
-        /// </summary>
-        /// <returns></returns>
-        public static int Delay
-        {
-            get { return _bll.GetDelay(); }
+            get { return _bll.GetCutsFr(); }
         }
 
         /// <summary>
@@ -200,7 +183,7 @@ namespace SKG
         /// <returns></returns>
         public static DateTime PeakFr
         {
-            get { return _bll.GetPeakFrom(); }
+            get { return _bll.GetPeakFr(); }
         }
 
         /// <summary>
@@ -212,6 +195,124 @@ namespace SKG
             get { return _bll.GetPeakTo(); }
         }
 
+        /// <summary>
+        /// Get shift 1 from
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime Shift1Fr
+        {
+            get { return _bll.GetShift1Fr(); }
+        }
+
+        /// <summary>
+        /// Get shift 1 to
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime Shift1To
+        {
+            get { return _bll.GetShift1To(); }
+        }
+
+        /// <summary>
+        /// Get shift 2 from
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime Shift2Fr
+        {
+            get { return _bll.GetShift2Fr(); }
+        }
+
+        /// <summary>
+        /// Get shift 2 to
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime Shift2To
+        {
+            get { return _bll.GetShift2To(); }
+        }
+        #endregion
+
+        #region Coefficient
+        /// <summary>
+        /// Get delay
+        /// </summary>
+        /// <returns></returns>
+        public static int Delay
+        {
+            get { return _bll.GetDelay(); }
+        }
+
+        /// <summary>
+        /// Get park from
+        /// </summary>
+        public static DateTime ParkFr
+        {
+            get { return _bll.GetParkFr(); }
+        }
+
+        /// <summary>
+        /// Get unit cost of night parking
+        /// </summary>
+        /// <returns></returns>
+        public static int Park
+        {
+            get { return _bll.GetPark(); }
+        }
+        #endregion
+
+        #region System
+        /// <summary>
+        /// Default database name
+        /// </summary>
+        public static string DbName
+        {
+            get { return _bll.GetDbName(); }
+        }
+
+        /// <summary>
+        /// Default URL update
+        /// </summary>
+        public static string URL
+        {
+            get { return _bll.GetURL(); }
+        }
+        #endregion
+
+        #region Bonus
+        /// <summary>
+        /// Rose per seat for north region
+        /// </summary>
+        public static int RoseNorth1
+        {
+            get { return _bll.GetRoseNorth(); }
+        }
+
+        /// <summary>
+        /// Rose per bed for north region
+        /// </summary>
+        public static int RoseNorth2
+        {
+            get { return RoseNorth1 * 130 / 100; }
+        }
+
+        /// <summary>
+        /// Rose per seat for south region
+        /// </summary>
+        public static int RoseSouth1
+        {
+            get { return _bll.GetRoseSouth(); }
+        }
+
+        /// <summary>
+        /// Rose per bed for south region
+        /// </summary>
+        public static int RoseSouth2
+        {
+            get { return RoseSouth1 * 130 / 100; }
+        }
+        #endregion
+
+        #region Title
         /// <summary>
         /// Address
         /// </summary>
@@ -258,54 +359,6 @@ namespace SKG
         public static string AuditNumber
         {
             get { return _bll.GetAuditNumber(); }
-        }
-
-        /// <summary>
-        /// Rose per seat for north region
-        /// </summary>
-        public static int RoseNorth1
-        {
-            get { return _bll.GetRoseB(); }
-        }
-
-        /// <summary>
-        /// Rose per bed for north region
-        /// </summary>
-        public static int RoseNorth2
-        {
-            get { return RoseNorth1 * 130 / 100; }
-        }
-
-        /// <summary>
-        /// Rose per seat for south region
-        /// </summary>
-        public static int RoseSouth1
-        {
-            get { return _bll.GetRoseN(); }
-        }
-
-        /// <summary>
-        /// Rose per bed for south region
-        /// </summary>
-        public static int RoseSouth2
-        {
-            get { return RoseSouth1 * 130 / 100; }
-        }
-
-        /// <summary>
-        /// Default database name
-        /// </summary>
-        public static string DbName
-        {
-            get { return _bll.GetDbName(); }
-        }
-
-        /// <summary>
-        /// Default URL update
-        /// </summary>
-        public static string URL
-        {
-            get { return _bll.GetURL(); }
         }
         #endregion
     }

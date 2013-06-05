@@ -186,12 +186,15 @@ namespace SKG.DXF.Home.Catalog
                     Type = Global.STR_SHIFT,
                     Code = txtCode.Text,
                     Text = txtName.Text,
-                    More = tedStart.Time.ToString("HH:mm:ss"),
-                    More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     More2 = calValue.Value.ToString("#"),
                     Text1 = txtText1.Text,
                     Note = txtDescript.Text
                 };
+
+                var s = tedStart.Time.ToString("HH:mm:ss");
+                var e = tedEnd.Time.ToString("HH:mm:ss");
+                if (s != "00:00:00") o.More = s;
+                if (e != "00:00:00") o.More1 = e;
 
                 var oki = _bll.Pol_Dictionary.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
@@ -212,12 +215,15 @@ namespace SKG.DXF.Home.Catalog
                     Type = Global.STR_SHIFT,
                     Code = txtCode.Text,
                     Text = txtName.Text,
-                    More = tedStart.Time.ToString("HH:mm:ss"),
-                    More1 = tedEnd.Time.ToString("HH:mm:ss"),
                     More2 = calValue.Value.ToString("#"),
                     Text1 = txtText1.Text,
                     Note = txtDescript.Text
                 };
+
+                var s = tedStart.Time.ToString("HH:mm:ss");
+                var e = tedEnd.Time.ToString("HH:mm:ss");
+                if (s != "00:00:00") o.More = s;
+                if (e != "00:00:00") o.More1 = e;
 
                 var oki = _bll.Pol_Dictionary.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);

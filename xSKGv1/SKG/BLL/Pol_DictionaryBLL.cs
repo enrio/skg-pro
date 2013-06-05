@@ -18,6 +18,7 @@ using System.Collections.Generic;
 namespace SKG.BLL
 {
     using DAL;
+    using SKG.Extend;
     using DAL.Entities;
 
     /// <summary>
@@ -286,65 +287,6 @@ namespace SKG.BLL
         }
         #endregion
 
-        #region Coefficient
-        /// <summary>
-        /// Get unit cost of night parking
-        /// </summary>
-        /// <returns></returns>
-        public int GetPark()
-        {
-            try
-            {
-                var r = (Pol_Dictionary)Select("PARK");
-                return Convert.ToInt32(r.More2);
-            }
-            catch { return 0; }
-        }
-
-        /// <summary>
-        /// Get park from
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetParkFrom()
-        {
-            var r = (Pol_Dictionary)Select("PARK");
-            return SplitTime(r.More);
-        }
-
-        /// <summary>
-        /// Get delay
-        /// </summary>
-        /// <returns></returns>
-        public int GetDelay()
-        {
-            try
-            {
-                var r = (Pol_Dictionary)Select("DELAY");
-                return Convert.ToInt32(r.More2);
-            }
-            catch { return 0; }
-        }
-
-        /// <summary>
-        /// Get peak from
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetPeakFrom()
-        {
-            var r = (Pol_Dictionary)Select("PEAK");
-            return SplitTime(r.More);
-        }
-
-        /// <summary>
-        /// Get peak to
-        /// </summary>
-        /// <returns></returns>
-        public DateTime GetPeakTo()
-        {
-            var r = (Pol_Dictionary)Select("PEAK");
-            return SplitTime(r.More1).AddDays(1);
-        }
-
         /// <summary>
         /// SplitTime
         /// </summary>
@@ -365,6 +307,171 @@ namespace SKG.BLL
             catch { return new DateTime(); }
         }
 
+        #region Shifts
+        /// <summary>
+        /// Get cut shift from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetCutsFr()
+        {
+            var r = (Pol_Dictionary)Select("CUTS");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
+        /// Get peak from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetPeakFr()
+        {
+            var r = (Pol_Dictionary)Select("PEAK");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
+        /// Get peak to
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetPeakTo()
+        {
+            var r = (Pol_Dictionary)Select("PEAK");
+            return SplitTime(r.More1).AddDays(1);
+        }
+
+        /// <summary>
+        /// Get shift 1 from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetShift1Fr()
+        {
+            var r = (Pol_Dictionary)Select("SHIFT1");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
+        /// Get shift 1 to
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetShift1To()
+        {
+            var r = (Pol_Dictionary)Select("SHIFT1");
+            return SplitTime(r.More1);
+        }
+
+        /// <summary>
+        /// Get shift 2 from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetShift2Fr()
+        {
+            var r = (Pol_Dictionary)Select("SHIFT2");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
+        /// Get shift 2 to
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetShift2To()
+        {
+            var r = (Pol_Dictionary)Select("SHIFT2");
+            return SplitTime(r.More1).AddDays(1);
+        }
+        #endregion
+
+        #region Coefficient
+        /// <summary>
+        /// Get delay
+        /// </summary>
+        /// <returns></returns>
+        public int GetDelay()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("DELAY");
+                return Convert.ToInt32(r.More2);
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Get park from
+        /// </summary>
+        /// <returns></returns>
+        public DateTime GetParkFr()
+        {
+            var r = (Pol_Dictionary)Select("PARK");
+            return SplitTime(r.More);
+        }
+
+        /// <summary>
+        /// Get unit cost of night parking
+        /// </summary>
+        /// <returns></returns>
+        public int GetPark()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("PARK");
+                return r.More2.ToInt32();
+            }
+            catch { return 0; }
+        }
+        #endregion
+
+        #region System
+        /// <summary>
+        /// Default database name
+        /// </summary>
+        /// <returns></returns>
+        public string GetDbName()
+        {
+            var r = (Pol_Dictionary)Select("DBN");
+            return r == null ? "xSKGv1" : r.Note;
+        }
+
+        /// <summary>
+        /// Default URL update
+        /// </summary>
+        /// <returns></returns>
+        public string GetURL()
+        {
+            var r = (Pol_Dictionary)Select("URL");
+            return r.Note;
+        }
+        #endregion
+
+        #region Bonus
+        /// <summary>
+        /// Rose per seat for north region
+        /// </summary>
+        /// <returns></returns>
+        public int GetRoseNorth()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("ROSEB");
+                return r.More2.ToInt32();
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Rose per seat for south region
+        /// </summary>
+        /// <returns></returns>
+        public int GetRoseSouth()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("ROSEN");
+                return r.More2.ToInt32();
+            }
+            catch { return 0; }
+        }
+        #endregion
+
+        #region Title
         /// <summary>
         /// Address
         /// </summary>
@@ -422,54 +529,6 @@ namespace SKG.BLL
         public string GetAuditNumber()
         {
             var r = (Pol_Dictionary)Select("NUM");
-            return r.Note;
-        }
-
-        /// <summary>
-        /// Rose per seat for south region
-        /// </summary>
-        /// <returns></returns>
-        public int GetRoseN()
-        {
-            try
-            {
-                var r = (Pol_Dictionary)Select("ROSEN");
-                return Convert.ToInt32(r.More2);
-            }
-            catch { return 0; }
-        }
-
-        /// <summary>
-        /// Rose per seat for north region
-        /// </summary>
-        /// <returns></returns>
-        public int GetRoseB()
-        {
-            try
-            {
-                var r = (Pol_Dictionary)Select("ROSEB");
-                return Convert.ToInt32(r.More2);
-            }
-            catch { return 0; }
-        }
-
-        /// <summary>
-        /// Default database name
-        /// </summary>
-        /// <returns></returns>
-        public string GetDbName()
-        {
-            var r = (Pol_Dictionary)Select("DBN");
-            return r == null ? "xSKGv1" : r.Note;
-        }
-
-        /// <summary>
-        /// Default URL update
-        /// </summary>
-        /// <returns></returns>
-        public string GetURL()
-        {
-            var r = (Pol_Dictionary)Select("URL");
             return r.Note;
         }
         #endregion

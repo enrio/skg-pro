@@ -105,9 +105,10 @@ namespace SKG.DXF.Station.Sumary
             rpt.parDate.Value = Global.Session.Current;
             rpt.parUserOut.Value = Global.Session.User.Name;
 
-            var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+            var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
             duration = String.Format(duration,
-                dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
+              dteFrom.DateTime.ToStringTimeVN(), dteFrom.DateTime.ToStringDateVN(),
+              dteTo.DateTime.ToStringTimeVN(), dteTo.DateTime.ToStringDateVN());
             rpt.xrlFromTo.Text = duration;
 
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };

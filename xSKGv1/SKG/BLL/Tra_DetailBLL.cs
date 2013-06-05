@@ -125,7 +125,13 @@ namespace SKG.BLL
 
             try
             {
-                var to = Global.Session.Current.Date.AddHours(13);
+                var cut = Global.CutsFr;
+                var cur = Global.Session.Current.Date;
+
+                var to = cur.AddHours(cut.Hour)
+                    .AddMinutes(cut.Minute)
+                    .AddSeconds(cut.Second);
+
                 var fr = to.AddDays(-1).AddSeconds(1);
                 return base.GetRevenueFixed(fr, to);
             }

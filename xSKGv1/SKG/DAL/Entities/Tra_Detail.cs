@@ -5,14 +5,14 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 15/10/2012 21:21
+ * Update: 04/06/2013 11:11
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.DAL.Entities
 {
@@ -20,7 +20,7 @@ namespace SKG.DAL.Entities
     using System.ComponentModel.DataAnnotations;
 
     /// <summary>
-    /// Transport - Details of in/out
+    /// Transport - Details of in or out
     /// </summary>
     public class Tra_Detail : Zinfors
     {
@@ -179,7 +179,7 @@ namespace SKG.DAL.Entities
 
             if (Vehicle.Tariff.Code == "A")
             {
-                var pFr = Global.ParkFrom;
+                var pFr = Global.ParkFr;
                 var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
                     pFr.Hour, pFr.Minute, pFr.Second);
 
@@ -225,7 +225,7 @@ namespace SKG.DAL.Entities
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var pFr = Global.ParkFrom;
+            var pFr = Global.ParkFr;
             var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
                 pFr.Hour, pFr.Minute, pFr.Second);
 

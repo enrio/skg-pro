@@ -1102,6 +1102,8 @@ namespace SKG.DAL
                                ArrearsMoney = g.Sum(p => p.ArrearsMoney),
                                Totals = g.Sum(p => p.Totals),
 
+                               Load = 0.0,
+                               Guest = 0.0,
                                Vat = 0.0,
                                Sales = 0.0
                            };
@@ -1205,6 +1207,8 @@ namespace SKG.DAL
                                 ArrearsMoney = g.Sum(p => p.ArrearsMoney),
                                 Totals = g.Sum(p => p.Totals),
 
+                                Load = 0.0,
+                                Guest = 0.0,
                                 Vat = 0.0,
                                 Sales = 0.0
                             };

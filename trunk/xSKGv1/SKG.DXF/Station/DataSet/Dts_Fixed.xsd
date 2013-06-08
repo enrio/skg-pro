@@ -35,6 +35,10 @@
               <xs:element name="ArrearsMoney" msprop:Generator_ColumnVarNameInTable="columnArrearsMoney" msprop:Generator_ColumnPropNameInRow="ArrearsMoney" msprop:Generator_ColumnPropNameInTable="ArrearsMoneyColumn" msprop:Generator_UserColumnName="ArrearsMoney" type="xs:decimal" minOccurs="0" />
               <xs:element name="Arrears" msprop:Generator_ColumnVarNameInTable="columnArrears" msprop:Generator_ColumnPropNameInRow="Arrears" msprop:Generator_ColumnPropNameInTable="ArrearsColumn" msprop:Generator_UserColumnName="Arrears" type="xs:int" minOccurs="0" />
               <xs:element name="Hoadon" msprop:Generator_ColumnVarNameInTable="columnHoadon" msprop:Generator_ColumnPropNameInRow="Hoadon" msprop:Generator_ColumnPropNameInTable="HoadonColumn" msprop:Generator_UserColumnName="Hoadon" type="xs:string" minOccurs="0" />
+              <xs:element name="Load" msprop:Generator_ColumnVarNameInTable="columnLoad" msprop:Generator_ColumnPropNameInRow="Load" msprop:Generator_ColumnPropNameInTable="LoadColumn" msprop:Generator_UserColumnName="Load" type="xs:long" minOccurs="0" />
+              <xs:element name="Guest" msprop:Generator_ColumnVarNameInTable="columnGuest" msprop:Generator_ColumnPropNameInRow="Guest" msprop:Generator_ColumnPropNameInTable="GuestColumn" msprop:Generator_UserColumnName="Guest" type="xs:long" minOccurs="0" />
+              <xs:element name="GSeats" msprop:Generator_ColumnVarNameInTable="columnGSeats" msprop:Generator_ColumnPropNameInRow="GSeats" msprop:Generator_ColumnPropNameInTable="GSeatsColumn" msprop:Generator_UserColumnName="GSeats" type="xs:long" minOccurs="0" />
+              <xs:element name="GBeds" msprop:Generator_ColumnVarNameInTable="columnGBeds" msprop:Generator_ColumnPropNameInRow="GBeds" msprop:Generator_ColumnPropNameInTable="GBedsColumn" msprop:Generator_UserColumnName="GBeds" type="xs:long" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

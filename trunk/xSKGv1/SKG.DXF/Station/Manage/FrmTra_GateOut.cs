@@ -440,11 +440,14 @@ namespace SKG.DXF.Station.Manage
         /// <param name="e"></param>
         private void cmdSumaryFixed_Click(object sender, EventArgs e)
         {
-            var oki = XtraMessageBox.Show(Level1.STR_CFM, Level1.STR_PRINT, MessageBoxButtons.YesNo);
+            var oki = XtraMessageBox.Show(Level1.STR_CFM,
+                Level1.STR_PRINT, MessageBoxButtons.YesNo);
 
             decimal _sum = 0;
             string receipt = "";
+
             var frm = new FrmPrint();
+            var tb = _bll.Tra_Detail.GetRevenueToday(out _sum, out receipt);
 
             var cur = Global.Session.Current;
             var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
@@ -453,26 +456,11 @@ namespace SKG.DXF.Station.Manage
 
             if (oki == DialogResult.Yes)
             {
-                var rpt = new Report.Rpt_RevenueFixed2
+                var rpt = new Report.Rpt_RevenueFixed3
                 {
-                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
-                    DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum)
-                };
-
-                rpt.parTitle1.Value = Global.Title1;
-                rpt.parTitle2.Value = Global.Title2;
-                rpt.parNum.Value = Global.AuditNumber;
-                rpt.parDate.Value = Global.Session.Current;
-
-                rpt.xrlFromTo.Text = duration;
-                frm.SetReport(rpt);
-            }
-            else
-            {
-                var rpt = new Report.Rpt_RevenueFixed1
-                {
-                    Name = String.Format(Level1.STR_DT, Global.Session.User.Acc, Global.Session.Current),
-                    DataSource = _bll.Tra_Detail.GetRevenueToday(out _sum, out receipt)
+                    Name = String.Format(Level1.STR_DT,
+                    Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = tb
                 };
 
                 rpt.parTitle1.Value = Global.Title1;
@@ -482,10 +470,28 @@ namespace SKG.DXF.Station.Manage
                 rpt.parDate.Value = Global.Session.Current;
 
                 rpt.xrlFromTo.Text = duration;
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_RevenueFixed1
+                {
+                    Name = String.Format(Level1.STR_DT,
+                    Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = tb
+                };
+
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
+                rpt.parDate.Value = Global.Session.Current;
+
                 rpt.xrlCashier.Text = Global.Session.User.Name;
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
+                rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
             }
 

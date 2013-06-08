@@ -336,6 +336,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed3.Designer.cs">
+      <DependentUpon>Rpt_RevenueFixed3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_TariffFixed.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -463,6 +469,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Report\Rpt_RevenueFixed3.resx">
+      <DependentUpon>Rpt_RevenueFixed3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_TariffFixed.resx">
       <DependentUpon>Rpt_TariffFixed.cs</DependentUpon>
     </EmbeddedResource>

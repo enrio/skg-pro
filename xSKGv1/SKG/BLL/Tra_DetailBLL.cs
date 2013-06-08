@@ -38,25 +38,32 @@ namespace SKG.BLL
             var tb = base.GetRevenueFixed(out receipt, fr, to);
             if (tb == null || tb.Rows.Count == 0) return tb;
 
+            tb.Columns.Add("GSeats", typeof(decimal));
+            tb.Columns.Add("GBeds", typeof(decimal));
+
             foreach (DataRow r in tb.Rows)
             {
-                var Arrears = Text.ToInt32(r["Arrears"] + "");
-                var Count = Text.ToInt32(r["Count"] + "");
-                var Seats = Text.ToInt32(r["Seats"] + "");
-                var Beds = Text.ToInt32(r["Beds"] + "");
-                var ASB = Text.ToInt32(r["ASB"] + "");
+                var arrears = r["Arrears"].ToInt32();
+                var count = r["Count"].ToInt32();
+                var seats = r["Seats"].ToInt32();
+                var beds = r["Beds"].ToInt32();
+                var asb = r["ASB"].ToInt32();
 
-                var Totals = Text.ToDecimal(r["Totals"] + "");
+                var Totals = r["Totals"].ToDecimal();
                 sum += Totals;
 
-                var a = Count + Arrears;
-                var b = Seats + Beds + ASB;
-
+                var a = count + arrears;
+                var b = seats + beds + asb;
+                var c = b - a;
                 r["Count"] = a;
-                r["Seats"] = b;
-                r["Beds"] = b - a;
+                r["Load"] = b;
+                r["Guest"] = c;
 
-                r["Totals"] = Totals;
+                var gs = c - beds + 1;
+                var gb = c - seats + 1;
+                r["GSeats"] = gs > 0 ? gs : 0;
+                r["GBeds"] = gb > 0 ? gb : 0;
+
                 r["Vat"] = Totals / 11;
                 r["Sales"] = Totals * 10 / 11;
             }

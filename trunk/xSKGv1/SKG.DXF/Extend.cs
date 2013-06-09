@@ -501,6 +501,7 @@ namespace SKG.DXF
                     var text = r1["Text"] + "";
                     var code = r1["Code"] + "";
                     var icon = String.Format("{0}{1}", path, r1["More"]);
+                    if (!File.Exists(icon)) continue;
 
                     m1 = new RibbonPage(text.ToUpper());
                     var zac = Global.Session.GetZAction(code);

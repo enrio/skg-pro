@@ -171,6 +171,8 @@ namespace SKG.DXF.Station.Sumary
         {
             InitializeComponent();
 
+            Text = STR_TITLE;
+
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
@@ -347,7 +349,7 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Doanh thu xe vãng lai";
+        private const string STR_TITLE = "DOANH THU XE VÃNG LAI";
         private const string STR_SELECT = "Chọn dữ liệu!";
 
         private const string STR_DELETE = "Xoá xe";

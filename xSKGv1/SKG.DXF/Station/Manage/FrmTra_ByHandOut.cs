@@ -98,6 +98,11 @@ namespace SKG.DXF.Station.Manage
                         grcFixed.DataSource = _tbFixed;
                     }
                 }
+                else
+                {
+                    fix = InvoiceOut(_tbFixed.Rows, null, true);
+                    grcFixed.DataSource = _tbFixed;
+                }
 
                 nor = InvoiceOut(_tbNormal.Rows, null, true);
                 grcNormal.DataSource = _tbNormal;

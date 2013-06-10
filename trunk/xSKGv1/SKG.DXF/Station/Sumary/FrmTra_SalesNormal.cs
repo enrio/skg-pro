@@ -102,7 +102,7 @@ namespace SKG.DXF.Station.Sumary
             rpt.parTitle1.Value = Global.Title1;
             rpt.parTitle2.Value = Global.Title2;
             rpt.parNum.Value = Global.AuditNumber;
-            rpt.parDate.Value = Global.Session.Current;
+            rpt.parDate.Value = dteTo.DateTime;
             rpt.parUserOut.Value = Global.Session.User.Name;
 
             var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
@@ -244,14 +244,14 @@ namespace SKG.DXF.Station.Sumary
                 Global.Session.User.Acc, Global.Session.Current)
             };
 
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
-
             decimal sum = 0;
             var fr = dteFrom.DateTime;
             var to = dteTo.DateTime;
+
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = to;
+            rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to,
@@ -285,14 +285,14 @@ namespace SKG.DXF.Station.Sumary
                 Global.Session.User.Acc, Global.Session.Current)
             };
 
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parUserOut.Value = Global.Session.User.Name;
-
             decimal sum = 0;
             var fr = dteFrom.DateTime;
             var to = dteTo.DateTime;
+
+            rpt.parTitle1.Value = Global.Title1;
+            rpt.parTitle2.Value = Global.Title2;
+            rpt.parDate.Value = to;
+            rpt.parUserOut.Value = Global.Session.User.Name;
 
             rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
             rpt.DataSource = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to,

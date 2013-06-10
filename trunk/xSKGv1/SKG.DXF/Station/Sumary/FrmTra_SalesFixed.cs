@@ -106,7 +106,7 @@ namespace SKG.DXF.Station.Sumary
                 rpt.parTitle2.Value = Global.Title2;
                 rpt.parAddress.Value = Global.Address;
                 rpt.parTaxcode.Value = Global.Taxcode;
-                rpt.parDate.Value = Global.Session.Current;
+                rpt.parDate.Value = to;
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
@@ -124,7 +124,7 @@ namespace SKG.DXF.Station.Sumary
                 rpt.parTitle2.Value = Global.Title2;
                 rpt.parAddress.Value = Global.Address;
                 rpt.parTaxcode.Value = Global.Taxcode;
-                rpt.parDate.Value = Global.Session.Current;
+                rpt.parDate.Value = to;
 
                 rpt.xrlCashier.Text = Global.Session.User.Name;
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");

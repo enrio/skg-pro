@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Collections.Generic;
@@ -10,6 +10,22 @@ namespace SKG.Extend
     /// </summary>
     public static class Objs
     {
+public static bool IsNumeric(object exp)
+        {
+            if (exp == null || exp is DateTime) return false;
+            if (exp is Int16 || exp is Int32 || exp is Int64) return true;
+            if (exp is Decimal || exp is Single || exp is Double || exp is Boolean) return true;
+
+            try
+            {
+                if (exp is string) Double.Parse(exp as string);
+                else Double.Parse(exp.ToString());
+                return true;
+            }
+            catch { } // just dismiss errors but return false
+            return false;
+        }
+
         #region Object
         /// <summary>
         /// Return string nullable

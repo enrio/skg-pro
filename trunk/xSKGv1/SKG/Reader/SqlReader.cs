@@ -1,4 +1,16 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 16/06/2013 08:32
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 

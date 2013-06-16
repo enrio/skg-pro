@@ -1,15 +1,26 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 12/06/2013 06:07
+ * Status: OK
+ */
+#endregion
+
+using System;
+using System.IO;
 using System.Linq;
+using System.Data;
+using System.Data.OleDb;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 
 namespace SKG.Datax
 {
-    using System.IO;
-    using System.Data;
-    using System.Data.OleDb;
-    using System.Windows.Forms;
-    using System.Data.SqlClient;
-
     /// <summary>
     /// SQL Server processing
     /// </summary>

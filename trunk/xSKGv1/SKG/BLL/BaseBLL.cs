@@ -52,17 +52,17 @@ namespace SKG.BLL
         public Pol_RoleRightBLL Pol_RoleRight { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Tra_Kind: danh mục loại xe.
+        /// Transport - Tra_Tariff accessing
         /// </summary>
         public Tra_TariffBLL Tra_Tariff { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Tra_Vehicle: danh sách xe cộ.
+        /// Transport - Tra_Vehicle accessing
         /// </summary>
         public Tra_VehicleBLL Tra_Vehicle { set; get; }
 
         /// <summary>
-        /// Truy cập cơ sở dữ liệu bảng Tra_Detail: chi tiết xe ra vào, bến.
+        /// Transport - Tra_Detail accessing
         /// </summary>
         public Tra_DetailBLL Tra_Detail { set; get; }
         #endregion
@@ -77,6 +77,7 @@ namespace SKG.BLL
             Pol_UserRight = new Pol_UserRightBLL();
             Pol_UserRole = new Pol_UserRoleBLL();
             Pol_RoleRight = new Pol_RoleRightBLL();
+
             Tra_Tariff = new Tra_TariffBLL();
             Tra_Vehicle = new Tra_VehicleBLL();
             Tra_Detail = new Tra_DetailBLL();
@@ -95,8 +96,8 @@ namespace SKG.BLL
         public static bool CheckDb()
         {
             var a = Global.Connection.ConnectionString;
-
             var ok = a.SplitIndex(';', 1);
+
             if (ok == null)
             {
                 a = a.SplitIndex('\\', 1);

@@ -5,20 +5,20 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 22:20
- * Update: 24/07/2012 22:48
+ * Update: 12/06/2013 12:38
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.DAL
 {
     using Entities;
     using SKG.Extend;
-    using System.Data;
 
     /// <summary>
     /// Policy - Pol_RoleRight processing

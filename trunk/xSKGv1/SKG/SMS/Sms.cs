@@ -4,16 +4,16 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 25/01/2012 21:07
- * Update: 25/01/2012 21:07
+ * Create: 23/07/2012 21:48
+ * Update: 16/06/2013 08:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace SKG.SMS

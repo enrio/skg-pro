@@ -5,19 +5,18 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 23/07/2012 21:48
+ * Update: 12/06/2013 06:07
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace SKG.Plugin
 {
-    using System.Windows.Forms;
-
     /// <summary>
     /// Interface of plugin
     /// </summary>

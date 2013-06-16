@@ -5,20 +5,19 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 04/06/2013 11:11
+ * Update: 12/06/2013 06:33
  * Status: OK
  */
 #endregion
 
 using System;
 using System.Linq;
+using System.Data.Entity;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace SKG.DAL.Entities
 {
-    using System.Data.Entity;
-    using System.Data.Entity.ModelConfiguration.Conventions;
-
     /// <summary>
     /// Database structure of system
     /// </summary>
@@ -75,17 +74,17 @@ namespace SKG.DAL.Entities
         }
 
         /// <summary>
-        /// 
+        /// Transport - Tariff of kind or route
         /// </summary>
         public DbSet<Tra_Tariff> Tra_Tariffs { get; set; }
 
         /// <summary>
-        /// 
+        /// Transport - Vehicles of information
         /// </summary>
         public DbSet<Tra_Vehicle> Tra_Vehicles { get; set; }
 
         /// <summary>
-        /// 
+        /// Transport - Detail in or out of vehicle
         /// </summary>
         public DbSet<Tra_Detail> Tra_Details { get; set; }
     }

@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 04/06/2013 11:11
+ * Update: 12/06/2013 06:33
  * Status: OK
  */
 #endregion
@@ -13,11 +13,10 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SKG.DAL.Entities
 {
-    using System.ComponentModel.DataAnnotations;
-
     /// <summary>
     /// Transport - Tariff and commission of ticket
     /// </summary>

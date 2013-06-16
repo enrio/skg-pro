@@ -5,19 +5,18 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 09/08/2013 20:32
- * Update: 09/08/2013 20:32
+ * Update: 12/06/2013 12:32
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.DAL
 {
-    using System.Data;
-
     /// <summary>
     /// All of standard methods for DAL
     /// </summary>

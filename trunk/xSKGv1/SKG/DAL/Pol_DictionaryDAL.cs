@@ -18,7 +18,6 @@ using System.Collections.Generic;
 namespace SKG.DAL
 {
     using Entities;
-
     using SKG.Extend;
 
     /// <summary>

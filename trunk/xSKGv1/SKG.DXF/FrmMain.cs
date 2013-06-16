@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 21:48
- * Update: 20/04/2013 09:09
+ * Update: 17/06/2013 07:49
  * Status: OK
  */
 #endregion
@@ -17,9 +17,11 @@ namespace SKG.DXF
 {
     using Home.Sytem;
     using SKG.Extend;
+
     using DevExpress.Utils;
     using DevExpress.XtraBars;
     using DevExpress.LookAndFeel;
+    using DevExpress.XtraEditors;
     using DevExpress.XtraBars.Ribbon;
     using DevExpress.XtraBars.Helpers;
 
@@ -75,13 +77,21 @@ namespace SKG.DXF
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            if (!Sample.CheckDb())
+            var cfg = Global.Connection.ConnectionString.GetConfig();
+            if (!cfg[0].Ping())
             {
-                Extend.ShowRight<FrmPol_Setting>(this);
+                var str = "Lỗi kết nối mạng nội bộ, hãy xem lại kết nối mạng{0}Hoặc liên hệ:"
+                    + "{0}Triết - 0982 878 707{0}Toàn - 01645 515 010{0}" + "Để khắc phục sự cố!";
+
+                str = String.Format(str, Environment.NewLine);
+                XtraMessageBox.Show(str, "Lỗi kết nối");
+
                 return;
             }
 
-            Extend.Login();
+            if (!Sample.CheckDb())
+                Extend.ShowRight<FrmPol_Setting>(this);
+            else Extend.Login();
         }
 
         /// <summary>

@@ -1,6 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 12/06/2013 06:07
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.Extend
 {
@@ -380,29 +392,34 @@ namespace SKG.Extend
 
             return (String.Format("{0} {1}", c, curency)).ToUpperFirst();
         }
-        #endregion
 
-        public static string ToRoman(int number)
+        /// <summary>
+        /// Converts number Roman
+        /// </summary>
+        /// <param name="n">Number</param>
+        /// <returns></returns>
+        public static string ToRoman(int n)
         {
-            if ((number < 0) || (number > 3999))
+            if ((n < 0) || (n > 3999))
                 throw new ArgumentOutOfRangeException("insert value betwheen 1 and 3999");
+            if (n < 1) return string.Empty;
 
-            if (number < 1) return string.Empty;
-            if (number >= 1000) return "M" + ToRoman(number - 1000);
-            if (number >= 900) return "CM" + ToRoman(number - 900); // EDIT: i've typed 400 instead 900
-            if (number >= 500) return "D" + ToRoman(number - 500);
-            if (number >= 400) return "CD" + ToRoman(number - 400);
-            if (number >= 100) return "C" + ToRoman(number - 100);
-            if (number >= 90) return "XC" + ToRoman(number - 90);
-            if (number >= 50) return "L" + ToRoman(number - 50);
-            if (number >= 40) return "XL" + ToRoman(number - 40);
-            if (number >= 10) return "X" + ToRoman(number - 10);
-            if (number >= 9) return "IX" + ToRoman(number - 9);
-            if (number >= 5) return "V" + ToRoman(number - 5);
-            if (number >= 4) return "IV" + ToRoman(number - 4);
-            if (number >= 1) return "I" + ToRoman(number - 1);
+            if (n >= 1000) return "M" + ToRoman(n - 1000);
+            if (n >= 900) return "CM" + ToRoman(n - 900);
+            if (n >= 500) return "D" + ToRoman(n - 500);
+            if (n >= 400) return "CD" + ToRoman(n - 400);
+            if (n >= 100) return "C" + ToRoman(n - 100);
+            if (n >= 90) return "XC" + ToRoman(n - 90);
+            if (n >= 50) return "L" + ToRoman(n - 50);
+            if (n >= 40) return "XL" + ToRoman(n - 40);
+            if (n >= 10) return "X" + ToRoman(n - 10);
+            if (n >= 9) return "IX" + ToRoman(n - 9);
+            if (n >= 5) return "V" + ToRoman(n - 5);
+            if (n >= 4) return "IV" + ToRoman(n - 4);
+            if (n >= 1) return "I" + ToRoman(n - 1);
 
             throw new ArgumentOutOfRangeException("something bad happened");
         }
+        #endregion
     }
 }

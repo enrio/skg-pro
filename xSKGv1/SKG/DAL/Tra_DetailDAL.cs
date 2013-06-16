@@ -4,25 +4,25 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 23/07/2012 21:17
- * Update: 28/05/2013 22:48
+ * Create: 24/07/2012 22:20
+ * Update: 12/06/2013 12:38
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Collections.Generic;
+using System.Data.Objects.SqlClient;
 
 namespace SKG.DAL
 {
     using Entities;
     using SKG.Extend;
-    using System.Data;
-    using System.Data.Objects.SqlClient;
 
     /// <summary>
-    /// Vận tải - Xử lí bảng Tra_Detail
+    /// Transport - Tra_Vehicle processing
     /// </summary>
     public abstract class Tra_DetailDAL : BaseDAL, IBase
     {

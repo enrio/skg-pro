@@ -77,7 +77,6 @@
     <Compile Include="DAL\Entities\Tra_Vehicle.cs" />
     <Compile Include="DAL\Entities\Zaction.cs" />
     <Compile Include="DAL\Entities\Zinfors.cs" />
-    <Compile Include="DAL\Extend.cs" />
     <Compile Include="DAL\IBase.cs" />
     <Compile Include="DAL\Pol_DictionaryDAL.cs" />
     <Compile Include="DAL\Pol_RoleRightDAL.cs" />

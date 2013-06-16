@@ -26,8 +26,8 @@ namespace SKG.BLL
         {
             var tb = base.Select(obj, skip, take);
             var str = String.Format("RightId = '{0}'", Guid.Empty);
-
             var user = tb.Select(str, "");
+
             for (int i = 0; i < user.Count(); i++)
             {
                 var id = user[i]["Id"];

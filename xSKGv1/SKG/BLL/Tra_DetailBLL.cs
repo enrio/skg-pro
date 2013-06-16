@@ -5,22 +5,22 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 24/07/2012 21:33
- * Update: 02/06/2013 22:02
+ * Update: 12/06/2013 06:21
  * Status: OK
  */
 #endregion
 
 using System;
+using System.Data;
 using System.Linq;
 using System.Collections.Generic;
 
 namespace SKG.BLL
 {
     using SKG.Extend;
-    using System.Data;
 
     /// <summary>
-    /// Truy cập cơ sở dữ liệu bảng Tra_Detail: chi tiết xe ra vào, bến.
+    /// Transport - Tra_Detail accessing
     /// </summary>
     public sealed class Tra_DetailBLL : DAL.Tra_DetailDAL
     {
@@ -250,9 +250,9 @@ namespace SKG.BLL
         /// <summary>
         /// Sumary for sales DayInMonth or MonthInYear
         /// </summary>
-        /// <param name="sum"></param>
-        /// <param name="by"></param>
-        /// <param name="dt"></param>
+        /// <param name="sum">Total money</param>
+        /// <param name="by">Kind of summary</param>
+        /// <param name="dt">DateTime</param>
         /// <returns></returns>
         public DataSet Sumary4Sales(out decimal sum, Summary by, DateTime dt)
         {

@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 16/06/2013 08:45
+ * Status: OK
+ */
+#endregion
+
+using System;
 using System.Linq;
+using System.Data;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace SKG.Extend
 {
-    using System.Data;
-    using System.Reflection;
-
     /// <summary>
     /// Data processing
     /// </summary>

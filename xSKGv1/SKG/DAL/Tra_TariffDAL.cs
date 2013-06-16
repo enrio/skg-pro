@@ -1,15 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 24/07/2012 22:20
+ * Update: 12/06/2013 12:38
+ * Status: OK
+ */
+#endregion
+
+using System;
+using System.Data;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace SKG.DAL
 {
     using Entities;
     using SKG.Extend;
-    using System.Data;
 
     /// <summary>
-    /// Vận tải - Xử lí bảng Tra_Kind
+    /// Transport - Tra_Tariff processing
     /// </summary>
     public abstract class Tra_TariffDAL : BaseDAL, IBase
     {

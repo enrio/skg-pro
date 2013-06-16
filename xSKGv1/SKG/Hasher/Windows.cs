@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 12/06/2013 06:07
+ * Status: OK
+ */
+#endregion
+
+using System;
+using System.Data;
 using System.Linq;
+using System.Management;
+using System.Collections.Generic;
 
 namespace SKG.Hasher
 {
-    using System.Data;
-    using System.Management;
-
     /// <summary>
     /// Windows OS processing
     /// </summary>

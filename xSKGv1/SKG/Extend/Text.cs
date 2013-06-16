@@ -1,21 +1,72 @@
-﻿using System;
+﻿#region Information
+/*
+ * Author: Zng Tfy
+ * Email: nvt87x@gmail.com
+ * Phone: +84 1645 515 010
+ * ---------------------------
+ * Create: 23/07/2012 21:48
+ * Update: 16/06/2013 07:57
+ * Status: OK
+ */
+#endregion
+
+using System;
+using System.IO;
 using System.Text;
 using System.Linq;
+using System.Xml.Linq;
+using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using System.Text.RegularExpressions;
 
 namespace SKG.Extend
 {
     using Plugin;
-    using System.IO;
-    using System.Xml.Linq;
-    using System.Data.SqlClient;
-    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Text processing
     /// </summary>
     public static class Text
     {
+        /// <summary>
+        /// Ping
+        /// </summary>
+        /// <param name="s">Host name</param>
+        /// <returns></returns>
+        public static bool Ping(this string s)
+        {
+            try
+            {
+                if (s == ".") s = "127.0.0.1";
+
+                var ping = new Ping();
+                var reply = ping.Send(s);
+
+                if (reply.Status == IPStatus.Success)
+                {
+                    //Console.WriteLine("Dia chi: {0}", reply.Address);
+                    //Console.WriteLine("Thoi gian ping: {0}", reply.RoundtripTime);
+                    //Console.WriteLine("Thoi gian song cua goi tin: {0}", reply.Options.Ttl);
+                    //Console.WriteLine("khong phan manh: {0}", reply.Options.DontFragment);
+                    //Console.WriteLine("Kich thuoc goi tin: {0}", reply.Buffer.Length);
+                    //Console.WriteLine("Tinh trang: {0}", reply.Status);
+                    //Console.ReadLine();
+
+                    return true;
+                }
+                else
+                {
+                    //Console.WriteLine("Error");
+                    //Console.WriteLine("Status: {0}", reply.Status);
+                    //Console.ReadLine();
+
+                    return false;
+                }
+            }
+            catch { return false; }
+        }
+
         #region Strings
         /// <summary>
         /// Format standard phone number

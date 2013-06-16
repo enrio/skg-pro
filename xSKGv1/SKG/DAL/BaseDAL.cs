@@ -4,22 +4,21 @@
  * Email: nvt87x@gmail.com
  * Phone: +84 1645 515 010
  * ---------------------------
- * Create: 24/07/2012 21:33
- * Update: 24/07/2012 22:02
+ * Create: 23/07/2012 22:50
+ * Update: 12/06/2013 06:33
  * Status: OK
  */
 #endregion
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Data.Entity;
+using System.Collections.Generic;
 
 namespace SKG.DAL
 {
     using Entities;
-    using System.Data;
-    using System.Data.Common;
-    using System.Data.Entity;
 
     /// <summary>
     /// Data access layer
@@ -41,7 +40,6 @@ namespace SKG.DAL
         /// </summary>
         public BaseDAL()
         {
-            //Database.SetInitializer<Context>(new DropCreateDatabaseIfModelChanges<Context>());
             Database.SetInitializer<Context>(new CreateDatabaseIfNotExists<Context>());
         }
 

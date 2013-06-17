@@ -50,6 +50,39 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Overrides
+        protected override void PerformInvoice()
+        {
+            XtraMessageBox.Show("Chức năng này chưa có", "Tính tiền");
+            base.PerformInvoice();
+        }
+
+        /// <summary>
+        /// Phục hồi xe trạng thái xe trong bến
+        /// </summary>
+        protected override void PerformRestore()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_R,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            var cfm = String.Format(STR_CONFIRM_R, code + " VÀO LÚC " + dateIn);
+            var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_RESTORE, MessageBoxButtons.OKCancel);
+
+            if (oki == DialogResult.OK)
+                if (_bll.Tra_Detail.Restore(id)) PerformRefresh();
+                else XtraMessageBox.Show(STR_UNRESTORE, STR_RESTORE);
+
+            base.PerformRestore();
+        }
+
         protected override void PerformDelete()
         {
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
@@ -186,7 +219,11 @@ namespace SKG.DXF.Station.Sumary
             dteTo.DateTime = d;
 
             var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
-            if (!ql) cmdRestore.Visible = false;
+            if (ql)
+            {
+                AllowRestore = true;
+                AllowInvoice = true;
+            }
         }
         #endregion
 
@@ -291,33 +328,6 @@ namespace SKG.DXF.Station.Sumary
                         Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        /// <summary>
-        /// Phục hồi xe trạng thái xe trong bến
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmdRestore_Click(object sender, EventArgs e)
-        {
-            var tmpId = grvMain.GetFocusedRowCellValue("Id");
-            if (tmpId == null)
-            {
-                XtraMessageBox.Show(STR_CHOICE_R,
-                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            var code = grvMain.GetFocusedRowCellValue("Code");
-            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
-            var id = (Guid)tmpId;
-
-            var cfm = String.Format(STR_CONFIRM_R, code + " VÀO LÚC " + dateIn);
-            var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_RESTORE, MessageBoxButtons.OKCancel);
-
-            if (oki == DialogResult.OK)
-                if (_bll.Tra_Detail.Restore(id)) PerformRefresh();
-                else XtraMessageBox.Show(STR_UNRESTORE, STR_RESTORE);
         }
         #endregion
 

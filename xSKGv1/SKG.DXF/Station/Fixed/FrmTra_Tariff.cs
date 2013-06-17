@@ -209,7 +209,6 @@ namespace SKG.DXF.Station.Fixed
                     Id = id,
 
                     Text = txtName.Text,
-                    //Note = txtDescript.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
                     Code = "" + grvMain.GetFocusedRowCellValue("Code"),
 
@@ -237,9 +236,8 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Tra_Tariff()
                 {
                     Text = txtName.Text,
-                    // Note = txtDescript.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "STATION_" + (_dtb.Rows.Count + 1),
+                    Code = "STATION_" + (_dtb.Rows.Count + 2),
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
 
@@ -325,16 +323,6 @@ namespace SKG.DXF.Station.Fixed
 
             lokGroup.Properties.DataSource = tb;
             lokGroup.ItemIndex = 0;
-        }
-
-        private void calPrice1_EditValueChanged(object sender, EventArgs e)
-        {
-            calPrice2.EditValue = calPrice1.EditValue.ToInt32() * 130 / 100;
-        }
-
-        private void calRose1_EditValueChanged(object sender, EventArgs e)
-        {
-            calRose2.EditValue = calRose1.EditValue.ToInt32() * 130 / 100;
         }
         #endregion
 

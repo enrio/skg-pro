@@ -127,6 +127,10 @@ namespace SKG.DXF
                     PerformFind();
                     break;
 
+                case "bbiPrint":
+                    PerformPrint();
+                    break;
+
                 case "bbiCollapse":
                     PerformCollapse();
                     break;
@@ -135,8 +139,12 @@ namespace SKG.DXF
                     PerformExpand();
                     break;
 
-                case "bbiPrint":
-                    PerformPrint();
+                case "bbiRestore":
+                    PerformRestore();
+                    break;
+
+                case "bbiInvoice":
+                    PerformInvoice();
                     break;
 
                 default:
@@ -245,6 +253,16 @@ namespace SKG.DXF
         /// Perform when click print button
         /// </summary>
         protected virtual void PerformPrint() { }
+
+        /// <summary>
+        /// Perform when click restore button
+        /// </summary>
+        protected virtual void PerformRestore() { }
+
+        /// <summary>
+        /// Perform when click invoice button
+        /// </summary>
+        protected virtual void PerformInvoice() { }
 
         /// <summary>
         /// Perform when click collapse button
@@ -485,6 +503,39 @@ namespace SKG.DXF
                 else bbiPrint.Visibility = BarItemVisibility.Always;
             }
         }
+
+        #region For sales
+        private bool _allowRestore;
+        /// <summary>
+        /// Allow show or hide restore button
+        /// </summary>
+        [DefaultValue(false)]
+        public bool AllowRestore
+        {
+            get { return _allowRestore; }
+            set
+            {
+                _allowRestore = value;
+                if (!_allowRestore) bbiRestore.Visibility = BarItemVisibility.Never;
+                else bbiRestore.Visibility = BarItemVisibility.Always;
+            }
+        }
+
+        private bool _allowInvoice;
+        /// <summary>
+        /// Allow show or hide invoice button
+        /// </summary>
+        [DefaultValue(false)]
+        public bool AllowInvoice
+        {
+            get { return _allowInvoice; }
+            set
+            {
+                _allowInvoice = value;
+                if (!_allowInvoice) bbiInvoice.Visibility = BarItemVisibility.Never;
+                else bbiInvoice.Visibility = BarItemVisibility.Always;
+            }
+        }
         #endregion
 
         #region For permission
@@ -517,6 +568,7 @@ namespace SKG.DXF
                 _allowExpand = value;
             }
         }
+        #endregion
         #endregion
     }
 }

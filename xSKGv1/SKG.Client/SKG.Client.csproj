@@ -127,6 +127,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\128\GateIn.png" />
+    <Content Include="Icons\128\GateOut.png" />
+    <Content Include="Icons\128\InDepot.png" />
+    <Content Include="Icons\128\Invoice.png" />
+    <Content Include="Icons\128\Menu.png" />
+    <Content Include="Icons\128\Restore.png" />
+    <Content Include="Icons\128\Roleright.png" />
+    <Content Include="Icons\128\Userright.png" />
+    <Content Include="Icons\Invoice.png" />
+    <Content Include="Icons\Restore.png" />
     <Content Include="Icons\TempOut.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -32,7 +32,6 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.cmdRestore = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdView = new DevExpress.XtraEditors.SimpleButton();
@@ -111,7 +110,6 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.cmdRestore);
             this.dockPanel1_Container.Controls.Add(this.cmdSumary2);
             this.dockPanel1_Container.Controls.Add(this.cmdSumary1);
             this.dockPanel1_Container.Controls.Add(this.cmdView);
@@ -127,17 +125,6 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(1030, 35);
             this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // cmdRestore
-            // 
-            this.cmdRestore.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRestore.Appearance.Options.UseFont = true;
-            this.cmdRestore.Location = new System.Drawing.Point(947, 3);
-            this.cmdRestore.Name = "cmdRestore";
-            this.cmdRestore.Size = new System.Drawing.Size(78, 26);
-            this.cmdRestore.TabIndex = 20;
-            this.cmdRestore.Text = "&Phục hồi";
-            this.cmdRestore.Click += new System.EventHandler(this.cmdRestore_Click);
             // 
             // cmdSumary2
             // 
@@ -484,7 +471,6 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand1
             // 
@@ -736,7 +722,6 @@
         private DevExpress.XtraEditors.SimpleButton cmdView;
         private DevExpress.XtraEditors.SimpleButton cmdSumary2;
         private DevExpress.XtraEditors.SimpleButton cmdSumary1;
-        private DevExpress.XtraEditors.SimpleButton cmdRestore;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSeri;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;

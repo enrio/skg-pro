@@ -38,6 +38,8 @@
             this.bbiRefresh = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiFind = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiPrint = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bbiRestore = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.bbiCollapse = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiExpand = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiClose = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -69,8 +71,10 @@
             this.bbiPrint,
             this.bbiClose,
             this.bbiCollapse,
-            this.bbiExpand});
-            this.bmgMain.MaxItemId = 11;
+            this.bbiExpand,
+            this.bbiRestore,
+            this.bbiInvoice});
+            this.bmgMain.MaxItemId = 13;
             this.bmgMain.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bmgMain_ItemClick);
             // 
             // bar1
@@ -88,6 +92,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRefresh, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiFind, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiPrint, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiRestore, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiInvoice, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiCollapse, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiExpand, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.bbiClose, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
@@ -151,6 +157,22 @@
             this.bbiPrint.Id = 7;
             this.bbiPrint.Name = "bbiPrint";
             this.bbiPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bbiRestore
+            // 
+            this.bbiRestore.Caption = "&Phục hồi";
+            this.bbiRestore.Glyph = global::SKG.DXF.Properties.Resources.Restore;
+            this.bbiRestore.Id = 11;
+            this.bbiRestore.Name = "bbiRestore";
+            this.bbiRestore.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bbiInvoice
+            // 
+            this.bbiInvoice.Caption = "Tín&h tiền lại";
+            this.bbiInvoice.Glyph = global::SKG.DXF.Properties.Resources.Invoice;
+            this.bbiInvoice.Id = 12;
+            this.bbiInvoice.Name = "bbiInvoice";
+            this.bbiInvoice.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // bbiCollapse
             // 
@@ -243,5 +265,7 @@
         protected System.Windows.Forms.Timer tmrMain;
         public DevExpress.XtraBars.BarLargeButtonItem bbiEdit;
         public DevExpress.XtraBars.BarLargeButtonItem bbiDelete;
+        private DevExpress.XtraBars.BarButtonItem bbiRestore;
+        private DevExpress.XtraBars.BarButtonItem bbiInvoice;
     }
 }

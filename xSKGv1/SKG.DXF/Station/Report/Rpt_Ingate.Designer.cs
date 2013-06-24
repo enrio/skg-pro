@@ -248,9 +248,6 @@
             this.parDate});
             this.RequestParameters = false;
             this.Version = "12.1";
-            this.Watermark.ForeColor = System.Drawing.Color.Tomato;
-            this.Watermark.Text = "  BẾN XE NGÃ TƯ GA - TP.HCM";
-            this.Watermark.TextTransparency = 99;
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dts_Normal)).EndInit();

@@ -188,6 +188,7 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Type = Global.STR_TRANSPORT,
                     Text = txtName.Text,
+                    Code = String.Format("{0}_{1}", Global.STR_TRANSPORT, _dtb.Rows.Count + 2),
                     Show = chkShow.Checked,
                     Note = txtDescript.Text
                 };

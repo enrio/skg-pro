@@ -179,7 +179,6 @@ namespace SKG.DXF.Station.Fixed
                 var o = new Pol_Dictionary()
                 {
                     Id = id,
-                    //Code = txtCode.Text,
                     Text = txtText.Text,
                     Note = txtNote.Text,
                     Type = lokList.EditValue + ""
@@ -205,7 +204,6 @@ namespace SKG.DXF.Station.Fixed
 
                 var o = new Pol_Dictionary()
                 {
-                    //Code = txtCode.Text,
                     Text = txtText.Text,
                     Note = txtNote.Text,
                     Type = lokList.EditValue + ""

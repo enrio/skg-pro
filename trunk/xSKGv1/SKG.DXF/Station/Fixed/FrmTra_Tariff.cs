@@ -237,7 +237,7 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Text = txtName.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = "STATION_" + (_dtb.Rows.Count + 2),
+                    Code = String.Format("{0}_{1}", Global.STR_STATION, _dtb.Rows.Count + 2),
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
 

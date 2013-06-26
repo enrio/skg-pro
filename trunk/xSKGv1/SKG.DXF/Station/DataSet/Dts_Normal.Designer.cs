@@ -420,6 +420,8 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnGroup;
             
+            private global::System.Data.DataColumn columnGroupCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -599,6 +601,14 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GroupCodeColumn {
+                get {
+                    return this.columnGroupCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -652,7 +662,8 @@ namespace SKG.DXF.Station.DataSet {
                         decimal TotalDays, 
                         string More, 
                         string Text, 
-                        string Group) {
+                        string Group, 
+                        string GroupCode) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -672,7 +683,8 @@ namespace SKG.DXF.Station.DataSet {
                         TotalDays,
                         More,
                         Text,
-                        Group};
+                        Group,
+                        GroupCode};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -713,6 +725,7 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnMore = base.Columns["More"];
                 this.columnText = base.Columns["Text"];
                 this.columnGroup = base.Columns["Group"];
+                this.columnGroupCode = base.Columns["GroupCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -754,6 +767,8 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnText);
                 this.columnGroup = new global::System.Data.DataColumn("Group", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGroup);
+                this.columnGroupCode = new global::System.Data.DataColumn("GroupCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGroupCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2177,6 +2192,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string GroupCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.GroupCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GroupCode\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.GroupCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNo_Null() {
                 return this.IsNull(this.tableRevenue.No_Column);
             }
@@ -2389,6 +2420,18 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGroupNull() {
                 this[this.tableRevenue.GroupColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGroupCodeNull() {
+                return this.IsNull(this.tableRevenue.GroupCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGroupCodeNull() {
+                this[this.tableRevenue.GroupCodeColumn] = global::System.Convert.DBNull;
             }
         }
         

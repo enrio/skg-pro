@@ -113,22 +113,19 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
-            var oki = XtraMessageBox.Show(Level1.STR_CFM, Level1.STR_PRINT, MessageBoxButtons.YesNo);
+            var oki = XtraMessageBox.Show(Level1.STR_CFM,
+                Level1.STR_PRINT, MessageBoxButtons.YesNo);
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            string receipt = "";
-
-            var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
-            duration = String.Format(duration,
-                dteFrom.DateTime.ToStringDateVN(), dteTo.DateTime.ToStringDateVN());
-
-            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
+            var receipt = "";
             var to = dteTo.DateTime.Date.AddHours(13);
+            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
+
             var tb = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
 
             if (oki == DialogResult.Yes)
             {
-                var rpt = new Report.Rpt_RevenueFixed3
+                var rpt = new Report.Rpt_RevenueFixed2
                 {
                     Name = String.Format(Level1.STR_DT,
                     Global.Session.User.Acc, Global.Session.Current),
@@ -137,11 +134,11 @@ namespace SKG.DXF.Station.Sumary
 
                 rpt.parTitle1.Value = Global.Title1;
                 rpt.parTitle2.Value = Global.Title2;
-                rpt.parAddress.Value = Global.Address;
-                rpt.parTaxcode.Value = Global.Taxcode;
-                rpt.parDate.Value = to;
 
-                rpt.xrlFromTo.Text = duration;
+                rpt.xrlCashier.Text = Global.Session.User.Name;
+                rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
+                    fr.ToStringDateVN(), to.ToStringDateVN());
+
                 frm.SetReport(rpt);
             }
             else
@@ -162,6 +159,10 @@ namespace SKG.DXF.Station.Sumary
                 rpt.xrlCashier.Text = Global.Session.User.Name;
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+
+                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                duration = String.Format(duration,
+                    fr.ToStringDateVN(), to.ToStringDateVN());
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);

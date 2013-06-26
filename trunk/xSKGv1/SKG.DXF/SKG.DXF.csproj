@@ -335,11 +335,17 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed3.cs">
+    <Compile Include="Station\Report\Rpt_RevenueNormal2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed3.Designer.cs">
-      <DependentUpon>Rpt_RevenueFixed3.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_RevenueNormal2.Designer.cs">
+      <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed2.Designer.cs">
+      <DependentUpon>Rpt_RevenueFixed2.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_TariffFixed.cs">
       <SubType>Component</SubType>
@@ -353,17 +359,11 @@
     <Compile Include="Station\Report\Rpt_TariffNormal.Designer.cs">
       <DependentUpon>Rpt_TariffNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueNormal2.cs">
+    <Compile Include="Station\Report\Rpt_RevenueNormal3.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueNormal2.Designer.cs">
-      <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed2.Designer.cs">
-      <DependentUpon>Rpt_RevenueFixed2.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_RevenueNormal3.Designer.cs">
+      <DependentUpon>Rpt_RevenueNormal3.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_IngateMaster.cs">
       <SubType>Component</SubType>
@@ -471,20 +471,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueFixed3.resx">
-      <DependentUpon>Rpt_RevenueFixed3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_TariffFixed.resx">
       <DependentUpon>Rpt_TariffFixed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_TariffNormal.resx">
       <DependentUpon>Rpt_TariffNormal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueNormal2.resx">
-      <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueFixed2.resx">
-      <DependentUpon>Rpt_RevenueFixed2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_IngateMaster.resx">
       <DependentUpon>Rpt_IngateMaster.cs</DependentUpon>
@@ -506,12 +497,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_AuditMonth.resx">
       <DependentUpon>Rpt_AuditMonth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueFixed1.resx">
-      <DependentUpon>Rpt_RevenueFixed1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueNormal1.resx">
-      <DependentUpon>Rpt_RevenueNormal1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_Receipt.resx">
       <DependentUpon>Rpt_Receipt.cs</DependentUpon>

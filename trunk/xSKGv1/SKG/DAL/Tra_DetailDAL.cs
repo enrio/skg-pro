@@ -1698,7 +1698,10 @@ namespace SKG.DAL
 
                               s.Price1,
                               s.Price2,
+                              s.Seats,
+                              s.Beds,
 
+                              GroupCode = s.Vehicle.Tariff.Group.Code,
                               Group = s.Vehicle.Tariff.Group.Text,
                               Tariff = s.Vehicle.Tariff.Text,
                               s.UserOutId

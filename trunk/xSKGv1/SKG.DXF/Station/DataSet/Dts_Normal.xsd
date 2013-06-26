@@ -33,6 +33,7 @@
               <xs:element name="More" msprop:Generator_ColumnVarNameInTable="columnMore" msprop:Generator_ColumnPropNameInRow="More" msprop:Generator_ColumnPropNameInTable="MoreColumn" msprop:Generator_UserColumnName="More" type="xs:string" minOccurs="0" />
               <xs:element name="Text" msprop:Generator_ColumnVarNameInTable="columnText" msprop:Generator_ColumnPropNameInRow="Text" msprop:Generator_ColumnPropNameInTable="TextColumn" msprop:Generator_UserColumnName="Text" type="xs:string" minOccurs="0" />
               <xs:element name="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" msprop:Generator_UserColumnName="Group" type="xs:string" minOccurs="0" />
+              <xs:element name="GroupCode" msprop:Generator_ColumnVarNameInTable="columnGroupCode" msprop:Generator_ColumnPropNameInRow="GroupCode" msprop:Generator_ColumnPropNameInTable="GroupCodeColumn" msprop:Generator_UserColumnName="GroupCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -32,6 +32,7 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cmdResetPass = new DevExpress.XtraEditors.SimpleButton();
             this.chkActive = new DevExpress.XtraEditors.CheckEdit();
             this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.lblNote = new DevExpress.XtraEditors.LabelControl();
@@ -65,7 +66,6 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmdResetPass = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -136,29 +136,40 @@
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 107);
             this.dockPanel1_Container.TabIndex = 0;
             // 
+            // cmdResetPass
+            // 
+            this.cmdResetPass.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdResetPass.Appearance.Options.UseFont = true;
+            this.cmdResetPass.Location = new System.Drawing.Point(856, 14);
+            this.cmdResetPass.Name = "cmdResetPass";
+            this.cmdResetPass.Size = new System.Drawing.Size(79, 23);
+            this.cmdResetPass.TabIndex = 28;
+            this.cmdResetPass.Text = "Reset pass";
+            this.cmdResetPass.Click += new System.EventHandler(this.cmdResetPass_Click);
+            // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(734, 75);
+            this.chkActive.Location = new System.Drawing.Point(573, 78);
             this.chkActive.Name = "chkActive";
             this.chkActive.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActive.Properties.Appearance.Options.UseFont = true;
             this.chkActive.Properties.Caption = "Đang &sử dụng";
-            this.chkActive.Size = new System.Drawing.Size(201, 25);
+            this.chkActive.Size = new System.Drawing.Size(133, 25);
             this.chkActive.TabIndex = 22;
             // 
             // txtNote
             // 
-            this.txtNote.Location = new System.Drawing.Point(381, 75);
+            this.txtNote.Location = new System.Drawing.Point(306, 78);
             this.txtNote.Name = "txtNote";
             this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNote.Properties.Appearance.Options.UseFont = true;
-            this.txtNote.Size = new System.Drawing.Size(347, 26);
+            this.txtNote.Size = new System.Drawing.Size(261, 26);
             this.txtNote.TabIndex = 21;
             // 
             // lblNote
             // 
             this.lblNote.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNote.Location = new System.Drawing.Point(316, 80);
+            this.lblNote.Location = new System.Drawing.Point(241, 80);
             this.lblNote.Name = "lblNote";
             this.lblNote.Size = new System.Drawing.Size(59, 20);
             this.lblNote.TabIndex = 22;
@@ -166,11 +177,11 @@
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(133, 75);
+            this.txtCode.Location = new System.Drawing.Point(90, 78);
             this.txtCode.Name = "txtCode";
             this.txtCode.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCode.Properties.Appearance.Options.UseFont = true;
-            this.txtCode.Size = new System.Drawing.Size(177, 26);
+            this.txtCode.Size = new System.Drawing.Size(145, 26);
             this.txtCode.TabIndex = 21;
             // 
             // lblCode
@@ -178,18 +189,18 @@
             this.lblCode.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCode.Location = new System.Drawing.Point(11, 80);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(116, 20);
+            this.lblCode.Size = new System.Drawing.Size(51, 20);
             this.lblCode.TabIndex = 22;
-            this.lblCode.Text = "Chứng minh thư:";
+            this.lblCode.Text = "CMND:";
             // 
             // lblInfo
             // 
             this.lblInfo.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Red;
             this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblInfo.Location = new System.Drawing.Point(734, 46);
+            this.lblInfo.Location = new System.Drawing.Point(712, 77);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(201, 26);
+            this.lblInfo.Size = new System.Drawing.Size(223, 26);
             this.lblInfo.TabIndex = 27;
             // 
             // txtPhone
@@ -239,7 +250,7 @@
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.Properties.Appearance.Options.UseFont = true;
-            this.txtAddress.Size = new System.Drawing.Size(213, 26);
+            this.txtAddress.Size = new System.Drawing.Size(420, 26);
             this.txtAddress.TabIndex = 5;
             // 
             // labelControl3
@@ -358,7 +369,6 @@
             this.gridColumn11});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.Name = "grvMain";
-            
             // 
             // gridColumn1
             // 
@@ -443,17 +453,6 @@
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 8;
-            // 
-            // cmdResetPass
-            // 
-            this.cmdResetPass.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdResetPass.Appearance.Options.UseFont = true;
-            this.cmdResetPass.Location = new System.Drawing.Point(856, 14);
-            this.cmdResetPass.Name = "cmdResetPass";
-            this.cmdResetPass.Size = new System.Drawing.Size(79, 23);
-            this.cmdResetPass.TabIndex = 28;
-            this.cmdResetPass.Text = "Reset pass";
-            this.cmdResetPass.Click += new System.EventHandler(this.cmdResetPass_Click);
             // 
             // FrmPol_User
             // 

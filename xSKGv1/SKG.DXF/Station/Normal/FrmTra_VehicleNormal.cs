@@ -304,7 +304,8 @@ namespace SKG.DXF.Station.Normal
         #region Events
         private void FrmTra_VehicleNormal_Activated(object sender, EventArgs e)
         {
-            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal();
+            // Bỏ qua xe ba gác
+            lueTransport.Properties.DataSource = _bll.Tra_Tariff.SelectForNormal("J");
         }
 
         private void FrmTra_VehicleNormal_Load(object sender, EventArgs e)

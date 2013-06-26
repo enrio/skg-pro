@@ -3,7 +3,7 @@
 namespace SKG.DXF.Station.Report
 {
     /// <summary>
-    /// Bảng kê thu phí xe vãng lai
+    /// Bảng kê thu phí xe tải lưu đậu
     /// </summary>
     public partial class Rpt_RevenueNormal1 : DevExpress.XtraReports.UI.XtraReport
     {

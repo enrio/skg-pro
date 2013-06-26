@@ -159,6 +159,8 @@ namespace SKG.DAL
                 var o = (Tra_Tariff)obj;
                 var res = _db.Tra_Tariffs.SingleOrDefault(s => s.Id == o.Id);
 
+                res.GroupId = o.GroupId;
+
                 res.Text = o.Text;
                 res.Price1 = o.Price1;
                 res.Price2 = o.Price2;
@@ -204,8 +206,9 @@ namespace SKG.DAL
         /// <summary>
         /// Bảng giá cho xe vãng lai
         /// </summary>
+        /// <param name="skip">Bỏ qua mã này</param>
         /// <returns></returns>
-        public DataTable SelectForNormal()
+        public DataTable SelectForNormal(string skip = null)
         {
             try
             {
@@ -231,6 +234,9 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
+                if (!skip.IsNullOrEmpty())
+                    res = res.Where(p => !p.Code.Contains(skip));
 
                 return res.ToDataTable();
             }

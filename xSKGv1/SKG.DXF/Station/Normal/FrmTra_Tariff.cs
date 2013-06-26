@@ -289,7 +289,10 @@ namespace SKG.DXF.Station.Normal
         #region Events
         private void FrmTra_Kind_Load(object sender, EventArgs e)
         {
-            lokGroup.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            var tb = _bll.Pol_Dictionary.Select((object)Global.STR_GROUP);
+            tb.Numbered();
+
+            lokGroup.Properties.DataSource = tb;
             lokGroup.ItemIndex = 0;
         }
         #endregion

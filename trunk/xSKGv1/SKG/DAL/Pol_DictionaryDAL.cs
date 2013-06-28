@@ -27,6 +27,16 @@ namespace SKG.DAL
     {
         #region Implement
         /// <summary>
+        /// Auto generate code
+        /// </summary>
+        /// <param name="format">Format code</param>
+        /// <returns></returns>
+        public string GenerateCode(string format)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Count number of records
         /// </summary>
         /// <returns></returns>
@@ -83,6 +93,8 @@ namespace SKG.DAL
         {
             try
             {
+                if (Global.Setting) return null;
+
                 var gui = new Guid();
                 var ok = Guid.TryParse(code, out gui);
 

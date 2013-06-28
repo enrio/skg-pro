@@ -27,6 +27,16 @@ namespace SKG.DAL
     {
         #region Implement
         /// <summary>
+        /// Auto generate code
+        /// </summary>
+        /// <param name="format">Format code</param>
+        /// <returns></returns>
+        public string GenerateCode(string format)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
         /// <returns></returns>

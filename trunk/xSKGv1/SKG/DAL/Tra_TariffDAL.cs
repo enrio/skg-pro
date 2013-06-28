@@ -27,6 +27,29 @@ namespace SKG.DAL
     {
         #region Implement
         /// <summary>
+        /// Auto generate code
+        /// </summary>
+        /// <param name="format">Format code</param>
+        /// <returns></returns>
+        public string GenerateCode(string format)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Tariffs
+                          where s.Code.Contains(format)
+                          && s.Show == true
+                          orderby s.Code descending
+                          select s;
+                var tmp = res.FirstOrDefault().Code.Replace(format + "_", "");
+                return String.Format("{0}_{1}", format, 1 + tmp.ToInt32());
+            }
+            catch
+            {
+                return String.Format("{0}_{1}", format, 0);
+            }
+        }
+
+        /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
         /// <returns></returns>

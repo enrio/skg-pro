@@ -122,30 +122,113 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void PerformPrint()
         {
-            LoadData();
-            _dtb.Numbered();
+            var dlg = new FrmRevenueNormal();
+            var res = dlg.ShowDialog();
 
-            var rpt = new Report.Rpt_RevenueNormal3
+            decimal sum = 0;
+            var fr = dteFrom.DateTime;
+            var to = dteTo.DateTime;
+            var frm = new FrmPrint();
+
+            switch (res)
             {
-                Name = String.Format(Level1.STR_DT,
-                Global.Session.User.Acc, Global.Session.Current),
-                DataSource = _dtb
-            };
+                case DialogResult.OK: // bảng kê xe tải lưu đậu
+                    var tb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
 
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parNum.Value = Global.AuditNumber;
-            rpt.parDate.Value = dteTo.DateTime;
-            rpt.parUserOut.Value = Global.Session.User.Name;
+                    var rpt1 = new Report.Rpt_RevenueNormal1
+                    {
+                        Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1",
+                        Global.Session.User.Acc, Global.Session.Current),
+                        DataSource = tb
+                    };
 
-            var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
-            duration = String.Format(duration,
-              dteFrom.DateTime.ToStringTimeVN(), dteFrom.DateTime.ToStringDateVN(),
-              dteTo.DateTime.ToStringTimeVN(), dteTo.DateTime.ToStringDateVN());
-            rpt.xrlFromTo.Text = duration;
+                    rpt1.parTitle1.Value = Global.Title1;
+                    rpt1.parTitle2.Value = Global.Title2;
+                    rpt1.parUserOut.Value = Global.Session.User.Name;
+                    rpt1.parDate.Value = to;
+                    rpt1.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
+                    rpt1.xrcMoney.Text = sum.ToVietnamese("đồng");
 
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
-            frm.SetReport(rpt);
+                    frm.Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum);
+                    frm.SetReport(rpt1);
+                    break;
+
+                case DialogResult.Yes: // bảng kê xe sang hàng
+                    tb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
+
+                    var rpt2 = new Report.Rpt_RevenueNormal2
+                    {
+                        Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2",
+                        Global.Session.User.Acc, Global.Session.Current),
+                        DataSource = tb
+                    };
+
+                    rpt2.parTitle1.Value = Global.Title1;
+                    rpt2.parTitle2.Value = Global.Title2;
+                    rpt2.parUserOut.Value = Global.Session.User.Name;
+                    rpt2.parDate.Value = to;
+                    rpt2.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
+                    rpt2.xrcMoney.Text = sum.ToVietnamese("đồng");
+
+                    frm.Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum);
+                    frm.SetReport(rpt2);
+                    break;
+
+                case DialogResult.No: // bảng kê xe khách vãng lai
+                    tb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.C);
+
+                    var rpt3 = new Report.Rpt_RevenueNormal3
+                    {
+                        Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2",
+                        Global.Session.User.Acc, Global.Session.Current),
+                        DataSource = tb
+                    };
+
+                    rpt3.parTitle1.Value = Global.Title1;
+                    rpt3.parTitle2.Value = Global.Title2;
+                    rpt3.parUserOut.Value = Global.Session.User.Name;
+                    rpt3.parDate.Value = to;
+                    rpt3.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
+                    rpt3.xrcMoney.Text = sum.ToVietnamese("đồng");
+
+                    frm.Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum);
+                    frm.SetReport(rpt3);
+                    break;
+
+                case DialogResult.Cancel: // báo cáo
+                    tb = _bll.Tra_Detail.SumaryNormal(out sum, fr, to);
+
+                    var rpt4 = new Report.Rpt_ReportNormal
+                    {
+                        Name = String.Format(Level1.STR_DT,
+                        Global.Session.User.Acc, Global.Session.Current),
+                        DataSource = tb
+                    };
+
+                    var sub1 = new Report.Rpt_ReportNormal1() { DataSource = tb };
+                    rpt4.xrSubreport1.ReportSource = sub1;
+
+                    var sub2 = new Report.Rpt_ReportNormal2() { DataSource = tb };
+                    rpt4.xrSubreport2.ReportSource = sub2;
+
+                    rpt4.parTitle1.Value = Global.Title1;
+                    rpt4.parTitle2.Value = Global.Title2;
+                    rpt4.parNum.Value = Global.AuditNumber;
+                    rpt4.parDate.Value = to;
+                    rpt4.parCount.Value = tb == null ? 0 : tb.Rows.Count;
+                    rpt4.parTotal.Value = sum;
+                    rpt4.parUserOut.Value = Global.Session.User.Name;
+
+                    var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
+                    duration = String.Format(duration,
+                      fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                      to.ToStringTimeVN(), to.ToStringDateVN());
+                    rpt4.xrlFromTo.Text = duration;
+
+                    frm.Text = String.Format("In: {0} - Số tiền: {1:#,0}", Text, sum);
+                    frm.SetReport(rpt4);
+                    break;
+            }
 
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
@@ -266,72 +349,6 @@ namespace SKG.DXF.Station.Sumary
         private void cmdView_Click(object sender, EventArgs e)
         {
             PerformRefresh();
-        }
-
-        /// <summary>
-        /// In bảng kê nhóm 1 - xe tải lưu đậu nhóm xe vãng lai
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmdSumary1_Click(object sender, EventArgs e)
-        {
-            decimal sum = 0;
-            var fr = dteFrom.DateTime;
-            var to = dteTo.DateTime;
-            var tb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.A);
-
-            var rpt = new Report.Rpt_RevenueNormal1
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n1",
-                Global.Session.User.Acc, Global.Session.Current),
-                DataSource = tb
-            };
-
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parUserOut.Value = Global.Session.User.Name;
-            rpt.parDate.Value = to;
-            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
-            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
-            frm.SetReport(rpt);
-
-            frm.WindowState = FormWindowState.Maximized;
-            frm.ShowDialog();
-        }
-
-        /// <summary>
-        /// In bảng kê nhóm 2 - xe sang hàng nhóm xe vãng lai
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cmdSumary2_Click(object sender, EventArgs e)
-        {
-            decimal sum = 0;
-            var fr = dteFrom.DateTime;
-            var to = dteTo.DateTime;
-            var tb = _bll.Tra_Detail.GetRevenueNormal(out sum, fr, to, DAL.Tra_DetailDAL.Group.B);
-
-            var rpt = new Report.Rpt_RevenueNormal2
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_n2",
-                Global.Session.User.Acc, Global.Session.Current),
-                DataSource = tb
-            };
-
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parUserOut.Value = Global.Session.User.Name;
-            rpt.parDate.Value = to;
-            rpt.xrcWatch.Text = String.Format("{0:HH:mm} - {1:HH:mm}", fr, to);
-            rpt.xrcMoney.Text = sum.ToVietnamese("đồng");
-
-            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, sum) };
-            frm.SetReport(rpt);
-
-            frm.WindowState = FormWindowState.Maximized;
-            frm.ShowDialog();
         }
         #endregion
 

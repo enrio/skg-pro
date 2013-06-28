@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.cmdPrintIngate = new DevExpress.XtraEditors.SimpleButton();
             this.lblSeri = new System.Windows.Forms.Label();
             this.txtSeri = new DevExpress.XtraEditors.TextEdit();
             this.cmdNotEnough = new DevExpress.XtraEditors.SimpleButton();
@@ -69,8 +67,8 @@
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblKind = new System.Windows.Forms.Label();
             this.lblGroup = new System.Windows.Forms.Label();
-            this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdSumaryNormal = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdPrintIngate = new DevExpress.XtraEditors.SimpleButton();
             this.cmdOut = new DevExpress.XtraEditors.SimpleButton();
             this.cmdInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -160,7 +158,6 @@
             // groupControl1
             // 
             this.groupControl1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupControl1.Controls.Add(this.cmdPrintIngate);
             this.groupControl1.Controls.Add(this.lblSeri);
             this.groupControl1.Controls.Add(this.txtSeri);
             this.groupControl1.Controls.Add(this.cmdNotEnough);
@@ -186,8 +183,8 @@
             this.groupControl1.Controls.Add(this.lblDeposit);
             this.groupControl1.Controls.Add(this.lblKind);
             this.groupControl1.Controls.Add(this.lblGroup);
-            this.groupControl1.Controls.Add(this.cmdSumary2);
-            this.groupControl1.Controls.Add(this.cmdSumary1);
+            this.groupControl1.Controls.Add(this.cmdSumaryNormal);
+            this.groupControl1.Controls.Add(this.cmdPrintIngate);
             this.groupControl1.Controls.Add(this.cmdOut);
             this.groupControl1.Controls.Add(this.cmdInvoice);
             this.groupControl1.Location = new System.Drawing.Point(19, 12);
@@ -195,17 +192,6 @@
             this.groupControl1.Size = new System.Drawing.Size(756, 484);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "CỔNG RA-CHO XE RA BẾN";
-            // 
-            // cmdPrintIngate
-            // 
-            this.cmdPrintIngate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPrintIngate.Appearance.Options.UseFont = true;
-            this.cmdPrintIngate.Location = new System.Drawing.Point(536, 442);
-            this.cmdPrintIngate.Name = "cmdPrintIngate";
-            this.cmdPrintIngate.Size = new System.Drawing.Size(53, 37);
-            this.cmdPrintIngate.TabIndex = 81;
-            this.cmdPrintIngate.Text = "I&N";
-            this.cmdPrintIngate.Click += new System.EventHandler(this.cmdPrintIngate_Click);
             // 
             // lblSeri
             // 
@@ -593,27 +579,27 @@
             this.lblGroup.Size = new System.Drawing.Size(511, 35);
             this.lblGroup.TabIndex = 43;
             // 
-            // cmdSumary2
+            // cmdSumaryNormal
             // 
-            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(430, 442);
-            this.cmdSumary2.Name = "cmdSumary2";
-            this.cmdSumary2.Size = new System.Drawing.Size(100, 37);
-            this.cmdSumary2.TabIndex = 17;
-            this.cmdSumary2.Text = "In nhó&m 2";
-            this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
+            this.cmdSumaryNormal.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdSumaryNormal.Appearance.Options.UseFont = true;
+            this.cmdSumaryNormal.Location = new System.Drawing.Point(430, 442);
+            this.cmdSumaryNormal.Name = "cmdSumaryNormal";
+            this.cmdSumaryNormal.Size = new System.Drawing.Size(100, 37);
+            this.cmdSumaryNormal.TabIndex = 17;
+            this.cmdSumaryNormal.Text = "In &vãng lai";
+            this.cmdSumaryNormal.Click += new System.EventHandler(this.cmdSumaryNormal_Click);
             // 
-            // cmdSumary1
+            // cmdPrintIngate
             // 
-            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(324, 442);
-            this.cmdSumary1.Name = "cmdSumary1";
-            this.cmdSumary1.Size = new System.Drawing.Size(100, 37);
-            this.cmdSumary1.TabIndex = 16;
-            this.cmdSumary1.Text = "In &nhóm 1";
-            this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
+            this.cmdPrintIngate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPrintIngate.Appearance.Options.UseFont = true;
+            this.cmdPrintIngate.Location = new System.Drawing.Point(324, 442);
+            this.cmdPrintIngate.Name = "cmdPrintIngate";
+            this.cmdPrintIngate.Size = new System.Drawing.Size(100, 37);
+            this.cmdPrintIngate.TabIndex = 16;
+            this.cmdPrintIngate.Text = "I&N";
+            this.cmdPrintIngate.Click += new System.EventHandler(this.cmdPrintIngate_Click);
             // 
             // cmdOut
             // 
@@ -789,8 +775,8 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraEditors.GroupControl groupControl1;
-        private DevExpress.XtraEditors.SimpleButton cmdSumary2;
-        private DevExpress.XtraEditors.SimpleButton cmdSumary1;
+        private DevExpress.XtraEditors.SimpleButton cmdSumaryNormal;
+        private DevExpress.XtraEditors.SimpleButton cmdPrintIngate;
         private DevExpress.XtraEditors.SimpleButton cmdOut;
         private DevExpress.XtraEditors.SimpleButton cmdInvoice;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -836,6 +822,5 @@
         private DevExpress.XtraEditors.SimpleButton cmdTempOut;
         private System.Windows.Forms.Label lblSeri;
         private DevExpress.XtraEditors.TextEdit txtSeri;
-        private DevExpress.XtraEditors.SimpleButton cmdPrintIngate;
     }
 }

@@ -125,7 +125,7 @@ namespace SKG.DXF.Station.Sumary
 
             if (oki == DialogResult.Yes)
             {
-                var rpt = new Report.Rpt_RevenueFixed2
+                var rpt = new Report.Rpt_ReportFixed
                 {
                     Name = String.Format(Level1.STR_DT,
                     Global.Session.User.Acc, Global.Session.Current),
@@ -134,8 +134,6 @@ namespace SKG.DXF.Station.Sumary
 
                 rpt.parTitle1.Value = Global.Title1;
                 rpt.parTitle2.Value = Global.Title2;
-
-                rpt.xrlCashier.Text = Global.Session.User.Name;
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 
@@ -143,7 +141,7 @@ namespace SKG.DXF.Station.Sumary
             }
             else
             {
-                var rpt = new Report.Rpt_RevenueFixed1
+                var rpt = new Report.Rpt_RevenueFixed
                 {
                     Name = String.Format(Level1.STR_DT,
                     Global.Session.User.Acc, Global.Session.Current),

@@ -106,8 +106,21 @@ namespace SKG.DXF.Home.Sytem
         {
             try
             {
+                if (Global.Setting)
+                {
+                    if (txtUser.Text == "system" && txtPass.Text == "@sm13579208")
+                    {
+                        DialogResult = DialogResult.OK;
+                        return;
+                    }
+                    else XtraMessageBox.Show(STR_ERR, STR_LOGIN);
+
+                    return;
+                }
+
                 var bll = new Pol_UserBLL();
                 var sss = bll.CheckLogin(txtUser.Text, txtPass.Text);
+
                 if (sss != null)
                 {
                     Global.Session = sss;

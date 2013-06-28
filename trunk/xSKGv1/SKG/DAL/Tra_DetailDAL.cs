@@ -42,6 +42,11 @@ namespace SKG.DAL
             B,
 
             /// <summary>
+            /// Nhóm xe khách vãng lai
+            /// </summary>
+            C,
+
+            /// <summary>
             /// Tất cả xe vãng lai
             /// </summary>
             N,
@@ -58,6 +63,16 @@ namespace SKG.DAL
         }
 
         #region Implement
+        /// <summary>
+        /// Auto generate code
+        /// </summary>
+        /// <param name="format">Format code</param>
+        /// <returns></returns>
+        public string GenerateCode(string format)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Đếm số dòng trong bảng
         /// </summary>
@@ -828,7 +843,7 @@ namespace SKG.DAL
 
                               s.FullDay,
                               s.HalfDay,
-                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              TotalDays = s.FullDay + s.HalfDay,
                               Money = s.Money + (s.Arrears ?? 0) * (s.Cost + s.Rose),
 
                               s.Price1,
@@ -1585,11 +1600,14 @@ namespace SKG.DAL
 
                               s.FullDay,
                               s.HalfDay,
-                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              TotalDays = s.FullDay + s.HalfDay,
 
                               s.Price1,
                               s.Price2,
                               s.Money,
+
+                              s.Seats,
+                              s.Beds,
 
                               Group = s.Vehicle.Tariff.Group.Text,
                               GroupCode = s.Vehicle.Tariff.Group.Code,
@@ -1597,6 +1615,7 @@ namespace SKG.DAL
                           };
                 if (nhom == Group.A) res = res.Where(p => p.GroupCode == "GROUP_0");
                 else if (nhom == Group.B) res = res.Where(p => p.GroupCode == "GROUP_1");
+                else if (nhom == Group.C) res = res.Where(p => p.GroupCode == "GROUP_2");
 
                 sum = res.Sum(k => k.Money);
                 return res.ToDataTable();
@@ -1693,7 +1712,7 @@ namespace SKG.DAL
 
                               s.FullDay,
                               s.HalfDay,
-                              TotalDays = s.FullDay + (s.HalfDay == 1 ? 0.5 : 0),
+                              TotalDays = s.FullDay + s.HalfDay,
                               s.Money,
 
                               s.Price1,

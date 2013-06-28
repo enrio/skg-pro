@@ -182,15 +182,16 @@ namespace SKG.DXF.Station.Normal
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            lokGroup.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+            else txtCode.Properties.ReadOnly = isReadOnly;
 
             txtName.Properties.ReadOnly = isReadOnly;
-            txtCode.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
             calPrice1.Properties.ReadOnly = isReadOnly;
             calPrice2.Properties.ReadOnly = isReadOnly;
 
+            lokGroup.Properties.ReadOnly = isReadOnly;
             grcMain.Enabled = isReadOnly;
 
             base.ReadOnlyControl(isReadOnly);

@@ -232,12 +232,13 @@ namespace SKG.DXF.Station.Fixed
             try
             {
                 if (!ValidInput()) return false;
+                var code = _bll.Tra_Tariff.GenerateCode(Global.STR_STATION);
 
                 var o = new Tra_Tariff()
                 {
                     Text = txtName.Text,
                     GroupId = (Guid)lokGroup.GetColumnValue("Id"),
-                    Code = String.Format("{0}_{1}", Global.STR_STATION, _dtb.Rows.Count + 2),
+                    Code = code,
                     Price1 = (int)calPrice1.Value,
                     Price2 = (int)calPrice2.Value,
 

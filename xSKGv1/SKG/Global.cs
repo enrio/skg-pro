@@ -158,6 +158,11 @@ namespace SKG
         }
 
         /// <summary>
+        /// Allow config database
+        /// </summary>
+        public static bool Setting { get; set; }
+
+        /// <summary>
         /// Return current Vietnamese's date format
         /// </summary>
         /// <returns></returns>

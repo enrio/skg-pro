@@ -11,6 +11,7 @@
 #endregion
 
 using System;
+using System.Windows.Forms;
 using System.Collections.Generic;
 
 namespace SKG.DXF
@@ -77,21 +78,54 @@ namespace SKG.DXF
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            var str = "";
             var cfg = Global.Connection.ConnectionString.GetConfig();
+
+        Redo1:
             if (!cfg[0].Ping())
             {
-                var str = "Lỗi kết nối mạng nội bộ, hãy xem lại kết nối mạng{0}Hoặc liên hệ:"
-                    + "{0}Triết - 0982 878 707{0}Toàn - 01645 515 010{0}" + "Để khắc phục sự cố!";
-
+                str = "LỖI KẾT NỐI MẠNG NỘI BỘ, HÃY XEM LẠI KẾT NỐI MẠNG{0}HOẶC LIÊN HỆ:";
+                str += "{0}TRIẾT: 0982 878 707 - TOÀN: 01645 515 010{0}" + "ĐỂ KHẮC PHỤC SỰ CỐ!";
                 str = String.Format(str, Environment.NewLine);
-                XtraMessageBox.Show(str, "Lỗi kết nối");
+
+                var ok = XtraMessageBox.Show(str, "Lỗi kết nối",
+                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                if (ok == DialogResult.Retry) goto Redo1;
+                else ShowFrmPol_Setting();
 
                 return;
             }
 
+        Redo2:
             if (!Sample.CheckDb())
+            {
+                str = "LỖI MÁY CHỦ DỮ LIỆU, HÃY XEM LẠI SQL SERVER{0}HOẶC LIÊN HỆ:";
+                str += "{0}TRIẾT: 0982 878 707 - TOÀN: 01645 515 010{0}" + "ĐỂ KHẮC PHỤC SỰ CỐ!";
+                str = String.Format(str, Environment.NewLine);
+
+                var ok = XtraMessageBox.Show(str, "Lỗi kết nối",
+                    MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning);
+                if (ok == DialogResult.Retry) goto Redo2;
+                else ShowFrmPol_Setting();
+
+                return;
+            }
+
+            Extend.Login();
+        }
+
+        void ShowFrmPol_Setting()
+        {
+            var frm = new FrmPol_Login()
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.None,
+            };
+
+            Global.Setting = true;
+            if (frm.ShowDialog() == DialogResult.OK)
                 Extend.ShowRight<FrmPol_Setting>(this);
-            else Extend.Login();
+            Global.Setting = false;
         }
 
         /// <summary>

@@ -26,6 +26,6 @@ using System.Resources;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.5.6")]
-[assembly: AssemblyFileVersion("1.0.5.6")]
+[assembly: AssemblyVersion("1.0.5.7")]
+[assembly: AssemblyFileVersion("1.0.5.7")]
 [assembly: NeutralResourcesLanguageAttribute("vi-VN")]

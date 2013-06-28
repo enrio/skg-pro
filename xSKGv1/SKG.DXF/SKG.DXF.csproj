@@ -253,6 +253,12 @@
     <Compile Include="Station\Fixed\FrmTra_Transport.Designer.cs">
       <DependentUpon>FrmTra_Transport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\FrmRevenueNormal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\FrmRevenueNormal.Designer.cs">
+      <DependentUpon>FrmRevenueNormal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\InDepot\Level2.cs" />
     <Compile Include="Station\Charts\FrmTra_Ingate.cs">
       <SubType>Form</SubType>
@@ -335,17 +341,41 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormalBak.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormalBak.Designer.cs">
+      <DependentUpon>Rpt_ReportNormalBak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormal2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormal2.Designer.cs">
+      <DependentUpon>Rpt_ReportNormal2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormal1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_ReportNormal1.Designer.cs">
+      <DependentUpon>Rpt_ReportNormal1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueNormal3.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueNormal3.Designer.cs">
+      <DependentUpon>Rpt_RevenueNormal3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_RevenueNormal2.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Station\Report\Rpt_RevenueNormal2.Designer.cs">
       <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed2.cs">
+    <Compile Include="Station\Report\Rpt_ReportFixed.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed2.Designer.cs">
-      <DependentUpon>Rpt_RevenueFixed2.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_ReportFixed.Designer.cs">
+      <DependentUpon>Rpt_ReportFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_TariffFixed.cs">
       <SubType>Component</SubType>
@@ -359,11 +389,11 @@
     <Compile Include="Station\Report\Rpt_TariffNormal.Designer.cs">
       <DependentUpon>Rpt_TariffNormal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueNormal3.cs">
+    <Compile Include="Station\Report\Rpt_ReportNormal.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueNormal3.Designer.cs">
-      <DependentUpon>Rpt_RevenueNormal3.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_ReportNormal.Designer.cs">
+      <DependentUpon>Rpt_ReportNormal.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_IngateMaster.cs">
       <SubType>Component</SubType>
@@ -432,11 +462,11 @@
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
-    <Compile Include="Station\Report\Rpt_RevenueFixed1.cs">
+    <Compile Include="Station\Report\Rpt_RevenueFixed.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed1.Designer.cs">
-      <DependentUpon>Rpt_RevenueFixed1.cs</DependentUpon>
+    <Compile Include="Station\Report\Rpt_RevenueFixed.Designer.cs">
+      <DependentUpon>Rpt_RevenueFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_RevenueNormal1.cs">
       <SubType>Component</SubType>

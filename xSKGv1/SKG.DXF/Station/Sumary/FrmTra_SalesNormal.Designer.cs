@@ -32,8 +32,6 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.cmdSumary2 = new DevExpress.XtraEditors.SimpleButton();
-            this.cmdSumary1 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdView = new DevExpress.XtraEditors.SimpleButton();
             this.dteTo = new DevExpress.XtraEditors.DateEdit();
             this.lblTo = new DevExpress.XtraEditors.LabelControl();
@@ -110,8 +108,6 @@
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.cmdSumary2);
-            this.dockPanel1_Container.Controls.Add(this.cmdSumary1);
             this.dockPanel1_Container.Controls.Add(this.cmdView);
             this.dockPanel1_Container.Controls.Add(this.dteTo);
             this.dockPanel1_Container.Controls.Add(this.lblTo);
@@ -125,28 +121,6 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(1030, 35);
             this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // cmdSumary2
-            // 
-            this.cmdSumary2.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary2.Appearance.Options.UseFont = true;
-            this.cmdSumary2.Location = new System.Drawing.Point(855, 3);
-            this.cmdSumary2.Name = "cmdSumary2";
-            this.cmdSumary2.Size = new System.Drawing.Size(86, 26);
-            this.cmdSumary2.TabIndex = 19;
-            this.cmdSumary2.Text = "In nhó&m 2";
-            this.cmdSumary2.Click += new System.EventHandler(this.cmdSumary2_Click);
-            // 
-            // cmdSumary1
-            // 
-            this.cmdSumary1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdSumary1.Appearance.Options.UseFont = true;
-            this.cmdSumary1.Location = new System.Drawing.Point(763, 3);
-            this.cmdSumary1.Name = "cmdSumary1";
-            this.cmdSumary1.Size = new System.Drawing.Size(86, 26);
-            this.cmdSumary1.TabIndex = 18;
-            this.cmdSumary1.Text = "In &nhóm 1";
-            this.cmdSumary1.Click += new System.EventHandler(this.cmdSumary1_Click);
             // 
             // cmdView
             // 
@@ -465,12 +439,15 @@
             this.gridColumn12,
             this.colSeri});
             this.grvMain.GridControl = this.grcMain;
+            this.grvMain.GroupCount = 1;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Money", null, "Tổng tiền: {0:#,0}đ")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
+            this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.bandedGridColumn2, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridBand1
             // 
@@ -482,7 +459,7 @@
             this.gridBand1.Columns.Add(this.bandedGridColumn2);
             this.gridBand1.Columns.Add(this.colSeri);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 454;
+            this.gridBand1.Width = 466;
             // 
             // gridColumn1
             // 
@@ -496,7 +473,7 @@
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 29;
+            this.gridColumn2.Width = 41;
             // 
             // gridColumn3
             // 
@@ -720,8 +697,6 @@
         private DevExpress.XtraEditors.LabelControl lblFrom;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraEditors.SimpleButton cmdView;
-        private DevExpress.XtraEditors.SimpleButton cmdSumary2;
-        private DevExpress.XtraEditors.SimpleButton cmdSumary1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colSeri;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;

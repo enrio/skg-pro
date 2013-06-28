@@ -23,6 +23,13 @@ namespace SKG.DAL
     public interface IBase
     {
         /// <summary>
+        /// Auto generate code
+        /// </summary>
+        /// <param name="format">Format code</param>
+        /// <returns></returns>
+        string GenerateCode(string format);
+
+        /// <summary>
         /// Count number of records
         /// </summary>
         /// <returns></returns>

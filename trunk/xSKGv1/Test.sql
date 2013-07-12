@@ -5,7 +5,7 @@ If Exists(Select * From SysDatabases Where Name = 'xSKGv1')
 	Drop Database xSKGv1
 
 Restore Database xSKGv1
-From Disk = 'D:\xSKGv1\BXE-06.07.13.06.44.56.bak'
+From Disk = 'D:\xSKGv1\BXE-13.07.13.05.49.05.bak'
 
 Set Dateformat Dmy
 Declare @fr Datetime

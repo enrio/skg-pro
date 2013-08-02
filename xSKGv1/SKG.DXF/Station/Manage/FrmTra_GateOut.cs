@@ -535,6 +535,11 @@ namespace SKG.DXF.Station.Manage
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 
+                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                duration = String.Format(duration,
+                    fr.ToStringDateVN(), to.ToStringDateVN());
+
+                rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
             }
             else

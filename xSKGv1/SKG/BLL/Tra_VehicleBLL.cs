@@ -43,16 +43,23 @@ namespace SKG.BLL
         /// <summary>
         /// Print list vehicle fixed
         /// </summary>
+        /// <param name="t">Filter</param>
         /// <returns></returns>
-        public new DataTable SelectForPrint()
+        public new DataTable SelectForPrint(TermForFixed t)
         {
-            var tb = base.SelectForPrint();
-            if (tb == null || tb.Rows.Count == 0)
-                return tb;
+            var tb = base.SelectForPrint(t);
+            if (tb == null || tb.Rows.Count == 0) return tb;
 
             tb.Columns.Add("Price", typeof(decimal));
+            tb.Columns.Add("Ghichu", typeof(string));
             foreach (DataRow r in tb.Rows)
-                r["Price"] = r["Text"].ToDecimal();
+            {
+                var text = r["Text"] + "";
+                var x = text.Split(new string[] { ";!;" }, StringSplitOptions.None);
+
+                if (x.Length > 0) r["Price"] = x[0].ToDecimal();
+                if (x.Length > 1) r["Ghichu"] = x[1];
+            }
             tb.AcceptChanges();
 
             return tb;
@@ -61,16 +68,23 @@ namespace SKG.BLL
         /// <summary>
         /// List vehicle fixed
         /// </summary>
+        /// <param name="t">Filter</param>
         /// <returns></returns>
-        public new DataTable SelectForFixed()
+        public new DataTable SelectForFixed(TermForFixed t)
         {
-            var tb = base.SelectForFixed();
-            if (tb == null || tb.Rows.Count == 0)
-                return tb;
+            var tb = base.SelectForFixed(t);
+            if (tb == null || tb.Rows.Count == 0) return tb;
 
             tb.Columns.Add("Price", typeof(decimal));
+            tb.Columns.Add("Ghichu", typeof(string));
             foreach (DataRow r in tb.Rows)
-                r["Price"] = r["Text"].ToDecimal();
+            {
+                var text = r["Text"] + "";
+                var x = text.Split(new string[] { ";!;" }, StringSplitOptions.None);
+
+                if (x.Length > 0) r["Price"] = x[0].ToDecimal();
+                if (x.Length > 1) r["Ghichu"] = x[1];
+            }
             tb.AcceptChanges();
 
             return tb;

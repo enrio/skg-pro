@@ -84,4 +84,12 @@ namespace SKG
         TransportFixed, GroupNormal, KindNormal,
         Both, DayInMonth, MonthInYear
     }
+
+    /// <summary>
+    /// List vehicle by
+    /// </summary>
+    public enum TermForFixed
+    {
+        Registration, Insurance, FixedRoutes, DriverLicense, Default
+    }
 }

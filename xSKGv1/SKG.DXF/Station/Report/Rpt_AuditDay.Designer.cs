@@ -116,9 +116,11 @@
             this.xrTable10 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow10 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcTitle1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.parTitle1 = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow11 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcTitle2 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.parTitle2 = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrTableCell35 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableRow12 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrcTitle3 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -130,7 +132,6 @@
             this.parInf = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrlCashier = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow8 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell61 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -250,8 +251,6 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
-            this.parTitle1 = new DevExpress.XtraReports.Parameters.Parameter();
-            this.parTitle2 = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
@@ -513,6 +512,12 @@
             this.xrcTitle1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcTitle1.Weight = 1.1488395730576055D;
             // 
+            // parTitle1
+            // 
+            this.parTitle1.Description = "Tiêu đề cấp 1";
+            this.parTitle1.Name = "parTitle1";
+            this.parTitle1.Visible = false;
+            // 
             // xrTableCell2
             // 
             this.xrTableCell2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -540,6 +545,12 @@
             this.xrcTitle2.Text = "xrcTitle2";
             this.xrcTitle2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrcTitle2.Weight = 1.1488397381662427D;
+            // 
+            // parTitle2
+            // 
+            this.parTitle2.Description = "Tiêu đề cấp 2";
+            this.parTitle2.Name = "parTitle2";
+            this.parTitle2.Visible = false;
             // 
             // xrTableCell35
             // 
@@ -601,9 +612,8 @@
             this.xrLabel1,
             this.xrLabel9,
             this.xrLabel8,
-            this.xrlCashier,
             this.xrTable9});
-            this.ReportFooter.HeightF = 208.3854F;
+            this.ReportFooter.HeightF = 88.02083F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // xrLabel1
@@ -636,7 +646,7 @@
             this.xrLabel9.SizeF = new System.Drawing.SizeF(282.7499F, 20.83333F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseTextAlignment = false;
-            this.xrLabel9.Text = "TM.ĐỘI ĐIỀU HÀNH";
+            this.xrLabel9.Text = "ĐỘI ĐIỀU HÀNH";
             this.xrLabel9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel8
@@ -648,19 +658,8 @@
             this.xrLabel8.SizeF = new System.Drawing.SizeF(282.7499F, 20.83333F);
             this.xrLabel8.StylePriority.UseFont = false;
             this.xrLabel8.StylePriority.UseTextAlignment = false;
-            this.xrLabel8.Text = "NGƯỜI LẬP BIỂU";
+            this.xrLabel8.Text = "THU NGÂN";
             this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // xrlCashier
-            // 
-            this.xrlCashier.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrlCashier.LocationFloat = new DevExpress.Utils.PointFloat(73.93761F, 187.5521F);
-            this.xrlCashier.Name = "xrlCashier";
-            this.xrlCashier.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrlCashier.SizeF = new System.Drawing.SizeF(282.7499F, 20.83333F);
-            this.xrlCashier.StylePriority.UseFont = false;
-            this.xrlCashier.StylePriority.UseTextAlignment = false;
-            this.xrlCashier.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrTable9
             // 
@@ -2111,18 +2110,6 @@
             this.PageFooter.HeightF = 23.95834F;
             this.PageFooter.Name = "PageFooter";
             // 
-            // parTitle1
-            // 
-            this.parTitle1.Description = "Tiêu đề cấp 1";
-            this.parTitle1.Name = "parTitle1";
-            this.parTitle1.Visible = false;
-            // 
-            // parTitle2
-            // 
-            this.parTitle2.Description = "Tiêu đề cấp 2";
-            this.parTitle2.Name = "parTitle2";
-            this.parTitle2.Visible = false;
-            // 
             // Rpt_AuditDay
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2310,7 +2297,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell34;
         public DevExpress.XtraReports.UI.XRLabel xrLabel9;
         public DevExpress.XtraReports.UI.XRLabel xrLabel8;
-        public DevExpress.XtraReports.UI.XRLabel xrlCashier;
         public DevExpress.XtraReports.UI.XRLabel xrLabel1;
         public DevExpress.XtraReports.Parameters.Parameter parInf;
         private DevExpress.XtraReports.UI.XRTable xrTable10;

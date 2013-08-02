@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.cmdAllVehicle = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdTermDriverLicense = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdTermInsurance = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdTermFixedRoutes = new DevExpress.XtraEditors.SimpleButton();
+            this.cmdLimitedRegistration = new DevExpress.XtraEditors.SimpleButton();
+            this.txtNote = new DevExpress.XtraEditors.TextEdit();
             this.calPrice = new DevExpress.XtraEditors.CalcEdit();
+            this.lblNote = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDays = new DevExpress.XtraEditors.TextEdit();
@@ -107,6 +113,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice.Properties)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDays.Properties)).BeginInit();
@@ -160,13 +167,20 @@
             this.dockPanel1.ID = new System.Guid("10b3cfe1-e785-4df6-b3c7-5ee3233ad318");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 213);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 213);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 243);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 243);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.cmdAllVehicle);
+            this.dockPanel1_Container.Controls.Add(this.cmdTermDriverLicense);
+            this.dockPanel1_Container.Controls.Add(this.cmdTermInsurance);
+            this.dockPanel1_Container.Controls.Add(this.cmdTermFixedRoutes);
+            this.dockPanel1_Container.Controls.Add(this.cmdLimitedRegistration);
+            this.dockPanel1_Container.Controls.Add(this.txtNote);
             this.dockPanel1_Container.Controls.Add(this.calPrice);
+            this.dockPanel1_Container.Controls.Add(this.lblNote);
             this.dockPanel1_Container.Controls.Add(this.labelControl6);
             this.dockPanel1_Container.Controls.Add(this.groupBox5);
             this.dockPanel1_Container.Controls.Add(this.groupBox4);
@@ -181,8 +195,62 @@
             this.dockPanel1_Container.Controls.Add(this.groupBox1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 186);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 216);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // cmdAllVehicle
+            // 
+            this.cmdAllVehicle.Location = new System.Drawing.Point(432, 188);
+            this.cmdAllVehicle.Name = "cmdAllVehicle";
+            this.cmdAllVehicle.Size = new System.Drawing.Size(62, 23);
+            this.cmdAllVehicle.TabIndex = 41;
+            this.cmdAllVehicle.Text = "Tất cả xe";
+            this.cmdAllVehicle.Click += new System.EventHandler(this.cmdAllVehicle_Click);
+            // 
+            // cmdTermDriverLicense
+            // 
+            this.cmdTermDriverLicense.Location = new System.Drawing.Point(816, 188);
+            this.cmdTermDriverLicense.Name = "cmdTermDriverLicense";
+            this.cmdTermDriverLicense.Size = new System.Drawing.Size(100, 23);
+            this.cmdTermDriverLicense.TabIndex = 45;
+            this.cmdTermDriverLicense.Text = "DS xe tới hạn GPLX";
+            this.cmdTermDriverLicense.Click += new System.EventHandler(this.cmdTermDriverLicense_Click);
+            // 
+            // cmdTermInsurance
+            // 
+            this.cmdTermInsurance.Location = new System.Drawing.Point(710, 188);
+            this.cmdTermInsurance.Name = "cmdTermInsurance";
+            this.cmdTermInsurance.Size = new System.Drawing.Size(100, 23);
+            this.cmdTermInsurance.TabIndex = 44;
+            this.cmdTermInsurance.Text = "DS xe tới hạn BH";
+            this.cmdTermInsurance.Click += new System.EventHandler(this.cmdTermInsurance_Click);
+            // 
+            // cmdTermFixedRoutes
+            // 
+            this.cmdTermFixedRoutes.Location = new System.Drawing.Point(605, 188);
+            this.cmdTermFixedRoutes.Name = "cmdTermFixedRoutes";
+            this.cmdTermFixedRoutes.Size = new System.Drawing.Size(99, 23);
+            this.cmdTermFixedRoutes.TabIndex = 43;
+            this.cmdTermFixedRoutes.Text = "DS xe tới hạn TCĐ";
+            this.cmdTermFixedRoutes.Click += new System.EventHandler(this.cmdTermFixedRoutes_Click);
+            // 
+            // cmdLimitedRegistration
+            // 
+            this.cmdLimitedRegistration.Location = new System.Drawing.Point(500, 188);
+            this.cmdLimitedRegistration.Name = "cmdLimitedRegistration";
+            this.cmdLimitedRegistration.Size = new System.Drawing.Size(99, 23);
+            this.cmdLimitedRegistration.TabIndex = 42;
+            this.cmdLimitedRegistration.Text = "DS xe tới hạn ĐK";
+            this.cmdLimitedRegistration.Click += new System.EventHandler(this.cmdLimitedRegistration_Click);
+            // 
+            // txtNote
+            // 
+            this.txtNote.Location = new System.Drawing.Point(75, 185);
+            this.txtNote.Name = "txtNote";
+            this.txtNote.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote.Properties.Appearance.Options.UseFont = true;
+            this.txtNote.Size = new System.Drawing.Size(351, 26);
+            this.txtNote.TabIndex = 40;
             // 
             // calPrice
             // 
@@ -198,6 +266,15 @@
             this.calPrice.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calPrice.Size = new System.Drawing.Size(102, 26);
             this.calPrice.TabIndex = 26;
+            // 
+            // lblNote
+            // 
+            this.lblNote.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNote.Location = new System.Drawing.Point(9, 188);
+            this.lblNote.Name = "lblNote";
+            this.lblNote.Size = new System.Drawing.Size(60, 19);
+            this.lblNote.TabIndex = 39;
+            this.lblNote.Text = "Ghi chú:";
             // 
             // labelControl6
             // 
@@ -283,11 +360,11 @@
             // 
             // txtDriver
             // 
-            this.txtDriver.Location = new System.Drawing.Point(67, 23);
+            this.txtDriver.Location = new System.Drawing.Point(72, 23);
             this.txtDriver.Name = "txtDriver";
             this.txtDriver.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDriver.Properties.Appearance.Options.UseFont = true;
-            this.txtDriver.Size = new System.Drawing.Size(182, 26);
+            this.txtDriver.Size = new System.Drawing.Size(177, 26);
             this.txtDriver.TabIndex = 31;
             // 
             // labelControl3
@@ -402,6 +479,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTermDriverLicense.Size = new System.Drawing.Size(108, 26);
             this.dteTermDriverLicense.TabIndex = 22;
+            this.dteTermDriverLicense.EditValueChanged += new System.EventHandler(this.dteTermDriverLicense_EditValueChanged);
             // 
             // dteTermFixedRoutes
             // 
@@ -419,6 +497,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTermFixedRoutes.Size = new System.Drawing.Size(108, 26);
             this.dteTermFixedRoutes.TabIndex = 18;
+            this.dteTermFixedRoutes.EditValueChanged += new System.EventHandler(this.dteTermFixedRoutes_EditValueChanged);
             // 
             // lblTermDriverLicense
             // 
@@ -454,6 +533,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteTermInsurance.Size = new System.Drawing.Size(108, 26);
             this.dteTermInsurance.TabIndex = 20;
+            this.dteTermInsurance.EditValueChanged += new System.EventHandler(this.dteTermInsurance_EditValueChanged);
             // 
             // dteLimitedRegistration
             // 
@@ -471,6 +551,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dteLimitedRegistration.Size = new System.Drawing.Size(108, 26);
             this.dteLimitedRegistration.TabIndex = 16;
+            this.dteLimitedRegistration.EditValueChanged += new System.EventHandler(this.dteLimitedRegistration_EditValueChanged);
             // 
             // lblTermInsurance
             // 
@@ -647,10 +728,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("d59a7d3a-6cea-460f-9e5e-a1f9105d471d");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 276);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 306);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 290);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 260);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -658,7 +739,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 263);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 233);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -668,7 +749,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 263);
+            this.grcMain.Size = new System.Drawing.Size(943, 233);
             this.grcMain.TabIndex = 0;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -850,7 +931,6 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand1
             // 
@@ -1100,6 +1180,7 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calPrice.Properties)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1216,5 +1297,12 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
+        private DevExpress.XtraEditors.TextEdit txtNote;
+        private DevExpress.XtraEditors.LabelControl lblNote;
+        private DevExpress.XtraEditors.SimpleButton cmdLimitedRegistration;
+        private DevExpress.XtraEditors.SimpleButton cmdTermDriverLicense;
+        private DevExpress.XtraEditors.SimpleButton cmdTermInsurance;
+        private DevExpress.XtraEditors.SimpleButton cmdTermFixedRoutes;
+        private DevExpress.XtraEditors.SimpleButton cmdAllVehicle;
     }
 }

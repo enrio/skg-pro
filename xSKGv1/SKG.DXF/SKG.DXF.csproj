@@ -501,6 +501,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
+      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_ReportFixed.resx">
+      <DependentUpon>Rpt_ReportFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Station\Report\Rpt_RevenueNormal2.resx">
+      <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Station\Report\Rpt_TariffFixed.resx">
       <DependentUpon>Rpt_TariffFixed.cs</DependentUpon>
     </EmbeddedResource>

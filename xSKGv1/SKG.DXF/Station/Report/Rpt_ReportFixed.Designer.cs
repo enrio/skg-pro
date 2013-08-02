@@ -249,6 +249,7 @@
             this.dts_Fixed = new SKG.DXF.Station.DataSet.Dts_Fixed();
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
+            this.xrlFromTo = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
@@ -498,9 +499,10 @@
             // ReportHeader
             // 
             this.ReportHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrlFromTo,
             this.xrlTitle,
             this.xrTable6});
-            this.ReportHeader.HeightF = 101.4584F;
+            this.ReportHeader.HeightF = 120.2084F;
             this.ReportHeader.Name = "ReportHeader";
             // 
             // xrlTitle
@@ -2074,7 +2076,18 @@
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
             this.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
-            // Rpt_RevenueFixed2
+            // xrlFromTo
+            // 
+            this.xrlFromTo.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrlFromTo.LocationFloat = new DevExpress.Utils.PointFloat(153.6755F, 91.45836F);
+            this.xrlFromTo.Name = "xrlFromTo";
+            this.xrlFromTo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrlFromTo.SizeF = new System.Drawing.SizeF(786.1145F, 25.42F);
+            this.xrlFromTo.StylePriority.UseFont = false;
+            this.xrlFromTo.StylePriority.UseTextAlignment = false;
+            this.xrlFromTo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // Rpt_ReportFixed
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -2322,5 +2335,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell134;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell135;
         public DevExpress.XtraReports.UI.XRLabel xrlTitle;
+        public DevExpress.XtraReports.UI.XRLabel xrlFromTo;
     }
 }

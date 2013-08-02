@@ -193,7 +193,6 @@ namespace SKG.DAL
                 if (Select(o.Code, o.Fixed) != null) return null; // number already exists
                 if (o.Id == Guid.Empty) o.Id = Guid.NewGuid();
 
-
                 o.CreatorId = Global.Session.User.Id;
                 o.CreateDate = Global.Session.Current;
                 o.Code = o.Code.ToUpper();
@@ -293,8 +292,9 @@ namespace SKG.DAL
         /// <summary>
         /// Danh sách xe tuyến cố định
         /// </summary>
+        /// <param name="t">Điều kiện lọc</param>
         /// <returns></returns>
-        protected DataTable SelectForFixed()
+        protected DataTable SelectForFixed(TermForFixed t)
         {
             try
             {
@@ -344,6 +344,29 @@ namespace SKG.DAL
                 if (!Global.Session.User.CheckAdmin() && !Global.Session.User.CheckOperator())
                     res = res.Where(k => k.CreatorId == Global.Session.User.Id);
 
+                var dt = Global.Session.Current.AddDays(1);
+                switch (t)
+                {
+                    case TermForFixed.Registration:
+                        res = res.Where(p => p.LimitedRegistration <= dt);
+                        break;
+
+                    case TermForFixed.DriverLicense:
+                        res = res.Where(p => p.TermDriverLicense <= dt);
+                        break;
+
+                    case TermForFixed.FixedRoutes:
+                        res = res.Where(p => p.TermFixedRoutes <= dt);
+                        break;
+
+                    case TermForFixed.Insurance:
+                        res = res.Where(p => p.TermInsurance <= dt);
+                        break;
+
+                    default:
+                        break;
+                }
+
                 return res.ToDataTable();
             }
             catch { return _tb; }
@@ -352,8 +375,9 @@ namespace SKG.DAL
         /// <summary>
         /// In danh sách xe tuyến cố định
         /// </summary>
+        /// <param name="t">Điều kiện lọc</param>
         /// <returns></returns>
-        protected DataTable SelectForPrint()
+        protected DataTable SelectForPrint(TermForFixed t)
         {
             try
             {
@@ -407,6 +431,29 @@ namespace SKG.DAL
                               s.Order,
                               s.Show
                           };
+
+                var dt = Global.Session.Current.AddDays(1);
+                switch (t)
+                {
+                    case TermForFixed.Registration:
+                        res = res.Where(p => p.LimitedRegistration <= dt);
+                        break;
+
+                    case TermForFixed.DriverLicense:
+                        res = res.Where(p => p.TermDriverLicense <= dt);
+                        break;
+
+                    case TermForFixed.FixedRoutes:
+                        res = res.Where(p => p.TermFixedRoutes <= dt);
+                        break;
+
+                    case TermForFixed.Insurance:
+                        res = res.Where(p => p.TermInsurance <= dt);
+                        break;
+
+                    default:
+                        break;
+                }
 
                 return res.ToDataTable();
             }

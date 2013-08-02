@@ -22,6 +22,7 @@ namespace SKG.DXF.Station.Fixed
 
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
+    using System.Drawing;
 
     public partial class FrmTra_VehicleFixed : FrmInput
     {
@@ -105,7 +106,7 @@ namespace SKG.DXF.Station.Fixed
         {
             var frm = new FrmPrint();
             var oki = XtraMessageBox.Show(STR_CFM, STR_PRINT, MessageBoxButtons.YesNo);
-            var tb = _bll.Tra_Vehicle.SelectForPrint();
+            var tb = _bll.Tra_Vehicle.SelectForPrint(_term);
 
             if (oki == DialogResult.Yes)
             {
@@ -198,6 +199,7 @@ namespace SKG.DXF.Station.Fixed
             txtHours.DataBindings.Clear();
             txtDays.DataBindings.Clear();
             calPrice.DataBindings.Clear();
+            txtNote.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -226,6 +228,7 @@ namespace SKG.DXF.Station.Fixed
             txtHours.DataBindings.Add("EditValue", _dtb, ".Note");
             txtDays.DataBindings.Add("EditValue", _dtb, ".More");
             calPrice.DataBindings.Add("EditValue", _dtb, ".Price");
+            txtNote.DataBindings.Add("EditValue", _dtb, ".Ghichu");
 
             base.DataBindingControl();
         }
@@ -254,6 +257,7 @@ namespace SKG.DXF.Station.Fixed
             txtHours.Properties.ReadOnly = isReadOnly;
             txtDays.Properties.ReadOnly = isReadOnly;
             calPrice.Properties.ReadOnly = isReadOnly;
+            txtNote.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -286,7 +290,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
-                    Text = calPrice.Value + "",
+                    Text = String.Format("{0};!;{1}", calPrice.Value, txtNote.Text),
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };
@@ -334,7 +338,7 @@ namespace SKG.DXF.Station.Fixed
                     Driver = txtDriver.Text,
                     Phone = txtPhone.Text,
 
-                    Text = calPrice.Value + "",
+                    Text = String.Format("{0};!;{1}", calPrice.Value, txtNote.Text),
                     Note = txtHours.Text,
                     More = txtDays.Text
                 };
@@ -361,7 +365,7 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Vehicle.SelectForFixed();
+            _dtb = _bll.Tra_Vehicle.SelectForFixed(_term);
 
             if (_dtb != null)
             {
@@ -421,6 +425,64 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
+        private void dteLimitedRegistration_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dteLimitedRegistration.DateTime <= _tomorrow)
+                dteLimitedRegistration.Properties.Appearance.BackColor = Color.Red;
+            else dteLimitedRegistration.Properties.Appearance.BackColor = Color.Transparent;
+        }
+
+        private void dteTermFixedRoutes_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dteTermFixedRoutes.DateTime <= _tomorrow)
+                dteTermFixedRoutes.Properties.Appearance.BackColor = Color.Red;
+            else dteTermFixedRoutes.Properties.Appearance.BackColor = Color.Transparent;
+        }
+
+        private void dteTermInsurance_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dteTermInsurance.DateTime <= _tomorrow)
+                dteTermInsurance.Properties.Appearance.BackColor = Color.Red;
+            else dteTermInsurance.Properties.Appearance.BackColor = Color.Transparent;
+        }
+
+        private void dteTermDriverLicense_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dteTermDriverLicense.DateTime <= _tomorrow)
+                dteTermDriverLicense.Properties.Appearance.BackColor = Color.Red;
+            else dteTermDriverLicense.Properties.Appearance.BackColor = Color.Transparent;
+        }
+
+        private void cmdAllVehicle_Click(object sender, EventArgs e)
+        {
+            _term = TermForFixed.Default;
+            PerformRefresh();
+        }
+
+        private void cmdLimitedRegistration_Click(object sender, EventArgs e)
+        {
+            _term = TermForFixed.Registration;
+            PerformRefresh();
+        }
+
+        private void cmdTermFixedRoutes_Click(object sender, EventArgs e)
+        {
+            _term = TermForFixed.FixedRoutes;
+            PerformRefresh();
+        }
+
+        private void cmdTermInsurance_Click(object sender, EventArgs e)
+        {
+            _term = TermForFixed.Insurance;
+            PerformRefresh();
+        }
+
+        private void cmdTermDriverLicense_Click(object sender, EventArgs e)
+        {
+            _term = TermForFixed.DriverLicense;
+            PerformRefresh();
+        }
+
         private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Kind == ButtonPredefines.Ellipsis)
@@ -448,6 +510,15 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Fields
+        /// <summary>
+        /// Điều kiện lọc
+        /// </summary>
+        TermForFixed _term = TermForFixed.Default;
+
+        /// <summary>
+        /// Ngày hôm sau
+        /// </summary>
+        DateTime _tomorrow = Global.Session.Current.AddDays(1);
         #endregion
 
         #region Constants

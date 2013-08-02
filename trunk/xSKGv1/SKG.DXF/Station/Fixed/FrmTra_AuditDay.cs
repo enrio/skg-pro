@@ -200,7 +200,6 @@ namespace SKG.DXF.Station.Fixed
 
             rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to,
                 chkHideActive.Checked, out inf);
-            rpt.xrlCashier.Text = Global.Session.User.Name;
             rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
 
             rpt.parTitle1.Value = Global.Title2;

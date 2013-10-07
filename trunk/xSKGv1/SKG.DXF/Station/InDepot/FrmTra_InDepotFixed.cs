@@ -152,6 +152,35 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Events
+        private void grvMain_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var tmpId = grvMain.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show(STR_CHOICE,
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                var id = (Guid)tmpId;
+                var code = grvMain.GetFocusedRowCellValue("Code") + "";
+
+                var frm = new Fixed.FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                PerformRefresh();
+            }
+        }
+
         private void txtNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) PerformFind();
@@ -175,7 +204,9 @@ namespace SKG.DXF.Station.InDepot
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
-        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

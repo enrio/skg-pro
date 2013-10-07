@@ -122,50 +122,6 @@ namespace SKG.BLL
         }
 
         /// <summary>
-        /// Revenue of vehicle fixed from 13:00:01 yesterday ago to 13:00:00 today
-        /// </summary>
-        /// <param name="sum">Sum of money</param>
-        /// <returns></returns>
-        public DataTable GetRevenueToday(out decimal sum)
-        {
-            sum = 0;
-
-            try
-            {
-                var cut = Global.CutsFr;
-                var cur = Global.Session.Current.Date;
-
-                var to = cur.AddHours(cut.Hour)
-                    .AddMinutes(cut.Minute)
-                    .AddSeconds(cut.Second);
-
-                var fr = to.AddDays(-1).AddSeconds(1);
-                return base.GetRevenueFixed(fr, to);
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
-        /// Revenue of vehicle fixed from 13:00:01 yesterday ago to 13:00:00 today
-        /// </summary>
-        /// <param name="sum">Sum of money</param>
-        /// <param name="receipt">Range of receipt</param>
-        /// <returns></returns>
-        public DataTable GetRevenueToday(out decimal sum, out string receipt)
-        {
-            sum = 0;
-            receipt = "";
-
-            try
-            {
-                var to = Global.Session.Current.Date.AddHours(13);
-                var fr = to.AddDays(-1).AddSeconds(1);
-                return GetRevenueFixed(out sum, out receipt, fr, to);
-            }
-            catch { return null; }
-        }
-
-        /// <summary>
         /// Sumary sales day of vehicle by
         /// </summary>
         /// <param name="sum">Total money</param>
@@ -179,7 +135,7 @@ namespace SKG.BLL
 
             try
             {
-                var to = dt.AddHours(13);
+                var to = dt.AddTicks(Global.CutsFr.Ticks);
                 var fr = to.AddDays(-1).AddSeconds(1);
                 var tb = base.SumarySales(by, fr, to);
 
@@ -207,7 +163,7 @@ namespace SKG.BLL
                 var a = dt.ToStartOfMonth().Date;
                 var b = dt.ToEndOfMonth().Date;
 
-                var to = b.AddHours(13);
+                var to = b.AddTicks(Global.CutsFr.Ticks);
                 var fr = a.AddDays(-1).AddSeconds(1);
                 var tb = base.SumarySales(by, fr, to);
 
@@ -235,7 +191,7 @@ namespace SKG.BLL
                 var a = dt.ToStartOfYear().Date;
                 var b = dt.ToEndOfYear().Date;
 
-                var to = b.AddHours(13);
+                var to = b.AddTicks(Global.CutsFr.Ticks);
                 var fr = a.AddDays(-1).AddSeconds(1);
                 var tb = base.SumarySales(by, fr, to);
 
@@ -267,7 +223,7 @@ namespace SKG.BLL
                         var a = dt.ToStartOfMonth().Date;
                         var b = dt.ToEndOfMonth().Date;
 
-                        var to = b.AddHours(13);
+                        var to = b.AddTicks(Global.CutsFr.Ticks);
                         var fr = a.AddDays(-1).AddSeconds(1);
                         ds = base.Sumary4Sales(by, fr, to);
                         break;
@@ -276,7 +232,7 @@ namespace SKG.BLL
                         a = dt.ToStartOfYear().Date;
                         b = dt.ToEndOfYear().Date;
 
-                        to = b.AddHours(13);
+                        to = b.AddTicks(Global.CutsFr.Ticks);
                         fr = a.AddDays(-1).AddSeconds(1);
                         ds = base.Sumary4Sales(by, fr, to);
                         break;

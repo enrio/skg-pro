@@ -59,10 +59,8 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var file = Application.StartupPath + @"\Import\NhapBT.xls";
-
                 #region Fixed
-                _tbFixed = ImportData(file, "Codinh");
+                _tbFixed = ImportData(_file, "Codinh");
                 foreach (DataRow r in _tbFixed.Rows)
                 {
                     var dt = Global.Session.Current;
@@ -123,7 +121,7 @@ namespace SKG.DXF.Station.Manage
                 #endregion
 
                 #region Normal
-                _tbNormal = ImportData(file, "Vanglai");
+                _tbNormal = ImportData(_file, "Luudau");
                 foreach (DataRow r in _tbNormal.Rows)
                 {
                     var dt = Global.Session.Current;
@@ -317,7 +315,7 @@ namespace SKG.DXF.Station.Manage
 
                 tb.Columns[2].ColumnName = "DateIn";
 
-                if (sheetName.ToLower() == "vanglai")
+                if (sheetName.ToLower() == "luudau")
                 {
                     tb.Columns[3].ColumnName = "Tariff";
                     tb.Columns[4].ColumnName = "Seats";
@@ -353,6 +351,11 @@ namespace SKG.DXF.Station.Manage
         {
             PerformAdd();
         }
+
+        private void FrmTra_ByHandIn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Excel.ClearWorksheets(_file);
+        }
         #endregion
 
         #region Properties
@@ -368,6 +371,11 @@ namespace SKG.DXF.Station.Manage
         /// List all of vihicle normal
         /// </summary>
         private DataTable _tbNormal;
+
+        /// <summary>
+        /// String path file name
+        /// </summary>
+        private string _file = Application.StartupPath + @"\Import\NhapBT.xls";
         #endregion
 
         #region Constants
@@ -385,10 +393,10 @@ namespace SKG.DXF.Station.Manage
         private const string STR_IN_DEPOT = "XE ĐANG TRONG BẾN";
         private const string STR_IN_DUPBO = "TRÙNG BIỂN SỐ";
         private const string STR_ENTERED = "ĐÃ CHO XE VÀO";
-        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        private const string STR_INTO = "SỐ LƯỢNG CHO VÀO\n\rXE CỐ ĐỊNH: {0}\n\rXE LƯU ĐẬU: {1}";
 
         public const string STR_PAN1 = "XE CỐ ĐỊNH";
-        public const string STR_PAN2 = "XE VÃNG LAI";
+        public const string STR_PAN2 = "XE LƯU ĐẬU";
         #endregion
     }
 }

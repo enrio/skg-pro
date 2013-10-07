@@ -464,6 +464,7 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
+            this.grvMain.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvMain_RowClick);
             // 
             // gridBand1
             // 

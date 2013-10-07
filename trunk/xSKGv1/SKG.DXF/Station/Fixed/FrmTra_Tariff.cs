@@ -307,6 +307,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_Tariff()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);

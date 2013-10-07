@@ -98,8 +98,8 @@ namespace SKG.DAL
                 var gui = new Guid();
                 var ok = Guid.TryParse(code, out gui);
 
-                if (ok) return _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == gui);
-                return _db.Pol_Dictionarys.SingleOrDefault(s => s.Code == code);
+                if (ok) return _db.Pol_Dictionarys.FirstOrDefault(s => s.Id == gui);
+                return _db.Pol_Dictionarys.FirstOrDefault(s => s.Code == code);
             }
             catch { return null; }
         }
@@ -213,6 +213,24 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Update data More field by Code field
+        /// </summary>
+        /// <param name="c">Code field</param>
+        /// <param name="m">More field</param>
+        /// <returns></returns>
+        public object UpdateMoreByCode(string c, string m)
+        {
+            try
+            {
+                var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Code == c);
+                res.More = m;
+
+                return _db.SaveChanges();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Delete data
         /// </summary>
         /// <param name="id">Primary key</param>
@@ -238,15 +256,15 @@ namespace SKG.DAL
         #endregion
 
         /// <summary>
-        /// Select data by type
+        /// Select data by Type field
         /// </summary>
-        /// <param name="type">Type of data</param>
+        /// <param name="t">Type of data</param>
         /// <returns></returns>
-        public DataTable Select(object type)
+        public DataTable Select(object t)
         {
             try
             {
-                var a = type + "";
+                var a = t + "";
                 var res = from s in _db.Pol_Dictionarys
                           where s.Type == a
                           orderby s.Order
@@ -279,9 +297,8 @@ namespace SKG.DAL
         }
 
         /// <summary>
-        /// Danh mục cho xe tuyến cố định
+        /// List for vehicle fixed
         /// </summary>
-        /// <param name="type"></param>
         /// <returns></returns>
         public DataTable SelectForFixed()
         {
@@ -290,6 +307,47 @@ namespace SKG.DAL
                 var res = from s in _db.Pol_Dictionarys
                           where s.Type == "ROOT" && s.Show == true
                           && s.Code != "ROLE" && s.Code != "GROUP"
+                          orderby s.Order
+                          select new
+                          {
+                              s.Id,
+                              s.ParentId,
+                              Belong = s.Parent.Text,
+                              s.Code,
+                              s.Type,
+                              s.Text,
+                              s.Note,
+                              s.More,
+                              s.Text1,
+                              s.Note1,
+                              s.More1,
+                              s.Text2,
+                              s.Note2,
+                              s.More2,
+                              s.Text3,
+                              s.Note3,
+                              s.More3,
+                              s.Order,
+                              s.Show
+                          };
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
+        /// Select data by More field
+        /// </summary>
+        /// <param name="c">Key of data</param>
+        /// <param name="t">Type of data</param>
+        /// <returns></returns>
+        public DataTable SelectByMore(string c, string t)
+        {
+            try
+            {
+                var res = from s in _db.Pol_Dictionarys
+                          where s.More == c && s.Type == t
                           orderby s.Order
                           select new
                           {

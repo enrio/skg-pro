@@ -117,6 +117,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ResetInput()
         {
+            txtCode.Text = null;
             txtName.Text = null;
             txtDescript.Text = null;
 
@@ -125,6 +126,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ClearDataBindings()
         {
+            txtCode.DataBindings.Clear();
             txtName.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
 
@@ -133,6 +135,7 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void DataBindingControl()
         {
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
 
@@ -141,6 +144,9 @@ namespace SKG.DXF.Home.Catalog
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            txtCode.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+
             txtName.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
 
@@ -160,6 +166,7 @@ namespace SKG.DXF.Home.Catalog
                 var o = new Pol_Dictionary()
                 {
                     Id = id,
+                    Code = txtCode.Text,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
@@ -180,6 +187,7 @@ namespace SKG.DXF.Home.Catalog
 
                 var o = new Pol_Dictionary()
                 {
+                    Code = txtCode.Text,
                     Text = txtName.Text,
                     Note = txtDescript.Text
                 };
@@ -207,10 +215,13 @@ namespace SKG.DXF.Home.Catalog
 
         protected override bool ValidInput()
         {
-            var a = txtName.Text.Length == 0 ? false : true;
-            if (!a) txtName.Focus();
+            var a = txtCode.Text.Length == 0 ? false : true;
+            if (!a) txtCode.Focus();
 
-            return a;
+            var b = txtName.Text.Length == 0 ? false : true;
+            if (!b) txtName.Focus();
+
+            return a && b;
         }
         #endregion
 

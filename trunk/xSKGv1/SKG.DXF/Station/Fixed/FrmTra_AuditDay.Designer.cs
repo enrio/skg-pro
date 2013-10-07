@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lueNumber = new DevExpress.XtraEditors.LookUpEdit();
             this.txtArrears = new DevExpress.XtraEditors.TextEdit();
-            this.txtNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.lblNumber = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -67,13 +66,19 @@
             this.gridBand4 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandedGridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand5 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandedGridColumn11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn12 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn13 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn14 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.bandedGridColumn15 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArrears.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).BeginInit();
@@ -124,42 +129,52 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lueNumber);
             this.groupBox5.Controls.Add(this.txtArrears);
-            this.groupBox5.Controls.Add(this.txtNumber);
             this.groupBox5.Controls.Add(this.labelControl3);
             this.groupBox5.Controls.Add(this.lblNumber);
             this.groupBox5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(599, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(269, 55);
+            this.groupBox5.Size = new System.Drawing.Size(283, 55);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Truy thu";
             // 
+            // lueNumber
+            // 
+            this.lueNumber.Location = new System.Drawing.Point(69, 23);
+            this.lueNumber.Name = "lueNumber";
+            this.lueNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueNumber.Properties.Appearance.Options.UseFont = true;
+            this.lueNumber.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueNumber.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueNumber.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueNumber.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Biển số", 20, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.lueNumber.Properties.DisplayMember = "Code";
+            this.lueNumber.Properties.NullText = "";
+            this.lueNumber.Properties.ShowHeader = false;
+            this.lueNumber.Properties.ValueMember = "Code";
+            this.lueNumber.Size = new System.Drawing.Size(120, 26);
+            this.lueNumber.TabIndex = 6;
+            // 
             // txtArrears
             // 
-            this.txtArrears.Location = new System.Drawing.Point(206, 23);
+            this.txtArrears.Location = new System.Drawing.Point(232, 23);
             this.txtArrears.Name = "txtArrears";
             this.txtArrears.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArrears.Properties.Appearance.Options.UseFont = true;
-            this.txtArrears.Properties.Mask.EditMask = "([1-9]\\d*([.]\\d)?\\d?)|[0]";
+            this.txtArrears.Properties.Mask.EditMask = "[0-9]+";
             this.txtArrears.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtArrears.Size = new System.Drawing.Size(57, 26);
+            this.txtArrears.Size = new System.Drawing.Size(44, 26);
             this.txtArrears.TabIndex = 8;
-            // 
-            // txtNumber
-            // 
-            this.txtNumber.Location = new System.Drawing.Point(48, 23);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Size = new System.Drawing.Size(115, 26);
-            this.txtNumber.TabIndex = 6;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(169, 26);
+            this.labelControl3.Location = new System.Drawing.Point(195, 26);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(31, 19);
             this.labelControl3.TabIndex = 7;
@@ -170,9 +185,9 @@
             this.lblNumber.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumber.Location = new System.Drawing.Point(6, 26);
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(36, 19);
+            this.lblNumber.Size = new System.Drawing.Size(57, 19);
             this.lblNumber.TabIndex = 5;
-            this.lblNumber.Text = "B.số:";
+            this.lblNumber.Text = "Biển số:";
             // 
             // labelControl2
             // 
@@ -275,7 +290,7 @@
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
             this.grcMain.Size = new System.Drawing.Size(943, 385);
-            this.grcMain.TabIndex = 0;
+            this.grcMain.TabIndex = 11;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
             // 
@@ -423,7 +438,8 @@
             this.gridBand1,
             this.gridBand2,
             this.gridBand3,
-            this.gridBand4});
+            this.gridBand4,
+            this.gridBand5});
             this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -440,7 +456,12 @@
             this.bandedGridColumn4,
             this.bandedGridColumn7,
             this.bandedGridColumn6,
-            this.bandedGridColumn10});
+            this.bandedGridColumn10,
+            this.bandedGridColumn11,
+            this.bandedGridColumn12,
+            this.bandedGridColumn13,
+            this.bandedGridColumn14,
+            this.bandedGridColumn15});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "- Lượt xe: {0:#,0}")});
@@ -448,7 +469,7 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
-            
+            this.grvMain.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvMain_RowClick);
             // 
             // gridBand1
             // 
@@ -546,7 +567,7 @@
             // bandedGridColumn10
             // 
             this.bandedGridColumn10.Caption = "Ghi chú";
-            this.bandedGridColumn10.FieldName = "More";
+            this.bandedGridColumn10.FieldName = "Note";
             this.bandedGridColumn10.Name = "bandedGridColumn10";
             this.bandedGridColumn10.Visible = true;
             // 
@@ -632,6 +653,52 @@
             this.bandedGridColumn6.Visible = true;
             this.bandedGridColumn6.Width = 90;
             // 
+            // gridBand5
+            // 
+            this.gridBand5.Caption = "Thông tin tài xế";
+            this.gridBand5.Columns.Add(this.bandedGridColumn11);
+            this.gridBand5.Columns.Add(this.bandedGridColumn12);
+            this.gridBand5.Columns.Add(this.bandedGridColumn13);
+            this.gridBand5.Columns.Add(this.bandedGridColumn14);
+            this.gridBand5.Columns.Add(this.bandedGridColumn15);
+            this.gridBand5.Name = "gridBand5";
+            this.gridBand5.Width = 375;
+            // 
+            // bandedGridColumn11
+            // 
+            this.bandedGridColumn11.Caption = "Họ tên";
+            this.bandedGridColumn11.FieldName = "Driver";
+            this.bandedGridColumn11.Name = "bandedGridColumn11";
+            this.bandedGridColumn11.Visible = true;
+            // 
+            // bandedGridColumn12
+            // 
+            this.bandedGridColumn12.Caption = "Loại";
+            this.bandedGridColumn12.FieldName = "Mark";
+            this.bandedGridColumn12.Name = "bandedGridColumn12";
+            this.bandedGridColumn12.Visible = true;
+            // 
+            // bandedGridColumn13
+            // 
+            this.bandedGridColumn13.Caption = "Hạn GPLX";
+            this.bandedGridColumn13.FieldName = "DriverLicense";
+            this.bandedGridColumn13.Name = "bandedGridColumn13";
+            this.bandedGridColumn13.Visible = true;
+            // 
+            // bandedGridColumn14
+            // 
+            this.bandedGridColumn14.Caption = "Số GPLX";
+            this.bandedGridColumn14.FieldName = "LicenseNo";
+            this.bandedGridColumn14.Name = "bandedGridColumn14";
+            this.bandedGridColumn14.Visible = true;
+            // 
+            // bandedGridColumn15
+            // 
+            this.bandedGridColumn15.Caption = "Đ.thoại";
+            this.bandedGridColumn15.FieldName = "DriverPhone";
+            this.bandedGridColumn15.Name = "bandedGridColumn15";
+            this.bandedGridColumn15.Visible = true;
+            // 
             // FrmTra_AuditDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,6 +708,7 @@
             this.Name = "FrmTra_AuditDay";
             this.Text = "THEO DÕI NGÀY";
             this.Activated += new System.EventHandler(this.FrmTra_AuditMonth_Activated);
+            this.Load += new System.EventHandler(this.FrmTra_AuditDay_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -650,8 +718,8 @@
             this.dockPanel1_Container.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtArrears.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkHideActive.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteDay.Properties.VistaTimeProperties)).EndInit();
@@ -696,13 +764,19 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private System.Windows.Forms.GroupBox groupBox5;
         private DevExpress.XtraEditors.TextEdit txtArrears;
-        private DevExpress.XtraEditors.TextEdit txtNumber;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl lblNumber;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn10;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand5;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn11;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn12;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn13;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn14;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn15;
+        private DevExpress.XtraEditors.LookUpEdit lueNumber;
     }
 }

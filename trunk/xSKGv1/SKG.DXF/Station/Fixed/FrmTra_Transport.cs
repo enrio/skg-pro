@@ -117,9 +117,10 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            txtName.Text = null;
+            txtName.EditValue = null;
             chkShow.EditValue = false;
-            txtDescript.Text = null;
+            txtDescript.EditValue = null;
+            txtCode.EditValue = null;
 
             base.ResetInput();
         }
@@ -129,6 +130,12 @@ namespace SKG.DXF.Station.Fixed
             txtName.DataBindings.Clear();
             chkShow.DataBindings.Clear();
             txtDescript.DataBindings.Clear();
+            txtCode.DataBindings.Clear();
+
+            calPrice1.DataBindings.Clear();
+            calPrice2.DataBindings.Clear();
+            calRose1.DataBindings.Clear();
+            calRose2.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -138,15 +145,29 @@ namespace SKG.DXF.Station.Fixed
             txtName.DataBindings.Add("EditValue", _dtb, ".Text");
             chkShow.DataBindings.Add("EditValue", _dtb, ".Show");
             txtDescript.DataBindings.Add("EditValue", _dtb, ".Note");
+            txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
+
+            calPrice1.DataBindings.Add("EditValue", _dtb, ".Text1");
+            calPrice2.DataBindings.Add("EditValue", _dtb, ".Text2");
+            calRose1.DataBindings.Add("EditValue", _dtb, ".More1");
+            calRose2.DataBindings.Add("EditValue", _dtb, ".More2");
 
             base.DataBindingControl();
         }
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
+            else txtCode.Properties.ReadOnly = isReadOnly;
+
             txtName.Properties.ReadOnly = isReadOnly;
             chkShow.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;
+
+            calPrice1.Properties.ReadOnly = isReadOnly;
+            calPrice2.Properties.ReadOnly = isReadOnly;
+            calRose1.Properties.ReadOnly = isReadOnly;
+            calRose2.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -166,8 +187,13 @@ namespace SKG.DXF.Station.Fixed
                     Id = id,
                     Type = Global.STR_TRANSPORT,
                     Text = txtName.Text,
+                    Code = txtCode.Text,
                     Show = chkShow.Checked,
-                    Note = txtDescript.Text
+                    Note = txtDescript.Text,
+                    Text1 = calPrice1.Value + "",
+                    Text2 = calPrice2.Value + "",
+                    More1 = calRose1.Value + "",
+                    More2 = calRose2.Value + ""
                 };
 
                 var oki = _bll.Pol_Dictionary.Update(o);
@@ -188,9 +214,13 @@ namespace SKG.DXF.Station.Fixed
                 {
                     Type = Global.STR_TRANSPORT,
                     Text = txtName.Text,
-                    Code = String.Format("{0}_{1}", Global.STR_TRANSPORT, _dtb.Rows.Count + 2),
+                    Code = txtCode.Text,
                     Show = chkShow.Checked,
-                    Note = txtDescript.Text
+                    Note = txtDescript.Text,
+                    Text1 = calPrice1.Value + "",
+                    Text2 = calPrice2.Value + "",
+                    More1 = calRose1.Value + "",
+                    More2 = calRose2.Value + ""
                 };
 
                 var oki = _bll.Pol_Dictionary.Insert(o);
@@ -218,7 +248,11 @@ namespace SKG.DXF.Station.Fixed
         {
             var a = txtName.Text.Length == 0 ? false : true;
             if (!a) txtName.Focus();
-            return a;
+
+            var b = txtCode.Text.Length == 0 ? false : true;
+            if (!b) txtCode.Focus();
+
+            return a && b;
         }
         #endregion
 
@@ -226,6 +260,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_Transport()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);

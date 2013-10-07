@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 23/07/2012 22:50
- * Update: 02/06/2013 20:32
+ * Update: 05/10/2013 08:57
  * Status: OK
  */
 #endregion
@@ -62,7 +62,7 @@ namespace SKG.DXF.Station.Manage
             // Số lượng xe trong bến
             lblSum.Text = all.ToString("#,0");
             lblSum.Text += "\n\r" + fix.ToString("#,0"); // xe cố định
-            lblSum.Text += "\n\r" + nor.ToString("#,0"); // xe vãng lai
+            lblSum.Text += "\n\r" + nor.ToString("#,0"); // xe lưu đậu
 
             if (_dtb.Rows.Count > 0)
             {
@@ -96,8 +96,10 @@ namespace SKG.DXF.Station.Manage
             lblTotal.Text = null;
             lblMoney.Text = null;
             lblArrears.Text = null;
+            lblTested.Text = null;
 
-            txtNote.Text = null;
+            cmdOut.Enabled = false;
+            cmdTariff.Enabled = false;
 
             base.ResetInput();
         }
@@ -131,8 +133,8 @@ namespace SKG.DXF.Station.Manage
             AllowPrint = false;
 
             lblCaption.Text = "Xe trong bến:";
-            lblCaption.Text += "\n\r - Cố định:";
-            lblCaption.Text += "\n\r - Vãng lai:";
+            lblCaption.Text += "\n\r - Cố định :";
+            lblCaption.Text += "\n\r - Lưu đậu:";
         }
 
         /// <summary>
@@ -144,7 +146,8 @@ namespace SKG.DXF.Station.Manage
             try
             {
                 if (lkeNumber.Text == "") return;
-                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null, isRepair, txtNote.Text, txtSeri.Text);
+                var detail = _bll.Tra_Detail.InvoiceOut(lkeNumber.Text, isOut, null,
+                    isRepair, "", txtSeri.Text);
 
                 _isFixed = detail.Vehicle.Fixed;
                 var seat = detail.Seats ?? 0;
@@ -160,19 +163,23 @@ namespace SKG.DXF.Station.Manage
                     lblGroup.Text = "ĐVVT: " + detail.Vehicle.Transport.Text;
                     lblHalfDay.Text = "Ghế:";
                     lblFullDay.Text = "Giường:";
+                    lblTested.Text = detail.More + "" != "" ? Global.STR_TESTED : "";
 
                     if (detail.Arrears != null)
                     {
                         if (detail.Arrears > 0)
                             lblArrears.Text = String.Format("TRUY THU {0:#,0}L = {1:#,0đ}", detail.Arrears, arrears);
                     }
+
+                    lblSeri.Visible = false;
+                    txtSeri.Visible = false;
                 }
                 else
                 {
                     lblSeri.Visible = !isOut;
                     txtSeri.Visible = !isOut;
-                    if (isOut)
-                        txtSeri.Text = "";
+
+                    if (isOut) txtSeri.Text = "";
                     else txtSeri.Focus();
 
                     lblKind.Text = "Loại xe: " + detail.Vehicle.Tariff.Text;
@@ -181,6 +188,7 @@ namespace SKG.DXF.Station.Manage
                     lblFullDay.Text = "Một ngày:";
 
                     lblArrears.Text = null;
+                    lblTested.Text = null;
                 }
 
                 lblNumber.Text = detail.Vehicle.Code;
@@ -208,17 +216,24 @@ namespace SKG.DXF.Station.Manage
                 lblUserIn.Text = "Cho vào: " + detail.UserIn.Name;
                 lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
 
-                detail.Note += "";
-                var split = detail.Note.Split(new string[] { ";!;" }, StringSplitOptions.None);
-                lblNote.Text = split.Length > 0 ? split[0] : "";
-                txtNote.Text = split.Length > 1 ? split[1] : "";
+                var note = (detail.Repair ? Global.STR_TEMP_OUT : "")
+                              + (detail.Show ? "" : ", " + Global.STR_NOT_ENOUGH)
+                              + (detail.Note == null ? "" : ", " + detail.Note);
+                if (detail.Text + "" == Global.STR_ARREAR) note = detail.Text;
+
+                //var split = detail.Note.Split(new string[] { ";!;" }, StringSplitOptions.None);
+                //lblNote.Text = split.Length > 0 ? split[0] : "";
+                //txtNote.Text = split.Length > 1 ? split[1] : "";
+
+                note = note.Replace(", ", "").Trim();
+                lblNote.Text = note;
 
                 if (isOut)
                 {
                     PerformRefresh();
 
-                    // Xe cố định, không đi sửa, xe đủ điều kiện
-                    if (_isFixed && !detail.Repair && detail.Show) // in phiếu thu xe cố định
+                    // In phiếu thu xe cố định (trừ xe tạm ra bến)
+                    if (_isFixed && !detail.Repair)
                     {
                         var rpt = new Report.Rpt_Receipt();
                         var tbl = new Station.DataSet.Dts_Fixed.ReceiptDataTable();
@@ -250,6 +265,7 @@ namespace SKG.DXF.Station.Manage
                         dtr["ByChar"] = total.ToVietnamese("đồng");
                         dtr["Creator"] = Global.Session.User.Name;
                         dtr["Tariff"] = detail.Vehicle.Tariff.Text;
+                        dtr["Note"] = note.IsNullOrEmpty() ? "" : String.Format("({0})", note.ToUpperFirst());
 
                         tbl.Rows.Add(dtr);
                         rpt.DataSource = tbl;
@@ -263,8 +279,18 @@ namespace SKG.DXF.Station.Manage
                     }
                 }
 
-                cmdOut.Enabled = !isOut;
-                cmdTariff.Enabled = !isOut;
+                if (_isFixed && detail.More.IsNullOrEmpty()
+                    && detail.Text + "" != Global.STR_ARREAR)
+                {
+                    cmdOut.Enabled = false;
+                    cmdTariff.Enabled = false;
+                    lblTested.Text = "CHƯA KIỂM TRA";
+                }
+                else
+                {
+                    cmdOut.Enabled = true;
+                    cmdTariff.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -311,20 +337,6 @@ namespace SKG.DXF.Station.Manage
         private void FrmTra_GateOut_Load(object sender, EventArgs e)
         {
             AllowBar = false;
-
-            if (_ql)
-            {
-                cmdInvoice.Visible = false;
-                cmdOut.Visible = false;
-                cmdPrintIngate.Visible = false;
-                cmdSumaryNormal.Visible = false;
-                cmdSumaryFixed.Visible = false;
-                cmdPrintIngate.Visible = false;
-
-                cmdTempOut.Visible = true;
-                cmdNotEnough.Visible = true;
-            }
-            else txtNote.Properties.ReadOnly = true;
         }
 
         /// <summary>
@@ -345,6 +357,11 @@ namespace SKG.DXF.Station.Manage
         private void cmdOut_Click(object sender, EventArgs e)
         {
             Invoice(true);
+        }
+
+        private void cmdRefresh_Click(object sender, EventArgs e)
+        {
+            PerformRefresh();
         }
 
         /// <summary>
@@ -465,7 +482,7 @@ namespace SKG.DXF.Station.Manage
                     break;
 
                 case DialogResult.Cancel: // báo cáo
-                    tb = _bll.Tra_Detail.SumaryNormal(out sum, fr, to);
+                    tb = _bll.Tra_Detail.SumaryReportNormal(out sum, fr, to);
 
                     var rpt4 = new Report.Rpt_ReportNormal
                     {
@@ -484,9 +501,17 @@ namespace SKG.DXF.Station.Manage
                     rpt4.parTitle2.Value = Global.Title2;
                     rpt4.parNum.Value = Global.AuditNumber;
                     rpt4.parDate.Value = to;
-                    rpt4.parCount.Value = tb == null ? 0 : tb.Rows.Count;
                     rpt4.parTotal.Value = sum;
                     rpt4.parUserOut.Value = Global.Session.User.Name;
+
+                    var count = tb.Compute("Sum(CountFullDay)", "").ToInt32()
+                        + tb.Compute("Sum(CountHalfDay)", "").ToInt32();
+
+                    var vote = tb.Compute("Sum(FullDay)", "").ToInt32()
+                        + tb.Compute("Sum(HalfDay)", "").ToInt32();
+
+                    rpt4.parCount.Value = tb == null ? 0 : count;
+                    rpt4.parFullDay.Value = tb == null ? 0 : vote;
 
                     var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                     duration = String.Format(duration,
@@ -514,11 +539,11 @@ namespace SKG.DXF.Station.Manage
                 Level1.STR_PRINT, MessageBoxButtons.YesNo);
 
             var receipt = "";
-            var to = Global.Session.Current;
-            var fr = to.AddDays(-1);
+            DateTime fr, to;
+            Session.CutShiftDay(Global.Session.Current, out fr, out to);
 
             decimal _sum = 0;
-            var tb = _bll.Tra_Detail.GetRevenueToday(out _sum, out receipt);
+            var tb = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
 
             if (oki == DialogResult.Yes)
@@ -535,9 +560,10 @@ namespace SKG.DXF.Station.Manage
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 
-                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                 duration = String.Format(duration,
-                    fr.ToStringDateVN(), to.ToStringDateVN());
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
@@ -561,9 +587,10 @@ namespace SKG.DXF.Station.Manage
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
-                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                 duration = String.Format(duration,
-                    fr.ToStringDateVN(), to.ToStringDateVN());
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
@@ -582,33 +609,16 @@ namespace SKG.DXF.Station.Manage
         {
             PerformRefresh();
         }
-
-        private void cmdTempOut_Click(object sender, EventArgs e)
-        {
-            var ok = XtraMessageBox.Show("XÁC NHẬN TẠM RA BẾN?", Text,
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ok == DialogResult.No) return;
-
-            Invoice(false, true);
-        }
-
-        private void cmdNotEnough_Click(object sender, EventArgs e)
-        {
-            var ok = XtraMessageBox.Show("XÁC NHẬN KHÔNG ĐỦ ĐIỀU KIỆN?", Text,
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (ok == DialogResult.No) return;
-
-            Invoice(false, false);
-            PerformRefresh();
-        }
         #endregion
 
         #region Properties
         #endregion
 
         #region Fields
+        /// <summary>
+        /// Vehicle fixed
+        /// </summary>
         bool _isFixed;
-        bool _ql = Global.Session.User.CheckOperator() || Global.Session.User.CheckAdmin();
         #endregion
 
         #region Constants

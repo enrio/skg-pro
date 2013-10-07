@@ -21,6 +21,8 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Plugin;
     using DAL.Entities;
 
+    using DevExpress.XtraEditors;
+
     public partial class FrmTra_DebtMonth : FrmInput
     {
         #region Override plugin
@@ -80,6 +82,8 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformSave()
         {
             if (_num + "" != "") Close();
+            grvMain.CloseEditor();
+            grvMain.UpdateCurrentRow();
 
             base.PerformSave();
         }
@@ -165,6 +169,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_DebtMonth()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
@@ -172,7 +177,6 @@ namespace SKG.DXF.Station.Fixed
 
             AllowAdd = false;
             AllowDelete = false;
-            AllowRefresh = false;
             AllowPrint = true;
 
             dteMonth.DateTime = Global.Session.Current;
@@ -180,6 +184,35 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
+        private void grvMain_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var tmpId = grvMain.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show(STR_CHOICE,
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                var id = (Guid)tmpId;
+                var code = grvMain.GetFocusedRowCellValue("Code") + "";
+
+                var frm = new FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                PerformRefresh();
+            }
+        }
+
         private void dteMonth_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -211,6 +244,8 @@ namespace SKG.DXF.Station.Fixed
 
         #region Constants
         private const string STR_TITLE = "Bc công nợ tháng";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

@@ -77,17 +77,29 @@ namespace SKG.DXF.Station.Normal
 
                 if (o == null)
                 {
-                    var frm = new Station.Normal.FrmTra_VehicleNormal
-                    {
-                        NumIn = txtNumber.Text,
-                        WindowState = FormWindowState.Maximized,
-                        AllowCancel = false,
-                        _state = State.Add,
-                        ShowInTaskbar = false
-                    };
-                    frm.ShowDialog();
+                    txtKind.Focus();
+                    var tariff = (Tra_Tariff)_bll.Tra_Tariff.Select(txtKind.Text);
 
-                    txtNumber.Text = frm.NumOut;
+                    if (tariff != null)
+                    {
+                        var vehicle = new Tra_Vehicle()
+                        {
+                            TariffId = tariff.Id,
+                            Code = txtNumber.Text,
+                            Seats = 0,
+                            Beds = 0,
+                            Fixed = false,
+                            City = false,
+                            High = false
+                        };
+
+                        _bll.Tra_Vehicle.Insert(vehicle);
+                    }
+                    else if (txtKind.Text + "" != "")
+                        XtraMessageBox.Show("LOẠI XE NÀY KHÔNG CÓ!", STR_NORMAL,
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    txtKind.EditValue = null;
                     o = _bll.Tra_Vehicle.Select(txtNumber.Text);
                 }
 
@@ -112,7 +124,7 @@ namespace SKG.DXF.Station.Normal
                         XtraMessageBox.Show(STR_INTO, STR_NORMAL,
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ResetInput();
-                    }                    
+                    }
                     break;
 
                 case State.Edit:
@@ -122,6 +134,8 @@ namespace SKG.DXF.Station.Normal
                 default:
                     break;
             }
+
+            txtNumber.Focus();
         }
 
         protected override bool InsertObject()
@@ -206,7 +220,7 @@ namespace SKG.DXF.Station.Normal
 
         protected override void PerformRefresh()
         {
-            LoadData();            
+            LoadData();
 
             base.PerformRefresh();
         }
@@ -216,7 +230,7 @@ namespace SKG.DXF.Station.Normal
             txtNumber.Text = null;
 
             base.ResetInput();
-        }                
+        }
 
         /// <summary>
         /// Danh sách 20 xe vào bến cuối cùng
@@ -276,6 +290,12 @@ namespace SKG.DXF.Station.Normal
                 PerformSave();
         }
 
+        private void txtKind_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                PerformSave();
+        }
+
         private void FrmTra_GateInNormal_Load(object sender, EventArgs e)
         {
             AllowBar = false;
@@ -297,7 +317,7 @@ namespace SKG.DXF.Station.Normal
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Nhập xe vãng lai";
+        private const string STR_TITLE = "Nhập xe lưu đậu";
 
         private const string STR_ADD = "Thêm chi tiết ra/vào";
         private const string STR_DELETE = "Xoá chi tiết ra/vào";
@@ -310,7 +330,7 @@ namespace SKG.DXF.Station.Normal
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
 
         private const string STR_INTO = "CHO XE VÀO";
-        private const string STR_NORMAL = "XE VÃNG LAI";
+        private const string STR_NORMAL = "XE LƯU ĐẬU";
         private const string STR_FIXED = "XE CỐ ĐỊNH";
         private const string STR_BG = "NHẬP THÊM XE BA BÁNH";
         #endregion

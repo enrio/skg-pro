@@ -534,14 +534,6 @@ namespace SKG.DXF
                             text = r3["Text"] + "";
                             code = r3["Code"] + "";
                             icon = String.Format("{0}{1}", path, r3["More"]);
-
-                            // Change name menu out gate for admin or operator
-                            if (code == typeof(Station.Manage.FrmTra_GateOut).FullName)
-                            {
-                                var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
-                                if (ql) text = "Tạm ra bến";
-                            }
-
                             var m3 = new BarButtonItem() { Caption = text.ToUpper() };
 
                             if (code != typeof(FrmPol_Login).FullName)
@@ -555,16 +547,6 @@ namespace SKG.DXF
                             {
                                 m2.ItemLinks.Add(m3);
                                 m3.Tag = asm.CreateInstance(code);
-
-                                /*var tmp = asm.CreateInstance(code);
-                                if (tmp is Form)
-                                {
-                                    var frm = (Form)tmp;
-                                    frm.Text = text.ToUpper();
-                                    m3.Tag = frm;
-                                }
-                                else m3.Tag = tmp;*/
-
                                 m3.LargeGlyph = Image.FromFile(icon);
                                 m3.ItemClick += ButtonItem_ItemClick;
                             }

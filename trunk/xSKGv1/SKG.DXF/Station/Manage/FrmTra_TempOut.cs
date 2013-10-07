@@ -142,11 +142,11 @@ namespace SKG.DXF.Station.Manage
 
         protected override void LoadData()
         {
-            grcNotEnough.DataSource = _bll.Tra_Detail.GetNotEnough();
             grcTempOut.DataSource = _bll.Tra_Detail.GetTempOut();
-
-            grvNotEnough.BestFitColumns();
             grvTempOut.BestFitColumns();
+
+            grcNotEnough.DataSource = _bll.Tra_Detail.GetTempOut(DAL.Tra_DetailDAL.Condition.NotEnough);
+            grvNotEnough.BestFitColumns();
 
             base.LoadData();
         }
@@ -175,6 +175,44 @@ namespace SKG.DXF.Station.Manage
         private void FrmTra_InDepot_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
+        }
+
+        private void grvNotEnough_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var code = grvNotEnough.GetFocusedRowCellValue("Code") + "";
+                var id = (Guid)grvNotEnough.GetFocusedRowCellValue("Id");
+
+                var frm = new Fixed.FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+            }
+        }
+
+        private void grvTempOut_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var code = grvTempOut.GetFocusedRowCellValue("Code") + "";
+                var id = (Guid)grvTempOut.GetFocusedRowCellValue("Id");
+
+                var frm = new Fixed.FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+            }
         }
         #endregion
 

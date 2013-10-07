@@ -373,6 +373,75 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Find for vihicle fixed
+        /// </summary>
+        /// <param name="id">Key</param>
+        /// <returns></returns>
+        public DataTable FindForFixed(Guid id)
+        {
+            try
+            {
+                var res = from s in _db.Tra_Vehicles
+                          join d in _db.Tra_Details
+                          on s.Id equals d.VehicleId into l
+                          from ok in l.DefaultIfEmpty()
+                          where s.Fixed == true && ok.Id == id
+                          orderby ok.DateOut descending, s.Tariff.Text
+                          select new
+                          {
+                              s.Id,
+                              s.Code,
+
+                              s.CreatorId,
+                              Creator = s.Creator.Name,
+                              s.CreateDate,
+
+                              s.TransportId,
+                              s.TariffId,
+
+                              Tariff = s.Tariff.Text,
+                              Transport = s.Transport.Text,
+
+                              s.Seats,
+                              s.Beds,
+
+                              s.High,
+                              s.City,
+
+                              s.ProductionYear,
+                              s.LimitedRegistration,
+                              s.TermInsurance,
+                              s.TermFixedRoutes,
+                              s.TermDriverLicense,
+
+                              DetailId = ok.Id,
+                              Driver = ok.More,
+                              DateIn = ok.DateIn,
+                              DateOut = ok.DateOut,
+                              NotEnough = !ok.Show,
+                              ok.Repair,
+
+                              s.Node,
+                              s.Birth,
+                              s.Address,
+                              s.Phone,
+
+                              s.Text,
+                              s.Note,
+                              s.More,
+                              s.Order,
+                              s.Show
+                          };
+
+                if (!Global.Session.User.CheckAdmin() && !Global.Session.User.CheckOperator())
+                    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
+
+                return res.ToDataTable();
+            }
+            catch { return _tb; }
+        }
+
+        /// <summary>
         /// In danh sách xe tuyến cố định
         /// </summary>
         /// <param name="t">Điều kiện lọc</param>
@@ -489,6 +558,9 @@ namespace SKG.DAL
                               s.Seats,
                               s.Beds,
 
+                              s.High,
+                              s.City,
+
                               s.Driver,
                               s.Birth,
                               s.Address,
@@ -500,8 +572,10 @@ namespace SKG.DAL
                               s.Show
                           };
 
-                if (!Global.Session.User.CheckAdmin() && !Global.Session.User.CheckOperator())
-                    res = res.Where(k => k.CreatorId == Global.Session.User.Id);
+                var not_ql = !Global.Session.User.CheckAdmin()
+                    && !Global.Session.User.CheckOperator()
+                    && !Global.Session.User.CheckOperatorTruck();
+                if (not_ql) res = res.Where(k => k.CreatorId == Global.Session.User.Id);
 
                 return res.ToDataTable();
             }

@@ -223,6 +223,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dts_Normal.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Station\Fixed\FrmTra_DriverInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_DriverInfo.Designer.cs">
+      <DependentUpon>FrmTra_DriverInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_FindInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_FindInfo.Designer.cs">
+      <DependentUpon>FrmTra_FindInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_RegistryNode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Station\Fixed\FrmTra_RegistryNode.Designer.cs">
+      <DependentUpon>FrmTra_RegistryNode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Fixed\FrmTra_DebtMonth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +508,9 @@
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
+      <DependentUpon>FrmPol_Role.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -501,45 +522,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Station\Fixed\FrmTra_VehicleFixed.resx">
-      <DependentUpon>FrmTra_VehicleFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_ReportFixed.resx">
-      <DependentUpon>Rpt_ReportFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_RevenueNormal2.resx">
-      <DependentUpon>Rpt_RevenueNormal2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_TariffFixed.resx">
-      <DependentUpon>Rpt_TariffFixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_TariffNormal.resx">
-      <DependentUpon>Rpt_TariffNormal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_IngateMaster.resx">
-      <DependentUpon>Rpt_IngateMaster.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Ingate.resx">
-      <DependentUpon>Rpt_Ingate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_VehicleFixed2.resx">
-      <DependentUpon>Rpt_VehicleFixed2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_VehicleFixed1.resx">
-      <DependentUpon>Rpt_VehicleFixed1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_DebtMonth.resx">
-      <DependentUpon>Rpt_DebtMonth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_AuditDay.resx">
-      <DependentUpon>Rpt_AuditDay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_AuditMonth.resx">
-      <DependentUpon>Rpt_AuditMonth.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Station\Report\Rpt_Receipt.resx">
-      <DependentUpon>Rpt_Receipt.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Manual.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

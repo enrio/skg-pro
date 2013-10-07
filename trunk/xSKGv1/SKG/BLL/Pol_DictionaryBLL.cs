@@ -417,6 +417,34 @@ namespace SKG.BLL
             }
             catch { return 0; }
         }
+
+        /// <summary>
+        /// Get unit cost of night parking 1
+        /// </summary>
+        /// <returns></returns>
+        public int GetPark1()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("PARK1");
+                return r.More2.ToInt32();
+            }
+            catch { return 0; }
+        }
+
+        /// <summary>
+        /// Get weight of night parking (seats or beds)
+        /// </summary>
+        /// <returns></returns>
+        public int GetWeight()
+        {
+            try
+            {
+                var r = (Pol_Dictionary)Select("WEIGHT");
+                return r.More2.ToInt32();
+            }
+            catch { return 0; }
+        }
         #endregion
 
         #region System

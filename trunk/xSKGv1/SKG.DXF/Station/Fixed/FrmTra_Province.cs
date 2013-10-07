@@ -258,6 +258,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_Province()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
@@ -286,10 +287,9 @@ namespace SKG.DXF.Station.Fixed
 
         #region Constants
         private const string STR_TITLE = "Tỉnh/TP";
-
-        private const string STR_ADD = "Thêm tỉnh/tp";
-        private const string STR_EDIT = "Sửa tỉnh/tp";
-        private const string STR_DELETE = "Xoá tỉnh/tp";
+        private const string STR_ADD = "Thêm " + STR_TITLE;
+        private const string STR_EDIT = "Sửa " + STR_TITLE;
+        private const string STR_DELETE = "Xoá " + STR_TITLE;
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá '{0}' không?";

@@ -60,6 +60,7 @@
               <xs:element name="Arrears" msprop:Generator_ColumnVarNameInTable="columnArrears" msprop:Generator_ColumnPropNameInRow="Arrears" msprop:Generator_ColumnPropNameInTable="ArrearsColumn" msprop:Generator_UserColumnName="Arrears" type="xs:decimal" minOccurs="0" />
               <xs:element name="ArrearsDescript" msprop:Generator_ColumnVarNameInTable="columnArrearsDescript" msprop:Generator_ColumnPropNameInRow="ArrearsDescript" msprop:Generator_ColumnPropNameInTable="ArrearsDescriptColumn" msprop:Generator_UserColumnName="ArrearsDescript" type="xs:string" minOccurs="0" />
               <xs:element name="Tariff" msprop:Generator_ColumnVarNameInTable="columnTariff" msprop:Generator_ColumnPropNameInRow="Tariff" msprop:Generator_ColumnPropNameInTable="TariffColumn" msprop:Generator_UserColumnName="Tariff" type="xs:string" minOccurs="0" />
+              <xs:element name="Note" msprop:Generator_ColumnVarNameInTable="columnNote" msprop:Generator_ColumnPropNameInRow="Note" msprop:Generator_ColumnPropNameInTable="NoteColumn" msprop:Generator_UserColumnName="Note" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

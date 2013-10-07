@@ -117,7 +117,7 @@ namespace SKG.DXF.Station.InDepot
             var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
             _dtb = _bll.Tra_Detail.GetInDepotNormal(n);
 
-            Text = String.Format("Tổng số xe vãng lai trong bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
+            Text = String.Format("Tổng số xe lưu đậu trong bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
             lblSum.Text = Text;
 
             grcMain.DataSource = _dtb;
@@ -170,7 +170,7 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Xe vãng lai trong bến";
+        private const string STR_TITLE = "Xe lưu đậu trong bến";
         private const string STR_DELETE = "Xoá xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";

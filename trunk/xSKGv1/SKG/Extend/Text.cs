@@ -228,7 +228,7 @@ namespace SKG.Extend
             {
                 s = s.Trim();
                 if (String.IsNullOrEmpty(s)) return String.Empty;
-                return Char.ToUpper(s[0]) + s.Substring(1);
+                return Char.ToUpper(s[0]) + s.Substring(1).ToLower();
             }
             catch { return s; }
         }

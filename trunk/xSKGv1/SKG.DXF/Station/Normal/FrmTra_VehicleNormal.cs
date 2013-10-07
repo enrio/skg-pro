@@ -163,9 +163,10 @@ namespace SKG.DXF.Station.Normal
 
         protected override void ResetInput()
         {
-            txtCode.Text = null;
-            txtSeats.Text = "0";
-            txtBeds.Text = "0";
+            txtCode.EditValue = null;
+            txtSeats.EditValue = 0;
+            txtBeds.EditValue = 0;
+            chkPerDay.EditValue = false;
 
             base.ResetInput();
         }
@@ -176,6 +177,7 @@ namespace SKG.DXF.Station.Normal
             txtCode.DataBindings.Clear();
             txtSeats.DataBindings.Clear();
             txtBeds.DataBindings.Clear();
+            chkPerDay.DataBindings.Clear();
 
             base.ClearDataBindings();
         }
@@ -186,6 +188,7 @@ namespace SKG.DXF.Station.Normal
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
+            chkPerDay.DataBindings.Add("EditValue", _dtb, ".City");
 
             base.DataBindingControl();
         }
@@ -196,6 +199,7 @@ namespace SKG.DXF.Station.Normal
             //txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;
+            chkPerDay.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
 
@@ -218,7 +222,7 @@ namespace SKG.DXF.Station.Normal
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
                     Fixed = false,
-                    City = false,
+                    City = chkPerDay.Checked,
                     High = false
                 };
 
@@ -243,7 +247,7 @@ namespace SKG.DXF.Station.Normal
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
                     Fixed = false,
-                    City = false,
+                    City = chkPerDay.Checked,
                     High = false
                 };
 
@@ -334,7 +338,7 @@ namespace SKG.DXF.Station.Normal
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Nhập-sửa xe vãng lai";
+        private const string STR_TITLE = "Nhập-sửa xe lưu đậu";
         private const string STR_ADD = "Thêm xe";
         private const string STR_EDIT = "Sửa xe";
         private const string STR_DELETE = "Xoá xe";

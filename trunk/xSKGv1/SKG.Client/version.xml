@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <appinfo>
-  <version>1.0.6.0</version>
-  <url>https://xskgv1.googlecode.com/svn/trunk/DUL/NTG/Update/</url>
-  <installer>https://xskgv1.googlecode.com/svn/trunk/DUL/NTG/Update/Update.zip</installer>
-  <date>02/08/2013</date>
+  <version>1.0.7.1</version>
+  <url>https://xskgv1.googlecode.com/svn/trunk/DUL/AS/Update/</url>
+  <installer>https://xskgv1.googlecode.com/svn/trunk/DUL/AS/Update/Update.zip</installer>
+  <date>07/10/2013</date>
 </appinfo>

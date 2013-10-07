@@ -124,9 +124,36 @@ namespace SKG
         public const string STR_SHIFT = "SHIFT";
 
         /// <summary>
+        /// Code of group driver
+        /// </summary>
+        public const string STR_DRIVER = "DRIVER";
+
+        /// <summary>
+        /// Code of group node per a month
+        /// </summary>
+        public const string STR_NODE = "NODE";
+        #endregion
+
+        #region Common constants
+        /// <summary>
+        /// Detail tested
+        /// </summary>
+        public const string STR_TESTED = "ĐÃ KIỂM TRA";
+
+        /// <summary>
         /// Vehicle arrear
         /// </summary>
-        public const string STR_ARREAR = "Xe truy thu";
+        public const string STR_ARREAR = "XE TRUY THU";
+
+        /// <summary>
+        /// Temp out
+        /// </summary>
+        public const string STR_TEMP_OUT = "TẠM CHO XE RA BẾN";
+
+        /// <summary>
+        /// Not enough
+        /// </summary>
+        public const string STR_NOT_ENOUGH = "KHÔNG ĐỦ ĐIỀU KIỆN";
         #endregion
 
         #region Global properties
@@ -262,6 +289,23 @@ namespace SKG
         public static int Park
         {
             get { return _bll.GetPark(); }
+        }
+
+        /// <summary>
+        /// Get unit cost of night parking 1
+        /// </summary>
+        /// <returns></returns>
+        public static int Park1
+        {
+            get { return _bll.GetPark1(); }
+        }
+
+        /// <summary>
+        /// Get weight of night parking (seats or beds)
+        /// </summary>
+        public static int Weight
+        {
+            get { return _bll.GetWeight(); }
         }
         #endregion
 

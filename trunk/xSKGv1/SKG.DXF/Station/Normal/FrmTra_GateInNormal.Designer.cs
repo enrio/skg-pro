@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.txtKind = new DevExpress.XtraEditors.TextEdit();
             this.txtDateIn = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
             this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -49,14 +50,14 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKind.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
@@ -91,6 +92,7 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.txtKind);
             this.dockPanel1_Container.Controls.Add(this.txtDateIn);
             this.dockPanel1_Container.Controls.Add(this.labelControl2);
             this.dockPanel1_Container.Controls.Add(this.label6);
@@ -100,6 +102,20 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(943, 72);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // txtKind
+            // 
+            this.txtKind.Location = new System.Drawing.Point(374, 3);
+            this.txtKind.Name = "txtKind";
+            this.txtKind.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKind.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.txtKind.Properties.Appearance.Options.UseFont = true;
+            this.txtKind.Properties.Appearance.Options.UseForeColor = true;
+            this.txtKind.Properties.Mask.EditMask = "[A-Z]";
+            this.txtKind.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtKind.Size = new System.Drawing.Size(57, 64);
+            this.txtKind.TabIndex = 2;
+            this.txtKind.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKind_KeyDown);
             // 
             // txtDateIn
             // 
@@ -120,7 +136,7 @@
             this.txtDateIn.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.txtDateIn.Properties.ReadOnly = true;
             this.txtDateIn.Size = new System.Drawing.Size(307, 38);
-            this.txtDateIn.TabIndex = 64;
+            this.txtDateIn.TabIndex = 5;
             // 
             // labelControl2
             // 
@@ -130,7 +146,7 @@
             this.labelControl2.Location = new System.Drawing.Point(437, 32);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(190, 35);
-            this.labelControl2.TabIndex = 6;
+            this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "T.GIAN VÀO:";
             // 
             // label6
@@ -140,7 +156,7 @@
             this.label6.Location = new System.Drawing.Point(437, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(503, 32);
-            this.label6.TabIndex = 63;
+            this.label6.TabIndex = 3;
             this.label6.Text = "CỔNG VÀO - XE VÃNG LAI";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -163,8 +179,10 @@
             this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
             this.txtNumber.Properties.Appearance.Options.UseFont = true;
             this.txtNumber.Properties.Appearance.Options.UseForeColor = true;
-            this.txtNumber.Size = new System.Drawing.Size(290, 64);
-            this.txtNumber.TabIndex = 0;
+            this.txtNumber.Properties.Mask.EditMask = "[A-Z0-9]+";
+            this.txtNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtNumber.Size = new System.Drawing.Size(258, 64);
+            this.txtNumber.TabIndex = 1;
             this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
             // 
             // dockPanel2
@@ -193,7 +211,7 @@
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
             this.grcMain.Size = new System.Drawing.Size(943, 377);
-            this.grcMain.TabIndex = 1;
+            this.grcMain.TabIndex = 6;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
             // 
@@ -354,7 +372,20 @@
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowGroupPanel = false;
-            
+            // 
+            // gridBand1
+            // 
+            this.gridBand1.Caption = "Thông tin";
+            this.gridBand1.Columns.Add(this.gridColumn1);
+            this.gridBand1.Columns.Add(this.gridColumn2);
+            this.gridBand1.Columns.Add(this.gridColumn3);
+            this.gridBand1.Columns.Add(this.gridColumn4);
+            this.gridBand1.Columns.Add(this.gridColumn5);
+            this.gridBand1.Columns.Add(this.gridColumn6);
+            this.gridBand1.Columns.Add(this.gridColumn7);
+            this.gridBand1.Columns.Add(this.gridColumn8);
+            this.gridBand1.Name = "gridBand1";
+            this.gridBand1.Width = 861;
             // 
             // gridColumn1
             // 
@@ -419,6 +450,14 @@
             this.gridColumn8.Visible = true;
             this.gridColumn8.Width = 193;
             // 
+            // gridBand2
+            // 
+            this.gridBand2.Caption = "Tải trọng";
+            this.gridBand2.Columns.Add(this.gridColumn9);
+            this.gridBand2.Columns.Add(this.gridColumn10);
+            this.gridBand2.Name = "gridBand2";
+            this.gridBand2.Width = 311;
+            // 
             // gridColumn9
             // 
             this.gridColumn9.Caption = "Số ghế";
@@ -434,28 +473,6 @@
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.Width = 109;
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn4);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Columns.Add(this.gridColumn8);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 861;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Tải trọng";
-            this.gridBand2.Columns.Add(this.gridColumn9);
-            this.gridBand2.Columns.Add(this.gridColumn10);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 311;
             // 
             // FrmTra_GateInNormal
             // 
@@ -473,6 +490,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtKind.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateIn.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
@@ -509,5 +527,6 @@
         private DevExpress.XtraEditors.TextEdit txtDateIn;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraEditors.TextEdit txtKind;
     }
 }

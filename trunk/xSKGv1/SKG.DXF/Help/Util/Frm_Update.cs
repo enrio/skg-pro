@@ -181,7 +181,7 @@ namespace SKG.DXF.Help.Util
         private const string STR_UPDATE = "SKG.Update.exe";
 
         private string STR_PATH = Application.StartupPath + @"\";
-        private const string STR_URL = "https://xskgv1.googlecode.com/svn/trunk/DUL/NTG/Update/";
+        private const string STR_URL = "https://xskgv1.googlecode.com/svn/trunk/DUL/AS/Update/";
         #endregion
     }
 }

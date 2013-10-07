@@ -196,7 +196,7 @@ namespace SKG.DXF.Station.Sumary
                     break;
 
                 case DialogResult.Cancel: // báo cáo
-                    tb = _bll.Tra_Detail.SumaryNormal(out sum, fr, to);
+                    tb = _bll.Tra_Detail.SumaryReportNormal(out sum, fr, to);
 
                     var rpt4 = new Report.Rpt_ReportNormal
                     {
@@ -215,9 +215,17 @@ namespace SKG.DXF.Station.Sumary
                     rpt4.parTitle2.Value = Global.Title2;
                     rpt4.parNum.Value = Global.AuditNumber;
                     rpt4.parDate.Value = to;
-                    rpt4.parCount.Value = tb == null ? 0 : tb.Rows.Count;
                     rpt4.parTotal.Value = sum;
                     rpt4.parUserOut.Value = Global.Session.User.Name;
+
+                    var count = tb.Compute("Sum(CountFullDay)", "").ToInt32()
+                        + tb.Compute("Sum(CountHalfDay)", "").ToInt32();
+
+                    var vote = tb.Compute("Sum(FullDay)", "").ToInt32()
+                        + tb.Compute("Sum(HalfDay)", "").ToInt32();
+
+                    rpt4.parCount.Value = tb == null ? 0 : count;
+                    rpt4.parFullDay.Value = tb == null ? 0 : vote;
 
                     var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                     duration = String.Format(duration,
@@ -360,7 +368,7 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "DOANH THU XE VÃNG LAI";
+        private const string STR_TITLE = "DOANH THU XE LƯU ĐẬU";
         private const string STR_SELECT = "Chọn dữ liệu!";
 
         private const string STR_DELETE = "Xoá xe";

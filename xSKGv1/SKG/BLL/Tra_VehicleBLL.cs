@@ -48,21 +48,7 @@ namespace SKG.BLL
         public new DataTable SelectForPrint(TermForFixed t)
         {
             var tb = base.SelectForPrint(t);
-            if (tb == null || tb.Rows.Count == 0) return tb;
-
-            tb.Columns.Add("Price", typeof(decimal));
-            tb.Columns.Add("Ghichu", typeof(string));
-            foreach (DataRow r in tb.Rows)
-            {
-                var text = r["Text"] + "";
-                var x = text.Split(new string[] { ";!;" }, StringSplitOptions.None);
-
-                if (x.Length > 0) r["Price"] = x[0].ToDecimal();
-                if (x.Length > 1) r["Ghichu"] = x[1];
-            }
-            tb.AcceptChanges();
-
-            return tb;
+            return Xuli(tb);
         }
 
         /// <summary>
@@ -73,10 +59,20 @@ namespace SKG.BLL
         public new DataTable SelectForFixed(TermForFixed t)
         {
             var tb = base.SelectForFixed(t);
-            if (tb == null || tb.Rows.Count == 0) return tb;
+            return Xuli(tb);
+        }
 
+        /// <summary>
+        /// Thêm cột Price và Ghichu
+        /// </summary>
+        /// <param name="tb">Dữ liệu</param>
+        /// <returns></returns>
+        DataTable Xuli(DataTable tb)
+        {
+            if (tb == null || tb.Rows.Count == 0) return tb;
             tb.Columns.Add("Price", typeof(decimal));
             tb.Columns.Add("Ghichu", typeof(string));
+
             foreach (DataRow r in tb.Rows)
             {
                 var text = r["Text"] + "";
@@ -85,8 +81,8 @@ namespace SKG.BLL
                 if (x.Length > 0) r["Price"] = x[0].ToDecimal();
                 if (x.Length > 1) r["Ghichu"] = x[1];
             }
-            tb.AcceptChanges();
 
+            tb.AcceptChanges();
             return tb;
         }
     }

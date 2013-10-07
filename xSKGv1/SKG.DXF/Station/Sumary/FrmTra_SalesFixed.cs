@@ -117,8 +117,8 @@ namespace SKG.DXF.Station.Sumary
                 Level1.STR_PRINT, MessageBoxButtons.YesNo);
 
             var receipt = "";
-            var to = dteTo.DateTime.Date.AddHours(13);
-            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddTicks(Global.CutsFr.Ticks);
+            var fr = dteFrom.DateTime.Date.AddTicks(Global.CutsFr.Ticks).AddSeconds(1);
 
             var tb = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
             var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
@@ -137,9 +137,10 @@ namespace SKG.DXF.Station.Sumary
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 
-                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                 duration = String.Format(duration,
-                    fr.ToStringDateVN(), to.ToStringDateVN());
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
@@ -163,9 +164,10 @@ namespace SKG.DXF.Station.Sumary
                 rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
                 rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
-                var duration = "(Từ 13:00:01 ngày {0} đến 13:00:00 ngày {1})";
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                 duration = String.Format(duration,
-                    fr.ToStringDateVN(), to.ToStringDateVN());
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
 
                 rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
@@ -179,10 +181,10 @@ namespace SKG.DXF.Station.Sumary
 
         protected override void LoadData()
         {
-            var fr = dteFrom.DateTime.Date.AddHours(13).AddSeconds(1);
-            var to = dteTo.DateTime.Date.AddHours(13);
-            _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, fr, to);
+            var fr = dteFrom.DateTime.Date.AddTicks(Global.CutsFr.Ticks).AddSeconds(1);
+            var to = dteTo.DateTime.Date.AddTicks(Global.CutsFr.Ticks);
 
+            _dtb = _bll.Tra_Detail.SumaryFixed(out _sum, fr, to);
             grcMain.DataSource = _dtb;
             grvMain.BestFitColumns();
 
@@ -232,6 +234,35 @@ namespace SKG.DXF.Station.Sumary
         #endregion
 
         #region Events
+        private void grvMain_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var tmpId = grvMain.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show(STR_CHOICE,
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                var id = (Guid)tmpId;
+                var code = grvMain.GetFocusedRowCellValue("Code") + "";
+
+                var frm = new Fixed.FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                PerformRefresh();
+            }
+        }
+
         private void FrmTra_Sales_Activated(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -278,7 +309,14 @@ namespace SKG.DXF.Station.Sumary
             }
 
             var detail = _bll.Tra_Detail.Find((Guid)tmpId);
+
             bool _isFixed = detail.Vehicle.Fixed;
+            var note = (detail.Repair ? Global.STR_TEMP_OUT : "")
+                              + (detail.Show ? "" : ", " + Global.STR_NOT_ENOUGH)
+                              + (detail.Note == null ? "" : ", " + detail.Note);
+            if (detail.Text + "" == Global.STR_ARREAR) note = detail.Text;
+
+            note = note.Replace(", ", "").Trim();
 
             // Xe cố định, không đi sửa, xe đủ điều kiện
             if (_isFixed && !detail.Repair && detail.Show) // in phiếu thu xe cố định
@@ -321,6 +359,7 @@ namespace SKG.DXF.Station.Sumary
                 dtr["ByChar"] = total.ToVietnamese("đồng");
                 dtr["Creator"] = Global.Session.User.Name;
                 dtr["Tariff"] = detail.Vehicle.Tariff.Text;
+                dtr["Note"] = note.IsNullOrEmpty() ? "" : String.Format("({0})", note.ToUpperFirst());
 
                 tbl.Rows.Add(dtr);
                 rpt.DataSource = tbl;

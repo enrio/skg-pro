@@ -301,7 +301,6 @@
             this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
             this.grvNormal.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand1
             // 
@@ -615,7 +614,6 @@
             this.grvFixed.OptionsView.EnableAppearanceEvenRow = true;
             this.grvFixed.OptionsView.EnableAppearanceOddRow = true;
             this.grvFixed.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand3
             // 
@@ -742,6 +740,7 @@
             this.Controls.Add(this.panelContainer1);
             this.Name = "FrmTra_ByHandIn";
             this.Text = "Cổng vào";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTra_ByHandIn_FormClosed);
             this.Load += new System.EventHandler(this.FrmTra_ByHandIn_Load);
             this.Controls.SetChildIndex(this.panelContainer1, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

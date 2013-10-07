@@ -251,6 +251,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_GateInFixed()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
@@ -295,14 +296,14 @@ namespace SKG.DXF.Station.Fixed
 
         private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
         private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ ĐỘI ĐIỀU HÀNH ĐỂ NHẬP THÔNG TIN XE";
-        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
+        private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE LƯU ĐẬU\nXIN HÃY NHẬP BÊN CỔNG VÀO LƯU ĐẬU";
         private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÝ TUYẾN";
         private const string STR_IN_GATE = "XE NÀY ĐANG Ở TRONG BẾN!";
         private const string STR_NOT_INP = "CHƯA NHẬP BIỂN SỐ!";
         private const string STR_MANAG = "CHƯA QUẢN LÝ";
 
         private const string STR_INTO = "CHO XE VÀO";
-        private const string STR_NORMAL = "XE VÃNG LAI";
+        private const string STR_NORMAL = "XE LƯU ĐẬU";
         private const string STR_FIXED = "XE CỐ ĐỊNH";
         #endregion
     }

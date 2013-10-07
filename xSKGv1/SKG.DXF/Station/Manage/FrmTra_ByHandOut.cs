@@ -58,13 +58,11 @@ namespace SKG.DXF.Station.Manage
         {
             try
             {
-                var file = Application.StartupPath + @"\Import\XuatBT.xls";
-
-                _tbFixed = ImportData(file, "Codinh");
+                _tbFixed = ImportData(_file, "Codinh");
                 InvoiceOut(_tbFixed.Rows);
                 grcFixed.DataSource = _tbFixed;
 
-                _tbNormal = ImportData(file, "Vanglai");
+                _tbNormal = ImportData(_file, "Luudau");
                 InvoiceOut(_tbNormal.Rows);
                 grcNormal.DataSource = _tbNormal;
 
@@ -133,9 +131,11 @@ namespace SKG.DXF.Station.Manage
             grvFixed.SetStandard();
             grvNormal.SetStandard();
 
+            AllowAdd = false;
             AllowEdit = false;
             AllowDelete = false;
             AllowRefresh = false;
+            AllowCancel = false;
         }
 
         /// <summary>
@@ -288,6 +288,11 @@ namespace SKG.DXF.Station.Manage
         {
             PerformAdd();
         }
+
+        private void FrmTra_ByHandOut_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Excel.ClearWorksheets(_file);
+        }
         #endregion
 
         #region Properties
@@ -303,6 +308,11 @@ namespace SKG.DXF.Station.Manage
         /// List all of vihicle normal
         /// </summary>
         private DataTable _tbNormal;
+
+        /// <summary>
+        /// String path file name
+        /// </summary>
+        private string _file = Application.StartupPath + @"\Import\XuatBT.xls";
         #endregion
 
         #region Constants
@@ -314,10 +324,10 @@ namespace SKG.DXF.Station.Manage
         private const string STR_ERR_DATE = "THỜI GIAN NHẬP SAI";
         private const string STR_IN_DEPOT = "XE CHƯA VÀO BẾN";
         private const string STR_EXIT = "ĐÃ CHO XE RA";
-        private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE VÃNG LAI: {1}";
+        private const string STR_INTO = "SỐ LƯỢNG CHO RA\n\rXE CỐ ĐỊNH: {0}\n\rXE LƯU ĐẬU: {1}";
 
         public const string STR_PAN1 = "XE CỐ ĐỊNH";
-        public const string STR_PAN2 = "XE VÃNG LAI";
+        public const string STR_PAN2 = "XE LƯU ĐẬU";
         #endregion
     }
 }

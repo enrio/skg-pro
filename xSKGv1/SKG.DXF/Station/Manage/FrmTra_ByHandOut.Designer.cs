@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -322,7 +321,6 @@
             this.grvFixed.OptionsView.EnableAppearanceEvenRow = true;
             this.grvFixed.OptionsView.EnableAppearanceOddRow = true;
             this.grvFixed.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand3
             // 
@@ -723,7 +721,6 @@
             this.grvNormal.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNormal.OptionsView.EnableAppearanceOddRow = true;
             this.grvNormal.OptionsView.ShowFooter = true;
-            
             // 
             // gridBand1
             // 
@@ -920,6 +917,7 @@
             this.Controls.Add(this.panelContainer1);
             this.Name = "FrmTra_ByHandOut";
             this.Text = "Cổng vào";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmTra_ByHandOut_FormClosed);
             this.Load += new System.EventHandler(this.FrmTra_ByHandOut_Load);
             this.Controls.SetChildIndex(this.panelContainer1, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();

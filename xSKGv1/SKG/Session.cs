@@ -28,65 +28,19 @@ namespace SKG
 
         #region Shift
         /// <summary>
-        /// Begin of shift
-        /// </summary>
-        public DateTime Start { set; get; }
-
-        /// <summary>
-        /// End of shift
-        /// </summary>
-        public DateTime End { set; get; }
-
-        /// <summary>
-        /// Work of shift (2 shifts: 07:00 - 16:00 today [shift 1]; 16:00 - 07:00 tomorrow [shift 2])
-        /// </summary>
-        /// <param name="dt">Date of shift</param>
-        /// <returns></returns>
-        public static int Shift(out DateTime dt, DateTime? date = null)
-        {
-            DateTime cur, log;
-            if (date == null)
-            {
-                cur = Global.Session.Current;
-                log = Global.Session.Login.Value;
-            }
-            else cur = log = date.Value;
-
-            var t = cur - log;
-            var tick = t.Ticks / 2;
-            var shift = cur.Subtract(new TimeSpan(tick));
-
-            var start = cur.Date.AddHours(7); // start of shift 1
-            var end = cur.Date.AddHours(16); // end of shift 1
-
-            if (shift >= start && shift <= end)
-            {
-                dt = shift.Date;
-                return 1;
-            }
-            else
-            {
-                if (shift > start)
-                    dt = shift.Date.AddDays(1);
-                else dt = shift.Date;
-                return 2;
-            }
-        }
-
-        /// <summary>
-        /// Cut shift day: from 13:00:01 the day before to 13:00:00 today
+        /// Cut shift day: from 15:00:01 the day before to 15:00:00 today
         /// </summary>
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
         /// <param name="to">To date time</param>
         public static void CutShiftDay(DateTime date, out DateTime fr, out DateTime to)
         {
-            fr = date.Date.AddDays(-1).AddHours(13).AddSeconds(1);
-            to = date.Date.AddHours(13);
+            fr = date.Date.AddDays(-1).AddTicks(Global.CutsFr.Ticks).AddSeconds(1);
+            to = date.Date.AddTicks(Global.CutsFr.Ticks);
         }
 
         /// <summary>
-        /// Cut shift month: from 13:00:01 end of month before to 13:00:00 end of month current
+        /// Cut shift month: from 15:00:01 end of month before to 15:00:00 end of month current
         /// </summary>
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
@@ -96,12 +50,12 @@ namespace SKG
             var start = date.ToStartOfMonth();
             var end = date.ToEndOfMonth().Date;
 
-            fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
-            to = end.AddHours(13);
+            fr = start.AddDays(-1).AddTicks(Global.CutsFr.Ticks).AddSeconds(1);
+            to = end.AddTicks(Global.CutsFr.Ticks);
         }
 
         /// <summary>
-        /// Cut shift january: from 31/12 at 13:00:01 of year before to 13:00:00 end of month current
+        /// Cut shift january: from 31/12 at 15:00:01 of year before to 15:00:00 end of month current
         /// </summary>
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
@@ -111,12 +65,12 @@ namespace SKG
             var start = date.ToStartOfYear();
             var end = date.ToEndOfMonth().Date;
 
-            fr = start.AddDays(-1).AddHours(13).AddSeconds(1);
-            to = end.AddHours(13);
+            fr = start.AddDays(-1).AddTicks(Global.CutsFr.Ticks).AddSeconds(1);
+            to = end.AddTicks(Global.CutsFr.Ticks);
         }
 
         /// <summary>
-        /// Cut shift normal: from 14:00:01 before - 05:00:00 today; 05:00:01 - 14:00:00 today
+        /// Cut shift normal: from 14:00:01 before - 06:00:00 today; 06:00:01 - 14:00:00 today
         /// </summary>
         /// <param name="date">Date</param>
         /// <param name="fr">From date time</param>
@@ -124,20 +78,20 @@ namespace SKG
         public static void CutShiftNormal(DateTime date, out DateTime fr, out DateTime to)
         {
             var tmp = date.Date;
-            fr = tmp.AddHours(5).AddSeconds(1); // 05:00:01 today
-            to = tmp.AddHours(14); // 14:00:00 today
+            fr = tmp.AddTicks(Global.Shift1Fr.Ticks); // 06:00:01 today
+            to = tmp.AddTicks(Global.Shift1To.Ticks); // 14:00:00 today
 
             if (date < fr)
             {
 
-                fr = tmp.AddDays(-1).AddHours(5).AddSeconds(1); // 05:00:01 before
-                to = tmp.AddDays(-1).AddHours(14); // 14:00:00 before
+                fr = tmp.AddDays(-1).AddTicks(Global.Shift1Fr.Ticks); // 06:00:01 before
+                to = tmp.AddDays(-1).AddTicks(Global.Shift1To.Ticks); // 14:00:00 before
             }
 
             if (fr <= date && date <= to)
             {
                 fr = to.AddDays(-1).AddSeconds(1); // 14:00:01 before
-                to = tmp.AddHours(5); // 05:00:00 today
+                to = tmp.AddSeconds(-1).AddTicks(Global.Shift1Fr.Ticks); // 06:00:00 today
             }
         }
         #endregion
@@ -173,10 +127,7 @@ namespace SKG
             return res.FirstOrDefault();
         }
 
-        public Session()
-        {
-            Current = DateTime.Now;
-        }
+        public Session() { Current = DateTime.Now; }
 
         public void Dispose()
         {

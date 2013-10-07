@@ -20,6 +20,7 @@ namespace SKG.DXF.Station.Fixed
     using SKG.Extend;
     using SKG.Plugin;
     using DAL.Entities;
+    using DevExpress.XtraEditors;
 
     public partial class FrmTra_AuditMonth : FrmInput
     {
@@ -80,6 +81,8 @@ namespace SKG.DXF.Station.Fixed
         protected override void PerformSave()
         {
             if (_num + "" != "") Close();
+            grvMain.CloseEditor();
+            grvMain.UpdateCurrentRow();
 
             base.PerformSave();
         }
@@ -133,26 +136,50 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
-            var rpt = new Report.Rpt_AuditMonth
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
-                Global.Session.User.Acc, Global.Session.Current)
-            };
-
+            var frm = new FrmPrint();
+            var oki = XtraMessageBox.Show(STR_CFM, STR_PRINT, MessageBoxButtons.YesNo);
             DateTime fr, to;
             Session.CutShiftMonth(dteMonth.DateTime, out fr, out to);
 
-            rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to,
-                chkHideActive.Checked);
-            rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
+            if (oki == DialogResult.Yes)
+            {
+                var rpt = new Report.Rpt_AuditMonth
+                {
+                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
+                    Global.Session.User.Acc, Global.Session.Current)
+                };
 
-            rpt.parTitle1.Value = Global.Title1;
-            rpt.parTitle2.Value = Global.Title2;
-            rpt.parNum.Value = Global.AuditNumber;
-            rpt.parDate.Value = Global.Session.Current;
+                rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to,
+                    chkHideActive.Checked);
+                rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
 
-            var frm = new FrmPrint();
-            frm.SetReport(rpt);
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parNum.Value = Global.AuditNumber;
+                rpt.parDate.Value = Global.Session.Current;
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_AuditDay
+                {
+                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
+                    Global.Session.User.Acc, Global.Session.Current)
+                };
+
+                string inf = "";
+                rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to,
+                    chkHideActive.Checked, out inf);
+                rpt.xrlTitle.Text = rpt.xrlTitle.Text.Replace("NGÀY",
+                    String.Format("THÁNG{0: MM/yyyy}", dteMonth.DateTime));
+
+                rpt.parTitle1.Value = Global.Title2;
+                rpt.parTitle2.Value = Global.Title3;
+                rpt.parDate.Value = Global.Session.Current;
+                rpt.parInf.Value = inf;
+                frm.SetReport(rpt);
+            }
+
             frm.WindowState = FormWindowState.Maximized;
             frm.ShowDialog();
 
@@ -164,6 +191,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_AuditMonth()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
@@ -171,7 +199,6 @@ namespace SKG.DXF.Station.Fixed
 
             AllowAdd = false;
             AllowDelete = false;
-            AllowRefresh = false;
             AllowPrint = true;
 
             dteMonth.DateTime = Global.Session.Current;
@@ -179,6 +206,35 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
+        private void grvMain_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var tmpId = grvMain.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show(STR_CHOICE,
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                var id = (Guid)tmpId;
+                var code = grvMain.GetFocusedRowCellValue("Code") + "";
+
+                var frm = new FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                PerformRefresh();
+            }
+        }
+
         private void dteMonth_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -210,6 +266,10 @@ namespace SKG.DXF.Station.Fixed
 
         #region Constants
         private const string STR_TITLE = "Theo dõi tháng";
+        private const string STR_CFM = "IN THEO MẪU 1 (CHỌN YES), MẪU 2 (CHỌN NO)";
+        private const string STR_PRINT = "In báo cáo";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

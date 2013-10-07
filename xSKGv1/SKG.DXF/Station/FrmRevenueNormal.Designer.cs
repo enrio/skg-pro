@@ -88,6 +88,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(233, 112);
+            this.ControlBox = false;
             this.Controls.Add(this.cmdReport);
             this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.cmdNormal3);
@@ -97,7 +98,7 @@
             this.Name = "FrmRevenueNormal";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "In bảng kê và báo cáo xe vãng lai";
+            this.Text = "In bảng kê và báo cáo xe lưu đậu";
             this.ResumeLayout(false);
 
         }

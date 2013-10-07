@@ -170,21 +170,23 @@ namespace SKG.DAL.Entities
 
             var dateIn = DateIn.AddMinutes(Global.Delay);
             var span = DateOut.Value - dateIn;
-
-            var odd = span.TotalDays - span.Days;
-            Money = span.Days * Price2;
+            var std = DateIn.Date.AddTicks(Global.ParkFr.Ticks).AddDays(span.Days);
+            var days = span.Days + ((dateIn > std || DateOut.Value > std) ? 1 : 0);
 
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
+            var weight = seat > bed ? seat : bed;
 
-            if (Vehicle.Tariff.Code == "A")
+            if (Vehicle.City.Value) Money = Price2; // xe thu khoán 1 ngày (dùng cột City ghi nhận)
+            else if (Vehicle.Tariff.Code == "A")
             {
-                var pFr = Global.ParkFr;
-                var tmp = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
-                    pFr.Hour, pFr.Minute, pFr.Second);
+                HalfDay = 1;
 
-                var spn = DateOut.Value - tmp;
-                Money = Price1 * seat + Price2 * bed + spn.Days * Global.Park;
+                // Qua 22:00:00 thì tính 1 đêm
+                Parked = days * (weight < Global.Weight ? Global.Park1 : Global.Park);
+                Cost = Price1 * seat + Price2 * bed;
+                Rose = Rose1 * (seat < 1 ? 1 : seat - 1) + Rose2 * bed;
+                Money = Parked + Cost + Rose;
             }
             else
             {
@@ -199,7 +201,10 @@ namespace SKG.DAL.Entities
                 if (v) x = 8D / 24D;
                 else x = 0.5;
 
+                var odd = span.TotalDays - span.Days;
+                Money = span.Days * Price2;
                 FullDay = span.Days;
+
                 if (odd < x)
                 {
                     HalfDay = 1;
@@ -225,34 +230,21 @@ namespace SKG.DAL.Entities
             if (DateOut == null) return 0;
             if (DateOut.Value < DateIn) return 0;
 
-            var pFr = Global.ParkFr;
-            var dateIn = new DateTime(DateIn.Year, DateIn.Month, DateIn.Day,
-                pFr.Hour, pFr.Minute, pFr.Second);
-
+            var dateIn = DateIn.AddMinutes(Global.Delay);
             var span = DateOut.Value - dateIn;
-            Parked = span.Days * Global.Park;
-
-            if (Vehicle.Transport.Show) // các xe có phòng vé đặt trong bến
-            {
-                if (Vehicle.Tariff.Group.Parent.Parent.Code == "REGION_2") // các tuyến miền Nam
-                {
-                    Rose1 = Global.RoseSouth1;
-                    Rose2 = Global.RoseSouth2;
-                }
-                else
-                {
-                    Rose1 = Global.RoseNorth1;
-                    Rose2 = Global.RoseNorth2;
-                }
-            }
+            var std = DateIn.Date.AddTicks(Global.ParkFr.Ticks).AddDays(span.Days);
+            var days = span.Days + ((dateIn > std || DateOut.Value > std) ? 1 : 0);
 
             var seat = Seats ?? 0;
             var bed = Beds ?? 0;
+            var weight = seat > bed ? seat : bed;
 
+            // Qua 22:00:00 thì tính 1 đêm
+            Parked = days * (weight < Global.Weight ? Global.Park1 : Global.Park);
             Cost = Price1 * seat + Price2 * bed;
             Rose = Rose1 * (seat < 1 ? 1 : seat - 1) + Rose2 * bed;
-
             Money = Parked + Cost + Rose;
+
             return Money;
         }
 

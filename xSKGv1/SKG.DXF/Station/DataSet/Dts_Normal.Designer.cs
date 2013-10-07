@@ -422,6 +422,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnGroupCode;
             
+            private global::System.Data.DataColumn columnCountHalfDay;
+            
+            private global::System.Data.DataColumn columnCountFullDay;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -609,6 +613,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CountHalfDayColumn {
+                get {
+                    return this.columnCountHalfDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CountFullDayColumn {
+                get {
+                    return this.columnCountFullDay;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -663,7 +683,9 @@ namespace SKG.DXF.Station.DataSet {
                         string More, 
                         string Text, 
                         string Group, 
-                        string GroupCode) {
+                        string GroupCode, 
+                        int CountHalfDay, 
+                        int CountFullDay) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         No_,
@@ -684,7 +706,9 @@ namespace SKG.DXF.Station.DataSet {
                         More,
                         Text,
                         Group,
-                        GroupCode};
+                        GroupCode,
+                        CountHalfDay,
+                        CountFullDay};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -726,6 +750,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnText = base.Columns["Text"];
                 this.columnGroup = base.Columns["Group"];
                 this.columnGroupCode = base.Columns["GroupCode"];
+                this.columnCountHalfDay = base.Columns["CountHalfDay"];
+                this.columnCountFullDay = base.Columns["CountFullDay"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -769,6 +795,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnGroup);
                 this.columnGroupCode = new global::System.Data.DataColumn("GroupCode", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGroupCode);
+                this.columnCountHalfDay = new global::System.Data.DataColumn("CountHalfDay", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCountHalfDay);
+                this.columnCountFullDay = new global::System.Data.DataColumn("CountFullDay", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCountFullDay);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2208,6 +2238,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CountHalfDay {
+                get {
+                    try {
+                        return ((int)(this[this.tableRevenue.CountHalfDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CountHalfDay\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.CountHalfDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int CountFullDay {
+                get {
+                    try {
+                        return ((int)(this[this.tableRevenue.CountFullDayColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CountFullDay\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.CountFullDayColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNo_Null() {
                 return this.IsNull(this.tableRevenue.No_Column);
             }
@@ -2432,6 +2494,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGroupCodeNull() {
                 this[this.tableRevenue.GroupCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCountHalfDayNull() {
+                return this.IsNull(this.tableRevenue.CountHalfDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCountHalfDayNull() {
+                this[this.tableRevenue.CountHalfDayColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCountFullDayNull() {
+                return this.IsNull(this.tableRevenue.CountFullDayColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCountFullDayNull() {
+                this[this.tableRevenue.CountFullDayColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 25/01/2012 21:07
- * Update: 02/06/2013 21:07
+ * Update: 21/08/2013 14:07
  * Status: OK
  */
 #endregion
@@ -51,17 +51,10 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Overrides
-        protected override void SetNullPrompt()
-        {
-            txtNumber.Properties.NullValuePrompt = String.Format("Nhập {0}", lblNumber.Text.ToBetween(null, ":", Format.Lower));
-
-            base.SetNullPrompt();
-        }
-
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            txtNumber.Properties.ReadOnly = isReadOnly;
-            txtArrears.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Add) groupBox5.Enabled = true;
+            else groupBox5.Enabled = false;
 
             grvMain.OptionsBehavior.Editable = !isReadOnly;
 
@@ -93,15 +86,18 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformSave()
         {
+            grvMain.CloseEditor();
+            grvMain.UpdateCurrentRow();
+
             switch (_state)
             {
                 case State.Add:
                     if (!ValidInput()) return;
-                    var o = _bll.Tra_Vehicle.Select(txtNumber.Text);
+                    var o = _bll.Tra_Vehicle.Select(lueNumber.Text);
 
                     if (o == null)
                     {
-                        XtraMessageBox.Show(String.Format(STR_NO_HAVE, txtNumber.Text), STR_MANAG,
+                        XtraMessageBox.Show(String.Format(STR_NO_HAVE, lueNumber.Text), STR_MANAG,
                             MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         return;
                     }
@@ -109,14 +105,14 @@ namespace SKG.DXF.Station.Fixed
                     var ve = (Tra_Vehicle)o;
                     if (!ve.Fixed)
                     {
-                        XtraMessageBox.Show(String.Format(STR_WARNING, txtNumber.Text), STR_NORMAL,
+                        XtraMessageBox.Show(String.Format(STR_WARNING, lueNumber.Text), STR_NORMAL,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
                     if (ve.TariffId == null)
                     {
-                        XtraMessageBox.Show(String.Format(STR_WARNING_ROUTE, txtNumber.Text), STR_NORMAL,
+                        XtraMessageBox.Show(String.Format(STR_WARNING_ROUTE, lueNumber.Text), STR_NORMAL,
                             MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
@@ -139,13 +135,44 @@ namespace SKG.DXF.Station.Fixed
             if (_num + "" != "") Close();
         }
 
+        protected override bool InsertObject()
+        {
+            try
+            {
+                var id = _bll.Tra_Vehicle.CheckExist(lueNumber.Text);
+
+                if (id != new Guid())
+                {
+                    var o = new Tra_Detail()
+                    {
+                        UserInId = Global.Session.User.Id,
+                        VehicleId = id,
+                        DateIn = Global.Session.Current,
+                        Code = lueNumber.Text,
+                        Arrears = txtArrears.Text.ToInt32(),
+                        Text = Global.STR_ARREAR
+                    };
+
+                    if (_bll.Tra_Detail.Insert(o) != null) return true;
+                    else
+                    {
+                        XtraMessageBox.Show(STR_IN_GATE, STR_ADD,
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        return false;
+                    }
+                }
+                else return false;
+            }
+            catch { return false; }
+        }
+
         protected override bool UpdateObject()
         {
             try
             {
-                //if (!ValidInput()) return false;
-
                 var tb = _dtb.GetChanges(DataRowState.Modified);
+
                 foreach (DataRow r in tb.Rows)
                 {
                     var id = (Guid)r["Id"];
@@ -163,6 +190,7 @@ namespace SKG.DXF.Station.Fixed
 
                     _bll.Tra_Detail.UpdateMore(o);
                 }
+
                 return true;
             }
             catch { return false; }
@@ -217,54 +245,23 @@ namespace SKG.DXF.Station.Fixed
 
         protected override bool ValidInput()
         {
-            var oki = txtNumber.Text.Length == 0 ? false : true;
+            var oki = lueNumber.Text.Length == 0 ? false : true;
+
             if (!oki) XtraMessageBox.Show(STR_NOT_INP,
                           STR_ADD,
                           MessageBoxButtons.OK,
                           MessageBoxIcon.Warning);
-            else
-                txtNumber.Text = txtNumber.Text.Replace(" ", "");
+            else lueNumber.Text = lueNumber.Text.Replace(" ", "");
+
             return oki;
         }
 
         protected override void ResetInput()
         {
-            txtNumber.Text = null;
-            txtArrears.Text = null;
+            lueNumber.EditValue = null;
+            txtArrears.EditValue = 1;
 
             base.ResetInput();
-        }
-
-        protected override bool InsertObject()
-        {
-            try
-            {
-                var id = _bll.Tra_Vehicle.CheckExist(txtNumber.Text);
-
-                if (id != new Guid())
-                {
-                    var o = new Tra_Detail()
-                    {
-                        UserInId = Global.Session.User.Id,
-                        VehicleId = id,
-                        DateIn = Global.Session.Current,
-                        Code = txtNumber.Text,
-                        Arrears = txtArrears.Text.ToInt32(),
-                        Note = "ĐỘI ĐIỀU HÀNH: CHO VÀO ĐỂ TRUY THU;!;Thu tiền truy thu",
-                        More = Global.STR_ARREAR
-                    };
-
-                    if (_bll.Tra_Detail.Insert(o) != null) return true;
-                    else
-                    {
-                        XtraMessageBox.Show(STR_IN_GATE, STR_ADD,
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return false;
-                    }
-                }
-                else return false;
-            }
-            catch { return false; }
         }
         #endregion
 
@@ -272,13 +269,13 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_AuditDay()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 
             AllowDelete = false;
-            AllowRefresh = false;
             AllowPrint = true;
 
             dteDay.DateTime = Global.Session.Current;
@@ -286,6 +283,35 @@ namespace SKG.DXF.Station.Fixed
         #endregion
 
         #region Events
+        private void grvMain_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var tmpId = grvMain.GetFocusedRowCellValue("Id");
+                if (tmpId == null)
+                {
+                    XtraMessageBox.Show(STR_CHOICE,
+                        Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                var id = (Guid)tmpId;
+                var code = grvMain.GetFocusedRowCellValue("Code") + "";
+
+                var frm = new FrmTra_VehicleFixed()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
+                };
+
+                frm.DetailId = id;
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                PerformRefresh();
+            }
+        }
+
         private void dteDay_Validated(object sender, EventArgs e)
         {
             PerformRefresh();
@@ -305,6 +331,11 @@ namespace SKG.DXF.Station.Fixed
         private void radType_SelectedIndexChanged(object sender, EventArgs e)
         {
             PerformRefresh();
+        }
+
+        private void FrmTra_AuditDay_Load(object sender, EventArgs e)
+        {
+            lueNumber.Properties.DataSource = _bll.Tra_Vehicle.SelectForFixed(TermForFixed.Default);
         }
         #endregion
 
@@ -334,6 +365,8 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_INTO = "CHO XE VÀO";
         private const string STR_NORMAL = "XE VÃNG LAI";
         private const string STR_FIXED = "XE CỐ ĐỊNH";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         #endregion
     }
 }

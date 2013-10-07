@@ -101,8 +101,8 @@
             this.dockPanel1.ID = new System.Guid("78c054bf-fe1d-41ba-b113-3e8b6459ed34");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 100);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 100);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 93);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 93);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
@@ -115,7 +115,7 @@
             this.dockPanel1_Container.Controls.Add(this.lblName);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 73);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 66);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // lokGroup
@@ -136,7 +136,7 @@
             this.lokGroup.Properties.DisplayMember = "Text";
             this.lokGroup.Properties.NullText = "";
             this.lokGroup.Properties.ValueMember = "Id";
-            this.lokGroup.Size = new System.Drawing.Size(233, 26);
+            this.lokGroup.Size = new System.Drawing.Size(256, 26);
             this.lokGroup.TabIndex = 1;
             // 
             // groupBox2
@@ -146,7 +146,7 @@
             this.groupBox2.Controls.Add(this.calRose1);
             this.groupBox2.Controls.Add(this.labelControl5);
             this.groupBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(601, 7);
+            this.groupBox2.Location = new System.Drawing.Point(624, 3);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(279, 59);
             this.groupBox2.TabIndex = 9;
@@ -191,7 +191,6 @@
             this.calRose1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calRose1.Size = new System.Drawing.Size(78, 26);
             this.calRose1.TabIndex = 11;
-            
             // 
             // labelControl5
             // 
@@ -209,7 +208,7 @@
             this.groupBox1.Controls.Add(this.calPrice1);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(316, 3);
+            this.groupBox1.Location = new System.Drawing.Point(339, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(279, 59);
             this.groupBox1.TabIndex = 4;
@@ -254,7 +253,6 @@
             this.calPrice1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.calPrice1.Size = new System.Drawing.Size(78, 26);
             this.calPrice1.TabIndex = 6;
-            
             // 
             // labelControl1
             // 
@@ -271,7 +269,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Properties.Appearance.Options.UseFont = true;
-            this.txtName.Size = new System.Drawing.Size(233, 26);
+            this.txtName.Size = new System.Drawing.Size(256, 26);
             this.txtName.TabIndex = 3;
             // 
             // labelControl3
@@ -297,10 +295,10 @@
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
             this.dockPanel2.ID = new System.Guid("1d90a10b-9793-4b4d-82ff-b0c230238448");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 163);
+            this.dockPanel2.Location = new System.Drawing.Point(0, 156);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 403);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 410);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -308,7 +306,7 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 376);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 383);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
@@ -318,7 +316,7 @@
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 376);
+            this.grcMain.Size = new System.Drawing.Size(943, 383);
             this.grcMain.TabIndex = 5;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
@@ -485,7 +483,6 @@
             this.grvMain.OptionsView.ShowGroupPanel = false;
             this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn11, DevExpress.Data.ColumnSortOrder.Ascending)});
-            
             // 
             // gridBand1
             // 
@@ -497,7 +494,7 @@
             this.gridBand1.Columns.Add(this.gridColumn11);
             this.gridBand1.Columns.Add(this.gridColumn5);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 316;
+            this.gridBand1.Width = 236;
             // 
             // gridColumn1
             // 
@@ -510,7 +507,6 @@
             this.gridColumn2.Caption = "STT";
             this.gridColumn2.FieldName = "No_";
             this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
             this.gridColumn2.Width = 80;
             // 
             // gridColumn3
@@ -666,9 +662,9 @@
         private DevExpress.XtraEditors.CalcEdit calRose1;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.GroupBox groupBox1;
+        private DevExpress.XtraEditors.LookUpEdit lokGroup;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
-        private DevExpress.XtraEditors.LookUpEdit lokGroup;
     }
 }

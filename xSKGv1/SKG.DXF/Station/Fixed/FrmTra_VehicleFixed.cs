@@ -5,12 +5,14 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 25/01/2012 21:07
- * Update: 02/06/2013 21:07
+ * Update: 26/09/2013 20:07
  * Status: OK
  */
 #endregion
 
 using System;
+using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
@@ -22,7 +24,6 @@ namespace SKG.DXF.Station.Fixed
 
     using DevExpress.XtraEditors;
     using DevExpress.XtraEditors.Controls;
-    using System.Drawing;
 
     public partial class FrmTra_VehicleFixed : FrmInput
     {
@@ -54,7 +55,8 @@ namespace SKG.DXF.Station.Fixed
         #region Overrides
         protected override void SetNullPrompt()
         {
-            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
+            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}",
+                lblCode.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
         }
@@ -66,6 +68,7 @@ namespace SKG.DXF.Station.Fixed
             {
                 XtraMessageBox.Show(STR_CHOICE_E,
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -79,6 +82,7 @@ namespace SKG.DXF.Station.Fixed
             {
                 XtraMessageBox.Show(STR_CHOICE,
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -160,17 +164,21 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ResetInput()
         {
-            txtCode.Text = null;
-            txtSeats.Text = "0";
-            txtBeds.Text = "0";
-            txtNode.Text = "0";
+            txtCode.EditValue = null;
+            txtSeats.EditValue = 0;
+            txtBeds.EditValue = 0;
+            txtIncome.EditValue = null;
+            txtProductionYear.EditValue = null;
 
-            txtDriver.Text = null;
-            txtPhone.Text = null;
+            dteLimitedRegistration.DateTime = _tomorrow;
+            dteTermInsurance.DateTime = _tomorrow;
+            dteTermFixedRoutes.DateTime = _tomorrow;
+            dteTermRegistry.DateTime = _tomorrow;
 
-            txtHours.Text = null;
-            txtDays.Text = null;
-            calPrice.Text = null;
+            cheHigh.EditValue = false;
+            cheCity.EditValue = false;
+            txtHours.EditValue = null;
+            txtNote.EditValue = null;
 
             base.ResetInput();
         }
@@ -179,26 +187,22 @@ namespace SKG.DXF.Station.Fixed
         {
             lueTransport.DataBindings.Clear();
             lueRoute.DataBindings.Clear();
+            lueDriver.DataBindings.Clear();
+
             txtCode.DataBindings.Clear();
             txtSeats.DataBindings.Clear();
             txtBeds.DataBindings.Clear();
-
+            txtIncome.DataBindings.Clear();
             txtProductionYear.DataBindings.Clear();
+
             dteLimitedRegistration.DataBindings.Clear();
             dteTermInsurance.DataBindings.Clear();
             dteTermFixedRoutes.DataBindings.Clear();
-            dteTermDriverLicense.DataBindings.Clear();
+            dteTermRegistry.DataBindings.Clear();
 
             cheHigh.DataBindings.Clear();
             cheCity.DataBindings.Clear();
-            txtNode.DataBindings.Clear();
-
-            txtDriver.DataBindings.Clear();
-            txtPhone.DataBindings.Clear();
-
             txtHours.DataBindings.Clear();
-            txtDays.DataBindings.Clear();
-            calPrice.DataBindings.Clear();
             txtNote.DataBindings.Clear();
 
             base.ClearDataBindings();
@@ -208,27 +212,23 @@ namespace SKG.DXF.Station.Fixed
         {
             lueTransport.DataBindings.Add("EditValue", _dtb, ".TransportId");
             lueRoute.DataBindings.Add("EditValue", _dtb, ".TariffId");
+            lueDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
+
             txtCode.DataBindings.Add("EditValue", _dtb, ".Code");
             txtSeats.DataBindings.Add("EditValue", _dtb, ".Seats");
             txtBeds.DataBindings.Add("EditValue", _dtb, ".Beds");
-
+            txtIncome.DataBindings.Add("EditValue", _dtb, ".More");
             txtProductionYear.DataBindings.Add("EditValue", _dtb, ".ProductionYear");
+
             dteLimitedRegistration.DataBindings.Add("EditValue", _dtb, ".LimitedRegistration");
             dteTermInsurance.DataBindings.Add("EditValue", _dtb, ".TermInsurance");
             dteTermFixedRoutes.DataBindings.Add("EditValue", _dtb, ".TermFixedRoutes");
-            dteTermDriverLicense.DataBindings.Add("EditValue", _dtb, ".TermDriverLicense");
+            dteTermRegistry.DataBindings.Add("EditValue", _dtb, ".TermDriverLicense");
 
             cheHigh.DataBindings.Add("EditValue", _dtb, ".High");
             cheCity.DataBindings.Add("EditValue", _dtb, ".City");
-            txtNode.DataBindings.Add("EditValue", _dtb, ".Node");
-
-            txtDriver.DataBindings.Add("EditValue", _dtb, ".Driver");
-            txtPhone.DataBindings.Add("EditValue", _dtb, ".Phone");
-
-            txtHours.DataBindings.Add("EditValue", _dtb, ".Note");
-            txtDays.DataBindings.Add("EditValue", _dtb, ".More");
-            calPrice.DataBindings.Add("EditValue", _dtb, ".Price");
-            txtNote.DataBindings.Add("EditValue", _dtb, ".Ghichu");
+            txtHours.DataBindings.Add("EditValue", _dtb, ".Text");
+            txtNote.DataBindings.Add("EditValue", _dtb, ".Note");
 
             base.DataBindingControl();
         }
@@ -237,26 +237,21 @@ namespace SKG.DXF.Station.Fixed
         {
             lueTransport.Properties.ReadOnly = isReadOnly;
             lueRoute.Properties.ReadOnly = isReadOnly;
+
             txtCode.Properties.ReadOnly = isReadOnly;
             txtSeats.Properties.ReadOnly = isReadOnly;
             txtBeds.Properties.ReadOnly = isReadOnly;
-
+            txtIncome.Properties.ReadOnly = isReadOnly;
             txtProductionYear.Properties.ReadOnly = isReadOnly;
+
             dteLimitedRegistration.Properties.ReadOnly = isReadOnly;
             dteTermInsurance.Properties.ReadOnly = isReadOnly;
             dteTermFixedRoutes.Properties.ReadOnly = isReadOnly;
-            dteTermDriverLicense.Properties.ReadOnly = isReadOnly;
+            dteTermRegistry.Properties.ReadOnly = isReadOnly;
 
             cheHigh.Properties.ReadOnly = isReadOnly;
             cheCity.Properties.ReadOnly = isReadOnly;
-            txtNode.Properties.ReadOnly = isReadOnly;
-
-            txtDriver.Properties.ReadOnly = isReadOnly;
-            txtPhone.Properties.ReadOnly = isReadOnly;
-
             txtHours.Properties.ReadOnly = isReadOnly;
-            txtDays.Properties.ReadOnly = isReadOnly;
-            calPrice.Properties.ReadOnly = isReadOnly;
             txtNote.Properties.ReadOnly = isReadOnly;
 
             grcMain.Enabled = isReadOnly;
@@ -277,35 +272,31 @@ namespace SKG.DXF.Station.Fixed
                     Id = id,
                     TransportId = (Guid)lueTransport.GetColumnValue("Id"),
                     TariffId = (Guid)lueRoute.GetColumnValue("Id"),
+
+                    Fixed = true,
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = true,
 
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    Node = txtNode.Text.ToInt32(),
-
-                    Driver = txtDriver.Text,
-                    Phone = txtPhone.Text,
-
-                    Text = String.Format("{0};!;{1}", calPrice.Value, txtNote.Text),
-                    Note = txtHours.Text,
-                    More = txtDays.Text
+                    Text = txtHours.Text,
+                    Note = txtNote.Text,
+                    More = txtIncome.Text
                 };
 
-                if (dteLimitedRegistration.EditValue + "" != "")
+                if (!dteLimitedRegistration.EditValue.IsNullOrEmpty())
                     o.LimitedRegistration = dteLimitedRegistration.DateTime;
 
-                if (dteTermInsurance.EditValue + "" != "")
+                if (!dteTermInsurance.EditValue.IsNullOrEmpty())
                     o.TermInsurance = dteTermInsurance.DateTime;
 
-                if (dteTermFixedRoutes.EditValue + "" != "")
+                if (!dteTermFixedRoutes.EditValue.IsNullOrEmpty())
                     o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
 
-                if (dteTermDriverLicense.EditValue + "" != "")
-                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
+                if (!dteTermRegistry.EditValue.IsNullOrEmpty())
+                    o.TermDriverLicense = dteTermRegistry.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Update(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_EDIT);
@@ -325,35 +316,31 @@ namespace SKG.DXF.Station.Fixed
                 {
                     TransportId = (Guid)lueTransport.GetColumnValue("Id"),
                     TariffId = (Guid)lueRoute.GetColumnValue("Id"),
+
+                    Fixed = true,
                     Code = txtCode.Text,
                     Seats = txtSeats.Text.ToInt32(),
                     Beds = txtBeds.Text.ToInt32(),
-                    Fixed = true,
 
                     ProductionYear = txtProductionYear.Text,
                     High = cheHigh.Checked,
                     City = cheCity.Checked,
-                    Node = txtNode.Text.ToInt32(),
-
-                    Driver = txtDriver.Text,
-                    Phone = txtPhone.Text,
-
-                    Text = String.Format("{0};!;{1}", calPrice.Value, txtNote.Text),
-                    Note = txtHours.Text,
-                    More = txtDays.Text
+                    Text = txtHours.Text,
+                    Note = txtNote.Text,
+                    More = txtIncome.Text
                 };
 
-                if (dteLimitedRegistration.EditValue + "" != "")
+                if (!dteLimitedRegistration.EditValue.IsNullOrEmpty())
                     o.LimitedRegistration = dteLimitedRegistration.DateTime;
 
-                if (dteTermInsurance.EditValue + "" != "")
+                if (!dteTermInsurance.EditValue.IsNullOrEmpty())
                     o.TermInsurance = dteTermInsurance.DateTime;
 
-                if (dteTermFixedRoutes.EditValue + "" != "")
+                if (!dteTermFixedRoutes.EditValue.IsNullOrEmpty())
                     o.TermFixedRoutes = dteTermFixedRoutes.DateTime;
 
-                if (dteTermDriverLicense.EditValue + "" != "")
-                    o.TermDriverLicense = dteTermDriverLicense.DateTime;
+                if (!dteTermRegistry.EditValue.IsNullOrEmpty())
+                    o.TermDriverLicense = dteTermRegistry.DateTime;
 
                 var oki = _bll.Tra_Vehicle.Insert(o);
                 if (oki == null) XtraMessageBox.Show(STR_DUPLICATE, STR_ADD);
@@ -365,15 +352,11 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void LoadData()
         {
-            _dtb = _bll.Tra_Vehicle.SelectForFixed(_term);
+            _dtb = DataFilter == null ? _bll.Tra_Vehicle.SelectForFixed(_term) : DataFilter;
 
-            if (_dtb != null)
-            {
-                grcMain.DataSource = _dtb;
-                gridColumn2.BestFit(); // fit column STT
-            }
-
+            if (_dtb != null) grcMain.DataSource = _dtb;
             grvMain.BestFitColumns();
+
             base.LoadData();
         }
 
@@ -383,7 +366,9 @@ namespace SKG.DXF.Station.Fixed
             if (!a)
             {
                 txtCode.Focus();
-                XtraMessageBox.Show(STR_NOT_V, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(STR_NOT_V, Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return false;
             }
 
@@ -391,20 +376,15 @@ namespace SKG.DXF.Station.Fixed
             if (!b)
             {
                 txtSeats.Focus();
-                XtraMessageBox.Show(STR_NOT_C, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+                XtraMessageBox.Show(STR_NOT_C, Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            var c = txtNode.Text.Length == 0 ? false : true;
-            if (!c)
-            {
-                txtNode.Focus();
-                XtraMessageBox.Show(STR_NOT_N, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             var tmp = txtCode.Text.Replace(" ", "");
             txtCode.Text = tmp.ToUpper();
+
             return true;
         }
         #endregion
@@ -413,6 +393,7 @@ namespace SKG.DXF.Station.Fixed
         public FrmTra_VehicleFixed()
         {
             InitializeComponent();
+            Text = STR_TITLE.ToUpper();
 
             dockPanel1.SetDockPanel(Global.STR_PAN1);
             dockPanel2.SetDockPanel(Global.STR_PAN2);
@@ -420,37 +401,56 @@ namespace SKG.DXF.Station.Fixed
 
             AllowPrint = true;
 
-            Text = STR_TITLE.ToUpper();
+            txtMark.Properties.ReadOnly = true;
+            txtPhone.Properties.ReadOnly = true;
+            dteTermDriverLicense.Properties.ReadOnly = true;
         }
         #endregion
 
         #region Events
         private void dteLimitedRegistration_EditValueChanged(object sender, EventArgs e)
         {
+            dteLimitedRegistration.Properties.Appearance.BackColor = Color.Transparent;
+            if (dteLimitedRegistration.EditValue.IsNullOrEmpty()) return;
+
             if (dteLimitedRegistration.DateTime <= _tomorrow)
                 dteLimitedRegistration.Properties.Appearance.BackColor = Color.Red;
-            else dteLimitedRegistration.Properties.Appearance.BackColor = Color.Transparent;
         }
 
         private void dteTermFixedRoutes_EditValueChanged(object sender, EventArgs e)
         {
+            dteTermFixedRoutes.Properties.Appearance.BackColor = Color.Transparent;
+            if (dteTermFixedRoutes.EditValue.IsNullOrEmpty()) return;
+
             if (dteTermFixedRoutes.DateTime <= _tomorrow)
                 dteTermFixedRoutes.Properties.Appearance.BackColor = Color.Red;
-            else dteTermFixedRoutes.Properties.Appearance.BackColor = Color.Transparent;
         }
 
         private void dteTermInsurance_EditValueChanged(object sender, EventArgs e)
         {
+            dteTermInsurance.Properties.Appearance.BackColor = Color.Transparent;
+            if (dteTermInsurance.EditValue.IsNullOrEmpty()) return;
+
             if (dteTermInsurance.DateTime <= _tomorrow)
                 dteTermInsurance.Properties.Appearance.BackColor = Color.Red;
-            else dteTermInsurance.Properties.Appearance.BackColor = Color.Transparent;
         }
 
         private void dteTermDriverLicense_EditValueChanged(object sender, EventArgs e)
         {
+            dteTermDriverLicense.Properties.Appearance.BackColor = Color.Transparent;
+            if (dteTermDriverLicense.EditValue.IsNullOrEmpty()) return;
+
             if (dteTermDriverLicense.DateTime <= _tomorrow)
                 dteTermDriverLicense.Properties.Appearance.BackColor = Color.Red;
-            else dteTermDriverLicense.Properties.Appearance.BackColor = Color.Transparent;
+        }
+
+        private void dteTermRegistry_EditValueChanged(object sender, EventArgs e)
+        {
+            dteTermRegistry.Properties.Appearance.BackColor = Color.Transparent;
+            if (dteTermRegistry.EditValue.IsNullOrEmpty()) return;
+
+            if (dteTermRegistry.DateTime <= _tomorrow)
+                dteTermRegistry.Properties.Appearance.BackColor = Color.Red;
         }
 
         private void cmdAllVehicle_Click(object sender, EventArgs e)
@@ -486,16 +486,28 @@ namespace SKG.DXF.Station.Fixed
         private void lueRoute_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Kind == ButtonPredefines.Ellipsis)
-            {
                 DXF.Extend.ShowRight<FrmTra_Tariff>(Global.Parent);
-            }
         }
 
         private void lueTransport_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             if (e.Button.Kind == ButtonPredefines.Ellipsis)
-            {
                 DXF.Extend.ShowRight<FrmTra_Transport>(Global.Parent);
+        }
+
+        private void lueDriver_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Ellipsis)
+            {
+                var frm = new FrmTra_DriverInfo()
+                {
+                    StartPosition = FormStartPosition.CenterParent,
+                    Number = txtCode.Text
+                };
+
+                frm.AllowAdd = false;
+                frm.ShowDialog();
+                txtCode_EditValueChanged(sender, e);
             }
         }
 
@@ -503,10 +515,100 @@ namespace SKG.DXF.Station.Fixed
         {
             lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
             lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
+            lueLicenseNo.Properties.DataSource = _bll.Pol_Dictionary.Select((object)Global.STR_DRIVER);
+
+            if (DetailId == null)
+            {
+                groupBox4.Enabled = false;
+                colDateIn.Visible = false;
+                colDateOut.Visible = false;
+
+                lueDriver.Properties.ReadOnly = false;
+                lueLicenseNo.Properties.ReadOnly = false;
+            }
+            else
+            {
+                groupBox4.Enabled = true;
+                colDateIn.Visible = true;
+                colDateOut.Visible = true;
+            }
+        }
+
+        private void txtCode_EditValueChanged(object sender, EventArgs e)
+        {
+            lueDriver.Properties.DataSource = _bll.Pol_Dictionary.SelectByMore(txtCode.Text, Global.STR_DRIVER);
+            lueDriver_EditValueChanged(sender, e);
+        }
+
+        private void lueDriver_EditValueChanged(object sender, EventArgs e)
+        {
+            lueLicenseNo.EditValue = lueDriver.GetColumnValue("Code");
+            txtMark.EditValue = lueDriver.GetColumnValue("Note");
+            dteTermDriverLicense.EditValue = lueDriver.GetColumnValue("More1");
+            txtPhone.EditValue = lueDriver.GetColumnValue("More2");
+            chkTempOut.EditValue = grvMain.GetFocusedRowCellValue("Repair");
+            chkNotEnough.EditValue = grvMain.GetFocusedRowCellValue("NotEnough").ToBoolean();
+        }
+
+        private void lueLicenseNo_EditValueChanged(object sender, EventArgs e)
+        {
+            if (txtCode.Text.IsNullOrEmpty()) return;
+            var code = lueLicenseNo.GetColumnValue("Code") + "";
+
+            _bll.Pol_Dictionary.UpdateMoreByCode(code, txtCode.Text);
+            lueDriver.Properties.DataSource = _bll.Pol_Dictionary.SelectByMore(txtCode.Text, Global.STR_DRIVER);
+
+            lueDriver.EditValue = code;
+            txtMark.EditValue = lueLicenseNo.GetColumnValue("Note");
+            dteTermDriverLicense.EditValue = lueLicenseNo.GetColumnValue("More1");
+            txtPhone.EditValue = lueLicenseNo.GetColumnValue("More2");
+            chkTempOut.EditValue = grvMain.GetFocusedRowCellValue("Repair");
+            chkNotEnough.EditValue = grvMain.GetFocusedRowCellValue("NotEnough").ToBoolean();
+        }
+
+        private void cmdTest_Click(object sender, EventArgs e)
+        {
+            if (DetailId != null)
+            {
+                if (lueLicenseNo.Text.IsNullOrEmpty())
+                {
+                    XtraMessageBox.Show("Chưa nhập thông tin!", "Kiểm tra");
+                    return;
+                }
+
+                var de = new Tra_Detail()
+                {
+                    Id = DetailId.Value,
+                    More = lueDriver.EditValue + "",
+                    Repair = chkTempOut.Checked,
+                    Show = !chkNotEnough.Checked
+                };
+
+                _bll.Tra_Detail.UpdateDriver(de);
+
+                DataFilter = _bll.Tra_Vehicle.FindForFixed(DetailId.Value);
+                PerformRefresh();
+                Close();
+            }
+            else XtraMessageBox.Show("Không kiểm tra được!", "Kiểm tra");
+        }
+
+        private void cmdUnTest_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Data filter when r-click on detail in, out
+        /// </summary>
+        public DataTable DataFilter { get; set; }
+
+        /// <summary>
+        /// Id of detail in, out
+        /// </summary>
+        public Guid? DetailId { get; set; }
         #endregion
 
         #region Fields
@@ -518,7 +620,7 @@ namespace SKG.DXF.Station.Fixed
         /// <summary>
         /// Ngày hôm sau
         /// </summary>
-        DateTime _tomorrow = Global.Session.Current.AddDays(1);
+        DateTime _tomorrow = Global.Session.Current.AddDays(2);
         #endregion
 
         #region Constants

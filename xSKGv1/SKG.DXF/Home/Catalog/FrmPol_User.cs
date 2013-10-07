@@ -166,6 +166,7 @@ namespace SKG.DXF.Home.Catalog
         {
             txtName.Properties.ReadOnly = isReadOnly;
             txtAcc.Properties.ReadOnly = isReadOnly;
+            if (_state == State.Edit) txtAcc.Properties.ReadOnly = true;
             txtPass.Properties.ReadOnly = isReadOnly;
             dteBirth.Properties.ReadOnly = isReadOnly;
             txtAddress.Properties.ReadOnly = isReadOnly;
@@ -174,9 +175,7 @@ namespace SKG.DXF.Home.Catalog
             txtNote.Properties.ReadOnly = isReadOnly;
             chkActive.Properties.ReadOnly = isReadOnly;
 
-            grcMain.Enabled = isReadOnly;
-
-            if (_state == State.Edit) txtAcc.Properties.ReadOnly = true;
+            grcMain.Enabled = isReadOnly;            
 
             base.ReadOnlyControl(isReadOnly);
         }

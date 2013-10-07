@@ -100,5 +100,14 @@ namespace SKG.DAL.Entities
         {
             return CheckRole("QL");
         }
+
+        /// <summary>
+        /// Check role operator truck teams
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckOperatorTruck()
+        {
+            return CheckRole("DH");
+        }
     }
 }

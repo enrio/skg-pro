@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+            DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+            this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -55,8 +58,6 @@
             this.bandedGridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -88,6 +89,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvMain)).BeginInit();
             this.SuspendLayout();
+            // 
+            // bandedGridColumn10
+            // 
+            this.bandedGridColumn10.Caption = "Ghi chú";
+            this.bandedGridColumn10.FieldName = "Note";
+            this.bandedGridColumn10.Name = "bandedGridColumn10";
+            this.bandedGridColumn10.Visible = true;
             // 
             // dockManager1
             // 
@@ -448,7 +456,6 @@
             this.gridColumn5,
             this.gridColumn6,
             this.bandedGridColumn1,
-            this.bandedGridColumn2,
             this.bandedGridColumn3,
             this.bandedGridColumn9,
             this.bandedGridColumn8,
@@ -462,6 +469,23 @@
             this.bandedGridColumn13,
             this.bandedGridColumn14,
             this.bandedGridColumn15});
+            styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            styleFormatCondition1.Appearance.Options.UseFont = true;
+            styleFormatCondition1.ApplyToRow = true;
+            styleFormatCondition1.Column = this.bandedGridColumn10;
+            styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition1.Value1 = "ĐÃ KIỂM TRA";
+            styleFormatCondition2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.Red;
+            styleFormatCondition2.Appearance.Options.UseFont = true;
+            styleFormatCondition2.Appearance.Options.UseForeColor = true;
+            styleFormatCondition2.ApplyToRow = true;
+            styleFormatCondition2.Column = this.bandedGridColumn10;
+            styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+            styleFormatCondition2.Value1 = "XE TRUY THU";
+            this.grvMain.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1,
+            styleFormatCondition2});
             this.grvMain.GridControl = this.grcMain;
             this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, "- Lượt xe: {0:#,0}")});
@@ -482,10 +506,9 @@
             this.gridBand1.Columns.Add(this.bandedGridColumn9);
             this.gridBand1.Columns.Add(this.gridColumn4);
             this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Columns.Add(this.bandedGridColumn2);
             this.gridBand1.Columns.Add(this.bandedGridColumn10);
             this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 684;
+            this.gridBand1.Width = 615;
             // 
             // gridColumn1
             // 
@@ -554,22 +577,6 @@
             this.bandedGridColumn1.OptionsColumn.ReadOnly = true;
             this.bandedGridColumn1.Visible = true;
             this.bandedGridColumn1.Width = 150;
-            // 
-            // bandedGridColumn2
-            // 
-            this.bandedGridColumn2.Caption = "NT/T";
-            this.bandedGridColumn2.FieldName = "Node";
-            this.bandedGridColumn2.Name = "bandedGridColumn2";
-            this.bandedGridColumn2.OptionsColumn.ReadOnly = true;
-            this.bandedGridColumn2.Visible = true;
-            this.bandedGridColumn2.Width = 69;
-            // 
-            // bandedGridColumn10
-            // 
-            this.bandedGridColumn10.Caption = "Ghi chú";
-            this.bandedGridColumn10.FieldName = "Note";
-            this.bandedGridColumn10.Name = "bandedGridColumn10";
-            this.bandedGridColumn10.Visible = true;
             // 
             // gridBand2
             // 
@@ -749,7 +756,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn2;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn5;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn4;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn3;

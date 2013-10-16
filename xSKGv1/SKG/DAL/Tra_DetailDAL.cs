@@ -1240,6 +1240,152 @@ namespace SKG.DAL
         }
 
         /// <summary>
+        /// Audit month vehicle fixed of Sgtvt
+        /// </summary>
+        /// <param name="fr">From date time</param>
+        /// <param name="to">To date time</param>
+        /// <returns></returns>
+        public DataTable AuditMonthFixedSgtvt(DateTime fr, DateTime to)
+        {
+            try
+            {
+                var i = DateTime.DaysInMonth(Global.Session.Current.Year,
+                    Global.Session.Current.Month);
+                var dim = i + "";
+
+                var res1 = from s in _db.Tra_Vehicles
+                           where s.Fixed == true
+                           group s by new
+                           {
+                               s.TransportId,
+                               TransportText = s.Transport.Text,
+                               TariffCode = s.Tariff.Code,
+                               TariffText = s.Tariff.Text
+                           } into g
+                           select new
+                           {
+                               g.Key.TransportId,
+                               g.Key.TransportText,
+                               g.Key.TariffCode,
+                               g.Key.TariffText,
+
+                               Kh_Ts_Xe = g.Count(),
+                               Kh_Ts_Ghe = g.Sum(p => p.Seats + p.Beds)
+                           };
+
+                var res2 = from s in _db.Pol_Dictionarys
+                           join r in res1 on new
+                           {
+                               TransportId = s.ParentId,
+                               TariffCode = s.More
+                           } equals new
+                           {
+                               r.TransportId,
+                               r.TariffCode
+                           }
+                           where s.Type == Global.STR_NODE
+                           && s.More3 == dim
+                           select new
+                           {
+                               r.TransportId,
+                               r.TransportText,
+                               r.TariffCode,
+                               r.TariffText,
+
+                               r.Kh_Ts_Xe,
+                               r.Kh_Ts_Ghe,
+                               Kh_Lx_Xb = s.Order
+                           };
+
+                var res3 = from s in _db.Tra_Details
+                           where s.UserOutId != null
+                           && s.Vehicle.Fixed == true
+                           && s.Repair == false
+                           && s.DateOut >= fr && s.DateOut <= to
+                           && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
+                           group s by new
+                           {
+                               s.Vehicle.TransportId,
+                               TariffCode = s.Vehicle.Tariff.Code
+                           } into g
+                           select new
+                           {
+                               g.Key.TransportId,
+                               g.Key.TariffCode,
+
+                               Th_Ts_Ghe = g.Sum(p => p.Seats + p.Beds),
+                               Th_Lx_Xb = g.Count(),
+                               Th_Lk_Di = g.Sum(p => (p.Seats + p.Beds) < 30 ? -1 : -2) + g.Sum(p => p.Seats + p.Beds)
+                           };
+
+                var res4 = (from s in _db.Tra_Details
+                            where s.UserOutId != null
+                            && s.Vehicle.Fixed == true
+                            && s.Repair == false
+                            && s.DateOut >= fr && s.DateOut <= to
+                            && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
+                            select new
+                            {
+                                s.VehicleId
+                            }).Distinct();
+
+                var res5 = from s in res4
+                           join r in _db.Tra_Vehicles on s.VehicleId equals r.Id
+                           group s by new
+                           {
+                               r.TransportId,
+                               TariffCode = r.Tariff.Code
+                           } into g
+                           select new
+                           {
+                               g.Key.TransportId,
+                               g.Key.TariffCode,
+                               Th_Ts_Xe = g.Count()
+                           };
+
+                var res6 = from s in res2
+                           join r in res3 on new
+                           {
+                               s.TransportId,
+                               s.TariffCode
+                           } equals new
+                           {
+                               r.TransportId,
+                               r.TariffCode
+                           }
+                           join r1 in res5 on new
+                           {
+                               s.TransportId,
+                               s.TariffCode
+                           } equals new
+                           {
+                               r1.TransportId,
+                               r1.TariffCode
+                           }
+                           select new
+                           {
+                               Transport = s.TransportText,
+                               Station = s.TariffText,
+
+                               Kh_Soxe = s.Kh_Ts_Xe,
+                               Kh_Ts_Ghe = s.Kh_Ts_Ghe,
+                               Kh_Lx_Xuatben = s.Kh_Lx_Xb,
+
+                               Th_Soxe = r1.Th_Ts_Xe,
+                               Th_Ts_Ghe = r.Th_Ts_Ghe,
+                               Th_Lx_Xuatben = r.Th_Lx_Xb,
+                               Th_Lk_Di = r.Th_Lk_Di,
+
+                               Tile_Nottai = (decimal)r.Th_Lx_Xb / s.Kh_Lx_Xb * 100,
+                               Nottai_Hoatdong = (decimal)s.Kh_Lx_Xb / i
+                           };
+
+                return res6.ToDataTable();
+            }
+            catch { return null; }
+        }
+
+        /// <summary>
         /// Audit month vehicle fixed
         /// </summary>
         /// <param name="fr">From date time</param>
@@ -1741,8 +1887,8 @@ namespace SKG.DAL
                                g.Key.Price1,
                                g.Key.Price2,
 
-                               CountFullDay = g.Count(p => p.FullDay > 0 && p.HalfDay <= 0),
-                               CountHalfDay = g.Count(p => p.HalfDay > 0),
+                               CountFullDay = g.Count(p => p.FullDay > 0),
+                               CountHalfDay = g.Count(p => p.HalfDay > 0 && p.FullDay <= 0),
 
                                FullDay = g.Sum(p => p.FullDay),
                                HalfDay = g.Sum(p => p.HalfDay),
@@ -1863,6 +2009,9 @@ namespace SKG.DAL
             try
             {
                 var res = _db.Tra_Details.FirstOrDefault(p => p.Id == pKey);
+
+                var r = _db.Tra_Details.Where(p => p.UserOutId == null && p.VehicleId == res.VehicleId);
+                if (r.Count() > 0) return false;
 
                 res.UserOutId = null;
                 res.Order = 0;

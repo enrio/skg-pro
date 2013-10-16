@@ -1,6 +1,6 @@
-﻿namespace SKG.DXF.Station.InDepot
+﻿namespace SKG.DXF.Station.Fixed
 {
-    partial class FrmTra_InDepotFixed
+    partial class FrmTra_RegistryNode
     {
         /// <summary>
         /// Required designer variable.
@@ -31,31 +31,31 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.lblSum = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNumber = new DevExpress.XtraEditors.TextEdit();
+            this.cbbDays = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.lblDays = new DevExpress.XtraEditors.LabelControl();
+            this.lueTransport = new DevExpress.XtraEditors.LookUpEdit();
+            this.lblNode = new DevExpress.XtraEditors.LabelControl();
+            this.calNode = new DevExpress.XtraEditors.CalcEdit();
+            this.lblTransport = new DevExpress.XtraEditors.LabelControl();
+            this.lblRoute = new DevExpress.XtraEditors.LabelControl();
+            this.lueRoute = new DevExpress.XtraEditors.LookUpEdit();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.grcMain = new DevExpress.XtraGrid.GridControl();
-            this.grvMain = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridColumn2 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandedGridColumn1 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand2 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.gridColumn4 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridColumn10 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.grvMain = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbDays.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calNode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueRoute.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).BeginInit();
@@ -79,64 +79,145 @@
             // 
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
-            this.dockPanel1.ID = new System.Guid("a616f51b-d338-45c0-afd5-9f2f26c2f2b4");
+            this.dockPanel1.ID = new System.Guid("79ec1f5d-51c0-407c-9e7e-4af54225b6f5");
             this.dockPanel1.Location = new System.Drawing.Point(0, 63);
             this.dockPanel1.Name = "dockPanel1";
-            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 70);
-            this.dockPanel1.Size = new System.Drawing.Size(951, 70);
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 59);
+            this.dockPanel1.Size = new System.Drawing.Size(951, 59);
             this.dockPanel1.Text = "dockPanel1";
             // 
             // dockPanel1_Container
             // 
-            this.dockPanel1_Container.Controls.Add(this.lblSum);
-            this.dockPanel1_Container.Controls.Add(this.labelControl4);
-            this.dockPanel1_Container.Controls.Add(this.txtNumber);
+            this.dockPanel1_Container.Controls.Add(this.cbbDays);
+            this.dockPanel1_Container.Controls.Add(this.lblDays);
+            this.dockPanel1_Container.Controls.Add(this.lueTransport);
+            this.dockPanel1_Container.Controls.Add(this.lblNode);
+            this.dockPanel1_Container.Controls.Add(this.calNode);
+            this.dockPanel1_Container.Controls.Add(this.lblTransport);
+            this.dockPanel1_Container.Controls.Add(this.lblRoute);
+            this.dockPanel1_Container.Controls.Add(this.lueRoute);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 43);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(943, 32);
             this.dockPanel1_Container.TabIndex = 0;
             // 
-            // lblSum
+            // cbbDays
             // 
-            this.lblSum.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSum.Appearance.ForeColor = System.Drawing.Color.Green;
-            this.lblSum.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblSum.Location = new System.Drawing.Point(243, 6);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(331, 29);
-            this.lblSum.TabIndex = 6;
-            this.lblSum.Text = "TỔNG SỐ XE CỐ ĐỊNH TRONG BẾN: {0}";
+            this.cbbDays.Location = new System.Drawing.Point(654, 3);
+            this.cbbDays.Name = "cbbDays";
+            this.cbbDays.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbDays.Properties.Appearance.Options.UseFont = true;
+            this.cbbDays.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbDays.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cbbDays.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbDays.Properties.Items.AddRange(new object[] {
+            "28",
+            "29",
+            "30",
+            "31"});
+            this.cbbDays.Size = new System.Drawing.Size(48, 26);
+            this.cbbDays.TabIndex = 5;
             // 
-            // labelControl4
+            // lblDays
             // 
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(3, 11);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(90, 19);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Tìm biển số:";
+            this.lblDays.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDays.Location = new System.Drawing.Point(585, 6);
+            this.lblDays.Name = "lblDays";
+            this.lblDays.Size = new System.Drawing.Size(63, 19);
+            this.lblDays.TabIndex = 4;
+            this.lblDays.Text = "Số ngày:";
             // 
-            // txtNumber
+            // lueTransport
             // 
-            this.txtNumber.Location = new System.Drawing.Point(99, 3);
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.txtNumber.Properties.Appearance.Options.UseFont = true;
-            this.txtNumber.Properties.Appearance.Options.UseForeColor = true;
-            this.txtNumber.Size = new System.Drawing.Size(138, 32);
-            this.txtNumber.TabIndex = 0;
-            this.txtNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNumber_KeyDown);
+            this.lueTransport.EditValue = 0;
+            this.lueTransport.Location = new System.Drawing.Point(56, 3);
+            this.lueTransport.Name = "lueTransport";
+            this.lueTransport.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueTransport.Properties.Appearance.Options.UseFont = true;
+            this.lueTransport.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueTransport.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueTransport.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueTransport.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
+            this.lueTransport.Properties.DisplayMember = "Text";
+            this.lueTransport.Properties.NullText = "";
+            this.lueTransport.Properties.ShowHeader = false;
+            this.lueTransport.Properties.ValueMember = "Id";
+            this.lueTransport.Size = new System.Drawing.Size(270, 26);
+            this.lueTransport.TabIndex = 1;
+            // 
+            // lblNode
+            // 
+            this.lblNode.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNode.Location = new System.Drawing.Point(708, 6);
+            this.lblNode.Name = "lblNode";
+            this.lblNode.Size = new System.Drawing.Size(53, 19);
+            this.lblNode.TabIndex = 6;
+            this.lblNode.Text = "Nốt tài:";
+            // 
+            // calNode
+            // 
+            this.calNode.Location = new System.Drawing.Point(767, 3);
+            this.calNode.Name = "calNode";
+            this.calNode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calNode.Properties.Appearance.Options.UseFont = true;
+            this.calNode.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.calNode.Size = new System.Drawing.Size(64, 26);
+            this.calNode.TabIndex = 7;
+            // 
+            // lblTransport
+            // 
+            this.lblTransport.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransport.Location = new System.Drawing.Point(3, 6);
+            this.lblTransport.Name = "lblTransport";
+            this.lblTransport.Size = new System.Drawing.Size(47, 19);
+            this.lblTransport.TabIndex = 0;
+            this.lblTransport.Text = "ĐVVT:";
+            // 
+            // lblRoute
+            // 
+            this.lblRoute.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRoute.Location = new System.Drawing.Point(332, 6);
+            this.lblRoute.Name = "lblRoute";
+            this.lblRoute.Size = new System.Drawing.Size(50, 19);
+            this.lblRoute.TabIndex = 2;
+            this.lblRoute.Text = "Tuyến:";
+            // 
+            // lueRoute
+            // 
+            this.lueRoute.Location = new System.Drawing.Point(388, 3);
+            this.lueRoute.Name = "lueRoute";
+            this.lueRoute.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueRoute.Properties.Appearance.Options.UseFont = true;
+            this.lueRoute.Properties.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lueRoute.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.lueRoute.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueRoute.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("No_", "STT", 10, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Id", "Mã", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Text", "Danh sách")});
+            this.lueRoute.Properties.DisplayMember = "Text";
+            this.lueRoute.Properties.NullText = "";
+            this.lueRoute.Properties.ShowHeader = false;
+            this.lueRoute.Properties.ValueMember = "Code";
+            this.lueRoute.Size = new System.Drawing.Size(191, 26);
+            this.lueRoute.TabIndex = 3;
             // 
             // dockPanel2
             // 
             this.dockPanel2.Controls.Add(this.dockPanel2_Container);
             this.dockPanel2.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;
-            this.dockPanel2.ID = new System.Guid("0ac78575-f794-4bf0-84cc-a675b6e65126");
-            this.dockPanel2.Location = new System.Drawing.Point(0, 133);
+            this.dockPanel2.ID = new System.Guid("2c47a7f7-fe20-4cc7-a88d-5a8b9d15c589");
+            this.dockPanel2.Location = new System.Drawing.Point(0, 122);
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.OriginalSize = new System.Drawing.Size(951, 200);
-            this.dockPanel2.Size = new System.Drawing.Size(951, 433);
+            this.dockPanel2.Size = new System.Drawing.Size(951, 444);
             this.dockPanel2.Text = "dockPanel2";
             // 
             // dockPanel2_Container
@@ -144,24 +225,23 @@
             this.dockPanel2_Container.Controls.Add(this.grcMain);
             this.dockPanel2_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 406);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(943, 417);
             this.dockPanel2_Container.TabIndex = 0;
             // 
             // grcMain
             // 
             this.grcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grcMain.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grcMain.Location = new System.Drawing.Point(0, 0);
             this.grcMain.MainView = this.grvMain;
             this.grcMain.Name = "grcMain";
-            this.grcMain.Size = new System.Drawing.Size(943, 406);
-            this.grcMain.TabIndex = 1;
+            this.grcMain.Size = new System.Drawing.Size(943, 417);
+            this.grcMain.TabIndex = 8;
             this.grcMain.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvMain});
             // 
             // grvMain
             // 
-            this.grvMain.Appearance.BandPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grvMain.Appearance.BandPanel.Options.UseFont = true;
             this.grvMain.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
@@ -204,11 +284,9 @@
             this.grvMain.Appearance.FocusedCell.Options.UseForeColor = true;
             this.grvMain.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
             this.grvMain.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
-            this.grvMain.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F);
             this.grvMain.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
             this.grvMain.Appearance.FocusedRow.Options.UseBackColor = true;
             this.grvMain.Appearance.FocusedRow.Options.UseBorderColor = true;
-            this.grvMain.Appearance.FocusedRow.Options.UseFont = true;
             this.grvMain.Appearance.FocusedRow.Options.UseForeColor = true;
             this.grvMain.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
@@ -286,151 +364,75 @@
             this.grvMain.Appearance.TopNewRow.Options.UseBackColor = true;
             this.grvMain.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
             this.grvMain.Appearance.VertLine.Options.UseBackColor = true;
-            this.grvMain.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
-            this.gridBand1,
-            this.gridBand2});
-            this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.grvMain.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
-            this.gridColumn10,
-            this.gridColumn5,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8,
-            this.gridColumn9,
-            this.bandedGridColumn1});
+            this.gridColumn5});
             this.grvMain.GridControl = this.grcMain;
-            this.grvMain.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "", null, " Tổng xe: {0:#,0}")});
             this.grvMain.Name = "grvMain";
             this.grvMain.OptionsView.EnableAppearanceEvenRow = true;
             this.grvMain.OptionsView.EnableAppearanceOddRow = true;
             this.grvMain.OptionsView.ShowFooter = true;
-            this.grvMain.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvMain_RowClick);
-            // 
-            // gridBand1
-            // 
-            this.gridBand1.Caption = "Thông tin";
-            this.gridBand1.Columns.Add(this.gridColumn2);
-            this.gridBand1.Columns.Add(this.gridColumn1);
-            this.gridBand1.Columns.Add(this.gridColumn3);
-            this.gridBand1.Columns.Add(this.gridColumn5);
-            this.gridBand1.Columns.Add(this.gridColumn6);
-            this.gridBand1.Columns.Add(this.gridColumn7);
-            this.gridBand1.Columns.Add(this.gridColumn8);
-            this.gridBand1.Columns.Add(this.gridColumn9);
-            this.gridBand1.Columns.Add(this.bandedGridColumn1);
-            this.gridBand1.Name = "gridBand1";
-            this.gridBand1.Width = 932;
-            // 
-            // gridColumn2
-            // 
-            this.gridColumn2.Caption = "STT";
-            this.gridColumn2.FieldName = "No_";
-            this.gridColumn2.Name = "gridColumn2";
-            this.gridColumn2.Visible = true;
-            this.gridColumn2.Width = 43;
+            this.grvMain.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Ascending),
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn3, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "Mã";
-            this.gridColumn1.FieldName = "Id";
+            this.gridColumn1.Caption = "STT";
+            this.gridColumn1.FieldName = "No_";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 38;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "ĐVVT";
+            this.gridColumn2.FieldName = "Belong";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Belong", "{0:#,0} lượt")});
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.Width = 522;
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Biển số";
-            this.gridColumn3.FieldName = "Code";
+            this.gridColumn3.Caption = "Tuyến";
+            this.gridColumn3.FieldName = "Text";
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Code", "{0:#,0} xe")});
             this.gridColumn3.Visible = true;
-            this.gridColumn3.Width = 71;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "Thời gian vào";
-            this.gridColumn5.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss";
-            this.gridColumn5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.gridColumn5.FieldName = "DateIn";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.Width = 145;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.Caption = "Người cho vào";
-            this.gridColumn6.FieldName = "UserIn";
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.Width = 145;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.Caption = "Điện thoại";
-            this.gridColumn7.FieldName = "Phone";
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.Width = 145;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.Caption = "Tuyến";
-            this.gridColumn8.FieldName = "Tariff";
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.Width = 145;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.Caption = "ĐVVT";
-            this.gridColumn9.FieldName = "Transport";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.Width = 163;
-            // 
-            // bandedGridColumn1
-            // 
-            this.bandedGridColumn1.Caption = "Ghi chú";
-            this.bandedGridColumn1.FieldName = "More";
-            this.bandedGridColumn1.Name = "bandedGridColumn1";
-            this.bandedGridColumn1.Visible = true;
-            // 
-            // gridBand2
-            // 
-            this.gridBand2.Caption = "Tải trọng";
-            this.gridBand2.Columns.Add(this.gridColumn4);
-            this.gridBand2.Columns.Add(this.gridColumn10);
-            this.gridBand2.Name = "gridBand2";
-            this.gridBand2.Width = 315;
+            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.Width = 525;
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "Số ghế";
-            this.gridColumn4.FieldName = "Seats";
+            this.gridColumn4.Caption = "Số ngày";
+            this.gridColumn4.FieldName = "More3";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
-            this.gridColumn4.Width = 188;
+            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.Width = 89;
             // 
-            // gridColumn10
+            // gridColumn5
             // 
-            this.gridColumn10.Caption = "Số giường";
-            this.gridColumn10.FieldName = "Beds";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.Width = 127;
+            this.gridColumn5.Caption = "Nốt tài";
+            this.gridColumn5.FieldName = "Order";
+            this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Visible = true;
+            this.gridColumn5.VisibleIndex = 4;
             // 
-            // FrmTra_InDepotFixed
+            // FrmTra_RegistryNode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(951, 566);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
-            this.Name = "FrmTra_InDepotFixed";
-            this.Text = "Danh sách xe trong bến";
-            this.Activated += new System.EventHandler(this.FrmTra_InDepot_Activated);
+            this.Name = "FrmTra_RegistryNode";
+            this.Load += new System.EventHandler(this.FrmTra_RegistryNode_Load);
             this.Controls.SetChildIndex(this.dockPanel1, 0);
             this.Controls.SetChildIndex(this.dockPanel2, 0);
             ((System.ComponentModel.ISupportInitialize)(this._dtb)).EndInit();
@@ -438,7 +440,10 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbDays.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueTransport.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.calNode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lueRoute.Properties)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grcMain)).EndInit();
@@ -455,22 +460,19 @@
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraGrid.GridControl grcMain;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit txtNumber;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView grvMain;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn2;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn3;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn5;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn6;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn7;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn8;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn9;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn4;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn gridColumn10;
-        private DevExpress.XtraEditors.LabelControl lblSum;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand1;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn1;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Views.Grid.GridView grvMain;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.LabelControl lblRoute;
+        private DevExpress.XtraEditors.LookUpEdit lueRoute;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraEditors.LabelControl lblNode;
+        private DevExpress.XtraEditors.CalcEdit calNode;
+        private DevExpress.XtraEditors.LabelControl lblTransport;
+        private DevExpress.XtraEditors.LookUpEdit lueTransport;
+        private DevExpress.XtraEditors.ComboBoxEdit cbbDays;
+        private DevExpress.XtraEditors.LabelControl lblDays;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
     }
 }

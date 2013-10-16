@@ -5,7 +5,7 @@
  * Phone: +84 1645 515 010
  * ---------------------------
  * Create: 25/01/2012 21:07
- * Update: 02/06/2013 21:07
+ * Update: 26/09/2013 13:37
  * Status: OK
  */
 #endregion
@@ -14,24 +14,23 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 
-namespace SKG.DXF.Station.InDepot
+namespace SKG.DXF.Station.Fixed
 {
     using SKG.Plugin;
+    using SKG.Extend;
+    using DAL.Entities;
 
     using DevExpress.XtraEditors;
-    using DevExpress.XtraBars.Docking;
+    using DevExpress.XtraEditors.Controls;
 
-    /// <summary>
-    /// Danh sách xe trong bến
-    /// </summary>
-    public partial class FrmTra_InDepotFixed : FrmInput
+    public partial class FrmTra_FindInfo : FrmInput
     {
         #region Override plugin
         public override Menuz Menuz
         {
             get
             {
-                var type = typeof(FrmTra_InDepotFixed);
+                var type = typeof(FrmTra_Province);
                 var name = Global.GetIconName(type);
 
                 var menu = new Menuz
@@ -52,33 +51,50 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Overrides
-        protected override void PerformRefresh()
+        protected override void PerformInvoice()
         {
-            LoadData();
+            XtraMessageBox.Show("Chức năng này chưa có", "Tính tiền");
+            base.PerformInvoice();
+        }
+
+        /// <summary>
+        /// Phục hồi xe trạng thái xe trong bến
+        /// </summary>
+        protected override void PerformRestore()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE_R,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            var cfm = String.Format(STR_CONFIRM_R, code + " VÀO LÚC " + dateIn);
+            var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_RESTORE, MessageBoxButtons.OKCancel);
+
+            if (oki == DialogResult.OK)
+                if (_bll.Tra_Detail.Restore(id)) PerformRefresh();
+                else XtraMessageBox.Show(STR_UNRESTORE, STR_RESTORE);
+
+            base.PerformRestore();
+        }
+
+        protected override void PerformFind()
+        {
+            _dtb = _bll.Tra_Detail.FindFixed(lueNumber.Text, lueTransport.Text, lueRoute.Text);
 
             if (_dtb != null)
             {
-                ClearDataBindings();
-                if (_dtb.Rows.Count > 0) DataBindingControl();
+                grcMain.DataSource = _dtb;
+                grvMain.BestFitColumns();
             }
 
-            ReadOnlyControl();
-
-            base.PerformRefresh();
-        }
-
-        protected override void DataBindingControl()
-        {
-            //txtNumber.DataBindings.Add("EditValue", _dtb, ".Code");
-
-            base.DataBindingControl();
-        }
-
-        protected override void ClearDataBindings()
-        {
-            //txtNumber.DataBindings.Clear();
-
-            base.ClearDataBindings();
+            base.PerformFind();
         }
 
         protected override void PerformDelete()
@@ -108,44 +124,28 @@ namespace SKG.DXF.Station.InDepot
 
             base.PerformDelete();
         }
-
-        protected override void LoadData()
-        {
-
-            var n = txtNumber.Text == "" ? null : txtNumber.Text.Trim();
-            _dtb = _bll.Tra_Detail.GetInDepotFixed(n);
-
-            Text = String.Format("Tổng số xe cố định trong bến: {0}", _dtb.Rows.Count.ToString("0")).ToUpper();
-            lblSum.Text = Text;
-
-            grcMain.DataSource = _dtb;
-            grvMain.BestFitColumns();
-
-            base.LoadData();
-        }
-
-        protected override void PerformFind()
-        {
-            LoadData();
-
-            base.PerformFind();
-        }
         #endregion
 
         #region Methods
-        public FrmTra_InDepotFixed()
+        public FrmTra_FindInfo()
         {
             InitializeComponent();
-
-            dockPanel1.Visibility = DockVisibility.Hidden;
-            dockPanel2.SetDockPanel(Global.STR_PAN2);
-            grvMain.SetStandard();
+            Text = STR_TITLE.ToUpper();
 
             AllowAdd = false;
             AllowEdit = false;
             AllowSave = false;
             AllowCancel = false;
+            AllowFind = true;
+            AllowRefresh = false;
             AllowPrint = false;
+
+            dockPanel1.SetDockPanel(Global.STR_PAN1);
+            dockPanel2.SetDockPanel(Global.STR_PAN2);
+            grvMain.SetStandard();
+
+            var ql = Global.Session.User.CheckAdmin() || Global.Session.User.CheckOperator();
+            if (ql) AllowRestore = true;
         }
         #endregion
 
@@ -166,7 +166,7 @@ namespace SKG.DXF.Station.InDepot
                 var id = (Guid)tmpId;
                 var code = grvMain.GetFocusedRowCellValue("Code") + "";
 
-                var frm = new Fixed.FrmTra_VehicleFixed()
+                var frm = new FrmTra_VehicleFixed()
                 {
                     StartPosition = FormStartPosition.CenterParent,
                     DataFilter = _bll.Tra_Vehicle.FindForFixed(id)
@@ -179,14 +179,29 @@ namespace SKG.DXF.Station.InDepot
             }
         }
 
-        private void txtNumber_KeyDown(object sender, KeyEventArgs e)
+        private void FrmTra_FindInfo_Load(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) PerformFind();
+            lueNumber.Properties.DataSource = _bll.Tra_Vehicle.SelectForFixed(TermForFixed.Default);
+            lueTransport.Properties.DataSource = _bll.Pol_Dictionary.SelectTransport();
+            lueRoute.Properties.DataSource = _bll.Tra_Tariff.SelectForFixed();
         }
 
-        private void FrmTra_InDepot_Activated(object sender, EventArgs e)
+        private void lueNumber_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            PerformRefresh();
+            if (e.Button.Kind == ButtonPredefines.Delete)
+                lueNumber.EditValue = null;
+        }
+
+        private void lueTransport_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Delete)
+                lueTransport.EditValue = null;
+        }
+
+        private void lueRoute_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (e.Button.Kind == ButtonPredefines.Delete)
+                lueRoute.EditValue = null;
         }
         #endregion
 
@@ -197,14 +212,18 @@ namespace SKG.DXF.Station.InDepot
         #endregion
 
         #region Constants
-        private const string STR_TITLE = "Xe cố định trong bến";
+        private const string STR_TITLE = "Truy tìm";
         private const string STR_DELETE = "Xoá xe";
 
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng";
 
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_RESTORE = "Phục hồi";
+        private const string STR_CONFIRM_R = "Có phục hồi xe '{0}' không?";
+        private const string STR_UNRESTORE = "Không phục hồi được!";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
         private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ PHỤC HỒI";
         #endregion
     }

@@ -154,6 +154,11 @@ namespace SKG
         /// Not enough
         /// </summary>
         public const string STR_NOT_ENOUGH = "KHÔNG ĐỦ ĐIỀU KIỆN";
+
+        /// <summary>
+        /// Not value
+        /// </summary>
+        public const string STR_NOT_VALUE = "Phiếu thu này không có giá trị cho xe đăng tài";
         #endregion
 
         #region Global properties

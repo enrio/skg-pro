@@ -197,6 +197,8 @@ namespace SKG.DXF.Station.Manage
                 {
                     var code = r["Code"] + "";
                     var date = Global.Session.Current;
+                    var seri = "";
+                    if (r.Table.Columns.Contains("SERI")) seri = r["SERI"] + "";
 
                     if (!DateTime.TryParse(r["DateOut"] + "", out date))
                     {
@@ -205,7 +207,7 @@ namespace SKG.DXF.Station.Manage
                         continue;
                     }
 
-                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date, isRepair);
+                    var d = _bll.Tra_Detail.InvoiceOut(code, isOut, date, isRepair, "", seri);
                     if (d == null)
                     {
                         r.RowError = STR_IN_DEPOT;

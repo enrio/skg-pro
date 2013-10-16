@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.panelContainer1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -94,7 +93,7 @@
             // 
             // panelContainer1
             // 
-            this.panelContainer1.ActiveChild = this.dockPanel2;
+            this.panelContainer1.ActiveChild = this.dockPanel1;
             this.panelContainer1.Controls.Add(this.dockPanel1);
             this.panelContainer1.Controls.Add(this.dockPanel2);
             this.panelContainer1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Fill;

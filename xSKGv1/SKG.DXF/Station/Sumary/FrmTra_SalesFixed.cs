@@ -311,10 +311,16 @@ namespace SKG.DXF.Station.Sumary
             var detail = _bll.Tra_Detail.Find((Guid)tmpId);
 
             bool _isFixed = detail.Vehicle.Fixed;
+            var seat = detail.Seats ?? 0;
+            var bed = detail.Beds ?? 0;
+
             var note = (detail.Repair ? Global.STR_TEMP_OUT : "")
-                              + (detail.Show ? "" : ", " + Global.STR_NOT_ENOUGH)
-                              + (detail.Note == null ? "" : ", " + detail.Note);
-            if (detail.Text + "" == Global.STR_ARREAR) note = detail.Text;
+                                 + (detail.Show ? "" : ", " + Global.STR_NOT_VALUE)
+                                 + (detail.Note == null ? "" : ", " + detail.Note);
+            if (detail.Vehicle.More.ToInt32() > 0)
+                note += String.Format("Xe thu khoán {0} ghế", seat);
+            if (detail.Text + "" == Global.STR_ARREAR)
+                note += detail.Text;
 
             note = note.Replace(", ", "").Trim();
 
@@ -327,9 +333,6 @@ namespace SKG.DXF.Station.Sumary
 
                 rpt.parUnit.Value = Global.Title2;
                 rpt.parAddress.Value = Global.Address;
-
-                var seat = detail.Seats ?? 0;
-                var bed = detail.Beds ?? 0;
 
                 var cost = detail.Price1 * seat + detail.Price2 * bed;
                 var rose = detail.Rose1 * (seat < 1 ? 1 : seat - 1) + detail.Rose2 * bed;

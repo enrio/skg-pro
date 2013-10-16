@@ -32,7 +32,7 @@
             this.cmdNormal2 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdNormal3 = new DevExpress.XtraEditors.SimpleButton();
             this.cmdReport = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.lblInfo = new DevExpress.XtraEditors.LabelControl();
             this.SuspendLayout();
             // 
             // cmdNormal1
@@ -71,17 +71,17 @@
             this.cmdReport.TabIndex = 4;
             this.cmdReport.Text = "&BÁO CÁO";
             // 
-            // labelControl1
+            // lblInfo
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(210, 16);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "CHỌN IN BẢNG KÊ VÀ BÁO CÁO";
+            this.lblInfo.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.lblInfo.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblInfo.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblInfo.Location = new System.Drawing.Point(12, 12);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(210, 16);
+            this.lblInfo.TabIndex = 0;
+            this.lblInfo.Text = "CHỌN IN BẢNG KÊ VÀ BÁO CÁO";
             // 
             // FrmRevenueNormal
             // 
@@ -90,7 +90,7 @@
             this.ClientSize = new System.Drawing.Size(233, 112);
             this.ControlBox = false;
             this.Controls.Add(this.cmdReport);
-            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.cmdNormal3);
             this.Controls.Add(this.cmdNormal2);
             this.Controls.Add(this.cmdNormal1);
@@ -105,10 +105,10 @@
 
         #endregion
 
-        private DevExpress.XtraEditors.SimpleButton cmdNormal1;
-        private DevExpress.XtraEditors.SimpleButton cmdNormal2;
-        private DevExpress.XtraEditors.SimpleButton cmdNormal3;
-        private DevExpress.XtraEditors.SimpleButton cmdReport;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
+        public DevExpress.XtraEditors.SimpleButton cmdNormal1;
+        public DevExpress.XtraEditors.SimpleButton cmdNormal2;
+        public DevExpress.XtraEditors.SimpleButton cmdNormal3;
+        public DevExpress.XtraEditors.SimpleButton cmdReport;
+        public DevExpress.XtraEditors.LabelControl lblInfo;
     }
 }

@@ -52,9 +52,41 @@ namespace SKG.DXF.Station.Fixed
         #region Overrides
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            dteMonth.Properties.ReadOnly = !isReadOnly;
+            radType.Properties.ReadOnly = !isReadOnly;
+            chkHideActive.Properties.ReadOnly = !isReadOnly;
+
             grvMain.OptionsBehavior.Editable = !isReadOnly;
 
             base.ReadOnlyControl(isReadOnly);
+        }
+
+        protected override void PerformDelete()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+            }
+
+            base.PerformDelete();
         }
 
         protected override void PerformEdit()
@@ -136,48 +168,54 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void PerformPrint()
         {
+            var oki = XtraMessageBox.Show(STR_CFM,
+                Level1.STR_PRINT, MessageBoxButtons.YesNo);
+
+            var receipt = "";
             var frm = new FrmPrint();
-            var oki = XtraMessageBox.Show(STR_CFM, STR_PRINT, MessageBoxButtons.YesNo);
+            decimal sum = 0;
+
             DateTime fr, to;
             Session.CutShiftMonth(dteMonth.DateTime, out fr, out to);
 
             if (oki == DialogResult.Yes)
             {
-                var rpt = new Report.Rpt_AuditMonth
+                var rpt = new Report.Rpt_ReportFixed
                 {
-                    Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
-                    Global.Session.User.Acc, Global.Session.Current)
+                    Name = String.Format(Level1.STR_DT,
+                    Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = _bll.Tra_Detail.GetRevenueFixed(out sum, out receipt, fr, to)
                 };
-
-                rpt.DataSource = _bll.Tra_Detail.AuditMonthFixed(fr, to,
-                    chkHideActive.Checked);
-                rpt.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
 
                 rpt.parTitle1.Value = Global.Title1;
                 rpt.parTitle2.Value = Global.Title2;
-                rpt.parNum.Value = Global.AuditNumber;
-                rpt.parDate.Value = Global.Session.Current;
+                rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
+                    fr.ToStringDateVN(), to.ToStringDateVN());
+
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
+                duration = String.Format(duration,
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
+
+                rpt.xrlFromTo.Text = duration;
                 frm.SetReport(rpt);
             }
             else
             {
-                var rpt = new Report.Rpt_AuditDay
+                var rpt4 = new Report.Rpt_AuditMonthSgtvt
                 {
                     Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdt",
                     Global.Session.User.Acc, Global.Session.Current)
                 };
 
-                string inf = "";
-                rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to,
-                    chkHideActive.Checked, out inf);
-                rpt.xrlTitle.Text = rpt.xrlTitle.Text.Replace("NGÀY",
-                    String.Format("THÁNG{0: MM/yyyy}", dteMonth.DateTime));
+                rpt4.DataSource = _bll.Tra_Detail.AuditMonthFixedSgtvt(fr, to);
+                rpt4.xrlTitle.Text += dteMonth.DateTime.ToString(" MM/yyyy");
 
-                rpt.parTitle1.Value = Global.Title2;
-                rpt.parTitle2.Value = Global.Title3;
-                rpt.parDate.Value = Global.Session.Current;
-                rpt.parInf.Value = inf;
-                frm.SetReport(rpt);
+                rpt4.parTitle1.Value = Global.Title1;
+                rpt4.parTitle2.Value = Global.Title2;
+                rpt4.parNum.Value = Global.AuditNumber;
+                rpt4.parDate.Value = Global.Session.Current;
+                frm.SetReport(rpt4);
             }
 
             frm.WindowState = FormWindowState.Maximized;
@@ -198,7 +236,6 @@ namespace SKG.DXF.Station.Fixed
             grvMain.SetStandard();
 
             AllowAdd = false;
-            AllowDelete = false;
             AllowPrint = true;
 
             dteMonth.DateTime = Global.Session.Current;
@@ -266,10 +303,16 @@ namespace SKG.DXF.Station.Fixed
 
         #region Constants
         private const string STR_TITLE = "Theo dõi tháng";
-        private const string STR_CFM = "IN THEO MẪU 1 (CHỌN YES), MẪU 2 (CHỌN NO)";
+        private const string STR_CFM = "BÁO CÁO THÁNG (CHỌN YES), BÁO CÁO SỞ (CHỌN NO)";
         private const string STR_PRINT = "In báo cáo";
 
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
+        private const string STR_DELETE = "Xoá chi tiết ra/vào";
+        private const string STR_SELECT = "Chọn dữ liệu!";
+        private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ PHỤC HỒI";
         #endregion
     }
 }

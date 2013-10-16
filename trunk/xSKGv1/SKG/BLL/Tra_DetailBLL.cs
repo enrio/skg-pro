@@ -59,7 +59,7 @@ namespace SKG.BLL
                 r["Load"] = b;
                 r["Guest"] = c;
 
-                var gs = c - beds + 1;
+                var gs = c - beds;
                 var gb = c - seats + 1;
                 r["GSeats"] = gs > 0 ? gs : 0;
                 r["GBeds"] = gb > 0 ? gb : 0;

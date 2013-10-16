@@ -177,7 +177,9 @@ namespace SKG.DAL.Entities
             var bed = Beds ?? 0;
             var weight = seat > bed ? seat : bed;
 
-            if (Vehicle.City.Value) Money = Price2; // xe thu khoán 1 ngày (dùng cột City ghi nhận)
+            // Xe thu khoán 1 ngày (dùng cột City ghi nhận)
+            if (Vehicle.City != null && Vehicle.City.Value)
+                Money = Price2;
             else if (Vehicle.Tariff.Code == "A")
             {
                 HalfDay = 1;

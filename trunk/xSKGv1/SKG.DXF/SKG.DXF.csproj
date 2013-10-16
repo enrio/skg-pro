@@ -241,12 +241,6 @@
     <Compile Include="Station\Fixed\FrmTra_RegistryNode.Designer.cs">
       <DependentUpon>FrmTra_RegistryNode.cs</DependentUpon>
     </Compile>
-    <Compile Include="Station\Fixed\FrmTra_DebtMonth.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Station\Fixed\FrmTra_DebtMonth.Designer.cs">
-      <DependentUpon>FrmTra_DebtMonth.cs</DependentUpon>
-    </Compile>
     <Compile Include="Station\Fixed\FrmTra_AuditDay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +352,12 @@
     </Compile>
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_AuditMonthSgtvt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_AuditMonthSgtvt.Designer.cs">
+      <DependentUpon>Rpt_AuditMonthSgtvt.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Report\Rpt_ReportNormalBak.cs">
       <SubType>Component</SubType>
@@ -507,9 +507,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrint.resx">
       <DependentUpon>FrmPrint.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Home\Catalog\FrmPol_Role.resx">
-      <DependentUpon>FrmPol_Role.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

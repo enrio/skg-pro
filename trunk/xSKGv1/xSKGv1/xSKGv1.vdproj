@@ -1624,7 +1624,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG, Version=1.0.6.5, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG, Version=1.0.7.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -1716,7 +1716,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG, Version=1.0.6.5, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG, Version=1.0.7.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -2000,7 +2000,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.MSF, Version=1.0.6.5, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.MSF, Version=1.0.7.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -2994,7 +2994,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.MSF, Version=1.0.6.5, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.MSF, Version=1.0.7.1, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -3112,7 +3112,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.Client, Version=1.0.6.5, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:SKG.Client, Version=1.0.7.1, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                 }
@@ -3184,7 +3184,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.6.7, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.7.4, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -3322,7 +3322,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.6.7, Culture=neutral, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:SKG.DXF, Version=1.0.7.4, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                 }
@@ -3877,15 +3877,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:xSKGv1"
-        "ProductCode" = "8:{6708AE3B-E5FD-45C7-855A-52580BB895B3}"
-        "PackageCode" = "8:{E5A45354-EFB5-446C-B3E1-A4B55E509630}"
+        "ProductCode" = "8:{BCD45C6A-AB7B-4813-AD38-D7B49418C67C}"
+        "PackageCode" = "8:{39238CF2-F589-419C-8942-A0064B525FE0}"
         "UpgradeCode" = "8:{26FC14C3-5AE5-4E2C-8F69-B266203FD334}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.71"
+        "ProductVersion" = "8:1.0.77"
         "Manufacturer" = "8:SKG"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -4483,7 +4483,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A1426DA001DF424D81D9FB088F4BFEC0"
             {
-            "SourcePath" = "8:..\\SKG.Update\\obj\\x86\\Release\\SKG.Update.exe"
+            "SourcePath" = "8:..\\SKG.Update\\obj\\x86\\Debug\\SKG.Update.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_19371B7522A24692A648AFA1A4E3611C"
@@ -4511,7 +4511,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A321CC92468E428EA9B72A76CA2DEC17"
             {
-            "SourcePath" = "8:..\\SKG.Client\\obj\\Release\\SKG.Client.exe"
+            "SourcePath" = "8:..\\SKG.Client\\obj\\Debug\\SKG.Client.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_19371B7522A24692A648AFA1A4E3611C"

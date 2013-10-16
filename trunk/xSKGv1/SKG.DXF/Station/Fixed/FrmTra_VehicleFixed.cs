@@ -404,6 +404,10 @@ namespace SKG.DXF.Station.Fixed
             txtMark.Properties.ReadOnly = true;
             txtPhone.Properties.ReadOnly = true;
             dteTermDriverLicense.Properties.ReadOnly = true;
+
+            if (Global.Session.User.CheckAdmin())
+                cmdUnTest.Enabled = true;
+            else cmdUnTest.Enabled = false;
         }
         #endregion
 
@@ -595,7 +599,33 @@ namespace SKG.DXF.Station.Fixed
 
         private void cmdUnTest_Click(object sender, EventArgs e)
         {
+            if (DetailId != null)
+            {
+                if (lueLicenseNo.Text.IsNullOrEmpty())
+                {
+                    XtraMessageBox.Show("Chưa nhập thông tin!", "Bỏ kiểm tra");
+                    return;
+                }
 
+                var de = new Tra_Detail()
+                {
+                    Id = DetailId.Value,
+                    More = null,
+                    Repair = false,
+                    Show = true
+                };
+
+                if (XtraMessageBox.Show("Xác nhận xoá thông tin tài xế", "Xoá thông tin",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _bll.Tra_Detail.UpdateDriver(de);
+                    DataFilter = _bll.Tra_Vehicle.FindForFixed(DetailId.Value);
+
+                    PerformRefresh();
+                    Close();
+                }
+            }
+            else XtraMessageBox.Show("Không bỏ kiểm tra được!", "Bỏ kiểm tra");
         }
         #endregion
 

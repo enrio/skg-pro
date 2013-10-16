@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager();
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.cmdPrint = new DevExpress.XtraEditors.SimpleButton();
@@ -521,7 +520,7 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "Đ.vi vận tải";
+            this.gridColumn9.Caption = "ĐVVT";
             this.gridColumn9.FieldName = "Transport";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;

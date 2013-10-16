@@ -53,12 +53,44 @@ namespace SKG.DXF.Station.Fixed
         #region Overrides
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
+            dteDay.Properties.ReadOnly = !isReadOnly;
+            radType.Properties.ReadOnly = !isReadOnly;
+            chkHideActive.Properties.ReadOnly = !isReadOnly;
+
             if (_state == State.Add) groupBox5.Enabled = true;
             else groupBox5.Enabled = false;
 
             grvMain.OptionsBehavior.Editable = !isReadOnly;
 
             base.ReadOnlyControl(isReadOnly);
+        }
+
+        protected override void PerformDelete()
+        {
+            var tmpId = grvMain.GetFocusedRowCellValue("Id");
+            if (tmpId == null)
+            {
+                XtraMessageBox.Show(STR_CHOICE,
+                    Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var code = grvMain.GetFocusedRowCellValue("Code");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
+            var id = (Guid)tmpId;
+
+            if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
+            else
+            {
+                var cfm = String.Format(STR_CONFIRM, code + " VÀO LÚC " + dateIn);
+                var oki = XtraMessageBox.Show(cfm.ToUpper(), STR_DELETE, MessageBoxButtons.OKCancel);
+
+                if (oki == DialogResult.OK)
+                    if (_bll.Tra_Detail.Delete(id) != null) PerformRefresh();
+                    else XtraMessageBox.Show(STR_UNDELETE, STR_DELETE);
+            }
+
+            base.PerformDelete();
         }
 
         protected override void PerformEdit()
@@ -275,7 +307,6 @@ namespace SKG.DXF.Station.Fixed
             dockPanel2.SetDockPanel(Global.STR_PAN2);
             grvMain.SetStandard();
 
-            AllowDelete = false;
             AllowPrint = true;
 
             dteDay.DateTime = Global.Session.Current;
@@ -354,7 +385,6 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng!";
 
-        private const string STR_CONFIRM = "CÓ XOÁ XE: {0}\nT.GIAN VÀO: {1}\nKHÔNG?";
         private const string STR_NO_HAVE = "BIỂN SỐ {0} CHƯA CÓ TRONG DANH SÁCH QUẢN LÝ\nLIÊN HỆ ĐỘI ĐIỀU HÀNH ĐỂ NHẬP THÔNG TIN XE";
         private const string STR_WARNING = "BIỂN SỐ {0} LÀ XE VÃNG LAI\nXIN HÃY NHẬP BÊN CỔNG VÀO VÃNG LAI";
         private const string STR_WARNING_ROUTE = "BIỂN SỐ {0} CHƯA ĐĂNG KÝ TUYẾN";
@@ -365,8 +395,10 @@ namespace SKG.DXF.Station.Fixed
         private const string STR_INTO = "CHO XE VÀO";
         private const string STR_NORMAL = "XE VÃNG LAI";
         private const string STR_FIXED = "XE CỐ ĐỊNH";
+        private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
 
-        private const string STR_CHOICE = "CHỌN DÒNG CẦN SỬA\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ SỬA";
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ PHỤC HỒI";
         #endregion
     }
 }

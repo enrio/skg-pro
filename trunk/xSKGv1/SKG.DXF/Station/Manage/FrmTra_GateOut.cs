@@ -217,13 +217,12 @@ namespace SKG.DXF.Station.Manage
                 lblPhone.Text = "Số ĐT: " + detail.UserIn.Phone;
 
                 var note = (detail.Repair ? Global.STR_TEMP_OUT : "")
-                              + (detail.Show ? "" : ", " + Global.STR_NOT_ENOUGH)
-                              + (detail.Note == null ? "" : ", " + detail.Note);
-                if (detail.Text + "" == Global.STR_ARREAR) note = detail.Text;
-
-                //var split = detail.Note.Split(new string[] { ";!;" }, StringSplitOptions.None);
-                //lblNote.Text = split.Length > 0 ? split[0] : "";
-                //txtNote.Text = split.Length > 1 ? split[1] : "";
+                                  + (detail.Show ? "" : ", " + Global.STR_NOT_VALUE)
+                                  + (detail.Note == null ? "" : ", " + detail.Note);
+                if (detail.Vehicle.More.ToInt32() > 0)
+                    note += String.Format("Xe thu khoán {0} ghế", seat);
+                if (detail.Text + "" == Global.STR_ARREAR)
+                    note += detail.Text;
 
                 note = note.Replace(", ", "").Trim();
                 lblNote.Text = note;

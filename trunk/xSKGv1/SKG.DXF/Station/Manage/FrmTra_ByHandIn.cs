@@ -146,7 +146,12 @@ namespace SKG.DXF.Station.Manage
 
                     if (ve == null)
                     {
-                        var v = new Tra_Vehicle { Code = bs };
+                        var v = new Tra_Vehicle
+                        {
+                            Code = bs,
+                            City = false // xe không thu khoán
+                        };
+
                         var tar = (Tra_Tariff)_bll.Tra_Tariff.Select(r["Tariff"] + "");
 
                         if (tar == null)

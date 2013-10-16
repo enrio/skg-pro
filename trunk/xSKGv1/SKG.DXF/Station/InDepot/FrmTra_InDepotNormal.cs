@@ -86,15 +86,13 @@ namespace SKG.DXF.Station.InDepot
             var tmpId = grvMain.GetFocusedRowCellValue("Id");
             if (tmpId == null)
             {
-                XtraMessageBox.Show("CHỌN DÒNG CẦN XOÁ\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ",
+                XtraMessageBox.Show(STR_CHOICE,
                     Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             var code = grvMain.GetFocusedRowCellValue("Code");
-            var dateIn = grvMain.GetFocusedRowCellValue("DateIn") + "";
-            dateIn = dateIn.Replace("AM", "SÁNG");
-            dateIn = dateIn.Replace("PM", "CHIỀU");
+            var dateIn = grvMain.GetFocusedRowCellValue("DateIn");
             var id = (Guid)tmpId;
 
             if (id == new Guid()) XtraMessageBox.Show(STR_SELECT, STR_DELETE);
@@ -176,6 +174,9 @@ namespace SKG.DXF.Station.InDepot
         private const string STR_SELECT = "Chọn dữ liệu!";
         private const string STR_CONFIRM = "Có xoá xe '{0}' không?";
         private const string STR_UNDELETE = "Không xoá được!\nDữ liệu đang được sử dụng.";
+
+        private const string STR_CHOICE = "CHỌN DÒNG CẦN XOÁ\n\rHOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ XOÁ";
+        private const string STR_CHOICE_R = "CHỌN DÒNG CẦN PHỤC HỒI\n\r HOẶC KHÔNG ĐƯỢC CHỌN NHÓM ĐỂ PHỤC HỒI";
         #endregion
     }
 }

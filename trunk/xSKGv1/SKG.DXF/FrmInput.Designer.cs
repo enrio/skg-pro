@@ -38,8 +38,6 @@
             this.bbiRefresh = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiFind = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiPrint = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.bbiRestore = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiInvoice = new DevExpress.XtraBars.BarButtonItem();
             this.bbiCollapse = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiExpand = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bbiClose = new DevExpress.XtraBars.BarLargeButtonItem();
@@ -48,6 +46,8 @@
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.tmrMain = new System.Windows.Forms.Timer(this.components);
+            this.bbiRestore = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bbiInvoice = new DevExpress.XtraBars.BarLargeButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.bmgMain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             this.bbiExpand,
             this.bbiRestore,
             this.bbiInvoice});
-            this.bmgMain.MaxItemId = 13;
+            this.bmgMain.MaxItemId = 15;
             this.bmgMain.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bmgMain_ItemClick);
             // 
             // bar1
@@ -158,22 +158,6 @@
             this.bbiPrint.Name = "bbiPrint";
             this.bbiPrint.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // bbiRestore
-            // 
-            this.bbiRestore.Caption = "&Phục hồi";
-            this.bbiRestore.Glyph = global::SKG.DXF.Properties.Resources.Restore;
-            this.bbiRestore.Id = 11;
-            this.bbiRestore.Name = "bbiRestore";
-            this.bbiRestore.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
-            // bbiInvoice
-            // 
-            this.bbiInvoice.Caption = "Tín&h tiền lại";
-            this.bbiInvoice.Glyph = global::SKG.DXF.Properties.Resources.Invoice;
-            this.bbiInvoice.Id = 12;
-            this.bbiInvoice.Name = "bbiInvoice";
-            this.bbiInvoice.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            // 
             // bbiCollapse
             // 
             this.bbiCollapse.Caption = "Thu &gọn";
@@ -230,6 +214,22 @@
             this.tmrMain.Interval = 1000;
             this.tmrMain.Tick += new System.EventHandler(this.TimerTick);
             // 
+            // bbiRestore
+            // 
+            this.bbiRestore.Caption = "&Phục hồi";
+            this.bbiRestore.Glyph = global::SKG.DXF.Properties.Resources.Restore;
+            this.bbiRestore.Id = 13;
+            this.bbiRestore.Name = "bbiRestore";
+            this.bbiRestore.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
+            // bbiInvoice
+            // 
+            this.bbiInvoice.Caption = "Tín&h tiền lại";
+            this.bbiInvoice.Glyph = global::SKG.DXF.Properties.Resources.Invoice;
+            this.bbiInvoice.Id = 14;
+            this.bbiInvoice.Name = "bbiInvoice";
+            this.bbiInvoice.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            // 
             // FrmInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,7 +265,7 @@
         protected System.Windows.Forms.Timer tmrMain;
         public DevExpress.XtraBars.BarLargeButtonItem bbiEdit;
         public DevExpress.XtraBars.BarLargeButtonItem bbiDelete;
-        private DevExpress.XtraBars.BarButtonItem bbiRestore;
-        private DevExpress.XtraBars.BarButtonItem bbiInvoice;
+        private DevExpress.XtraBars.BarLargeButtonItem bbiRestore;
+        private DevExpress.XtraBars.BarLargeButtonItem bbiInvoice;
     }
 }

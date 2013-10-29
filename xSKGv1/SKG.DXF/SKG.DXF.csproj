@@ -353,6 +353,12 @@
     <Compile Include="Station\Manage\FrmTra_GateOut.Designer.cs">
       <DependentUpon>FrmTra_GateOut.cs</DependentUpon>
     </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Station\Report\Rpt_RevenueFixed.Designer.cs">
+      <DependentUpon>Rpt_RevenueFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Station\Report\Rpt_AuditMonthSgtvt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -480,12 +486,6 @@
       <DependentUpon>FrmTra_InDepotFixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Station\Manage\Level2.cs" />
-    <Compile Include="Station\Report\Rpt_RevenueFixed.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Station\Report\Rpt_RevenueFixed.Designer.cs">
-      <DependentUpon>Rpt_RevenueFixed.cs</DependentUpon>
-    </Compile>
     <Compile Include="Station\Report\Rpt_RevenueNormal1.cs">
       <SubType>Component</SubType>
     </Compile>

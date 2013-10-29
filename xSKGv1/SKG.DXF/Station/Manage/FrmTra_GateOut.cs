@@ -556,6 +556,8 @@ namespace SKG.DXF.Station.Manage
 
                 rpt.parTitle1.Value = Global.Title1;
                 rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 
@@ -582,9 +584,9 @@ namespace SKG.DXF.Station.Manage
                 rpt.parTaxcode.Value = Global.Taxcode;
                 rpt.parDate.Value = to;
 
-                rpt.xrlCashier.Text = Global.Session.User.Name;
-                rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
-                rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+                //rpt.xrlCashier.Text = Global.Session.User.Name;
+                //rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+                //rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
 
                 var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
                 duration = String.Format(duration,

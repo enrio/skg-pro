@@ -228,6 +228,77 @@ namespace SKG.DXF.Station.Fixed
             catch { return false; }
         }
 
+        protected override void PerformPrint()
+        {
+            var oki = XtraMessageBox.Show(Level1.STR_CFM,
+                Level1.STR_PRINT, MessageBoxButtons.YesNo);
+
+            var receipt = "";
+            DateTime fr, to;
+            Session.CutShiftDay(Global.Session.Current, out fr, out to);
+
+            decimal _sum = 0;
+            var tb = _bll.Tra_Detail.GetRevenueFixed(out _sum, out receipt, fr, to);
+            var frm = new FrmPrint() { Text = String.Format("In: {0} - Số tiền: {1:#,#}", Text, _sum) };
+
+            if (oki == DialogResult.Yes)
+            {
+                var rpt = new Report.Rpt_ReportFixed
+                {
+                    Name = String.Format(Level1.STR_DT,
+                    Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = tb
+                };
+
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
+                rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
+                    fr.ToStringDateVN(), to.ToStringDateVN());
+
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
+                duration = String.Format(duration,
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
+
+                rpt.xrlFromTo.Text = duration;
+                frm.SetReport(rpt);
+            }
+            else
+            {
+                var rpt = new Report.Rpt_RevenueFixed
+                {
+                    Name = String.Format(Level1.STR_DT,
+                    Global.Session.User.Acc, Global.Session.Current),
+                    DataSource = tb
+                };
+
+                rpt.parTitle1.Value = Global.Title1;
+                rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
+                rpt.parDate.Value = to;
+
+                //rpt.xrlCashier.Text = Global.Session.User.Name;
+                //rpt.xrcMoney.Text = _sum.ToVietnamese("đồng");
+                //rpt.xrlSophieu.Text = "Số phiếu: " + receipt;
+
+                var duration = "(Từ {0} ngày {1} đến {2} ngày {3})";
+                duration = String.Format(duration,
+                  fr.ToStringTimeVN(), fr.ToStringDateVN(),
+                  to.ToStringTimeVN(), to.ToStringDateVN());
+
+                rpt.xrlFromTo.Text = duration;
+                frm.SetReport(rpt);
+            }
+
+            frm.WindowState = FormWindowState.Maximized;
+            frm.ShowDialog();
+
+            base.PerformPrint();
+        }
+
         public string num = "";
         protected override void LoadData()
         {
@@ -244,35 +315,6 @@ namespace SKG.DXF.Station.Fixed
             }
 
             base.LoadData();
-        }
-
-        protected override void PerformPrint()
-        {
-            var rpt = new Report.Rpt_AuditDay
-            {
-                Name = String.Format("{0}{1:_dd.MM.yyyy_HH.mm.ss}_tdn",
-                Global.Session.User.Acc, Global.Session.Current)
-            };
-
-            string inf = "";
-            DateTime fr, to;
-            Session.CutShiftDay(dteDay.DateTime, out fr, out to);
-
-            rpt.DataSource = _bll.Tra_Detail.AuditDayFixed(fr, to,
-                chkHideActive.Checked, out inf);
-            rpt.xrlTitle.Text += dteDay.DateTime.ToString(" dd/MM/yyyy");
-
-            rpt.parTitle1.Value = Global.Title2;
-            rpt.parTitle2.Value = Global.Title3;
-            rpt.parDate.Value = Global.Session.Current;
-            rpt.parInf.Value = inf;
-
-            var frm = new FrmPrint();
-            frm.SetReport(rpt);
-            frm.WindowState = FormWindowState.Maximized;
-            frm.ShowDialog();
-
-            base.PerformPrint();
         }
 
         protected override bool ValidInput()

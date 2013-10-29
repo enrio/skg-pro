@@ -187,6 +187,10 @@ namespace SKG.DAL
             try
             {
                 var o = (Pol_Dictionary)obj;
+
+                var c = _db.Pol_Dictionarys.Where(p => p.Code == o.Code && p.Id != o.Id).Count();
+                if (c > 0) return null; // already exists
+
                 var res = _db.Pol_Dictionarys.SingleOrDefault(s => s.Id == o.Id);
 
                 res.ParentId = o.ParentId;

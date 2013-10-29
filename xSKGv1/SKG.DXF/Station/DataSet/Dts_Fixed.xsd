@@ -39,6 +39,8 @@
               <xs:element name="Guest" msprop:Generator_ColumnVarNameInTable="columnGuest" msprop:Generator_ColumnPropNameInRow="Guest" msprop:Generator_ColumnPropNameInTable="GuestColumn" msprop:Generator_UserColumnName="Guest" type="xs:long" minOccurs="0" />
               <xs:element name="GSeats" msprop:Generator_ColumnVarNameInTable="columnGSeats" msprop:Generator_ColumnPropNameInRow="GSeats" msprop:Generator_ColumnPropNameInTable="GSeatsColumn" msprop:Generator_UserColumnName="GSeats" type="xs:long" minOccurs="0" />
               <xs:element name="GBeds" msprop:Generator_ColumnVarNameInTable="columnGBeds" msprop:Generator_ColumnPropNameInRow="GBeds" msprop:Generator_ColumnPropNameInTable="GBedsColumn" msprop:Generator_UserColumnName="GBeds" type="xs:long" minOccurs="0" />
+              <xs:element name="ProvinceCode" msprop:Generator_ColumnVarNameInTable="columnProvinceCode" msprop:Generator_ColumnPropNameInRow="ProvinceCode" msprop:Generator_ColumnPropNameInTable="ProvinceCodeColumn" msprop:Generator_UserColumnName="ProvinceCode" type="xs:string" minOccurs="0" />
+              <xs:element name="RegionCode" msprop:Generator_ColumnVarNameInTable="columnRegionCode" msprop:Generator_ColumnPropNameInRow="RegionCode" msprop:Generator_ColumnPropNameInTable="RegionCodeColumn" msprop:Generator_UserColumnName="RegionCode" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -53,6 +53,7 @@ namespace SKG.DXF.Station.Fixed
         protected override void SetNullPrompt()
         {
             txtName.Properties.NullValuePrompt = String.Format("Nhập {0}", lblName.Text.ToBetween(null, ":", Format.Lower));
+            txtCode.Properties.NullValuePrompt = String.Format("Nhập {0}", lblCode.Text.ToBetween(null, ":", Format.Lower));
 
             base.SetNullPrompt();
         }
@@ -157,9 +158,7 @@ namespace SKG.DXF.Station.Fixed
 
         protected override void ReadOnlyControl(bool isReadOnly = true)
         {
-            if (_state == State.Edit) txtCode.Properties.ReadOnly = true;
-            else txtCode.Properties.ReadOnly = isReadOnly;
-
+            txtCode.Properties.ReadOnly = isReadOnly;
             txtName.Properties.ReadOnly = isReadOnly;
             chkShow.Properties.ReadOnly = isReadOnly;
             txtDescript.Properties.ReadOnly = isReadOnly;

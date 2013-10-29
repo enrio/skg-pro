@@ -45,24 +45,29 @@ namespace SKG.BLL
             {
                 var arrears = r["Arrears"].ToInt32();
                 var count = r["Count"].ToInt32();
+
+                var aseats = r["ASeats"].ToInt32();
+                var abeds = r["ABeds"].ToInt32();
+
                 var seats = r["Seats"].ToInt32();
                 var beds = r["Beds"].ToInt32();
-                var asb = r["ASB"].ToInt32();
 
                 var Totals = r["Totals"].ToDecimal();
                 sum += Totals;
 
                 var a = count + arrears;
-                var b = seats + beds + asb;
+                var b = seats + beds + aseats + abeds;
                 var c = b - a;
+
                 r["Count"] = a;
                 r["Load"] = b;
                 r["Guest"] = c;
 
-                var gs = c - beds;
-                var gb = c - seats + 1;
-                r["GSeats"] = gs > 0 ? gs : 0;
-                r["GBeds"] = gb > 0 ? gb : 0;
+                r["Seats"] = seats + aseats;
+                r["Beds"] = beds + abeds;
+
+                r["GSeats"] = seats + aseats - a;
+                r["GBeds"] = beds + abeds;
 
                 r["Vat"] = Totals / 11;
                 r["Sales"] = Totals * 10 / 11;

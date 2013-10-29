@@ -189,6 +189,8 @@ namespace SKG.DXF.Station.Fixed
 
                 rpt.parTitle1.Value = Global.Title1;
                 rpt.parTitle2.Value = Global.Title2;
+                rpt.parAddress.Value = Global.Address;
+                rpt.parTaxcode.Value = Global.Taxcode;
                 rpt.xrlTitle.Text = String.Format(rpt.xrlTitle.Text,
                     fr.ToStringDateVN(), to.ToStringDateVN());
 

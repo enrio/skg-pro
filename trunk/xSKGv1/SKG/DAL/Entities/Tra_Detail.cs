@@ -170,19 +170,19 @@ namespace SKG.DAL.Entities
 
             var dateIn = DateIn.AddMinutes(Global.Delay);
             var span = DateOut.Value - dateIn;
-            var std = DateIn.Date.AddTicks(Global.ParkFr.Ticks).AddDays(span.Days);
-            var days = span.Days + ((dateIn > std || DateOut.Value > std) ? 1 : 0);
-
-            var seat = Seats ?? 0;
-            var bed = Beds ?? 0;
-            var weight = seat > bed ? seat : bed;
 
             // Xe thu khoán 1 ngày (dùng cột City ghi nhận)
             if (Vehicle.City != null && Vehicle.City.Value)
                 Money = Price2;
             else if (Vehicle.Tariff.Code == "A")
             {
+                var std = DateIn.Date.AddTicks(Global.ParkFr.Ticks).AddDays(span.Days);
+                var days = span.Days + ((dateIn > std || DateOut.Value > std) ? 1 : 0);
+
                 HalfDay = 1;
+                var seat = Seats ?? 0;
+                var bed = Beds ?? 0;
+                var weight = seat > bed ? seat : bed;
 
                 // Qua 22:00:00 thì tính 1 đêm
                 Parked = days * (weight < Global.Weight ? Global.Park1 : Global.Park);
@@ -192,14 +192,17 @@ namespace SKG.DAL.Entities
             }
             else
             {
-                var pFr = Global.PeakFr;
-                var pTo = Global.PeakTo;
+                var to = DateIn.Date.AddTicks(Global.PeakFr.Ticks);
+                var fr = DateIn.Date.AddTicks(Global.PeakTo.Ticks).AddDays(-1);
+                var a = dateIn.CheckBetween(fr, to);
 
-                var xx = dateIn.AddDays(span.Days);
-                var v = Peak(xx, pFr, pTo);
-                v = v || Peak(DateOut.Value, pFr, pTo);
+                to = DateOut.Value.Date.AddTicks(Global.PeakFr.Ticks);
+                fr = DateOut.Value.Date.AddTicks(Global.PeakTo.Ticks).AddDays(-1);
+                var b = DateOut.Value.CheckBetween(fr, to);
 
                 double x = 0;
+                var v = a && b || a || b;
+
                 if (v) x = 8D / 24D;
                 else x = 0.5;
 
@@ -248,41 +251,6 @@ namespace SKG.DAL.Entities
             Money = Parked + Cost + Rose;
 
             return Money;
-        }
-
-        /// <summary>
-        /// Into peak time from 22:00:00 today to 06:00:00 tomorrow
-        /// </summary>
-        /// <param name="d">Thời gian</param>
-        /// <returns></returns>
-        bool Peak(DateTime d, DateTime pFr, DateTime pTo)
-        {
-            var span = pTo - pFr;
-            var cur = d.Date;
-            DateTime to;
-
-            var fr = cur.AddHours(pFr.Hour)
-                .AddMinutes(pFr.Minute)
-                .AddSeconds(pFr.Second); // 22:00:00 default today
-
-            if (d >= fr)
-            {
-                to = fr.AddHours(span.Hours)
-                    .AddMinutes(span.Minutes)
-                    .AddSeconds(span.Seconds); // 06:00:00 tomorrow
-            }
-            else
-            {
-                to = cur.AddHours(pTo.Hour)
-                    .AddMinutes(pTo.Minute)
-                    .AddSeconds(pTo.Second); // 06:00:00 today
-
-                fr = to.AddHours(-span.Hours)
-                    .AddMinutes(-span.Minutes)
-                    .AddSeconds(-span.Seconds); // 22:00:00 yesterday
-            }
-
-            return d.CheckBetween(fr, to);
         }
 
         /// <summary>

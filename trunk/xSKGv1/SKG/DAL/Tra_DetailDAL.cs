@@ -855,33 +855,33 @@ namespace SKG.DAL
             try
             {
                 #region Max, min number of receipt
-                var max = (from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == true
-                           && s.Repair == false
-                           && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
-                           group s by s.Code into g
-                           select new
-                           {
-                               Order = g.Max(p => p.Order),
-                               DateOut = g.Max(p => p.DateOut)
-                           }).FirstOrDefault();
-                var min = (from s in _db.Tra_Details
-                           where s.UserOutId != null
-                           && s.DateOut >= fr && s.DateOut <= to
-                           && s.Vehicle.Fixed == true
-                           && s.Repair == false
-                           && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
-                           group s by s.Code into g
-                           select new
-                           {
-                               Order = g.Min(p => p.Order),
-                               DateOut = g.Min(p => p.DateOut)
-                           }).FirstOrDefault();
-                receipt = String.Format("{0}/{1} - {2}/{3}",
-                    min.Order, min.DateOut.Value.Month,
-                    max.Order, max.DateOut.Value.Month);
+                //var max = (from s in _db.Tra_Details
+                //           where s.UserOutId != null
+                //           && s.DateOut >= fr && s.DateOut <= to
+                //           && s.Vehicle.Fixed == true
+                //           && s.Repair == false
+                //           && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
+                //           group s by s.Code into g
+                //           select new
+                //           {
+                //               Order = g.Max(p => p.Order),
+                //               DateOut = g.Max(p => p.DateOut)
+                //           }).FirstOrDefault();
+                //var min = (from s in _db.Tra_Details
+                //           where s.UserOutId != null
+                //           && s.DateOut >= fr && s.DateOut <= to
+                //           && s.Vehicle.Fixed == true
+                //           && s.Repair == false
+                //           && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
+                //           group s by s.Code into g
+                //           select new
+                //           {
+                //               Order = g.Min(p => p.Order),
+                //               DateOut = g.Min(p => p.DateOut)
+                //           }).FirstOrDefault();
+                //receipt = String.Format("{0}/{1} - {2}/{3}",
+                //    min.Order, min.DateOut.Value.Month,
+                //    max.Order, max.DateOut.Value.Month);
                 #endregion
 
                 #region Without order
@@ -893,7 +893,12 @@ namespace SKG.DAL
                            && (s.Money != s.Parked || (s.Text != null && s.Text.Contains(Global.STR_ARREAR)))
                            && s.Show == true
                            && (s.Vehicle.Transport.Note == null || (s.Vehicle.Transport.Note + "").Trim() == "") // without order
-                           group s by s.Vehicle.Tariff.Code into g
+                           group s by new
+                           {
+                               s.Vehicle.Tariff.Code,
+                               TransportCode = s.Vehicle.Transport.Code,
+                               s.Vehicle.Transport.Text
+                           } into g
                            select new
                            {
                                g.Key,
@@ -904,7 +909,9 @@ namespace SKG.DAL
 
                                Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
-                               ASB = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+
+                               ABeds = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * (p.Vehicle.Beds ?? 0)),
+                               ASeats = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * (p.Vehicle.Seats ?? 0)),
 
                                Cost = g.Sum(p => (p.Text != null ? 0 : p.Cost)) + g.Sum(p => (p.Arrears ?? 0) * p.Cost),
                                Rose = g.Sum(p => (p.Text != null ? 0 : p.Rose)) + g.Sum(p => (p.Arrears ?? 0) * p.Rose),
@@ -912,16 +919,18 @@ namespace SKG.DAL
                            };
 
                 var res2 = from s in res1
-                           join t in _db.Tra_Tariffs on s.Key equals t.Code
+                           join t in _db.Tra_Tariffs on s.Key.Code equals t.Code
                            select new
                            {
-                               s.Key,
+                               s.Key.Code,
                                s.Count,
 
                                s.Seats,
                                s.Beds,
                                s.Arrears,
-                               s.ASB,
+
+                               s.ASeats,
+                               s.ABeds,
 
                                t.Rose1,
                                t.Rose2,
@@ -936,17 +945,21 @@ namespace SKG.DAL
                                Totals = s.Parked + s.Cost + s.Rose,
 
                                Station = t.Text,
-                               Province = t.Group.Text,
+                               Province = s.Key.Text,
+                               ProvinceCode = s.Key.TransportCode,
                                Area = t.Group.Parent.Text,
-                               Region = t.Group.Parent.Parent.Text
+                               Region = t.Group.Parent.Parent.Text,
+                               RegionCode = t.Group.Parent.Parent.Code
                            };
 
                 var res3 = from s in res2
                            group s by new
                            {
                                s.Province,
+                               s.ProvinceCode,
                                s.Area,
                                s.Region,
+                               s.RegionCode,
 
                                s.Rose1,
                                s.Rose2,
@@ -957,8 +970,10 @@ namespace SKG.DAL
                            {
                                Hoadon = "A",
                                g.Key.Region,
+                               g.Key.RegionCode,
                                g.Key.Area,
                                g.Key.Province,
+                               g.Key.ProvinceCode,
 
                                g.Key.Rose1,
                                g.Key.Rose2,
@@ -968,7 +983,9 @@ namespace SKG.DAL
                                Count = g.Sum(p => p.Count),
                                Seats = g.Sum(p => p.Seats),
                                Beds = g.Sum(p => p.Beds),
-                               ASB = g.Sum(p => p.ASB),
+
+                               ASeats = g.Sum(p => p.ASeats),
+                               ABeds = g.Sum(p => p.ABeds),
 
                                Cost = g.Sum(p => p.Cost),
                                Rose = g.Sum(p => p.Rose),
@@ -997,6 +1014,7 @@ namespace SKG.DAL
                             group s by new
                             {
                                 s.Vehicle.Tariff.Code,
+                                TransportCode = s.Vehicle.Transport.Code,
                                 s.Vehicle.Transport.Text
                             } into g
                             select new
@@ -1009,7 +1027,9 @@ namespace SKG.DAL
 
                                 Seats = g.Sum(p => p.Vehicle.Seats ?? 0),
                                 Beds = g.Sum(p => p.Vehicle.Beds ?? 0),
-                                ASB = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * ((p.Vehicle.Seats ?? 0) + (p.Vehicle.Beds ?? 0))),
+
+                                ABeds = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * (p.Vehicle.Beds ?? 0)),
+                                ASeats = g.Sum(p => (p.Text != null ? 0 : (p.Arrears ?? 0)) * (p.Vehicle.Seats ?? 0)),
 
                                 Cost = g.Sum(p => (p.Text != null ? 0 : p.Cost)) + g.Sum(p => (p.Arrears ?? 0) * p.Cost),
                                 Rose = g.Sum(p => (p.Text != null ? 0 : p.Rose)) + g.Sum(p => (p.Arrears ?? 0) * p.Rose),
@@ -1026,7 +1046,9 @@ namespace SKG.DAL
                                 s.Seats,
                                 s.Beds,
                                 s.Arrears,
-                                s.ASB,
+
+                                s.ASeats,
+                                s.ABeds,
 
                                 t.Rose1,
                                 t.Rose2,
@@ -1042,16 +1064,20 @@ namespace SKG.DAL
 
                                 Station = t.Text,
                                 Province = s.Key.Text,
+                                ProvinceCode = s.Key.TransportCode,
                                 Area = t.Group.Parent.Text,
-                                Region = t.Group.Parent.Parent.Text
+                                Region = t.Group.Parent.Parent.Text,
+                                RegionCode = t.Group.Parent.Parent.Code
                             };
 
                 var ares3 = from s in ares2
                             group s by new
                             {
                                 s.Province,
+                                s.ProvinceCode,
                                 s.Area,
                                 s.Region,
+                                s.RegionCode,
 
                                 s.Rose1,
                                 s.Rose2,
@@ -1062,8 +1088,10 @@ namespace SKG.DAL
                             {
                                 Hoadon = "B",
                                 g.Key.Region,
+                                g.Key.RegionCode,
                                 g.Key.Area,
                                 g.Key.Province,
+                                g.Key.ProvinceCode,
 
                                 g.Key.Rose1,
                                 g.Key.Rose2,
@@ -1073,7 +1101,9 @@ namespace SKG.DAL
                                 Count = g.Sum(p => p.Count),
                                 Seats = g.Sum(p => p.Seats),
                                 Beds = g.Sum(p => p.Beds),
-                                ASB = g.Sum(p => p.ASB),
+
+                                ASeats = g.Sum(p => p.ASeats),
+                                ABeds = g.Sum(p => p.ABeds),
 
                                 Cost = g.Sum(p => p.Cost),
                                 Rose = g.Sum(p => p.Rose),

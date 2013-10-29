@@ -5,9 +5,9 @@ namespace SKG.DXF.Station.Report
     /// <summary>
     /// Bảng kê doanh thu xe cố định
     /// </summary>
-    public partial class Rpt_ReportFixed : DevExpress.XtraReports.UI.XtraReport
+    public partial class Rpt_RevenueFixed0 : DevExpress.XtraReports.UI.XtraReport
     {
-        public Rpt_ReportFixed()
+        public Rpt_RevenueFixed0()
         {
             InitializeComponent();
         }
@@ -22,6 +22,13 @@ namespace SKG.DXF.Station.Report
         {
             var x = 'A' + _region++;
             xrcRegion.Text = (char)x + "";
+            _area = 0;
+        }
+
+        int _area = 0;
+        private void xrcArea_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            xrcArea.Text = SKG.Extend.Number.ToRoman(++_area);
         }
 
         int _province = 0;

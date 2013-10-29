@@ -502,6 +502,10 @@ namespace SKG.DXF.Station.DataSet {
             
             private global::System.Data.DataColumn columnGBeds;
             
+            private global::System.Data.DataColumn columnProvinceCode;
+            
+            private global::System.Data.DataColumn columnRegionCode;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RevenueDataTable() {
@@ -729,6 +733,22 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ProvinceCodeColumn {
+                get {
+                    return this.columnProvinceCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RegionCodeColumn {
+                get {
+                    return this.columnRegionCode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -788,7 +808,9 @@ namespace SKG.DXF.Station.DataSet {
                         long Load, 
                         long Guest, 
                         long GSeats, 
-                        long GBeds) {
+                        long GBeds, 
+                        string ProvinceCode, 
+                        string RegionCode) {
                 RevenueRow rowRevenueRow = ((RevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Province,
@@ -814,7 +836,9 @@ namespace SKG.DXF.Station.DataSet {
                         Load,
                         Guest,
                         GSeats,
-                        GBeds};
+                        GBeds,
+                        ProvinceCode,
+                        RegionCode};
                 rowRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRevenueRow);
                 return rowRevenueRow;
@@ -861,6 +885,8 @@ namespace SKG.DXF.Station.DataSet {
                 this.columnGuest = base.Columns["Guest"];
                 this.columnGSeats = base.Columns["GSeats"];
                 this.columnGBeds = base.Columns["GBeds"];
+                this.columnProvinceCode = base.Columns["ProvinceCode"];
+                this.columnRegionCode = base.Columns["RegionCode"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -914,6 +940,10 @@ namespace SKG.DXF.Station.DataSet {
                 base.Columns.Add(this.columnGSeats);
                 this.columnGBeds = new global::System.Data.DataColumn("GBeds", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGBeds);
+                this.columnProvinceCode = new global::System.Data.DataColumn("ProvinceCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProvinceCode);
+                this.columnRegionCode = new global::System.Data.DataColumn("RegionCode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRegionCode);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4061,6 +4091,38 @@ namespace SKG.DXF.Station.DataSet {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ProvinceCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.ProvinceCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ProvinceCode\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.ProvinceCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string RegionCode {
+                get {
+                    try {
+                        return ((string)(this[this.tableRevenue.RegionCodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RegionCode\' in table \'Revenue\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRevenue.RegionCodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsProvinceNull() {
                 return this.IsNull(this.tableRevenue.ProvinceColumn);
             }
@@ -4345,6 +4407,30 @@ namespace SKG.DXF.Station.DataSet {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGBedsNull() {
                 this[this.tableRevenue.GBedsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProvinceCodeNull() {
+                return this.IsNull(this.tableRevenue.ProvinceCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProvinceCodeNull() {
+                this[this.tableRevenue.ProvinceCodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRegionCodeNull() {
+                return this.IsNull(this.tableRevenue.RegionCodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRegionCodeNull() {
+                this[this.tableRevenue.RegionCodeColumn] = global::System.Convert.DBNull;
             }
         }
         
